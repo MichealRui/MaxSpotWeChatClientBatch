@@ -1,0 +1,26 @@
+.productInfo{
+    width:60%;
+    display:inline-block;
+    vertical-align:middle
+}
+.productImg {
+    width:70px;
+    height: 70px;
+    background: #ccc;
+}
+.wrapper {
+    display:inline-block;
+    width:60%;
+    margin-left:10px;
+    vertical-align: top;
+}
+.wrapper p {
+    margin:0 0 7px 0;
+}
+.wrapper p:last-child {
+    margin-bottom: 0;
+}
+.productCost {
+    font-style: normal;
+    color: #5D9DFD;
+}

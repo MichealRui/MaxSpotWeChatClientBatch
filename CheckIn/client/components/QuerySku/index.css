@@ -1,0 +1,17 @@
+.queryContainer {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+.queryContainer .searchInput {
+    width: 60%;
+}
+.queryContainer .searchButton {
+    width:30%;
+    background: #5D9DFD;
+    height: 100%;
+    line-height: 30px;
+    font-size: 18px;
+    color: #fff;
+    border:none;
+}

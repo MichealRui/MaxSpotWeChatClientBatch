@@ -1,0 +1,39 @@
+.inputWrapper {
+    display:inline-block;
+    width:40%;
+    vertical-align:middle;
+}
+.button {
+    display: inline-block;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    line-height: 30px;
+}
+.button.reduceButton {
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+}
+.button.addButton {
+    border-left: none;
+    border-radius: 0 3px 3px 0;
+}
+.button.deleteButton {
+    border: none;
+    width: 20px;
+    color: #5D9DFD;
+    font-size: 30px;
+    margin-left: 15px;
+}
+.inputText {
+    width:40px;
+    height:30px;
+    padding:0;
+    border:1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+}

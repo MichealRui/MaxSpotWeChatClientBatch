@@ -1,0 +1,32 @@
+.bottomBar{
+    position: fixed;
+    height: 60px;
+    background: #E0E0E0;
+    width: 100%;
+    bottom: 0;
+    line-height: 60px;
+    z-index: 999;
+}
+.bottomBar span {
+    display: inline-block;
+}
+.bottomBar span:first-child {
+    padding: 0 30px;
+    width: 60%;
+    box-sizing: border-box;
+}
+.bottomBar span:first-child em {
+    font-style: normal;
+    padding: 0 8px;
+    font-size: 16px;
+}
+.bottomBar .button.settleButton {
+    float: right;
+    width: 39%;
+    background: #5D9DFD;
+    height: 100%;
+    line-height: 60px;
+    font-size: 18px;
+    color: #fff;
+    border:none;
+}

@@ -1,0 +1,7 @@
+.itemWrap {
+    padding:18px 3%;
+    border-bottom: 1px solid #ccc;
+}
+.itemWrap:last-child {
+    border-bottom: none;
+}
