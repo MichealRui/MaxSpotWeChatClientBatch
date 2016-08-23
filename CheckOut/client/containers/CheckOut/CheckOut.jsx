@@ -10,21 +10,30 @@ class CheckOut extends React.Component {
     
     constructor(props){
         super(props);
+        this.state={
+            isSuccess:true
+        };
     }
     
-    success() {
-        
+    acknowledgedFalse() {
+        this.setState({
+            isSuccess:false
+        })
     }
     
-    fail() {
-        
+    acknowledgedTrue() {
+        this.setState({
+            isSuccess:true
+        })
     }
     
     render(){
         return(
             <div>
-                <QrCode settleInfo={SettleInfo}/>
-                <ConfirmWindow windowText={WindowText}/>
+                <QrCode settleInfo={SettleInfo} onFailClick={this.acknowledgedFalse.bind(this)}/>
+                <ConfirmWindow windowText={WindowText}
+                               isHidden={this.state.isSuccess}
+                               onFailClick={this.acknowledgedTrue.bind(this)}/>
             </div>
         );
     }

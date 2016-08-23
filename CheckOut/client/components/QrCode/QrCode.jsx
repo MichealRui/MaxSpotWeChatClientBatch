@@ -9,7 +9,11 @@ export default class SettleCollection extends React.Component {
 	constructor(props){
 		super(props);
 	}
-
+	
+	failClick() {
+		this.props.onFailClick()
+	}
+	
 	render(){
 		let props = this.props.settleInfo;
 		return (
@@ -25,12 +29,14 @@ export default class SettleCollection extends React.Component {
 					</span>
 				</div>
 				<ReactQrCode value={props.settleQRCode}/>
-				{/*<img className='settleQRCode' src={props.settleQRCode} />*/}
 				<p className='settleQRCodeIntroduce'>
 					请对方打开微信端主页，点击右上方"+"图标，进入"扫一扫"功能，并对准上方二维码进行扫码支付。
 				</p>
         		<Button buttonText="支付成功" buttonClass="paySuccess" />
-        		<Button buttonText="支付遇到问题" buttonClass="payFailed" />
+        		<Button buttonText="支付遇到问题"
+						buttonClass="payFailed"
+						buttonClick={this.failClick.bind(this)}
+				/>
 			</div>
 		);
 	}
