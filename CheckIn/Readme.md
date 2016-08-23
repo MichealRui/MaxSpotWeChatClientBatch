@@ -1,7 +1,5 @@
 
-# Frontend Boilerplate
-
-A boilerplate of things that mostly shouldn't exist.
+# MaxSpot CheckIn
 
 ## Contains
 

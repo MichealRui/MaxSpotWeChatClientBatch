@@ -1,5 +1,5 @@
-# MaxSpotWeChatClientBatch
-WeChatClientBatch
+# MaxSpotWeChatSellerBatch
+WeChatSellerBatch
 
 ## Setup
 
