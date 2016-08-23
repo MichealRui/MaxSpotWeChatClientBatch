@@ -4,7 +4,7 @@ WeChatClientBatch
 ## Setup
 
 ```
-$ cd project/
+$ cd {project}/
 $ npm install
 ```
 
