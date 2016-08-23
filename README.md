@@ -1,0 +1,2 @@
+# MaxSpotWeChatClientBatch
+WeChatClientBatch
