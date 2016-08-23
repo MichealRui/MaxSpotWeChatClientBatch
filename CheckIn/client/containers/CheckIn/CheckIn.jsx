@@ -5,7 +5,7 @@ import ProductItem from '../../components/ProductItem/ProductItem';
 import BottomBar from '../../components/BottomBar/BottomBar';
 import { connect }  from 'react-redux';
 import { fetchItem, increment, decrement, deleteItem } from '../../actions/actions';
-require('./checkin.css');
+require('./index.css');
 
 class CheckIn extends React.Component {
     constructor(props){

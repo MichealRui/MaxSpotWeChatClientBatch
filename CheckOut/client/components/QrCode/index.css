@@ -1,0 +1,30 @@
+.settleContainer {
+    padding: 30px;
+}
+.settleContainer>div:after {
+    display: block;
+    content: '';
+    clear:both;
+}
+.settleContainer span h1 {
+    font-size: 16px;
+}
+.settleContainer span p {
+    font-size: 14px;
+}
+.settleContainer span.shopName {
+    float: left;
+}
+.settleContainer span.settleCount {
+    float: right;
+    text-align: center;
+}
+.settleContainer img.settleQRCode {
+    width: 80%;
+    margin: 30px 0 15px 50%;
+    transform: translate(-50%, 0);
+}
+.settleContainer p.settleQRCodeIntroduce {
+    line-height: 20px;
+    color: #ccc;
+}
