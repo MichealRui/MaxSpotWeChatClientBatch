@@ -1,0 +1,25 @@
+.orderProductItemList {
+    position: relative;
+}
+.orderProductItemList ul li{
+    width:40px;
+    height: 40px;
+    display: inline-block;
+    background-color: #ccc;
+    margin-right: 5px;
+}
+.orderProductItemList ul li img {
+    width: 100%;
+}
+.orderProductItemList .orderDetailArrow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    right: 0;
+    z-index: 10;
+    font-size: 24px;
+    text-align: center;
+    color: #ccc;
+    transform: translate(0, -50%);
+}
