@@ -1,0 +1,29 @@
+p,span,div{
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    line-height: 1;
+}
+ul,li{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+body {
+    margin:0;
+    font-family: "Microsoft YaHei";
+    background-color: #f4f4f4!important;
+}
+
+@media screen and (max-width: 599px){
+    .user-width {
+        width: 100%;
+    }
+}
+#root {
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+    min-height: 500px;
+}

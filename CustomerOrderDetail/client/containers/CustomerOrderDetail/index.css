@@ -1,0 +1,40 @@
+.orderDetailContainer {
+    background-color: #ccc;
+}
+.orderDetailContainer>div {
+    background-color: #fff;
+}
+.orderDetailContainer .orderDetailTitle {
+    padding: 0 10px;
+    background-color: #EBEBEB;
+    height: 62px;
+    line-height: 62px;
+}
+.orderDetailContainer .orderDetailTitle span:first-child {
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+.orderDetailContainer .orderDetailTitle span:last-child {
+    float: right;
+    margin-top: 24px;
+    font-size: 16px;
+}
+.orderDetailContainer .orderDetailTitle .orderStatus.orderComplete {
+    color: green;
+}
+.orderDetailContainer .orderDetailTitle .orderStatus.orderUnComplete {
+    color: red;
+}
+.orderDetailContainer .orderDetailNumber,
+.orderDetailContainer .orderDetailDate {
+    color: #ccc;
+    height: 40px;
+    line-height: 40px;
+    padding:0 10px;
+}
+.orderDetailContainer .orderDetailNumber span:last-child,
+.orderDetailContainer .orderDetailDate span:last-child {
+    color:#666;
+    margin-left: 20px;
+}

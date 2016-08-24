@@ -1,0 +1,29 @@
+.orderDetailProductItemContainer {
+    padding: 0 10px;
+    height: 100px;
+    line-height: 100px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.orderDetailProductItemContainer img {
+    width: 70px;
+    height: 70px;
+    background-color: #ccc;
+    vertical-align: middle;
+}
+.orderDetailProductItemContainer span {
+    vertical-align: middle;
+}
+.orderDetailProductItemContainer .brandProductContainer {
+    display: inline-block;
+    width: 35%;
+    margin-left: 10px;
+}
+.orderDetailProductItemContainer .unitPrice {
+    margin-left: 2%;
+}
+.orderDetailProductItemContainer .quantity {
+    margin-left: 15px;
+}
+.orderDetailProductItemContainer .amount {
+    margin-left: 7%;
+}
