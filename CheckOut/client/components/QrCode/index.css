@@ -28,3 +28,7 @@
     line-height: 20px;
     color: #ccc;
 }
+.settleContainer .qrCodeContainer {
+    display: flex;
+    justify-content: center;
+}

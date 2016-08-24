@@ -33,7 +33,7 @@ class CheckOut extends React.Component {
                 <QrCode settleInfo={SettleInfo} onFailClick={this.acknowledgedFalse.bind(this)}/>
                 <ConfirmWindow windowText={WindowText}
                                isHidden={this.state.isSuccess}
-                               onFailClick={this.acknowledgedTrue.bind(this)}/>
+                               hideClick={this.acknowledgedTrue.bind(this)}/>
             </div>
         );
     }
