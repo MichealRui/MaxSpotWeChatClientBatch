@@ -1,6 +1,8 @@
 .itemWrap {
-    padding:18px 3%;
-    border-bottom: 1px solid #ccc;
+    padding:0 5%;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+    background-color: #fff;
 }
 .itemWrap:last-child {
     border-bottom: none;

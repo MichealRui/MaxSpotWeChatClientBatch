@@ -51,7 +51,7 @@ function deleteItem(itemInfo, item) {
     let newItemList = Object.assign({},itemInfo);
     let list = itemInfo.productList;
     let skuId = item.skuId;
-    for(let index in list) {
+/*    for(let index in list) {
         if(list[index].skuId == skuId) {
             newItemList.productList =
                 list.slice(0, index)
@@ -59,7 +59,8 @@ function deleteItem(itemInfo, item) {
                         list.slice(index + 1, list.length)
                     );
         }
-    }
+    }*/
+    newItemList.productList = list.filter(it=>it.skuId!=skuId);
     return finalState(newItemList)
 }
 
@@ -67,10 +68,11 @@ function changeCount(itemInfo, skuId, operation) {
     let newItemList = Object.assign({}, itemInfo);
     let list = newItemList.productList;
     newItemList.productList = list.map(
-        (item) => {
+/*        (item) =>{
             if(item.skuId == skuId) item = operation(item);
-            return item
-        }
+            return item;
+        }*/
+        (item) => item.skuId==skuId ? operation(item):item
     );
     return finalState(newItemList)
 }
@@ -100,7 +102,7 @@ function fetchItemRequest(itemInfo, skuId) {
 }
 
 function fetchItemReceive(itemInfo, item) {
-    let newItemInfo = Object.assign({}, itemInfo, {isItemFetching: false}, {alertMessage: ""});
+    let newItemInfo = Object.assign({}, itemInfo, {isItemFetching: false}, {alertMessage: "数据接收成功"});
     return addItem(newItemInfo, item)
 }
 

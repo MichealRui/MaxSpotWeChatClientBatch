@@ -1,31 +1,38 @@
 .bottomBar{
     position: fixed;
-    height: 60px;
-    background: #E0E0E0;
+    height: 70px;
+    background: #fff;
     width: 100%;
     bottom: 0;
-    line-height: 60px;
+    line-height: 70px;
     z-index: 999;
 }
 .bottomBar span {
     display: inline-block;
 }
 .bottomBar span:first-child {
-    padding: 0 30px;
+    text-indent: 30px;
     width: 60%;
     box-sizing: border-box;
+    font-size: 18px;
 }
 .bottomBar span:first-child em {
     font-style: normal;
     padding: 0 8px;
-    font-size: 16px;
+    font-size: 22px;
+    color: #42c0ef;
+}
+.bottomBar span:first-child i {
+    font-size: 18px;
+    color: #42c0ef;
+    font-style: normal;
 }
 .bottomBar .button.settleButton {
     float: right;
-    width: 39%;
-    background: #5D9DFD;
+    width: 40%;
+    background: #eb5d41;
     height: 100%;
-    line-height: 60px;
+    line-height: 70px;
     font-size: 18px;
     color: #fff;
     border:none;

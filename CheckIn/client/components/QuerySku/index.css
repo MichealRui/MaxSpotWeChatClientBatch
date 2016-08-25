@@ -1,17 +1,28 @@
 .queryContainer {
+    height: 70px;
+    line-height: 70px;
     text-align: center;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
 }
 .queryContainer .searchInput {
-    width: 60%;
+    width: 70%;
+    border: none;
+    font-size: 18px;
+    text-indent: 15px;
+    line-height: 70px;
+    color: #999999;
 }
 .queryContainer .searchButton {
     width:30%;
-    background: #5D9DFD;
-    height: 100%;
-    line-height: 30px;
+    display: inline-block;
+    background: #cccccc;
     font-size: 18px;
     color: #fff;
     border:none;
+}
+.queryContainer .searchButton.active {
+    background:  #eb5d41;
+    color: #fff;
 }

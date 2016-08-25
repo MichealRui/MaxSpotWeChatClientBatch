@@ -37,11 +37,12 @@ export function fetchItem(skuId) {
                 if(json.status != undefined && json.status == '0') {
                     // if(json.item && json.item.skuId == skuId) {
                         let item = 				{
-                            productName:"喜之郎",
-                            productAddress:"美国加州进口朗姆酒",
+                            productImg:"./components/ProductItem/ProductInfo/images/productImg.jpg",
+                            productName:"Jingle Bells",
+                            productDesc:"超级好吃的饼干60g",
                             productTaste:"经典盐焗味",
                             productCost:"12.5",
-                            skuId: "0001",
+                            skuId: skuId,
                             count: 1
                         };
                         dispatch(fetchItemReceive(item));
