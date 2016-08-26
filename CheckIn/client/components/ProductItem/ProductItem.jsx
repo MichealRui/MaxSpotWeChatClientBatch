@@ -8,7 +8,7 @@ export default class ProductItem extends React.Component{
 	constructor(props){
 		super(props);
 	}
-
+	
 	render(){
 		const props = this.props;
         return (
