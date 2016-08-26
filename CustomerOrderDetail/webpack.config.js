@@ -18,7 +18,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './static'),
-    filename: 'bundle.js',
+    filename: 'bundle-[hash:6].js',
   },
   module: {
     loaders: [
@@ -49,10 +49,14 @@ module.exports = {
     })
   ],
   plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
-    })
+    }),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.NoErrorsPlugin(),
   ],
   devServer: {
     contentBase: './client',
