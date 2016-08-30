@@ -1,6 +1,3 @@
-
-import { Router, Route, browserHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
 import ReactDOM from 'react-dom'
 import React from 'react'
 import { createStore, applyMiddleware } from 'redux';
@@ -10,25 +7,40 @@ import createLogger from 'redux-logger';
 
 import CheckIn from './containers/CheckIn/CheckIn';
 import reducers from './reducers/index';
+import WeXinUtil from './util/WeChatUtil';
 
-// const store = configure()
-const loggerMiddleware = createLogger();
-const store = createStore(
-    reducers,
-    applyMiddleware (
-        thunkMiddleware,
-        loggerMiddleware
-    )
-);
-// const history = syncHistoryWithStore(browserHistory, store)
 
-ReactDOM.render(
-  <Provider store={store}>
-      <CheckIn/>
-    {/*<Router history={history}>*/}
-      {/*<Route path="/" component={App}>*/}
-      {/*</Route>*/}
-    {/*</Router>*/}
-  </Provider>,
-  document.getElementById('root')
-);
+function activateVendor() {
+    const loggerMiddleware = createLogger();
+    const store = createStore(
+        reducers,
+        applyMiddleware (
+            thunkMiddleware,
+            loggerMiddleware
+        )
+    );
+    return store
+}
+
+function renderComponents(store) {
+    ReactDOM.render(
+        <Provider store={store}>
+            <CheckIn/>
+        </Provider>,
+        document.getElementById('root')
+    );
+}
+
+// if(!WeXinUtil.isInWeXin()) { //dev
+if(WeXinUtil.isInWeXin()) { //prod
+    let code = WeXinUtil.setWeXinCode();
+    let store = activateVendor();
+    renderComponents(store)
+} else {
+    let alertStyle = {textAlign:'center'};
+    ReactDOM.render(
+        <div style={alertStyle}>请在微信端打开</div>,
+        document.getElementById('root')
+    );
+}
+
