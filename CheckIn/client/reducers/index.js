@@ -4,6 +4,7 @@
 'use strict';
 import { ADD_ITEM, DELETE_ITEM, INCREMENT_COUNTER, DECREMENT_COUNTER} from '../actions/actions'
 import {FETCH_ITEM_REQUEST, FETCH_ITEM_RECEIVE, FETCH_ITEM_ERROR} from '../actions/actions'
+import { SET_MESSAGE } from '../actions/actions'
 
 function isEmptyObject(e) {
     var t;
@@ -51,15 +52,6 @@ function deleteItem(itemInfo, item) {
     let newItemList = Object.assign({},itemInfo);
     let list = itemInfo.productList;
     let skuId = item.skuId;
-/*    for(let index in list) {
-        if(list[index].skuId == skuId) {
-            newItemList.productList =
-                list.slice(0, index)
-                    .concat(
-                        list.slice(index + 1, list.length)
-                    );
-        }
-    }*/
     newItemList.productList = list.filter(it=>it.skuId!=skuId);
     return finalState(newItemList)
 }
@@ -68,10 +60,6 @@ function changeCount(itemInfo, skuId, operation) {
     let newItemList = Object.assign({}, itemInfo);
     let list = newItemList.productList;
     newItemList.productList = list.map(
-/*        (item) =>{
-            if(item.skuId == skuId) item = operation(item);
-            return item;
-        }*/
         (item) => item.skuId==skuId ? operation(item):item
     );
     return finalState(newItemList)
@@ -102,12 +90,16 @@ function fetchItemRequest(itemInfo, skuId) {
 }
 
 function fetchItemReceive(itemInfo, item) {
-    let newItemInfo = Object.assign({}, itemInfo, {isItemFetching: false}, {alertMessage: "数据接收成功"});
+    let newItemInfo = Object.assign({}, itemInfo, {isItemFetching: false}, {alertMessage: ""});
     return addItem(newItemInfo, item)
 }
 
-function fetchItemError(itemInfo, skuId, message) {
-    return Object.assign({}, itemInfo, {isItemFetching: false}, {alertMessage: message})
+function fetchItemError(itemInfo) {
+    return Object.assign({}, itemInfo, {isItemFetching: false})
+}
+
+function setMessage(itemInfo, message) {
+    return Object.assign({}, itemInfo, {alertMessage: message})
 }
 
  export default function (itemInfo = {productList:[]}, action){
@@ -126,6 +118,8 @@ function fetchItemError(itemInfo, skuId, message) {
             return fetchItemReceive(itemInfo, action.item);
         case FETCH_ITEM_ERROR:
             return fetchItemError(itemInfo, action.skuId, action.message);
+        case SET_MESSAGE:
+            return setMessage(itemInfo, action.message);
         default:
             return itemInfo;
     }

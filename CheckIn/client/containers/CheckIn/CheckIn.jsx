@@ -5,7 +5,7 @@ import Message from '../../components/Message/Message';
 import ProductItem from '../../components/ProductItem/ProductItem';
 import BottomBar from '../../components/BottomBar/BottomBar';
 import { connect }  from 'react-redux';
-import { fetchItem, increment, decrement, deleteItem } from '../../actions/actions';
+import { fetchItem, increment, decrement, deleteItem} from '../../actions/actions';
 require('./index.css');
 
 class CheckIn extends React.Component {
@@ -33,7 +33,10 @@ class CheckIn extends React.Component {
 	                    }
 	                </ul>
 	            </div>
-                <BottomBar totalMoney={this.props.itemInfo.totalMoney}/>
+                <BottomBar totalMoney={this.props.itemInfo.totalMoney}
+                           itemList={this.props.itemInfo.productList}
+                           onError={(message) => dispatch(setMessage(message))}
+                />
             </div>
         );
     }

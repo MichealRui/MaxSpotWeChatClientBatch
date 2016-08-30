@@ -3,6 +3,8 @@
  */
 
 import fetch from 'isomorphic-fetch'
+import WeChatUtil from '../util/WeChatUtil'
+
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 export const ADD_ITEM = 'ADD_ITEM';
@@ -13,43 +15,40 @@ export const FETCH_ITEM_REQUEST = 'FETCH_ITEM_REQUEST';
 export const FETCH_ITEM_RECEIVE = 'FETCH_ITEM_RECEIVE';
 export const FETCH_ITEM_ERROR = 'FETCH_ITEM_ERROR';
 
+/* set Message content*/
+export const SET_MESSAGE = 'SET_MESSAGE';
+
+/* fetch create order ASYNC action*/
+// export const FETCH_ORDER_REQUEST = 'FETCH_ORDER_REQUEST';
+// export const FETCH_ORDER_RECEIVE = 'FETCH_ORDER_RECEIVE';
+// export const FETCH_ORDER_ERROR = 'FETCH_ORDER_ERROR';
+
 export function fetchItem(skuId) {
     return (dispatch) =>  {
         dispatch(fetchItemRequest(skuId));
-        fetch('https://tuan.alitrip.com/ajax/hotel_tuan_info.json?shids=10075612%2C10092004%2C50540019%2C50966009%2C10005249%2C10094683%2C10004416%2C10092321%2C10895941%2C10886218%2C10098468%2C50864007%2C10094234%2C12633584%2C10003973%2C10613898%2C10094232%2C12652154%2C10004417%2C50059946&checkin=2016-08-25&checkout=2016-08-26&onlyTripSeller=true&_ksTS=1471864697821_3970&callback=jsonp3971',
+        fetch('http://localhost:9000/fetchItem',
             {
-                method: 'GET',
-                mode: 'no-cors',
-                cache: 'default'
-                // method: 'GET',
-                // headers: {
-                //     'Accept': 'application/json',
-                //     'Content-Type': 'application/json'
-                // },
-                // body: JSON.stringify({
-                //     skuId: skuId
-                // })
+                'method': 'POST',
+                'mode': 'cors',
+                'cache': 'default',
+                "Origin": "*",
+                body: JSON.stringify({
+                    skuId: skuId,
+                    wexinCode: WeChatUtil.getWeXinCode()
+                })
             }
-            )
-            // .then(response => {console.log(response);response.json()})
+        )
+        .then(response => response.json())
             .then(json => {
-                console.log(json.status == '0')
                 if(json.status != undefined && json.status == '0') {
-                    // if(json.item && json.item.skuId == skuId) {
-                        let item = 				{
-                            productImg:"http://192.168.20.225:8080/client/components/ProductItem/ProductInfo/images/productImg.jpg",
-                            productName:"Jingle Bells",
-                            productDesc:"超级好吃的饼干60g",
-                            productTaste:"经典盐焗味",
-                            productCost:"12.5",
-                            skuId: skuId,
-                            count: 1
-                        };
-                        dispatch(fetchItemReceive(item));
-                        // dispatch(fetchItemReceive(json.item))
-                    // }
+                    if(json.item && json.item.skuId == skuId) {
+                        dispatch(fetchItemReceive(json.item));
+                    } else {
+                        dispatch(setMessage('无此商品'));
+                        dispatch(fetchItemError(skuId))
+                    }
                 } else {
-                    console.log("error")
+                    dispatch(setMessage('服务器错误,请刷新页面或联系商家'));
                     dispatch(fetchItemError(skuId))
                 }
             })
@@ -57,7 +56,6 @@ export function fetchItem(skuId) {
 }
 
 function fetchItemRequest(skuId) {
-    console.log(skuId)
     return {
         type: FETCH_ITEM_REQUEST,
         skuId
@@ -72,10 +70,65 @@ function fetchItemReceive(item) {
 }
 
 function fetchItemError(skuId) {
+
     return {
         type: FETCH_ITEM_ERROR,
-        skuId: skuId,
-        message: '服务器错误,请刷新页面或联系商家'
+        skuId: skuId
+    }
+}
+//
+// export function createOrder(itemList) {
+//     return (dispatch) => {
+//         dispatch(fetchCreateOrderRequest());
+//         let fetchData = getCreateOrderData(itemList);
+//         fetch('http://localhost:9000/createOrder',
+//             {
+//                 'method': 'POST',
+//                 'mode': 'cors',
+//                 'cache': 'default',
+//                 "Origin": "*",
+//                 body: JSON.stringify(fetchData)
+//             }
+//         ).then(response => response.json())
+//             .then(json => {
+//                 if(json.is_succ) {
+//                     dispatch(fetchCreateOrderReceive())
+//                 } else {
+//                     dispatch(fetchCreateOrderError())
+//                 }
+//             })
+//     }
+// }
+//
+// function fetchCreateOrderRequest() {
+//     return {
+//         type: FETCH_ORDER_REQUEST
+//     }
+// }
+//
+// function fetchCreateOrderError() {
+//     return {
+//         type: FETCH_ORDER_ERROR,
+//         message: '服务器错误,请刷新页面或联系商家'
+//     }
+// }
+//
+// function fetchCreateOrderReceive() {
+//     return {
+//         type: FETCH_ORDER_RECEIVE
+//     }
+// }
+
+// function getCreateOrderData(itemList) {
+//     return itemList.map((item) =>  {
+//         return {skuId: item.skuId, count: item.count}
+//     })
+// }
+
+export function setMessage(message) {
+    return {
+        type: SET_MESSAGE,
+        message
     }
 }
 

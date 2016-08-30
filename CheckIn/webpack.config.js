@@ -1,10 +1,8 @@
 var rucksack = require('rucksack-css')
 var webpack = require('webpack')
 var path = require('path')
-
 /* baseConfig */
 var baseConfig = {
-  context: path.join(__dirname, './client'),
   entry: {
     jsx: './index.js',
     html: './index.html',
@@ -17,6 +15,7 @@ var baseConfig = {
       'redux'
     ]
   },
+  context: path.join(__dirname, './client'),
   module: {
     loaders: [
       {
@@ -97,7 +96,7 @@ var envConfig = {
       new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
-      }),
+      })
     ]
   }
 }
