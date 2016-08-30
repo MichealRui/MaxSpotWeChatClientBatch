@@ -10,7 +10,7 @@ export default class Message extends React.Component {
 		let msgContent = this.props.msgContent;
 		if(msgContent){
 			return (
-				<div className="message">
+				<div className="message font16">
 					<i className="msgIcon">!</i>
 					<span className="msgContent">{msgContent}</span>
 				</div>

@@ -37,7 +37,7 @@ export function fetchItem(skuId) {
                 if(json.status != undefined && json.status == '0') {
                     // if(json.item && json.item.skuId == skuId) {
                         let item = 				{
-                            productImg:"./components/ProductItem/ProductInfo/images/productImg.jpg",
+                            productImg:"http://192.168.20.225:8080/client/components/ProductItem/ProductInfo/images/productImg.jpg",
                             productName:"Jingle Bells",
                             productDesc:"超级好吃的饼干60g",
                             productTaste:"经典盐焗味",

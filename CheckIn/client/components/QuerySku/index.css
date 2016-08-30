@@ -1,6 +1,6 @@
 .queryContainer {
-    height: 70px;
-    line-height: 70px;
+    height: 1.527778rem;
+    line-height: 1.527778rem;
     text-align: center;
     display: flex;
     justify-content: space-between;
@@ -9,16 +9,14 @@
 .queryContainer .searchInput {
     width: 70%;
     border: none;
-    font-size: 18px;
-    text-indent: 15px;
-    line-height: 70px;
+    text-indent: 0.208333rem;
+    line-height: 1.527778rem;
     color: #999999;
 }
 .queryContainer .searchButton {
     width:30%;
     display: inline-block;
     background: #cccccc;
-    font-size: 18px;
     color: #fff;
     border:none;
 }

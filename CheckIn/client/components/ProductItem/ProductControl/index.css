@@ -2,17 +2,15 @@
     display:inline-block;
     width:100%;
     vertical-align:middle;
-    padding: 30px 0;
+    padding: 0.388889rem 0;
 }
 .productControl .productCost {
     display: inline-block;
-    font-size: 18px;
     color: #2db9ed;
-    line-height: 50px;
+    line-height: 1.027778rem;
 }
 .productControl .productCost em {
     font-style: normal;
-    font-size: 22px;
 }
 .productControl .inputWrapper {
     float: right;
@@ -20,13 +18,12 @@
 }
 .button, 
 .inputText {
-    height: 50px;
-    line-height: 50px;
+    height: 1.0rem;
+    line-height: 1.0rem;
 }
 .button {
     display: inline-block;
-    font-size: 20px;
-    width: 50px;
+    width: 1.055556rem;
     cursor: pointer;
     text-align: center;
     border: 1px solid #e5e5e5;
@@ -43,20 +40,18 @@
 }
 .button.deleteButton {
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 1.027778rem;
+    height: 1.027778rem;
     border-radius: 50%;
     color: #fff;
-    font-size: 26px;
-    margin-left: 15px;
+    margin-left: 0.513889rem;
     background-color: #f3493c;
     border:none;
 }
 .inputText {
-    width:80px;
+    width:1.597222rem;
     padding:0;
     border:1px solid #e5e5e5;
     text-align: center;
     vertical-align: middle;
-    font-size: 18px;
 }

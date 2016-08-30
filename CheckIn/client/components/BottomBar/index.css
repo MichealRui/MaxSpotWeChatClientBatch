@@ -1,29 +1,25 @@
 .bottomBar{
     position: fixed;
-    height: 70px;
+    height: 1.527778rem;
     background: #fff;
     width: 100%;
     bottom: 0;
-    line-height: 70px;
+    line-height: 1.527778rem;
     z-index: 999;
 }
 .bottomBar span {
     display: inline-block;
 }
 .bottomBar span:first-child {
-    text-indent: 30px;
+    text-indent: 0.555556rem;
     width: 60%;
     box-sizing: border-box;
-    font-size: 18px;
 }
 .bottomBar span:first-child em {
     font-style: normal;
-    padding: 0 8px;
-    font-size: 22px;
     color: #42c0ef;
 }
 .bottomBar span:first-child i {
-    font-size: 18px;
     color: #42c0ef;
     font-style: normal;
 }
@@ -32,8 +28,7 @@
     width: 40%;
     background: #eb5d41;
     height: 100%;
-    line-height: 70px;
-    font-size: 18px;
+    line-height: 1.527778rem;
     color: #fff;
     border:none;
 }

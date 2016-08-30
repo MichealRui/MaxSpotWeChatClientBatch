@@ -15,9 +15,9 @@ export default class ProductInfo extends React.Component{
 			<div className="productInfo">
 				<img src={props.productImg} className='productImg'/>
 				<div className="wrapper">
-					<p className='productName'>{props.productName}</p>
-					<p className='productDesc'>{props.productDesc}</p>
-					<p className='productTaste'>{props.productTaste}</p>
+					<p className='productName font12'>{props.productName}</p>
+					<p className='productDesc font14'>{props.productDesc}</p>
+					<p className='productTaste font10'>{props.productTaste}</p>
 				</div>
 			</div>
 		)

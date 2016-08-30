@@ -39,7 +39,7 @@ export default class QuerySku extends React.Component {
             className='searchButton active J_queryItem';
         }
         return(
-            <div className='queryContainer'>
+            <div className='queryContainer font18'>
                 <input className="searchInput" type="text" ref="queryInput" placeholder="点击输入商品条形码"/>
                 <span ref='searchButton' className={className}
                       onClick={this.queryClick.bind(this)}>录入</span>

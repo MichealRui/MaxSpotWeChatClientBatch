@@ -1,7 +1,7 @@
 .itemWrap {
-    padding:0 5%;
+    padding:0 0.694444rem;
     border-bottom: 1px solid #e6e6e6;
-    margin-bottom: 10px;
+    margin-bottom: 0.111111rem;
     background-color: #fff;
 }
 .itemWrap:last-child {

@@ -67,6 +67,7 @@ function getEnv() {
 }
 
 var env = getEnv()
+console.log(env);
 /* end get env */
 
 /*define envConfig*/

@@ -17,12 +17,12 @@ export default class ProductControl extends React.Component {
 		const item = this.props.data;
 		return (
 			<div className="productControl">
-				<p className="productCost"><em>{item.productCost}</em>元</p>
-				<div className="inputWrapper">
+				<p className="productCost font16"><em className="font18">{item.productCost}</em>元</p>
+				<div className="inputWrapper clearfix font16">
 					<span className="button reduceButton" onClick={() => decreaseItem(item)}>-</span>
 					<input className="inputText" type='text' value={item.count} onChange={this.valueChange.bind(this)}/>
 					<span className="button addButton" onClick={() => increaseItem(item)}>+</span>
-					<span className="button deleteButton fa fa-trash-o" onClick={() => deleteItem(item)}></span>
+					<span className="button deleteButton fa fa-trash-o font24" onClick={() => deleteItem(item)}></span>
 				</div>
 			</div>
 		);
