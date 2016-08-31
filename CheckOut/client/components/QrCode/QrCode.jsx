@@ -15,21 +15,21 @@ export default class SettleCollection extends React.Component {
 	}
 	
 	render(){
-		let props = this.props.settleInfo;
+		let props = this.props.order;
 		return (
 			<div className='settleContainer'>
 				<div>
 					<span className='shopName'>
 						<h1>{props.shopName}</h1>
-						<p>购物单编号：{props.shopListNumber}</p>
+						<p>购物单编号：{props.orderNumber}</p>
 					</span>
 					<span className='settleCount'>
 						<p>收款金额</p>
-						<h1>￥ {props.settleCount}</h1>
+						<h1>￥ {props.totalCount}</h1>
 					</span>
 				</div>
 				<div className="qrCodeContainer">
-					<ReactQrCode value={props.settleQRCode}/>
+					<ReactQrCode value={props.paymentUrl}/>
 				</div>
 				<p className='settleQRCodeIntroduce'>
 					请对方打开微信端主页，点击右上方"+"图标，进入"扫一扫"功能，并对准上方二维码进行扫码支付。

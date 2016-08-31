@@ -18,11 +18,6 @@ export const FETCH_ITEM_ERROR = 'FETCH_ITEM_ERROR';
 /* set Message content*/
 export const SET_MESSAGE = 'SET_MESSAGE';
 
-/* fetch create order ASYNC action*/
-// export const FETCH_ORDER_REQUEST = 'FETCH_ORDER_REQUEST';
-// export const FETCH_ORDER_RECEIVE = 'FETCH_ORDER_RECEIVE';
-// export const FETCH_ORDER_ERROR = 'FETCH_ORDER_ERROR';
-
 export function fetchItem(skuId) {
     return (dispatch) =>  {
         dispatch(fetchItemRequest(skuId));
@@ -31,7 +26,7 @@ export function fetchItem(skuId) {
                 'method': 'POST',
                 'mode': 'cors',
                 'cache': 'default',
-                "Origin": "*",
+                'Origin': '*',
                 body: JSON.stringify({
                     skuId: skuId,
                     wexinCode: WeChatUtil.getWeXinCode()
@@ -76,54 +71,6 @@ function fetchItemError(skuId) {
         skuId: skuId
     }
 }
-//
-// export function createOrder(itemList) {
-//     return (dispatch) => {
-//         dispatch(fetchCreateOrderRequest());
-//         let fetchData = getCreateOrderData(itemList);
-//         fetch('http://localhost:9000/createOrder',
-//             {
-//                 'method': 'POST',
-//                 'mode': 'cors',
-//                 'cache': 'default',
-//                 "Origin": "*",
-//                 body: JSON.stringify(fetchData)
-//             }
-//         ).then(response => response.json())
-//             .then(json => {
-//                 if(json.is_succ) {
-//                     dispatch(fetchCreateOrderReceive())
-//                 } else {
-//                     dispatch(fetchCreateOrderError())
-//                 }
-//             })
-//     }
-// }
-//
-// function fetchCreateOrderRequest() {
-//     return {
-//         type: FETCH_ORDER_REQUEST
-//     }
-// }
-//
-// function fetchCreateOrderError() {
-//     return {
-//         type: FETCH_ORDER_ERROR,
-//         message: '服务器错误,请刷新页面或联系商家'
-//     }
-// }
-//
-// function fetchCreateOrderReceive() {
-//     return {
-//         type: FETCH_ORDER_RECEIVE
-//     }
-// }
-
-// function getCreateOrderData(itemList) {
-//     return itemList.map((item) =>  {
-//         return {skuId: item.skuId, count: item.count}
-//     })
-// }
 
 export function setMessage(message) {
     return {

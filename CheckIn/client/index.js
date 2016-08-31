@@ -31,8 +31,8 @@ function renderComponents(store) {
     );
 }
 
-// if(!WeXinUtil.isInWeXin()) { //dev
-if(WeXinUtil.isInWeXin()) { //prod
+if(!WeXinUtil.isInWeXin()) { //dev
+// if(WeXinUtil.isInWeXin()) { //prod
     let code = WeXinUtil.setWeXinCode();
     let store = activateVendor();
     renderComponents(store)

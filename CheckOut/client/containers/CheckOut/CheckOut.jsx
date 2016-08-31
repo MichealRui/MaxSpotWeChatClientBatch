@@ -2,7 +2,6 @@
 import React from 'react';
 import ConfirmWindow from '../../components/ConfirmWindow/ConfirmWindow';
 import QrCode from '../../components/QrCode/QrCode';
-import SettleInfo from '../../components/SettleInfo';
 import WindowText from '../../components/WindowText';
 require('./index.css');
 
@@ -30,7 +29,7 @@ class CheckOut extends React.Component {
     render(){
         return(
             <div>
-                <QrCode settleInfo={SettleInfo} onFailClick={this.acknowledgedFalse.bind(this)}/>
+                <QrCode order={this.props.order} onFailClick={this.acknowledgedFalse.bind(this)}/>
                 <ConfirmWindow windowText={WindowText}
                                isHidden={this.state.isSuccess}
                                hideClick={this.acknowledgedTrue.bind(this)}/>
