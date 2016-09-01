@@ -8,6 +8,6 @@ require('./index.css');
 import CustomerOrderList from './containers/CustomerOrderList/CustomerOrderList';
 
 ReactDOM.render(
-      <CustomerOrderList/>,
+      <CustomerOrderList orderList={window.Max.orderList}/>,
   document.getElementById('root')
 );

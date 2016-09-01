@@ -10,7 +10,7 @@ export default class BottomBar extends React.Component{
 	createOrderClick() {
 		let itemList = this.props.itemList;
 		let dispatchError = this.props.onError;
-		fetch('http://localhost:9000/createOrder',
+		fetch('http://localhost:9000/createorder',
 			{
 				'method': 'POST',
 				'mode': 'cors',

@@ -21,7 +21,7 @@ export const SET_MESSAGE = 'SET_MESSAGE';
 export function fetchItem(skuId) {
     return (dispatch) =>  {
         dispatch(fetchItemRequest(skuId));
-        fetch('http://localhost:9000/fetchItem',
+        fetch('http://localhost:9000/fetchitem',
             {
                 'method': 'POST',
                 'mode': 'cors',
