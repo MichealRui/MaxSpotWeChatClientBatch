@@ -8,18 +8,61 @@
     <div id="root"></div>
     <!-- This script adds the Roboto font to our project. For more detail go to this site:  http://www.google.com/fonts#UsePlace:use/Collection:Roboto:400,300,500 -->
     <script>
-      var WebFontConfig = {
-        google: { families: [ 'Roboto:400,300,500:latin' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })();
+      window.Max = {
+        orderList: [
+          {
+            orderImg:'./mycomponent/orderImg.png',
+            orderName:'43424234324',
+            orderStatus:'已完成',
+            orderStatusClass:'orderComplete',
+            orderCost:'152.00',
+            orderDate:'2016-06-12 15:30',
+            productItemList:[
+                './mycomponent/productItemImg.png',
+                './mycomponent/productItemImg.png',
+                './mycomponent/productItemImg.png'
+            ]
+          },
+          {
+            orderImg:'./mycomponent/orderImg.png',
+            orderName:'dffdsffdfe',
+            orderStatus:'未完成',
+            orderStatusClass:'orderUnComplete',
+            orderCost:'152.00',
+            orderDate:'2016-06-12 15:30',
+            productItemList:[
+              './mycomponent/productItemImg.png'
+            ]
+          },
+          {
+            orderImg:'./mycomponent/orderImg.png',
+            orderName:'43424234324',
+            orderStatus:'未完成',
+            orderStatusClass:'orderUnComplete',
+            orderCost:'152.00',
+            orderDate:'2016-06-12 15:30',
+            productItemList:[
+              './mycomponent/productItemImg.png',
+              './mycomponent/productItemImg.png',
+              './mycomponent/productItemImg.png'
+            ]
+          },
+          {
+            orderImg:'./mycomponent/orderImg.png',
+            orderName:'323243454545',
+            orderStatus:'已完成',
+            orderStatusClass:'orderComplete',
+            orderCost:'152.00',
+            orderDate:'2016-06-12 15:30',
+            productItemList:[
+              './mycomponent/productItemImg.png',
+              './mycomponent/productItemImg.png',
+              './mycomponent/productItemImg.png',
+              './mycomponent/productItemImg.png'
+            ]
+          }
+        ]
+      }
     </script>
     <script src="/vendor.bundle.js"></script>
     <script src="/bundle.js"></script>
