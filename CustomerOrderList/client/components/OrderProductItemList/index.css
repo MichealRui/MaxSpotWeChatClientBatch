@@ -2,24 +2,23 @@
     position: relative;
 }
 .orderProductItemList ul li{
-    width:40px;
-    height: 40px;
+    width:1.0rem;
+    height: 1.0rem;
     display: inline-block;
     background-color: #ccc;
-    margin-right: 5px;
+    margin-right: 0.625rem;
 }
 .orderProductItemList ul li img {
-    width: 100%;
+    height: 100%;
 }
 .orderProductItemList .orderDetailArrow {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 0.555556rem;
+    height: 0.555556rem;
     top: 50%;
     right: 0;
     z-index: 10;
-    font-size: 24px;
     text-align: center;
-    color: #ccc;
+    color: #b6b6b6;
     transform: translate(0, -50%);
 }

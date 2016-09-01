@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 
 import React from 'react';
 require('./index.css');
@@ -12,14 +12,14 @@ export default class OrderDetailProductItem extends React.Component {
 		let props = this.props.productItemDetail;
 		return(
 			<li className='orderDetailProductItemContainer'>
-				<img src={props.productImg} />
+				<img src={props.productImg} className='productImg' />
 				<span className='brandProductContainer'>
-					<p>{props.brandName}</p>
-					<p>{props.productName}</p>
+					<p className='productName font12'>{props.productName}</p>
+					<p className='productDesc font14'>{props.productDesc}</p>
+					<p className='productTaste font10'>{props.productTaste}</p>
 				</span>
-				<span className='unitPrice'>￥ {props.unitPrice}</span>
-				<span className='quantity'>x {props.quantity}</span>
-				<span className='amount'>￥ {props.amount}</span>
+				<span className='quantity font14'><i>x</i>{props.quantity}</span>
+				<span className='unitPrice font14'>{props.unitPrice}元</span>
 			</li>
 		);
 	}

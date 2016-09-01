@@ -11,8 +11,8 @@ export default class CustomerOrderList extends React.Component {
 
 	render(){
 		let listArr = [];
-		CustomerOrderData.forEach(function(order){
-			listArr.push(<CustomerOrder order={order} />);
+		CustomerOrderData.forEach(function(order, index){
+			listArr.push(<CustomerOrder key={index} order={order} />);
 		});
 		return(
 			<ul className='customerOrderContainer'>

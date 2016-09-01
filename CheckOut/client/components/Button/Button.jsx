@@ -10,7 +10,7 @@ export default class Button extends React.Component {
 	render(){
 		let props = this.props;
 		return(
-			<div className={'bigButton '+props.buttonClass} onClick={props.buttonClick}>
+			<div className={'bigButton font16 '+props.buttonClass} onClick={props.buttonClick}>
 				{props.buttonText}
 			</div>
 		)

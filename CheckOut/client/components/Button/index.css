@@ -1,18 +1,18 @@
 .bigButton {
     width: 100%;
-    border-radius: 5px;
-    height: 54px;
-    line-height: 54px;
-    font-size: 16px;
-    margin:10px auto;
+    border-radius: 0.5rem;
+    height: 1.0rem;
+    line-height: 1.0rem;
+    margin:0.138889rem auto;
     text-align: center;
     cursor: pointer;
 }
 .bigButton.paySuccess {
-    background: #5D9DFD;
+    background: #eb5d41;
     color: #fff;
 }
 .bigButton.payFailed {
-    background: #ccc;
+    background: #fff;
     color: #000;
+    border: 1px solid #cecece;
 }

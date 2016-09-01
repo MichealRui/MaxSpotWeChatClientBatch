@@ -1,42 +1,43 @@
 .orderListContaier {
-    margin-bottom: 10px;
+    margin-bottom: 0.138889rem;
     background-color: #fff;
 }
 .orderListContaier .orderListTitle {
-    padding: 10px;
-    border-bottom: 1px solid #E5E5E5;
+    padding: 0.416667rem 0.694444rem 0.416667rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
 }
 .orderListContaier .orderListTitle img {
-    width: 30px;
-    height: 30px;
+    width: 1.0rem;
+    height: 1.0rem;
     border-radius: 50%;
     background-color: #ccc;
-    margin-right: 15px;
+    margin-right: 0.333333rem;
     vertical-align: middle;
 }
 .orderListContaier .orderListTitle span {
-    font-size: 16px;
-    line-height: 16px;
+    line-height: 1;
     vertical-align: middle;
 }
 .orderListContaier .orderListTitle .orderStatus {
     float: right;
-    margin-top: 6px;
+    line-height: 1.0rem;
 }
 .orderListContaier .orderListTitle .orderStatus.orderComplete {
-    color: green;
+    color: #333333;
 }
 .orderListContaier .orderListTitle .orderStatus.orderUnComplete {
-    color: red;
+    color: #ee735a;
 }
 .orderListContaier .orderListInfo {
-    padding: 10px;
+    padding: 0.555556rem 0.694444rem 0.555556rem 0.555556rem;
+}
+.orderListContaier .orderListInfo p {
+    margin-bottom: 0.444444rem;
 }
 .orderListContaier .orderListInfo .orderCost {
-    font-size: 16px;
+    color: #2db9ed;
 }
 .orderListContaier .orderListInfo .orderDate {
     float: right;
-    font-size: 14px;
-    color: #ccc;
+    color: rgba(0,0,0,.8);
 }

@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 
 import React from 'react';
 import OrderDetailProductItem from '../../components/OrderDetailProductItem/OrderDetailProductItem';
@@ -12,16 +12,16 @@ export default class OrderDetailProductList extends React.Component {
 	render(){
 		let itemList = [];
 		let orderDetailProductList = this.props.orderDetailProductList;
-		orderDetailProductList.forEach(function(item){
-			itemList.push(<OrderDetailProductItem productItemDetail={item}/>);
+		orderDetailProductList.forEach(function(item, index){
+			itemList.push(<OrderDetailProductItem key={index} productItemDetail={item}/>);
 		});
 		return(
 			<div className ='orderDetailProductListContainer'>
 				<ul>
 					{itemList}
 				</ul>
-				<p>
-					总金额 ￥60
+				<p className='font14'>
+					总金额 <span>{this.props.totalMoney}元</span>
 				</p>
 			</div>
 		);

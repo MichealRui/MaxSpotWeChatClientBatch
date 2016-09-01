@@ -19,7 +19,7 @@ export default class OrderProductItemList extends React.Component {
 				<ul>
 					{orderProductItemList}
 				</ul>
-				<span className='fa fa-angle-right orderDetailArrow'>
+				<span className='fa fa-angle-right orderDetailArrow font28'>
 				</span>
 			</div>
 		);

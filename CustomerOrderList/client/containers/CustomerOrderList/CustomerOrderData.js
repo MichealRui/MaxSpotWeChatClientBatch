@@ -1,8 +1,8 @@
 
 var CustomerOrderData = [
 	{
-		orderImg:'./mycomponent/orderImg.png',
-		orderName:'43424234324',
+		customerImg:'./mycomponent/customerImg.png',
+		customerName:'43424234324',
 		orderStatus:'已完成',
 		orderStatusClass:'orderComplete',
 		orderCost:'152.00',
@@ -20,8 +20,8 @@ var CustomerOrderData = [
 		]
 	},
 	{
-		orderImg:'./mycomponent/orderImg.png',
-		orderName:'dffdsffdfe',
+		customerImg:'./mycomponent/customerImg.png',
+		customerName:'dffdsffdfe',
 		orderStatus:'未完成',
 		orderStatusClass:'orderUnComplete',
 		orderCost:'152.00',
@@ -33,8 +33,8 @@ var CustomerOrderData = [
 		]
 	},
 	{
-		orderImg:'./mycomponent/orderImg.png',
-		orderName:'43424234324',
+		customerImg:'./mycomponent/customerImg.png',
+		customerName:'43424234324',
 		orderStatus:'未完成',
 		orderStatusClass:'orderUnComplete',
 		orderCost:'152.00',
@@ -49,8 +49,8 @@ var CustomerOrderData = [
 		]
 	},
 	{
-		orderImg:'./mycomponent/orderImg.png',
-		orderName:'323243454545',
+		customerImg:'./mycomponent/customerImg.png',
+		customerName:'323243454545',
 		orderStatus:'已完成',
 		orderStatusClass:'orderComplete',
 		orderCost:'152.00',
