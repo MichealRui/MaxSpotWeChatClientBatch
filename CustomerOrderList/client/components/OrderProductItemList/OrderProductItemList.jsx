@@ -11,8 +11,8 @@ export default class OrderProductItemList extends React.Component {
 	render(){
 		let productItemList = this.props.productItemList;
 		let orderProductItemList = [];
-		productItemList.forEach(function(item){
-			orderProductItemList.push(<li><img src={item} /></li>);
+		productItemList.forEach(function(item, index){
+			orderProductItemList.push(<li key={index}><img src={item} /></li>);
 		});
 		return(
 			<div className='orderProductItemList'>

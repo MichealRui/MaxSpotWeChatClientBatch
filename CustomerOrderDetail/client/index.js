@@ -8,6 +8,6 @@ require('./index.css');
 import CustomerOrderDetail from './containers/CustomerOrderDetail/CustomerOrderDetail';
 
 ReactDOM.render(
-      <CustomerOrderDetail/>,
+      <CustomerOrderDetail orderDetail={window.Max.orderDetail}/>,
   document.getElementById('root')
 );

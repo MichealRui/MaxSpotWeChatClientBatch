@@ -12,13 +12,14 @@ export default class CustomerOrder extends React.Component {
 	render(){
 		let props = this.props.order;
 		return(
-			<div className='orderListContaier'>
+			<div className='orderListContaier' >
 				<div className='orderListTitle font14'>
-					<img src={props.customerImg}/>
-					<span>{props.customerName}</span>
+					{/*<img src={props.customerImg}/>*/}
+					<span> {props.orderNumber}</span>
+					{/*<span>{props.customerName}</span>*/}
 					<span className={'orderStatus '+props.orderStatusClass}>{props.orderStatus}</span>
 				</div>
-				<div className='orderListInfo font14'>
+				<div className='orderListInfo font14' onClick={(orderNumber) => window.location.href='https://www.baidu.com'}>
 					<p>
 						<span className='orderCost'>￥ {props.orderCost}</span>
 						<span className='orderDate'>{props.orderDate}</span>

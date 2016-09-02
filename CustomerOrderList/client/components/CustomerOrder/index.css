@@ -14,13 +14,18 @@
     margin-right: 0.333333rem;
     vertical-align: middle;
 }
+
+.orderListContaier .orderListTitle .orderNumber {
+    line-height: 1;
+    vertical-align: middle;
+}
 .orderListContaier .orderListTitle span {
     line-height: 1;
     vertical-align: middle;
 }
 .orderListContaier .orderListTitle .orderStatus {
     float: right;
-    line-height: 1.0rem;
+    line-height: 1;
 }
 .orderListContaier .orderListTitle .orderStatus.orderComplete {
     color: #333333;
