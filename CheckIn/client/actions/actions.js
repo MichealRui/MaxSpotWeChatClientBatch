@@ -21,13 +21,17 @@ export const SET_MESSAGE = 'SET_MESSAGE';
 export function fetchItem(skuId) {
     return (dispatch) =>  {
         dispatch(fetchItemRequest(skuId));
-        fetch( 'http://www.mjitech.com/web/seller_api/wx_get_sku_detail.action',//'http://localhost:9000/fetchitem',
+        fetch( 'http://localhost:9000/fetchitem',//'http://www.mjitech.com/web/seller_api/wx_get_sku_detail.action',//,
             {
                 'method': 'POST',
                 'mode': 'cors',
                 'cache': 'default',
                 'Origin': '*',
                 'credentials': 'include',
+                'headers': {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({
                     sku_number: skuId,
                     // wexinCode: WeChatUtil.getWeXinCode()
