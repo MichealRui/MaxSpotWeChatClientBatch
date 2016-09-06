@@ -19,8 +19,9 @@ export default class QuerySku extends React.Component {
             productTaste:"经典盐焗味",
             productCost:"12.5",
             skuId: "0001",
-            count: 1
-        }
+            count: 1,
+            maxCountLimit:10
+        };
         
         if(skuId) {
             return click(skuId)

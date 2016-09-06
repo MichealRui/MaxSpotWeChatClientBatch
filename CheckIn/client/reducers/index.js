@@ -32,14 +32,25 @@ function addItem(itemInfo, item) {
     } else {
         let newItemInfo = Object.assign({}, itemInfo);
         let isDup = false;
+        let isOver = false;
         /* Deal with the dup item*/
         for(let it of newItemInfo.productList) {
-            if(it.skuId ==  item.skuId) {
-                it.count ++;
+            if(it.skuId == item.skuId) {
+                if(it.maxStock < it.count) {
+                    it.count ++;
+                } else {
+                    isOver = true
+                }
                 isDup = true;
-                break;
+                break
             }
         }
+        
+        //Deal with the limitation
+        //todo redesign data structure
+        // if(isDup) {
+        //     newItemInfo.alertMessage = "不可超过上限"
+        // }
         /* Deal with the not dup item*/
         if(!isDup) {
             newItemInfo.productList.push(item)
@@ -68,7 +79,9 @@ function changeCount(itemInfo, skuId, operation) {
 function increaseCount(itemInfo, item) {
     return changeCount( itemInfo, item.skuId,
         (i) => {
-            i.count ++;
+            if(i.count < i.maxStock) {
+                i.count ++;
+            }
             return i;
         })
 }
