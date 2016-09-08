@@ -6,25 +6,24 @@ require ('./index.css');
 export default class QuerySku extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            ableButton: false
+        }
+    }
+    
+    inputChange() {
+        this.setState({
+            ableButton: !this.refs.queryInput.value.length <= 0
+        })
     }
     
     queryClick() {
         const click = this.props.onQueryClick;
-        let skuId = this.refs.queryInput.value;
-    
-        // todo fetch data from server
-        let data = 				{
-            productName:"喜之郎",
-            productAddress:"美国加州进口朗姆酒",
-            productTaste:"经典盐焗味",
-            productCost:"12.5",
-            skuId: "0001",
-            count: 1,
-            maxCountLimit:10
-        };
-        
-        if(skuId) {
-            return click(skuId)
+        let skuNumber = this.refs.queryInput.value;
+        if(skuNumber) {
+            this.refs.queryInput.value = "";
+            this.inputChange();
+            return click(skuNumber)
         } else {
             //todo show '不能为空'
         }
@@ -32,17 +31,13 @@ export default class QuerySku extends React.Component {
     
     render(){
         const props = this.props;
-        const itemInfo = props.itemInfo;
-        let className = '';
-        if(itemInfo.productList.length>0){
-            className='searchButton J_queryItem';
-        }else {
-            className='searchButton active J_queryItem';
-        }
+        let activeStyle = 'searchButton active J_queryItem';
+        let disableStyle = 'searchButton J_queryItem';
         return(
             <div className='queryContainer font18'>
-                <input className="searchInput" type="text" ref="queryInput" placeholder="点击输入商品条形码"/>
-                <span ref='searchButton' className={className}
+                <input className="searchInput" type="text" ref="queryInput" placeholder="点击输入商品条形码"
+                       onChange={this.inputChange.bind(this)}/>
+                <span ref='searchButton' className={ this.state.ableButton ? activeStyle : disableStyle }
                       onClick={this.queryClick.bind(this)}>录入</span>
             </div>
         );

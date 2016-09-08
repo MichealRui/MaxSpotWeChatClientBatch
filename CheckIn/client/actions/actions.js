@@ -18,39 +18,32 @@ export const FETCH_ITEM_ERROR = 'FETCH_ITEM_ERROR';
 /* set Message content*/
 export const SET_MESSAGE = 'SET_MESSAGE';
 
-export function fetchItem(skuId) {
+export function fetchItem(skuNumber) {
     return (dispatch) =>  {
-        dispatch(fetchItemRequest(skuId));
-        fetch( 'http://localhost:9000/fetchitem',//'http://www.mjitech.com/web/seller_api/wx_get_sku_detail.action',//'http://localhost:9000/fetchitem',
-            {
-                method: 'POST',
-                mode: 'cors',
-                // mode: 'no-cors',
-                cache: 'default',
-                Origin: '*',
-                credentials: 'include',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    sku_number: skuId,
-                    // wexinCode: WeChatUtil.getWeXinCode()
-                })
-            }
+        dispatch(fetchItemRequest(skuNumber));
+        fetch( 'http://www.mjitech.com/web/seller_api/wx_get_sku_detail.action',//'http://localhost:9000/fetchitem',
+                {
+                    method: 'POST',
+                    mode: 'cors',
+                    Origin: '*',
+                    body: JSON.stringify({
+                        open_id: '123456',
+                        sku_number: skuNumber,
+                    })
+                }
         )
         .then(response => response.json())
             .then(json => {
-                if(json.status != undefined && json.status == '0') {
-                    if(json.item && json.item.skuId == skuId) {
-                        dispatch(fetchItemReceive(json.item));
+                if(json.is_succ) {
+                    if(json.sku && json.sku.skuNumber == skuNumber) {
+                        dispatch(fetchItemReceive(json.sku));
                     } else {
-                        dispatch(setMessage('无此商品'));
-                        dispatch(fetchItemError(skuId))
+                        dispatch(setMessage(json.error_message));
+                        dispatch(fetchItemError(skuNumber))
                     }
                 } else {
-                    dispatch(setMessage('服务器错误,请刷新页面或联系商家'));
-                    dispatch(fetchItemError(skuId))
+                    dispatch(setMessage(json.error_message));
+                    dispatch(fetchItemError(skuNumber))
                 }
             })
     }

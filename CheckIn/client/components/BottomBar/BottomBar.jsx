@@ -10,22 +10,31 @@ export default class BottomBar extends React.Component{
 	createOrderClick() {
 		let itemList = this.props.itemList;
 		let dispatchError = this.props.onError;
-		fetch('http://localhost:9000/createorder',
+		let cart = itemList.map((item) => {
+            return {
+                sku_id:item.id,
+                count:item.count
+            }
+		});
+		fetch('http://www.mjitech.com/web/seller_api/wx_add_order.action',
 			{
 				'method': 'POST',
 				'mode': 'cors',
 				'cache': 'default',
 				"Origin": "*",
-				body: JSON.stringify(itemList.map((item) =>  {
-					return {skuId: item.skuId, count: item.count}
-				}))
+				body: JSON.stringify(
+					{
+						cart: cart,
+						open_id: '123456'
+					}
+				)
 			}
 		).then(response => response.json())
 			.then(json => {
 				if(json.is_succ) {
 				//	todo redirect to qrcode scan page
 				} else {
-					dispatchError("服务器错误,请刷新页面或联系商家")
+					dispatchError(json.error_message)
 				}
 			})
 	}

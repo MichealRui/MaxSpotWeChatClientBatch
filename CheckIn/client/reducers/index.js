@@ -16,7 +16,7 @@ function isEmptyObject(e) {
 function calcuSum(itemInfo) {
     if(itemInfo.productList.length == 0) return 0;
     return itemInfo.productList
-        .map((product) => product.count * product.productCost)
+        .map((product) => product.count * product.sellprice)
         .reduce((previous, current, index, array) => previous + current)
 }
 
@@ -24,10 +24,11 @@ function finalState(itemInfo) {
     return Object.assign({}, itemInfo, {totalMoney: calcuSum(itemInfo)})
 }
 
-function addItem(itemInfo, item) {
-    if(isEmptyObject(itemInfo)) {
+function addItem(itemInfo, newItem) {
+    let item = Object.assign({}, newItem, {count:1})
+    if(isEmptyObject(itemInfo.productList)) {
         return {
-            productList: new Array(item),
+            productList: new Array(Object.assign({}, item)),
         }
     } else {
         let newItemInfo = Object.assign({}, itemInfo);
@@ -35,8 +36,8 @@ function addItem(itemInfo, item) {
         let isOver = false;
         /* Deal with the dup item*/
         for(let it of newItemInfo.productList) {
-            if(it.skuId == item.skuId) {
-                if(it.maxStock < it.count) {
+            if(it.skuNumber == item.skuNumber) {
+                if(it.count < it.quantity) {
                     it.count ++;
                 } else {
                     isOver = true
@@ -62,24 +63,24 @@ function addItem(itemInfo, item) {
 function deleteItem(itemInfo, item) {
     let newItemList = Object.assign({},itemInfo);
     let list = itemInfo.productList;
-    let skuId = item.skuId;
-    newItemList.productList = list.filter(it=>it.skuId!=skuId);
+    let skuNumber = item.skuNumber;
+    newItemList.productList = list.filter(it=>it.skuNumber!=skuNumber);
     return finalState(newItemList)
 }
 
-function changeCount(itemInfo, skuId, operation) {
+function changeCount(itemInfo, skuNumber, operation) {
     let newItemList = Object.assign({}, itemInfo);
     let list = newItemList.productList;
     newItemList.productList = list.map(
-        (item) => item.skuId==skuId ? operation(item):item
+        (item) => item.skuNumber==skuNumber ? operation(item):item
     );
     return finalState(newItemList)
 }
 
 function increaseCount(itemInfo, item) {
-    return changeCount( itemInfo, item.skuId,
+    return changeCount( itemInfo, item.skuNumber,
         (i) => {
-            if(i.count < i.maxStock) {
+            if(i.count < i.quantity) {
                 i.count ++;
             }
             return i;
@@ -91,7 +92,7 @@ function decreaseCount (itemInfo, item) {
     if(item.count <= LastOne) {
         return deleteItem(Object.assign({}, itemInfo), item)
     }
-    return     changeCount( itemInfo, item.skuId,
+    return     changeCount( itemInfo, item.skuNumber,
         (i) => {
             i.count --;
             return i;
