@@ -1,0 +1,21 @@
+.headContainer {
+    height: 1.180556rem;
+    line-height: 1.180556rem;
+    background-color: #f2745b;
+    padding: 0 0.555556rem;
+}
+.headContainer .logo {
+    width: 1.833333rem;
+    vertical-align: middle;
+}
+.headContainer .searchContinue {
+    float: right;
+    width: 2.027778rem;
+    height: 0.583333rem;
+    margin-top: 0.25rem;
+    line-height: 0.583333rem;
+    border-radius: 0.291667rem;
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+}

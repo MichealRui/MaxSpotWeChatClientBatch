@@ -1,0 +1,76 @@
+.orderDetailContainer {
+    width: 100%;
+}
+.orderDetailContainer .buttonArea {
+    padding: 0.222222rem 0.277778rem 0.222222rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #2db9ee;
+    line-height: 1.083333rem;
+}
+.orderDetailContainer .buttonArea>span {
+    color: #fff;
+}
+.bigButton.pickUpButton {
+    width: 3.138889rem;
+    height: 1.055556rem;
+    line-height: 1.055556rem;
+    border-radius: 0.527778rem;
+    background: rgba(0,0,0,.2);
+    border: 1px solid #80d5f2;
+    color: #fff;
+    float: right;
+    margin: 0;
+}
+.orderDetailContainer>div {
+    background-color: #fff;
+}
+.orderDetailContainer .timeAndMobile {
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 0.138889rem;
+}
+.orderDetailContainer .timeAndMobile div {
+    display: inline-block;
+    width: 50%;
+    padding: 0.486111rem 0.555556rem;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.orderDetailContainer .timeAndMobile .orderMobile {
+    border-left: 1px solid #e6e6e6;
+}
+.orderDetailContainer .timeAndMobile .orderTime .time,
+.orderDetailContainer .timeAndMobile .orderMobile .mobile {
+    margin-left: 0.555556rem;
+}
+.orderDetailContainer .timeAndMobile .fa {
+    color: #929292;
+}
+.orderDetailContainer .orderDetailInfo {
+    position: relative;
+    line-height: 1;
+    padding:0.625rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    color: #191919;
+}
+.orderDetailContainer .orderStatus {
+    margin-bottom: 0.097222rem;
+}
+.orderDetailContainer .orderDetailInfo .orderNumber,
+.orderDetailContainer .orderDetailInfo span.last {
+    position: absolute;
+    top: 50%;
+    left: 3.777778rem;
+    transform: translate(0,-50%);
+}
+.orderDetailContainer .orderDetailInfo .orderStatus {
+    position: absolute;
+    top: 50%;
+    right: 0.555556rem;
+    transform: translate(0,-50%);
+}
+.orderDetailContainer .orderDetailInfo .orderStatus.orderUncomplete {
+    color: #ea5d42;
+}
+.orderDetailContainer .orderDetailInfo span.code {
+    color: #e95c40;
+}

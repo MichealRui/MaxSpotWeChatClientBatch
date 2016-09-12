@@ -1,0 +1,8 @@
+.itemWrap {
+    padding:0.416667rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+}
+.itemWrap:last-child {
+    margin-bottom: 0.277778rem;
+}

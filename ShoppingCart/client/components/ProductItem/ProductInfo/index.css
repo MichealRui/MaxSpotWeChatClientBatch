@@ -1,0 +1,34 @@
+.productInfo{
+    width:55%;
+    display:inline-block;
+    padding: 0.486111rem 0;
+    position: relative;
+}
+.productImg {
+    width:1.027778rem;
+    background: #ccc;
+    vertical-align: middle;
+}
+.wrapper {
+    position: absolute;
+    left: 1.472222rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    vertical-align:middle;
+}
+.wrapper p {
+    margin:0 0 0.097222rem 0;
+}
+.wrapper .productDesc {
+    margin:0 0 0.194444rem 0;
+}
+.wrapper .productTaste {
+    color: rgba(0,0,0,.6);
+}
+.wrapper p:last-child {
+    margin-bottom: 0;
+}
+.productCost {
+    font-style: normal;
+    color: #5D9DFD;
+}
