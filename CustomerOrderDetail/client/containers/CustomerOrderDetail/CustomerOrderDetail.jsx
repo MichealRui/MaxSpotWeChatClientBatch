@@ -29,7 +29,7 @@ export default class CustomerOrderDetail extends React.Component {
 				</div>
 				<div className='orderDetailDate orderDetailInfo font14'>
 					<span>交易时间</span>
-					<span>{props.orderDate}</span>
+					<span>{props.sellTime}</span>
 				</div>
 				{/*<div className='orderDetailLastDate orderDetailInfo font14'>*/}
 					{/*<span>最晚提货时间</span>*/}
@@ -37,9 +37,9 @@ export default class CustomerOrderDetail extends React.Component {
 				{/*</div>*/}
 				<div className='orderStatus orderDetailInfo font14'>
 					<span>交易状态</span>
-					<span>{props.orderStatus}</span>
+					<span>{props.payStatusName}</span>
 				</div>
-				<OrderDetailProductList orderDetailProductList={props.orderDetailProductList} totalMoney={props.totalMoney}/>
+				<OrderDetailProductList orderDetailProductList={props.skus} totalMoney={props.totalPrice}/>
 			</div>
 		);
 	}

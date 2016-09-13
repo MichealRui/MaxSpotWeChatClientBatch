@@ -8,7 +8,7 @@ export default class CustomerOrder extends React.Component {
 	constructor(props){
 		super(props);
 	}
-
+    
 	render(){
 		let props = this.props.order;
 		return(
@@ -19,12 +19,12 @@ export default class CustomerOrder extends React.Component {
 					{/*<span>{props.customerName}</span>*/}
 					<span className={'orderStatus '+props.orderStatusClass}>{props.orderStatus}</span>
 				</div>
-				<div className='orderListInfo font14' onClick={(orderNumber) => window.location.href='https://www.baidu.com'}>
+				<div className='orderListInfo font14' onClick={(orderNumber) => window.location.href='/orderdetail?order_number=' + orderNumber}>
 					<p>
-						<span className='orderCost'>￥ {props.orderCost}</span>
-						<span className='orderDate'>{props.orderDate}</span>
+						<span className='orderCost'>￥ {props.totalPrice}</span>
+						<span className='orderDate'>{new Date(props.sellTime).Format("yyyy-MM-dd HH:mm:ss")}</span>
 					</p>
-					<OrderProductItemList productItemList={props.productItemList} />
+					<OrderProductItemList productItemList={props.skus} />
 				</div>
 			</div>
 		);

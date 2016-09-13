@@ -7,6 +7,10 @@
     text-align: center;
     cursor: pointer;
 }
+.bigButton.enable {
+    background: #eb5d41;
+    color: #fff;
+}
 .bigButton.paySuccess {
     background: #eb5d41;
     color: #fff;

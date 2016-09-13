@@ -10,16 +10,17 @@ export default class OrderDetailProductItem extends React.Component {
 
 	render(){
 		let props = this.props.productItemDetail;
+		let sku = props.sku
 		return(
 			<li className='orderDetailProductItemContainer'>
-				<img src={props.productImg} className='productImg' />
+				<img src={sku.imagePath} className='productImg' />
 				<span className='brandProductContainer'>
-					<p className='productName font12'>{props.productName}</p>
-					<p className='productDesc font14'>{props.productDesc}</p>
-					<p className='productTaste font10'>{props.productTaste}</p>
+					<p className='productName font12'>{sku.brandName}</p>
+					<p className='productDesc font14'>{sku.name}</p>
+					<p className='productTaste font10'>{sku.categoryName}</p>
 				</span>
-				<span className='quantity font14'><i>x</i>{props.quantity}</span>
-				<span className='unitPrice font14'>{props.unitPrice}元</span>
+				<span className='quantity font14'><i>x</i>{props.count}</span>
+				<span className='unitPrice font14'>{props.sellPrice}元</span>
 			</li>
 		);
 	}

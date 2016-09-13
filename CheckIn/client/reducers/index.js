@@ -27,9 +27,9 @@ function finalState(itemInfo) {
 function addItem(itemInfo, newItem) {
     let item = Object.assign({}, newItem, {count:1})
     if(isEmptyObject(itemInfo.productList)) {
-        return {
+        return finalState({
             productList: new Array(Object.assign({}, item)),
-        }
+        })
     } else {
         let newItemInfo = Object.assign({}, itemInfo);
         let isDup = false;
