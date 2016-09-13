@@ -1,0 +1,26 @@
+.addIntoCart {
+    padding: 0.555556rem 0.694444rem 0.555556rem 0.555556rem;
+    position: relative;
+    background: #fff;
+}
+.addIntoCart .wrapper h1 {
+    color: #2db9ed;
+    line-height: 1;
+    margin-bottom: 0.222222rem;
+}
+.addIntoCart .wrapper p {
+    line-height: 1;
+    color: rgba(0,0,0,.6);
+}
+.addIntoCart .buttonArea {
+    position: absolute;
+    right: 0.625rem;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.addIntoCart .buttonArea .bigButton {
+    width: 2.972222rem;
+    background: #fff;
+    color: #fa7c73;
+    border: 1px solid #fa7c73;
+}

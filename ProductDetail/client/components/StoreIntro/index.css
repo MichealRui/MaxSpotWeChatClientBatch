@@ -1,0 +1,31 @@
+.storeIntro {
+	padding: 0.347222rem 0.555556rem 0.347222rem 0.347222rem;
+	background: #f8f8f8;
+	position: relative;
+}
+.storeIntro .storeImg {
+	width: 1.75rem;
+	height: 1.75rem;
+	vertical-align: middle;
+}
+.storeIntro .storeIntroInfo {
+	display: inline-block;
+	width: 60%;
+	margin-left: 0.486111rem;
+	vertical-align: middle;
+}
+.storeIntro .storeIntroInfo h1 {
+	color: #000;
+	margin-bottom: 0.305556rem;
+}
+.storeIntro .storeIntroInfo p {
+	color: rgba(0,0,0,.8);
+	line-height: 0.416667rem;
+}
+.storeIntro .orderDetailArrow {
+	position: absolute;
+	right: 0.555556rem;
+	top: 50%;
+	transform: translate(0, -50%);
+	color: rgba(0,0,0,.4);
+}

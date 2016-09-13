@@ -1,0 +1,10 @@
+.productDetailContainer .storeInfo {
+    color: rgba(0,0,0,.5);    
+    line-height: 0.444444rem;
+    padding: 0 0.694444rem 0.555556rem 0.555556rem;
+    background: #fff;
+}
+.productDetailContainer .storeIntroWrap {
+    padding: 0 0.625rem 0.347222rem 0.555556rem;
+    background: #fff;
+}
