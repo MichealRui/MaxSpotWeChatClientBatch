@@ -8,9 +8,9 @@ export default class BottomBar extends React.Component{
 	}
 	
 	createOrderClick() {
-		let itemList = this.props.itemList;
-		let dispatchError = this.props.onError;
-		let cart = itemList.map((item) => {
+	    let itemList = this.props.itemList;
+        let dispatchError = this.props.onError;
+        let cart = itemList.map((item) => {
             return {
                 sku_id:item.id,
                 count:item.count
@@ -32,7 +32,8 @@ export default class BottomBar extends React.Component{
 		).then(response => response.json())
 			.then(json => {
 				if(json.is_succ) {
-				//	todo redirect to qrcode scan page
+                    window.location.href =
+                        'http://www.mjitech.com/seller/checkout.html?order_number=' + json.orderNumber
 				} else {
 					dispatchError(json.error_message)
 				}

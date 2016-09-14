@@ -19,7 +19,9 @@ export default class CustomerOrder extends React.Component {
 					{/*<span>{props.customerName}</span>*/}
 					<span className={'orderStatus '+props.orderStatusClass}>{props.orderStatus}</span>
 				</div>
-				<div className='orderListInfo font14' onClick={(orderNumber) => window.location.href='/orderdetail?order_number=' + orderNumber}>
+				<div className='orderListInfo font14'
+                     onClick={ (orderNumber) =>
+                         window.location.href='www.mjitech.com/seller/wx_order_receipt.html?order_number=' + orderNumber}>
 					<p>
 						<span className='orderCost'>￥ {props.totalPrice}</span>
 						<span className='orderDate'>{new Date(props.sellTime).Format("yyyy-MM-dd HH:mm:ss")}</span>
