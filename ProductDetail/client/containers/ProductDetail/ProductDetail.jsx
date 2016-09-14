@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 
 import React from 'react';
 import Button from '../../components/Button/Button';
@@ -6,6 +6,7 @@ import ProductDetailTitle from '../../components/ProductDetailTitle/ProductDetai
 import ProductSlider from '../../components/ProductSlider/ProductSlider';
 import AddIntoCart from '../../components/AddIntoCart/AddIntoCart';
 import StoreIntro from '../../components/StoreIntro/StoreIntro';
+import ProductComment from '../../components/ProductComment/ProductComment';
 import ProductDetailData from './ProductDetailData';
 require('./index.css');
 
@@ -19,6 +20,7 @@ export default class ProductDetail extends React.Component {
 		props = ProductDetailData;
 		return(
 			<div className='productDetailContainer'>
+				<div className='area'></div>
 				<ProductDetailTitle productStore={props.productStore} productName={props.productName} productInfo={props.productInfo}/>
 				<ProductSlider productImgs={props.productImgs}/>
 				<AddIntoCart productCost={props.productCost} productCount={props.productCount}/>
@@ -26,6 +28,7 @@ export default class ProductDetail extends React.Component {
 				<div className='storeIntroWrap'>
 					<StoreIntro storeImg={props.storeImg} storeName={props.storeName} storeIntro={props.storeIntro}/>
 				</div>
+				<ProductComment productComment={props.productComment}/>
 			</div>
 		);
 	}

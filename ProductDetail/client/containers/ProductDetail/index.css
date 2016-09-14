@@ -1,3 +1,7 @@
+.productDetailContainer .area {
+    height: 0.694444rem;
+    background-color: #fff;
+}
 .productDetailContainer .storeInfo {
     color: rgba(0,0,0,.5);    
     line-height: 0.444444rem;

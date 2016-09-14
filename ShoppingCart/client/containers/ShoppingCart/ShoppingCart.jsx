@@ -22,7 +22,7 @@ class ShoppingCart extends React.Component {
         return(
             <div>
 	            <div className="contentContainer">
-	            	<TopBar searchClick={()=>console.log('click')}/>
+	            	<TopBar logo={ShoppingCartData.logo} searchClick={()=>console.log('click')}/>
                     <ShoppingTitle machineAddress={ShoppingCartData.machineAddress} statusText={ShoppingCartData.statusText}/>
 	                <ul className="container" style={productListStyle}>
 	                    {

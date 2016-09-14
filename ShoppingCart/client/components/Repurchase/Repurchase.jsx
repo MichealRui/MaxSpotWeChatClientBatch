@@ -29,7 +29,6 @@ export default class Repurchase extends React.Component {
 										<ProductInfo data={product} />
 										<span className="deleteButton fa fa-trash-o font24" onClick={() => deleteItem(item)}></span>
 										<Button buttonClassName='repurchaseButton' buttonText='重新购买' buttonClick={()=>console.log('repurchase')}/>
-										
 									</li>
 								);
 							})

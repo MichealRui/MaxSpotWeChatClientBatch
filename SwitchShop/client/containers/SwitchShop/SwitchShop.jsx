@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 
 import React from 'react';
 import ShopItem from '../../components/ShopItem/ShopItem';
