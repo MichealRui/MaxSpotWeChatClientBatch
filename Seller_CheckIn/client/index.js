@@ -8,7 +8,8 @@ import createLogger from 'redux-logger';
 import CheckIn from './containers/CheckIn/CheckIn';
 import reducers from './reducers/index';
 import WeXinUtil from './util/WeChatUtil';
-import fetch from 'isomorphic-fetch';
+require('./index.css');
+require('./font-awesome-4.5.0/css/font-awesome.min.css');
 
 
 function activateVendor() {
@@ -46,8 +47,8 @@ function renderComponents(store) {
     );
 }
 
-if(!WeXinUtil.isInWeXin()) { //dev
-// if(WeXinUtil.isInWeXin()) { //prod
+//if(!WeXinUtil.isInWeXin()) { //dev
+if(WeXinUtil.isInWeXin()) { //prod
     let code = WeXinUtil.setWeXinCode();
     let store = activateVendor();
     renderComponents(store)

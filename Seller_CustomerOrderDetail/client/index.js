@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch';
 import Util from './util/WeChatUtil';
 
 require('./index.css');
+require('./font-awesome-4.5.0/css/font-awesome.min.css');
 import CustomerOrderDetail from './containers/CustomerOrderDetail/CustomerOrderDetail';
 
 
