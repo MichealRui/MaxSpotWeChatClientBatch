@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 require('./index.css');
+require('./font-awesome-4.5.0/css/font-awesome.min.css');
 import Banner from './containers/BannerContainer/bannerContainer';
 
 //Mock data
