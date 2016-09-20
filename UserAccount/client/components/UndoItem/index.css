@@ -1,0 +1,44 @@
+.undoItems {
+	border-bottom: 1px solid #e6e6e6;
+	background: #fff;
+}
+.undoItems .item {
+	width: 33.333333%;
+	display: inline-block;
+	height: 2.083333rem;
+	border-left: 1px solid #e6e6e6;
+	box-sizing: border-box;
+	position: relative;
+}
+.undoItems .item .icon {
+	position: absolute;
+	top: 0.555556rem;
+	left: 50%;
+	transform: translate(-50% , 0);
+	color: #808080;
+}
+.undoItems .item .count {
+	position: absolute;
+	width: 0.583333rem;
+	height: 0.583333rem;
+	top: -0.291667rem;
+	right: -0.291667rem;
+	line-height: 0.583333rem;
+	text-align: center;
+	background: #eb5d41;
+	color: #fff;
+	border-radius: 50%;
+}
+.undoItems .item .count.show {
+	display: block;
+}
+.undoItems .item .count.hide {
+	display: none;
+}
+.undoItems .item .name {
+	position: absolute;
+	bottom: 0.305556rem;
+	left: 50%;
+	transform: translate(-50% , 0);
+	color: rgba(0,0,0,.8);
+}

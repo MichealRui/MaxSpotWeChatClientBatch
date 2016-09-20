@@ -1,0 +1,23 @@
+.userResource {
+	width: 100%;
+	border-bottom: 1px solid #e6e6e6;
+	margin-bottom: 0.222222rem;
+	background-color: #fff;
+}
+.userResource .resource {
+	display: inline-block;
+	width: 50%;
+	box-sizing: border-box;
+	padding: 0.416667rem 0;
+	text-align: center;
+}
+.userResource .resource:nth-child(even) {
+	border-left: 1px solid #e6e6e6;
+}
+.userResource .resource p {
+	color: #000;
+}
+.userResource .resource p:first-child {
+	margin-bottom: 0.277778rem;
+	color: #2db9ed;
+}

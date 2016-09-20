@@ -1,0 +1,31 @@
+.homeHeader {
+	position: relative;
+	width: 100%;
+	height: 1.180556rem;
+	line-height: 1.180556rem;
+	background-color: #fa7c73;
+	padding: 0 0.416667rem;
+	box-sizing: border-box;
+}
+.homeHeader .logo {
+	width: 1.833333rem;
+	vertical-align: middle;
+}
+.homeHeader .button {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 0.611111rem;
+	height: 0.611111rem;
+	line-height: 0.611111rem;
+	border-radius: 50%;
+	color: #fff;
+	border: 1px solid #fff;
+	text-align: center;
+}
+.homeHeader .login {
+	right: 0.416667rem;
+}
+.homeHeader .search {
+	right: 1.416667rem;
+}

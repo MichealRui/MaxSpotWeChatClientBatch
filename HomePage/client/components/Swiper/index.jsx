@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 import React from 'react'
 import ReactDOM from 'react-dom';
 import Swiper from 'swiper'

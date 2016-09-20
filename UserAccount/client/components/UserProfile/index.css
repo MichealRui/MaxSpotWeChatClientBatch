@@ -1,0 +1,34 @@
+.userProfile {
+	width: 100%;
+	height: 5.416667rem;
+	position: relative;
+	overflow: hidden;
+}
+.userProfile .bgImg {
+	width: 100%;
+}
+.userProfile .blur {	
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(10px);
+    
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+.userProfile .wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+.userProfile .userImg {
+	width: 2.430556rem;
+	height: 2.430556rem;
+	border-radius: 50%;
+	border: 6px solid #fff;
+	margin-bottom: 0.625rem;
+}
+.userProfile .userName {
+	color: #fff;
+}
