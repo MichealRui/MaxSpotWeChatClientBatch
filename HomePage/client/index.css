@@ -202,9 +202,9 @@ html { overflow-y: scroll; }
         width: 100%;
     }
 }
-#root {
-    display: flex;
-    justify-content: center;
-    background-color: #f4f4f4;
-    min-height: 500px;
-}
+/*#root {*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*background-color: #f4f4f4;*/
+    /*min-height: 500px;*/
+/*}*/
