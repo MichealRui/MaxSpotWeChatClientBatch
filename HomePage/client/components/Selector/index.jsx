@@ -9,7 +9,7 @@ export default class Selector extends React.Component {
     render() {
         let props = this.props.data;
         return (
-            <li className={ "selector" + " J_" + props.key }>
+            <li className={ "selector" + " J_" + props.key } onClick={() => this.props.onclick(props.key)}>
                 <span>
                     {props.content}
                 </span>

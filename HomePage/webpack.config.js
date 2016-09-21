@@ -41,7 +41,7 @@ var baseConfig = {
         loaders: [
           'react-hot',
           'babel-loader'
-        ]
+        ],
       },
     ],
   },

@@ -25,7 +25,7 @@ export default class BannerContainer extends React.Component {
             
         return (
             <SwiperComponent swiperConfig={swiperConfig} >
-                { items }
+                {items}
             </SwiperComponent>
         )
     }

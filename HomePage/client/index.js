@@ -55,6 +55,21 @@ let subContent =
             {},
             {}
             ]
+        },
+        {
+            key: 'all',
+            banner:{
+                imgPath: 'http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg',
+                bannerDist: 'http://www.baidu.com'
+            },
+            freeItems: [
+                {}, {}, {}
+            ],
+            items: [
+                {},
+                {},
+                {}
+            ]
         }
     ];
 
@@ -77,29 +92,10 @@ function activateVendor() {
     return store
 }
 
-function fetchInitData() {
-    fetch('',
-        {
-            method: 'POST',
-            mode: 'cors',
-            Origin: '*',
-            body: JSON.stringify({
-                open_id: '123456',
-                sku_number: skuNumber,
-            })
-        }
-    ).then(response => response.json())
-        .then(json => {
-            if(json.is_succ) {
-                
-            }
-        })
-}
-
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
-            <Page data={data} getInitData=/>
+            <Page/>
         </Provider>
         ,
         document.getElementById('root')
