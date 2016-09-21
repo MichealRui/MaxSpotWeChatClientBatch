@@ -33,7 +33,7 @@ export default class BottomBar extends React.Component{
 			.then(json => {
 				if(json.is_succ) {
                     window.location.href =
-                        'http://www.mjitech.com/seller/checkout.html?order_number=' + json.orderNumber
+                        'http://www.mjitech.com/seller_checkout/index.html?order_number=' + json.orderNumber
 				} else {
 					dispatchError(json.error_message)
 				}
