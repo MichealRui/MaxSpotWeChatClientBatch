@@ -11,7 +11,7 @@ export default class SelectorContainer extends React.Component {
     render() {
         let keys = this.props.selectorData;
         let tags = keys.map((key, index) => {
-            return <Selector key={index} data={key}/>
+            return <Selector key={index} data={key} onclick={(k) => this.props.onSelectClick(k)}/>
         });
         return (
             <ul className="selectorContainer">

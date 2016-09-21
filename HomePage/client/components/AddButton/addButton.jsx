@@ -14,7 +14,6 @@ export default class AddButton extends React.Component {
     
     render() {
         let props = this.props;
-        console.log("button")
         return (
             <span className="add" item={props.item} onClick={this.addClick.bind(this)}>+++</span>
         )

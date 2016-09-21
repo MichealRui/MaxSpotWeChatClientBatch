@@ -6,8 +6,6 @@ import fetch from 'isomorphic-fetch'
 
 export const CHANGE_SUBCONTENT = 'CHANGE_SUBCONTENT';
 
-export const INIT_SUBCONTENT = 'INIT_SUBCONTENT';
-
 export const INIT_START = 'INIT_START';
 
 export const INIT_SUCCESS = 'INIT_SUCCESS';
@@ -15,23 +13,95 @@ export const INIT_SUCCESS = 'INIT_SUCCESS';
 export const INIT_FAIL = 'INIT_FAIL';
 
 export function initSubContent() {
-    return (dispatch) =>  {
-        dispatch(initStart());
-        fetch( '',// initurl  //'http://localhost:9000/fetchitem',
-            {
-                method: 'POST',
-                mode: 'cors',
-                Origin: '*',
-            }
-        ).then(response => response.json())
-            .then(json => {
-                if(json.is_succ) {
-                    dispatch(initSuccess(json.content))
-                } else {
-                    dispatch(initFail())
-                }
-            })
-    }
+    
+    let bannerdata = [
+        {
+            destUrl: "http://www.baidu.com",
+            imagePath: "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg"
+        },
+        {
+            destUrl: "http://www.baidu.com",
+            imagePath: "https://ephemeralnewyork.files.wordpress.com/2010/08/broadway47thstreet2010.jpg"
+        },
+        {
+            destUrl: "http://www.baidu.com",
+            imagePath: "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg"
+        },
+        {
+            destUrl: "http://www.baidu.com",
+            imagePath: "https://ephemeralnewyork.files.wordpress.com/2010/08/broadway47thstreet2010.jpg"
+        }
+    ];
+    
+    let selector = [
+        {key: 'food', content: '食品'},
+        {key: 'drink', content: '酒饮'},
+        {key: 'makeup', content: '美妆'},
+        {key: 'daily', content: '日用品'},
+        {key: 'baby', content: '母婴'}
+    ];
+    
+    let subContent =
+    {
+        'food':{
+            banner:{
+                imgPath: 'http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg',
+                bannerDist: 'http://www.baidu.com'
+            },
+            freeItems: [
+                {}, {}, {}
+            ],
+            items: [
+                {},
+                {},
+                {},
+                {},
+                {}
+                ]
+        },
+    
+        'all':{
+            banner:{
+                imgPath: 'http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg',
+                bannerDist: 'http://www.baidu.com'
+            },
+            freeItems: [
+                {}, {}, {}
+            ],
+            items: [
+                {},
+                {},
+                {}
+            ]
+        }
+    };
+    
+    let data = {
+        banner: bannerdata,
+        selector: selector,
+        subContent: subContent
+    };
+
+    return (dispatch) => {
+        dispatch(initSuccess(data))
+    };
+    // (dispatch) =>  {
+    //     dispatch(initStart());
+    //     fetch( '',// initurl  //'http://localhost:9000/fetchitem',
+    //         {
+    //             method: 'POST',
+    //             mode: 'cors',
+    //             Origin: '*',
+    //         }
+    //     ).then(response => response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //                 dispatch(initSuccess(json.content))
+    //             } else {
+    //                 dispatch(initFail())
+    //             }
+    //         })
+    // }
 }
 
 export function initStart() {

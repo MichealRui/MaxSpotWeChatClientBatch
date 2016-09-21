@@ -4,6 +4,7 @@ import { connect }  from 'react-redux';
 import BannerContainer from '../BannerContainer/bannerContainer';
 import SelectContainer from '../SelectorContainer/selectorContainer';
 import SubContent from '../SubContent/subContent'
+import { initSubContent, initStart, changeSubContent } from '../../actions/index'
 
 class PageContainer extends React.Component {
     constructor(props) {
@@ -11,29 +12,33 @@ class PageContainer extends React.Component {
     }
     
     componentWillMount() {
-        
+        const { dispatch } = this.props;
+        dispatch(initStart())
+        dispatch(initSubContent())
+        // this.props.start()
+        // this.props.init()
     }
     
     render() {
-        let props = this.props.data;
-        import { connect }  from 'react-redux';
+        console.log(3)
+        let props = this.props.test;
+        console.log(this.props)
+        const { dispatch } = this.props;
+        console.log(dispatch);
         return (
             <div>
                 <BannerContainer bannerData={props.banner}/>
-                <SelectContainer selectorData={props.selector}/>
-                <SubContent contentData={props.subContent} />
+                <SelectContainer selectorData={props.selector}
+                                 onSelectClick={ key => dispatch(changeSubContent(key))}/>
+                <SubContent contentData={props.currentSub} />
             </div>
         )
     }
 }
 
-function select(state) {
+function select(store) {
     console.log('dispatched')
-    console.log(state)
-    return {
-        current: state.current,
-        content: state.content
-    }
+    return Object.assign({}, {test: store})
 }
 
 export default connect(select)(PageContainer)
