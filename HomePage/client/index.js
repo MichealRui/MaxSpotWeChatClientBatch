@@ -4,37 +4,107 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
+import reducers from './reducers/index';
+import fetch from 'isomorphic-fetch'
 require('./index.css');
-import Banner from './containers/BannerContainer/bannerContainer';
-import HomeContainer from './containers/HomeContainer/HomeContainer';
+require('./font-awesome-4.5.0/css/font-awesome.min.css');
+import Page from './containers/PageContainer/pageContainer'
 
 //Mock data
 
-let data={
-    bannerdata:[
+let bannerdata = [
+    {
+        destUrl: "http://www.baidu.com",
+        imagePath: "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg"
+    },
+    {
+        destUrl: "http://www.baidu.com",
+        imagePath: "https://ephemeralnewyork.files.wordpress.com/2010/08/broadway47thstreet2010.jpg"
+    },
+    {
+        destUrl: "http://www.baidu.com",
+        imagePath: "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg"
+    },
+    {
+        destUrl: "http://www.baidu.com",
+        imagePath: "https://ephemeralnewyork.files.wordpress.com/2010/08/broadway47thstreet2010.jpg"
+    }
+    ];
+
+let selector = [
+    {key: 'food', content: '食品'},
+    {key: 'drink', content: '酒饮'},
+    {key: 'makeup', content: '美妆'},
+    {key: 'daily', content: '日用品'},
+    {key: 'baby', content: '母婴'}
+];
+
+let subContent =
+    [
         {
-            destUrl: "http://www.baidu.com",
-            imagePath: "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg"
+        key: 'food',
+        banner:{
+            imgPath: 'http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg',
+            bannerDist: 'http://www.baidu.com'
         },
-        {
-            destUrl: "http://www.baidu.com",
-            imagePath: "https://ephemeralnewyork.files.wordpress.com/2010/08/broadway47thstreet2010.jpg"
-        },
-        {
-            destUrl: "http://www.baidu.com",
-            imagePath: "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg"
-        },
-        {
-            destUrl: "http://www.baidu.com",
-            imagePath: "https://ephemeralnewyork.files.wordpress.com/2010/08/broadway47thstreet2010.jpg"
+        freeItems: [
+            {}, {}, {}
+        ],
+        items: [
+            {},
+            {},
+            {}
+            ]
         }
-    ],
-    logo:"http://192.168.20.225:8080/client/components/HomeHeader/images/logo.png",
-    address:'毛纺路小米3号楼办公区B1便利店',
-    homeMadeImg:'http://192.168.20.225:8080/client/components/HomeMade/images/homeMade.jpg'
+    ];
+
+let data = {
+    banner: bannerdata,
+    selector: selector,
+    subContent: subContent
 };
 
-ReactDOM.render(
-    <HomeContainer data={data}/>,
-  document.getElementById('root')
-);
+// init thunk
+function activateVendor() {
+    const loggerMiddleware = createLogger();
+    const store = createStore(
+        reducers,
+        applyMiddleware (
+            thunkMiddleware,
+            loggerMiddleware
+        )
+    );
+    return store
+}
+
+function fetchInitData() {
+    fetch('',
+        {
+            method: 'POST',
+            mode: 'cors',
+            Origin: '*',
+            body: JSON.stringify({
+                open_id: '123456',
+                sku_number: skuNumber,
+            })
+        }
+    ).then(response => response.json())
+        .then(json => {
+            if(json.is_succ) {
+                
+            }
+        })
+}
+
+function renderPage(store) {
+    ReactDOM.render(
+        <Provider store={store}>
+            <Page data={data} getInitData=/>
+        </Provider>
+        ,
+        document.getElementById('root')
+    );
+}
+
+let store = activateVendor();
+renderPage(store);

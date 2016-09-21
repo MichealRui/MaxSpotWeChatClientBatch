@@ -1,0 +1,17 @@
+.selectorContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.selector {
+    display: flex;
+    text-align: center;
+    border:1px solid white;
+    height: 2rem;
+    flex-grow: 1;
+    justify-content: center;
+}
+.selector span {
+    text-align: center;
+    height: 2rem;
+    line-height: 2rem;
+}

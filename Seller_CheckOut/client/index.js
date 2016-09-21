@@ -4,7 +4,7 @@ import CheckOut from './containers/CheckOut/CheckOut';
 import fetch from 'isomorphic-fetch';
 import Util from './util/WeChatUtil';
 require('./index.css');
-require('./font-awesome-4.5.0/css/font-awesome.min.css');
+// require('./font-awesome-4.5.0/css/font-awesome.min.css');
 fetch('http://www.mjitech.com/web/seller_api/wx_request_pay.action ',
     {
         method: 'POST',

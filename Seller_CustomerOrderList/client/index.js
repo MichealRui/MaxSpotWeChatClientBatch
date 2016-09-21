@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import fetch from 'isomorphic-fetch';
 require('./index.css');
-require('./font-awesome-4.5.0/css/font-awesome.min.css');
+// require('./font-awesome-4.5.0/css/font-awesome.min.css');
 import CustomerOrderList from './containers/CustomerOrderList/CustomerOrderList';
 
 Date.prototype.Format = function(fmt)

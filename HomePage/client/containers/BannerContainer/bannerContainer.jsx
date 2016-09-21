@@ -11,7 +11,8 @@ export default class BannerContainer extends React.Component {
     render() {
         let swiperConfig = {
             // pagination: '.swiper-pagination',
-            paginationClickable: true
+            // paginationClickable: true
+            // freeMode: true
         };
         let props = this.props;
         let items = props.bannerData.map((item, index) =>  {

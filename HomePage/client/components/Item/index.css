@@ -1,0 +1,9 @@
+.item{
+    float: left;
+    width: 4.2rem;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid grey;
+    height: 3rem;
+}
