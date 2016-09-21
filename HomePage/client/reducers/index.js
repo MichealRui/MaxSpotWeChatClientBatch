@@ -12,7 +12,7 @@ let bannerdata = [
 ];
 
 let selector = [
-    {key: '', content: ''},
+    {key: '', content: '', faIcon: ''},
 ];
 
 let subContent =

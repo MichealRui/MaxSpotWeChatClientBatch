@@ -87,6 +87,18 @@ html { overflow-y: scroll; }
 }
 
 /* 字体大小使用px，针对不同dpr屏幕设置不同样式 */
+.font7 {
+  font-size: 7px !important;
+}
+
+[data-dpr="2"] .font7 {
+    font-size: 14px !important;
+}
+
+[data-dpr="3"] .font7 {
+    font-size: 21px !important;
+}
+
 .font10 {
   font-size: 10px !important;
 }

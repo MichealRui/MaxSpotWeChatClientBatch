@@ -12,7 +12,7 @@ export default class ItemContainer extends React.Component {
     render() {
         let props = this.props.items;
         let items = props.map((item, index) => {
-            return <Item item={item} key={index}>
+            return <Item item={item} key={index} isSliderItem={false}>
                 <AddButton item={item}/>
             </Item>
         });

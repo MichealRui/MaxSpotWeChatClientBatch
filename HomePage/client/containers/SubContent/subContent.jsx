@@ -20,7 +20,7 @@ export default class SubContent extends React.Component {
         };
         console.log(props.freeItems)
         let freeItems = props.freeItems.map((i, index) => {
-            return <Item item={i} key={index}/>
+            return <Item item={i} key={index} isSliderItem={true}/>
         });
         // let listItems = props.items.map((i) => {
         //     return <Item item= {i}>

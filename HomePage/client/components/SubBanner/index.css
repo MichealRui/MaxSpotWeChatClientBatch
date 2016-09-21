@@ -1,0 +1,19 @@
+.bannerContainer {
+	width: 100%;
+	position: relative;
+}
+.bannerContainer .bannerImg {
+	width: 100%;
+}
+/* .bannerContainer .content {
+	position: absolute;
+	top: 0.472222rem;
+	left: 0.388889rem;
+}
+.bannerContainer .content h1 {
+	color: #000;
+	margin-bottom: 0.277778rem;
+}
+.bannerContainer .content p {
+	color: rgba(0,0,0,.8);
+} */

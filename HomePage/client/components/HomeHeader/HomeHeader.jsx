@@ -11,7 +11,7 @@ export default class HomeHeader extends Component {
         let props = this.props;
         return (
             <div className="homeHeader">
-                <img src={props.logo} alt="maxSpot" className="logo"/> 
+                <img src='http://192.168.20.225:8080/client/components/HomeHeader/images/logo.png' alt="maxSpot" className="logo"/> 
                 <span className='button login fa fa-user font18'></span>
                 <span className='button search fa fa-search font18'></span>
             </div>

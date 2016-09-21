@@ -1,0 +1,19 @@
+.selector {
+	width: 16.66666%;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+}
+.selector .itemIcon {
+	display: block;
+	width: 0.972222rem;
+	height: 0.972222rem;
+	color: #71ccf2;
+	margin: 0 auto;
+}
+.selector .itemName {
+	display: block;
+	color: rgba(0,0,0,.8);
+	margin-top: 0.361111rem;
+	line-height: 1;
+}

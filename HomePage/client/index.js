@@ -7,7 +7,7 @@ import createLogger from 'redux-logger';
 import reducers from './reducers/index';
 import fetch from 'isomorphic-fetch'
 require('./index.css');
-require('./font-awesome-4.5.0/css/font-awesome.min.css');
+/*require('./font-awesome-4.5.0/css/font-awesome.min.css');*/
 import Page from './containers/PageContainer/pageContainer'
 
 //Mock data
@@ -32,11 +32,11 @@ let bannerdata = [
     ];
 
 let selector = [
-    {key: 'food', content: '食品'},
-    {key: 'drink', content: '酒饮'},
-    {key: 'makeup', content: '美妆'},
-    {key: 'daily', content: '日用品'},
-    {key: 'baby', content: '母婴'}
+    {key: 'food', content: '食品', faIcon:'fa-empire'},
+    {key: 'drink', content: '酒饮', faIcon:'fa-glass'},
+    {key: 'makeup', content: '美妆', faIcon:'fa-tint'},
+    {key: 'daily', content: '日用品', faIcon:'fa-umbrella'},
+    {key: 'baby', content: '母婴', faIcon:'fa-deviantart'}
 ];
 
 let subContent =

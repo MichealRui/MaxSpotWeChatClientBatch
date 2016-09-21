@@ -1,0 +1,45 @@
+.bottomButton {
+	position: fixed;
+	right: 0.555556rem;
+	bottom: 0.555556rem;
+	width: 2.777778rem;
+	height: 1.472222rem;
+	line-height: 1.472222rem;
+	border-radius: 1.472222rem 1.472222rem 0 1.472222rem;
+	background-color: #fa7c73;
+	color: #fff;
+	text-align: center;
+	z-index: 999;
+}
+.bottomButton>div {
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+.bottomButton .cartIcon .fa {
+	position: relative;
+	vertical-align: middle;
+}
+.bottomButton .cartIcon .count {
+	position: absolute;
+	width: 0.416667rem;
+	height: 0.416667rem;
+	line-height: 0.416667rem;
+	border-radius: 50%;
+	background-color: #fff;
+	color: #fa7c73;
+	border: 3px solid #fa7c73;
+	top: -9px;
+    right: -11px;
+}
+.bottomButton .lastTime div {
+	top: 50%;
+	transform: translate(0,-50%);
+	position: absolute;
+}
+.bottomButton .lastTime p {
+	line-height: 1;
+}
+.bottomButton .lastTime .font7 {
+	margin-bottom: 6px;
+}

@@ -16,9 +16,8 @@ export default class SelectorContainer extends React.Component {
         return (
             <ul className="selectorContainer">
                 <li className="selector J_all">
-                    <span>
-                        全部
-                    </span>
+                    <div className={"itemIcon font30 fa fa-th-large"}></div>
+                    <div className='itemName font14'>全部</div>
                 </li>
                 {tags}
                 {/*<li className="selector J_food">*/}
