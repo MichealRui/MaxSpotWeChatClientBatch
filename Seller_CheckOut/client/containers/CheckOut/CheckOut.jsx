@@ -40,7 +40,7 @@ class CheckOut extends React.Component {
                 mode: 'cors',
                 Origin: '*',
                 body: JSON.stringify({
-                    order_number: on || "SO20160912140809001",
+                    order_number: on ,
                     open_id:"123456"
                 })
             })
@@ -48,9 +48,9 @@ class CheckOut extends React.Component {
             .then(json => {
                 if(json.is_succ) {
                     if(json.order.status === '2') {
-                        window.location.href = "http://www.mjitech.com/seller/wx_order_list.html"
+                        window.location.href = "http://www.mjitech.com/seller_orderlist/index.html"
                     } else {
-                        window.setTimeout( () => this.fetchOrderStatus(), this.sleepTime)
+                        window.setTimeout( () => this.fetchOrderStatus(on), this.sleepTime)
                     }
                 }
             })
