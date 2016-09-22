@@ -33,7 +33,7 @@ export default class BottomBar extends React.Component{
 			.then(json => {
 				if(json.is_succ) {
                     window.location.href =
-                        'http://www.mjitech.com/seller/checkout.html?order_number=' + json.orderNumber
+                        'http://www.mjitech.com/seller_checkout/index.html?order_number=' + json.order.orderNumber
 				} else {
 					dispatchError(json.error_message)
 				}
@@ -44,7 +44,7 @@ export default class BottomBar extends React.Component{
 		let props = this.props;
 		return(
 			<div className='bottomBar'>
-				<span>总金额：<em>{props.totalMoney || 0}</em><i>元</i></span>
+				<span>总金额：<em>{props.totalMoney/100 || 0}</em><i>元</i></span>
 				<span className="button settleButton J_createOrder" onClick={this.createOrderClick.bind(this)}>结算</span>
 			</div>
 		)

@@ -20,7 +20,7 @@ export default class OrderDetailProductItem extends React.Component {
                     <p className='productTaste font10'>{sku.categoryName}</p>
                 </span>
                 <span className='quantity font14'><i>x</i>{props.count}</span>
-                <span className='unitPrice font14'>{props.sellPrice}元</span>
+                <span className='unitPrice font14'>{props.sellPrice / 100 || 0}元</span>
 			</li>
 		);
 	}

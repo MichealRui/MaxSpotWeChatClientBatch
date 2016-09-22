@@ -21,7 +21,7 @@ export default class OrderDetailProductList extends React.Component {
 					{itemList}
 				</ul>
 				<p className='font14'>
-					总金额 <span>{this.props.totalMoney}元</span>
+					总金额 <span>{this.props.totalMoney / 10 || 0}元</span>
 				</p>
 			</div>
 		);

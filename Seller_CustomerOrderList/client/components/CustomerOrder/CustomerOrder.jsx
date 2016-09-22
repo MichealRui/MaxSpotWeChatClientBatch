@@ -23,7 +23,7 @@ export default class CustomerOrder extends React.Component {
                      onClick={ (orderNumber) =>
                          window.location.href='www.mjitech.com/seller/wx_order_receipt.html?order_number=' + orderNumber}>
 					<p>
-						<span className='orderCost'>￥ {props.totalPrice}</span>
+						<span className='orderCost'>￥ {props.totalPrice / 100 || 0}</span>
 						<span className='orderDate'>{new Date(props.sellTime).Format("yyyy-MM-dd HH:mm:ss")}</span>
 					</p>
 					<OrderProductItemList productItemList={props.skus} />

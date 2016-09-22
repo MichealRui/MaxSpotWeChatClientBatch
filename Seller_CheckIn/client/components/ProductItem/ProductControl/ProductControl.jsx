@@ -17,7 +17,7 @@ export default class ProductControl extends React.Component {
 		const item = this.props.data;
 		return (
 			<div className="productControl">
-				<p className="productCost font16"><em className="font18">{item.sellprice}</em>元</p>
+				<p className="productCost font16"><em className="font18">{item.sellprice / 100}</em>元</p>
 				<div className="inputWrapper clearfix font16">
 					<span className="button reduceButton" onClick={() => decreaseItem(item)}>-</span>
 					<input className="inputText" type='text' value={item.count} onChange={this.valueChange.bind(this)}/>

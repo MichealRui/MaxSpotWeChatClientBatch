@@ -24,7 +24,7 @@ export default class SettleCollection extends React.Component {
 						<p className='font16'>购物单编号：{props.orderNumber}</p>
 					</div>
 					<div className='settleCount'>
-						<h1 className='font20'>￥ <em className='font28'>{props.totalPrice}</em></h1>
+						<h1 className='font20'>￥ <em className='font28'>{props.totalPrice / 100 || 0}</em></h1>
 					</div>
 				</div>
 				<div className="qrCodeContainer">
