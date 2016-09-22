@@ -21,7 +21,7 @@ class CheckIn extends React.Component {
 	            <div className="contentContainer">
 	            	<QuerySku onQueryClick={skuNumber => dispatch(fetchItem(skuNumber))}
                               itemInfo={this.props.itemInfo}/>
-	            	<Message msgContent={this.props.itemInfo.alertMessage}/>
+	            	<Message msgContent={this.props.itemInfo.alertMessage} clearMessage={() => dispatch(setMessage(""))}/>
 	                <ul className="container" style={productListStyle}>
 	                    {
 	                        this.props.itemInfo.productList.map((product, index) =>

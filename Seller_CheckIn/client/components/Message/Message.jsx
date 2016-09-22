@@ -5,7 +5,15 @@ export default class Message extends React.Component {
 	constructor(props){
 		super(props);
 	}
-
+	
+	componentWillReceiveProps() {
+		window.setTimeout(() => {
+		    if(this.props.msgContent){
+		        this.props.clearMessage()
+            }
+        }, 2000)
+	}
+	
 	render(){
 		let msgContent = this.props.msgContent;
 		if(msgContent){

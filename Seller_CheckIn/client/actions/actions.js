@@ -46,6 +46,7 @@ export function fetchItem(skuNumber) {
                     dispatch(fetchItemError(skuNumber))
                 }
             })
+            .catch(e => dispatch(setMessage("服务器错误,请联系客服人员")))
     }
 }
 
