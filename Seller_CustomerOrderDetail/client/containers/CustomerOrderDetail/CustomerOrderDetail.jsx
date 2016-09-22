@@ -39,7 +39,7 @@ export default class CustomerOrderDetail extends React.Component {
 					<span>交易状态</span>
 					<span>{props.payStatusName}</span>
 				</div>
-				<OrderDetailProductList orderDetailProductList={props.skus} totalMoney={props.totalPrice / 100 || 0}/>
+				<OrderDetailProductList orderDetailProductList={props.skus} totalMoney={props.totalPrice || 0}/>
 			</div>
 		);
 	}
