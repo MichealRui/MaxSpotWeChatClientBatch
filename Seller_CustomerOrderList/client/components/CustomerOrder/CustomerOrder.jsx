@@ -21,7 +21,7 @@ export default class CustomerOrder extends React.Component {
 				</div>
 				<div className='orderListInfo font14'
                      onClick={ (orderNumber) =>
-                         window.location.href='www.mjitech.com/seller/wx_order_receipt.html?order_number=' + orderNumber}>
+                         window.location.href='http://www.mjitech.com/seller_orderdetail/index.html?order_number=' + orderNumber}>
 					<p>
 						<span className='orderCost'>￥ {props.totalPrice}</span>
 						<span className='orderDate'>{new Date(props.sellTime).Format("yyyy-MM-dd HH:mm:ss")}</span>
