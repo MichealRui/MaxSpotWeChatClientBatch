@@ -35,7 +35,7 @@ export default class QuerySku extends React.Component {
         let disableStyle = 'searchButton J_queryItem';
         return(
             <div className='queryContainer font18'>
-                <input className="searchInput" type="text" ref="queryInput" placeholder="点击输入商品条形码"
+                <input className="searchInput" type="text" ref="queryInput" placeholder="输入四位数商品码"
                        onChange={this.inputChange.bind(this)}/>
                 <span ref='searchButton' className={ this.state.ableButton ? activeStyle : disableStyle }
                       onClick={this.queryClick.bind(this)}>录入</span>
