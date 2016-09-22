@@ -11,13 +11,18 @@ export default class CustomerOrder extends React.Component {
     
 	render(){
 		let props = this.props.order;
+		// console.log(props)
+		let complete = 'orderComplete';
+		let uncomplete = 'orderUnComplete';
+		let statusStyle = 'orderStatus '+ (props.status == 2 ? complete: uncomplete);
+		console.log(statusStyle)
 		return(
 			<div className='orderListContaier' >
 				<div className='orderListTitle font14'>
 					{/*<img src={props.customerImg}/>*/}
 					<span>订单号: {props.orderNumber}</span>
 					{/*<span>{props.customerName}</span>*/}
-					<span className={'orderStatus '+props.orderStatusClass}>{props.orderStatus}</span>
+					<span className={statusStyle}>{props.payStatusName}</span>
 				</div>
 				<div className='orderListInfo font14'
                      onClick={ () =>
