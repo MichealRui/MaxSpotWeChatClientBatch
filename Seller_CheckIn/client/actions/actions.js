@@ -35,7 +35,7 @@ export function fetchItem(skuNumber) {
         .then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    if(json.sku && json.sku.skuNumber == skuNumber) {
+                    if(json.sku) {
                         dispatch(fetchItemReceive(json.sku));
                     } else {
                         dispatch(setMessage(json.error_message));
