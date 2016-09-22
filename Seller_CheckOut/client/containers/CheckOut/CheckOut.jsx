@@ -30,7 +30,7 @@ class CheckOut extends React.Component {
     }
     
     componentDidMount() {
-        this.fetchOrderStatus(this.props.order.orderNumber);
+        this.fetchOrderStatus(this.props.order.order.orderNumber);
     }
     
     fetchOrderStatus(on) {
