@@ -47,7 +47,9 @@ class CheckOut extends React.Component {
             .then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
+                    console.log("status: " + json.order.status);
                     if(json.order.status === '2') {
+                        
                         window.location.href = "http://www.mjitech.com/seller_orderlist/index.html"
                     } else {
                         window.setTimeout( () => this.fetchOrderStatus(on), this.sleepTime)
