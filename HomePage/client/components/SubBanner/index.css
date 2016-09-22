@@ -2,8 +2,25 @@
 	width: 100%;
 	position: relative;
 }
+
 .bannerContainer .bannerImg {
 	width: 100%;
+	position: relative;
+}
+.bannerContainer .triangle {
+	display: block;
+	width: 100%;
+	height: 0;
+}
+.bannerContainer .triangle:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 0.305556rem solid transparent;
+	border-bottom: 0.305556rem solid #c7e8ef;
+	top: -0.58rem;
+	left: 0.472222rem;
 }
 /* .bannerContainer .content {
 	position: absolute;

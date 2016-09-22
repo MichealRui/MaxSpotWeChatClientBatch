@@ -7,10 +7,12 @@
     box-sizing: border-box;
     border: 1px solid #d9d9d9;
 }
-.item.hide {
+.item.sliderItem {
 	border-right: none;
+	border-top: none;
+	height: 4.652778rem;
 }
-.item.show {
+.item.commonItem {
 	float: left;
 	margin: 0.138889rem 0 0 0.138889rem;
 	padding: 1.0rem 0.555556rem 0.416667rem 0.555556rem;
@@ -28,7 +30,7 @@
 	margin-bottom: 0.166667rem;
 	display: none;
 }
-.brandProductContainer .productName.show {
+.item.commonItem .brandProductContainer .productName {
 	display: block;
 }
 .brandProductContainer .productDesc {
@@ -40,7 +42,7 @@
 	margin-bottom: 0.388889rem;
 	display: none;
 }
-.brandProductContainer .categoryName.show {
+.item.commonItem .brandProductContainer .categoryName {
 	display: block;
 }
 .item .unitPrice {

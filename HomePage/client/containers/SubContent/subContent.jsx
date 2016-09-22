@@ -22,6 +22,7 @@ export default class SubContent extends React.Component {
         let freeItems = props.freeItems.map((i, index) => {
             return <Item item={i} key={index} isSliderItem={true}/>
         });
+        freeItems.push(<div className="item more"><div><p className='font16'>查看全部</p><p className='font14'>See All</p></div></div>);
         // let listItems = props.items.map((i) => {
         //     return <Item item= {i}>
         //         <AddButton item={i}/>

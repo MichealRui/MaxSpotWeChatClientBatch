@@ -1,3 +1,29 @@
 .swiper-slide {
 	margin-right: 0 !important;
 }
+.swiper-wrapper {
+	display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    position: relative;
+}
+.swiper-wrapper .item.more {
+	height: 4.652778rem;
+	padding: 0;
+	width: 100%;
+	border-top: none;
+}
+.swiper-wrapper .item.more>div {
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+.swiper-wrapper .item.more>div p:first-child {
+	margin-bottom: 0.277778rem;
+	color: rgba(0,0,0,.8);
+}
+.swiper-wrapper .item.more>div p:last-child {
+	color: rgba(0,0,0,.6);
+}
