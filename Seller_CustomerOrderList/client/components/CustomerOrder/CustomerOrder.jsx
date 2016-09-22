@@ -21,8 +21,7 @@ export default class CustomerOrder extends React.Component {
 				</div>
 				<div className='orderListInfo font14'
                      onClick={ () =>
-					 {console.log("111");
-                         window.location.href='www.mjitech.com/seller_orderdetail/index.html?order_number=' + props.orderNumber}}>
+                         window.location.href='www.mjitech.com/seller_orderdetail/index.html?order_number=' + props.orderNumber}>
 					<p>
 						<span className='orderCost'>￥ {props.totalPrice / 100 || 0}</span>
 						<span className='orderDate'>{props.sellTime}</span>
