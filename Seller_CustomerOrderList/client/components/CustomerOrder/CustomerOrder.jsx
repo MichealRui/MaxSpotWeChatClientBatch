@@ -15,16 +15,16 @@ export default class CustomerOrder extends React.Component {
 			<div className='orderListContaier' >
 				<div className='orderListTitle font14'>
 					{/*<img src={props.customerImg}/>*/}
-					<span> {props.orderNumber}</span>
+					<span>订单号: {props.orderNumber}</span>
 					{/*<span>{props.customerName}</span>*/}
 					<span className={'orderStatus '+props.orderStatusClass}>{props.orderStatus}</span>
 				</div>
 				<div className='orderListInfo font14'
-                     onClick={ (orderNumber) =>
-                         window.location.href='http://www.mjitech.com/seller_orderdetail/index.html?order_number=' + orderNumber}>
+                     onClick={ () =>
+                         window.location.href='http://www.mjitech.com/seller_orderdetail/index.html?order_number=' + props.orderNumber}>
 					<p>
-						<span className='orderCost'>￥ {props.totalPrice}</span>
-						<span className='orderDate'>{new Date(props.sellTime).Format("yyyy-MM-dd HH:mm:ss")}</span>
+						<span className='orderCost'>￥ {props.totalPrice / 100 || 0}</span>
+						<span className='orderDate'>{props.sellTime}</span>
 					</p>
 					<OrderProductItemList productItemList={props.skus} />
 				</div>
