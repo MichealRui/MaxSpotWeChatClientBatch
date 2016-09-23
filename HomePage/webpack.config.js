@@ -28,6 +28,10 @@ var baseConfig = {
         loader: "file-loader"
       },
       {
+        test: /\.(jpg|png)$/,
+        loader: "url-loader?mimetype=image/png"
+      },
+      {
         test: /\.html$/,
         loader: 'file?name=[name].[ext]'
       },

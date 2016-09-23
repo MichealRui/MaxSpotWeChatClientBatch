@@ -12,7 +12,7 @@ export default class SubBanner extends React.Component {
         return (
             <a href={props.bannerDist} className='bannerContainer'>
                 <span className='triangle'></span>
-                <img width="100%" height="200" src='http://192.168.20.225:8080/client/components/SubBanner/images/homeMade.jpg' className='bannerImg'/>
+                <img width="100%" height="200" src={props.imgPath} className='bannerImg'/>
             </a>
         )
     }

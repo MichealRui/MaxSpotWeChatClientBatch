@@ -10,10 +10,9 @@ export default class Item extends React.Component {
     render() {
         let props = this.props.item;
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
-        props.imagePath='http://192.168.20.225:8080/client/components/Item/images/productImg.jpg';
         return (
             <div className={"item "+sliderItem}>
-                <img src={props.imagePath} className='productImg' />
+                <img src={require('./images/productImg.jpg')} className='productImg' />
                 <span className='brandProductContainer'>
                     <p className={'productName font12'}>{props.brandName}Jingle Bells</p>
                     <p className='productDesc font16'>{props.name}超级好吃的饼干60g</p>

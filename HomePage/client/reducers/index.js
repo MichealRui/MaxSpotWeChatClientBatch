@@ -58,8 +58,7 @@ function initSuccess(content, data){
         banner: data.banner,
         selector: data.selector,
         subContent: data.subContent,
-        currentSub: subContent['all'],
-        key:"12345",
+        currentSub: data.subContent['all'],
     })
 }
 

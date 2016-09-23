@@ -11,23 +11,22 @@ export default class SubContent extends React.Component {
         super(props)
     }
     render() {
-    
         let props = this.props.contentData;
         let swiperConfig = {
             freeMode: true,
             slidesPerView: 2,
             spaceBetween: 20,
         };
-        console.log(props.freeItems)
         let freeItems = props.freeItems.map((i, index) => {
             return <Item item={i} key={index} isSliderItem={true}/>
         });
-        freeItems.push(<div className="item more"><div><p className='font16'>查看全部</p><p className='font14'>See All</p></div></div>);
-        // let listItems = props.items.map((i) => {
-        //     return <Item item= {i}>
-        //         <AddButton item={i}/>
-        //     </Item>
-        // })
+        freeItems.push(
+            <div className="item more" key={'All'}>
+                <div>
+                    <p className='font16'>查看全部</p>
+                    <p className='font14'>See All</p>
+                </div>
+            </div>);
         return (
             <div className="subContentContainer" >
                 <SubBanner data={props.banner}/>

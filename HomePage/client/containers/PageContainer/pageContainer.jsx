@@ -17,16 +17,11 @@ class PageContainer extends React.Component {
         const { dispatch } = this.props;
         dispatch(initStart())
         dispatch(initSubContent())
-        // this.props.start()
-        // this.props.init()
     }
     
     render() {
-        console.log(3)
-        let props = this.props.test;
-        console.log(this.props)
+        let props = this.props.state;
         const { dispatch } = this.props;
-        console.log(dispatch);
         return (
             <div>
                 <HomeHeader />
@@ -42,7 +37,7 @@ class PageContainer extends React.Component {
 
 function select(store) {
     console.log('dispatched')
-    return Object.assign({}, {test: store})
+    return Object.assign({}, {state: store})
 }
 
 export default connect(select)(PageContainer)
