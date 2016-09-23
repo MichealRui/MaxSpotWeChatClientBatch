@@ -15,7 +15,8 @@ export default class SelectorContainer extends React.Component {
         });
         return (
             <ul className="selectorContainer">
-                <li className="selector J_all">
+                <li className="selector J_all" 
+                    onClick={() => this.props.onSelectClick("all")}>
                     <div className={"itemIcon font30 fa fa-th-large"}></div>
                     <div className='itemName font14'>全部</div>
                 </li>
