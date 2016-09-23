@@ -76,10 +76,16 @@ export function initSubContent() {
         }
     };
     
+    let shoppingCart = {
+        remainTime: '6:33',
+        count: 1
+    };
+    
     let data = {
         banner: bannerdata,
         selector: selector,
-        subContent: subContent
+        subContent: subContent,
+        cart: shoppingCart
     };
 
     return (dispatch) => {

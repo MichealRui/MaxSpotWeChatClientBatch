@@ -32,12 +32,17 @@ let subContent =
         ]
     }
 };
+let shoppingCart = {
+    remainTime: '',
+    count: 0
+};
 
 let data = {
     banner: bannerdata,
     selector: selector,
     subContent: subContent,
-    currentSub: subContent['all']
+    currentSub: subContent['all'],
+    cart: shoppingCart
 };
 
 function changeSubContent(content, key) {
@@ -59,6 +64,7 @@ function initSuccess(content, data){
         selector: data.selector,
         subContent: data.subContent,
         currentSub: data.subContent['all'],
+        cart: data.cart
     })
 }
 

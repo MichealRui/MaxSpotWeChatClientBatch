@@ -21,6 +21,7 @@ class PageContainer extends React.Component {
     
     render() {
         let props = this.props.state;
+        console.log(props)
         const { dispatch } = this.props;
         return (
             <div>
@@ -29,7 +30,7 @@ class PageContainer extends React.Component {
                 <SelectContainer selectorData={props.selector}
                                  onSelectClick={ key => dispatch(changeSubContent(key))}/>
                 <SubContent contentData={props.currentSub} />
-                <BottomButton />
+                <BottomButton cart={props.cart}/>
             </div>
         )
     }
