@@ -3,6 +3,7 @@
  */
 import { CHANGE_SUBCONTENT } from '../actions/index'
 import { INIT_START, INIT_SUCCESS, INIT_FAIL} from '../actions/index'
+import { CLEAR_CART } from '../actions/index'
 
 let bannerdata = [
     {
@@ -78,6 +79,12 @@ function addToCart() {
     
 }
 
+function clearCart(content) {
+    return Object.assign({}, content, {
+        cart: {count:0, remainTime:''}
+    })
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
@@ -89,6 +96,8 @@ export default function (
             return initFail(content);
         case CHANGE_SUBCONTENT:
             return changeSubContent(content, action.key);
+        case CLEAR_CART:
+            return clearCart(content);
         default:
             return content;
     }

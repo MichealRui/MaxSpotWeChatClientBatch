@@ -14,6 +14,7 @@ export const INIT_FAIL = 'INIT_FAIL';
 
 export const ADDTO_CART = 'ADDTO_CART';
 
+export const CLEAR_CART = 'CLEAR_CART';
 
 export function addToCart() {
     return (dispatch) => {
@@ -31,7 +32,7 @@ export function addToCart() {
                 } else {
                     dispatch(errorAddToCart())
                 }
-            }).catch(e => errorAddToCart())
+            }).catch(e => dispatch(errorAddToCart()))
     }
 }
 
@@ -45,6 +46,12 @@ export function successAddToCart() {
 
 export function errorAddToCart() {
     
+}
+
+export function clearCart() {
+    return {
+        type: CLEAR_CART
+    }
 }
 
 export function initSubContent() {
@@ -112,7 +119,7 @@ export function initSubContent() {
     };
     
     let shoppingCart = {
-        remainTime: '6:33',
+        remainTime: '5',
         count: 5
     };
     

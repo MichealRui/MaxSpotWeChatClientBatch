@@ -7,6 +7,7 @@ import BannerContainer from '../BannerContainer/bannerContainer';
 import SelectContainer from '../SelectorContainer/selectorContainer';
 import SubContent from '../SubContent/subContent'
 import { initSubContent, initStart, changeSubContent } from '../../actions/index'
+import { startAddToCart, clearCart } from '../../actions/index'
 
 class PageContainer extends React.Component {
     constructor(props) {
@@ -30,7 +31,9 @@ class PageContainer extends React.Component {
                 <SelectContainer selectorData={props.selector}
                                  onSelectClick={ key => dispatch(changeSubContent(key))}/>
                 <SubContent contentData={props.currentSub} />
-                <BottomButton cart={props.cart}/>
+                <BottomButton cart={props.cart}
+                              addToCart={(item) => dispatch(startAddToCart(item))}
+                              clearCart={() => dispatch(clearCart())}/>
             </div>
         )
     }
