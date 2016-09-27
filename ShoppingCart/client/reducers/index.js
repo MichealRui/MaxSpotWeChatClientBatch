@@ -74,6 +74,9 @@ function changeCount(itemInfo, skuNumber, operation) {
     newItemList.productList = list.map(
         (item) => item.skuNumber==skuNumber ? operation(item):item
     );
+    console.log("!!!!!!!!!!")
+    console.log(itemInfo)
+    console.log(newItemList)
     return finalState(newItemList)
 }
 

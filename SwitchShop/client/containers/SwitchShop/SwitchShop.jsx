@@ -23,14 +23,28 @@ export default class SwitchShop extends React.Component {
 			}
 		});
 		return (
+			// <div className='shopContainer'>
+			// 	<div className="currentShop">
+			// 		<h1 className='current font16'>当前站点：</h1>
+			// 		{currentShop}
+			// 	</div>
+			// 	<div className="otherShop">
+			// 		<h1 className='other font16'>去其他站点购买：</h1>
+			// 		<ul>
+			// 			{otherShop}
+			// 		</ul>
+			// 	</div>
+			// </div>
 			<div className='shopContainer'>
-				<div className="currentShop">
-					<h1 className='current font16'>当前站点：</h1>
-					{currentShop}
-				</div>
+				{/*<div className="currentShop">*/}
+					{/*<h1 className='current font16'>怪兽家站点：</h1>*/}
+					{/*{currentShop}*/}
+					{/*{otherShop}*/}
+				{/*</div>*/}
 				<div className="otherShop">
-					<h1 className='other font16'>去其他站点购买：</h1>
+					<h1 className='other font16'>怪兽家站点：</h1>
 					<ul>
+						{currentShop}
 						{otherShop}
 					</ul>
 				</div>

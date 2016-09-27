@@ -43,3 +43,15 @@
 .bottomButton .lastTime .font7 {
 	margin-bottom: 6px;
 }
+
+/*empty cart*/
+
+.bottomButton.empty {
+	width:1.472rem;
+	border-radius: 1.472rem;
+}
+
+.bottomButton.empty>div {
+	position: absolute;
+	left: 0.27rem;
+}

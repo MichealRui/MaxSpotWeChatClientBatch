@@ -12,24 +12,24 @@ var ShoppingCartData={
 			price:80,
 			count:1
 		},
-		{
-			skuNumber:'23343',
-			imagePath:'./client/components/ProductItem/ProductInfo/images/productImg.jpg',
-			brandName:'Jingle Bells',
-			name:'超级好吃的薯片60g',
-			categoryName:'番茄口味',
-			price:90,
-			count:1
-		},
-		{
-			skuNumber:'23326',
-			imagePath:'./client/components/ProductItem/ProductInfo/images/productImg.jpg',
-			brandName:'Jingle Bells',
-			name:'超级好吃的薯片60g',
-			categoryName:'番茄口味',
-			price:60,
-			count:1
-		}
+		// {
+		// 	skuNumber:'23343',
+		// 	imagePath:'./client/components/ProductItem/ProductInfo/images/productImg.jpg',
+		// 	brandName:'Jingle Bells',
+		// 	name:'超级好吃的薯片60g',
+		// 	categoryName:'番茄口味',
+		// 	price:90,
+		// 	count:1
+		// },
+		// {
+		// 	skuNumber:'23326',
+		// 	imagePath:'./client/components/ProductItem/ProductInfo/images/productImg.jpg',
+		// 	brandName:'Jingle Bells',
+		// 	name:'超级好吃的薯片60g',
+		// 	categoryName:'番茄口味',
+		// 	price:60,
+		// 	count:1
+		// }
 	]
 };
 

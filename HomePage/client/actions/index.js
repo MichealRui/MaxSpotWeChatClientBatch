@@ -12,6 +12,41 @@ export const INIT_SUCCESS = 'INIT_SUCCESS';
 
 export const INIT_FAIL = 'INIT_FAIL';
 
+export const ADDTO_CART = 'ADDTO_CART';
+
+
+export function addToCart() {
+    return (dispatch) => {
+        dispatch(startAddToCart())
+        fetch("",
+            {
+                method: 'POST',
+                mode: 'cors',
+                Origin: '*',
+            })
+            .then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(successAddToCart())
+                } else {
+                    dispatch(errorAddToCart())
+                }
+            }).catch(e => errorAddToCart())
+    }
+}
+
+export function startAddToCart() {
+    
+}
+
+export function successAddToCart() {
+    
+}
+
+export function errorAddToCart() {
+    
+}
+
 export function initSubContent() {
     
     let bannerdata = [
@@ -78,7 +113,7 @@ export function initSubContent() {
     
     let shoppingCart = {
         remainTime: '6:33',
-        count: 1
+        count: 5
     };
     
     let data = {

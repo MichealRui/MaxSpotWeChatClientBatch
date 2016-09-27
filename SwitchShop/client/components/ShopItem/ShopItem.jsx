@@ -18,7 +18,7 @@ export default class ShopItem extends React.Component {
 					<p className='font12'>{props.shopAddress}</p>
 					<p className='font12'>{props.shopClass}</p>
 				</div>
-				<span className='fa fa-angle-right orderAddressArrow font24'></span>
+				{/*<span className='fa fa-angle-right orderAddressArrow font24'></span>*/}
 			</div>
 		);
 	}

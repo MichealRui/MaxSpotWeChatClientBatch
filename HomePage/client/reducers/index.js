@@ -74,6 +74,10 @@ function initFail(content) {
     })
 }
 
+function addToCart() {
+    
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
