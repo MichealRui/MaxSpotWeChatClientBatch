@@ -1,0 +1,29 @@
+.header {
+    position: relative;
+    height: 2.666667rem;
+    background-color: #fff;
+    border:1px solid #cecece;
+    margin-bottom: 0.138889rem;
+}
+
+.header .shopImg {
+    width: 2.638889rem;
+    height: 2.666667rem;
+    background: #ccc;
+}
+
+.header .shopName {
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    left: 3.333333rem;
+    transform: translate(0, -50%);
+}
+
+.header .favourite {
+    position: absolute;
+    top:50%;
+    right: 0.583333rem;
+    transform: translate(0, -50%);
+    color: rgba(0,0,0,.8);
+}

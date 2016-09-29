@@ -119,7 +119,7 @@ export function initSubContent() {
     };
     
     let shoppingCart = {
-        remainTime: '5',
+        remainTime: '380',
         count: 5
     };
     

@@ -16,6 +16,11 @@ export default class BottomBar extends React.Component{
                 count:item.count
             }
 		});
+
+        if(cart.length == 0) {
+            return false;
+        }
+
 		fetch('http://www.mjitech.com/web/seller_api/wx_add_order.action',
 			{
 				'method': 'POST',
