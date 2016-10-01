@@ -1,0 +1,11 @@
+.accountDisplay {
+	margin: 0;
+	line-height: 0.833333rem;
+}
+.accountDisplay .money,
+.accountDisplay .name {
+	float: right;
+}
+.accountDisplay .money {
+	margin-left: 0.555556rem;
+}

@@ -1,0 +1,33 @@
+.orderDetailContainer .orderDetailTitle {
+    padding: 0.486111rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+}
+.orderDetailContainer .orderDetailTitle .fa {
+    color: #929292;
+}
+.orderDetailContainer .orderDetailTitle .orderAddress {
+    color: #000;
+}
+.orderDetailContainer .orderDetailTitle .fa-th-large,
+.orderDetailContainer .orderDetailTitle .orderAddress {
+    line-height: 24px;
+}
+[data-dpr='2'] .orderDetailContainer .orderDetailTitle .fa-th-large,
+[data-dpr='2'] .orderDetailContainer .orderDetailTitle .orderAddress {
+    line-height: 48px;
+}
+[data-dpr='3'] .orderDetailContainer .orderDetailTitle .fa-th-large,
+[data-dpr='3'] .orderDetailContainer .orderDetailTitle .orderAddress {
+    line-height: 72px;
+}
+
+.orderDetailContainer .orderDetailTitle .orderAddressArrow {
+    float: right;
+}
+.orderDetailContainer .orderDetailTitle .orderStatus.orderComplete {
+    color: green;
+}
+.orderDetailContainer .orderDetailTitle .orderStatus.orderUnComplete {
+    color: red;
+}

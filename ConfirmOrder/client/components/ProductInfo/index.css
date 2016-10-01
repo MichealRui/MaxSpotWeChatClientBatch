@@ -1,0 +1,42 @@
+.productInfoContainer .productInfo {
+    padding: 0.347222rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+.productInfoContainer .productImg {
+    width:1.388889rem;
+    background: #ccc;
+    vertical-align: middle;
+}
+.productInfoContainer .brandProductContainer {
+    display:inline-block;
+    width:60%;
+    margin-left:0.583333rem;
+    vertical-align:middle;
+}
+.brandProductContainer p {
+    margin:0 0 0.097222rem 0;
+}
+.brandProductContainer .productDesc {
+    margin:0 0 0.194444rem 0;
+}
+.brandProductContainer .productTaste {
+    color: rgba(0,0,0,.6);
+}
+.brandProductContainer p:last-child {
+    margin-bottom: 0;
+}
+.productInfoContainer span {
+    vertical-align: middle;
+}
+.productInfoContainer .unitPrice,
+.productInfoContainer .quantity {
+    float: right;
+    line-height: 1.527778rem;
+    color: #2db9ed;
+}
+.productInfoContainer .quantity i {
+    font-style: normal;
+    display: inline-block;
+    text-align: center;
+    padding: 0 0.138889rem;
+}
