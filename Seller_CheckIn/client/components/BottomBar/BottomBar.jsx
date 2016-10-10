@@ -50,7 +50,8 @@ export default class BottomBar extends React.Component{
 		return(
 			<div className='bottomBar'>
 				<span>总金额：<em>{props.totalMoney/100 || 0}</em><i>元</i></span>
-				<span className="button settleButton J_createOrder" onClick={this.createOrderClick.bind(this)}>结算</span>
+				<span className="button settleButton J_createOrder"
+					  onClick={this.createOrderClick.bind(this)}>结算</span>
 			</div>
 		)
 	}

@@ -1,0 +1,16 @@
+.editItem {
+	padding:0.416667rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+}
+.editItem:last-child {
+	margin-bottom: 0.277778rem;
+}
+.editItem>span {
+	float: right;
+	color: #2db9ed;
+	margin-top: 0.666667rem;
+}
+.editItem .icon {
+	magin: 0.222222rem;
+}

@@ -2,6 +2,8 @@
  * Created by ruibing on 16/8/17.
  */
 'use strict';
+import { INIT_ERROR, INIT_SUCCESS} from '../actions/actions'
+import { TOGGLE_SHOP } from '../actions/actions'
 import { ADD_ITEM, DELETE_ITEM, INCREMENT_COUNTER, DECREMENT_COUNTER} from '../actions/actions'
 import {FETCH_ITEM_REQUEST, FETCH_ITEM_RECEIVE, FETCH_ITEM_ERROR} from '../actions/actions'
 import { SET_MESSAGE } from '../actions/actions'
@@ -13,19 +15,31 @@ function isEmptyObject(e) {
     return !0
 }
 
-function calcuSum(itemInfo) {
-    if(itemInfo.productList.length == 0) return 0;
-    return itemInfo.productList
-        .map((product) => product.count * product.sellprice)
-        .reduce((previous, current, index, array) => previous + current)
+function calcuShopSum(itemInfo) {
+    let newItemInfo = Object.assign({}, itemInfo);
+    newItemInfo.skus.forEach( sku => {
+        sku.shopSum = sku.productList.map(
+                product => product.count * product.sellprice
+            ).reduce(
+                (previous, current, index, array) => previous + current
+            , 0)
+    });
+    return newItemInfo;
+}
+
+function calcuTotalSum(itemInfo) {
+    return itemInfo.skus.filter(
+        sku => itemInfo.activateShop.indexOf(sku.shopId) != -1
+    ).map(sku => sku.shopSum).reduce((pre, next) => pre + next, 0);
 }
 
 function finalState(itemInfo) {
-    return Object.assign({}, itemInfo, {totalMoney: calcuSum(itemInfo)})
+    let calculatedItemInfo = calcuShopSum(itemInfo);
+    return Object.assign({}, calculatedItemInfo , {totalMoney: calcuTotalSum(calculatedItemInfo)})
 }
 
 function addItem(itemInfo, newItem) {
-    let item = Object.assign({}, newItem, {count:1})
+    let item = Object.assign({}, newItem, {count:1});
     if(isEmptyObject(itemInfo.productList)) {
         return {
             productList: new Array(Object.assign({}, item)),
@@ -60,28 +74,32 @@ function addItem(itemInfo, newItem) {
     }
 }
 
-function deleteItem(itemInfo, item) {
+function deleteItem(itemInfo, item, shopId) {
     let newItemList = Object.assign({},itemInfo);
-    let list = itemInfo.productList;
-    let skuNumber = item.skuNumber;
-    newItemList.productList = list.filter(it=>it.skuNumber!=skuNumber);
+    newItemList.skus.map(sku => {
+        if(sku.shopId == shopId){
+            let list = sku.productList;
+            sku.productList = list.filter(it=>it.skuNumber!=item.skuNumber);
+        }
+    });
     return finalState(newItemList)
 }
 
-function changeCount(itemInfo, skuNumber, operation) {
+function changeCount(itemInfo, skuNumber, shopId, operation) {
     let newItemList = Object.assign({}, itemInfo);
-    let list = newItemList.productList;
-    newItemList.productList = list.map(
-        (item) => item.skuNumber==skuNumber ? operation(item):item
-    );
-    console.log("!!!!!!!!!!")
-    console.log(itemInfo)
-    console.log(newItemList)
+    newItemList.skus.map(sku => {
+        if(sku.shopId == shopId) {
+            let list = sku.productList;
+            sku.productList = list.map(
+                (item) => item.skuNumber==skuNumber ? operation(item):item
+            );
+        }
+    });
     return finalState(newItemList)
 }
 
-function increaseCount(itemInfo, item) {
-    return changeCount( itemInfo, item.skuNumber,
+function increaseCount(itemInfo, item, shopId) {
+    return changeCount( itemInfo, item.skuNumber, shopId,
         (i) => {
             if(i.count < i.quantity) {
                 i.count ++;
@@ -90,12 +108,12 @@ function increaseCount(itemInfo, item) {
         })
 }
 
-function decreaseCount (itemInfo, item) {
+function decreaseCount (itemInfo, item, shopId) {
     let LastOne = 1;
     if(item.count <= LastOne) {
-        return deleteItem(Object.assign({}, itemInfo), item)
+        return deleteItem(Object.assign({}, itemInfo), item, shopId)
     }
-    return     changeCount( itemInfo, item.skuNumber,
+    return     changeCount( itemInfo, item.skuNumber, shopId,
         (i) => {
             i.count --;
             return i;
@@ -119,16 +137,33 @@ function setMessage(itemInfo, message) {
     return Object.assign({}, itemInfo, {alertMessage: message})
 }
 
- export default function (itemInfo = {productList:[]}, action){
+function initSuccess(itemInfo) {
+    itemInfo.activateShop = itemInfo.skus.map(sku => sku.shopId);
+    return finalState(itemInfo)
+}
+
+function toggleShop(itemInfo, shopId) {
+    let newItemInfo = Object.assign({}, itemInfo);
+    newItemInfo.activateShop.indexOf(shopId) == -1 ?
+        newItemInfo.activateShop.push(shopId) :
+        newItemInfo.activateShop = newItemInfo.activateShop.filter(id => id != shopId);
+    return finalState(newItemInfo);
+}
+
+ export default function (itemInfo = {skus:[], activateShop:[1]}, action){
     switch(action.type){
+        case INIT_SUCCESS:
+            return initSuccess(action.skus);
+        case TOGGLE_SHOP:
+            return toggleShop(itemInfo, action.shopId);
         case ADD_ITEM:
             return addItem(itemInfo, action.item);
         case DELETE_ITEM:
-            return deleteItem(itemInfo, action.item);
+            return deleteItem(itemInfo, action.item, action.shopId);
         case INCREMENT_COUNTER:
-            return increaseCount(itemInfo, action.item);
+            return increaseCount(itemInfo, action.item, action.shopId);
         case DECREMENT_COUNTER:
-            return decreaseCount(itemInfo, action.item);
+            return decreaseCount(itemInfo, action.item, action.shopId);
         case FETCH_ITEM_REQUEST:
             return fetchItemRequest(itemInfo, action.skuId);
         case FETCH_ITEM_RECEIVE:
