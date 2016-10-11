@@ -6,7 +6,8 @@ export default class Counter extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            remainTime: this.props.remainTime
+            remainTime: this.props.remainTime,
+            showTime: ''
         }
     }
 
@@ -14,7 +15,7 @@ export default class Counter extends React.Component {
         let seconds = time % 60;
         let calculatedTime = (time-seconds) / 60 + ":" + seconds
         this.setState({
-            remainTime: calculatedTime
+            showTime: calculatedTime
         })
     }
 
@@ -33,18 +34,18 @@ export default class Counter extends React.Component {
 
     }
 
-    componentDidMount() {
+    componentWillReceiveProps(props) {
+        console.log(props)
+        this.state = {
+            remainTime: props.remainTime,
+            showTime: this.countTime(props.remainTime)
+        }
         this.timelyChangeCount(this.state.remainTime)
     }
 
     render() {
         return (
-            <div className='lastTime'>
-                <div>
-                    <p className='font7'>剩余时间</p>
-                    <p>{this.state.remainTime}</p>
-                </div>
-            </div>
+            <span>{this.state.showTime}</span>
         )
     }
 }

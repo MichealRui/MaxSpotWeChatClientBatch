@@ -21,7 +21,7 @@ export default class BottomButton extends Component {
                     {
                         cart.remainTime ?
                         <Counter remainTime={cart.remainTime}
-                                 clearCart={clearCart}/> : ''
+                                 timeUpCallback={clearCart}/> : ''
                     }
             </div>
         );

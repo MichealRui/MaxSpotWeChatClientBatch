@@ -4,7 +4,7 @@ import TopBar from '../../components/TopBar/TopBar';
 import BottomBar from '../../components/BottomBar/BottomBar';
 import ProductSection from '../../components/ShopSection/ShopSection';
 import { connect }  from 'react-redux';
-import { fetchItem, increment, decrement, deleteItem, setMessage, initShoppingCart, toggleShop} from '../../actions/actions';
+import { fetchItem, increment, decrement, deleteItem, setMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
 // import ShoppingCartData from './ShoppingCartData.js';
 require('./index.css');
 
@@ -26,7 +26,7 @@ class ShoppingCart extends React.Component {
             delete: shopId => item => dispatch(deleteItem(shopId, item)),
             toggle: shopId => () => dispatch(toggleShop(shopId))
         };
-
+        console.log(itemInfo.remainTime)
         return(
             <div>
 	            <div className="contentContainer">
@@ -67,6 +67,8 @@ class ShoppingCart extends React.Component {
 	            </div>
                 <BottomBar totalMoney={this.props.itemInfo.totalMoney}
                            itemList={this.props.itemInfo.productList}
+                           remainTime={this.props.itemInfo.remainTime}
+                           clearCart={() => dispatch(clearCart())}
                            onError={(message) => dispatch(setMessage(message))}
                 />
             </div>

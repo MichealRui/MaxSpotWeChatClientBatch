@@ -4,6 +4,7 @@
 'use strict';
 import { INIT_ERROR, INIT_SUCCESS} from '../actions/actions'
 import { TOGGLE_SHOP } from '../actions/actions'
+import { CLEAR_CART } from '../actions/actions'
 import { ADD_ITEM, DELETE_ITEM, INCREMENT_COUNTER, DECREMENT_COUNTER} from '../actions/actions'
 import {FETCH_ITEM_REQUEST, FETCH_ITEM_RECEIVE, FETCH_ITEM_ERROR} from '../actions/actions'
 import { SET_MESSAGE } from '../actions/actions'
@@ -150,12 +151,18 @@ function toggleShop(itemInfo, shopId) {
     return finalState(newItemInfo);
 }
 
- export default function (itemInfo = {skus:[], activateShop:[1]}, action){
+function clearCart(itemInfo) {
+    return {skus:[], activateShop:[1], remainTime: ''}
+}
+
+ export default function (itemInfo = {skus:[], activateShop:[1], remainTime: ''}, action){
     switch(action.type){
         case INIT_SUCCESS:
             return initSuccess(action.skus);
         case TOGGLE_SHOP:
             return toggleShop(itemInfo, action.shopId);
+        case CLEAR_CART:
+            return clearCart(itemInfo);
         case ADD_ITEM:
             return addItem(itemInfo, action.item);
         case DELETE_ITEM:

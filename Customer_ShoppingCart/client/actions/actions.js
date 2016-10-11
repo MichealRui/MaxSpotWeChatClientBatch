@@ -9,6 +9,7 @@ export const INIT_SHOPPING_CART = 'INIT_SHOPPING_CART';
 export const INIT_ERROR = 'INIT_ERROR';
 export const INIT_SUCCESS = 'INIT_SUCCESS';
 export const TOGGLE_SHOP = 'TOGGLE_SHOP';
+export const CLEAR_CART = 'CLEAR_CART';
 
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
@@ -84,6 +85,7 @@ export function initShoppingCart() {
                 ]
             }
         ],
+        remainTime: 380,
         logo:'./client/components/TopBar/images/MaxSpot.png',
 
     };
@@ -131,6 +133,12 @@ export function toggleShop(shopId) {
     return {
         type: TOGGLE_SHOP,
         shopId
+    }
+}
+
+export function clearCart() {
+    return {
+        type: CLEAR_CART
     }
 }
 

@@ -1,0 +1,9 @@
+.lastTime div {
+    transform: translate(0,-50%);
+}
+.lastTime p {
+    line-height: 1;
+}
+.lastTime .font7 {
+    margin-bottom: 6px;
+}

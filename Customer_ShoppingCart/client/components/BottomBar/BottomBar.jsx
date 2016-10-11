@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
 import fetch from 'isomorphic-fetch';
+import Counter from '../Counter/Counter';
 require('./index.css');
 export default class BottomBar extends React.Component{
 	constructor(props){
@@ -46,7 +47,14 @@ export default class BottomBar extends React.Component{
 				<div>
 					<div>
 						<p className='totalMoney font12'>总金额：<em>{props.totalMoney || 0}</em><i>元</i></p>
-						<p className='remainTime font12'>剩余时间：<em>{props.remainTime || '00:00'}</em></p>
+
+						<p className='remainTime font12'>
+                            <span>剩余时间：</span>
+                            <Counter remainTime={props.remainTime}
+                                     timeUpCallback={props.clearCart}
+                            />
+						</p>
+
 					</div>
 				</div>
 				<span className="button settleButton J_createOrder font18" onClick={this.createOrderClick.bind(this)}>结算</span>
