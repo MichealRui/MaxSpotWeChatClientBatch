@@ -14,11 +14,11 @@ export default class Item extends React.Component {
             <div className={"item "+sliderItem}>
                 <img src={'http://www.mjitech.com/' + props.imagePath} className='productImg' />
                 <span className='brandProductContainer'>
-                    <p className={'productName font12'}>{props.brandName}Jingle Bells</p>
-                    <p className='productDesc font16'>{props.name}超级好吃的饼干60g</p>
-                    <p className={'categoryName font10'}>{props.categoryName}净含量：40g 颜色：橙色</p>
+                    <p className={'productName font12'}>{props.brandName}</p>
+                    <p className='productDesc font16'>{props.name}</p>
+                    <p className={'categoryName font10'}>{props.categoryName}</p>
                 </span>
-                <span className='unitPrice font14'>80{props.sellPrice}元</span>
+                <span className='unitPrice font14'>{props.sellPrice}元</span>
                 {this.props.children}
             </div>
         );
