@@ -35,7 +35,7 @@ function MasonryMixin(React) {
             initializeMasonry: function(force) {
                 if (!this.masonry || force) {
                     this.masonry = new Masonry(
-                        React.findDOMNode ? React.findDOMNode(this.refs[reference]) : (this.refs[reference] || nullNode).getDOMNode(),
+                        React.findDOMNode ? React.findDOMNode(this.refs[reference]) : (this.refs[reference]) || nullNode.getDOMNode(),
                         options
                     );
 
@@ -44,7 +44,7 @@ function MasonryMixin(React) {
             },
 
             getNewDomChildren: function() {
-                var node = React.findDOMNode ? React.findDOMNode(this.refs[reference]) : (this.refs[reference] || nullNode).getDOMNode();
+                var node = React.findDOMNode ? React.findDOMNode(this.refs[reference]) : (this.refs[reference]) || nullNode.getDOMNode();
                 var children = options.itemSelector ? node.querySelectorAll(options.itemSelector) : node.children;
                 return nodeListToArray(children);
             },
@@ -154,7 +154,7 @@ function MasonryMixin(React) {
                 if (!options.useImagesLoaded) return;
 
                 imagesloaded(
-                    React.findDOMNode ? React.findDOMNode(this.refs[reference]) : (this.refs[reference] || nullNode).getDOMNode(),
+                    React.findDOMNode ? React.findDOMNode(this.refs[reference]) : (this.refs[reference]) || nullNode.getDOMNode(),
                     function(instance) {
                         this.masonry.layout();
                     }.bind(this)

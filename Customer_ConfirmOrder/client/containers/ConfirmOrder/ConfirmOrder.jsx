@@ -3,8 +3,8 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
 import AccountDisplay from '../../components/AccountDisplay/AccountDisplay';
-import ConfirmOrderData from './ConfirmOrderData';
 import TotalProducts from '../TotalProducts/TotalProducts';
+import {initPageContent} from '../../actions/index'
 require('./index.css');
 
 export default class ConfirmOrder extends React.Component {
@@ -12,9 +12,14 @@ export default class ConfirmOrder extends React.Component {
 		super(props);
 	}
 
+	componentWillMount() {
+        const { dispatch } = this.props;
+        dispatch(initPageContent());
+	}
+
 	render(){
-		let props = this.props.confirmOrder;
-		let productItems = [];
+	    let props = this.props.confirmOrder;
+        let productItems = [];
 		props.productItems.map((productItem, index)=>productItems.push(<TotalProducts key={index} productItem={productItem}/>));
 		return(
 			<div className='orderDetailContainer'>

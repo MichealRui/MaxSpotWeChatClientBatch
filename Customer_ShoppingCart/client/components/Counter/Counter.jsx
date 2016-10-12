@@ -27,8 +27,6 @@ export default class Counter extends React.Component {
                     this.timelyChangeCount(t-1)
                 }, 1000);
         } else {
-            console.log("!!!!!!! time up")
-            console.log(this.props)
             this.props.timeUpCallback()
         }
 
