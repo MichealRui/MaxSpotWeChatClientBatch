@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 import React from 'react'
 import { connect }  from 'react-redux';
 import HomeHeader from '../../components/HomeHeader/HomeHeader';
@@ -16,13 +16,13 @@ class PageContainer extends React.Component {
     
     componentWillMount() {
         const { dispatch } = this.props;
-        dispatch(initStart())
-        dispatch(initSubContent())
+        dispatch(initStart());
+        dispatch(initSubContent());
     }
     
     render() {
         let props = this.props.state;
-        console.log(props)
+        console.log(props);
         const { dispatch } = this.props;
         return (
             <div>

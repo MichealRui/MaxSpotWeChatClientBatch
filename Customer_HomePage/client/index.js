@@ -89,7 +89,7 @@ function activateVendor() {
             loggerMiddleware
         )
     );
-    return store
+    return store;
 }
 
 function renderPage(store) {

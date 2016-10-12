@@ -48,6 +48,7 @@
 .brandProductContainer .productDesc {
 	color: rgba(0,0,0,.9);
 	margin-bottom: 0.277778rem;
+	line-height: 1.5;
 }
 .brandProductContainer .categoryName {
 	color: rgba(0,0,0,.6);

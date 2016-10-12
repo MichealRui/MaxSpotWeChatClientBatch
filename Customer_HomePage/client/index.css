@@ -238,6 +238,9 @@ html { overflow-y: scroll; }
         width: 100%;
     }
 }
+#root {
+    padding-bottom: 30px;
+}
 /*#root {*/
     /*display: flex;*/
     /*justify-content: center;*/
