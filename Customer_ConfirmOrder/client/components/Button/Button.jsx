@@ -10,8 +10,12 @@ export default class Button extends React.Component {
 
 	render(){
 		let props = this.props;
+        let disabledStyle = props.disabled? ' disabled' : '';
 		return (
-			<div className={'bigButton font16 '+props.buttonClassName} onClick={props.buttonClick}>
+		    <div className={'bigButton font16 '+props.buttonClassName + disabledStyle}
+                 onClick={props.buttonClick}
+                 disabled={props.disabled}
+            >
 				{props.buttonText}
 			</div>
 		);

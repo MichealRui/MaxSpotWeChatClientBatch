@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducers from './reducers/index';
-import WXSDK from './util/jweixin';
 require('./index.css');
 import ConfirmOrder from './containers/ConfirmOrder/ConfirmOrder';
 

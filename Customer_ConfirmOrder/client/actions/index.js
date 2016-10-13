@@ -9,6 +9,8 @@ export const INIT_SUCCESS = 'INIT_SUCCESS';
 
 export const INIT_FAIL = 'INIT_FAIL';
 
+export  const JSSDK_INITED = 'JS_SDK_INIT';
+
 export function initPageContent() {
     // return (dispatch) => {
     //     dispatch(initStart())
@@ -27,8 +29,14 @@ export function initPageContent() {
     //             }
     //         })
     // }
-
-    return {
+    const mockWXconfig = {
+        timestamp: '20161010',
+        nonceStr: 'asdadscwertfwerqwdasd',
+        signature: 'asdwerqwedfiuqwoperue',
+        prepay_id: '9012348j123',
+        paySign: 'asdqwqwe1231sdf2423rsdf'
+    };
+    const mockOrderInfo = {
         remainTime:'14分58秒',
         productItems:[
             {
@@ -77,8 +85,22 @@ export function initPageContent() {
         ],
         actualMoney:200,
         productDiscount:-18,
-        totalDiscount:-10,
+        limitDiscount:-10,
         totalMoney:172
+    }
+
+    return {
+        type: INIT_SUCCESS,
+        content: {
+            orderInfo: mockOrderInfo,
+            wxConfig: mockWXconfig
+        }
+    }
+}
+
+export function initSdk() {
+    return {
+        type: JSSDK_INITED
     }
 }
 

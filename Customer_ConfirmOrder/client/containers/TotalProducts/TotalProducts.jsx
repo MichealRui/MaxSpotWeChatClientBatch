@@ -14,8 +14,10 @@ export default class TotalProducts extends React.Component {
 
 	render(){
 		let props = this.props.productItem;
-		let productInfoItems = [];
-		props.orderDetailProductList.map((product, index)=>productInfoItems.push(<ProductInfo key={index} product={product}/>));
+        let productInfoItems = props.orderDetailProductList ? props.orderDetailProductList.map(
+            (product, index) =>
+                <ProductInfo key={index} product={product}/>
+        ) : '';
 		return(
 			<div className='totalProductsContainer'>
 				<OrderDetailTitle orderTitleText={props.orderAddress}/>
