@@ -10,9 +10,9 @@ export default class BannerContainer extends React.Component {
     
     render() {
         let swiperConfig = {
-            // pagination: '.swiper-pagination',
-            // paginationClickable: true
-            // freeMode: true
+            pagination: '.swiper1 .swiper-pagination',
+            freeMode: true,
+            slidesPerView: 1
         };
         let props = this.props;
         let items = props.bannerData.map((item, index) =>  {
@@ -24,7 +24,7 @@ export default class BannerContainer extends React.Component {
         });
             
         return (
-            <SwiperComponent swiperConfig={swiperConfig} >
+            <SwiperComponent swiperConfig={swiperConfig} swiperContainer={'swiper1'}>
                 {items}
             </SwiperComponent>
         )

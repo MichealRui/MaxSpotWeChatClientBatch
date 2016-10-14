@@ -1,18 +1,22 @@
-.swiper-slide {
-	margin-right: 0 !important;
+.subContentContainer .swiper-container {
+    width: 100%;
 }
-.swiper-wrapper {
+.subContentContainer .swiper-wrapper {
 	display: -webkit-flex;
     display: -ms-flex;
     display: -moz-flex;
     display: flex;
     position: relative;
 }
+/*.subContentContainer .swiper-slide {
+    width: 207px !important;
+}*/
 .swiper-wrapper .item.more {
 	height: 4.652778rem;
 	padding: 0;
-	width: 100%;
+	width: 207px;
 	border-top: none;
+    float: none;
 }
 .swiper-wrapper .item.more>div {
 	position: absolute;

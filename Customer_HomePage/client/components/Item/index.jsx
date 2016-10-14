@@ -19,7 +19,7 @@ export default class Item extends React.Component {
                     <p className={'categoryName font10'}>{props.categoryName}</p>
                 </span>
                 <span className='unitPrice font14'>{props.sellPrice}元</span>
-                {this.props.children}
+                {this.props.children||null}
             </div>
         );
     }

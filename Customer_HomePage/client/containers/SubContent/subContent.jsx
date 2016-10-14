@@ -13,9 +13,9 @@ export default class SubContent extends React.Component {
     render() {
         let props = this.props.contentData;
         let swiperConfig = {
+            pagination: '.swiper2 .swiper-pagination',
             freeMode: true,
-            slidesPerView: 2,
-            spaceBetween: 20,
+            slidesPerView: 2
         };
         let freeItems = props.freeItems.map((i, index) => {
             return <Item item={i} key={index} isSliderItem={true}/>
@@ -30,7 +30,7 @@ export default class SubContent extends React.Component {
         return (
             <div className="subContentContainer" >
                 <SubBanner data={props.banner}/>
-                <SwiperComponent swiperConfig={swiperConfig}>
+                <SwiperComponent swiperConfig={swiperConfig} swiperContainer={'swiper2'}>
                     {freeItems}
                 </SwiperComponent>
                 <ItemContainer items={props.items}/>
