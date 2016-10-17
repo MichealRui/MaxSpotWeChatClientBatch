@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header';
 import Info from '../../components/Info/Info';
 import Gallery from '../../components/Gallery/Gallery'
 import { connect } from 'react-redux';
-import {initShopContent,initStart,initSuccess,addLike,cancelLike} from '../../actions/index'
+import {initShopContent,initStart,initSuccess,changeLike} from '../../actions/index'
 require ('./index.css');
 
 class ShopContainer extends React.Component {
@@ -22,8 +22,7 @@ class ShopContainer extends React.Component {
 		const { dispatch, itemInfo} = this.props;
 
 		const itemMethod = {
-			addlike:item=>dispatch(addLike(item)),
-			cancellike : item=>dispatch(cancelLike(item))
+			changelike:item=>dispatch(changeLike(item)),
 		}
 		return (
 			<div className="shopContainer">

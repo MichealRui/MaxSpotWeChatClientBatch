@@ -12,15 +12,13 @@ export const INIT_SUCCESS = 'INIT_SUCCESS';
 
 export const INIT_FAIL = 'INIT_FAIL';
 
-export const ADD_LIKE = 'ADD_LIKE';
-
-export const CANCEL_LIKE = 'CANCEL_LIKE';
+export const CHANGE_LIKE = 'CHANGE_LIKE';
 
 export function initShopContent() {
     let ShopContent = {
         header : {
             shopImg:shopImage,
-            shopName:'光华路SOHO2-3Q',
+            shopName:'光华路SOHO2-3Qdsd',
             like:false,
         },
         info:[
@@ -61,17 +59,13 @@ export function initFail() {
     }
 }
 
-export function addLike(cont) {
+
+export function changeLike(cont) {
     return {
-        type: ADD_LIKE,
+        type:CHANGE_LIKE,
         cont
     }
 }
 
-export function cancelLike(cont) {
-    return {
-        type: CANCEL_LIKE,
-        cont
-    }
-}
+
 
