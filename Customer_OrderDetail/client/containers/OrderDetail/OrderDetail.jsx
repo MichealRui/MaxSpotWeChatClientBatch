@@ -18,7 +18,7 @@ export default class OrderDetail extends React.Component {
 		return(
 			<div className='orderDetailContainer'>
 				<div className="buttonArea clearfix">
-					<span className='font14'>剩余支付时间：{props.remainTime}</span>
+					<span className='font14'>取货时请记得确认位置哦</span>
 					<Button buttonClassName='pickUpButton' buttonClick={()=>console.log('success')} buttonText='立即取货'/>
 				</div>
 				<OrderDetailTitle orderTitleIcon={'fa-th-large'} orderTitleText={OrderDetailData.orderAddress}/>

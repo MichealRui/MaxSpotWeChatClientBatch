@@ -5,6 +5,27 @@
 import {INIT_START,INIT_SUCCESS,INIT_FAIL} from '../actions/index'
 import {ADD_LIKE,CANCEL_LIKE} from '../actions/index'
 
+const defaultState = {
+    header : {
+        shopImg:"",
+        shopName:"",
+        like:false,
+    },
+    info:[
+        {
+            imagepath:"",
+        },
+        {
+            imagepath:"",
+        },
+    ],
+    gallery : {
+        shopAddress:"",
+        shopTime:"",
+        telephone:"",
+    }
+}
+
 function initSucc(itemInfos, item) {
     return Object.assign({},itemInfos, item);
 }
@@ -34,7 +55,7 @@ function changeLike(itemInfo,option) {
 function finalState(itemInfo) {
     return Object.assign({},itemInfo);
 }
-export default function (itemInfos = {},action) {
+export default function (itemInfos = defaultState,action) {
     switch (action.type){
         case INIT_SUCCESS:
             return initSucc(itemInfos, action.cont);
