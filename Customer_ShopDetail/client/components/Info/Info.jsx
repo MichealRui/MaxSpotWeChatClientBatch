@@ -8,21 +8,22 @@ export default class Info extends React.Component {
         super(props)
     }
     render() {
+        const itemInfo = this.props.itemInfo;
         return (
             <ul className="infoContainer">
                 <li>
                     <span className="fa fa-map-marker icon" aria-hidden="true"></span>
-                    <p className="content">北京市朝阳区建国门</p>
+                    <p className="content">{itemInfo.shopAddress}</p>
                     <span className="fa fa-angle-right rightArrow"></span>
                 </li>
                 <li>
                     <span className="fa fa-clock-o icon"></span>
-                    <p className="content">8:00 - 23:00</p>
+                    <p className="content">{itemInfo.shopTime}</p>
                     <span className="fa fa-angle-right rightArrow"></span>
                 </li>
                 <li>
                     <span className="fa fa-phone icon"></span>
-                    <p className="content">6726480348</p>
+                    <p className="content">{itemInfo.telephone}</p>
                     <span className="fa fa-angle-right rightArrow"></span>
                 </li>
             </ul>

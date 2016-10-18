@@ -21,16 +21,22 @@ export function initShopContent() {
             shopName:'光华路SOHO2-3Qdsd',
             like:false,
         },
-        info:[
+        gallery:[
             {
-                imagepath:shopImage,
+                imagepath1:shopImage,
+                imagepath2:shopImage,
             },
             {
-                imagepath:shopImage,
+                imagepath1:shopImage,
+                imagepath2:shopImage,
+            },
+            {
+                imagepath1:shopImage,
+                imagepath2:shopImage,
             },
         ],
-        gallery : {
-            shopAddress:'北京市朝阳区国贸光华路SOHO二期',
+        info : {
+            shopAddress:'北京市朝阳区国贸光华路SOHO',
             shopTime:'8:00 - 23:00',
             telephone:'672648034',
         }

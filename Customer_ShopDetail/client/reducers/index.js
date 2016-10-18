@@ -11,15 +11,13 @@ const defaultState = {
         shopName:"",
         like:false,
     },
-    info:[
+    gallery:[
         {
-            imagepath:"",
-        },
-        {
-            imagepath:"",
+            imagepath1:"",
+            imagepath2:"",
         },
     ],
-    gallery : {
+    info : {
         shopAddress:"",
         shopTime:"",
         telephone:"",

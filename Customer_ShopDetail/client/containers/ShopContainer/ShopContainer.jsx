@@ -28,7 +28,14 @@ class ShopContainer extends React.Component {
 			<div className="shopContainer">
                 <Header itemInfo={itemInfo.header} itemMethod={itemMethod}/>
                 <Info itemInfo={itemInfo.info}/>
-                <Gallery itemInfo={itemInfo.gallery}/>
+				<ul className="imageContainer">
+				{
+					itemInfo.gallery.map(
+					(gallery,index) =>
+						<Gallery itemInfo={gallery}/>
+					)
+				}
+				</ul>
             </div>
 		);
 	}

@@ -8,22 +8,12 @@ export default class Gallery extends React.Component {
     }
 
     render() {
+        const galleryInfo = this.props.itemInfo;
         return (
-            <ul className="imageContainer">
-                <li className="shopImg">
-                    <img className="fl" src={require('./images/shop.jpg')}/>
-                    <img className="fr" src={require('./images/shop.jpg')}/>
-                </li>
-                <li className="shopImg">
-                    <img className="fl" src={require('./images/shop.jpg')}/>
-                    <img className="fr" src={require('./images/shop.jpg')}/>
-                </li>
-                <li className="shopImg">
-                    <img className="fl" src={require('./images/shop.jpg')}/>
-                    <img className="fr" src={require('./images/shop.jpg')}/>
-                </li>
-            </ul>
-
+            <li className="shopImg">
+                <img className="fl" src={galleryInfo.imagepath1} alt=""/>
+                <img className="fr" src={galleryInfo.imagepath2} alt=""/>
+            </li>
         )
     }
 }
