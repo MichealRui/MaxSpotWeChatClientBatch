@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 import React from 'react'
 import SwiperComponent from '../../components/Swiper/index'
 // require('./index.css');

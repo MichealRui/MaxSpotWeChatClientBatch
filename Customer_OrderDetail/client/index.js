@@ -4,10 +4,32 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
+import reducers from './reducers/index';
 require('./index.css');
 import OrderDetail from './containers/OrderDetail/OrderDetail';
 
-ReactDOM.render(
-      <OrderDetail orderDetail={window.Max.orderDetail}/>,
-  document.getElementById('root')
-);
+function activateVendor(){
+    const loggerMiddleware = createLogger();
+    const store = createStore(
+        reducers,
+        applyMiddleware(
+            thunkMiddleware,
+            loggerMiddleware
+        )
+    );
+    return store;
+}
+
+let store = activateVendor();
+renderPage(store);
+
+function renderPage(store) {
+    ReactDOM.render(
+        <Provider store={store}>
+            <OrderDetail/>
+        </Provider>,
+        document.getElementById('root')
+    );
+}
+
+
