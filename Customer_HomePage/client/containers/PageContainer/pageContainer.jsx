@@ -25,8 +25,25 @@ class PageContainer extends React.Component {
         const { dispatch } = this.props;
         let props = this.props.state;
         let config = props.wxConfig;
-        let appId = 'wx4da5ecd6305e620a';
+
         if(config.signature && !props.sdkInited) {
+            if(this.initWx(config)) {
+                dispatch(initSdk());
+                let geo = this.getGeo();
+                if(geo) {
+                    dispatch(initStart());
+                    dispatch(initSubContent({ geo }));
+                } else {
+                    // redirect to switch shop page
+                }
+            }
+        }
+
+    }
+
+    initWx(config) {
+        let appId = 'wx4da5ecd6305e620a';
+        try {
             wx.config({
                 debug: false,
                 appId: appId,
@@ -35,36 +52,39 @@ class PageContainer extends React.Component {
                 signature: config.signature,
                 jsApiList: ["getLocation"]
             });
-            dispatch(initSdk())
-
-            // init page
-            wx.ready(function(){
-                wx.getLocation({  // wx api
-                    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
-                    success: function (res) {
-                        let latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-                        let longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-                        let speed = res.speed; // 速度，以米/每秒计
-                        let accuracy = res.accuracy; // 位置精度
-                        let geo = {
-                            latitude,
-                            longitude,
-                            speed,
-                            accuracy
-                        };
-                        dispatch(initStart());
-                        dispatch(initSubContent({ geo }));
-                    },
-                    fail: function (res) {
-                        // todo show shop selector and send shop id
-                    },
-                    cancel: function (res) {
-                        // todo show shop selector and send shop id
-                    }
-                });
-            });
+            return true;
+        } catch (e) {
+            return false
         }
 
+    }
+
+    getGeo() {
+        var geo;
+        wx.ready(function(){
+            wx.getLocation({  // wx api
+                type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                success: function (res) {
+                    let latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    let longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    let speed = res.speed; // 速度，以米/每秒计
+                    let accuracy = res.accuracy; // 位置精度
+                    geo = {
+                        latitude,
+                        longitude,
+                        speed,
+                        accuracy
+                    };
+                    return geo;
+                },
+                fail: function (res) {
+                    return geo;
+                },
+                cancel: function (res) {
+                    return geo
+                }
+            });
+        });
     }
     
     render() {

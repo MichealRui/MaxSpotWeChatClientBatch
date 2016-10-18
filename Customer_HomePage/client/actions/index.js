@@ -26,7 +26,6 @@ export  const JSSDK_INITED = 'JS_SDK_INIT';
 
 export function initWxConfig() {
     return (dispatch) => {
-        dispatch(initWXStart());
         fetch('', // todo fetch wx config
             {
                 method: 'POST',

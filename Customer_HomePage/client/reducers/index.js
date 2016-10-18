@@ -39,12 +39,19 @@ let shoppingCart = {
     count: 0
 };
 
+let wxConfig = {
+    timestamp: '',
+        nonceStr: '',
+        signature: '',
+}
+
 let data = {
     banner: bannerdata,
     selector: selector,
     subContent: subContent,
     currentSub: subContent['all'],
-    cart: shoppingCart
+    cart: shoppingCart,
+    wxConfig:wxConfig
 };
 
 function changeSubContent(content, key) {
