@@ -23,11 +23,12 @@ class ConfirmOrder extends React.Component {
     componentDidUpdate() {
         const { dispatch } = this.props;
         let props = this.props.state;
-        let config = props.wxConfig
+        let config = props.wxConfig;
+        let appId = 'wx4da5ecd6305e620a';
         if(config.signature && !props.sdkInited) {
             wx.config({
                 debug: false,
-                appId: '',
+                appId: appId,
                 timestamp: config.timeStamp,
                 nonceStr: config.nonceStr,
                 signature: config.signature,

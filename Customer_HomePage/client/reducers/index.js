@@ -4,6 +4,7 @@
 import { CHANGE_SUBCONTENT } from '../actions/index'
 import { INIT_START, INIT_SUCCESS, INIT_FAIL} from '../actions/index'
 import { CLEAR_CART } from '../actions/index'
+import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../actions/index'
 
 let bannerdata = [
     {
@@ -119,6 +120,18 @@ function clearCart(content) {
     })
 }
 
+function initWxConfigSucc(content, config) {
+    return Object.assign({}, content, { wxConfig: config })
+}
+
+function initWxConfigErr(content) {
+    return Object.assign({}, content, {errorMessage: ''})
+}
+
+function JSSDKInited(content) {
+    return Object.assign({}, content, {sdkInited: true})
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
@@ -132,6 +145,12 @@ export default function (
             return changeSubContent(content, action.key);
         case CLEAR_CART:
             return clearCart(content);
+        case INIT_WX_CONFIG_SUCC:
+            return initWxConfigSucc(content, action.config);
+        case INIT_WX_CONFIG_ERR:
+            return initWxConfigErr(content);
+        case JSSDK_INITED:
+            return JSSDKInited(content);
         default:
             return content;
     }

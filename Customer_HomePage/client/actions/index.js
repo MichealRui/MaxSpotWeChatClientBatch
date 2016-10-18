@@ -16,6 +16,53 @@ export const ADDTO_CART = 'ADDTO_CART';
 
 export const CLEAR_CART = 'CLEAR_CART';
 
+export const INIT_WX_CONFIG = 'INIT_WX_CONFIG';
+
+export const INIT_WX_CONFIG_SUCC = 'INIT_WX_CONFIG_SUCC';
+
+export const INIT_WX_CONFIG_ERR = 'INIT_WX_CONFIG_ERR';
+
+export  const JSSDK_INITED = 'JS_SDK_INIT';
+
+export function initWxConfig() {
+    return (dispatch) => {
+        dispatch(initWXStart());
+        fetch('', // todo fetch wx config
+            {
+                method: 'POST',
+                mode: 'cors',
+                Origin: '*',
+            }
+        ).then(response => response.json())
+            .then( json => {
+                if(json.is_succ) {
+                    dispatch(initWxConfigSucc(json.config))
+                } else {
+                    dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
+                }
+            } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
+    }
+}
+
+export function initWxConfigSucc(config) {
+    return {
+        type: INIT_WX_CONFIG_SUCC,
+        config
+    }
+}
+
+export function initWxConfigErr() {
+    return {
+        type: INIT_WX_CONFIG_ERR
+    }
+}
+
+export function initSdk() {
+    return {
+        type: JSSDK_INITED
+    }
+}
+
 export function addToCart() {
     return (dispatch) => {
         dispatch(startAddToCart())
@@ -30,9 +77,9 @@ export function addToCart() {
                 if(json.is_succ) {
                     dispatch(successAddToCart())
                 } else {
-                    dispatch(errorAddToCart())
+                    dispatch(errorAddToCart({errorMessage: json.error_message}))
                 }
-            }).catch(e => dispatch(errorAddToCart()))
+            }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
     }
 }
 
@@ -140,6 +187,9 @@ export function initSubContent() {
                 method: 'POST',
                 mode: 'cors',
                 Origin: '*',
+                body: JSON.stringify(
+                    Object.assign({}, {"storeId": "7"})
+                )
             }
         ).then(response => response.json())
             .then(json => {
@@ -151,7 +201,7 @@ export function initSubContent() {
                 } else {
                     dispatch(initFail())
                 }
-            })
+            }).catch(e => dispatch(initFail()))
     }
 }
 

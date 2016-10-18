@@ -11,6 +11,8 @@ export const INIT_FAIL = 'INIT_FAIL';
 
 export  const JSSDK_INITED = 'JS_SDK_INIT';
 
+export const INIT_WX_CONFIG = 'INIT_WX_CONFIG';
+
 export function initPageContent() {
     // return (dispatch) => {
     //     dispatch(initStart())
