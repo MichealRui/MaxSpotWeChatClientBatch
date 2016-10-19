@@ -27,17 +27,17 @@ class OrderDetail extends React.Component {
 			<div className='orderDetailContainer'>
 				<div className="buttonArea clearfix">
                     <span className='font14'>取货时请记得确认位置哦</span>
-					<Button buttonClassName='pickUpButton' buttonClick={(order_id)=>Actions.pickUp(order_id)} buttonText='立即取货'/>
+					<Button buttonClassName='pickUpButton' buttonClick={()=>actions.pickUp(order_id)} buttonText='立即取货'/>
 				</div>
 				<OrderDetailTitle orderTitleIcon={'fa-th-large'} orderTitleText={orderDetail.orderAddress}/>
 				<OrderDetailTitle orderTitleIcon={'fa-map-marker'} orderTitleText={orderDetail.orderAddress}/>
 				<div className='timeAndMobile'>
 					<div className='orderTime'>
-						<span className={"fa font20 fa-clock-o"}></span>
+						<span className="fa font20 fa-clock-o"></span>
 						<span className="time font14">08:00 - 23:00</span>
 					</div>
 					<div className='orderMobile'>
-						<span className={"fa font20 fa-phone"}></span>
+						<span className="fa font20 fa-phone"></span>
 						<span className="mobile font14">{orderDetail.orderContactMobile}</span>
 					</div>
 				</div>

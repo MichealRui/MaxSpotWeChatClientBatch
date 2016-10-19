@@ -6,8 +6,32 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 require('./index.css');
 import ProductDetail from './containers/ProductDetail/ProductDetail';
+import reducers from './reducers/index';
 
-ReactDOM.render(
-      <ProductDetail />,
-  document.getElementById('root')
-);
+function vanderStore() {
+    const loggerMiddleware = createLogger();
+    const store = createStore(
+        reducers,
+        applyMiddleware(
+            loggerMiddleware,
+            thunkMiddleware
+        )
+    );
+    return store;
+}
+
+
+function renderPage(store){
+    ReactDOM.render(
+        <Provider store={store}>
+            <ProductDetail />
+        </Provider>,
+        document.getElementById('root')
+    );
+}
+
+
+const store = vanderStore();
+renderPage(store);
+
+

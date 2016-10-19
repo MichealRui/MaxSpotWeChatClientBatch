@@ -1,6 +1,9 @@
 'use strict';
 
 import React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as Actions from '../../actions/index';
 import Button from '../../components/Button/Button';
 import ProductDetailTitle from '../../components/ProductDetailTitle/ProductDetailTitle';
 import ProductSlider from '../../components/ProductSlider/ProductSlider';
@@ -10,26 +13,44 @@ import ProductComment from '../../components/ProductComment/ProductComment';
 import ProductDetailData from './ProductDetailData';
 require('./index.css');
 
-export default class ProductDetail extends React.Component {
+class ProductDetail extends React.Component {
 	constructor(props){
 		super(props);
 	}
 
+	componentWillMount(){
+	    const {actions} = this.props;
+        actions.initProductDetail(window.product_id);
+    }
+
 	render(){
-		let props = this.props.orderDetail;
-		props = ProductDetailData;
+		let {productDetail, actions} = this.props;
+        let product_id = window.product_id;
 		return(
 			<div className='productDetailContainer'>
 				<div className='area'></div>
-				<ProductDetailTitle productStore={props.productStore} productName={props.productName} productInfo={props.productInfo}/>
-				<ProductSlider productImgs={props.productImgs}/>
-				<AddIntoCart productCost={props.productCost} productCount={props.productCount}/>
+				<ProductDetailTitle productStore={productDetail.productStore} productName={productDetail.productName} productInfo={productDetail.productInfo}/>
+				{/*<ProductSlider productImgs={productDetail.productImgs}/>*/}
+				<AddIntoCart productCost={productDetail.productCost} productCount={productDetail.productCount} addIntoCartClick={()=>{actions.addIntoCart(product_id)}}/>
 				<p className='storeInfo font12'>{ProductDetailData.storeInfo}</p>
 				<div className='storeIntroWrap'>
-					<StoreIntro storeImg={props.storeImg} storeName={props.storeName} storeIntro={props.storeIntro}/>
+					<StoreIntro storeImg={productDetail.storeImg} storeName={productDetail.storeName} storeIntro={productDetail.storeIntro}/>
 				</div>
-				<ProductComment productComment={props.productComment}/>
+				<ProductComment productComment={productDetail.productComment}/>
 			</div>
 		);
 	}
 }
+
+function mapStateToProps(state){
+    return {
+        productDetail:state
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions:bindActionCreators(Actions, dispatch)
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

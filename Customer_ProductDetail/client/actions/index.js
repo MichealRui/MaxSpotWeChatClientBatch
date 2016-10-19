@@ -1,11 +1,10 @@
 /**
- * Created by wyf on 2016/10/18.
+ * Created by wyf on 2016/10/19.
  */
 import fetch from 'isomorphic-fetch';
-import {INIT_START, INIT_SUCCESS, INIT_FAIL, PICK_UP_START, PICK_UP_SUCCESS, PICK_UP_FAIL} from '../constants/ActionTypes';
+import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CART_FAIL} from '../contants/ActionTypes';
 
-
-export function initOrderDetail(order_id) {
+export function initProductDetail(product_id) {
     return (dispatch)=>{
         dispatch(initStart());
         fetch('',{
@@ -13,23 +12,20 @@ export function initOrderDetail(order_id) {
             mode:'cors',
             Origin:'*',
             body:JSON.stringify({
-                order_id:order_id
+                productId:product_id
             })
         })
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    dispatch(initSuccess(json.orderDetail));
+                    dispatch(initSuccess(json.productDetail));
                 }else {
                     dispatch(initFail());
                 }
             })
-            .catch(e=>{
-                console.log(JSON.stringify(e));
-            });
-    }
+            .catch((e)=>console.log(JSON.stringify(e)));
+    };
 }
-
 
 export function initStart() {
     return {
@@ -37,12 +33,12 @@ export function initStart() {
     };
 }
 
-export function initSuccess(content) {
+export function initSuccess() {
     return {
-        type:INIT_SUCCESS,
-        content
+        type:INIT_SUCCESS
     };
 }
+
 
 export function initFail() {
     return {
@@ -50,44 +46,37 @@ export function initFail() {
     };
 }
 
-export function pickUp(order_id) {
+export function addIntoCart(product_id) {
     return (dispatch)=>{
-        console.log(order_id);
-        dispatch(pickUpStart());
-        fetch('http://www.baidu.com',{
+        fetch('',{
             method:'POST',
             mode:'cors',
             Origin:'*',
             body:JSON.stringify({
-                orderId:order_id
+                productId:product_id
             })
         })
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    dispatch(pickUpSuccess());
+                    dispatch(addIntoCartSuccess(json.productName));
                 }else {
-                    dispatch(pickUpFail());
+                    dispatch(addIntoCartFail());
                 }
             })
-            .catch((e)=>{console.log(e)});
+            .catch((e)=>console.log(JSON.stringify(e)));
+    }
+}
+
+export function addIntoCartSuccess(productName) {
+    return {
+        type:ADD_INTO_CART_SUCCESS,
+        productName
     };
 }
 
-export function pickUpStart() {
+export function addIntoCartFail() {
     return {
-        type:PICK_UP_START
-    };
-}
-
-export function pickUpSuccess() {
-    return {
-        type:PICK_UP_SUCCESS
-    };
-}
-
-export function pickUpFail() {
-    return {
-        type:PICK_UP_FAIL
+        type:ADD_INTO_CART_FAIL
     };
 }
