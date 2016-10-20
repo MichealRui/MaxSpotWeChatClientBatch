@@ -30,7 +30,7 @@ class ProductDetail extends React.Component {
 			<div className='productDetailContainer'>
 				<div className='area'></div>
 				<ProductDetailTitle productStore={productDetail.productStore} productName={productDetail.productName} productInfo={productDetail.productInfo}/>
-				{/*<ProductSlider productImgs={productDetail.productImgs}/>*/}
+				<ProductSlider productImgs={productDetail.productImgs}/>
 				<AddIntoCart productCost={productDetail.productCost} productCount={productDetail.productCount} addIntoCartClick={()=>{actions.addIntoCart(product_id)}}/>
 				<p className='storeInfo font12'>{ProductDetailData.storeInfo}</p>
 				<div className='storeIntroWrap'>

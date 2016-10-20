@@ -1,25 +1,33 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import ShopItem from '../../components/ShopItem/ShopItem';
 import Shops from './Shops';
+import * as Actions from '../../actions/index';
 require ('./index.css');
 
-export default class SwitchShop extends React.Component {
+class SwitchShop extends Component {
 	constructor(props){
 		super(props);
 	}
 
+	componentWillMount(){
+	    let {actions} = this.props;
+        actions.initShopList();
+    }
+
 	render(){
-		let props = this.props.Shops;
-		props = Shops;
+		let {Shops, actions} = this.props;
 		let currentShop = [];
 		let otherShop = [];
 		Shops.map((shop, index)=>{
+		    let shop_id = shop.id;
 			if(shop.current){
-				currentShop.push(<ShopItem key={index} {...shop} />);
+				currentShop.push(<ShopItem key={index} {...shop} onClick={()=>actions.switchShop(shop_id)}/>);
 			}else {
-				otherShop.push(<li><ShopItem key={index} {...shop} /></li>);
+				otherShop.push(<li><ShopItem key={index} {...shop} onClick={()=>actions.switchShop(shop_id)}/></li>);
 			}
 		});
 		return (
@@ -52,3 +60,18 @@ export default class SwitchShop extends React.Component {
 		);
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		Shops: state.shopList
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(Actions, dispatch)
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SwitchShop);
+

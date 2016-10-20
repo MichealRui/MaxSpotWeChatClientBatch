@@ -6,8 +6,29 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 require('./index.css');
 import SwitchShop from './containers/SwitchShop/SwitchShop';
+import reducers from './reducers/index';
 
-ReactDOM.render(
-      <SwitchShop SwitchShop={window.Max.SwitchShop}/>,
-  document.getElementById('root')
-);
+function activateVendor(){
+    const loggerMiddleware = createLogger();
+    const store = createStore(
+        reducers,
+        applyMiddleware(
+            thunkMiddleware,
+            loggerMiddleware
+        )
+    );
+    return store;
+}
+
+function renderPage(store) {
+    ReactDOM.render(
+        <Provider store={store}>
+            <SwitchShop />
+        </Provider>,
+        document.getElementById('root')
+    );
+}
+
+renderPage(activateVendor());
+
+

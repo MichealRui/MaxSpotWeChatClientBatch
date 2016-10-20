@@ -2,23 +2,20 @@
  * Created by wyf on 2016/10/19.
  */
 import fetch from 'isomorphic-fetch';
-import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CART_FAIL} from '../contants/ActionTypes';
+import {INIT_START, INIT_SUCCESS, INIT_FAIL, SWITCH_SHOP_SUCCESS, SWITCH_SHOP_FAIL} from '../constants/ActionTypes';
 
-export function initProductDetail(product_id) {
+export function initShopList() {
     return (dispatch)=>{
         dispatch(initStart());
         fetch('',{
             method:'POST',
             mode:'cors',
-            Origin:'*',
-            body:JSON.stringify({
-                productId:product_id
-            })
+            Origin:'*'
         })
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    dispatch(initSuccess(json.productDetail));
+                    dispatch(initSuccess(json.shopList));
                 }else {
                     dispatch(initFail());
                 }
@@ -47,37 +44,37 @@ export function initFail() {
     };
 }
 
-export function addIntoCart(product_id) {
+export function switchShop(shop_id) {
     return (dispatch)=>{
         fetch('',{
             method:'POST',
             mode:'cors',
             Origin:'*',
             body:JSON.stringify({
-                productId:product_id
+                shopId:shop_id
             })
         })
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    dispatch(addIntoCartSuccess(json.productName));
+                    dispatch(switchShopSuccess(json.shopName));
                 }else {
-                    dispatch(addIntoCartFail());
+                    dispatch(switchShopFail());
                 }
             })
             .catch((e)=>console.log(JSON.stringify(e)));
     }
 }
 
-export function addIntoCartSuccess(productName) {
+export function switchShopSuccess(shopName) {
     return {
-        type:ADD_INTO_CART_SUCCESS,
-        productName
+        type:SWITCH_SHOP_SUCCESS,
+        shopName
     };
 }
 
-export function addIntoCartFail() {
+export function switchShopFail() {
     return {
-        type:ADD_INTO_CART_FAIL
+        type:SWITCH_SHOP_FAIL
     };
 }

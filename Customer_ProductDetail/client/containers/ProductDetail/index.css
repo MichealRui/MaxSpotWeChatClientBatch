@@ -1,3 +1,6 @@
+.productDetailContainer {
+    width: 100%;
+}
 .productDetailContainer .area {
     height: 0.694444rem;
     background-color: #fff;
