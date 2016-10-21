@@ -1,0 +1,39 @@
+.header{
+    position: relative;
+    width: 100%;
+    height: 8.1944rem;
+    background: #05af10;
+    overflow: hidden;
+}
+.header .white{
+    color:#fff;
+    text-align: center;
+}
+.header .smile{
+    position: relative;
+    height: 2.514rem;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+}
+.header .smile>img{
+    width: 2.514rem;
+}
+.header .title{
+    line-height: 40px;
+    margin-top: 0.6rem;
+    opacity: 0.8;
+}
+.header .text>p{
+    opacity: 0.7;
+    line-height: 22px;
+}
+.header .btn_fetch{
+    border: 0.0139rem solid #f0f0f0;
+    border-radius: 0.3472rem;
+    width: 3.5rem;
+    height: 0.9722rem;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 28px;
+}
