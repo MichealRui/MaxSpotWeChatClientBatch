@@ -10,16 +10,16 @@ export default class OrderItem extends React.Component {
 
 	render(){
 		let props = this.props;
-		console.log(props);
+
 		return (
-			<li className='orderItem'>
-				<div className='fl'>
-					<div className='address'></div>
-					<div className='code'></div>
+			<li className='orderItem clearfix'>
+				<div className='fl orderInfo'>
+					<div className='address font14'>{props.machineAddress}</div>
+					<div className='code font14 blue'>取货码：{props.goodsCode}</div>
 				</div>
-				<div className='fr'>
-					<div className='btn_fetch'></div>
-					<div></div>
+				<div className='fr orderAction'>
+					<div className='fl btn_fetch font14'>立即取货</div>
+					<div className="fr font20"> > </div>
 				</div>
 			</li>
 		);

@@ -1,65 +1,46 @@
-.couponItem {
-    width: 100%;
-    margin-bottom: 0.277778rem;
+.orderItem{
     position: relative;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -moz-flex;
-    display: flex;
+    border-bottom: 1px solid #ccc;
+    height: 2rem;
 }
-.couponItem>div {
-    display: inline-block;
-    box-sizing: border-box;
+.orderItem .orderAction{
+    margin: 0.556rem 0;
+    margin-right: 0.556rem;
 }
-.couponItem .amount {
-    width: 30%;
+
+.orderItem>.orderInfo{
+    margin: 0.3rem 0;
+    margin-left: 0.556rem;
+}
+.orderAction>div:first-child{
+    border:1px solid #cecece;
+    border-radius: 12px;
+    width: 2.403rem;
+    height: 0.805rem;
+    line-height: 0.805rem;
     text-align: center;
-    padding: 0.583333rem 0;
-    border-right: none;
+    margin-right: 0.15rem;
 }
-.couponItem .amount.orange {
-    background: #fc834e;
-    border: 1px solid #fc834e;
+.orderItem .fl>div{
+    line-height: 0.7rem;
 }
-.couponItem .amount.red {
-    background: #f2745b;
-    border: 1px solid #f2745b;
+.orderAction>div:nth-child(2){
+    margin-top: 0.15rem;
+    color:#929292;
 }
-.couponItem .amount.yellow {
-    background: #fca44e;
-    border: 1px solid #fca44e;
+.white{
+    color:#fff;
 }
-.couponItem .amount .discountAmount {
-    color: #fff;
-    margin-bottom: 0.305556rem;
+.black{
+    color:#000;
 }
-.couponItem .amount .limitAmount {
-    color: rgba(0,0,0,.5);
+.blue{
+    color:#b9e8f9;
 }
-.couponItem .introInfo {
-    width: 70%;
-    background: #fff;
-    padding: 0.277778rem 0.416667rem;
-    border: 1px solid #cecece;
-    border-left: none;
-    position: relative;
-    /* background: url('../images/triangle.png') 0 0;
-    background-repeat: repeat-y; */
+.fr{
+    float: right;
 }
-/* .couponItem .introInfo:after {
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    border: 8px solid transparent;
-    border-right: 8px solid #fff;
-    left: 0;
-} */
-.couponItem .introInfo p {
-    line-height: 0.388889rem;
-    letter-spacing: 1px;
-    color: rgba(0,0,0,.6);
-}
-.couponItem .introInfo p:first-child {
-    line-height: 0.527778rem;
+
+.fl{
+    float: left;
 }

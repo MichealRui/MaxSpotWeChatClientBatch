@@ -3,19 +3,25 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import OrderItem from '../../components/OrderItem/OrderItem';
-import PaySuccessData from './PaySuccessData';
+import { connect } from 'react-redux';
+import {initPaySuccess,initStart,initSuccess} from '../../actions/index'
 require('./index.css');
 
-export default class PaySuccess extends React.Component {
+class PaySuccess extends React.Component {
 	constructor(props){
 		super(props);
+	}
+	componentWillMount() {
+		console.log(this.props)
+		const { dispatch } = this.props;
+		dispatch(initPaySuccess());
 	}
 
 	render(){
 		// let props = this.props.orderDetail;
 		// props = CouponData;
-		let orderList = PaySuccessData.order;
-		console.log(orderList);
+		const { dispatch, itemInfo} = this.props;
+		const orderList = itemInfo.order
 		return (
 			<div className='PaySuccessContainer'>
 				<Header/>
@@ -30,3 +36,12 @@ export default class PaySuccess extends React.Component {
 		);
 	}
 }
+
+
+function select(state) {
+	return {
+		itemInfo: state
+	}
+}
+
+export default connect(select)(PaySuccess)

@@ -6,15 +6,18 @@ var PaySuccessData = {
 			goodsCode:200876517
 		},
 		{
-			shopId:2,
+			shopId:1,
 			machineAddress:'北京地铁一号线国贸站机器B',
-			goodsCode:200876213
+			goodsCode:2008768982
 		},
+
 		{
-			shopId:2,
-			machineAddress:'北京地铁一号线国贸站机器B',
-			goodsCode:200876214
+			shopId:1,
+			machineAddress:'北京地铁一号线国贸站机器A',
+			goodsCode:200876438
 		},
+
+
 	]
 };
 
