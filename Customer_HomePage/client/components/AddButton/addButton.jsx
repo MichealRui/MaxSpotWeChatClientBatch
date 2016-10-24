@@ -10,6 +10,13 @@ export default class AddButton extends React.Component {
     addClick() {
         // todo update cart
         console.log("add")
+        this.props.click(
+            {
+                storeId: this.props.store.id + '',
+                skuId: this.props.item.id + '',
+                count: '1'
+            }
+        )
     }
     
     render() {

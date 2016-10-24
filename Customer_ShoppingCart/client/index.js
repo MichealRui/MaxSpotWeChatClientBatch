@@ -46,16 +46,5 @@ function renderComponents(store) {
     );
 }
 
-if(!WeXinUtil.isInWeXin()) { //dev
-// if(WeXinUtil.isInWeXin()) { //prod
-    let code = WeXinUtil.setWeXinCode();
-    let store = activateVendor();
-    renderComponents(store)
-} else {
-    let alertStyle = {textAlign:'center'};
-    ReactDOM.render(
-        <div style={alertStyle}>请在微信端打开</div>,
-        document.getElementById('root')
-    );
-}
+renderComponents(activateVendor());
 

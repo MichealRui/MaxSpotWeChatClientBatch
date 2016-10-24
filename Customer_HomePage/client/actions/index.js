@@ -24,22 +24,58 @@ export const INIT_WX_CONFIG_ERR = 'INIT_WX_CONFIG_ERR';
 
 export  const JSSDK_INITED = 'JS_SDK_INIT';
 
-export function initWxConfig() {
+export const LOCATION_SUCC = 'LOCATION_SUCC';
+
+export const LOCATION_FAIL = 'LOCATION_FAIL';
+
+const domain = 'http://114.215.143.97';
+
+export function initWxConfig(url) {
     return (dispatch) => {
-        fetch('', // todo fetch wx config
+
+
+        fetch( domain + '/web/buyer_api/test_login_with_openid.ction ',
             {
+                // credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
-                Origin: '*',
+                origin: 'http://www.mjitech.com/',
+                body: JSON.stringify({openid: "123456"})
             }
-        ).then(response => response.json())
-            .then( json => {
-                if(json.is_succ) {
-                    dispatch(initWxConfigSucc(json.config))
-                } else {
-                    dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
+        ).then (
+            fetch( domain + '/web/buyer_api/get_jsapi_config_params.ction',
+                {
+                    method: 'POST',
+                    mode: 'cors',
+                    Origin: '*',
+                    body: JSON.stringify({url: url})
                 }
-            } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
+            ).then(response => response.json())
+                .then( json => {
+                    if(json.is_succ) {
+                        dispatch(initWxConfigSucc(json.params))
+                    } else {
+                        dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
+                    }
+                } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
+        );
+
+
+        // fetch('http://www.mjitech.com/web/buyer_api/get_jsapi_config_params.ction',
+        //     {
+        //         method: 'POST',
+        //         mode: 'cors',
+        //         Origin: '*',
+        //         body: JSON.stringify({url: url})
+        //     }
+        // ).then(response => response.json())
+        //     .then( json => {
+        //         if(json.is_succ) {
+        //             dispatch(initWxConfigSucc(json.config))
+        //         } else {
+        //             dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
+        //         }
+        //     } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
     }
 }
 
@@ -62,14 +98,47 @@ export function initSdk() {
     }
 }
 
-export function addToCart() {
+export function locationSucc(geo) {
+    let geoPara = {
+        url: domain + '/web/buyer_api/get_mainpage_data_by_geo.action',
+        para: Object.assign({}, {longitude: geo.longitude, latitude: geo.latitude})
+    };
     return (dispatch) => {
-        dispatch(startAddToCart())
-        fetch("",
+        dispatch(initSubContent(geoPara))
+    };
+}
+
+export function locationFail() {
+    let geoPara = {
+        url: domain + '/web/buyer_api/get_mainpage_data_by_geo.action',
+        para: {}
+    };
+    return (dispatch) => {
+        dispatch(initSubContent(geoPara))
+    };
+}
+
+export function initByStoreId(id) {
+    let idPara = {
+        url: domain + '/web/buyer_api/get_mainpage_data.action',
+        para: Object.assign({}, {storeId: id})
+    }
+    return (dispatch) => {
+        dispatch(initSubContent(idPara))
+    };
+}
+
+export function addToCart(item) {
+    return (dispatch) => {
+        // dispatch(startAddToCart())
+        fetch( domain + "/web/buyer_api/add_sku_to_cart.action ",
             {
                 method: 'POST',
                 mode: 'cors',
                 Origin: '*',
+                body: JSON.stringify(
+                    Object.assign({}, item)
+                )
             })
             .then(response => response.json())
             .then(json => {
@@ -83,7 +152,7 @@ export function addToCart() {
 }
 
 export function startAddToCart() {
-    
+
 }
 
 export function successAddToCart() {
@@ -100,94 +169,16 @@ export function clearCart() {
     }
 }
 
-export function initSubContent() {
-    
-//     let bannerdata = [
-//         {
-//             destUrl: "http://www.baidu.com",
-//             imagePath: "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg"
-//         },
-//         {
-//             destUrl: "http://www.baidu.com",
-//             imagePath: "https://ephemeralnewyork.files.wordpress.com/2010/08/broadway47thstreet2010.jpg"
-//         },
-//         {
-//             destUrl: "http://www.baidu.com",
-//             imagePath: "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg"
-//         },
-//         {
-//             destUrl: "http://www.baidu.com",
-//             imagePath: "https://ephemeralnewyork.files.wordpress.com/2010/08/broadway47thstreet2010.jpg"
-//         }
-//     ];
-//
-//     let selector = [
-//     {key: 'food', content: '食品', faIcon:'fa-empire'},
-//     {key: 'drink', content: '酒饮', faIcon:'fa-glass'},
-//     {key: 'makeup', content: '美妆', faIcon:'fa-tint'},
-//     {key: 'daily', content: '日用品', faIcon:'fa-umbrella'},
-//     {key: 'baby', content: '母婴', faIcon:'fa-deviantart'}
-// ];
-//
-//     let subContent =
-//     {
-//         'food':{
-//             banner:{
-//                 imgPath: 'http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg',
-//                 bannerDist: 'http://www.baidu.com'
-//             },
-//             freeItems: [
-//                 {}, {}, {}
-//             ],
-//             items: [
-//                 {},
-//                 {},
-//                 {},
-//                 {},
-//                 {}
-//                 ]
-//         },
-//
-//         'all':{
-//             banner:{
-//                 imgPath: 'http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg',
-//                 bannerDist: 'http://www.baidu.com'
-//             },
-//             freeItems: [
-//                 {}, {}, {}
-//             ],
-//             items: [
-//                 {},
-//                 {},
-//                 {}
-//             ]
-//         }
-//     };
-//
-//     let shoppingCart = {
-//         remainTime: '380',
-//         count: 5
-//     };
-//
-//     let data = {
-//         banner: bannerdata,
-//         selector: selector,
-//         subContent: subContent,
-//         cart: shoppingCart
-//     };
-//
-//     return (dispatch) => {
-//         dispatch(initSuccess(data))
-//     };
+export function initSubContent(d) {
     return (dispatch) =>  {
         dispatch(initStart());
-        fetch( 'http://www.mjitech.com/web/buyer_api/get_mainpage_data.action',
+        fetch( d.url,
             {
                 method: 'POST',
                 mode: 'cors',
                 Origin: '*',
                 body: JSON.stringify(
-                    Object.assign({}, {"storeId": "7"})
+                    d.para
                 )
             }
         ).then(response => response.json())
@@ -195,7 +186,8 @@ export function initSubContent() {
                 if(json.is_succ) {
                     dispatch(initSuccess({
                         banner: json.banners,
-                        content: json.categories
+                        content: json.categories,
+                        store: json.selectedStore
                     }))
                 } else {
                     dispatch(initFail())

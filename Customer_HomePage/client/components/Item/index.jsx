@@ -12,7 +12,7 @@ export default class Item extends React.Component {
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         return (
             <div className={"item "+sliderItem}>
-                <img src={'http://www.mjitech.com/' + props.imagePath} className='productImg' />
+                <img src={'http://www.mjitech.com' + props.imagePath} className='productImg' />
                 <span className='brandProductContainer'>
                     <p className={'productName font12'}>{props.brandName}</p>
                     <p className='productDesc font14'>{props.name}</p>

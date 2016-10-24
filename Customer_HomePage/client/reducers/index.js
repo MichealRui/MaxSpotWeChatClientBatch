@@ -41,9 +41,13 @@ let shoppingCart = {
 
 let wxConfig = {
     timestamp: '',
-        nonceStr: '',
-        signature: '',
-}
+        noncestr: '',
+        sign: '',
+};
+
+let storeInfo = {
+
+};
 
 let data = {
     banner: bannerdata,
@@ -51,6 +55,7 @@ let data = {
     subContent: subContent,
     currentSub: subContent['all'],
     cart: shoppingCart,
+    storeInfo: storeInfo,
     wxConfig:wxConfig
 };
 
@@ -106,7 +111,8 @@ function initSuccess(content, data){
         banner: data.banner,
         selector: selector,
         subContent: subContent,
-        currentSub: currentSub,//data.subContent['all'],
+        currentSub: currentSub,//data.subContent['all'],,
+        storeInfo: data.store,
         cart: cart
     })
 }

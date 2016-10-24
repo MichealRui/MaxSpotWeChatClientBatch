@@ -24,6 +24,7 @@ export const FETCH_ITEM_ERROR = 'FETCH_ITEM_ERROR';
 /* set Message content*/
 export const SET_MESSAGE = 'SET_MESSAGE';
 
+const domain = 'http://114.215.143.97';
 
 export function initShoppingCart() {
 
@@ -145,7 +146,7 @@ export function clearCart() {
 export function fetchItem(skuNumber) {
     return (dispatch) =>  {
         dispatch(fetchItemRequest(skuNumber));
-        fetch( 'http://www.mjitech.com/web/seller_api/wx_get_sku_detail.action',//'http://localhost:9000/fetchitem',
+        fetch( domain + '/web/seller_api/wx_get_sku_detail.action',//'http://localhost:9000/fetchitem',
                 {
                     method: 'POST',
                     mode: 'cors',

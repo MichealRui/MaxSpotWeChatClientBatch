@@ -9,7 +9,9 @@ import SelectContainer from '../SelectorContainer/selectorContainer';
 import SubContent from '../SubContent/subContent'
 import { initWxConfig, initSdk } from '../../actions/index'
 import { initSubContent, initStart, changeSubContent } from '../../actions/index'
-import { startAddToCart, clearCart } from '../../actions/index'
+import { startAddToCart, clearCart, addToCart } from '../../actions/index'
+import { locationSucc, locationFail, initByStoreId} from '../../actions/index';
+import util from '../../util/WeChatUtil'
 
 class PageContainer extends React.Component {
     constructor(props) {
@@ -18,27 +20,20 @@ class PageContainer extends React.Component {
 
     componentWillMount() {
         const { dispatch } = this.props;
-        dispatch(initWxConfig());
+        let storeId = util.getUrlParam().storeId;
+        storeId ? dispatch(initByStoreId(storeId)) : dispatch(initWxConfig(window.location.href));
     }
 
     componentDidUpdate() {
         const { dispatch } = this.props;
         let props = this.props.state;
         let config = props.wxConfig;
-
-        if(config.signature && !props.sdkInited) {
+        if(config.sign && !props.sdkInited) {
             if(this.initWx(config)) {
                 dispatch(initSdk());
-                let geo = this.getGeo();
-                if(geo) {
-                    dispatch(initStart());
-                    dispatch(initSubContent({ geo }));
-                } else {
-                    // redirect to switch shop page
-                }
+                this.getGeo(dispatch);
             }
         }
-
     }
 
     initWx(config) {
@@ -47,9 +42,9 @@ class PageContainer extends React.Component {
             wx.config({
                 debug: false,
                 appId: appId,
-                timestamp: config.timeStamp,
-                nonceStr: config.nonceStr,
-                signature: config.signature,
+                timestamp: config.timestamp,
+                nonceStr: config.noncestr,
+                signature: config.sign,
                 jsApiList: ["getLocation"]
             });
             return true;
@@ -59,7 +54,7 @@ class PageContainer extends React.Component {
 
     }
 
-    getGeo() {
+    getGeo(dispatch) {
         var geo;
         wx.ready(function(){
             wx.getLocation({  // wx api
@@ -75,13 +70,16 @@ class PageContainer extends React.Component {
                         speed,
                         accuracy
                     };
-                    return geo;
+                    dispatch(locationSucc(geo));
+                    return true
                 },
                 fail: function (res) {
-                    return geo;
+                    dispatch(locationFail());
+                    return false
                 },
                 cancel: function (res) {
-                    return geo
+                    dispatch(locationFail());
+                    return false
                 }
             });
         });
@@ -89,7 +87,6 @@ class PageContainer extends React.Component {
     
     render() {
         let props = this.props.state;
-        console.log(props);
         const { dispatch } = this.props;
         return (
             <div>
@@ -97,9 +94,12 @@ class PageContainer extends React.Component {
                 <BannerContainer bannerData={props.banner}/>
                 <SelectContainer selectorData={props.selector}
                                  onSelectClick={ key => dispatch(changeSubContent(key))}/>
-                <SubContent contentData={props.currentSub} />
+                <SubContent contentData={props.currentSub}
+                            storeData={props.storeInfo}
+                            addToCart={(item) => dispatch(addToCart(item))}
+                />
                 <BottomButton cart={props.cart}
-                              addToCart={(item) => dispatch(startAddToCart(item))}
+
                               clearCart={() => dispatch(clearCart())}/>
             </div>
         )
