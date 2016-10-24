@@ -7,7 +7,7 @@ import {INIT_START, INIT_SUCCESS, INIT_FAIL, SWITCH_SHOP_SUCCESS, SWITCH_SHOP_FA
 export function initShopList() {
     return (dispatch)=>{
         dispatch(initStart());
-        fetch('',{
+        fetch('http://www.mjitech.com/web/buyer_api/get_all_stores.action',{
             method:'POST',
             mode:'cors',
             Origin:'*'
@@ -15,7 +15,7 @@ export function initShopList() {
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    dispatch(initSuccess(json.shopList));
+                    dispatch(initSuccess(json));
                 }else {
                     dispatch(initFail());
                 }
@@ -57,7 +57,7 @@ export function switchShop(shop_id) {
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    dispatch(switchShopSuccess(json.shopName));
+                    dispatch(switchShopSuccess(json.name));
                 }else {
                     dispatch(switchShopFail());
                 }

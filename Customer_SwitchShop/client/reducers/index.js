@@ -3,7 +3,7 @@
  */
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, SWITCH_SHOP_SUCCESS, SWITCH_SHOP_FAIL} from '../constants/ActionTypes';
 
-const initState = {
+const initStates = {
     shopList:[
         {
             id:1,
@@ -12,6 +12,25 @@ const initState = {
             shopName:'',
             shopAddress:'',
             shopClass:''
+        }
+    ]
+};
+const initState = {
+    stores:[
+        {
+            address:"北京市朝阳区光华路9号光华路SOHO2期3Q一层",
+            city:1,
+            id:1,
+            latitude:1,
+            longitude:1,
+            manager:1,
+            name:"光华路SOHO2 3Q",
+            province:1,
+            region:1,
+            remarks:"",
+            status:1,
+            type:"store",
+            warehouse_parent:1
         }
     ]
 };

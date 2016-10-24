@@ -63,7 +63,7 @@ class SwitchShop extends Component {
 
 function mapStateToProps(state) {
 	return {
-		Shops: state.shopList
+		Shops: state.stores
 	}
 }
 

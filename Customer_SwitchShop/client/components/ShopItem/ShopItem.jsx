@@ -2,6 +2,7 @@
 
 require ('./index.css');
 import React from 'react';
+import shopImg from './images/shop.jpg'
 
 export default class ShopItem extends React.Component {
 	constructor(props){
@@ -12,10 +13,10 @@ export default class ShopItem extends React.Component {
 		let props = this.props;
 		return (
 			<div className='shopItem'>
-				<img src={props.shopImg} className='shopImg' />
+				<img src={shopImg} className='shopImg' />
 				<div className='infoArea'>
-					<h1 className='font16'>{props.shopName}</h1>
-					<p className='font12'>{props.shopAddress}</p>
+					<h1 className='font16'>{props.name}</h1>
+					<p className='font12'>{props.address}</p>
 					<p className='font12'>{props.shopClass}</p>
 				</div>
 				{/*<span className='fa fa-angle-right orderAddressArrow font24'></span>*/}
