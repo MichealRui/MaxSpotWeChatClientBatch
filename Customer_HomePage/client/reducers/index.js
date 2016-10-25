@@ -3,7 +3,7 @@
  */
 import { CHANGE_SUBCONTENT } from '../actions/index'
 import { INIT_START, INIT_SUCCESS, INIT_FAIL} from '../actions/index'
-import { CLEAR_CART } from '../actions/index'
+import { CLEAR_CART , SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
 import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../actions/index'
 
 let bannerdata = [
@@ -123,8 +123,10 @@ function initFail(content) {
     })
 }
 
-function addToCart() {
-    
+function succAddCart(content) {
+    let state = Object.assign({}, content)
+    state.cart.count += 1;
+    return state
 }
 
 function clearCart(content) {
@@ -158,6 +160,8 @@ export default function (
             return changeSubContent(content, action.key);
         case CLEAR_CART:
             return clearCart(content);
+        case SUCC_ADD_CART:
+            return succAddCart(content);
         case INIT_WX_CONFIG_SUCC:
             return initWxConfigSucc(content, action.config);
         case INIT_WX_CONFIG_ERR:

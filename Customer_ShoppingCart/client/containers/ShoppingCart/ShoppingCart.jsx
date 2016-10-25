@@ -39,7 +39,7 @@ class ShoppingCart extends React.Component {
                             } else {
                                 let specifiedMethods = {};
                                 for(let k in itemMethods) {
-                                    specifiedMethods[k] = itemMethods[k](sku.shopId)
+                                    specifiedMethods[k] = itemMethods[k](sku.id)
                                 }
                                 return (<ProductSection key={index}
                                                         itemMethod={specifiedMethods}
@@ -65,11 +65,13 @@ class ShoppingCart extends React.Component {
                     {/*<ProductEdit {...itemInfo} />*/}
                     {/*<Repurchase {...itemInfo} />*/}
 	            </div>
-                <BottomBar totalMoney={this.props.itemInfo.totalMoney}
-                           itemList={this.props.itemInfo.productList}
-                           remainTime={this.props.itemInfo.remainTime}
-                           clearCart={() => dispatch(clearCart())}
-                           onError={(message) => dispatch(setMessage(message))}
+                <BottomBar
+                    totalMoney={this.props.itemInfo.totalMoney}
+                    activateStore={this.props.activateShop}
+                    itemList={this.props.itemInfo.productList}
+                    remainTime={this.props.itemInfo.remainTime}
+                    clearCart={() => dispatch(clearCart())}
+                    onError={(message) => dispatch(setMessage(message))}
                 />
             </div>
         );

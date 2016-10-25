@@ -39,7 +39,7 @@ export default class ProductSection extends React.Component {
                     <label className={labelClassName} onClick={this.checkboxChange}>
                     </label>
                     <span className='machineAddress font14'>
-		              {itemInfo.machineAddress}
+		              {itemInfo.name}
 		            </span>
                     <span className='editButton font14 J_edit' onClick={this.editChange}>
                         {this.state.edit? '编辑': '完成'}

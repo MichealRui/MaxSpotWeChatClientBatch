@@ -14,6 +14,10 @@ export const INIT_FAIL = 'INIT_FAIL';
 
 export const ADDTO_CART = 'ADDTO_CART';
 
+export const SUCC_ADD_CART = 'SUCC_ADD_CART';
+
+export const FAIL_ADD_CART = 'FAIL_ADD_CART';
+
 export const CLEAR_CART = 'CLEAR_CART';
 
 export const INIT_WX_CONFIG = 'INIT_WX_CONFIG';
@@ -36,18 +40,19 @@ export function initWxConfig(url) {
 
         fetch( domain + '/web/buyer_api/test_login_with_openid.ction ',
             {
-                // credentials: 'include',
+                credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
-                origin: 'http://www.mjitech.com/',
+                Origin: 'http://114.215.143.97',
                 body: JSON.stringify({openid: "123456"})
             }
         ).then (
             fetch( domain + '/web/buyer_api/get_jsapi_config_params.ction',
                 {
+                    credentials: 'include',
                     method: 'POST',
                     mode: 'cors',
-                    Origin: '*',
+                    Origin: 'http://114.215.143.97',
                     body: JSON.stringify({url: url})
                 }
             ).then(response => response.json())
@@ -133,9 +138,10 @@ export function addToCart(item) {
         // dispatch(startAddToCart())
         fetch( domain + "/web/buyer_api/add_sku_to_cart.action ",
             {
+                credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
-                Origin: '*',
+                Origin: 'http://114.215.143.97',
                 body: JSON.stringify(
                     Object.assign({}, item)
                 )
@@ -156,11 +162,16 @@ export function startAddToCart() {
 }
 
 export function successAddToCart() {
-    
+    return {
+        type: SUCC_ADD_CART
+    }
 }
 
-export function errorAddToCart() {
-    
+export function errorAddToCart(errorMessage) {
+    return {
+        type: FAIL_ADD_CART,
+        errorMessage
+    }
 }
 
 export function clearCart() {

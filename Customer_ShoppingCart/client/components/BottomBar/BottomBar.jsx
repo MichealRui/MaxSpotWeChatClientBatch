@@ -17,7 +17,9 @@ export default class BottomBar extends React.Component{
                 count:item.count
             }
 		});
-		fetch('http://www.mjitech.com/web/seller_api/wx_add_order.action',
+		let stors = this.props.activateShop;
+		const domain = 'http://114.215.143.97';
+		fetch( domain + '/web/buyer_api/submit_cart.ction',
 			{
 				'method': 'POST',
 				'mode': 'cors',
@@ -33,6 +35,7 @@ export default class BottomBar extends React.Component{
 		).then(response => response.json())
 			.then(json => {
 				if(json.is_succ) {
+				    // window.location.href = 'http://www.mjitech.com/asdasd?ordernumber=' + json.order.orderNumber;
 				//	todo redirect to qrcode scan page
 				} else {
 					dispatchError(json.error_message)
@@ -49,10 +52,10 @@ export default class BottomBar extends React.Component{
 						<p className='totalMoney font12'>总金额：<em>{props.totalMoney || 0}</em><i>元</i></p>
 
 						<p className='remainTime font12'>
-                            <span>剩余时间：</span>
-                            <Counter remainTime={props.remainTime}
-                                     timeUpCallback={props.clearCart}
-                            />
+                            {/*<span>剩余时间：</span>*/}
+                            {/*<Counter remainTime={props.remainTime}*/}
+                                     {/*timeUpCallback={props.clearCart}*/}
+                            {/*/>*/}
 						</p>
 
 					</div>

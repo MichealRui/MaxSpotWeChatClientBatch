@@ -5,7 +5,7 @@
 import { INIT_ERROR, INIT_SUCCESS} from '../actions/actions'
 import { TOGGLE_SHOP } from '../actions/actions'
 import { CLEAR_CART } from '../actions/actions'
-import { ADD_ITEM, DELETE_ITEM, INCREMENT_COUNTER, DECREMENT_COUNTER} from '../actions/actions'
+import { ADD_ITEM, DELETE_ITEM, INCREMENT_COUNTER_SUCC, INCREMENT_COUNTER_FAIL, DECREMENT_COUNTER_SUCC, DECREMENT_COUNTER_FAIL} from '../actions/actions'
 import {FETCH_ITEM_REQUEST, FETCH_ITEM_RECEIVE, FETCH_ITEM_ERROR} from '../actions/actions'
 import { SET_MESSAGE } from '../actions/actions'
 
@@ -23,14 +23,14 @@ function calcuShopSum(itemInfo) {
                 product => product.count * product.sellprice
             ).reduce(
                 (previous, current, index, array) => previous + current
-            , 0)
+            , 0) / 100
     });
     return newItemInfo;
 }
 
 function calcuTotalSum(itemInfo) {
     return itemInfo.skus.filter(
-        sku => itemInfo.activateShop.indexOf(sku.shopId) != -1
+        sku => itemInfo.activateShop.indexOf(sku.id) != -1
     ).map(sku => sku.shopSum).reduce((pre, next) => pre + next, 0);
 }
 
@@ -78,7 +78,7 @@ function addItem(itemInfo, newItem) {
 function deleteItem(itemInfo, item, shopId) {
     let newItemList = Object.assign({},itemInfo);
     newItemList.skus.map(sku => {
-        if(sku.shopId == shopId){
+        if(sku.id == shopId){
             let list = sku.productList;
             sku.productList = list.filter(it=>it.skuNumber!=item.skuNumber);
         }
@@ -89,7 +89,7 @@ function deleteItem(itemInfo, item, shopId) {
 function changeCount(itemInfo, skuNumber, shopId, operation) {
     let newItemList = Object.assign({}, itemInfo);
     newItemList.skus.map(sku => {
-        if(sku.shopId == shopId) {
+        if(sku.id == shopId) {
             let list = sku.productList;
             sku.productList = list.map(
                 (item) => item.skuNumber==skuNumber ? operation(item):item
@@ -109,6 +109,10 @@ function increaseCount(itemInfo, item, shopId) {
         })
 }
 
+function failIncrementCount(itemInfo, item, shopId, errorMessage) {
+    return Object.assign({}, itemInfo, {errorMessage: errorMessage})
+}
+
 function decreaseCount (itemInfo, item, shopId) {
     let LastOne = 1;
     if(item.count <= LastOne) {
@@ -119,6 +123,10 @@ function decreaseCount (itemInfo, item, shopId) {
             i.count --;
             return i;
         });
+}
+
+function decreaseCountFail(itemInfo, item, shopId, errorMessage) {
+    return Object.assign({}, itemInfo, {errorMessage: errorMessage})
 }
 
 function fetchItemRequest(itemInfo, skuId) {
@@ -139,7 +147,7 @@ function setMessage(itemInfo, message) {
 }
 
 function initSuccess(itemInfo) {
-    itemInfo.activateShop = itemInfo.skus.map(sku => sku.shopId);
+    itemInfo.activateShop = itemInfo.skus.map(sku => sku.id);
     return finalState(itemInfo)
 }
 
@@ -167,10 +175,14 @@ function clearCart(itemInfo) {
             return addItem(itemInfo, action.item);
         case DELETE_ITEM:
             return deleteItem(itemInfo, action.item, action.shopId);
-        case INCREMENT_COUNTER:
+        case INCREMENT_COUNTER_SUCC:
             return increaseCount(itemInfo, action.item, action.shopId);
-        case DECREMENT_COUNTER:
+        case INCREMENT_COUNTER_FAIL:
+            return failIncrementCount(itemInfo, action.item, action.shopId, action.errorMessage);
+        case DECREMENT_COUNTER_SUCC:
             return decreaseCount(itemInfo, action.item, action.shopId);
+        case DECREMENT_COUNTER_FAIL:
+            return decreaseCountFail(itemInfo, action.item, action.shopId, action.errorMessage);
         case FETCH_ITEM_REQUEST:
             return fetchItemRequest(itemInfo, action.skuId);
         case FETCH_ITEM_RECEIVE:
