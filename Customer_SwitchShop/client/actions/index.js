@@ -5,9 +5,10 @@ import fetch from 'isomorphic-fetch';
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, SWITCH_SHOP_SUCCESS, SWITCH_SHOP_FAIL} from '../constants/ActionTypes';
 
 export function initShopList() {
+    const domain = 'http://114.215.143.97';
     return (dispatch)=>{
         dispatch(initStart());
-        fetch('http://www.mjitech.com/web/buyer_api/get_all_stores.action',{
+        fetch( domain + '/web/buyer_api/get_all_stores.action',{
             method:'POST',
             mode:'cors',
             Origin:'*'
