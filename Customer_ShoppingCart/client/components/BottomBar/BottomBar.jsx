@@ -11,12 +11,12 @@ export default class BottomBar extends React.Component{
 	createOrderClick() {
 		let itemList = this.props.itemList;
 		let dispatchError = this.props.onError;
-		let cart = itemList.map((item) => {
-            return {
-                sku_id:item.id,
-                count:item.count
-            }
-		});
+		// let cart = itemList.map((item) => {
+         //    return {
+         //        sku_id:item.id,
+         //        count:item.count
+         //    }
+		// });
 		let stors = this.props.activateShop;
 		const domain = 'http://114.215.143.97';
 		fetch( domain + '/web/buyer_api/submit_cart.ction',
@@ -27,8 +27,7 @@ export default class BottomBar extends React.Component{
 				"Origin": "*",
 				body: JSON.stringify(
 					{
-						cart: cart,
-						open_id: '123456'
+						storeId: '7'
 					}
 				)
 			}
@@ -37,6 +36,7 @@ export default class BottomBar extends React.Component{
 				if(json.is_succ) {
 				    // window.location.href = 'http://www.mjitech.com/asdasd?ordernumber=' + json.order.orderNumber;
 				//	todo redirect to qrcode scan page
+					console.log(json)
 				} else {
 					dispatchError(json.error_message)
 				}
