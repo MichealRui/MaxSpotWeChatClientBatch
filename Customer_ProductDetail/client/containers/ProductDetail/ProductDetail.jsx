@@ -29,14 +29,14 @@ class ProductDetail extends React.Component {
 		return(
 			<div className='productDetailContainer'>
 				<div className='area'></div>
-				<ProductDetailTitle productStore={productDetail.productStore} productName={productDetail.productName} productInfo={productDetail.productInfo}/>
-				<ProductSlider productImgs={productDetail.productImgs}/>
-				<AddIntoCart productCost={productDetail.productCost} productCount={productDetail.productCount} addIntoCartClick={()=>{actions.addIntoCart(product_id)}}/>
+				<ProductDetailTitle productStore={productDetail.brandName} productName={productDetail.name} productInfo={productDetail.productInfo}/>
+				<ProductSlider productImgs={productDetail.imagePath}/>
+				<AddIntoCart productCost={productDetail.sellprice} productCount={productDetail.quantity} addIntoCartClick={()=>{actions.addIntoCart(product_id)}}/>
 				<p className='storeInfo font12'>{ProductDetailData.storeInfo}</p>
 				<div className='storeIntroWrap'>
-					<StoreIntro storeImg={productDetail.storeImg} storeName={productDetail.storeName} storeIntro={productDetail.storeIntro}/>
+					<StoreIntro storeImg={ProductDetailData.storeImg} storeName={ProductDetailData.storeName} storeIntro={ProductDetailData.storeIntro}/>
 				</div>
-				<ProductComment productComment={productDetail.productComment}/>
+				{/*<ProductComment productComment={productDetail.productComment}/>*/}
 			</div>
 		);
 	}

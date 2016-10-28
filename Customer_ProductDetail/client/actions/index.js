@@ -4,15 +4,18 @@
 import fetch from 'isomorphic-fetch';
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CART_FAIL} from '../contants/ActionTypes';
 
+const domain = 'http://114.215.143.97/';
+
 export function initProductDetail(product_id) {
     return (dispatch)=>{
         dispatch(initStart());
-        fetch('',{
+        fetch( domain + '/web/buyer_api/sku_detail.ction',{
             method:'POST',
             mode:'cors',
             Origin:'*',
             body:JSON.stringify({
-                productId:product_id
+                sku_number: 'UF000578',
+                storeId: '7'
             })
         })
             .then(response=>response.json())

@@ -17,9 +17,9 @@ export default class BottomBar extends React.Component{
          //        count:item.count
          //    }
 		// });
-		let stors = this.props.activateShop;
+		let stores = this.props.activateStore;
 		const domain = 'http://114.215.143.97';
-		fetch( domain + '/web/buyer_api/submit_cart.ction',
+		fetch( domain + '/web/buyer_api/submit_carts.ction',
 			{
 				'method': 'POST',
 				'mode': 'cors',
@@ -27,7 +27,7 @@ export default class BottomBar extends React.Component{
 				"Origin": "*",
 				body: JSON.stringify(
 					{
-						storeId: '7'
+						storeIds: stores
 					}
 				)
 			}

@@ -66,10 +66,10 @@ class ShoppingCart extends React.Component {
                     {/*<Repurchase {...itemInfo} />*/}
 	            </div>
                 <BottomBar
-                    totalMoney={this.props.itemInfo.totalMoney}
-                    activateStore={this.props.activateShop}
-                    itemList={this.props.itemInfo.productList}
-                    remainTime={this.props.itemInfo.remainTime}
+                    totalMoney={itemInfo.totalMoney}
+                    activateStore={itemInfo.activateShop}
+                    itemList={itemInfo.productList}
+                    remainTime={itemInfo.remainTime}
                     clearCart={() => dispatch(clearCart())}
                     onError={(message) => dispatch(setMessage(message))}
                 />

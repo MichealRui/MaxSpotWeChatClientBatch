@@ -49,6 +49,52 @@ const initState = {
     }
 };
 
+const mock = {
+        "maxStock":0,
+        "countryName":"中国大陆",
+        "uniqueNumber":573,
+        "imagePath":["http://114.215.143.97/static/sku/0/0/578/1474368794745.jpg"],
+        "parentCategory":0,
+        "remarks":"",
+        "brandName":"多力多滋",
+        "id":578,
+        "categoryName":"休闲零食",
+        "safeStock":0,
+        "imageId":437,
+        "height":0,
+        "msrp":0,
+        "name":"多力多滋超浓芝士味玉米片",
+        "length":0,
+        "quantity":3,
+        "sellprice":1160,
+        "tags":"",
+        "publishTime":"Tue Sep 20 18:53:22 CST 2016",
+        "status":2,
+        "width":0,
+        "barcode":"4710543613501",
+        "country":1,
+        "expirationDays":0,
+        "unit":"",
+        "category":6,
+        "minStock":0,
+        "skuNumber":"UF000578",
+        "brand":272,
+        "attributes":[
+        {
+            "unit":"",
+            "name":"口味",
+            "value":"芝士"
+        },
+        {
+            "unit":"g",
+            "name":"净含量",
+            "value":"65"
+        }
+    ],
+        "shortName":"芝士味玉米片"
+};
+
+
 function initStart(state) {
     return Object.assign({},state);
 }
@@ -69,7 +115,7 @@ function addIntoCartFail(state) {
     return Object.assign({},state, {errorMessage:'add into cart fail'});
 }
 
-export default function productDetail(state=initState, action) {
+export default function productDetail(state=mock, action) {
     switch (action.type){
         case INIT_START:
             return initStart(state);
