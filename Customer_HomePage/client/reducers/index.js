@@ -5,6 +5,7 @@ import { CHANGE_SUBCONTENT } from '../actions/index'
 import { INIT_START, INIT_SUCCESS, INIT_FAIL} from '../actions/index'
 import { CLEAR_CART , SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
 import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../actions/index'
+import { INIT_CART_SUCC, INIT_CART_FAIL } from '../actions/index'
 
 let bannerdata = [
     {
@@ -103,17 +104,17 @@ function initSuccess(content, data){
         subContent = Object.assign({}, subContent, content)
     }
     let currentSub = data.content.filter(cat =>cat.id == 0).pop(); // find 'all'
-    let cart = {
-        remainTime: '380',
-        count: 5
-    };
+    // let cart = {
+    //     remainTime: '380',
+    //     count: 5
+    // };
     return Object.assign({}, content, {
         banner: data.banner,
         selector: selector,
         subContent: subContent,
         currentSub: currentSub,//data.subContent['all'],,
         storeInfo: data.store,
-        cart: cart
+        // cart: cart
     })
 }
 
@@ -147,6 +148,14 @@ function JSSDKInited(content) {
     return Object.assign({}, content, {sdkInited: true})
 }
 
+function initCartSucc(content, cart) {
+    return Object.assign({}, content, {cart: {count: cart.count}})
+}
+
+function initCartFail(content, message) {
+    return Object.assign({}, content, {errorMessage: message.errorMessage})
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
@@ -168,6 +177,10 @@ export default function (
             return initWxConfigErr(content);
         case JSSDK_INITED:
             return JSSDKInited(content);
+        case INIT_CART_SUCC:
+            return initCartSucc(content, action.cart);
+        case INIT_CART_FAIL:
+            return initCartFail(content, action.message)
         default:
             return content;
     }

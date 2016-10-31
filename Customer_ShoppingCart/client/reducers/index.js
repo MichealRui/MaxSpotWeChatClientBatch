@@ -146,9 +146,10 @@ function setMessage(itemInfo, message) {
     return Object.assign({}, itemInfo, {alertMessage: message})
 }
 
-function initSuccess(itemInfo) {
-    itemInfo.activateShop = itemInfo.skus.map(sku => sku.id);
-    return finalState(itemInfo)
+function initSuccess(state, itemInfo) {
+    let info = {skus: itemInfo};
+    info.activateShop = info.skus.map(sku => sku.id);
+    return finalState(info)
 }
 
 function toggleShop(itemInfo, shopId) {
@@ -166,7 +167,7 @@ function clearCart(itemInfo) {
  export default function (itemInfo = {skus:[], activateShop:[1], remainTime: ''}, action){
     switch(action.type){
         case INIT_SUCCESS:
-            return initSuccess(action.skus);
+            return initSuccess(itemInfo, action.skus);
         case TOGGLE_SHOP:
             return toggleShop(itemInfo, action.shopId);
         case CLEAR_CART:

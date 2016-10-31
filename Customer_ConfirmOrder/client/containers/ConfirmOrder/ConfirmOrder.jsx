@@ -5,7 +5,7 @@ import { connect }  from 'react-redux';
 import Button from '../../components/Button/Button';
 import AccountDisplay from '../../components/AccountDisplay/AccountDisplay';
 import TotalProducts from '../TotalProducts/TotalProducts';
-import { initPageContent, initSdk} from '../../actions/index'
+import { initPageContent, initSdk, initWXConfig} from '../../actions/index'
 import wx from 'weixin-js-sdk';
 require('./index.css');
 
@@ -17,25 +17,37 @@ class ConfirmOrder extends React.Component {
     componentWillMount() {
         //init page content
         const { dispatch } = this.props;
-        dispatch(initPageContent());
+        dispatch(initWXConfig());
+        // dispatch(initPageContent());
 	}
 
     componentDidUpdate() {
         const { dispatch } = this.props;
         let props = this.props.state;
-        let config = props.wxConfig;
+        let config = props.authConfig;
+        if(config.sign && !props.sdkInited) {
+            if(this.initWx(config)) {
+                dispatch(initSdk());
+            }
+        }
+    }
+
+    initWx(config) {
         let appId = 'wx4da5ecd6305e620a';
-        if(config.signature && !props.sdkInited) {
+        try {
             wx.config({
                 debug: false,
                 appId: appId,
-                timestamp: config.timeStamp,
-                nonceStr: config.nonceStr,
-                signature: config.signature,
+                timestamp: config.timestamp,
+                nonceStr: config.noncestr,
+                signature: config.sign,
                 jsApiList: ["chooseWXPay"]
             });
-            dispatch(initSdk())
+            return true;
+        } catch (e) {
+            return false
         }
+
     }
 
     payOrder() {
@@ -44,7 +56,7 @@ class ConfirmOrder extends React.Component {
             wx.chooseWXPay({
                 timestamp: config.timeStamp,
                 nonceStr: config.nonceStr,
-                package: "prepay_id=" + config.prepayId,
+                package: config.packageProperty,
                 signType: "MD5",
                 paySign: config.paySign,
                 success: function(r){
@@ -65,7 +77,7 @@ class ConfirmOrder extends React.Component {
 	render(){
         let props = this.props.state.orderInfo;
 
-        let productItems = props.productItems.map(
+        let productItems = props.childOrders.map(
             (productItem, index) =>
                 <TotalProducts key={index} productItem={productItem}/>
         );

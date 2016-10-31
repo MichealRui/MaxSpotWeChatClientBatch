@@ -21,10 +21,10 @@ export default class BottomBar extends React.Component{
 		const domain = 'http://114.215.143.97';
 		fetch( domain + '/web/buyer_api/submit_carts.ction',
 			{
-				'method': 'POST',
-				'mode': 'cors',
-				'cache': 'default',
-				"Origin": "*",
+				credentials: 'include',
+				method: 'POST',
+				mode: 'cors',
+				cache: 'default',
 				body: JSON.stringify(
 					{
 						storeIds: stores

@@ -94,95 +94,95 @@ export function initShoppingCart() {
     //     logo:'./client/components/TopBar/images/MaxSpot.png',
     //
     // };
-
-    let shoppingCartData = {
-        "skus":[
-            {
-                "region":5,
-                "manager":3,
-                "warehouse_parent":1,
-                "status":1,
-                "productList":[
-                    {
-                        "maxStock":0,
-                        "countryName":"中国大陆",
-                        "uniqueNumber":573,
-                        "count":2,
-                        "imagePath":"/static/sku/0/0/578/1474368794745.jpg",
-                        "parentCategory":0,
-                        "remarks":"",
-                        "brandName":"多力多滋",
-                        "id":578,
-                        "categoryName":"休闲零食",
-                        "safeStock":0,
-                        "imageId":437,
-                        "height":0,
-                        "msrp":0,
-                        "name":"多力多滋超浓芝士味玉米片",
-                        "length":0,
-                        "quantity":3,
-                        "sellprice":1160,
-                        "tags":"",
-                        "publishTime":"Tue Sep 20 18:53:22 CST 2016",
-                        "status":2,
-                        "width":0,
-                        "barcode":"4710543613501",
-                        "country":1,
-                        "expirationDays":0,
-                        "unit":"",
-                        "category":6,
-                        "minStock":0,
-                        "skuNumber":"UF000578",
-                        "brand":272,
-                        "attributes":[
-                            {
-                                "unit":"",
-                                "name":"口味",
-                                "value":"芝士"
-                            },
-                            {
-                                "unit":"g",
-                                "name":"净含量",
-                                "value":"65"
-                            }
-                        ],
-                        "shortName":"芝士味玉米片"
-                    }
-                ],
-                "remarks":"",
-                "type":"store",
-                "city":9691,
-                "id":7,
-                "address":"北京市朝阳区光华路9号光华路SOHO2期3Q一层",
-                "name":"光华路SOHO2 3Q",
-                "province":2,
-                "longitude":1,
-                "latitude":1
-            }
-        ],
-        "is_succ":true
-    }
-    return (dispatch) => {
-        dispatch(initSuccess(shoppingCartData))
-    };
-
-    // return (dispatch) => {
-    //     fetch( domain + '/web/buyer_api/get_cart.ction',
+    //
+    // let shoppingCartData = {
+    //     "skus":[
     //         {
-    //             method: 'POST',
-    //             mode: 'cors',
-    //             Origin: '*',
+    //             "region":5,
+    //             "manager":3,
+    //             "warehouse_parent":1,
+    //             "status":1,
+    //             "productList":[
+    //                 {
+    //                     "maxStock":0,
+    //                     "countryName":"中国大陆",
+    //                     "uniqueNumber":573,
+    //                     "count":2,
+    //                     "imagePath":"/static/sku/0/0/578/1474368794745.jpg",
+    //                     "parentCategory":0,
+    //                     "remarks":"",
+    //                     "brandName":"多力多滋",
+    //                     "id":578,
+    //                     "categoryName":"休闲零食",
+    //                     "safeStock":0,
+    //                     "imageId":437,
+    //                     "height":0,
+    //                     "msrp":0,
+    //                     "name":"多力多滋超浓芝士味玉米片",
+    //                     "length":0,
+    //                     "quantity":3,
+    //                     "sellprice":1160,
+    //                     "tags":"",
+    //                     "publishTime":"Tue Sep 20 18:53:22 CST 2016",
+    //                     "status":2,
+    //                     "width":0,
+    //                     "barcode":"4710543613501",
+    //                     "country":1,
+    //                     "expirationDays":0,
+    //                     "unit":"",
+    //                     "category":6,
+    //                     "minStock":0,
+    //                     "skuNumber":"UF000578",
+    //                     "brand":272,
+    //                     "attributes":[
+    //                         {
+    //                             "unit":"",
+    //                             "name":"口味",
+    //                             "value":"芝士"
+    //                         },
+    //                         {
+    //                             "unit":"g",
+    //                             "name":"净含量",
+    //                             "value":"65"
+    //                         }
+    //                     ],
+    //                     "shortName":"芝士味玉米片"
+    //                 }
+    //             ],
+    //             "remarks":"",
+    //             "type":"store",
+    //             "city":9691,
+    //             "id":7,
+    //             "address":"北京市朝阳区光华路9号光华路SOHO2期3Q一层",
+    //             "name":"光华路SOHO2 3Q",
+    //             "province":2,
+    //             "longitude":1,
+    //             "latitude":1
     //         }
-    //     ).then(response => response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 dispatch(initSuccess(json.skus))
-    //             } else {
-    //                 dispatch(setMessage(json.error_message))
-    //                 dispatch(initError())
-    //             }
-    //         })
+    //     ],
+    //     "is_succ":true
     // }
+    // return (dispatch) => {
+    //     dispatch(initSuccess(shoppingCartData))
+    // };
+
+    return (dispatch) => {
+        fetch( domain + '/web/buyer_api/get_cart.ction',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(initSuccess(json.skus))
+                } else {
+                    dispatch(setMessage(json.error_message))
+                    dispatch(initError())
+                }
+            })
+    }
 }
 
 export function initSuccess(skus) {
@@ -216,9 +216,9 @@ export function fetchItem(skuNumber) {
         dispatch(fetchItemRequest(skuNumber));
         fetch( domain + '/web/seller_api/wx_get_sku_detail.action',//'http://localhost:9000/fetchitem',
                 {
+                    credentials: 'include',
                     method: 'POST',
                     mode: 'cors',
-                    Origin: '*',
                     body: JSON.stringify({
                         open_id: '123456',
                         sku_number: skuNumber,
@@ -290,13 +290,13 @@ export function deleteItem(shopId, item) {
 export function increment(shopId, item){
     return (dispatch) => {
         fetch( domain + '/web/buyer_api/add_sku_to_cart.action', {
+            credentials: 'include',
             method: 'POST',
             mode: 'cors',
-            Origin: '*',
             body: JSON.stringify({
                 storeId: '' + shopId,
                 skuId: '' + item.id,
-                count: "1"
+                count: item.count + 1 + ''
             })
         }).then(response => response.json())
             .then(json => {
@@ -326,15 +326,14 @@ function failIncrement(shopId, item, error) {
     }
 }
 
-
 /*导出减一的方法*/
 export function decrement(shopId, item){
 
     return (dispatch) => {
         fetch( domain + '/web/buyer_api/remove_sku_from_cart.action', {
+            credentials: 'include',
             method: 'POST',
             mode: 'cors',
-            Origin: '*',
             body: JSON.stringify({
                 storeId: '' + shopId,
                 skuId: '' + item.id,

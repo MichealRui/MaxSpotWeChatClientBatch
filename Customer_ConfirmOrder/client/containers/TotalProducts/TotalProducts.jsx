@@ -14,7 +14,7 @@ export default class TotalProducts extends React.Component {
 
 	render(){
 		let props = this.props.productItem;
-        let productInfoItems = props.orderDetailProductList ? props.orderDetailProductList.map(
+        let productInfoItems = props.skus ? props.skus.map(
             (product, index) =>
                 <ProductInfo key={index} product={product}/>
         ) : '';

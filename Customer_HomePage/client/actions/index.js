@@ -32,6 +32,10 @@ export const LOCATION_SUCC = 'LOCATION_SUCC';
 
 export const LOCATION_FAIL = 'LOCATION_FAIL';
 
+export const INIT_CART_SUCC = 'INIT_CART_SUCC';
+
+export const INIT_CART_FAIL = 'INIT_CART_FAIL';
+
 const domain = 'http://114.215.143.97';
 
 export function initWxConfig(url) {
@@ -44,7 +48,7 @@ export function initWxConfig(url) {
                 method: 'POST',
                 mode: 'cors',
                 Origin: 'http://114.215.143.97',
-                body: JSON.stringify({openid: "123456"})
+                body: JSON.stringify({openid: "o41Mgv7HMpgc16ViZCsVkeodDmjM"})
             }
         ).then (
             fetch( domain + '/web/buyer_api/get_jsapi_config_params.ction',
@@ -58,6 +62,7 @@ export function initWxConfig(url) {
             ).then(response => response.json())
                 .then( json => {
                     if(json.is_succ) {
+                        dispatch(initCart());
                         dispatch(initWxConfigSucc(json.params))
                     } else {
                         dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
@@ -81,6 +86,44 @@ export function initWxConfig(url) {
         //             dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
         //         }
         //     } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
+    }
+}
+
+export function initCart() {
+    return (dispatch) => {
+        fetch( domain + '/web/buyer_api/get_cart.ction',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    let count = json.skus[0].productList.map(
+                        prod => parseInt(prod.count)
+                    ).reduce(
+                        (previous, current, index, array) => previous + current, 0
+                    );
+                    dispatch(initCartSucc({count: count}))
+                } else {
+                    dispatch(initCartFail({errorMessage: json.error_message}))
+                }
+            }).catch(e => dispatch(initCartFail({errorMessage: '服务器异常'})))
+    }
+}
+
+export function initCartSucc(cart) {
+    return {
+        type: INIT_CART_SUCC,
+        cart
+    }
+}
+
+export function initCartFail(message) {
+    return {
+        type: INIT_CART_FAIL,
+        message
     }
 }
 
