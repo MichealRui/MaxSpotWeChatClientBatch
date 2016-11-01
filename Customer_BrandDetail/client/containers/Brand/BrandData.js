@@ -28,14 +28,38 @@ var BrandData = {
                 'brand':'Jingle Bells',
                 'name':'超级好吃的饼干60g',
                 'sub':'净含量：40g 颜色：橙色',
-                'money':'90'
+                'money':'80'
             },
+            {
+                'image':itemimage,
+                'brand':'Jingle Bells1',
+                'name':'超级好吃的饼干100g',
+                'sub':'净含量：10g 颜色：白色',
+                'money':'100'
+            }
 
 
+        ],
+        [
+            {
+                'image':itemimage,
+                'brand':'Jingle Bells',
+                'name':'超级好吃的饼干60g',
+                'sub':'净含量：40g 颜色：橙色',
+                'money':'80'
+            },
+            {
+                'image':itemimage,
+                'brand':'Jingle Bells1',
+                'name':'超级好吃的饼干100g',
+                'sub':'净含量：10g 颜色：白色',
+                'money':'100'
+            }
         ]
 
 
     ],
+    'total':0
 };
 
 export default BrandData;

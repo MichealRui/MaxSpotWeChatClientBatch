@@ -9,18 +9,19 @@ export default class BrandItem extends React.Component {
 	}
 	render(){
 		let props = this.props;
-		console.log(11);
-		console.log(props);
+		const item = props.iteminfo;
+		const {addCount} = props.itemMethod;
+		console.log(addCount);
 		return (
 			<div className="iteminfo">
-				<img src="./a.png" />
+				<img src={item.image} />
 				<div>
-					<div className="font20">Jingle Bells</div>
-					<div className="">超级好吃的饼干超级好吃的饼干超级好吃的饼干</div>
-					<div className="font16">净含量：40g 颜色：橙色</div>
+					<div>{item.brand}</div>
+					<div className="">{item.name}</div>
+					<div >{item.sub}</div>
 				</div>
-				<div className="money fl">80<span>元</span></div>
-				<div className="plus fr">+</div>
+				<div className="money fl">{item.money}<span>元</span></div>
+				<div className="plus fr" onClick={(item)=>addCount(item)}>+</div>
 			</div>
 		);
 

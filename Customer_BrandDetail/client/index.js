@@ -6,8 +6,29 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 require('./index.css');
 import Brand from './containers/Brand/Brand';
+import reducers from './reducers/index'
 
-ReactDOM.render(
-      <Brand></Brand>,
-  document.getElementById('root')
-);
+
+function activateVender() {
+    const loggerMiddleware = createLogger();
+    const store = createStore(
+        reducers,
+        applyMiddleware(
+            thunkMiddleware,
+            loggerMiddleware
+        )
+    )
+    return store;
+}
+
+function renderComponents(store) {
+    ReactDOM.render(
+        <Provider store={store}>
+            <Brand></Brand>
+        </Provider>,
+        document.getElementById('root')
+    );
+}
+
+let store = activateVender();
+renderComponents(store);

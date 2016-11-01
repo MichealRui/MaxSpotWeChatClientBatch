@@ -1,13 +1,13 @@
 li{
     /*padding: 40px;*/
-    height: 520px;
+    /*height: 7.223rem;*/
     width: 100%;
     padding-bottom: 0;
 }
 .iteminfo{
-    margin: 20px;
+    margin: 0.2778rem;
     height: 100%;
-    width: 45%;
+    width: 42%;
     border: 1px solid #d9d9d9;
     background: #fff;
     display: inline-block;
@@ -16,7 +16,7 @@ li{
     text-align: center;
 }
 .iteminfo>img{
-    margin: 75px 0 ;
+    margin: 1.041rem 0 ;
 }
 .iteminfo div{
     /*display: inline-block;*/
@@ -25,38 +25,44 @@ li{
 }
 .iteminfo>div{
     text-align: left;
-    margin: 0 40px;
+    margin: 0 0.5rem;
 }
 .iteminfo>div>div{
     white-space: nowrap;
     -o-text-overflow:ellipsis;
     text-overflow: ellipsis;
 }
+.iteminfo>div>div:nth-child(1){
+    font-size: 0.2778rem;
+}
+.iteminfo>div>div:nth-child(3){
+    font-size: 0.222rem;
+}
 .iteminfo>div>div:nth-child(2){
-    font-size: 26px;
-    line-height: 36px;
+    font-size: 0.361rem;
+    line-height: 0.5rem;
 }
 .iteminfo>div>div:last-child{
     color: #8d8d8d;
 }
 .iteminfo .money{
-    line-height: 98px;
+    line-height: 1.361rem;
     color: #45beee;
-    font-size:26px;
+    font-size:0.361rem;
     /*display: inline-block;*/
 }
 .iteminfo>.money>span{
-    font-size: 20px;
+    font-size: 0.2778rem;
 }
 .iteminfo>.plus{
     color: #fff;
     background: #fa7c73;
     border:1px solid #fa7c73;
-    width: 62px;
-    height: 62px;
+    width: 0.861rem;
+    height: 0.861rem;
     border-radius: 31px 31px 0 31px;
-    font-size: 50px;
+    font-size: 0.694rem;
     text-align: center;
-    line-height: 58px;
-    margin-top: 14px;
+    line-height: 0.806rem;
+    margin-top: 0.194rem;
 }

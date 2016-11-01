@@ -2,34 +2,48 @@
 
 import React from 'react';
 import BrandInfo from '../../components/BrandInfo/BrandInfo';
-import header from '../../components/header/header';
-import BrandData from './BrandData';
+import Header from '../../components/header/header';
+import Timer from '../../components/timer/timer';
+import { connect } from 'react-redux';
+import {initBrand,initStart,initSuccess,initFail,addCount} from '../../actions/index'
 require('./index.css');
 
-export default class Brand extends React.Component {
+class BrandContainer extends React.Component {
 	constructor(props){
 		super(props);
 	}
-
+	componentWillMount(){
+		const {dispatch} = this.props;
+		dispatch(initBrand());
+	}
 	render(){
-		let props = this.props;
-		console.log(props);
-		console.log(BrandData);
-		return (
+		const{dispatch,itemInfo} = this.props;
+		const itemMethod = {
+			addCount:item=>dispatch(addCount(item),)
+		}
+		return(
 			<div className='brandContainer'>
-				<header iteminfo={BrandData}/>
-				<div className="storeinfo"><p>{BrandData.intro}</p></div>
+				<Header iteminfo={itemInfo}/>
+				<div className="storeinfo"><p>{itemInfo.intro}</p></div>
 				<ul>
 					{
-						BrandData.info.map(
+						itemInfo.info.map(
 							(item,index)=>{
-								return <BrandInfo key={index} {...item} />
+								return <BrandInfo key={index} iteminfo={item} itemMethod={itemMethod}/>
 							}
 						)
 					}
 				</ul>
+				<Timer iteminfo={itemInfo}></Timer>
 			</div>
-
-		);
+		)
 	}
 }
+
+function select(state) {
+	return {
+		itemInfo:state
+	}
+}
+
+export default connect(select)(BrandContainer)
