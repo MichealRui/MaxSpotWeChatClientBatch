@@ -1,0 +1,44 @@
+.homeheader{
+    position: relative;
+    background: #fff;
+    /*padding: 40px;*/
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+.homeheader img{
+    width: 122px;
+    height: 130px;
+    border: 1px solid #000;
+    vertical-align: middle;
+    margin: 40px;
+}
+
+.homeheader .name{
+    /*margin: 40px;*/
+    margin-left: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+.homeheader .name>p:first-child{
+    font-size: 30px;
+}
+.homeheader .name>p:last-child{
+    font-size: 20px;
+    line-height: 38px;
+}
+.homeheader .button{
+    display: inline-block;
+    width: 220px;
+    /*height: 70px;*/
+    border-radius: 25px;
+    border: 1px solid #fa7c73;
+    background: #fa7c73;
+    color: #fff;
+    text-align: center;
+    /*display: table-cell;*/
+    line-height: 70px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-left: 25% ;
+}
