@@ -18,7 +18,8 @@ var ItemContainer = React.createClass({
             return <Item item={item} key={index} isSliderItem={false}>
                 <AddButton item={item}
                            click={this.props.itemClick}
-                           store={this.props.store}/>
+                           store={this.props.store}
+                />
             </Item>
         });
         return (

@@ -192,7 +192,7 @@ export function addToCart(item) {
             .then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    dispatch(successAddToCart())
+                    dispatch(successAddToCart(item))
                 } else {
                     dispatch(errorAddToCart({errorMessage: json.error_message}))
                 }
@@ -204,7 +204,7 @@ export function startAddToCart() {
 
 }
 
-export function successAddToCart() {
+export function successAddToCart(item) {
     return {
         type: SUCC_ADD_CART
     }

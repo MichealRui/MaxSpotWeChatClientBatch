@@ -20,7 +20,7 @@ class PageContainer extends React.Component {
 
     componentWillMount() {
         const { dispatch } = this.props;
-        let storeId = util.getUrlParam().storeId;
+        let storeId = util.getUrlParam().storeid;
         storeId ? dispatch(initByStoreId(storeId)) : dispatch(initWxConfig(window.location.href));
     }
 
@@ -84,7 +84,33 @@ class PageContainer extends React.Component {
             });
         });
     }
-    
+
+    addCart(item) {
+        let {state, dispatch} = this.props;
+        let itemId = item.skuId;
+        // let newItem = state.cart.items.map((i, index) => {
+        //     let it = Object.assign({}, item)
+        //     if(i.id == itemId) {
+        //         it.count = parseInt(it.count) + 1 + '';
+        //     }
+        //     return it
+        // }).shift() || item;
+
+        let target = state.cart.items.find((i) => {
+            return i.id == itemId
+        });
+        if (target) {
+            target.count = parseInt(target.count) + 1 + ''
+            dispatch(addToCart({
+                storeId: this.props.state.storeInfo.id + '',
+                skuId: target.id + '',
+                count: target.count
+            }))
+        } else {
+            dispatch(addToCart(item))
+        }
+    }
+
     render() {
         let props = this.props.state;
         const { dispatch } = this.props;
@@ -93,13 +119,14 @@ class PageContainer extends React.Component {
                 <HomeHeader />
                 <BannerContainer bannerData={props.banner}/>
                 <SelectContainer selectorData={props.selector}
-                                 onSelectClick={ key => dispatch(changeSubContent(key))}/>
-                <SubContent contentData={props.currentSub}
-                            storeData={props.storeInfo}
-                            addToCart={(item) => dispatch(addToCart(item))}
+                                 onSelectClick={ key => dispatch(changeSubContent(key))}
+                />
+                <SubContent
+                    contentData={props.currentSub}
+                    storeData={props.storeInfo}
+                    addToCart={(item) => dispatch(addToCart(item))}
                 />
                 <BottomButton cart={props.cart}
-
                               clearCart={() => dispatch(clearCart())}/>
             </div>
         )

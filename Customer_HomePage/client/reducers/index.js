@@ -37,7 +37,7 @@ let subContent =
 };
 let shoppingCart = {
     remainTime: '',
-    count: 0
+    items:[]
 };
 
 let wxConfig = {
@@ -124,13 +124,13 @@ function initFail(content) {
     })
 }
 
-function succAddCart(content) {
+function succAddCart(content, ) {
     let state = Object.assign({}, content)
     state.cart.count += 1;
     return state
 }
 
-function clearCart(content) {
+function clearCart(content, cart) {
     return Object.assign({}, content, {
         cart: {count:0, remainTime:''}
     })
@@ -170,7 +170,7 @@ export default function (
         case CLEAR_CART:
             return clearCart(content);
         case SUCC_ADD_CART:
-            return succAddCart(content);
+            return succAddCart(content, action.item);
         case INIT_WX_CONFIG_SUCC:
             return initWxConfigSucc(content, action.config);
         case INIT_WX_CONFIG_ERR:

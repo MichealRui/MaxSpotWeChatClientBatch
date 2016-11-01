@@ -11,6 +11,7 @@ import AddIntoCart from '../../components/AddIntoCart/AddIntoCart';
 import StoreIntro from '../../components/StoreIntro/StoreIntro';
 import ProductComment from '../../components/ProductComment/ProductComment';
 import ProductDetailData from './ProductDetailData';
+import Util from '../../util/WeChatUtil'
 require('./index.css');
 
 class ProductDetail extends React.Component {
@@ -20,21 +21,34 @@ class ProductDetail extends React.Component {
 
 	componentWillMount(){
 	    const {actions} = this.props;
-        actions.initProductDetail(window.product_id);
+        let param = Util.getUrlParam();
+        let storeId = param.storeid;
+        let skuNumber = param.skunumber;
+        actions.initProductDetail(skuNumber, storeId);
     }
 
 	render(){
 		let {productDetail, actions} = this.props;
-        let product_id = window.product_id;
 		return(
 			<div className='productDetailContainer'>
 				<div className='area'></div>
-				<ProductDetailTitle productStore={productDetail.brandName} productName={productDetail.name} productInfo={productDetail.productInfo}/>
+				<ProductDetailTitle
+                    productStore={productDetail.brandName}
+                    productName={productDetail.name}
+                    productInfo={productDetail.productInfo}
+                />
 				<ProductSlider productImgs={productDetail.imagePath}/>
-				<AddIntoCart productCost={productDetail.sellprice} productCount={productDetail.quantity} addIntoCartClick={()=>{actions.addIntoCart(product_id)}}/>
+				<AddIntoCart
+                    productCost={productDetail.sellprice}
+                    productCount={productDetail.quantity}
+                    addIntoCartClick={()=>{actions.addIntoCart(productDetail.id, productDetail.storeId)}}
+                />
 				<p className='storeInfo font12'>{ProductDetailData.storeInfo}</p>
 				<div className='storeIntroWrap'>
-					<StoreIntro storeImg={ProductDetailData.storeImg} storeName={ProductDetailData.storeName} storeIntro={ProductDetailData.storeIntro}/>
+					<StoreIntro
+                        storeImg={ProductDetailData.storeImg}
+                        storeName={ProductDetailData.storeName}
+                        storeIntro={ProductDetailData.storeIntro}/>
 				</div>
 				{/*<ProductComment productComment={productDetail.productComment}/>*/}
 			</div>

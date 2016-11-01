@@ -6,22 +6,26 @@ import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CAR
 
 const domain = 'http://114.215.143.97/';
 
-export function initProductDetail(product_id) {
+export function initProductDetail(skuNumber, storeId) {
     return (dispatch)=>{
         dispatch(initStart());
         fetch( domain + '/web/buyer_api/sku_detail.ction',{
             method:'POST',
             mode:'cors',
-            Origin:'*',
+            credentials: 'include',
             body:JSON.stringify({
-                sku_number: 'UF000578',
-                storeId: '7'
+                sku_number: skuNumber,//'UF000578',
+                storeId: storeId
             })
         })
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    dispatch(initSuccess(json.productDetail));
+                    dispatch(
+                        initSuccess(
+                            Object.assign({}, json.productDetail, {storeId: storeId })
+                        )
+                    );
                 }else {
                     dispatch(initFail());
                 }
@@ -50,17 +54,16 @@ export function initFail() {
     };
 }
 
-export function addIntoCart(product_id) {
+export function addIntoCart(item) {
     return (dispatch)=>{
-        fetch('',{
+        fetch(domain + "/web/buyer_api/add_sku_to_cart.action ",{
             method:'POST',
             mode:'cors',
-            Origin:'*',
-            body:JSON.stringify({
-                productId:product_id
-            })
-        })
-            .then(response=>response.json())
+            credentials: 'include',
+            body:JSON.stringify(
+                Object.assign({}, item)
+            )
+        }).then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
                     dispatch(addIntoCartSuccess(json.productName));
