@@ -24,7 +24,7 @@ function activateVender() {
 function renderComponents(store) {
     ReactDOM.render(
         <Provider store={store}>
-            <Brand></Brand>
+            <Brand/>
         </Provider>,
         document.getElementById('root')
     );

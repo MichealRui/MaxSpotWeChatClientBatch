@@ -4,6 +4,8 @@
 'use strict';
 import {INIT_START,INIT_SUCCESS,INIT_FAIL} from '../actions/index'
 import {ADD_COUNT} from '../actions/index'
+import {CART_SUCC, CART_FAIL} from '../actions/index'
+
 const defaultState = {
     'logo':'',
     'name':'',
@@ -34,6 +36,8 @@ export default function (itemInfo = defaultState,action) {
             return initSucc(itemInfo, action.cont);
         case ADD_COUNT:
             return addCount(itemInfo);
+        case CART_SUCC:
+            return
         default:
             return itemInfo;
     }

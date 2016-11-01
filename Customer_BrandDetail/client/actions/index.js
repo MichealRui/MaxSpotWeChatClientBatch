@@ -13,10 +13,38 @@ export const INIT_FAIL = 'INIT_FAIL';
 
 export const ADD_COUNT = 'ADD_COUNT';
 
+export const ADD_COUNT_SUCC = 'ADD_COUNT_SUCC';
+
+export const ADD_COUNT_FAIL = 'ADD_COUNT_FAIL';
+
+export const CART_SUCC = 'CART_SUCC';
+
+export const CART_FAIL = 'CART_FAIL';
+
 export function initBrand() {
     return (dispatch)=>{
+        //todo fetch
         dispatch(initSuccess(BrandData))
     };
+}
+
+export function initCart() {
+    return (dispatch)=>{
+        //todo fetch
+        dispatch(initCartSucc())
+    };
+}
+
+export function initCartFail() {
+    return {
+        type: CART_FAIL
+    }
+}
+
+export function initCartSucc() {
+    return {
+        type: CART_Succ
+    }
 }
 
 export function initStart() {
@@ -38,11 +66,11 @@ export function initFail() {
     }
 }
 
-
 export function addCount() {
-    return {
-        type:ADD_COUNT,
-    }
+    return (dispatch)=>{
+        //todo fetch
+        dispatch(initSuccess(BrandData))
+    };
 }
 
 
