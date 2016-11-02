@@ -4,7 +4,7 @@
 import fetch from 'isomorphic-fetch';
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CART_FAIL} from '../contants/ActionTypes';
 
-const domain = 'http://114.215.143.97/';
+const domain = ENV.domain;
 
 export function initProductDetail(skuNumber, storeId) {
     return (dispatch)=>{

@@ -41,7 +41,14 @@ class ProductDetail extends React.Component {
 				<AddIntoCart
                     productCost={productDetail.sellprice}
                     productCount={productDetail.quantity}
-                    addIntoCartClick={()=>{actions.addIntoCart(productDetail.id, productDetail.storeId)}}
+                    addIntoCartClick={
+                        ()=>{actions.addIntoCart(
+                            {
+                                skuId: productDetail.id + '',
+                                storeId: productDetail.storeId + '',
+                                count: '1'
+                            }
+                        )}}
                 />
 				<p className='storeInfo font12'>{ProductDetailData.storeInfo}</p>
 				<div className='storeIntroWrap'>
