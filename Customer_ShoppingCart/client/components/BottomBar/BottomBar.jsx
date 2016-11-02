@@ -3,6 +3,7 @@ import React from 'react';
 import fetch from 'isomorphic-fetch';
 import Counter from '../Counter/Counter';
 require('./index.css');
+
 export default class BottomBar extends React.Component{
 	constructor(props){
 		super(props);
@@ -18,7 +19,7 @@ export default class BottomBar extends React.Component{
          //    }
 		// });
 		let stores = this.props.activateStore;
-		const domain = 'http://114.215.143.97';
+		const domain = ENV.domain;
 		fetch( domain + '/web/buyer_api/submit_carts.ction',
 			{
 				credentials: 'include',

@@ -36,11 +36,10 @@ export const INIT_CART_SUCC = 'INIT_CART_SUCC';
 
 export const INIT_CART_FAIL = 'INIT_CART_FAIL';
 
-const domain = 'http://114.215.143.97';
+const domain = ENV.domain;//'http://114.215.143.97';
 
 export function initWxConfig(url) {
     return (dispatch) => {
-
 
         fetch( domain + '/web/buyer_api/test_login_with_openid.ction ',
             {
@@ -100,11 +99,12 @@ export function initCart() {
         ).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    let count = json.skus[0].productList.map(
+                    let count = json.skus.length ? json.skus[0].productList.map(
                         prod => parseInt(prod.count)
                     ).reduce(
                         (previous, current, index, array) => previous + current, 0
-                    );
+                    ) : 0;
+                    console.log(count)
                     dispatch(initCartSucc({count: count}))
                 } else {
                     dispatch(initCartFail({errorMessage: json.error_message}))

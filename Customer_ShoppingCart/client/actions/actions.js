@@ -28,7 +28,7 @@ export const FETCH_ITEM_ERROR = 'FETCH_ITEM_ERROR';
 /* set Message content*/
 export const SET_MESSAGE = 'SET_MESSAGE';
 
-const domain = 'http://114.215.143.97';
+const domain = ENV.domain;
 
 export function initShoppingCart() {
 
@@ -348,7 +348,6 @@ export function decrement(shopId, item){
                 }
             }).catch( e => dispatch(failDecrement(shopId, item, '服务器异常')))
     };
-
 }
 
 function succDecrement(shopId, item) {
