@@ -28,10 +28,9 @@ function initSucc(itemInfos, item) {
     return Object.assign({},itemInfos, item);
 }
 
-
 function changeLike(itemInfo) {
     let newItem = Object.assign({},itemInfo);
-    newItem.header.like = newItem.header.like ? false : true;
+    newItem.header.like = !newItem.header.like;
     return finalState(newItem);
 }
 
