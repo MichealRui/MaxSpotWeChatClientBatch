@@ -11,12 +11,13 @@ export default class BrandInfo extends React.Component {
 	render(){
 		let props = this.props;
 		const iteminfo = props.iteminfo;
+		const brandId = props.brandId;
 		return (
 			<li className="clearfix">
 				{
 					Object.keys(iteminfo).map(
 						(index)=>{
-							return <BrandItem key={index} iteminfo={iteminfo[index]} itemMethod={props.itemMethod}/>
+							return <BrandItem key={index} brandId={brandId} iteminfo={iteminfo[index]} itemClick={this.props.addToCart}/>
 						}
 					)
 				}

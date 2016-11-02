@@ -7,13 +7,14 @@ li{
 .iteminfo{
     margin: 0.2778rem;
     height: 100%;
-    width: 42%;
+    width: 45%;
     border: 1px solid #d9d9d9;
     background: #fff;
     display: inline-block;
     float: left;
     overflow: hidden;
     text-align: center;
+    margin-bottom: 0;
 }
 .iteminfo>img{
     margin: 1.041rem 0 ;
@@ -40,7 +41,7 @@ li{
 }
 .iteminfo>div>div:nth-child(2){
     font-size: 0.361rem;
-    line-height: 0.5rem;
+    line-height: 0.6666rem;
 }
 .iteminfo>div>div:last-child{
     color: #8d8d8d;
@@ -48,7 +49,7 @@ li{
 .iteminfo .money{
     line-height: 1.361rem;
     color: #45beee;
-    font-size:0.361rem;
+    font-size:0.417rem;
     /*display: inline-block;*/
 }
 .iteminfo>.money>span{

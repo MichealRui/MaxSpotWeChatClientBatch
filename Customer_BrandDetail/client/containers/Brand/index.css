@@ -12,3 +12,6 @@
     line-height: 0.4167rem;
     margin: 0.556rem;
 }
+ul>li:last-child{
+    margin-bottom: 0.2778rem;;
+}

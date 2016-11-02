@@ -20,7 +20,7 @@ function initSucc(itemInfos, item) {
     return Object.assign({},itemInfos, item);
 }
 
-function initCartSucc(itemInfo,item){
+function addCartSucc(itemInfo){
     let state = Object.assign({}, itemInfo);
     state.total += 1;
     return state
@@ -54,7 +54,7 @@ export default function (itemInfo = defaultState,action) {
         case ERROR_ADD_CART:
             return initCartFail(itemInfo,action.message);
         case SUCCESS_ADD_CART:
-            return addCartSucc(itemInfo,action.item);
+            return addCartSucc(itemInfo);
         case INIT_CART_SUCC:
             return initCartSucc(itemInfo,action.cart)
         case INIT_CART_FAIL:

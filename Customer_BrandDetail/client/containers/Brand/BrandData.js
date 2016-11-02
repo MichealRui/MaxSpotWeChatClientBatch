@@ -1,5 +1,7 @@
+'use static';
 import itemimage from '../../components/header/images/a.png';
 var BrandData = {
+    'id':1,
     'logo':itemimage,
     'name':'不二家',
     'follows':'3080',
@@ -7,6 +9,7 @@ var BrandData = {
     'info':[
         [
             {
+                'id':1,
                 'image':itemimage,
                 'brand':'Jingle Bells',
                 'name':'超级好吃的饼干60g',
@@ -14,6 +17,7 @@ var BrandData = {
                 'money':'80'
             },
             {
+                'id':2,
                 'image':itemimage,
                 'brand':'Jingle Bells1',
                 'name':'超级好吃的饼干100g',
@@ -24,6 +28,7 @@ var BrandData = {
         ],
         [
             {
+                'id':3,
                 'image':itemimage,
                 'brand':'Jingle Bells',
                 'name':'超级好吃的饼干60g',
@@ -31,6 +36,7 @@ var BrandData = {
                 'money':'80'
             },
             {
+                'id':4,
                 'image':itemimage,
                 'brand':'Jingle Bells1',
                 'name':'超级好吃的饼干100g',

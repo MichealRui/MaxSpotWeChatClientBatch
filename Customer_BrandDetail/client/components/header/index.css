@@ -1,3 +1,11 @@
+.homeheader>ul>li{
+    float: left;
+    width: 30%;
+}
+
+.homeheader>ul>li:nth-child(2){
+    width: 40%;
+}
 .homeheader{
     position: relative;
     background: #fff;
@@ -17,28 +25,34 @@
     display: inline-block;
     vertical-align: middle;
     text-align: left;
+    margin: 25% 0;
     margin-right: 0.556rem;
-
-
 }
 .homeheader .name>p:first-child{
     font-size: 0.4167rem;
+    max-width: 3.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .homeheader .name>p:last-child{
     line-height: 0.528rem;
     font-size: 0.2778rem;
+    max-width: 3.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .homeheader .button{
     display: inline-block;
-    width: 3.0556rem;
+    width: 2.5rem;
     /*height: 70px;*/
     border-radius: 25px;
     border: 1px solid #fa7c73;
     background: #fa7c73;
     color: #fff;
     text-align: center;
-    /*display: table-cell;*/
     line-height: 40px;
     overflow: hidden;
-    vertical-align: middle;
+    margin: 25% 0;
 }

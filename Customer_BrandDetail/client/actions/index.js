@@ -135,11 +135,11 @@ export function addToCart(item) {
                     Object.assign({},item)
                 )
             }
-        ).then(response=>reponse.json())
+        ).then(response=>response.json())
             .then(
                 json=>{
                     if(json.is_succ){
-                        dispatch(successAddCart(item))
+                        dispatch(successAddCart())
                     }else{
                         dispatch(errorAddCart({errorMessage:json.errorMessage}))
                     }
@@ -148,10 +148,10 @@ export function addToCart(item) {
     };
 }
 
-function successAddCart(item) {
+function successAddCart() {
     return {
-        type:SUCCESS_ADD_CART,
-        item
+        type:SUCCESS_ADD_CART
+
     }
 }
 

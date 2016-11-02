@@ -18,9 +18,6 @@ class BrandContainer extends React.Component {
 	}
 	render(){
 		const{dispatch,itemInfo} = this.props;
-		const itemMethod = {
-			addToCart:item=>dispatch(addToCart())
-		}
 		return(
 			<div className='brandContainer'>
 				<Header iteminfo={itemInfo}/>
@@ -29,7 +26,7 @@ class BrandContainer extends React.Component {
 					{
 						itemInfo.info.map(
 							(item,index)=>{
-								return <BrandInfo key={index} iteminfo={item} itemMethod={itemMethod}/>
+								return <BrandInfo key={index} brandId={itemInfo.id} iteminfo={item} addToCart={(items) => dispatch(addToCart(items))}/>
 							}
 						)
 					}
