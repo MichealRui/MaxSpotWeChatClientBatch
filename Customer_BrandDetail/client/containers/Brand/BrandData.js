@@ -59,7 +59,6 @@ var BrandData = {
 
 
     ],
-    'total':0
 };
 
 export default BrandData;

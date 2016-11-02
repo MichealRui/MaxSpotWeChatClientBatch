@@ -5,7 +5,7 @@ import BrandInfo from '../../components/BrandInfo/BrandInfo';
 import Header from '../../components/header/header';
 import Timer from '../../components/timer/timer';
 import { connect } from 'react-redux';
-import {initBrand,initStart,initSuccess,initFail,addCount} from '../../actions/index'
+import {initBrand,initStart,initSuccess,initFail,addToCart} from '../../actions/index'
 require('./index.css');
 
 class BrandContainer extends React.Component {
@@ -19,7 +19,7 @@ class BrandContainer extends React.Component {
 	render(){
 		const{dispatch,itemInfo} = this.props;
 		const itemMethod = {
-			addCount:item=>dispatch(addCount(item),)
+			addToCart:item=>dispatch(addToCart())
 		}
 		return(
 			<div className='brandContainer'>

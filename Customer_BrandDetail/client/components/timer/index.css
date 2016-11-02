@@ -1,10 +1,10 @@
 .timer{
-    width: 2.375rem;
+    width: 1.5rem;
     height: 1.5rem;
     color: #fff;
     background: #fa7c73;
     border:1px solid #fa7c73;
-    border-radius: 20px 20px 0 20px;
+    border-radius: 1.5rem 1.5rem 0 1.5rem;
     position: fixed;
     right:0.5rem;
     bottom: 1rem;
@@ -17,7 +17,7 @@
     height: 0.681rem;
     position: absolute;
     background-size: 100% 100%;
-    top:0.4rem;
+    top:0.45rem;
     left: 0.4rem;
 }
 .timer .number{
@@ -34,6 +34,7 @@
     line-height: 0.3333rem;
 }
 .timer .lasttime{
+    display:none;
     font-size: 0.2222rem;
     position: absolute;
     top:40%;
