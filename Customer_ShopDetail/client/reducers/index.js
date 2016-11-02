@@ -22,7 +22,7 @@ const defaultState = {
         shopTime:"",
         telephone:"",
     }
-}
+};
 
 function initSucc(itemInfos, item) {
     return Object.assign({},itemInfos, item);
