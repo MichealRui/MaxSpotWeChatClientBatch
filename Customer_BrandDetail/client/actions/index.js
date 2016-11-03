@@ -34,13 +34,22 @@ export function initBrand() {
                 credentials:'include',
                 method:'POST',
                 mode:'cors',
-                Origin:'http://114.215.143.97',
                 body:JSON.stringify({openid:"o41Mgv7HMpgc16ViZCsVkeodDmjM"})
             }
         ).then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-
+                    fetch(domain + '/web/buyer_api/brand_detail.ction',
+                    {
+                        credentials:'include',
+                        method:'POST',
+                        mode:'cors',
+                    }).then((response)=>response.json()).then(
+                        json=>{
+                            console.log(2323);
+                            console.log(json);
+                        }
+                    )
                     dispatch(initSuccess(BrandData))
                     dispatch(initCart())
                 }else{
@@ -123,6 +132,8 @@ export function initFail(message) {
 }
 
 export function addToCart(item) {
+    console.log(11);
+    console.log(item);
     return (dispatch)=>{
         //todo fetch
         fetch(domain + '/web/buyer_api/add_sku_to_cart.action',
@@ -135,11 +146,11 @@ export function addToCart(item) {
                     Object.assign({},item)
                 )
             }
-        ).then(response=>reponse.json())
+        ).then(response=>response.json())
             .then(
                 json=>{
                     if(json.is_succ){
-                        dispatch(successAddCart(item))
+                        dispatch(successAddCart())
                     }else{
                         dispatch(errorAddCart({errorMessage:json.errorMessage}))
                     }
@@ -148,10 +159,10 @@ export function addToCart(item) {
     };
 }
 
-function successAddCart(item) {
+function successAddCart() {
     return {
         type:SUCCESS_ADD_CART,
-        item
+
     }
 }
 

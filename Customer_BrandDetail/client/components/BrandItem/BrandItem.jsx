@@ -2,7 +2,7 @@
 
 require('./index.css');
 import React from 'react';
-
+import AddCart from '../AddCart/AddCart'
 export default class BrandItem extends React.Component {
 	constructor(props){
 		super(props);
@@ -10,18 +10,17 @@ export default class BrandItem extends React.Component {
 	render(){
 		let props = this.props;
 		const item = props.iteminfo;
-		const {addToCart} = props.itemMethod;
 		return (
-			<div className="iteminfo">
-				<img src={item.image} />
-				<div>
-					<div>{item.brand}</div>
-					<div className="">{item.name}</div>
-					<div >{item.sub}</div>
+			<li>
+				<div className="brandItem">
+					<div className="img"><img src={item.image}/></div>
+					<p className="font12">{item.brand}</p>
+					<p className="font14">{item.name}</p>
+					<p className="font10">{item.sub}</p>
+					<div className="price font18">{item.money}<span className="font10">元</span></div>
+					<AddCart itemInfo={item} itemClick={this.props.addToCart}/>
 				</div>
-				<div className="money fl">{item.money}<span>元</span></div>
-				<div className="plus fr" onClick={()=>addToCart()}>+</div>
-			</div>
+			</li>
 		);
 
 	}

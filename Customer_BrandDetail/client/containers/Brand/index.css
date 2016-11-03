@@ -2,13 +2,39 @@
     width: 100%;
 }
 .storeinfo{
-    background: #fff;
-    width: 100%;
-    /*padding: 45px 40px;*/
+    padding: 0.555556rem;
+    background-color: #fff;
+}
+.storeinfo p{
+    line-height: 16px;
+    color: #666666;
+}
+.iteminfo{
+    padding: 0.138889rem;
+    padding-bottom: 0;
+}
+.iteminfo ul>li{
+    margin-right: 0.138889rem;
+    margin-bottom: 0.138889rem;
+    width: 49.1%;
+    float: left;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 0.013889rem solid #d9d9d9;
+    background-color:#fff;
+    padding: 0 0.277778rem 0.277778rem 0.416667rem;
     overflow: hidden;
 }
-.storeinfo>p{
-    font-size: 0.2778rem;
-    line-height: 0.4167rem;
-    margin: 0.556rem;
+.iteminfo ul>li:nth-child(2n){
+    margin-right: 0;
+}
+.button{
+    background-color: #fa7c73;
+    border:1px solid #fa7c73;
+
+    text-align: center;
+    height: 25px;
+    display: inline-block;
+    color: #fff;
+    line-height: 24px;
 }

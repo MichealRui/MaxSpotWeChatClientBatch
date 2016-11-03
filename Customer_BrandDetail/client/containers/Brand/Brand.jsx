@@ -1,7 +1,7 @@
 'use static';
 
 import React from 'react';
-import BrandInfo from '../../components/BrandInfo/BrandInfo';
+import BrandItem from '../../components/BrandItem/BrandItem';
 import Header from '../../components/header/header';
 import Timer from '../../components/timer/timer';
 import { connect } from 'react-redux';
@@ -18,22 +18,21 @@ class BrandContainer extends React.Component {
 	}
 	render(){
 		const{dispatch,itemInfo} = this.props;
-		const itemMethod = {
-			addToCart:item=>dispatch(addToCart())
-		}
 		return(
 			<div className='brandContainer'>
 				<Header iteminfo={itemInfo}/>
-				<div className="storeinfo"><p>{itemInfo.intro}</p></div>
-				<ul>
-					{
-						itemInfo.info.map(
-							(item,index)=>{
-								return <BrandInfo key={index} iteminfo={item} itemMethod={itemMethod}/>
-							}
-						)
-					}
-				</ul>
+				<div className="storeinfo"><p class="font12">{itemInfo.intro}</p></div>
+				<div className="iteminfo">
+					<ul>
+						{
+							itemInfo.info.map(
+								(item,index)=>{
+									return <BrandItem key={index} iteminfo={item} addToCart={(item) => dispatch(addToCart(item))}/>
+								}
+							)
+						}
+					</ul>
+				</div>
 				<Timer iteminfo={itemInfo}></Timer>
 			</div>
 		)

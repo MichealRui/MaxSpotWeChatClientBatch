@@ -1,25 +1,51 @@
-.homeheader{
-    position: relative;
-    background: #fff;
-    /*padding: 40px;*/
-    width: 100%;
+.header,.info{
+    padding: 0.555556rem;
+    background-color: #fff;
+}
+.info p{
+    line-height: 16px;
+    color: #666666;
+}
+
+.header{
+    padding-bottom: 0;
     border-bottom: 1px solid #ccc;
 }
-.homeheader img{
-    width: 1.695rem;
-    height: 1.806rem;
-    vertical-align: middle;
-    margin: 0.556rem;
+
+.header .title span{
+    height: 100%;
+    width: 30%;
+    float: left;
+    display: inline-block;
+}
+.header .title span img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
 }
 
-.homeheader .name{
-    /*margin: 40px;*/
-    display: inline-block;
-    vertical-align: middle;
-    text-align: left;
-    margin-right: 0.556rem;
 
+.header .title span:nth-child(1){
+    margin-right: 0.555556rem;
+    margin-bottom: 0.555556rem;
+    width: 25%;
+}
 
+.header .title span:nth-child(2){
+    width: 40%;
+    margin: 8% 0;
+    margin-right: 0.138889rem;
+}
+.header .title span:nth-child(2) p:last-child{
+    color: #666666;
+    line-height: 20px;
+}
+.header .title .button{
+    width: 26%;
+    border-radius: 25px;
+    margin: 8% 0;
+    line-height: 34px;
 }
 .homeheader .name>p:first-child{
     font-size: 0.4167rem;
@@ -28,17 +54,4 @@
     line-height: 0.528rem;
     font-size: 0.2778rem;
 }
-.homeheader .button{
-    display: inline-block;
-    width: 3.0556rem;
-    /*height: 70px;*/
-    border-radius: 25px;
-    border: 1px solid #fa7c73;
-    background: #fa7c73;
-    color: #fff;
-    text-align: center;
-    /*display: table-cell;*/
-    line-height: 40px;
-    overflow: hidden;
-    vertical-align: middle;
-}
+
