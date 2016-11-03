@@ -22,37 +22,28 @@ class SwitchShop extends Component {
 		let {Shops, actions} = this.props;
 		let currentShop = [];
 		let otherShop = [];
-		Shops.map((shop, index)=>{
-		    let shop_id = shop.id;
-			if(shop.current){
-				currentShop.push(<ShopItem key={index} {...shop} onClick={()=>actions.switchShop(shop_id)}/>);
-			}else {
-				otherShop.push(<li><ShopItem key={index} {...shop} onClick={()=>actions.switchShop(shop_id)}/></li>);
-			}
-		});
+		currentShop = Shops.current.map((shop, index)=> {
+            return <ShopItem key={index} {...shop} onClick={()=>actions.switchShop(shop.id)}/>;
+        });
+        otherShop = Shops.others.map((shop, index) => {
+            return (
+                <li key={index}>
+                    <ShopItem  {...shop} onClick={()=>actions.switchShop(shop.id)}/>
+                </li>
+            );
+        });
 		return (
-			// <div className='shopContainer'>
-			// 	<div className="currentShop">
-			// 		<h1 className='current font16'>当前站点：</h1>
-			// 		{currentShop}
-			// 	</div>
-			// 	<div className="otherShop">
-			// 		<h1 className='other font16'>去其他站点购买：</h1>
-			// 		<ul>
-			// 			{otherShop}
-			// 		</ul>
-			// 	</div>
-			// </div>
 			<div className='shopContainer'>
-				{/*<div className="currentShop">*/}
-					{/*<h1 className='current font16'>怪兽家站点：</h1>*/}
-					{/*{currentShop}*/}
-					{/*{otherShop}*/}
-				{/*</div>*/}
+                {
+                    currentShop.length ? (<div className="currentShop">
+                        <h1 className='current font16'>当前站点：</h1>
+                        {currentShop}
+                    </div>) : ''
+                }
+
 				<div className="otherShop">
-					<h1 className='other font16'>怪兽家站点：</h1>
+					<h1 className='other font16'>去其他站点购买：</h1>
 					<ul>
-						{currentShop}
 						{otherShop}
 					</ul>
 				</div>
@@ -63,7 +54,7 @@ class SwitchShop extends Component {
 
 function mapStateToProps(state) {
 	return {
-		Shops: state.stores
+		Shops: state
 	}
 }
 

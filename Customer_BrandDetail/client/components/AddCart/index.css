@@ -8,3 +8,6 @@ img{
     width: 1.695rem;
     height: 1.806rem;
 }
+li .iteminfo:first-child{
+    margin-right: 0;
+}

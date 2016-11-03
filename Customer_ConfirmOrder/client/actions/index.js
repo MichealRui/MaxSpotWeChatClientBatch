@@ -17,7 +17,7 @@ export const INIT_WX_CONFIG_ERR = 'INIT_WX_CONFIG_ERR';
 
 export const INIT_WX_CONFIG_SUCC = 'INIT_WX_CONFIG_SUCC';
 
-const domain  = 'http://114.215.143.97';
+const domain  = ENV.domain;
 
 export function initWXConfig() {
     return (dispatch) => {
@@ -26,7 +26,7 @@ export function initWXConfig() {
                 credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
-                body: JSON.stringify({url: 'http://www.mjitech.com/'})
+                body: JSON.stringify({url: window.location.href})
             }).then (response => response.json())
             .then(json => {
                 if(json.is_succ) {
