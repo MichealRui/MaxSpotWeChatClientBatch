@@ -61,6 +61,7 @@ export function switchShop(shop_id) {
             .then(json=>{
                 if(json.is_succ){
                     dispatch(switchShopSuccess(json.name));
+                    window.location.href= domain + '/buyer_shopdetail/index.html?storeid=' + shop_id
                 }else {
                     dispatch(switchShopFail());
                 }
