@@ -50,6 +50,7 @@ export function initBrand() {
                             console.log(json);
                         }
                     );
+                    
                     dispatch(initSuccess(BrandData))
                     dispatch(initCart())
                 }else{
