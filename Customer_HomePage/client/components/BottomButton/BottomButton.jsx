@@ -21,7 +21,7 @@ export default class BottomButton extends Component {
         return (
             <div className={cart.remainTime?"bottomButton":"bottomButton empty"}>
                 <div className='cartIcon'>
-                    <a className='fa fa-shopping-cart font30' onClick={this.cartOnClick().bind(this)}>
+                    <a className='fa fa-shopping-cart font30' onClick={() => this.cartOnClick().bind(this)}>
                         {cart.count>=0?(<span className='count font10'>{cart.count}</span>):''}
                     </a>
                 </div>

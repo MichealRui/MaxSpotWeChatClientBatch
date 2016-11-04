@@ -10,7 +10,6 @@ import ProductSlider from '../../components/ProductSlider/ProductSlider';
 import AddIntoCart from '../../components/AddIntoCart/AddIntoCart';
 import StoreIntro from '../../components/StoreIntro/StoreIntro';
 import ProductComment from '../../components/ProductComment/ProductComment';
-import ProductDetailData from './ProductDetailData';
 import Util from '../../util/WeChatUtil'
 require('./index.css');
 
@@ -28,7 +27,8 @@ class ProductDetail extends React.Component {
     }
 
 	render(){
-		let {productDetail, actions} = this.props;
+		let {detail, actions} = this.props;
+		let {productDetail, brand} = detail;
 		return(
 			<div className='productDetailContainer'>
 				<div className='area'></div>
@@ -50,12 +50,12 @@ class ProductDetail extends React.Component {
                             }
                         )}}
                 />
-				<p className='storeInfo font12'>{ProductDetailData.storeInfo}</p>
+				<p className='storeInfo font12'>{brand.description}</p>
 				<div className='storeIntroWrap'>
 					<StoreIntro
-                        storeImg={ProductDetailData.storeImg}
-                        storeName={ProductDetailData.storeName}
-                        storeIntro={ProductDetailData.storeIntro}/>
+                        storeImg={brand.imagePath}
+                        storeName={brand.name}
+                        storeIntro={brand.story}/>
 				</div>
 				{/*<ProductComment productComment={productDetail.productComment}/>*/}
 			</div>
@@ -65,7 +65,7 @@ class ProductDetail extends React.Component {
 
 function mapStateToProps(state){
     return {
-        productDetail:state
+        detail:state
     };
 }
 

@@ -23,14 +23,13 @@ export function initProductDetail(skuNumber, storeId) {
                 if(json.is_succ){
                     dispatch(
                         initSuccess(
-                            Object.assign({}, json.productDetail, {storeId: storeId })
+                            Object.assign({}, {productDetail: json.sku}, {brand: json.brand}, {storeId: storeId })
                         )
                     );
                 }else {
                     dispatch(initFail());
                 }
-            })
-            .catch((e)=>console.log(JSON.stringify(e)));
+            }).catch((e)=>console.log(JSON.stringify(e)));
     };
 }
 
@@ -70,8 +69,7 @@ export function addIntoCart(item) {
                 }else {
                     dispatch(addIntoCartFail());
                 }
-            })
-            .catch((e)=>console.log(JSON.stringify(e)));
+            }).catch((e)=>console.log(JSON.stringify(e)));
     }
 }
 
