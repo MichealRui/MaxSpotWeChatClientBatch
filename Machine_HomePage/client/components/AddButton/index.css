@@ -1,0 +1,11 @@
+.add {
+    position: absolute;
+    bottom: 0.277778rem;
+    right: 0.277778rem;
+    width: 0.833333rem;
+    height: 0.833333rem;
+    border-radius: 0.416667rem 0.416667rem 0 0.416667rem;
+    background: #fa7c73;
+    color: #fff;
+    text-align: center;
+}
