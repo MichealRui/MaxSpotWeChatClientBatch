@@ -7,14 +7,21 @@ import Timer from '../../components/timer/timer';
 import { connect } from 'react-redux';
 import {initBrand,initStart,initSuccess,initFail,addToCart} from '../../actions/index'
 require('./index.css');
-
+const brandId = 1;
 class BrandContainer extends React.Component {
 	constructor(props){
 		super(props);
 	}
 	componentWillMount(){
+		let arr = window.location.search.substring(1).split("&");
+		let param = {};
+		arr.forEach(function (value,index) {
+			let obj = value.split("=");
+			param[obj[0]] = obj[1];
+		});
+		let brandId = param.brandId;
 		const {dispatch} = this.props;
-		dispatch(initBrand());
+		dispatch(initBrand(brandId));
 	}
 	render(){
 		const{dispatch,itemInfo} = this.props;

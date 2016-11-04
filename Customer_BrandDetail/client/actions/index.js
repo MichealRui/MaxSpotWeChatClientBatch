@@ -26,7 +26,7 @@ export const ERROR_ADD_CART = 'ERROR_ADD_CART';
 export const SUCCESS_ADD_CART = 'SUCCESS_ADD_CART';
 
 const domain = 'http://114.215.143.97';
-export function initBrand() {
+export function initBrand(brandId) {
     return (dispatch)=>{
         //todo fetch
         fetch(domain + '/web/buyer_api/test_login_with_openid.ction',
@@ -44,17 +44,23 @@ export function initBrand() {
                         credentials:'include',
                         method:'POST',
                         mode:'cors',
+                        body:JSON.stringify({brandId:brandId})
                     }).then((response)=>response.json()).then(
                         json=>{
-                            console.log(2323);
                             console.log(json);
+                            if(json.is_succ){
+                                dispatch(initSuccess({
+                                    brand:json.brand,
+                                    skus:json.skus,
+                                }))
+                                dispatch(initCart())
+                            }else{
+                                dispatch(initFail({errorMessage:json.error_message}))
+                            }
                         }
-                    );
-                    
-                    dispatch(initSuccess(BrandData))
-                    dispatch(initCart())
+                    ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
                 }else{
-                    dispatch(initFail({errorMessage:json.errorMessage}))
+                    dispatch(initFail({errorMessage:json.error_message}))
                 }
             }
         ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
@@ -75,7 +81,6 @@ export function initCart() {
             response=>response.json()
         ).then(
             json=>{
-                console.log(json);
                 if(json.is_succ) {
                     let count = [];
                     if(json.skus[0]){
@@ -133,8 +138,6 @@ export function initFail(message) {
 }
 
 export function addToCart(item) {
-    console.log(11);
-    console.log(item);
     return (dispatch)=>{
         //todo fetch
         fetch(domain + '/web/buyer_api/add_sku_to_cart.action',
@@ -153,7 +156,7 @@ export function addToCart(item) {
                     if(json.is_succ){
                         dispatch(successAddCart())
                     }else{
-                        dispatch(errorAddCart({errorMessage:json.errorMessage}))
+                        dispatch(errorAddCart({errorMessage:json.error_message}))
                     }
                 }
             ).catch(e=>dispatch(errorAddCart({errorMessage:'服务器异常'})))
