@@ -1,0 +1,21 @@
+.header{
+    position: relative;
+    height: 1.5rem;
+    background-color: #fa7c73;
+    padding-left: 0.3333rem;
+
+}
+.header:after{
+    content: 'center';
+    overflow: hidden;
+    vertical-align: middle;
+    display: inline-block;
+    width: 0;
+    height: 100%;
+}
+
+.header img{
+    vertical-align: middle;
+    height: 50%;
+    width: 50%;
+}
