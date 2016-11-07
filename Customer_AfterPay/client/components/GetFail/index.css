@@ -20,26 +20,6 @@
     box-shadow:inset 0 0 0 8px rgba(250, 124, 115, .2);
 }
 
-.state_info .sku i {  /*创造了一个透明矩形的一半*/
-    position:absolute;
-    width: 5.75rem;
-    height: 5.75rem;
-    border-radius: 50%;
-    clip: rect(0rem, 5.75rem, 3rem, 3rem);
-    box-shadow:inset 0px 0px 0px 8px #fa7c73;
-    margin-left: -1rem;
-}
-
-
-/*.state_info .icons i:after { l蓝色的半圆弧  
-    position:absolute;  
-    clip: rect(0, 0, 0, 4px);
-    width: 5.75rem;
-    height: 5.75rem; 
-    content: '';  
-    border-radius: 50%;  
-    box-shadow:inset 0 0 0 8px #fa7c73;  
-}  */
 
 .state_info .icons:after{
     content:'center';
