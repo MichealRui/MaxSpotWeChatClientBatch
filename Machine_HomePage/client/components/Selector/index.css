@@ -1,5 +1,11 @@
+.selectorContainer {
+	height: 200px;
+	width: 100%;
+    padding-left: 60px;
+    border-bottom: 4px solid black;
+}
 .selector {
-	width: 16.66666%;
+	width: 10%;
 	text-align: center;
 	display: inline-block;
 	cursor: pointer;
@@ -13,7 +19,8 @@
 }
 .selector .itemName {
 	display: block;
-	color: rgba(0,0,0,.8);
+    opacity: 0.8;
+	color: #000000;
 	margin-top: 0.261111rem;
 	line-height: 1;
 }

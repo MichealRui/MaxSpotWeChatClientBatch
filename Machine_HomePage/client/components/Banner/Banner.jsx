@@ -8,18 +8,34 @@ export default class Banner extends React.Component {
     }
 
     render() {
-        const {bannerData} = this.props;
-        let banners = bannerData.map((b, index) => {
-            return (
-                <a key={index} href={item.destUrl}>
-                    <img width="100%" height="200" src={item.imagePath}/>
-                </a>
-            )
-        });
+        // const {bannerData} = this.props;
+        // let banners = bannerData.map((b, index) => {
+        //     return (
+        //         <a key={index} href={item.destUrl}>
+        //             <img src={item.imagePath}
+        //                  className={index == 0 ? "longBanner": "shorBanner"}/>
+        //         </a>
+        //     )
+        // });
 
         return (
             <div className="bannerContainer">
-                {banners}
+                <a>
+                    <img src={require('./images/WechatIMG397.jpeg')}
+                         className="longBanner"/>
+                </a>
+                <a>
+                    <img src={require('./images/WechatIMG397.jpeg')}
+                         className="shortBanner"/>
+                </a>
+                <a>
+                    <img src={require('./images/WechatIMG397.jpeg')}
+                         className="shortBanner"/>
+                </a>
+                <a>
+                    <img src={require('./images/WechatIMG397.jpeg')}
+                         className="shortBanner"/>
+                </a>
             </div>
         )
     }

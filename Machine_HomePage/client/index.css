@@ -171,6 +171,18 @@ html { overflow-y: scroll; }
     font-size: 66px !important;
 }
 
+.font23 {
+    font-size: 23px !important;
+}
+
+[data-dpr="2"] .font23 {
+    font-size: 46px !important;
+}
+
+[data-dpr="3"] .font23 {
+    font-size: 69px !important;
+}
+
 .font24 {
   font-size: 24px !important;
 }
@@ -181,6 +193,30 @@ html { overflow-y: scroll; }
 
 [data-dpr="3"] .font24 {
     font-size: 72px !important;
+}
+
+.font28 {
+    font-size: 28px !important;
+}
+
+[data-dpr="2"] .font28 {
+    font-size: 56px !important;
+}
+
+[data-dpr="3"] .font28 {
+    font-size: 84px !important;
+}
+
+.font30 {
+    font-size: 30px !important;
+}
+
+[data-dpr="2"] .font30 {
+    font-size: 60px !important;
+}
+
+[data-dpr="3"] .font30 {
+    font-size: 90px !important;
 }
 
 .font42 {
@@ -203,8 +239,11 @@ html { overflow-y: scroll; }
     }
 }
 #root {
-    display: flex;
-    justify-content: center;
-    background-color: #f4f4f4;
-    min-height: 500px;
+    padding-bottom: 30px;
 }
+/*#root {*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*background-color: #f4f4f4;*/
+    /*min-height: 500px;*/
+/*}*/

@@ -1,0 +1,19 @@
+/*.itemContainer{*/
+    /*width: 100%;*/
+    /*position: relative;*/
+    /*padding-left: 28px;*/
+/*}*/
+/*.itemContainer .swiper-slide {*/
+    /*margin-right: 15px;*/
+    /*width: 276px!important;*/
+/*}*/
+
+.itemContainer{
+    width: 100%;
+    position: relative;
+    padding-left: 0.3888888888888889rem;
+}
+.itemContainer .swiper-slide {
+    margin-right: 0.20833333333333334rem;
+    width: 3.8333333333333335rem!important;
+}

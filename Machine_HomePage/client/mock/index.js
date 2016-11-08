@@ -1,0 +1,2756 @@
+/**
+ * Created by ruibing on 16/11/8.
+ */
+let data = {
+    "categories": [
+        {
+            "id": 0,
+            "items": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "name": "全部",
+            "freeItems": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "banner": {
+                "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+                "destUrl": "http://www.baidu.com"
+            }
+        },
+        {
+            "id": 1,
+            "items": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "name": "食品",
+            "freeItems": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "banner": {
+                "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+                "destUrl": "http://www.baidu.com"
+            }
+        },
+        {
+            "id": 2,
+            "items": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "name": "护肤",
+            "freeItems": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "banner": {
+                "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+                "destUrl": "http://www.baidu.com"
+            }
+        },
+        {
+            "id": 3,
+            "items": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "name": "杂货",
+            "freeItems": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "banner": {
+                "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+                "destUrl": "http://www.baidu.com"
+            }
+        },
+        {
+            "id": 4,
+            "items": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "name": "软饮",
+            "freeItems": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "banner": {
+                "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+                "destUrl": "http://www.baidu.com"
+            }
+        },
+        {
+            "id": 5,
+            "items": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "name": "母婴",
+            "freeItems": [
+                {
+                    "maxStock": 100,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 578,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/578/1474368794745.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 578,
+                    "categoryName": "休闲零食",
+                    "safeStock": 60,
+                    "imageId": 437,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋超浓芝士味玉米片",
+                    "length": 0,
+                    "quantity": 3,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:53:22 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613501",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 20,
+                    "skuNumber": "UF000578",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "芝士"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "芝士味玉米片"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 576,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/579/1474369127460.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 579,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 438,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋夜电美式辣鸡翅味",
+                    "length": 0,
+                    "quantity": 0,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 18:59:06 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543000349",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000579",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣鸡翅"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "夜电美式辣鸡翅味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 577,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/580/1474369264761.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "多力多滋",
+                    "id": 580,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 439,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "多力多滋烟熏烧烤味玉米片",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1160,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 19:01:20 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "4710543613600",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000580",
+                    "brand": 272,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烟熏烧烤"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "65"
+                        }
+                    ],
+                    "shortName": "烟熏烧烤味"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "泰国",
+                    "uniqueNumber": 580,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/584/1474377633291.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 584,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 443,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（辣椒味）",
+                    "length": 0,
+                    "quantity": 5,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:20:40 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410854",
+                    "country": 6163,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000584",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "辣"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "小老板烤海苔卷"
+                },
+                {
+                    "maxStock": 0,
+                    "countryName": "中国大陆",
+                    "uniqueNumber": 581,
+                    "imagePath": "/static/static/static/static/static/static/static/static/static/static/static/sku/0/0/585/1474377892793.jpg",
+                    "parentCategory": 0,
+                    "remarks": "",
+                    "brandName": "Tao kae Noi\\小老板",
+                    "id": 585,
+                    "categoryName": "休闲零食",
+                    "safeStock": 0,
+                    "imageId": 444,
+                    "height": 0,
+                    "msrp": 0,
+                    "name": "小老板烤海苔卷（烤鱿鱼辣味）",
+                    "length": 0,
+                    "quantity": 2,
+                    "sellprice": 1680,
+                    "tags": "",
+                    "publishTime": "Tue Sep 20 21:25:01 CST 2016",
+                    "status": 2,
+                    "width": 0,
+                    "barcode": "8858702410885",
+                    "country": 1,
+                    "expirationDays": 0,
+                    "unit": "",
+                    "category": 6,
+                    "minStock": 0,
+                    "skuNumber": "UF000585",
+                    "brand": 340,
+                    "attributes": [
+                        {
+                            "unit": "",
+                            "name": "口味",
+                            "value": "烤鱿鱼辣味"
+                        },
+                        {
+                            "unit": "g",
+                            "name": "净含量",
+                            "value": "36"
+                        }
+                    ],
+                    "shortName": "烤海苔卷（烤鱿鱼辣味）"
+                }
+            ],
+            "banner": {
+                "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+                "destUrl": "http://www.baidu.com"
+            }
+        }
+    ],
+    "selectedStore": {
+        "region": 5,
+        "manager": 3,
+        "warehouse_parent": 1,
+        "status": 1,
+        "remarks": "",
+        "type": "store",
+        "city": 9691,
+        "id": 7,
+        "address": "北京市朝阳区光华路9号光华路SOHO2期3Q一层",
+        "name": "光华路SOHO2 3Q",
+        "province": 2,
+        "images": [],
+        "longitude": 1,
+        "latitude": 1
+    },
+    "banners": [
+        {
+            "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+            "destUrl": "http://www.baidu.com"
+        },
+        {
+            "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+            "destUrl": "http://www.baidu.com"
+        },
+        {
+            "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+            "destUrl": "http://www.baidu.com"
+        },
+        {
+            "imagePath": "http://photos.cntraveler.com/2014/09/29/5429c32b425f183f61bf7316_new-york-city-skyline.jpg",
+            "destUrl": "http://www.baidu.com"
+        }
+    ],
+    "is_succ": true
+}
+
+export default data;
