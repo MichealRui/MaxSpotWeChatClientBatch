@@ -1,149 +1,74 @@
-/*.item {*/
-    /*float: left;*/
-    /*position: relative;*/
-    /*margin: 0;*/
-    /*text-align: center;*/
-    /*!*padding: 0.833333rem 0.583333rem 0.486111rem;*!*/
-    /*padding-left: 35px;*/
-    /*padding-top:55px;*/
-    /*padding-bottom: 25px;*/
-    /*box-sizing: border-box;*/
-    /*border: 1px solid #d9d9d9;*/
-	/*background-color: #fff;*/
-/*}*/
-/*.item.sliderItem {*/
-    /*width:276px;*/
-    /*height:353px;*/
-	/*border-right: none;*/
-	/*border-top: none;*/
-	/*float: none;*/
-    /*margin-right:15px;*/
-    /*text-align: left;*/
-/*}*/
-/*.item.commonItem {*/
-	/*float: left;*/
-	/*margin: 0.138889rem 0 0 0.138889rem;*/
-	/*padding: 1.0rem 0.555556rem 0.416667rem 0.555556rem;*/
-	/*width: 48%;*/
-/*}*/
-
-/*.commonItem .productImg {*/
-	/*margin-bottom: 0.527778rem;*/
-	/*width: 100%;*/
-	/*height: 100%;*/
-/*}*/
-
-/*.sliderItem .productImg {*/
-	/*margin-bottom: 30px;*/
-    /*width:120px;*/
-    /*height:150px;*/
-    /*margin-left: 30px;*/
-
-/*}*/
-/*.brandProductContainer {*/
-	/*text-align: left;*/
-/*}*/
-/*.brandProductContainer .productName {*/
-	/*color: rgba(0,0,0,.8);*/
-	/*margin-bottom: 5px;*/
-/*}*/
-/*.item.commonItem .brandProductContainer .productName {*/
-	/*display: block;*/
-/*}*/
-/*.brandProductContainer .productDesc {*/
-    /*width: 200px;*/
-	/*color: rgba(0,0,0,.9);*/
-	/*margin-bottom: 15px;*/
-	/*!*line-height: 1.5;*!*/
-    /*white-space: nowrap;*/
-    /*-ms-text-overflow: ellipsis;*/
-    /*text-overflow: ellipsis;*/
-    /*overflow: hidden;*/
-/*}*/
-/*.brandProductContainer .categoryName {*/
-	/*color: rgba(0,0,0,.6);*/
-	/*margin-bottom: 0.388889rem;*/
-/*}*/
-/*.item.commonItem .brandProductContainer .categoryName {*/
-	/*display: block;*/
-/*}*/
-/*.item .unitPrice {*/
-	/*display: block;*/
-	/*color: #2db9ed;*/
-	/*text-align: left;*/
-/*}*/
-
 .item {
     float: left;
     position: relative;
     margin: 0;
     text-align: center;
     /*padding: 0.833333rem 0.583333rem 0.486111rem;*/
-    padding-left: 0.4861111111111111rem;
-    padding-top:0.7638888888888888rem;
-    padding-bottom: 0.3472222222222222rem;
+    padding-left: 35px;
+    padding-top:55px;
+    padding-bottom: 25px;
     box-sizing: border-box;
-    border: 0.013888888888888888rem solid #d9d9d9;
-    background-color: #fff;
+    border: 1px solid #d9d9d9;
+	background-color: #fff;
 }
 .item.sliderItem {
-    width:3.8333333333333335rem;
-    height:4.902777777777778rem;
-    border-right: none;
-    border-top: none;
-    float: none;
-    margin-right:0.20833333333333334rem;
+    width:276px;
+    height:353px;
+	border-right: none;
+	border-top: none;
+	float: none;
+    margin-right:15px;
     text-align: left;
 }
 .item.commonItem {
-    float: left;
-    margin: 0.138889rem 0 0 0.138889rem;
-    padding: 1.0rem 0.555556rem 0.416667rem 0.555556rem;
-    width: 48%;
+	float: left;
+	margin: 0.138889rem 0 0 0.138889rem;
+	padding: 1.0rem 0.555556rem 0.416667rem 0.555556rem;
+	width: 48%;
 }
 
 .commonItem .productImg {
-    margin-bottom: 0.527778rem;
-    width: 100%;
-    height: 100%;
+	margin-bottom: 0.527778rem;
+	width: 100%;
+	height: 100%;
 }
 
 .sliderItem .productImg {
-    margin-bottom: 0.4166666666666667rem;
-    width:1.6666666666666667rem;
-    height:2.0833333333333335rem;
-    margin-left: 0.4166666666666667rem;
+	margin-bottom: 30px;
+    width:120px;
+    height:150px;
+    margin-left: 30px;
 
 }
 .brandProductContainer {
-    text-align: left;
+	text-align: left;
 }
 .brandProductContainer .productName {
-    color: rgba(0,0,0,.8);
-    margin-bottom: 0.06944444444444445rem;
+	color: rgba(0,0,0,.8);
+	margin-bottom: 5px;
 }
 .item.commonItem .brandProductContainer .productName {
-    display: block;
+	display: block;
 }
 .brandProductContainer .productDesc {
-    width: 2.7777777777777777rem;
-    color: rgba(0,0,0,.9);
-    margin-bottom: 0.20833333333333334rem;
-    /*line-height: 1.5;*/
+    width: 200px;
+	color: rgba(0,0,0,.9);
+	margin-bottom: 15px;
+	/*line-height: 1.5;*/
     white-space: nowrap;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 .brandProductContainer .categoryName {
-    color: rgba(0,0,0,.6);
-    margin-bottom: 0.388889rem;
+	color: rgba(0,0,0,.6);
+	margin-bottom: 0.388889rem;
 }
 .item.commonItem .brandProductContainer .categoryName {
-    display: block;
+	display: block;
 }
 .item .unitPrice {
-    display: block;
-    color: #2db9ed;
-    text-align: left;
+	display: block;
+	color: #2db9ed;
+	text-align: left;
 }

@@ -1,99 +1,19 @@
-/*.headerContainer{*/
-    /*position: relative;*/
-    /*width:100%;*/
-    /*height:130px;*/
-    /*padding:27px 50px 19px 60px;*/
-    /*!*background-color: #e71234;*!*/
-    /*box-sizing: border-box;*/
-/*}*/
-/*.fl {*/
-    /*position: absolute;*/
-    /*left:60px;*/
-/*}*/
-
-/*.fr{*/
-    /*position: absolute;*/
-    /*right:50px;*/
-/*}*/
-
-/*.headerContainer .button {*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*transform: translate(0, -50%);*/
-    /*width: 0.611111rem;*/
-    /*height: 0.611111rem;*/
-    /*line-height: 0.611111rem;*/
-    /*border-radius: 50%;*/
-    /*color: #fff;*/
-    /*border: 1px solid #fff;*/
-    /*text-align: center;*/
-/*}*/
-
-/*.headerContainer .logo {*/
-    /*margin-right: 30px;*/
-    /*vertical-align: middle;*/
-/*}*/
-
-/*.headerContainer .location {*/
-    /*position: absolute;*/
-    /*top:35%;*/
-    /*width:288px;*/
-    /*line-height:50px;*/
-    /*height:50px;*/
-    /*background-color: #e76147;*/
-    /*border-radius: 288px;*/
-    /*text-align: center;*/
-    /*color: white;*/
-/*}*/
-
-/*.headerContainer .login{*/
-    /*position: absolute;*/
-    /*right:287px;*/
-    /*width: 207px;*/
-    /*height: 74px;*/
-    /*line-height: 74px;*/
-    /*text-align: center;*/
-    /*color: #D08B14;*/
-    /*background-color: #FFC85F;*/
-    /*border-radius: 207px;*/
-/*}*/
-
-/*.headerContainer .login .login_logo {*/
-    /*vertical-align: middle;*/
-    /*margin-right: 15px;*/
-    /*margin-bottom: 10px;*/
-/*}*/
-
-/*.headerContainer .cart {*/
-    /*position: absolute;*/
-    /*top:27px;*/
-    /*right: 50px;*/
-    /*width: 207px;*/
-    /*height: 74px;*/
-    /*line-height: 74px;*/
-    /*border-radius: 207px 207px 0 207px;*/
-    /*background-color: #e76147;*/
-    /*color: #fff;*/
-    /*text-align: center;*/
-    /*z-index: 999;*/
-/*}*/
-
 .headerContainer{
     position: relative;
     width:100%;
-    height:1.8055555555555556rem;
-    padding:0.375rem 0.6944444444444444rem 0.2638888888888889rem 0.8333333333333334rem;
+    height:130px;
+    padding:27px 50px 19px 60px;
     /*background-color: #e71234;*/
     box-sizing: border-box;
 }
 .fl {
     position: absolute;
-    left:0.8333333333333334rem;
+    left:60px;
 }
 
 .fr{
     position: absolute;
-    right:0.6944444444444444rem;
+    right:50px;
 }
 
 .headerContainer .button {
@@ -105,53 +25,53 @@
     line-height: 0.611111rem;
     border-radius: 50%;
     color: #fff;
-    border: 0.013888888888888888rem solid #fff;
+    border: 1px solid #fff;
     text-align: center;
 }
 
 .headerContainer .logo {
-    margin-right: 0.4166666666666667rem;
+    margin-right: 30px;
     vertical-align: middle;
 }
 
 .headerContainer .location {
     position: absolute;
     top:35%;
-    width:4rem;
-    line-height:0.6944444444444444rem;
-    height:0.6944444444444444rem;
+    width:288px;
+    line-height:50px;
+    height:50px;
     background-color: #e76147;
-    border-radius: 4rem;
+    border-radius: 288px;
     text-align: center;
     color: white;
 }
 
 .headerContainer .login{
     position: absolute;
-    right:3.986111111111111rem;
-    width: 2.875rem;
-    height: 1.0277777777777777rem;
-    line-height: 1.0277777777777777rem;
+    right:287px;
+    width: 207px;
+    height: 74px;
+    line-height: 74px;
     text-align: center;
     color: #D08B14;
     background-color: #FFC85F;
-    border-radius: 2.875rem;
+    border-radius: 207px;
 }
 
 .headerContainer .login .login_logo {
     vertical-align: middle;
-    margin-right: 0.20833333333333334rem;
-    margin-bottom: 0.1388888888888889rem;
+    margin-right: 15px;
+    margin-bottom: 10px;
 }
 
 .headerContainer .cart {
     position: absolute;
-    top:0.375rem;
-    right: 0.6944444444444444rem;
-    width: 2.875rem;
-    height: 1.0277777777777777rem;
-    line-height: 1.0277777777777777rem;
-    border-radius: 2.875rem 2.875rem 0 2.875rem;
+    top:27px;
+    right: 50px;
+    width: 207px;
+    height: 74px;
+    line-height: 74px;
+    border-radius: 207px 207px 0 207px;
     background-color: #e76147;
     color: #fff;
     text-align: center;

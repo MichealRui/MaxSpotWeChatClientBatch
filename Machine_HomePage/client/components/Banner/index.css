@@ -1,27 +1,7 @@
-/*.bannerContainer{*/
-    /*width: 100%;*/
-    /*padding-left: 60px;*/
-    /*padding-right: 50px;*/
-    /*display: flex;*/
-    /*box-sizing: border-box;*/
-    /*justify-content: space-between;*/
-/*}*/
-
-
-/*.bannerContainer .longBanner {*/
-    /*width: 636px;*/
-    /*height:231px;*/
-/*}*/
-
-/*.bannerContainer .shortBanner {*/
-    /*width:375px;*/
-    /*height:231px;*/
-/*}*/
-
 .bannerContainer{
     width: 100%;
-    padding-left: 0.8333333333333334rem;
-    padding-right: 0.6944444444444444rem;
+    padding-left: 60px;
+    padding-right: 50px;
     display: flex;
     box-sizing: border-box;
     justify-content: space-between;
@@ -29,11 +9,11 @@
 
 
 .bannerContainer .longBanner {
-    width: 8.833333333333334rem;
-    height:3.2083333333333335rem;
+    width: 636px;
+    height:231px;
 }
 
 .bannerContainer .shortBanner {
-    width:5.208333333333333rem;
-    height:3.2083333333333335rem;
+    width:375px;
+    height:231px;
 }

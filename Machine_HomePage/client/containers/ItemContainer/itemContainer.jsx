@@ -17,7 +17,7 @@ var ItemContainer = React.createClass({
         let swiperConfig = {
             // pagination: '.swiper2 .swiper-pagination',
             freeMode: true,
-            slidesPerView: 6,
+            slidesPerView: 7,
         };
         let props = this.props.items;
         let items = props.map((item, index) => {
