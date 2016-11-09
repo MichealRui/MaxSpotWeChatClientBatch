@@ -16,9 +16,10 @@ export default class CustomerOrderList extends React.Component {
 							   order={order}
 				/>);
 		});
+
 		return(
 			<ul className='customerOrderContainer'>
-				{listArr}
+				{listArr.reverse()}
 			</ul>
 		);
 	}

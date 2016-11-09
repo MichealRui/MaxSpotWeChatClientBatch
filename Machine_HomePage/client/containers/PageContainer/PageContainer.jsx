@@ -5,12 +5,16 @@ import { connect }  from 'react-redux';
 import Header from '../../components/Header/Header'
 import Banner from '../../components/Banner/Banner'
 import SubContent from '../../containers/SubContent/SubContent'
+import CartContainer from '../../containers/CartContainer/CartContainer';
 import { initMainContent } from '../../actions/index'
 import { addToCart } from '../../actions/index'
 
 class PageContainer extends React.Component{
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            cartVisible:false
+        }
     }
 
     componentWillMount() {
@@ -18,17 +22,33 @@ class PageContainer extends React.Component{
         dispatch(initMainContent());
     }
 
+    onCartBtnClick() {
+        console.log("show");
+        this.setState({
+            cartVisible: true
+        })
+    }
+
+    hideCart() {
+        console.log("hide");
+        this.setState({
+            cartVisible: false
+        })
+    }
+
     render() {
         let {state, dispatch} = this.props;
         return (
             <div className="pageContainer">
-                <Header/>
+                <Header cartClick={() => this.onCartBtnClick.bind(this)}/>
                 <Banner/>
                 <SubContent
                     contentData={state.currentSub}
                     storeData={state.storeInfo}
                     addToCart={(item) => dispatch(addToCart(item))}
                 />
+                <CartContainer visible={this.state.cartVisible}
+                               onCancel={ () => this.hideCart.bind(this) }/>
             </div>
         )
     }
