@@ -18,7 +18,7 @@ export default class SubContent extends React.Component {
             slidesPerView: 2
         };
         let freeItems = props.freeItems.map((i, index) => {
-            return <Item item={i} key={index} isSliderItem={true}/>
+            return <Item item={i} key={index} isSliderItem={true} storeid={this.props.storeData.id}/>
         });
         freeItems.push(
             <div className="item more" key={'All'}>
