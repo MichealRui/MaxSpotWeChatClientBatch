@@ -36,7 +36,7 @@ export const INIT_CART_SUCC = 'INIT_CART_SUCC';
 
 export const INIT_CART_FAIL = 'INIT_CART_FAIL';
 
-const domain = ENV.domain;//'http://114.215.143.97';
+const domain = ENV.domain;
 
 export function initWxConfig(url) {
     return (dispatch) => {
@@ -46,7 +46,6 @@ export function initWxConfig(url) {
                 credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
-                Origin: 'http://114.215.143.97',
                 body: JSON.stringify({openid: "o41Mgv7HMpgc16ViZCsVkeodDmjM"})
             }
         ).then (
@@ -55,7 +54,6 @@ export function initWxConfig(url) {
                     credentials: 'include',
                     method: 'POST',
                     mode: 'cors',
-                    Origin: 'http://114.215.143.97',
                     body: JSON.stringify({url: url})
                 }
             ).then(response => response.json())
@@ -184,7 +182,6 @@ export function addToCart(item) {
                 credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
-                Origin: 'http://114.215.143.97',
                 body: JSON.stringify(
                     Object.assign({}, item)
                 )

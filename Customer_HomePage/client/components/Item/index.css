@@ -19,19 +19,21 @@
 	margin: 0.138889rem 0 0 0.138889rem;
 	padding: 1.0rem 0.555556rem 0.416667rem 0.555556rem;
 	width: 48%;
+    height:7rem;
 }
 
 .commonItem .productImg {
 	margin-bottom: 0.527778rem;
 	width: 100%;
-	height: 100%;
-
+	height: 45%;
+	object-fit: contain;
 }
 
 .sliderItem .productImg {
 	margin-bottom: 0.527778rem;
 	width: 40%;
 	height: 40%;
+	object-fit: contain;
 
 }
 .brandProductContainer {

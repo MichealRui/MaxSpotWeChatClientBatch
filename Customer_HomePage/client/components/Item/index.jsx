@@ -19,10 +19,15 @@ export default class Item extends React.Component {
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         return (
             <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
-                <img src={'http://114.215.143.97' + props.imagePath} className='productImg' />
+                {
+                    props.imagePath ?
+                    <img src={'http://114.215.143.97' + props.imagePath} className='productImg' />:
+                    ''
+                }
+                {/*<img src={'http://114.215.143.97' + props.imagePath} className='productImg' />*/}
                 <span className='brandProductContainer'>
                     <p className={'productName font12'}>{props.brandName}</p>
-                    <p className='productDesc font14'>{props.name}</p>
+                    <p className='productDesc font14'>{props.shortName}</p>
                     <p className={'categoryName font10'}>{props.categoryName}</p>
                 </span>
                 <span className='unitPrice font14'>{props.sellprice/100 || 0 }元</span>
