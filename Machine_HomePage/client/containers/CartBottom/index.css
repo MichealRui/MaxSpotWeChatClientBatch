@@ -1,0 +1,84 @@
+.cart-other-content {
+    padding:0 0 27px 21px;
+}
+.cart-friends-choice {
+    float:left;
+}
+.cart-frd-title {
+    margin:38px 0 38px 20px;
+    font-size:32px;
+    color:#343434;
+    font-weight:normal;
+}
+
+.cart-item.friend-item {
+    position:relative;
+    height:310px;
+}
+.item-add-to-cart {
+    position:absolute;
+    right:8px;
+    top:8px;
+    width:62px;
+    height:62px;
+    background:url(images/icon-add.png) no-repeat;
+    text-indent:-9999px;
+    cursor:pointer;
+}
+
+.cart-my-total, .cart-weixin-pay {
+    min-height:440px;
+}
+.cart-my-total {
+    float:left;
+    position:relative;
+    margin-left:21px;
+    padding-top:38px;
+    width:560px;
+    border-left:1px solid #d9d9d9;
+    border-right:1px solid #d9d9d9;
+}
+.my-total-box {
+    position:absolute;
+    left:0;
+    top:50%;
+    margin-top:-130px;/* 为多行金额的整体垂直居中，动态调整这个值 */
+    width:100%;
+}
+.price-one-line {
+    margin:10px auto;
+    width:80%;
+    overflow:hidden;
+}
+.price-name {
+    float:left;
+    margin-top:5px;
+    font-size:30px;
+    color:#343434;
+}
+.price-num {
+    float:right;
+    font-size:36px;
+    color:#28abef;
+}
+.price-one-line.should-pay {
+    margin-top:34px;
+    padding-top:30px;
+    border-top:1px solid #d9d9d9;
+}
+.price-num.total-pay {
+    font-size:48px;
+}
+.price-one-line.should-pay .price-name {
+    margin-top:15px;
+}
+
+.cart-weixin-pay {
+    float:right;
+    width:412px;
+    padding-top:80px;
+}
+.wx-pic {
+    margin:0 auto;
+    display:block;
+}

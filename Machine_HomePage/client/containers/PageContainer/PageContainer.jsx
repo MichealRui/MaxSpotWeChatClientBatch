@@ -48,7 +48,12 @@ class PageContainer extends React.Component{
                     addToCart={(item) => dispatch(addToCart(item))}
                 />
                 <CartContainer visible={this.state.cartVisible}
-                               onCancel={ () => this.hideCart.bind(this) }/>
+                               onCancel={ () => this.hideCart.bind(this) }
+                               items={state.cart.items}
+                               moreItems={ state.cart.moreItems }
+                               storeData={state.storeInfo}
+                               addToCart={(item) => dispatch(addToCart(item))}
+                />
             </div>
         )
     }

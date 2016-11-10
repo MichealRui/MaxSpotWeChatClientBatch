@@ -76,17 +76,18 @@ function initSuccess(content, data){
         subContent = Object.assign({}, subContent, content)
     }
     let currentSub = data.content.filter(cat =>cat.id == 0).pop(); // find 'all'
-    // let cart = {
-    //     remainTime: '380',
-    //     count: 5
-    // };
+    let cart = {
+        remainTime: '380',
+        items: currentSub.items,
+        moreItems: currentSub.items,
+    };
     return Object.assign({}, content, {
         banner: data.banner,
         selector: selector,
         subContent: subContent,
         currentSub: currentSub,//data.subContent['all'],,
         storeInfo: data.store,
-        // cart: cart
+        cart: cart
     })
 }
 

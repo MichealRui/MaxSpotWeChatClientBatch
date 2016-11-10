@@ -22,12 +22,11 @@ var ItemContainer = React.createClass({
         let props = this.props.items;
         let items = props.map((item, index) => {
             return(
-                <Item item={item} key={index} isSliderItem={false}>
-                    <AddButton item={item}
-                               click={this.props.itemClick}
-                               store={this.props.store}
-                    />
-                </Item>
+                <Item item={item} key={index}
+                      isSliderItem={false}
+                      click={this.props.itemClick}
+                      store={this.props.store}
+                />
             )
         });
         return (

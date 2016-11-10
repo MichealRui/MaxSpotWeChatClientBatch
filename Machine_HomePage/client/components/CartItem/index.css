@@ -2,11 +2,12 @@
     float:left;
     margin:0 9px 18px 9px;
     padding:20px 40px;
-    width:194px;
-    height:414px;
+    width:276px;
+    height:456px;
     border:1px solid #d9d9d9;
     border-radius:4px;
     background:#fff;
+    box-sizing: border-box;
 }
 
 .item-pic {
@@ -23,12 +24,19 @@
 
 .item-name {
     margin:10px 0 20px;
+    width:100%;
+    display: block;
 }
 .item-name span {
-    display:block;
+    display:inline-block;
+    width:100%;
     font-size:23px;
     line-height:26px;
     color:#343434;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .item-price {
@@ -97,4 +105,48 @@
     background:url(images/icon-trash.png) 50% 50% no-repeat;
     text-indent:-9999px;
     cursor:pointer;
+}
+
+.cart-total-tag {
+    position:absolute;
+    right:140px;
+    top:-35px;
+    width:220px;
+    height:70px;
+    background:#fa7c73;
+    box-shadow:-5px 5px 30px 2px rgba(0,0,0,.3);
+    border-radius:70px 70px 0 70px;
+}
+.items-num {
+    position:absolute;
+    left:20px;
+    top:10px;
+    width:50px;
+    height:50px;
+    background:url(images/icon-bag.png) left top no-repeat;
+}
+.num {
+    position:absolute;
+    right:-7px;
+    top:-2px;
+    padding:0 4px;
+    min-width:20px;
+    height:28px;
+    line-height:28px;
+    border-radius:20px;
+    font-size:14px;
+    text-align:center;
+    background:#fff;
+    color:#fa7c73;
+    border:3px solid #fa7c73;
+}
+.current-price {
+    position:absolute;
+    left:90px;
+    top:20px;
+    font-size:18px;
+    color:#fff;
+}
+.current-price em {
+    font-size:36px;
 }
