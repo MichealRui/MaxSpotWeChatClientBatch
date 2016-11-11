@@ -17,7 +17,12 @@ export default class SubContent extends React.Component {
             slidesPerView: 2
         };
         let freeItems = props.freeItems.map((i, index) => {
-            return <Item item={i} key={index} isSliderItem={true} storeid={this.props.storeData.id}/>
+            return (
+                <Item item={i}
+                      key={index}
+                      isSliderItem={true}
+                      storeid={this.props.storeData.id}
+                />)
         });
         let all = <div className="item more" key={'All'}>
             <div>
@@ -25,9 +30,7 @@ export default class SubContent extends React.Component {
                 <p className='font14'>See All</p>
             </div>
         </div>;
-        console.log(props.freeItems)
         freeItems.push(all);
-        console.log(freeItems)
         return (
             <div className="subContentContainer" >
                 <SubBanner data={props.banner}/>

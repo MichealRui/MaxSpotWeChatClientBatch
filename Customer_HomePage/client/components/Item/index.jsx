@@ -18,6 +18,7 @@ export default class Item extends React.Component {
     render() {
         let props = this.props.item;
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
+        let soldOut = <span className="soldOut font7">已售罄</span>
         return (
             <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
                 {
@@ -32,7 +33,11 @@ export default class Item extends React.Component {
                     <p className={'categoryName font10'}>{props.categoryName}</p>
                 </span>
                 <span className='unitPrice font14'>{props.sellprice/100 || 0 }元</span>
-                {this.props.children||null}
+                {
+                    sliderItem == 'sliderItem' ? '' :
+                    props.quantity > 0 ? (this.props.children||null) : soldOut
+                }
+
             </div>
         );
     }
