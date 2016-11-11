@@ -1,0 +1,24 @@
+.customized-modal{
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
+.customized-modal .ant-modal {
+    top: 70px;
+    width: 100%!important;
+
+}
+.customized-modal .ant-modal .ant-modal-body {
+    line-height: 1;
+}
+.customized-modal .ant-modal .ant-modal-content {
+    height: 1080px;
+    background-color: #f2f2f2;
+}

@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header'
 import Banner from '../../components/Banner/Banner'
 import SubContent from '../../containers/SubContent/SubContent'
 import CartContainer from '../../containers/CartContainer/CartContainer';
+import SkuContainer from '../../containers/SkuContainer/SkuContainer';
 import { initMainContent } from '../../actions/index'
 import { addToCart } from '../../actions/index'
 
@@ -13,7 +14,8 @@ class PageContainer extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            cartVisible:false
+            cartVisible:false,
+            skuVisible:false
         }
     }
 
@@ -36,11 +38,27 @@ class PageContainer extends React.Component{
         })
     }
 
+    onSkuBtnClick(){
+        console.log('sku_show');
+        this.setState({
+            skuVisible:true
+        })
+    }
+
+    hideSku(){
+        console.log('sku_hide');
+        this.setState({
+            skuVisible:false
+        })
+    }
+
     render() {
         let {state, dispatch} = this.props;
         return (
             <div className="pageContainer">
-                <Header cartClick={() => this.onCartBtnClick.bind(this)}/>
+                <Header cartClick={() => this.onCartBtnClick.bind(this)}
+                        skuClick ={()=>this.onSkuBtnClick.bind(this)}
+                />
                 <Banner/>
                 <SubContent
                     contentData={state.currentSub}
@@ -53,6 +71,9 @@ class PageContainer extends React.Component{
                                moreItems={ state.cart.moreItems }
                                storeData={state.storeInfo}
                                addToCart={(item) => dispatch(addToCart(item))}
+                />
+                <SkuContainer visible={this.state.skuVisible}
+                              onCancel={()=>this.hideSku.bind(this)}
                 />
             </div>
         )
