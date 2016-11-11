@@ -7,7 +7,8 @@ export default class Item extends React.Component {
         super(props)
     }
 
-    itemClick() {
+    itemClick(e) {
+        console.log(e)
         let storeid = this.props.storeid;
         let skunumber = this.props.item.skuNumber;
         window.location.href = ENV.domain + '/buyer_product/index.html?storeid='

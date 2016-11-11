@@ -6,6 +6,7 @@ import { INIT_START, INIT_SUCCESS, INIT_FAIL} from '../actions/index'
 import { CLEAR_CART , SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
 import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../actions/index'
 import { INIT_CART_SUCC, INIT_CART_FAIL } from '../actions/index'
+import { SET_MESSAGE } from '../actions/index'
 
 let bannerdata = [
     {
@@ -136,6 +137,12 @@ function clearCart(content, cart) {
     })
 }
 
+function failAddCart(content, message) {
+    return Object.assign({}, content, {
+        errorMessage: message.errorMessage
+    })
+}
+
 function initWxConfigSucc(content, config) {
     return Object.assign({}, content, { wxConfig: config })
 }
@@ -156,6 +163,10 @@ function initCartFail(content, message) {
     return Object.assign({}, content, {errorMessage: message.errorMessage})
 }
 
+function setMessage(content, message) {
+    return Object.assign({}, content, {errorMessage: message})
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
@@ -171,6 +182,8 @@ export default function (
             return clearCart(content);
         case SUCC_ADD_CART:
             return succAddCart(content, action.item);
+        case FAIL_ADD_CART:
+            return failAddCart(content, action.errorMessage);
         case INIT_WX_CONFIG_SUCC:
             return initWxConfigSucc(content, action.config);
         case INIT_WX_CONFIG_ERR:
@@ -180,7 +193,9 @@ export default function (
         case INIT_CART_SUCC:
             return initCartSucc(content, action.cart);
         case INIT_CART_FAIL:
-            return initCartFail(content, action.message)
+            return initCartFail(content, action.message);
+        case SET_MESSAGE:
+            return setMessage(content, action.errorMessage)
         default:
             return content;
     }

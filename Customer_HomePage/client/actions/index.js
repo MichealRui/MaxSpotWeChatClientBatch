@@ -36,6 +36,8 @@ export const INIT_CART_SUCC = 'INIT_CART_SUCC';
 
 export const INIT_CART_FAIL = 'INIT_CART_FAIL';
 
+export const SET_MESSAGE = 'SET_MESSAGE';
+
 const domain = ENV.domain;
 
 export function initWxConfig(url) {
@@ -270,5 +272,12 @@ export function changeSubContent(key) {
     return {
         type: CHANGE_SUBCONTENT,
         key
+    }
+}
+
+export function setMessage(message) {
+    return {
+        type: SET_MESSAGE,
+        message
     }
 }

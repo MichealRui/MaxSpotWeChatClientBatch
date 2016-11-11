@@ -7,9 +7,10 @@ export default class AddButton extends React.Component {
         super(props)
     }
     
-    addClick() {
+    addClick(e) {
         // todo update cart
         console.log("add")
+        e.stopPropagation();
         let cart = this.props.cart;
 
         this.props.click(
@@ -19,6 +20,7 @@ export default class AddButton extends React.Component {
                 count: '1'
             }
         )
+
     }
     
     render() {

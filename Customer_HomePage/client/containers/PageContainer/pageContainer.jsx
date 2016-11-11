@@ -7,10 +7,12 @@ import BottomButton from '../../components/BottomButton/BottomButton';
 import BannerContainer from '../BannerContainer/bannerContainer';
 import SelectContainer from '../SelectorContainer/selectorContainer';
 import SubContent from '../SubContent/subContent'
+import Message from '../../components/Message/Message';
 import { initWxConfig, initSdk } from '../../actions/index'
 import { initSubContent, initStart, changeSubContent } from '../../actions/index'
 import { startAddToCart, clearCart, addToCart } from '../../actions/index'
 import { locationSucc, locationFail, initByStoreId} from '../../actions/index';
+import { setMessage } from '../../actions/index'
 import util from '../../util/WeChatUtil'
 
 class PageContainer extends React.Component {
@@ -117,6 +119,9 @@ class PageContainer extends React.Component {
         return (
             <div>
                 <HomeHeader />
+                <Message msgContent={props.errorMessage}
+                         clearMessage={() => dispatch(setMessage(""))}
+                />
                 <BannerContainer bannerData={props.banner}/>
                 <SelectContainer selectorData={props.selector}
                                  onSelectClick={ key => dispatch(changeSubContent(key))}
