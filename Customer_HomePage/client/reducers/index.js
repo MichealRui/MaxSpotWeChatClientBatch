@@ -27,7 +27,7 @@ let subContent =
             bannerDist: ''
         },
         freeItems: [
-            {}, {}, {}
+            {}, {}, {}, {},{}, {}, {},{}
         ],
         items: [
             {},

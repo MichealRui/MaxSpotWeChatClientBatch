@@ -13,20 +13,21 @@ export default class SubContent extends React.Component {
     render() {
         let props = this.props.contentData;
         let swiperConfig = {
-            pagination: '.swiper2 .swiper-pagination',
             freeMode: true,
             slidesPerView: 2
         };
         let freeItems = props.freeItems.map((i, index) => {
             return <Item item={i} key={index} isSliderItem={true} storeid={this.props.storeData.id}/>
         });
-        freeItems.push(
-            <div className="item more" key={'All'}>
-                <div>
-                    <p className='font16'>查看全部</p>
-                    <p className='font14'>See All</p>
-                </div>
-            </div>);
+        let all = <div className="item more" key={'All'}>
+            <div>
+                <p className='font16'>查看全部</p>
+                <p className='font14'>See All</p>
+            </div>
+        </div>;
+        console.log(props.freeItems)
+        freeItems.push(all);
+        console.log(freeItems)
         return (
             <div className="subContentContainer" >
                 <SubBanner data={props.banner}/>
