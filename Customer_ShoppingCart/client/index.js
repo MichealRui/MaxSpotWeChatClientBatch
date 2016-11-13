@@ -9,7 +9,7 @@ import ShoppingCart from './containers/ShoppingCart/ShoppingCart';
 import reducers from './reducers/index';
 import WeXinUtil from './util/WeChatUtil';
 import fetch from 'isomorphic-fetch';
-
+require('./index.css');
 
 function activateVendor() {
     const loggerMiddleware = createLogger();

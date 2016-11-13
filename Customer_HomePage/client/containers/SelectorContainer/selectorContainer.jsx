@@ -6,19 +6,41 @@ require('./index.css');
 export default class SelectorContainer extends React.Component {
     constructor(props) {
         super (props)
+        this.state={
+            activated:[]
+        }
     }
-    
+
+    onclick(e) {
+        let key = e.target.getAttribute("data-key");
+
+
+        key?this.props.onSelectClick(key) : false;
+
+    }
+
     render() {
         let keys = this.props.selectorData;
-        let tags = keys.map((key, index) => {
-            return <Selector key={index} data={key} onclick={(k) => this.props.onSelectClick(k)}/>
+        console.log(this.props.currentKey)
+        let tags = keys.map((selector, index) => {
+            return (
+                <Selector
+                    key={index}
+                    data={selector}
+                    onclick={(k) => this.props.onSelectClick(k)}
+                    isActivated={selector.key == this.props.currentKey}
+                />
+            )
         });
+        let defaultKey = 'all';
         return (
-            <ul className="selectorContainer">
-                <li className="selector J_all"
-                    onClick={() => this.props.onSelectClick("all")}>
+            <ul className="selectorContainer" onClick={this.onclick.bind(this)}>
+                <li className="selector J_all" key="all"
+                    onClick={() => this.props.onSelectClick(defaultKey)}>
                     <div className={"itemIcon font30 fa fa-th-large"}></div>
                     <div className='itemName font14'>全部</div>
+                    <span className={"triangle " + (this.props.currentKey == defaultKey? 'activated':'')}
+                          data-key={defaultKey}></span>
                 </li>
                 {tags}
                 {/*<li className="selector J_food">*/}

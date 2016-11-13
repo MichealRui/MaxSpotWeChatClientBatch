@@ -11,7 +11,7 @@ export default class SubBanner extends React.Component {
         let props = this.props.data;
         return (
             <a href={props.bannerDist} className='bannerContainer'>
-                <span className='triangle'></span>
+                {/*<span className='triangle'></span>*/}
                 <img width="100%" height="200" src={props.imgPath} className='bannerImg'/>
             </a>
         )

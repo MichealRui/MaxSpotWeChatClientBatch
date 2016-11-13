@@ -125,6 +125,7 @@ class PageContainer extends React.Component {
                 <BannerContainer bannerData={props.banner}/>
                 <SelectContainer selectorData={props.selector}
                                  onSelectClick={ key => dispatch(changeSubContent(key))}
+                                 currentKey = {props.currentKey}
                 />
                 <SubContent
                     contentData={props.currentSub}

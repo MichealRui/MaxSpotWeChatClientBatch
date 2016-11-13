@@ -18,7 +18,7 @@ export default class Item extends React.Component {
     render() {
         let props = this.props.item;
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
-        let soldOut = <span className="soldOut font7">已售罄</span>
+        let soldOut = <span className="soldOut font7">已售罄</span>;
         return (
             <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
                 {

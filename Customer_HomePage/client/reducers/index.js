@@ -8,6 +8,14 @@ import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../action
 import { INIT_CART_SUCC, INIT_CART_FAIL } from '../actions/index'
 import { SET_MESSAGE } from '../actions/index'
 
+const SELECTOR_ICONS = {
+    1: {key: 'food', content: '食品', faIcon:'fa-empire'},
+    2: {key: 'makeup', content: '美妆', faIcon:'fa-tint'},
+    3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella'},
+    4: {key: 'drink', content: '酒饮', faIcon:'fa-glass'},
+    5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart'}
+};
+
 let bannerdata = [
     {
         destUrl: "",
@@ -58,7 +66,8 @@ let data = {
     currentSub: subContent['all'],
     cart: shoppingCart,
     storeInfo: storeInfo,
-    wxConfig:wxConfig
+    wxConfig:wxConfig,
+    currentKey: 'all'
 };
 
 function changeSubContent(content, key) {
@@ -67,6 +76,7 @@ function changeSubContent(content, key) {
     let currentSub = content['subContent'][key];
     let newContent = Object.assign({}, content)
     newContent.currentSub = currentSub;
+    newContent.currentKey=key;
     return newContent
 }
 
@@ -109,12 +119,15 @@ function initSuccess(content, data){
     //     remainTime: '380',
     //     count: 5
     // };
+
+
     return Object.assign({}, content, {
         banner: data.banner,
         selector: selector,
-        subContent: subContent,
+        subContent: Object.assign({}, subContent, {all: currentSub}),
         currentSub: currentSub,//data.subContent['all'],,
         storeInfo: data.store,
+        currentKey:'all',
         // cart: cart
     })
 }
