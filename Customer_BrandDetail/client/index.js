@@ -17,7 +17,7 @@ function activateVender() {
             thunkMiddleware,
             loggerMiddleware
         )
-    )
+    );
     return store;
 }
 

@@ -2,18 +2,21 @@
  * Created by wyf on 2016/10/18.
  */
 import fetch from 'isomorphic-fetch';
+import Util from '../util/WeChatUtil';
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, PICK_UP_START, PICK_UP_SUCCESS, PICK_UP_FAIL} from '../constants/ActionTypes';
 
 
 export function initOrderDetail(order_id) {
     return (dispatch)=>{
+        let domain = ENV.domain;
+        let order = Util.getUrlParam().ordernumber;
         dispatch(initStart());
-        fetch('',{
-            method:'POST',
-            mode:'cors',
-            Origin:'*',
+        fetch(domain+'/web/buyer_api/order_detail.ction',{
+            credentials: 'include',
+            method: 'POST',
+            mode: 'cors',
             body:JSON.stringify({
-                order_id:order_id
+                order_number:order
             })
         })
             .then(response=>response.json())
@@ -55,9 +58,9 @@ export function pickUp(order_id) {
         console.log(order_id);
         dispatch(pickUpStart());
         fetch('http://www.baidu.com',{
-            method:'POST',
-            mode:'cors',
-            Origin:'*',
+            credentials: 'include',
+            method: 'POST',
+            mode: 'cors',
             body:JSON.stringify({
                 orderId:order_id
             })

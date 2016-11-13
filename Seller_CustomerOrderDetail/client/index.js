@@ -15,7 +15,7 @@ fetch("http://www.mjitech.com/web/seller_api/wx_order_detail.action",
         mode: 'cors',
         Origin: '*',
         body: JSON.stringify(
-            Object.assign({}, {open_id: "123456"}, Util.getUrlParam("order_number"))
+            Object.assign({}, {open_id: "123456"}, Util.getUrlParam()["order_number"])
         )
     })
     .then(response => response.json())

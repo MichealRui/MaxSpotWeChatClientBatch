@@ -25,7 +25,7 @@ export default class TotalProducts extends React.Component {
 					{productInfoItems}
 				</ul>
 				{ props.discount ? <AccountDisplay name='买减优惠' money={props.discount} />:''}
-				<TotalCount totalCount={props.totalCount} totalMoney={props.totalMoney}/>
+				<TotalCount totalCount={props.skus.length} totalMoney={props.totalPrice/100 || 0}/>
 			</div>
 		);
 	}

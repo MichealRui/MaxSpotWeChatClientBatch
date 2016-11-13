@@ -22,7 +22,7 @@ class OrderDetail extends React.Component {
 
 	render(){
 		let {orderDetail, actions} = this.props;
-        let order_id = window.order_id;
+        // let order_id = window.order_id;
 		return(
 			<div className='orderDetailContainer'>
 				<div className="buttonArea clearfix">

@@ -87,11 +87,11 @@ class ConfirmOrder extends React.Component {
                     <span className='font14'>剩余支付时间： {props.remainTime}</span>
                 </div>
                 {productItems}
-                <div className="totalArea">
-                    <AccountDisplay name='商品总金额' money={props.actualMoney}/>
-                    <AccountDisplay name='商品优惠总计' money={props.productDiscount}/>
-                    <AccountDisplay name='总金额优惠总计' money={props.limitDiscount}/>
-                </div>
+                {/*<div className="totalArea">*/}
+                    {/*<AccountDisplay name='商品总金额' money={props.actualMoney}/>*/}
+                    {/*<AccountDisplay name='商品优惠总计' money={props.productDiscount}/>*/}
+                    {/*<AccountDisplay name='总金额优惠总计' money={props.limitDiscount}/>*/}
+                {/*</div>*/}
                 <div className='font14 totalMoney'>
                     <AccountDisplay name='应付金额' money={props.totalPrice/100 || 0}/>
                 </div>
