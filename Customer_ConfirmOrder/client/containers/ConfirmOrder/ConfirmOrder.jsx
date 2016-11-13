@@ -93,10 +93,10 @@ class ConfirmOrder extends React.Component {
                     <AccountDisplay name='总金额优惠总计' money={props.limitDiscount}/>
                 </div>
                 <div className='font14 totalMoney'>
-                    <AccountDisplay name='应付金额' money={props.totalMoney}/>
+                    <AccountDisplay name='应付金额' money={props.totalPrice/100 || 0}/>
                 </div>
                 <Button buttonClassName={'weiXinPay'}
-                        buttonText={'微信支付'+props.totalMoney+'元'}
+                        buttonText={'微信支付'+ (props.totalPrice/100 || 0)+'元'}
                         buttonClick={this.payOrder.bind(this)}
                         disabled={!this.props.state.sdkInited}
                 />
