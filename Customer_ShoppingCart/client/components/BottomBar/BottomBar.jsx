@@ -37,7 +37,7 @@ export default class BottomBar extends React.Component{
 				if(json.is_succ) {
 					console.log(json);
 				    window.location.href =
-						'http://www.mjitech.com/buyer_confirm?ordernumber=' + json.order.orderNumber;
+						'http://www.mjitech.com/buyer_confirm/index.html?ordernumber=' + json.order.orderNumber;
 				//	todo redirect to qrcode scan page
 				} else {
 					dispatchError(json.error_message)
