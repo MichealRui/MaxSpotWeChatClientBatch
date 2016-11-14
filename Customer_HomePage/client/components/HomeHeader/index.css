@@ -29,3 +29,35 @@
 .homeHeader .search {
 	right: 1.416667rem;
 }
+
+.shopBar {
+    height: 1.180556rem;
+    background-color: black;
+    opacity: 0.2;
+    padding: 0 0.416667rem;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+}
+
+.shopBar .shopAddress {
+    color: #FFFFFF;
+    height: 1.180556rem;
+    line-height: 1.180556rem;
+}
+
+.shopBar .switchShopBtn {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0.46rem;
+    color: #FFFFFF;
+    opacity: 0.9;
+    width: 2rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    text-align: center;
+    border-radius: 1.180556rem;
+    border: 1px solid #FFFFFF;
+}

@@ -118,7 +118,7 @@ class PageContainer extends React.Component {
         const { dispatch } = this.props;
         return (
             <div>
-                <HomeHeader />
+                <HomeHeader store={props.storeInfo}/>
                 <Message msgContent={props.errorMessage}
                          clearMessage={() => dispatch(setMessage(""))}
                 />

@@ -120,7 +120,6 @@ function initSuccess(content, data){
     //     count: 5
     // };
 
-
     return Object.assign({}, content, {
         banner: data.banner,
         selector: selector,
