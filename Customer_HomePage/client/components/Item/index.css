@@ -50,8 +50,8 @@
 .brandProductContainer .productDesc {
     width: 150px;
 	color: rgba(0,0,0,.9);
-	margin-bottom: 0.277778rem;
-	line-height: 1.5;
+	margin-bottom: 0.217778rem;
+	line-height: 1;
     white-space: nowrap;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;

@@ -32,7 +32,7 @@ export default class Item extends React.Component {
                     <p className='productDesc font14'>{props.shortName}</p>
                     <p className={'categoryName font10'}>{props.categoryName}</p>
                 </span>
-                <span className='unitPrice font14'>{props.sellprice/100 || 0 }元</span>
+                <span className='unitPrice font18'>{props.sellprice/100 || 0 }元</span>
                 {
                     sliderItem == 'sliderItem' ? '' :
                     props.quantity > 0 ? (this.props.children||null) : soldOut
