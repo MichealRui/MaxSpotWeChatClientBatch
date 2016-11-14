@@ -11,7 +11,7 @@ export default class Gallery extends React.Component {
         const gallerySrc = this.props.address;
         return (
             <li className="shopImg">
-                <img src={require('./images/shop.jpg')} alt=""/>
+                <img src={gallerySrc} alt="店铺实拍"/>
             </li>
         )
     }

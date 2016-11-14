@@ -23,7 +23,7 @@ class ShopContainer extends React.Component {
 
 		const itemMethod = {
 			changelike:item=>dispatch(changeLike(item)),
-		}
+		};
 		return (
 			<div className="shopContainer">
                 <Header itemInfo={itemInfo.header} itemMethod={itemMethod}/>
