@@ -11,13 +11,21 @@
 .imageContainer {
     background-color: #fff;
     height: 10rem;
+    padding: 0 2%;
 }
 
 .imageContainer .shopImg {
-    padding-top:0.6rem;
     height: 2.6rem;
+    width: 46%;
+    box-sizing: content-box;
+    padding: 0.4rem 2%;
+    display: inline-block;
 }
 
 .imageContainer .shopImg img{
-    width: 4rem;
+    width:100%;
+    height:100%;
+}
+.fll{
+    float: left;
 }

@@ -32,7 +32,7 @@ class ShopContainer extends React.Component {
 				{
 					itemInfo.gallery.map(
 					(gallery,index) =>
-						<Gallery itemInfo={gallery}/>
+						<Gallery key={index} address={gallery}/>
 					)
 				}
 				</ul>

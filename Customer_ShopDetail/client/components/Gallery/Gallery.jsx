@@ -8,11 +8,10 @@ export default class Gallery extends React.Component {
     }
 
     render() {
-        const galleryInfo = this.props.itemInfo;
+        const gallerySrc = this.props.address;
         return (
             <li className="shopImg">
-                <img className="fl" src={galleryInfo.imagepath1} alt=""/>
-                <img className="fr" src={galleryInfo.imagepath2} alt=""/>
+                <img src={require('./images/shop.jpg')} alt=""/>
             </li>
         )
     }
