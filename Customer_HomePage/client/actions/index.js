@@ -262,10 +262,10 @@ export function initSuccess(content) {
     }
 }
 
-export function initFail(message) {
+export function initFail(errorMessage) {
     return {
         type: INIT_FAIL,
-        message
+        errorMessage
     }
 }
 

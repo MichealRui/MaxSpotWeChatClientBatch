@@ -130,11 +130,11 @@ function decreaseCountFail(itemInfo, item, shopId, errorMessage) {
 }
 
 function fetchItemRequest(itemInfo, skuId) {
-    return Object.assign({}, itemInfo, {isItemFetching: true}, {alertMessage: ""}); //used to tell user we are fetching data now
+    return Object.assign({}, itemInfo, {isItemFetching: true}, {errorMessage: ""}); //used to tell user we are fetching data now
 }
 
 function fetchItemReceive(itemInfo, item) {
-    let newItemInfo = Object.assign({}, itemInfo, {isItemFetching: false}, {alertMessage: ""});
+    let newItemInfo = Object.assign({}, itemInfo, {isItemFetching: false}, {errorMessage: ""});
     return addItem(newItemInfo, item)
 }
 
@@ -143,7 +143,7 @@ function fetchItemError(itemInfo) {
 }
 
 function setMessage(itemInfo, message) {
-    return Object.assign({}, itemInfo, {alertMessage: message})
+    return Object.assign({}, itemInfo, {errorMessage: message})
 }
 
 function initSuccess(state, itemInfo) {
@@ -164,7 +164,7 @@ function clearCart(itemInfo) {
     return {skus:[], activateShop:[1], remainTime: ''}
 }
 
- export default function (itemInfo = {skus:[], activateShop:[1], remainTime: ''}, action){
+ export default function (itemInfo = {skus:[], activateShop:[1], remainTime: '', errorMessage:''}, action){
     switch(action.type){
         case INIT_SUCCESS:
             return initSuccess(itemInfo, action.skus);

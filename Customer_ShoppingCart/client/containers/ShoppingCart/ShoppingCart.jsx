@@ -3,6 +3,7 @@ import React from 'react';
 import TopBar from '../../components/TopBar/TopBar';
 import BottomBar from '../../components/BottomBar/BottomBar';
 import ProductSection from '../../components/ShopSection/ShopSection';
+import Message from '../../components/Message/Message'
 import { connect }  from 'react-redux';
 import { fetchItem, increment, decrement, deleteItem, setMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
 // import ShoppingCartData from './ShoppingCartData.js';
@@ -31,6 +32,9 @@ class ShoppingCart extends React.Component {
             <div>
 	            <div className="contentContainer">
 	            	<TopBar logo={itemInfo.logo} searchClick={()=>console.log('click')}/>
+                    <Message msgContent={itemInfo.errorMessage}
+                             clearMessage={() => dispatch(setMessage(""))}
+                    />
                     {
                     itemInfo.skus.map(
                         (sku, index) => {
