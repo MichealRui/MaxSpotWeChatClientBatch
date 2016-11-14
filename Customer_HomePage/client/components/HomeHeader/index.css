@@ -32,8 +32,8 @@
 
 .shopBar {
     height: 1.180556rem;
-    background-color: black;
-    opacity: 0.2;
+    background-color: #1e2751;
+    opacity: 0.5;
     padding: 0 0.416667rem;
     box-sizing: border-box;
     position: absolute;
