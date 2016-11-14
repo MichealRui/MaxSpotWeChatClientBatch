@@ -11,7 +11,7 @@ export default class TopBar extends React.Component {
     searchClick(){
         // let searchClick = this.props.searchClick;
         // searchClick();
-        window.location.href = ENV.domain
+        window.location.href = ENV.domain + '/buyer_home/index.html'
     }
     
     render(){
