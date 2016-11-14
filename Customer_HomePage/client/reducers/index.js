@@ -132,10 +132,8 @@ function initSuccess(content, data){
     })
 }
 
-function initFail(content) {
-    return Object.assign({}, content, {
-        errorMessage: "fail init"
-    })
+function initFail(content, message) {
+    return Object.assign({}, content, {errorMessage: message.errorMessage})
 }
 
 function succAddCart(content, ) {
@@ -188,7 +186,7 @@ export default function (
         case INIT_SUCCESS:
             return initSuccess(content, action.content);
         case INIT_FAIL:
-            return initFail(content);
+            return initFail(content, action.errorMessage);
         case CHANGE_SUBCONTENT:
             return changeSubContent(content, action.key);
         case CLEAR_CART:

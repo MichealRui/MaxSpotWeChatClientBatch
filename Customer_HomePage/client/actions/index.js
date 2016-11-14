@@ -243,9 +243,9 @@ export function initSubContent(d) {
                         store: json.selectedStore
                     }))
                 } else {
-                    dispatch(initFail())
+                    dispatch(initFail({errorMessage: json.error_message}))
                 }
-            }).catch(e => dispatch(initFail()))
+            }).catch(e => dispatch(initFail({ errorMessage: '服务器错误' })))
     }
 }
 
@@ -262,9 +262,10 @@ export function initSuccess(content) {
     }
 }
 
-export function initFail() {
+export function initFail(message) {
     return {
-        type: INIT_FAIL
+        type: INIT_FAIL,
+        message
     }
 }
 
