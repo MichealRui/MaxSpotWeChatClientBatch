@@ -62,14 +62,17 @@ class ConfirmOrder extends React.Component {
                 signType: "MD5",
                 paySign: config.paySign,
                 success: function(r){
+                    console.log(r)
                     //todo redirect to
                 },
                 fail: function(r){
                     //todo
+                    console.log(r);
                     console.log('fail')
                 },
                 cancel: function(r){
                     //todo
+                    console.log(r);
                     console.log('cancel')
                 }
             });
