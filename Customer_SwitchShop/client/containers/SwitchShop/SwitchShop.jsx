@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import ShopItem from '../../components/ShopItem/ShopItem';
-import Shops from './Shops';
 import * as Actions from '../../actions/index';
 require ('./index.css');
 
@@ -20,12 +19,10 @@ class SwitchShop extends Component {
 
 	render(){
 		let {Shops, actions} = this.props;
-		let currentShop = [];
-		let otherShop = [];
-		currentShop = Shops.current.map((shop, index)=> {
+		let currentShop = Shops.current.map((shop, index)=> {
             return <ShopItem key={index} {...shop} onClick={()=>actions.switchShop(shop.id)}/>;
         });
-        otherShop = Shops.others.map((shop, index) => {
+        let otherShop = Shops.others.map((shop, index) => {
             return (
                 <li key={index}>
                     <ShopItem  {...shop} onClick={()=>actions.switchShop(shop.id)}/>

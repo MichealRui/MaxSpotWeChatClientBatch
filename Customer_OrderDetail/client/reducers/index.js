@@ -47,8 +47,8 @@ function initStart(state) {
     return Object.assign({},state);
 }
 
-function initSuccess(state, content){
-    return Object.assign(state, content);
+function initSuccess(state, order){
+    return Object.assign({}, state, order);
 }
 
 function initFail(state){
@@ -72,7 +72,7 @@ export default function orderDetail(state=initState, action){
         case INIT_START:
             return initStart(state);
         case INIT_SUCCESS:
-            return initSuccess(state, action.content);
+            return initSuccess(state, action.order);
         case INIT_FAIL:
             return initFail(state);
         case PICK_UP_START:

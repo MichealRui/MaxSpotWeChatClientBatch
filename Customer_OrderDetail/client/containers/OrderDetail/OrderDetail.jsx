@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import Button from '../../components/Button/Button';
 import OrderDetailTitle from '../../components/OrderDetailTitle/OrderDetailTitle';
 import OrderDetailProductList from '../../components/OrderDetailProductList/OrderDetailProductList';
+import Util from '../../util/WeChatUtil'
 import * as Actions from '../../actions/index';
 require('./index.css');
 
@@ -16,8 +17,9 @@ class OrderDetail extends React.Component {
 
 	componentWillMount(){
 	    const {actions} = this.props;
+        let orderNumber=Util.getUrlParam().ordernumber;
         actions.initStart();
-        actions.initOrderDetail(window.order_id);
+        actions.initOrderDetail(orderNumber);
     }
 
 	render(){
@@ -44,11 +46,11 @@ class OrderDetail extends React.Component {
 				<div className='orderDetailNumber orderDetailInfo font14'>
 					<span>订单编号</span>
 					<span className='orderNumber'>{orderDetail.orderNumber}</span>
-					<span className={orderDetail.orderStatusClass+' orderStatus'}>{orderDetail.orderStatus}</span>
+					<span className={orderDetail.orderStatusClass+' orderStatus'}>{orderDetail.statusName}</span>
 				</div>
 				<div className='orderDetailDate orderDetailInfo font14'>
 					<span>交易时间</span>
-					<span className='last'>{orderDetail.orderDate}</span>
+					<span className='last'>{orderDetail.sellTime}</span>
 				</div>
 				<div className='orderDetailLastDate orderDetailInfo font14'>
 					<span>最晚提货时间</span>
@@ -58,7 +60,7 @@ class OrderDetail extends React.Component {
 					<span>取货码</span>
 					<span className='code last'>{orderDetail.orderCode}</span>
 				</div>
-				<OrderDetailProductList orderDetailProductList={orderDetail.orderDetailProductList} totalMoney={orderDetail.totalMoney}/>
+				<OrderDetailProductList orderDetailProductList={props.skus} totalMoney={props.totalPrice || 0}/>
 			</div>
 		);
 	}

@@ -52,6 +52,8 @@ class ConfirmOrder extends React.Component {
 
     payOrder() {
         let config = this.props.state.wxConfig;
+        console.log("order paying");
+        console.log(config)
         wx.ready(function(){
             wx.chooseWXPay({
                 timestamp: config.timeStamp,

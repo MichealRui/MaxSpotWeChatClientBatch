@@ -11,7 +11,7 @@ export function initOrderDetail(order_id) {
         let domain = ENV.domain;
         let order = Util.getUrlParam().ordernumber;
         dispatch(initStart());
-        fetch(domain+'/web/buyer_api/order_detail.ction',{
+        fetch(domain + '/web/buyer_api/order_detail.ction',{
             credentials: 'include',
             method: 'POST',
             mode: 'cors',
@@ -22,7 +22,7 @@ export function initOrderDetail(order_id) {
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    dispatch(initSuccess(json.orderDetail));
+                    dispatch(initSuccess(json.order));
                 }else {
                     dispatch(initFail());
                 }
@@ -40,10 +40,10 @@ export function initStart() {
     };
 }
 
-export function initSuccess(content) {
+export function initSuccess(order) {
     return {
         type:INIT_SUCCESS,
-        content
+        order
     };
 }
 
