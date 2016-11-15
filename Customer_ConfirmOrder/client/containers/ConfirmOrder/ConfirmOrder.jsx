@@ -52,10 +52,12 @@ class ConfirmOrder extends React.Component {
 
     payOrder() {
         let config = this.props.state.wxConfig;
+        let appId = 'wx4da5ecd6305e620a'
         console.log("order paying");
         console.log(config)
         wx.ready(function(){
             wx.chooseWXPay({
+                appId: appId,
                 timestamp: config.timeStamp,
                 nonceStr: config.nonceStr,
                 package: config.packageProperty,
