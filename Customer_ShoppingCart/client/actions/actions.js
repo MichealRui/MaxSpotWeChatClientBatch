@@ -161,7 +161,7 @@ export function increment(shopId, item){
             body: JSON.stringify({
                 storeId: '' + shopId,
                 skuId: '' + item.id,
-                count: '' + item.count + 1
+                count: '' + (parseInt(item.count) + 1)
             })
         }).then(response => response.json())
             .then(json => {
