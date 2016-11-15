@@ -6,7 +6,7 @@ import Button from '../../components/Button/Button';
 import AccountDisplay from '../../components/AccountDisplay/AccountDisplay';
 import TotalProducts from '../TotalProducts/TotalProducts';
 import { initPageContent, initSdk, initWXConfig} from '../../actions/index'
-import wx from 'weixin-js-sdk';
+const wx = require('weixin-js-sdk');
 require('./index.css');
 
 class ConfirmOrder extends React.Component {

@@ -22,11 +22,28 @@ class OrderDetail extends React.Component {
         actions.initOrderDetail(orderNumber);
     }
 
+    payNow(orderNumber) {
+        window.location.href=
+            'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + orderNumber
+    }
+
 	render(){
 		let {orderDetail, actions} = this.props;
+        let orderNumber = orderDetail.orderNumber;
         // let order_id = window.order_id;
 		return(
 			<div className='orderDetailContainer'>
+                {
+                    orderDetail.status == 1 ?
+                        <div className="buttonArea clearfix">
+                            <span className='font14'>订单还未支付哦</span>
+                            <Button buttonClassName='pickUpButton' buttonClick={()=>()=>this.payNow(orderNumber)} buttonText='立即支付'/>
+                        </div> :
+                        <div className="buttonArea clearfix">
+                            <span className='font14'>取货时请记得确认位置哦</span>
+                            <Button buttonClassName='pickUpButton' buttonClick={()=>actions.pickUp(order_id)} buttonText='立即取货'/>
+                        </div>
+                }
 				<div className="buttonArea clearfix">
                     <span className='font14'>取货时请记得确认位置哦</span>
 					<Button buttonClassName='pickUpButton' buttonClick={()=>actions.pickUp(order_id)} buttonText='立即取货'/>
