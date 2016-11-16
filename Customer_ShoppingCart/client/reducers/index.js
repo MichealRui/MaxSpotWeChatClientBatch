@@ -126,7 +126,8 @@ function failIncrementCount(itemInfo, item, shopId, errorMessage) {
 function decreaseCount (itemInfo, item, shopId) {
     let LastOne = 1;
     if(item.count <= LastOne) {
-        return deleteItem(Object.assign({}, itemInfo), item, shopId)
+        return finalState(Object.assign({}, itemInfo));
+        //return deleteItem(Object.assign({}, itemInfo), item, shopId)
     }
     return     changeCount( itemInfo, item.skuNumber, shopId,
         (i) => {
