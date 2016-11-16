@@ -81,7 +81,6 @@ function initSuccess(state, content, storeId){
         return s.id != storeId
     });
     return Object.assign({}, {others: others}, {current: current});
-    // return Object.assign({}, state, content);
 }
 
 function initFail(state){

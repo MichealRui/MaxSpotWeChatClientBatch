@@ -20,12 +20,12 @@ class SwitchShop extends Component {
 	render(){
 		let {Shops, actions} = this.props;
 		let currentShop = Shops.current.map((shop, index)=> {
-            return <ShopItem key={index} {...shop} onClick={()=>actions.switchShop(shop.id)}/>;
+            return <ShopItem key={index} {...shop} />;
         });
         let otherShop = Shops.others.map((shop, index) => {
             return (
                 <li key={index}>
-                    <ShopItem  {...shop} onClick={()=>actions.switchShop(shop.id)}/>
+                    <ShopItem  {...shop} />
                 </li>
             );
         });
