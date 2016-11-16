@@ -37,7 +37,7 @@ class ProductDetail extends React.Component {
                     productName={productDetail.name}
                     productInfo={productDetail.productInfo}
                 />
-				<ProductSlider productImgs={productDetail.imagePath}/>
+				<ProductSlider productImgs={productDetail.images}/>
 				<AddIntoCart
                     productCost={productDetail.sellprice / 100}
                     productCount={productDetail.quantity}
