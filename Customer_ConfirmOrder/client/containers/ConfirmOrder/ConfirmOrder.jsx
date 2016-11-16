@@ -79,6 +79,7 @@ class ConfirmOrder extends React.Component {
                 }
             });
         });
+        return false;
     }
 
 	render(){

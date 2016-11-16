@@ -10,15 +10,16 @@ export default class BottomBar extends React.Component{
 	}
 	
 	createOrderClick() {
-		let itemList = this.props.itemList;
-		let dispatchError = this.props.onError;
-		// let cart = itemList.map((item) => {
-         //    return {
-         //        sku_id:item.id,
-         //        count:item.count
-         //    }
-		// });
-		let stores = this.props.activateStore;
+		let stores =  this.props.activateStore.filter(
+		    shop => {
+                let id = Object.keys(shop).shift();
+                return shop[id].activated && !shop[id].editable
+		    }
+        ).map(s => Object.keys(s).shift());
+        if(this.props.totalMoney == 0) {
+            return false;
+        }
+
 		const domain = ENV.domain;
 		fetch( domain + '/web/buyer_api/submit_carts.ction',
 			{
@@ -47,6 +48,7 @@ export default class BottomBar extends React.Component{
 
 	render(){
 		let props = this.props;
+		let stores = this.props.activateStore;
 		return(
 			<div className='bottomBar'>
 				<div>
@@ -62,7 +64,10 @@ export default class BottomBar extends React.Component{
 
 					</div>
 				</div>
-				<span className="button settleButton J_createOrder font18" onClick={this.createOrderClick.bind(this)}>结算</span>
+				<span className={"button settleButton J_createOrder font18 " + (props.totalMoney == 0 ? 'disabled': '') }
+                      onClick={this.createOrderClick.bind(this)}
+                      disabled={props.totalMoney == 0}
+                >结算</span>
 			</div>
 		)
 	}

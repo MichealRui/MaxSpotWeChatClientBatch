@@ -5,7 +5,7 @@ import BottomBar from '../../components/BottomBar/BottomBar';
 import ProductSection from '../../components/ShopSection/ShopSection';
 import Message from '../../components/Message/Message'
 import { connect }  from 'react-redux';
-import { fetchItem, increment, decrement, deleteItem, setMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
+import { fetchItem, increment, decrement, deleteItem, changeShopState, setMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
 // import ShoppingCartData from './ShoppingCartData.js';
 require('./index.css');
 
@@ -25,9 +25,10 @@ class ShoppingCart extends React.Component {
             increase: shopId => item => dispatch(increment(shopId, item)),
             decrease: shopId => item => dispatch(decrement(shopId, item)),
             delete: shopId => item => dispatch(deleteItem(shopId, item)),
+            editState: shopId => () =>dispatch(changeShopState(shopId)),
             toggle: shopId => () => dispatch(toggleShop(shopId))
         };
-        console.log(itemInfo.remainTime)
+        console.log(itemInfo.remainTime);
         return(
             <div>
 	            <div className="contentContainer">
@@ -36,23 +37,28 @@ class ShoppingCart extends React.Component {
                              clearMessage={() => dispatch(setMessage(""))}
                     />
                     {
-                    itemInfo.skus.map(
-                        (sku, index) => {
-                            if(!sku.productList || sku.productList.length == 0) {
-                                return ''
-                            } else {
-                                let specifiedMethods = {};
-                                for(let k in itemMethods) {
-                                    specifiedMethods[k] = itemMethods[k](sku.id)
+                        itemInfo.skus.map(
+                            (sku, index) => {
+                                if(!sku.productList || sku.productList.length == 0) {
+                                    return ''
+                                } else {
+                                    let specifiedMethods = {};
+                                    for(let k in itemMethods) {
+                                        specifiedMethods[k] = itemMethods[k](sku.id)
+                                    }
+                                    let store = itemInfo.activateShop.filter(s =>
+                                        Object.keys(s).shift() == sku.id
+                                    ).shift();
+                                    return (<ProductSection key={index}
+                                                            itemMethod={specifiedMethods}
+                                                            itemInfo={sku}
+                                                            store={store}
+                                    />)
                                 }
-                                return (<ProductSection key={index}
-                                                        itemMethod={specifiedMethods}
-                                                        itemInfo={sku}
-                                />)
-                            }
-                    }
+                        }
 
-                    )}
+                        )
+                    }
                     {/*<ProductSection itemMethod={itemMethods} address={itemInfo.machineAddress} itemInfo={this.props.itemInfo}/>*/}
                     {/*<ShoppingTitle machineAddress={itemInfo.machineAddress} statusText={itemInfo.statusText}/>*/}
 	                {/*<ul className="container" style={productListStyle}>*/}

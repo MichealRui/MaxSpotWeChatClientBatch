@@ -16,23 +16,28 @@ export default class ProductSection extends React.Component {
     }
 
     checkboxChange(){
-        this.setState({
-            checked:!this.state.checked
-        });
+        // this.setState({
+        //     checked:!this.state.checked
+        // });
         this.props.itemMethod.toggle();
     }
 
     editChange() {
-        this.setState({
-            edit:!this.state.edit
-        });
+        // this.setState({
+        //     edit:!this.state.edit
+        // });
+        this.props.itemMethod.editState();
     }
 
     render() {
         const productListStyle = { width:'100%', margin:0, listStyle: 'none'};
-        const labelClassName = this.state.checked? 'fa fa-check checkLabel checked font14':'checkLabel font14';
+
         const itemMethod = this.props.itemMethod;
         const itemInfo = this.props.itemInfo;
+        const store = this.props.store;
+        const editable = store[itemInfo.id].editable;
+        const activated = store[itemInfo.id].activated;
+        const labelClassName = activated ? 'fa fa-check checkLabel checked font14':'checkLabel font14';
         return (
             <div className='editContainer'>
                 <div className="editTitle">
@@ -41,15 +46,15 @@ export default class ProductSection extends React.Component {
                     <span className='machineAddress font14'>
 		              {itemInfo.name}
 		            </span>
-                    <span className='editButton font14 J_edit' onClick={this.editChange}>
-                        {this.state.edit? '编辑': '完成'}
+                    <span className='editButton font14 J_edit' onClick={() => itemMethod.editState()}>
+                        {!editable ? '编辑': '完成'}
 		            </span>
                 </div>
                 <ul className="container" style={productListStyle}>
                     {
                         itemInfo.productList.map(
                             (product, index) =>
-                                this.state.edit ?
+                                !editable ?
                                     <ProductItemLocked key={product.skuNumber} data={product}/>
                                     :
                                     <ProductItem key={product.skuNumber} data={product}

@@ -9,6 +9,7 @@ export const INIT_SHOPPING_CART = 'INIT_SHOPPING_CART';
 export const INIT_ERROR = 'INIT_ERROR';
 export const INIT_SUCCESS = 'INIT_SUCCESS';
 export const TOGGLE_SHOP = 'TOGGLE_SHOP';
+export const CHANGE_SHOP_STATE = 'CHANGE_SHOP_STATE';
 export const CLEAR_CART = 'CLEAR_CART';
 
 export const INCREMENT_COUNTER_SUCC = 'INCREMENT_COUNTER_SUCC';
@@ -66,6 +67,14 @@ export function initError() {
 export function toggleShop(shopId) {
     return {
         type: TOGGLE_SHOP,
+        shopId
+    }
+}
+
+
+export function changeShopState(shopId) {
+    return {
+        type:CHANGE_SHOP_STATE,
         shopId
     }
 }
@@ -231,4 +240,5 @@ function failDecrement(shopId, item, error) {
         errorMessage: error
     }
 }
+
 

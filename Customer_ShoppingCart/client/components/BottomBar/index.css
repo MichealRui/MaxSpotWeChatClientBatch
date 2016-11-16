@@ -47,3 +47,13 @@
     color: #fff;
     border:none;
 }
+
+.bottomBar .button.settleButton.disabled {
+    float: right;
+    width: 40%;
+    background: grey;
+    height: 100%;
+    line-height: 1.527778rem;
+    color: #fff;
+    border:none;
+}
