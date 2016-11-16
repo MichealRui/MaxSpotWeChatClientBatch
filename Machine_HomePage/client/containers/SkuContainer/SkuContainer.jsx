@@ -2,9 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Modal, Button } from 'antd';
-import CartItem from '../../components/CartItem/CartItem'
-import SwiperComponent from '../../components/Swiper/index'
-import CartBottom from '../CartBottom/CartBottom'
+import skuImage from '../SkuImage/skuImage'
+import skuInfo from '../SkuInfo/skuInfo'
 require('./index.css')
 
 export default class SkuContainer extends React.Component {
@@ -24,12 +23,14 @@ export default class SkuContainer extends React.Component {
 
         return (
             <div className="skuContainer">
-                {/*<Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>*/}
                 <Modal visible={this.props.visible}
                        onCancel={this.props.onCancel()}
+                       wrapClassName="customized-modal"
+                       footer=''
                 >
-                    <div className="sku_wrapper">
-
+                    <div className="sku_wrapper clearfix">
+                        <skuImage />
+                        <skuInfo />
                     </div>
                 </Modal>
             </div>

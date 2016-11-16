@@ -77,6 +77,10 @@ hr {
 html { overflow-y: scroll; }
 
 /*清楚浮动*/
+.clearfix {
+    display: inline-block;
+    *zoom: 1
+}
 .clearfix:after {
     content: "\0020";
     display: block;
@@ -84,6 +88,13 @@ html { overflow-y: scroll; }
     clear: both;
     height: 0;
     overflow: hidden;
+}
+
+.fl{
+    float:left;
+}
+.fr{
+    float: right;
 }
 
 /* 字体大小使用px，针对不同dpr屏幕设置不同样式 */
