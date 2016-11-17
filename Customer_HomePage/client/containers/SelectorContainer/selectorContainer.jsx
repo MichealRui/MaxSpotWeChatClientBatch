@@ -14,10 +14,7 @@ export default class SelectorContainer extends React.Component {
 
     onclick(e) {
         let key = e.target.getAttribute("data-key");
-
-
         key?this.props.onSelectClick(key) : false;
-
     }
 
     render() {

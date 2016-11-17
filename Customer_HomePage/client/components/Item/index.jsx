@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 require('./index.css');
 
 export default class Item extends React.Component {
@@ -23,8 +24,9 @@ export default class Item extends React.Component {
             <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
                 {
                     props.imagePath ?
-                    <img src={'http://114.215.143.97' + props.imagePath} className='productImg' />:
-                    ''
+                        <LazyLoad height={'45%'}>
+                            <img src={'http://114.215.143.97' + props.imagePath} className='productImg' />
+                        </LazyLoad> : ''
                 }
                 {/*<img src={'http://114.215.143.97' + props.imagePath} className='productImg' />*/}
                 <span className='brandProductContainer'>
