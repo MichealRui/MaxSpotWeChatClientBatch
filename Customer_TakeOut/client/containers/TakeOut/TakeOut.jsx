@@ -6,7 +6,7 @@ import QrCode from '../../components/QrCode/QrCode';
 import WindowText from '../../components/WindowText';
 require('./index.css');
 
-class CheckOut extends React.Component {
+class TakeOut extends React.Component {
     
     constructor(props){
         super(props);

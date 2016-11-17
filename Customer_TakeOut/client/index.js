@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
-import CheckOut from './containers/CheckOut/CheckOut';
+import TakeOut from './containers/TakeOut/TakeOut';
 import fetch from 'isomorphic-fetch';
 import Util from './util/WeChatUtil';
 require('./index.css');
@@ -17,7 +17,7 @@ fetch(ENV.domain + '/web/seller_api/wx_set_order_taken.action',
     .then(json => {
         if(json.is_succ) {
             ReactDOM.render(
-                <CheckOut order={json}/>,
+                <TakeOut order={json}/>,
                 document.getElementById('root')
             )
         } else {
