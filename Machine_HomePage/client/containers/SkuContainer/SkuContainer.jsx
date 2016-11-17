@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Modal, Button } from 'antd';
-import SkuImage from '../SkuImage/skuImage'
-import SkuInfo from '../SkuInfo/skuInfo'
+import SkuImage from '../SkuImage/SkuImage'
+import SkuInfo from '../SkuInfo/SkuInfo'
 require('./index.css')
 
 export default class SkuContainer extends React.Component {
@@ -20,6 +20,7 @@ export default class SkuContainer extends React.Component {
         };*/
 
 
+
         return (
             <div className="skuContainer">
                 <Modal visible={this.props.visible}
@@ -33,7 +34,6 @@ export default class SkuContainer extends React.Component {
                             <SkuInfo />
                         </div>
                     </div>
-
                 </Modal>
             </div>
         );

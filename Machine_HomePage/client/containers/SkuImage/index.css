@@ -65,6 +65,6 @@
 
 .skuImage
 .img_wrapper .img_item img{
-    width: 62%;
+    width: 100%;
     vertical-align: middle;
 }
