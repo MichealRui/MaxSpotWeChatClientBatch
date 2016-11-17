@@ -1,0 +1,55 @@
+.settleContainer {
+    padding: 0.902778rem 0.972222rem 0;
+}
+.settleContainer>div:after {
+    display: block;
+    content: '';
+    clear:both;
+}
+.settleContainer .shopName {
+    text-align: center;
+}
+.settleContainer .shopName h1 {
+    line-height: 1;
+    margin-bottom: 0.277778rem;
+}
+.settleContainer .shopName p {
+    color: rgba(0,0,0,.5);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+.settleContainer .settleCount {
+    text-align: center;
+    color: #2db9ed;
+}
+.settleContainer .settleCount h1 {
+    line-height: 1;
+    margin-bottom: 0.694444rem;
+}
+.settleContainer .settleCount em {
+    font-weight: normal;
+    font-weight: 900;
+}
+.settleContainer .settleQRCode {
+    width: 80%;
+    margin: 0 auto 0.555556rem;
+}
+.settleContainer .qrCodeContainer {
+    margin-bottom: 0.625rem;
+}
+.settleContainer p.settleQRCodeIntroduce {
+    line-height: 18px;
+    color: #7f7f7f;
+    margin-bottom: 1.111111rem;
+    text-align: center;
+}
+[data-dpr='2'] .settleContainer p.settleQRCodeIntroduce {
+    line-height: 36px;
+}
+[data-dpr='3'] .settleContainer p.settleQRCodeIntroduce {
+    line-height: 54px;
+}
+.settleContainer .qrCodeContainer {
+    display: flex;
+    justify-content: center;
+}

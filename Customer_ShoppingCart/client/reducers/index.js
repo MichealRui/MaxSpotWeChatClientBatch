@@ -5,7 +5,7 @@
 import { INIT_ERROR, INIT_SUCCESS} from '../actions/actions'
 import { TOGGLE_SHOP, CHANGE_SHOP_STATE } from '../actions/actions'
 import { CLEAR_CART } from '../actions/actions'
-import { ADD_ITEM, DELETE_ITEM, INCREMENT_COUNTER_SUCC, INCREMENT_COUNTER_FAIL, DECREMENT_COUNTER_SUCC, DECREMENT_COUNTER_FAIL} from '../actions/actions'
+import { ADD_ITEM, DELETE_ITEM, DELETE_ITEM_FAIL,INCREMENT_COUNTER_SUCC, INCREMENT_COUNTER_FAIL, DECREMENT_COUNTER_SUCC, DECREMENT_COUNTER_FAIL} from '../actions/actions'
 import {FETCH_ITEM_REQUEST, FETCH_ITEM_RECEIVE, FETCH_ITEM_ERROR} from '../actions/actions'
 import { SET_MESSAGE } from '../actions/actions'
 
@@ -94,6 +94,10 @@ function deleteItem(itemInfo, item, shopId) {
         }
     });
     return finalState(newItemList)
+}
+
+function deleteItemFail(itemInfo, item, shopId, errorMessage) {
+    return Object.assign({}, itemInfo, {errorMessage: errorMessage})
 }
 
 function changeCount(itemInfo, skuNumber, shopId, operation) {
@@ -224,6 +228,8 @@ function clearCart(itemInfo) {
             return addItem(itemInfo, action.item);
         case DELETE_ITEM:
             return deleteItem(itemInfo, action.item, action.shopId);
+        case DELETE_ITEM_FAIL:
+            return deleteItemFail(itemInfo, action.item, action.shopId, action.errorMessage)
         case INCREMENT_COUNTER_SUCC:
             return increaseCount(itemInfo, action.item, action.shopId);
         case INCREMENT_COUNTER_FAIL:
