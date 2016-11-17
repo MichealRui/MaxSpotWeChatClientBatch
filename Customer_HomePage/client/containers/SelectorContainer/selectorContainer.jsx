@@ -1,6 +1,7 @@
 'use static';
 import React from 'react'
 import Selector from '../../components/Selector'
+import icon_all from './image/icon_1.png'
 require('./index.css');
 
 export default class SelectorContainer extends React.Component {
@@ -37,7 +38,7 @@ export default class SelectorContainer extends React.Component {
             <ul className="selectorContainer" onClick={this.onclick.bind(this)}>
                 <li className="selector J_all" key="all"
                     onClick={() => this.props.onSelectClick(defaultKey)}>
-                    <div className={"itemIcon font30 fa fa-th-large"}></div>
+                    <div className={"itemIcon font30"}><img src={icon_all} alt=""/></div>
                     <div className='itemName font14'>全部</div>
                     <span className={"triangle " + (this.props.currentKey == defaultKey? 'activated':'')}
                           data-key={defaultKey}></span>

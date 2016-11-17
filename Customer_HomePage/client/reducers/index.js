@@ -7,13 +7,18 @@ import { CLEAR_CART , SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
 import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../actions/index'
 import { INIT_CART_SUCC, INIT_CART_FAIL } from '../actions/index'
 import { SET_MESSAGE } from '../actions/index'
+import icon_deviantart from '../components/Selector/image/icon_deviantart.png';
+import icon_empire from '../components/Selector/image/icon_empire.png';
+import icon_glass from '../components/Selector/image/icon_glass.png';
+import icon_makeup from '../components/Selector/image/icon_makeup.png';
+import icon_umbrella from '../components/Selector/image/icon_umbrella.png';
 
 const SELECTOR_ICONS = {
-    1: {key: 'food', content: '食品', faIcon:'fa-empire'},
-    2: {key: 'makeup', content: '美妆', faIcon:'fa-tint'},
-    3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella'},
-    4: {key: 'drink', content: '酒饮', faIcon:'fa-glass'},
-    5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart'}
+    1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
+    2: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
+    3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
+    4: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
+    5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
 };
 
 let bannerdata = [
@@ -24,7 +29,7 @@ let bannerdata = [
 ];
 
 let selector = [
-    {key: '', content: '', faIcon: ''},
+    {key: '', content: '', faIcon: '',icon:''},
 ];
 
 let subContent =
@@ -87,11 +92,11 @@ function initStart(content) {
 function initSuccess(content, data){
 
     const SELECTOR_ICONS = {
-        1: {key: 'food', content: '食品', faIcon:'fa-empire'},
-        2: {key: 'makeup', content: '美妆', faIcon:'fa-tint'},
-        3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella'},
-        4: {key: 'drink', content: '酒饮', faIcon:'fa-glass'},
-        5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart'}
+        1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
+        2: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
+        3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
+        4: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
+        5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
     };
     let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
     console.log(data)
