@@ -51,7 +51,7 @@ export function initWxConfig(url) {
                 body: JSON.stringify({openid: "o41Mgv7HMpgc16ViZCsVkeodDmjM"})
             }
         ).then (
-            fetch( domain + '/web/buyer_api/get_jsapi_config_params.ction',
+            fetch( domain + '/web/buyer_api/get_jsapi_config_params.action',
                 {
                     credentials: 'include',
                     method: 'POST',

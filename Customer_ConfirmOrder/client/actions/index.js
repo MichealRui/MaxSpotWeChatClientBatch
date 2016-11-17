@@ -24,7 +24,7 @@ const domain  = ENV.domain;
 export function initWXConfig() {
     console.log(window.location.href);
     return (dispatch) => {
-        fetch( domain + '/web/buyer_api/get_jsapi_config_params.ction',
+        fetch( domain + '/web/buyer_api/get_jsapi_config_params.action',
             {
                 credentials: 'include',
                 method: 'POST',
