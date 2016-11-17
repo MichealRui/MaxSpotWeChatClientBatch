@@ -1,6 +1,7 @@
 'use strict';
 import React, { Component } from 'react';
 import Counter from '../Counter/Counter';
+import cart_img from './image/cart.png'
 require ('./index.css');
 
 export default class BottomButton extends Component {
@@ -21,7 +22,8 @@ export default class BottomButton extends Component {
         return (
             <div className={cart.remainTime?"bottomButton":"bottomButton empty"}>
                 <div className='cartIcon'>
-                    <a className='fa fa-shopping-cart font30' onClick={() => this.cartOnClick().bind(this)}>
+                    <a className='shopping_cart font30 ' onClick={() => this.cartOnClick().bind(this)}>
+                        <img src={cart_img} alt=""/>
                         {cart.count>=0?(<span className='count font10'>{cart.count}</span>):''}
                     </a>
                 </div>
