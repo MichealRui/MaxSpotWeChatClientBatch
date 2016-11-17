@@ -20,6 +20,7 @@ export const DECREMENT_COUNTER_FAIL = 'DECREMENT_COUNTER_FAILA';
 
 export const ADD_ITEM = 'ADD_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const DELETE_ITEM_FAIL = 'DELETE_ITEM_FAIL';
 
 /* fetch item ASYNC action*/
 export const FETCH_ITEM_REQUEST = 'FETCH_ITEM_REQUEST';
@@ -153,10 +154,42 @@ export function addItem(item) {
 }
 
 export function deleteItem(shopId, item) {
+
+    return (dispatch) => {
+        fetch( domain + '/web/buyer_api/remove_sku_from_cart.action', {
+            credentials: 'include',
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                storeId: '' + shopId,
+                skuId: '' + item.id,
+                count: '' + item.count
+            })
+        }).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(succDelete(shopId, item))
+                } else {
+                    dispatch(failDelete(shopId, item, json.error_message))
+                }
+            }).catch( e => dispatch(failDelete(shopId, item, '服务器异常')))
+    };
+}
+
+function succDelete(shopId, item) {
     return {
         type: DELETE_ITEM,
         item,
         shopId
+    }
+}
+
+function failDelete(shopId, item, error) {
+    return {
+        type: DELETE_ITEM_FAIL,
+        item,
+        shopId,
+        errorMessage: error
     }
 }
 
@@ -170,7 +203,7 @@ export function increment(shopId, item){
             body: JSON.stringify({
                 storeId: '' + shopId,
                 skuId: '' + item.id,
-                count: '' + (parseInt(item.count) + 1)
+                count: '1' //+ (parseInt(item.count) + 1)
             })
         }).then(response => response.json())
             .then(json => {

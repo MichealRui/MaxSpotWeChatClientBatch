@@ -1,0 +1,11 @@
+.container {
+    width:100%;
+    margin:0 auto;
+    list-style: none;
+}
+.bigButton {
+	height: 1.25rem;
+	line-height: 1.25rem;
+	border-radius: 0.625rem;
+	margin: 0.277778rem 0;
+}

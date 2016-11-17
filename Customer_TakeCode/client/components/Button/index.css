@@ -1,0 +1,22 @@
+.bigButton {
+    width: 100%;
+    border-radius: 0.5rem;
+    height: 1.0rem;
+    line-height: 1.0rem;
+    margin:0.138889rem auto;
+    text-align: center;
+    cursor: pointer;
+}
+.bigButton.enable {
+    background: #eb5d41;
+    color: #fff;
+}
+.bigButton.paySuccess {
+    background: #eb5d41;
+    color: #fff;
+}
+.bigButton.payFailed {
+    background: #fff;
+    color: #000;
+    border: 1px solid #cecece;
+}

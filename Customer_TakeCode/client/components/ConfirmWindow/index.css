@@ -1,0 +1,45 @@
+.model {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.8);
+    z-index: 999;
+}
+.model .windowWrap {
+    position: absolute;
+    width: 70%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 1.208333rem 0.833333rem;
+    background-color: #fff;
+    border-radius: 0.277778rem;
+}
+.model .windowWrap p {
+    line-height: 20px;
+    margin-bottom: 1.388889rem;
+    text-align: center;
+}
+[data-dpr="2"] .model .windowWrap p {
+    line-height: 40px;
+    margin-bottom: 1.388889rem;
+}
+[data-dpr="3"] .model .windowWrap p {
+    line-height: 60px;
+    margin-bottom: 1.388889rem;
+}
+.model .windowWrap h1 {
+    line-height: 1;
+    text-align: center;
+    color: #2db9ed;
+    margin-bottom: 1.444444rem;
+    font-weight: 900;
+}
+.model .windowWrap .bigButton.paySuccess,
+.model .windowWrap .bigButton.payFailed {
+    height: 1.25rem;
+    line-height: 1.25rem;
+    border-radius: 0.625rem;
+}
