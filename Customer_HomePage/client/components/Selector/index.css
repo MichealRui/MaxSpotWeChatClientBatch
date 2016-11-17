@@ -15,6 +15,14 @@
 
 .selector .itemIcon img{
 	width: 100%;
+	transition: all 1s;
+	-moz-transition: all 1s; /* Firefox 4 */
+	-webkit-transition: all 1s; /* Safari 和 Chrome */
+	-o-transition: all 1s;
+}
+
+.selector .itemIcon img:hover{
+	transform: scale(1.1);
 }
 
 .selector .itemName {

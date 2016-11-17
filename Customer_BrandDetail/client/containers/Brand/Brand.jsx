@@ -20,8 +20,9 @@ class BrandContainer extends React.Component {
 			param[obj[0]] = obj[1];
 		});
 		let brandId = param.brandId;
+		let storeId = param.storeId;
 		const {dispatch} = this.props;
-		dispatch(initBrand(brandId));
+		dispatch(initBrand(brandId,storeId));
 	}
 	render(){
 		const{dispatch,itemInfo} = this.props;

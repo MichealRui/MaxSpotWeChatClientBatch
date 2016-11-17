@@ -25,8 +25,8 @@ export const ERROR_ADD_CART = 'ERROR_ADD_CART';
 
 export const SUCCESS_ADD_CART = 'SUCCESS_ADD_CART';
 
-const domain = 'http://114.215.143.97';
-export function initBrand(brandId) {
+const domain = ENV.domain;
+export function initBrand(brandId,storeId) {
     return (dispatch)=>{
         //todo fetch
         fetch(domain + '/web/buyer_api/test_login_with_openid.ction',
@@ -44,7 +44,7 @@ export function initBrand(brandId) {
                         credentials:'include',
                         method:'POST',
                         mode:'cors',
-                        body:JSON.stringify({brandId:brandId})
+                        body:JSON.stringify({brandId:brandId,storeId:storeId})
                     }).then((response)=>response.json()).then(
                         json=>{
                             console.log(json);
