@@ -5,7 +5,8 @@ import { connect }  from 'react-redux';
 import Button from '../../components/Button/Button';
 import AccountDisplay from '../../components/AccountDisplay/AccountDisplay';
 import TotalProducts from '../TotalProducts/TotalProducts';
-import { initPageContent, initSdk, initWXConfig} from '../../actions/index'
+import { initPageContent, initSdk, initWXConfig} from '../../actions/index';
+import Util from '../../util/WeChatUtil'
 const wx = require('weixin-js-sdk');
 require('./index.css');
 
@@ -64,13 +65,13 @@ class ConfirmOrder extends React.Component {
                 signType: "MD5",
                 paySign: config.paySign,
                 success: function(r){
-                    console.log(r)
-                    //todo redirect to
+                    let order = Util.getUrlParam().ordernumber;
+                    window.location.href =
+                        ENV.domain + '/web/buyer_paysucc/index.html?ordernumber=' + order
                 },
                 fail: function(r){
-                    //todo
-                    console.log(r);
-                    console.log('fail')
+                    window.location.href =
+                        ENV.domain + '/web/buyer_orderlist/index.html'
                 },
                 cancel: function(r){
                     //todo
