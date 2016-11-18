@@ -89,6 +89,9 @@ const mock = {
         "minStock":0,
         "skuNumber":"UF000578",
         "brand":272,
+        "images": [
+            "/static/sku/0/0/578/1474368794745.jpg"
+        ],
         "attributes":[
             {"unit":"","name":"口味","value":"芝士"},
             {"unit":"g","name":"净含量","value":"65"}
