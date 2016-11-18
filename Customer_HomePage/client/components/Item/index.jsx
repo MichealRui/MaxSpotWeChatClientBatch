@@ -24,13 +24,17 @@ export default class Item extends React.Component {
         return (
             <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
                 {
-                    props.imagePath ?
-                        <LazyLoad height={'45%'}>
-                            <img src={ 'http://114.215.143.97/' + props.imagePath } className='productImg' />
-                        </LazyLoad> :
-                        <LazyLoad height={'45%'}>
-                            <img src={ defProductImg } className='productImg' />
-                        </LazyLoad>
+                    sliderItem == 'sliderItem' ?
+                        <img src={ 'http://114.215.143.97/' + props.imagePath } className='productImg' />
+                        : (
+                            props.imagePath ?
+                                <LazyLoad height={'45%'}>
+                                    <img src={ 'http://114.215.143.97/' + props.imagePath } className='productImg' />
+                                </LazyLoad> :
+                                <LazyLoad height={'45%'}>
+                                    <img src={ defProductImg } className='productImg' />
+                                </LazyLoad>
+                        )
                 }
                 {/*<img src={'http://114.215.143.97' + props.imagePath} className='productImg' />*/}
                 <span className='brandProductContainer'>
