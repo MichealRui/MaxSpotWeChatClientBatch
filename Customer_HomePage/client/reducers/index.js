@@ -15,9 +15,9 @@ import icon_umbrella from '../components/Selector/image/icon_umbrella.png';
 
 const SELECTOR_ICONS = {
     1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
-    2: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
-    3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
-    4: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
+    2: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
+    3: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
+    4: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
     5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
 };
 
@@ -93,9 +93,9 @@ function initSuccess(content, data){
 
     const SELECTOR_ICONS = {
         1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
-        2: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
-        3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
-        4: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
+        2: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
+        3: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
+        4: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
         5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
     };
     let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
