@@ -10,7 +10,6 @@ export default class BottomButton extends Component {
     }
 
     cartOnClick(e) {
-        let cart = this.props.cart;
         e.stopPropagation();
         window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
     }
@@ -20,7 +19,7 @@ export default class BottomButton extends Component {
         let clearCart = this.props.clearCart;
         return (
             <div className={cart.remainTime?"bottomButton":"bottomButton empty"}
-                 onClick={() => this.cartOnClick().bind(this)}
+                 onClick={this.cartOnClick.bind(this)}
             >
                 <div className='cartIcon'>
                     <a className='shopping_cart font30'>

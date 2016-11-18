@@ -1,26 +1,20 @@
-'use static';
-
+'use strict';
 import React from 'react';
 import BrandItem from '../../components/BrandItem/BrandItem';
 import Header from '../../components/header/header';
 import Timer from '../../components/timer/timer';
 import { connect } from 'react-redux';
+import Util from '../../util/WeChatUtil';
 import {initBrand,initStart,initSuccess,initFail,addToCart} from '../../actions/index'
 require('./index.css');
-const brandId = 1;
 class BrandContainer extends React.Component {
 	constructor(props){
 		super(props);
 	}
 	componentWillMount(){
-		let arr = window.location.search.substring(1).split("&");
-		let param = {};
-		arr.forEach(function (value,index) {
-			let obj = value.split("=");
-			param[obj[0]] = obj[1];
-		});
-		let brandId = param.brandId;
-		let storeId = param.storeId;
+	    let param = Util.getUrlParam();
+		let brandId = param.storeid;
+		let storeId = param.brandid;
 		const {dispatch} = this.props;
 		dispatch(initBrand(brandId,storeId));
 	}
@@ -29,7 +23,7 @@ class BrandContainer extends React.Component {
 		return(
 			<div className='brandContainer'>
 				<Header iteminfo={itemInfo}/>
-				<div className="storeinfo"><p class="font12">{itemInfo.intro}</p></div>
+				<div className="storeinfo"><p className="font12">{itemInfo.intro}</p></div>
 				<div className="iteminfo">
 					<ul>
 						{

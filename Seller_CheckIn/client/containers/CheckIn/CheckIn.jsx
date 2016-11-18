@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 import React from 'react';
 import QuerySku from '../../components/QuerySku/QuerySku';
 import Message from '../../components/Message/Message';

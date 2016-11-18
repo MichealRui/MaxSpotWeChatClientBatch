@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 import ConfirmWindow from '../../components/ConfirmWindow/ConfirmWindow';

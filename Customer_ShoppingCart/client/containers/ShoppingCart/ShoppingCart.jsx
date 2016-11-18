@@ -1,4 +1,4 @@
-'use static';
+'use strict';
 import React from 'react';
 import TopBar from '../../components/TopBar/TopBar';
 import BottomBar from '../../components/BottomBar/BottomBar';

@@ -45,20 +45,21 @@ export function initBrand(brandId,storeId) {
                         method:'POST',
                         mode:'cors',
                         body:JSON.stringify({brandId:brandId,storeId:storeId})
-                    }).then((response)=>response.json()).then(
-                        json=>{
-                            console.log(json);
-                            if(json.is_succ){
-                                dispatch(initSuccess({
-                                    brand:json.brand,
-                                    skus:json.skus,
-                                }))
-                                dispatch(initCart())
-                            }else{
-                                dispatch(initFail({errorMessage:json.error_message}))
+                    }).then((response)=>response.json())
+                        .then(
+                            json=>{
+                                console.log(json);
+                                if(json.is_succ){
+                                    dispatch(initSuccess({
+                                        brand:json.brand,
+                                        skus:json.skus,
+                                    }))
+                                    dispatch(initCart())
+                                }else{
+                                    dispatch(initFail({errorMessage:json.error_message}))
+                                }
                             }
-                        }
-                    ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
+                            ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
                 }else{
                     dispatch(initFail({errorMessage:json.error_message}))
                 }
