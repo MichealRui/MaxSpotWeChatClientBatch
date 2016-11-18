@@ -18,6 +18,7 @@ export default class TotalProducts extends React.Component {
             (product, index) =>
                 <ProductInfo key={index} product={product}/>
         ) : '';
+        let count = props.skus.map(s => s.count).reduce((pre, next) => pre + next, 0);
 		return(
 			<div className='totalProductsContainer'>
 				<OrderDetailTitle orderTitleText={props.orderAddress}/>
@@ -25,7 +26,7 @@ export default class TotalProducts extends React.Component {
 					{productInfoItems}
 				</ul>
 				{ props.discount ? <AccountDisplay name='买减优惠' money={props.discount} />:''}
-				<TotalCount totalCount={props.skus.length} totalMoney={props.totalPrice/100 || 0}/>
+				<TotalCount totalCount={count} totalMoney={props.totalPrice/100 || 0}/>
 			</div>
 		);
 	}
