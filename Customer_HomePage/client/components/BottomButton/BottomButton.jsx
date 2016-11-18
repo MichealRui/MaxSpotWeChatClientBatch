@@ -9,20 +9,21 @@ export default class BottomButton extends Component {
         super(props);
     }
 
-    cartOnClick() {
+    cartOnClick(e) {
         let cart = this.props.cart;
-        if(0 < cart.count) {
-            window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
-        } else return false
+        e.stopPropagation();
+        window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
     }
 
     render() {
         let cart = this.props.cart;
         let clearCart = this.props.clearCart;
         return (
-            <div className={cart.remainTime?"bottomButton":"bottomButton empty"}>
+            <div className={cart.remainTime?"bottomButton":"bottomButton empty"}
+                 onClick={() => this.cartOnClick().bind(this)}
+            >
                 <div className='cartIcon'>
-                    <a className='shopping_cart font30 ' onClick={() => this.cartOnClick().bind(this)}>
+                    <a className='shopping_cart font30'>
                         <img src={cart_img} alt=""/>
                         {cart.count>=0?(<span className='count font10'>{cart.count}</span>):''}
                     </a>
