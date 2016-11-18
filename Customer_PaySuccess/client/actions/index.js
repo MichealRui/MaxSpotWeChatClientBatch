@@ -2,6 +2,7 @@
  * Created by cabbage on 16/10/2016.
  */
 
+import fetch from 'isomorphic-fetch';
 
 export const INIT_START = 'INIT_START';
 
