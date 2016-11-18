@@ -19,7 +19,7 @@ let result = {
         "id":202,
         "parentId":0,
         "wxpayUrl":"",
-        "totalPrice":5800,
+        "totalPrice":0,
         "cancelUserId":1,
         "cancelTime":"2016-10-29 22:30:00",
         "status":91,
@@ -46,7 +46,7 @@ let result = {
                 "id":201,
                 "parentId":202,
                 "wxpayUrl":"",
-                "totalPrice":5800,
+                "totalPrice":0,
                 "cancelUserId":1,
                 "cancelTime":"2016-10-29 23:00:00",
                 "status":91,
@@ -60,8 +60,8 @@ let result = {
                 "orderNumber":"",
                 "skus":[
                     {
-                        "sellPrice":1160,
-                        "count":1,
+                        "sellPrice":0,
+                        "count":0,
                         "sku":{
                         },
                         "sellOrderId":201,
@@ -70,8 +70,8 @@ let result = {
                         "inventoryId":0
                     },
                     {
-                        "sellPrice":1160,
-                        "count":2,
+                        "sellPrice":0,
+                        "count":0,
                         "sku":{
                         },
                         "sellOrderId":201,
@@ -80,8 +80,8 @@ let result = {
                         "inventoryId":0
                     },
                     {
-                        "sellPrice":1160,
-                        "count":2,
+                        "sellPrice":0,
+                        "count":0,
                         "sku":{
                         },
                         "sellOrderId":201,

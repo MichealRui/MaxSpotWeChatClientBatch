@@ -19,7 +19,6 @@ class ConfirmOrder extends React.Component {
         //init page content
         const { dispatch } = this.props;
         dispatch(initWXConfig());
-        // dispatch(initPageContent());
 	}
 
     componentDidUpdate() {
@@ -53,13 +52,13 @@ class ConfirmOrder extends React.Component {
 
     payOrder() {
         let config = this.props.state.wxConfig;
-        let appId = 'wx4da5ecd6305e620a'
+        let appId = 'wx4da5ecd6305e620a';
         wx.ready(function(){
             wx.chooseWXPay({
                 appId: appId,
                 timestamp: config.timeStamp,
                 nonceStr: config.nonceStr,
-                package: config.packageProperty,
+                package: config.package,
                 signType: "MD5",
                 paySign: config.paySign,
                 success: function(r){
