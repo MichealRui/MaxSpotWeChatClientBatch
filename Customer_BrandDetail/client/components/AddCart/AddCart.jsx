@@ -2,6 +2,7 @@
 
 require('./index.css');
 import React from 'react';
+import add_image from '../timer/image/plus.png'
 
 export default class AddCart extends React.Component {
 	constructor(props){
@@ -19,7 +20,7 @@ export default class AddCart extends React.Component {
 	}
 	render(){
 		return (
-			<div className="button font22" onClick={this.addCart.bind(this)}>+</div>
+			<div className="button font22" onClick={this.addCart.bind(this)}><img src={add_image} alt=""/></div>
 		);
 	}
 }
