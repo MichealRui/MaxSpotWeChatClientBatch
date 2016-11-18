@@ -1,5 +1,5 @@
 'use strict';
-import React from 'react'
+import React from 'react';
 require('./index.css');
 
 export default class AddButton extends React.Component {
@@ -26,7 +26,7 @@ export default class AddButton extends React.Component {
     render() {
         let props = this.props;
         return (
-            <span className="add font30" item={props.item} onClick={this.addClick.bind(this)}>+</span>
+            <span className="add font30" item={props.item} onClick={this.addClick.bind(this)}><img src={require('../BottomButton/image/plus.png')} alt=""/></span>
         )
     }
 }
