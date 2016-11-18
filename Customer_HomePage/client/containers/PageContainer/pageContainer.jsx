@@ -33,7 +33,7 @@ class PageContainer extends React.Component {
         if(config.sign && !props.sdkInited) {
             if(this.initWx(config)) {
                 dispatch(initSdk());
-                this.getGeo(dispatch);
+                this.getGeo().bind(this);
             }
         }
     }
@@ -56,8 +56,9 @@ class PageContainer extends React.Component {
 
     }
 
-    getGeo(dispatch) {
+    getGeo() {
         var geo;
+        const { dispatch } = this.props;
         wx.ready(function(){
             wx.getLocation({  // wx api
                 type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'

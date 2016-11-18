@@ -223,6 +223,7 @@ export function clearCart() {
 }
 
 export function initSubContent(d) {
+    console.log(" initing ");
     return (dispatch) =>  {
         dispatch(initStart());
         fetch( d.url,
