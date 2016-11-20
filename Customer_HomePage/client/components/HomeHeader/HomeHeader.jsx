@@ -23,10 +23,10 @@ export default class HomeHeader extends Component {
                     <span className='button search fa fa-search font16'></span>
                 </div>
                 <div className="shopBar">
-                    <span className="shopAddress font14">
+                    <span className="shopAddress font12">
                         {props.store.name}
                     </span>
-                    <span className="switchShopBtn font14" onClick={this.onSwitchClick.bind(this)}>
+                    <span className="switchShopBtn font12" onClick={this.onSwitchClick.bind(this)}>
                         切换机器
                     </span>
                 </div>
