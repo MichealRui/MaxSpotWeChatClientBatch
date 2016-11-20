@@ -1,7 +1,7 @@
 .homeHeader {
 	position: relative;
 	width: 100%;
-	height: 1.180556rem;
+	height: 1.2rem;
 	line-height: 1.180556rem;
 	background-color: #fa7c73;
 	padding: 0 0.416667rem;
@@ -10,7 +10,7 @@
 .homeHeader .logo {
 	/*width: 1.833333rem;*/
 	vertical-align: middle;
-    width: 50%;
+    width: 35%;
 }
 
 .homeHeader .button {
