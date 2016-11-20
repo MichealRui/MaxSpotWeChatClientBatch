@@ -10,7 +10,7 @@ import SubContent from '../SubContent/subContent'
 import Message from '../../components/Message/Message';
 import { initWxConfig, initSdk } from '../../actions/index'
 import { initSubContent, initStart, changeSubContent } from '../../actions/index'
-import { startAddToCart, clearCart, addToCart } from '../../actions/index'
+import { startAddToCart, clearCart, addToCart, initCart } from '../../actions/index'
 import { locationSucc, locationFail, initByStoreId} from '../../actions/index';
 import { setMessage } from '../../actions/index'
 import util from '../../util/WeChatUtil'

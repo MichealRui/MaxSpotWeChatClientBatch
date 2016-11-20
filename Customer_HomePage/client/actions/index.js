@@ -172,7 +172,8 @@ export function initByStoreId(id) {
         para: Object.assign({}, {storeId: id})
     }
     return (dispatch) => {
-        dispatch(initSubContent(idPara))
+        dispatch(initSubContent(idPara));
+        dispatch(initCart());
     };
 }
 
