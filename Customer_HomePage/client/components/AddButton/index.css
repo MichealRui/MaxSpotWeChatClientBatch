@@ -1,7 +1,18 @@
-.add {
+.addContainer {
     position: absolute;
     bottom: 0.277778rem;
     right: 0.277778rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: yellow;
+    border-radius: 1.5rem 0 0 0;
+}
+.add {
+    position: absolute;
+    /*bottom: 0.277778rem;*/
+    /*right: 0.277778rem;*/
+    bottom: 0.177778rem;
+    right: 0.177778rem;
     width: 0.833333rem;
     height: 0.833333rem;
     border-radius: 0.416667rem 0.416667rem 0 0.416667rem;
@@ -15,3 +26,4 @@
     width: 70%;
     height:70%;
 }
+

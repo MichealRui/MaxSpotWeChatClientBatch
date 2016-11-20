@@ -29,8 +29,9 @@
 	background-color: #fff;
 	color: #fa7c73;
 	border: 3px solid #fa7c73;
-	top: -9px;
-    right: -11px;
+	top: 0.11rem;
+	right: -0.33rem;
+
 }
 .bottomButton .lastTime div {
 	top: 50%;
