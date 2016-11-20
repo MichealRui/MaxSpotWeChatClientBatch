@@ -8,9 +8,11 @@
 	box-sizing: border-box;
 }
 .homeHeader .logo {
-	width: 1.833333rem;
+	/*width: 1.833333rem;*/
 	vertical-align: middle;
+    width: 50%;
 }
+
 .homeHeader .button {
 	position: absolute;
 	top: 50%;
@@ -25,9 +27,11 @@
 }
 .homeHeader .login {
 	right: 0.416667rem;
+    display: none;
 }
 .homeHeader .search {
 	right: 1.416667rem;
+    display: none;
 }
 
 .shopBar {
