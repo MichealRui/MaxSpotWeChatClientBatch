@@ -11,7 +11,6 @@ export default class BannerContainer extends React.Component {
     render() {
         let swiperConfig = {
             pagination: '.swiper1 .swiper-pagination',
-            freeMode: true,
             slidesPerView: 1
         };
         let props = this.props;
