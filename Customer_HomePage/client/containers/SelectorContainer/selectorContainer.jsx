@@ -34,7 +34,7 @@ export default class SelectorContainer extends React.Component {
         let all = (
             <li className="selector J_all" key="all"
                 onClick={() => this.props.onSelectClick(defaultKey)}>
-                <div className={"itemIcon font30"}><img src={icon_all} alt=""/></div>
+                <div className={"itemIcon font30 " + (this.props.currentKey == defaultKey? 'activated':'')}><img src={icon_all} alt=""/></div>
                 <div className='itemName font14'>全部</div>
                 <span className={"triangle " + (this.props.currentKey == defaultKey? 'activated':'')}
                       data-key={defaultKey}></span>

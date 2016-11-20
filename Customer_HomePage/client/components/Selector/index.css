@@ -21,9 +21,11 @@
 	-o-transition: all 1s;
 }
 
-.selector .itemIcon img:hover{
-	transform: scale(1.1);
+.selector .itemIcon.activated img{
+	transform: scale(1.4);
 }
+
+
 
 .selector .itemName {
 	display: block;
