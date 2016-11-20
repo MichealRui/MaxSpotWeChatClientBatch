@@ -32,23 +32,3 @@ var ItemContainer = React.createClass({
 
 
 module.exports = ItemContainer;
-/*
-export default class ItemContainer extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-    
-    render() {
-        let props = this.props.items;
-        let items = props.map((item, index) => {
-            return <Item item={item} key={index} isSliderItem={false}>
-                <AddButton item={item}/>
-            </Item>
-        });
-        return (
-            <div className="itemContainer">
-                {items}
-            </div>
-        )
-    }
-}*/

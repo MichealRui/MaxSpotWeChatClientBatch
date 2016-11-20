@@ -31,44 +31,20 @@ export default class SelectorContainer extends React.Component {
             )
         });
         let defaultKey = 'all';
+        let all = (
+            <li className="selector J_all" key="all"
+                onClick={() => this.props.onSelectClick(defaultKey)}>
+                <div className={"itemIcon font30"}><img src={icon_all} alt=""/></div>
+                <div className='itemName font14'>全部</div>
+                <span className={"triangle " + (this.props.currentKey == defaultKey? 'activated':'')}
+                      data-key={defaultKey}></span>
+            </li>)
+
+        let lastOne = tags.length == 0 ?'': all
         return (
             <ul className="selectorContainer" onClick={this.onclick.bind(this)}>
-                <li className="selector J_all" key="all"
-                    onClick={() => this.props.onSelectClick(defaultKey)}>
-                    <div className={"itemIcon font30"}><img src={icon_all} alt=""/></div>
-                    <div className='itemName font14'>全部</div>
-                    <span className={"triangle " + (this.props.currentKey == defaultKey? 'activated':'')}
-                          data-key={defaultKey}></span>
-                </li>
+                {lastOne}
                 {tags}
-                {/*<li className="selector J_food">*/}
-                    {/*<span>*/}
-                        {/*零食*/}
-                    {/*</span>*/}
-                {/*</li>*/}
-                {/*<li className="selector J_drink">*/}
-                    {/*<span>*/}
-                        {/*酒饮*/}
-                    {/*</span>*/}
-                   {/**/}
-                {/*</li>*/}
-                {/*<li className="selector J_makeup">*/}
-                    {/*<span>*/}
-                        {/*美妆*/}
-                    {/*</span>*/}
-                  {/**/}
-                {/*</li>*/}
-                {/*<li className="selector J_daily">*/}
-                    {/*<span>*/}
-                        {/*日用品*/}
-                    {/*</span>*/}
-                   {/**/}
-                {/*</li>*/}
-                {/*<li className="selector J_baby">*/}
-                    {/*<span>*/}
-                        {/*母婴*/}
-                    {/*</span>*/}
-                {/*</li>*/}
             </ul>
         )
     }

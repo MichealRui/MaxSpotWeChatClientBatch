@@ -30,7 +30,9 @@ export default class SubContent extends React.Component {
                 <p className='font14'>See All</p>
             </div>
         </div>;
-        freeItems.push(all);
+        if(freeItems.length != 0) {
+            freeItems.push(all);
+        }
         return (
             <div className="subContentContainer" >
                 <SubBanner data={props.banner}/>
