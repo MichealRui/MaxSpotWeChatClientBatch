@@ -25,46 +25,38 @@ export const ERROR_ADD_CART = 'ERROR_ADD_CART';
 
 export const SUCCESS_ADD_CART = 'SUCCESS_ADD_CART';
 
+export const SET_MESSAGE = 'SET_MESSAGE';
+
 const domain = ENV.domain;
 export function initBrand(brandId,storeId) {
     return (dispatch)=>{
         //todo fetch
-        fetch(domain + '/web/buyer_api/test_login_with_openid.ction',
-            {
-                credentials:'include',
-                method:'POST',
-                mode:'cors',
-                body:JSON.stringify({openid:"o41Mgv7HMpgc16ViZCsVkeodDmjM"})
-            }
-        ).then(response=>response.json())
-            .then(json=>{
-                if(json.is_succ){
-                    fetch(domain + '/web/buyer_api/brand_detail.ction',
-                    {
-                        credentials:'include',
-                        method:'POST',
-                        mode:'cors',
-                        body:JSON.stringify({brandId:brandId,storeId:storeId})
-                    }).then((response)=>response.json())
-                        .then(
-                            json=>{
-                                console.log(json);
-                                if(json.is_succ){
-                                    dispatch(initSuccess({
-                                        brand:json.brand,
-                                        skus:json.skus,
-                                    }))
-                                    dispatch(initCart())
-                                }else{
-                                    dispatch(initFail({errorMessage:json.error_message}))
-                                }
-                            }
-                            ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
-                }else{
-                    dispatch(initFail({errorMessage:json.error_message}))
+        fetch(domain+ '/web/buyer_api/brand_detail.ction',
+        {
+            credentials:'include',
+            method:'POST',
+            mode:'cors',
+            body:JSON.stringify(
+                {
+                    brandId:brandId,
+                    storeId:storeId
                 }
-            }
-        ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
+            )
+        }).then((response)=>response.json())
+            .then(
+                json=>{
+                    console.log(json);
+                    if(json.is_succ){
+                        dispatch(initSuccess({
+                            brand:json.brand,
+                            skus:json.skus,
+                        }));
+                        dispatch(initCart())
+                    }else{
+                        dispatch(initFail({errorMessage:json.error_message}))
+                    }
+                }
+                ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
 
     };
 }
@@ -155,7 +147,8 @@ export function addToCart(item) {
             .then(
                 json=>{
                     if(json.is_succ){
-                        dispatch(successAddCart())
+                        dispatch(successAddCart());
+                        dispatch(setMessage({errorMessage:'成功加入购物车'}))
                     }else{
                         dispatch(errorAddCart({errorMessage:json.error_message}))
                     }
@@ -174,6 +167,13 @@ function successAddCart() {
 function errorAddCart(message) {
     return {
         type:ERROR_ADD_CART,
+        message
+    }
+}
+
+export function setMessage(message) {
+    return {
+        type: SET_MESSAGE,
         message
     }
 }

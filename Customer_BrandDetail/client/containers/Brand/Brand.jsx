@@ -13,8 +13,8 @@ class BrandContainer extends React.Component {
 	}
 	componentWillMount(){
 	    let param = Util.getUrlParam();
-		let brandId = param.storeid;
-		let storeId = param.brandid;
+		let brandId = param.brandid;
+		let storeId = param.storeid;
 		const {dispatch} = this.props;
 		dispatch(initBrand(brandId,storeId));
 	}

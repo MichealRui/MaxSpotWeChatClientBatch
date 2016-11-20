@@ -29,6 +29,8 @@ class ProductDetail extends React.Component {
 	render(){
 		let {detail, actions} = this.props;
 		let {productDetail, brand} = detail;
+        let param = Util.getUrlParam();
+        let storeId = param.storeid;
 		return(
 			<div className='productDetailContainer'>
 				<div className='area'></div>
@@ -45,7 +47,7 @@ class ProductDetail extends React.Component {
                         ()=>{actions.addIntoCart(
                             {
                                 skuId: productDetail.id + '',
-                                storeId: productDetail.storeId + '',
+                                storeId: storeId + '',
                                 count: '1'
                             }
                         )}}
