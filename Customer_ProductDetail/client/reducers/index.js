@@ -106,11 +106,11 @@ function initStart(state) {
 }
 
 function initSuccess(state, content){
-    return Object.assign(state, content);
+    return Object.assign({}, state, content);
 }
 
 function initFail(state){
-    return Object.assign(state, {errorMessage:'init fail'});
+    return Object.assign({}, state, {errorMessage:'init fail'});
 }
 
 function addIntoCartSuccess(state) {

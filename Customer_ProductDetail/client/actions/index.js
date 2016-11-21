@@ -9,10 +9,10 @@ const domain = ENV.domain;
 export function initProductDetail(skuNumber, storeId) {
     return (dispatch)=>{
         dispatch(initStart());
-        fetch( domain + '/web/buyer_api/sku_detail.ction',{
-            method:'POST',
-            mode:'cors',
+        fetch( 'http://114.215.143.97' + '/web/buyer_api/sku_detail.ction',{
             credentials: 'include',
+            method: 'POST',
+            mode: 'cors',
             body:JSON.stringify({
                 sku_number: skuNumber,//'UF000578',
                 storeId: storeId
@@ -23,7 +23,9 @@ export function initProductDetail(skuNumber, storeId) {
                 if(json.is_succ){
                     dispatch(
                         initSuccess(
-                            Object.assign({}, {productDetail: json.sku}, {brand: json.brand}, {storeId: storeId })
+                            Object.assign(
+                                {}, {productDetail: json.sku}, {brand: json.brand}, {storeId: storeId }
+                                )
                         )
                     );
                 }else {
@@ -33,13 +35,13 @@ export function initProductDetail(skuNumber, storeId) {
     };
 }
 
-export function initStart() {
+function initStart() {
     return {
         type:INIT_START
     };
 }
 
-export function initSuccess(content) {
+function initSuccess(content) {
     return {
         type:INIT_SUCCESS,
         content
@@ -47,7 +49,7 @@ export function initSuccess(content) {
 }
 
 
-export function initFail() {
+function initFail() {
     return {
         type:INIT_FAIL
     };
@@ -73,14 +75,14 @@ export function addIntoCart(item) {
     }
 }
 
-export function addIntoCartSuccess(productName) {
+function addIntoCartSuccess(productName) {
     return {
         type:ADD_INTO_CART_SUCCESS,
         productName
     };
 }
 
-export function addIntoCartFail() {
+function addIntoCartFail() {
     return {
         type:ADD_INTO_CART_FAIL
     };
