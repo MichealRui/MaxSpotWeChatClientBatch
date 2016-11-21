@@ -28,7 +28,7 @@ class ProductDetail extends React.Component {
 
 	render(){
 		let {detail, actions} = this.props;
-		let {productDetail, brand} = detail;
+		let {productDetail, brand, storeId} = detail;
         let param = Util.getUrlParam();
         let storeId = param.storeid;
 		return(
@@ -54,10 +54,9 @@ class ProductDetail extends React.Component {
                 />
 				<p className='storeInfo font12'>{brand.description}</p>
 				<div className='storeIntroWrap'>
-					<StoreIntro
-                        storeImg={brand.imagePath}
-                        storeName={brand.name}
-                        storeIntro={brand.story}/>
+					<StoreIntro brand = {brand}
+                                storeId = {storeId}
+                    />
 				</div>
 				{/*<ProductComment productComment={productDetail.productComment}/>*/}
 			</div>
