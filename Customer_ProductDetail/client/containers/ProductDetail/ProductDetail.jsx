@@ -28,7 +28,7 @@ class ProductDetail extends React.Component {
 
 	render(){
 		let {detail, actions} = this.props;
-		let {productDetail, brand, storeId} = detail;
+		let {productDetail, brand} = detail;
         let param = Util.getUrlParam();
         let storeId = param.storeid;
 		return(
