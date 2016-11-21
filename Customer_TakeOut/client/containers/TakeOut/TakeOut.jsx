@@ -14,7 +14,7 @@ class TakeOut extends React.Component {
             isSuccess:true
         };
         this.orderStatusApi = 'http://www.mjitech.com/web/seller_api/wx_order_status.action';
-        this.sleepTime = 5000;
+        this.sleepTime = 3000;
     }
     
     acknowledgedFalse() {
@@ -32,7 +32,7 @@ class TakeOut extends React.Component {
     componentDidMount() {
         this.fetchOrderStatus(this.props.order.order.orderNumber);
     }
-    
+
     fetchOrderStatus(on) {
         fetch( this.orderStatusApi,
             {
@@ -56,11 +56,40 @@ class TakeOut extends React.Component {
                 }
             })
     }
-    
+
+    encodeUTF8(str){
+        var temp = "",rs = "";
+        for( var i=0 , len = str.length; i < len; i++ ){
+            temp = str.charCodeAt(i).toString(16);
+            rs  += "\\u"+ new Array(5-temp.length).join("0") + temp;
+        }
+        return rs;
+    }
+    decodeUTF8(str){
+        return str.replace(/(\\u)(\w{4}|\w{2})/gi, function($0,$1,$2){
+            return String.fromCharCode(parseInt($2,16));
+        });
+    }
+
     render(){
+        let appId = 'wx4da5ecd6305e620a';
+        let takeUri = this.encodeUTF8("http://www.mjitech.com/web/wxauthorize.action");
+        let defUrl=
+            'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appId +
+            '&redirect_uri=' + takeUri +
+            '&response_type=code&scope=snsapi_base' +
+            '&state=taking_goods_TAKEGOODSNUMBER#wechat_redirect';
+        let order = {
+            shopName:'光华路SOHO2',
+            order:{
+                orderNumber:'S20160687ASDQ',
+                totalPrice: 0
+            },
+            takeUri: takeUri
+        }
         return(
             <div>
-                <QrCode order={this.props.order} onFailClick={this.acknowledgedFalse.bind(this)}/>
+                <QrCode order={order} onFailClick={this.acknowledgedFalse.bind(this)}/>
                 <ConfirmWindow windowText={WindowText}
                                isHidden={this.state.isSuccess}
                                hideClick={this.acknowledgedTrue.bind(this)}/>
@@ -69,4 +98,4 @@ class TakeOut extends React.Component {
     }
 }
 
-export default CheckOut
+export default TakeOut

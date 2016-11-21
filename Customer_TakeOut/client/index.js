@@ -4,8 +4,8 @@ import TakeOut from './containers/TakeOut/TakeOut';
 import fetch from 'isomorphic-fetch';
 import Util from './util/WeChatUtil';
 require('./index.css');
-// require('./font-awesome-4.5.0/css/font-awesome.min.css');
-fetch(ENV.domain + '/web/seller_api/wx_set_order_taken.action',
+require('./font-awesome-4.5.0/css/font-awesome.min.css');
+fetch(ENV.domain + '/web/buyer_api/order_detail.ction',
     {
         credentials: 'include',
         method: 'POST',
@@ -17,7 +17,7 @@ fetch(ENV.domain + '/web/seller_api/wx_set_order_taken.action',
     .then(json => {
         if(json.is_succ) {
             ReactDOM.render(
-                <TakeOut order={json}/>,
+                <TakeOut/>,
                 document.getElementById('root')
             )
         } else {
