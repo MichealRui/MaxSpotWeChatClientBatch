@@ -1,6 +1,6 @@
 'use strict';
-
 import React from 'react';
+import ReactDom from 'react-dom';
 import Header from '../../components/Header/Header';
 import GetSku from '../../components/GetSku/GetSku';
 import GetSuccess from '../../components/GetSuccess/GetSuccess';
@@ -26,8 +26,6 @@ class AfterPay extends React.Component {
 		let ori_state = param.state
 		dispatch(initAfterPay(ori_state));
 	}
-
-
 
 	render(){
 		// props = CouponData;
