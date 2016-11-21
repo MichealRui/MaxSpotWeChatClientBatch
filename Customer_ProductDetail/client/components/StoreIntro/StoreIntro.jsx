@@ -12,7 +12,12 @@ export default class StoreIntro extends React.Component {
 		let props = this.props;
 		return (
 			<div className='storeIntro'>
-				<img src={props.storeImg} className='storeImg'/>
+                {
+                    props.storeImg.length == 0 ?
+                        <img src={require('./images/default.png')} className='storeImg'/> :
+                        <img src={props.storeImg} className='storeImg'/>
+                }
+
 				<div className="storeIntroInfo">
 					<h1 className='font14'>{props.storeName}</h1>
 					<p className='font12'>{props.storeIntro}</p>

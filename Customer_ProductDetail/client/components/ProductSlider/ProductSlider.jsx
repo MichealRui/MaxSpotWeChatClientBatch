@@ -26,7 +26,15 @@ export default class ProductSlider extends React.Component {
 		let sliders = [];
 		let productImgs = this.props.productImgs;
 		productImgs.map((img, index)=>{
-			sliders.push(<div className="swiper-slide" key={index}><img src={ENV.domain + img}/></div>);
+			sliders.push(
+			    <div className="swiper-slide" key={index}>
+                    {
+                        img.length == 0 ?
+                            <img src={require('./images/default.png')}/> :
+                            <img src={ENV.domain + img}/>
+                    }
+
+                </div>);
 		});
 		return (
 			<div className="productSliderContainer">
