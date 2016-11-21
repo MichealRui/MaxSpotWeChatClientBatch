@@ -14,7 +14,7 @@ class CheckOut extends React.Component {
             isSuccess:true
         };
         this.orderStatusApi = 'http://www.mjitech.com/web/seller_api/wx_order_status.action';
-        this.sleepTime = 5000;
+        this.sleepTime = 2000;
     }
     
     acknowledgedFalse() {
