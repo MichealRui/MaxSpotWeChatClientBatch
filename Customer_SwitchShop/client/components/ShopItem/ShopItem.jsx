@@ -20,10 +20,10 @@ export default class ShopItem extends React.Component {
 			<div className='shopItem' onClick={this.shopClick.bind(this)}>
 				<img src={shopImg} className='shopImg' />
 				<div className='infoArea'>
-					<h1 className='font16'>{props.name}</h1>
-					<p className='font12'>{props.address}</p>
-					<p className='font12'>{props.shopClass}</p>
+					<h1 className='font16'>{props.name}<span className="font14">i</span></h1>
+					<p className='font14'>{props.address}</p>
 				</div>
+				<span className="font20"> > </span>
 				{/*<span className='fa fa-angle-right orderAddressArrow font24'></span>*/}
 			</div>
 		);

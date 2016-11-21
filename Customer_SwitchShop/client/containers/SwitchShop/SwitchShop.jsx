@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import ShopItem from '../../components/ShopItem/ShopItem';
 import * as Actions from '../../actions/index';
+import Util from '../../util/WeChatUtil';
 require ('./index.css');
 
 class SwitchShop extends Component {
@@ -13,8 +14,10 @@ class SwitchShop extends Component {
 	}
 
 	componentWillMount(){
+		let param = Util.getUrlParam();
+		let storeId = param.storeId
 	    let {actions} = this.props;
-        actions.initShopList();
+        actions.initShopList(storeId);
     }
 
 	render(){
