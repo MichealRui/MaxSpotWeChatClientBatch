@@ -9,7 +9,7 @@ const domain = ENV.domain;
 export function initProductDetail(skuNumber, storeId) {
     return (dispatch)=>{
         dispatch(initStart());
-        fetch( 'http://114.215.143.97' + '/web/buyer_api/sku_detail.ction',{
+        fetch( domain + '/web/buyer_api/sku_detail.ction',{
             credentials: 'include',
             method: 'POST',
             mode: 'cors',
