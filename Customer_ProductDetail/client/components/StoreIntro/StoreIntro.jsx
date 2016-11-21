@@ -17,7 +17,7 @@ export default class StoreIntro extends React.Component {
 	render(){
 		let props = this.props.brand;
 		return (
-			<div className='storeIntro' onClick={}>
+			<div className='storeIntro' onClick={() => this.brandClick.bind(this)}>
                 {
                     props.imagePath.length == 0 ?
                         <img src={require('./images/default.png')} className='storeImg'/> :
