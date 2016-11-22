@@ -11,7 +11,8 @@ export default class ShopItem extends React.Component {
 
     shopClick() {
         let id = this.props.id;
-        window.location.href = ENV.domain + '/buyer_shopdetail/index.html?storeid=' + id
+        // window.location.href = ENV.domain + '/buyer_shopdetail/index.html?storeid=' + id
+		window.location.href = ENV.domain + '/buyer_home/index.html?storeid=' + id
     }
 
 	render(){
