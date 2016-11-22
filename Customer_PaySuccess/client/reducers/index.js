@@ -20,6 +20,6 @@ export default function (order = PaySuccessData,action) {
         case INIT_SUCCESS:
             return initSuccess(order, action.order);
         default:
-            return itemInfo;
+            return order;
     }
 }
