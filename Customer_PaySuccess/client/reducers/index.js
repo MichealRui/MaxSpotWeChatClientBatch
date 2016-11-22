@@ -8,15 +8,17 @@ const PaySuccessData = {
     order:[]
 }
 
-function initSuccess(itemInfo, item) {
-    return Object.assign({},itemInfo, item);
+function initSuccess(orderInfo, order) {
+    let newOrders =  Object.assign({},orderInfo);
+    newOrders.order.push(order);
+    return newOrders
 }
 
 
-export default function (itemInfo = PaySuccessData,action) {
+export default function (order = PaySuccessData,action) {
     switch (action.type){
         case INIT_SUCCESS:
-            return initSuccess(itemInfo, action.order);
+            return initSuccess(order, action.order);
         default:
             return itemInfo;
     }

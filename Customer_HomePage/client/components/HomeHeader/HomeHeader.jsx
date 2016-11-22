@@ -8,7 +8,7 @@ export default class HomeHeader extends Component {
     }
 
     onSwitchClick() {
-        let props = this.props
+        let props = this.props;
         window.location.href =
             ENV.domain + '/buyer_switchshop/index.html' + '?storeid=' + props.store.id
     }

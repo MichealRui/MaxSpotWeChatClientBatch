@@ -15,7 +15,7 @@ class SwitchShop extends Component {
 
 	componentWillMount(){
 		let param = Util.getUrlParam();
-		let storeId = param.storeId
+		let storeId = param.storeid;
 	    let {actions} = this.props;
         actions.initShopList(storeId);
     }
