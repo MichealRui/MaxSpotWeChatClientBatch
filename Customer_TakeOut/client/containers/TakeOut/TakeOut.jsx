@@ -34,6 +34,7 @@ class TakeOut extends React.Component {
     }
 
     fetchOrderStatus(on) {
+        const Taking = 4;
         fetch( this.orderStatusApi,
             {
                 method: 'POST',
@@ -47,7 +48,7 @@ class TakeOut extends React.Component {
             .then(json => {
                 if(json.is_succ) {
                     console.log("status: " + json.order.status);
-                    if(json.order.status == '2') {
+                    if(json.order.status == Taking) { //4 means taking from machine
                         window.location.href = "http://www.mjitech.com/buyer_takestatus/index.html"
                         + '?state=1&ordernumber=' + json.order.orderNumber
                     } else {

@@ -35,6 +35,7 @@ class AfterPay extends React.Component {
     }
 
     fetchOrderStatus(on) {
+        const CompleteTaking = 5;
         fetch( this.orderStatusApi,
             {
                 method: 'POST',
@@ -48,11 +49,17 @@ class AfterPay extends React.Component {
             .then(json => {
                 if(json.is_succ) {
                     console.log("status: " + json.order.status);
-                    if(json.order.status == '2') {
-                        //todo set status
+                    if(json.order.status == CompleteTaking) {
+                        this.setState({
+                            pageStatus :2
+                        })
                     } else {
                         window.setTimeout( () => this.fetchOrderStatus(on), this.sleepTime)
                     }
+                } else {
+                    this.setState({
+                        pageStatus :3
+                    })
                 }
             })
     }
