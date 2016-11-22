@@ -35,7 +35,7 @@ export default class SubContent extends React.Component {
         }
         return (
             <div className="subContentContainer" >
-                <SubBanner data={props.banner}/>
+                {/*<SubBanner data={props.banner}/>*/}
                 <SwiperComponent
                     swiperConfig={swiperConfig}
                     swiperContainer={'swiper2'}
