@@ -7,6 +7,7 @@ import GetSuccess from '../../components/GetSuccess/GetSuccess';
 import GetFail from '../../components/GetFail/GetFail';
 import Footer from '../../components/Footer/Footer';
 import { connect } from 'react-redux';
+import Util from '../../util/WeChatUtil'
 import {initAfterPay,initStart,initSuccess,addLike} from '../../actions/index'
 require('./index.css');
 
@@ -15,22 +16,22 @@ class AfterPay extends React.Component {
 		super(props);
 		this.orderStatusApi = ENV.domain + '/web/buyer_api/order_detail.ction';
 		this.sleepTime = 1000;
+        this.state = {
+            pageStatus: 1
+        }
 	}
 	componentWillMount() {
-		const { dispatch } = this.props;
-		let arr = window.location.search.substring(1).split('&');
-		let param = {};
-		arr.forEach(function (value,index) {
-			let obj = value.split("=");
-			param[obj[0]] = obj[1];
-		})
-		console.log(param);
-		let ori_state = param.state
-		dispatch(initAfterPay(ori_state));
+	    let state = Util.getUrlParam().state
+        if(state) {
+	        this.setState({
+	            pageStatus : state
+            })
+        }
 	}
 
     componentDidMount() {
-        this.fetchOrderStatus(this.props.order.order.orderNumber);
+        let orderNumber = Util.getUrlParam().ordernumber;
+        this.fetchOrderStatus(orderNumber);
     }
 
     fetchOrderStatus(on) {
@@ -48,7 +49,7 @@ class AfterPay extends React.Component {
                 if(json.is_succ) {
                     console.log("status: " + json.order.status);
                     if(json.order.status == '2') {
-                        window.location.href = "http://www.mjitech.com/buyer_takestatus/index.html"
+                        //todo set status
                     } else {
                         window.setTimeout( () => this.fetchOrderStatus(on), this.sleepTime)
                     }
@@ -59,24 +60,20 @@ class AfterPay extends React.Component {
 	render(){
 		// props = CouponData;
 		const { dispatch, itemInfo} = this.props;
+				let getting = <GetSku itemInfo={itemInfo} />;
+                let succ = <GetSuccess itemInfo={itemInfo}  addLike={()=>dispatch(addLike())} />;
+				let fail = <GetFail />;
 
-		let stateinfo;
-		switch (itemInfo.ori_state){
-			case "1":
-				stateinfo = <GetSku itemInfo={itemInfo} />;
-				break;
-			case "2":
-				stateinfo = <GetSuccess itemInfo={itemInfo}  addLike={()=>dispatch(addLike())} />;
-				break;
-			case "3":
-				stateinfo = <GetFail />;
-				break;
-		}
+        let stateInfo = {
+            1: getting,
+            2: succ,
+            3: fail
+        }
 
 		return (
 			<div className='AfterPayContainer'>
 				<Header/>
-				{stateinfo}
+				{stateInfo[this.state.pageStatus]}
 				<Footer />
 			</div>
 		);

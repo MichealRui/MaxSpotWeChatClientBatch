@@ -49,6 +49,7 @@ class TakeOut extends React.Component {
                     console.log("status: " + json.order.status);
                     if(json.order.status == '2') {
                         window.location.href = "http://www.mjitech.com/buyer_takestatus/index.html"
+                        + '?state=1&ordernumber=' + json.order.orderNumber
                     } else {
                         window.setTimeout( () => this.fetchOrderStatus(on), this.sleepTime)
                     }
