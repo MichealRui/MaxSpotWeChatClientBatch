@@ -34,7 +34,7 @@ function calcuTotalSum(itemInfo) {
         sku => {
             let id = sku.id;
             let s = itemInfo.activateShop.filter(
-                shop => shop[id].activated && !shop[id].editable
+                shop => shop[id] && shop[id].activated && !shop[id].editable
             );
             return s.length != 0
         }

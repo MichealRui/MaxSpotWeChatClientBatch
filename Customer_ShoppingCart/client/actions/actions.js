@@ -32,6 +32,10 @@ export const SET_MESSAGE = 'SET_MESSAGE';
 
 const domain = ENV.domain;
 
+const mock = {
+
+}
+
 export function initShoppingCart() {
     return (dispatch) => {
         fetch( domain + '/web/buyer_api/get_cart.ction',

@@ -42,7 +42,7 @@ export default class Item extends React.Component {
                     <p className='productDesc font14'>{props.shortName}</p>
                     <p className={'categoryName font10'}>
                         {
-                            props.attributes ? props.attributes[0].value
+                            props.attributes ? props.attributes[0].value + props.attributes[0].unit
                             + ' ' + props.attributes[1].value + props.attributes[1].unit : ''
                         }
                     </p>
