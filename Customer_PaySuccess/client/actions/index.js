@@ -50,6 +50,7 @@ export function initPaySuccess() {
         }).then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
+                    console.log(json);
                     dispatch(initSuccess(json.order));
                 }else {
                     dispatch(initFail());
