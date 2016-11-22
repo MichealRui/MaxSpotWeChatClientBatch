@@ -110,23 +110,6 @@ let result = {
     "is_succ":true
 }
 
-
-const defaultContent = {
-    orderInfo: {
-        remainTime:'',
-        productItems:[],
-        actualMoney:'',
-        productDiscount:'',
-        limitDiscount:'',
-        totalMoney:''
-    },
-    wxConfig: {
-        timestamp: '',
-        nonceStr: '',
-        signature: '',
-    }
-};
-
 function initStart(state) {
     return Object.assign({}, state)
 }

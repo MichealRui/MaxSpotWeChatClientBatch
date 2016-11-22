@@ -90,7 +90,7 @@ class ConfirmOrder extends React.Component {
         return(
             <div className='orderDetailContainer'>
                 <div className="buttonArea clearfix">
-                    <span className='font14'>剩余支付时间： {props.remainTime}</span>
+                    {/*<span className='font14'>剩余支付时间： {props.remainTime}</span>*/}
                 </div>
                 {productItems}
                 {/*<div className="totalArea">*/}
