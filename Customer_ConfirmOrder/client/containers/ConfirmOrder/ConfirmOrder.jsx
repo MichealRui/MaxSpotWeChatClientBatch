@@ -64,11 +64,11 @@ class ConfirmOrder extends React.Component {
                 success: function(r){
                     let order = Util.getUrlParam().ordernumber;
                     window.location.href =
-                        ENV.domain + '/web/buyer_paysucc/index.html?ordernumber=' + order
+                        ENV.domain + '/buyer_paysucc/index.html?ordernumber=' + order
                 },
                 fail: function(r){
                     window.location.href =
-                        ENV.domain + '/web/buyer_orderlist/index.html'
+                        ENV.domain + '/buyer_orderlist/index.html'
                 },
                 cancel: function(r){
                     //todo
