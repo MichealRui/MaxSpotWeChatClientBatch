@@ -2,7 +2,8 @@
 	position: fixed;
 	right: 0.43rem;
 	bottom: 0.555556rem;
-	width: 2.777778rem;
+	/*width: 2.777778rem;*/
+	width: 1.472222rem;
 	height: 1.472222rem;
 	line-height: 1.472222rem;
 	border-radius: 1.472222rem 1.472222rem 0 1.472222rem;
@@ -12,9 +13,10 @@
 	z-index: 999;
 }
 .bottomButton>div {
-	float: left;
+	/*float: left;*/
 	width: 50%;
 	height: 100%;
+	margin: 0 auto;
 }
 .bottomButton .cartIcon .fa {
 	position: relative;
@@ -48,7 +50,8 @@
 
 .bottomButton.empty {
 	width:1.472rem;
-	border-radius: 1.472rem;
+	/*border-radius: 1.472rem;*/
+	border-radius: 1.472222rem 1.472222rem 0 1.472222rem;
 }
 
 .bottomButton.empty>div {
