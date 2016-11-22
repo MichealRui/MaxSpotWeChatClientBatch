@@ -4,6 +4,8 @@
 
 import fetch from 'isomorphic-fetch';
 
+import Util from  '../util/WeChatUtil'
+
 export const INIT_START = 'INIT_START';
 
 export const INIT_SUCCESS = 'INIT_SUCCESS';
@@ -35,8 +37,28 @@ export function initPaySuccess() {
         ]
     }
     return (dispatch)=>{
-        dispatch(initSuccess(PaySuccessData))
-    };
+        let domain = ENV.domain;
+        let order = Util.getUrlParam().ordernumber;
+        dispatch(initStart());
+        fetch(domain + '/web/buyer_api/order_detail.ction',{
+            credentials: 'include',
+            method: 'POST',
+            mode: 'cors',
+            body:JSON.stringify({
+                order_number:order
+            })
+        }).then(response=>response.json())
+            .then(json=>{
+                if(json.is_succ){
+                    dispatch(initSuccess(json.order));
+                }else {
+                    dispatch(initFail());
+                }
+            })
+            .catch(e=>{
+                console.log(JSON.stringify(e));
+            });
+    }
 }
 
 export function initStart() {
@@ -45,10 +67,10 @@ export function initStart() {
     }
 }
 
-export function initSuccess(orderlist) {
+export function initSuccess(order) {
     return {
         type: INIT_SUCCESS,
-        orderlist
+        order
     }
 }
 

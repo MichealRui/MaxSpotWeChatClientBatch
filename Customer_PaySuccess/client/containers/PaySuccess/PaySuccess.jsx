@@ -21,7 +21,7 @@ class PaySuccess extends React.Component {
 		// let props = this.props.orderDetail;
 		// props = CouponData;
 		const { dispatch, itemInfo} = this.props;
-		const orderList = itemInfo.order
+		const orderList = itemInfo.order;
 		return (
 			<div className='PaySuccessContainer'>
 				<Header/>

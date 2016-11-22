@@ -16,7 +16,7 @@ function initSuccess(itemInfo, item) {
 export default function (itemInfo = PaySuccessData,action) {
     switch (action.type){
         case INIT_SUCCESS:
-            return initSuccess(itemInfo, action.orderlist);
+            return initSuccess(itemInfo, action.order);
         default:
             return itemInfo;
     }
