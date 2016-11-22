@@ -16,7 +16,7 @@ export default class TopBar extends React.Component {
         const props = this.props;
         return(
             <div className='headContainer'>
-                <img src={require('./images/MaxSpot.png')} className='logo'/>
+                <img src={require('./images/logo.png')} className='logo'/>
                 <span ref='searchContinue' className='searchContinue'
                       onClick={this.searchClick.bind(this)}>再去逛逛</span>
             </div>
