@@ -14,28 +14,6 @@ export const INIT_FAIL = 'INIT_FAIL';
 
 
 export function initPaySuccess() {
-    let PaySuccessData = {
-        order:[
-            {
-                shopId:1,
-                machineAddress:'北京地铁一号线国贸站机器A',
-                goodsCode:200876517
-            },
-            {
-                shopId:1,
-                machineAddress:'北京地铁一号线国贸站机器B',
-                goodsCode:2008768982
-            },
-
-            {
-                shopId:1,
-                machineAddress:'北京地铁一号线国贸站机器A',
-                goodsCode:200876438
-            },
-
-
-        ]
-    }
     return (dispatch)=>{
         let domain = ENV.domain;
         let order = Util.getUrlParam().ordernumber;
