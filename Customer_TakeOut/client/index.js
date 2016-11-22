@@ -17,7 +17,7 @@ fetch(ENV.domain + '/web/buyer_api/order_detail.ction',
     .then(json => {
         if(json.is_succ) {
             ReactDOM.render(
-                <TakeOut/>,
+                <TakeOut order={json.order}/>,
                 document.getElementById('root')
             )
         } else {

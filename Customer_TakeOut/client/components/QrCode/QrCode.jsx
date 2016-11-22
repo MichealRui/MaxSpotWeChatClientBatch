@@ -28,7 +28,7 @@ export default class SettleCollection extends React.Component {
 					</div>
 				</div>
 				<div className="qrCodeContainer">
-					<ReactQrCode value={props.takeUri}/>
+					<ReactQrCode value={this.props.takeuri}/>
 				</div>
 				<p className='settleQRCodeIntroduce font14'>
 					请在小怪兽售卖机扫码或请对方打开微信端主页，点击右上方"+"图标，进入"扫一扫"功能，并对准上方二维码进行扫码支付

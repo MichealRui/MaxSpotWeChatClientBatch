@@ -10,7 +10,7 @@ export default class Header extends React.Component {
 	}
 
 	onContinueClick() {
-	    window.location.href = ''
+	    window.location.href = ENV.domain + '/buyer_home/index.html'
     }
 
 	render(){

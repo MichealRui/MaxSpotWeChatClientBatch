@@ -13,6 +13,8 @@ require('./index.css');
 class AfterPay extends React.Component {
 	constructor(props){
 		super(props);
+		this.orderStatusApi = ENV.domain + '/web/buyer_api/order_detail.ction';
+		this.sleepTime = 1000;
 	}
 	componentWillMount() {
 		const { dispatch } = this.props;
@@ -26,6 +28,33 @@ class AfterPay extends React.Component {
 		let ori_state = param.state
 		dispatch(initAfterPay(ori_state));
 	}
+
+    componentDidMount() {
+        this.fetchOrderStatus(this.props.order.order.orderNumber);
+    }
+
+    fetchOrderStatus(on) {
+        fetch( this.orderStatusApi,
+            {
+                method: 'POST',
+                mode: 'cors',
+                Origin: '*',
+                body: JSON.stringify({
+                    order_number: on ,
+                })
+            })
+            .then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    console.log("status: " + json.order.status);
+                    if(json.order.status == '2') {
+                        window.location.href = "http://www.mjitech.com/buyer_takestatus/index.html"
+                    } else {
+                        window.setTimeout( () => this.fetchOrderStatus(on), this.sleepTime)
+                    }
+                }
+            })
+    }
 
 	render(){
 		// props = CouponData;

@@ -9,15 +9,16 @@ export default class OrderItem extends React.Component {
 	}
 
 	onTakeClick() {
-	    window.location.href = ''
+	    window.location.href = ENV.domain + 'buyer_takegoods/index.html?ordernumber=' + this.props.orderNumber
     }
 
 	render(){
 		let props = this.props;
+        console.log(props);
 		return (
 			<li className='orderItem clearfix'>
 				<div className='fl orderInfo'>
-					<div className='address font14'>{props.machineAddress}</div>
+					<div className='address font14'>{props.store.name}</div>
 					<div className='code font14 blue'>取货码：{props.takeGoodsNumber}</div>
 				</div>
 				<div className='fr orderAction'>
