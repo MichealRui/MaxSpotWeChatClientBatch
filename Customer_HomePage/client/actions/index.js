@@ -99,11 +99,13 @@ export function initCart() {
         ).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    let count = json.skus.length ? json.skus[0].productList.map(
+                    let count = json.skus.length ? json.skus.map(sku => sku.productList.map(
                         prod => parseInt(prod.count)
-                    ).reduce(
-                        (previous, current, index, array) => previous + current, 0
-                    ) : 0;
+                    )).map(
+                        count => count.reduce(
+                            (previous, current, index, array) => previous + current, 0
+                        )
+                    ).reduce((previous, current, index, array) => previous + current, 0) : 0;
                     console.log(count)
                     dispatch(initCartSucc({count: count}))
                 } else {
