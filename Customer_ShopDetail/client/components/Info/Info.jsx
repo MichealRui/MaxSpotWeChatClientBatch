@@ -13,7 +13,7 @@ export default class Info extends React.Component {
             <ul className="infoContainer">
                 <li>
                     <span className="fa fa-map-marker icon" aria-hidden="true"></span>
-                    <p className="content">{itemInfo.shopAddress}</p>
+                    <p className="content font14">{itemInfo.shopAddress}</p>
                     <span className="fa fa-angle-right rightArrow"></span>
                 </li>
                 <li>

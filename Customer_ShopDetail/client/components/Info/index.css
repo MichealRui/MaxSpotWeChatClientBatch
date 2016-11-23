@@ -3,7 +3,7 @@
 }
 
 .infoContainer li {
-    height: 1.1rem;
+    height: 1.972222rem;
     background-color: #fff;
     /*margin-bottom: 0.138889rem;*/
     border-bottom: solid 1px #f2f2f2;
@@ -15,15 +15,18 @@
     top:50%;
     left: 0.583333rem;
     transform: translate(0, -50%);
-    color: rgba(0,0,0,.8);
+    color: #909090;
 }
 
 .infoContainer li .content {
     display: inline-block;
     position: absolute;
     top:50%;
-    left: 3.333333rem;
+    left: 1.388889rem;
     transform: translate(0, -50%);
+    width: 75%;
+    color:#666;
+    line-height: 0.5555555rem;
 }
 
 .infoContainer li .rightArrow {
@@ -32,4 +35,8 @@
     right: 0.583333rem;
     transform: translate(0, -50%);
     color: rgba(0,0,0,.8);
+}
+
+.infoContainer li:last-child .content {
+    color: #2db9ed;
 }
