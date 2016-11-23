@@ -24,30 +24,80 @@ class OrderDetail extends React.Component {
 
     payNow(orderNumber) {
         window.location.href=
-            'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + orderNumber
+            ENV.domain + '/buyer_confirm/wxpay/index.html?ordernumber=' + orderNumber
     }
+
+    takeGood(orderNumber) {
+        window.location.href=
+            ENV.domain + 'buyer_takegoods/index.html?ordernumber=' + orderNumber
+	}
 
 	render(){
 		let {orderDetail, actions} = this.props;
         let orderNumber = orderDetail.orderNumber;
-        // let order_id = window.order_id;
+        let buttonArea;
+        switch (orderDetail.status) {
+            case 1 :
+                buttonArea= (
+                    <div className="buttonArea clearfix">
+                        <span className='font14'>订单还未支付哦</span>
+                        <Button buttonClassName='pickUpButton' buttonClick={()=>this.payNow(orderNumber)} buttonText='立即支付'/>
+                    </div>
+                );
+                break;
+            case 2 :
+                buttonArea = (
+                    <div className="buttonArea clearfix">
+                        <span className='font14'>取货时请记得确认位置哦</span>
+                        <Button buttonClassName='pickUpButton' buttonClick={()=>this.takeGood(orderNumber)} buttonText='立即取货'/>
+                    </div>
+                );
+                break;
+            case 3 :
+                buttonArea = (
+                    <div className="buttonArea clearfix">
+                        <span className='font14'>取货时请记得确认位置哦</span>
+                        <Button buttonClassName='pickUpButton' buttonClick={()=>actions.pickUp(order_id)} buttonText='立即取货'/>
+                    </div>
+                );
+                break;
+            case 4:
+                buttonArea = (
+                    <div className="buttonArea clearfix">
+                        <span className='font14'>正在取货中</span>
+                        <Button buttonClassName='pickUpButton' disabled buttonText='正在取货'/>
+                    </div>
+                );
+                break;
+            case 5:
+                buttonArea = (
+                    <div className="buttonArea clearfix">
+                        <span className='font14'>完成取货</span>
+                        <Button buttonClassName='pickUpButton' disabled buttonText='完成取货'/>
+                    </div>
+                );
+                break;
+            case 91:
+                buttonArea = (
+                    <div className="buttonArea clearfix">
+                        <span className='font14'>订单已取消</span>
+                        <Button buttonClassName='pickUpButton' disabled buttonText='订单已取消'/>
+                    </div>
+                );
+                break;
+
+        }
+		if (orderDetail.status == 1) {
+			buttonArea = (
+                <div className="buttonArea clearfix">
+                    <span className='font14'>订单还未支付哦</span>
+                    <Button buttonClassName='pickUpButton' buttonClick={()=>()=>this.payNow(orderNumber)} buttonText='立即支付'/>
+                </div>
+            )
+		}
 		return(
 			<div className='orderDetailContainer'>
-                {
-                    orderDetail.status == 1 ?
-                        <div className="buttonArea clearfix">
-                            <span className='font14'>订单还未支付哦</span>
-                            <Button buttonClassName='pickUpButton' buttonClick={()=>()=>this.payNow(orderNumber)} buttonText='立即支付'/>
-                        </div> :
-                        <div className="buttonArea clearfix">
-                            <span className='font14'>取货时请记得确认位置哦</span>
-                            <Button buttonClassName='pickUpButton' buttonClick={()=>actions.pickUp(order_id)} buttonText='立即取货'/>
-                        </div>
-                }
-				<div className="buttonArea clearfix">
-                    <span className='font14'>取货时请记得确认位置哦</span>
-					<Button buttonClassName='pickUpButton' buttonClick={()=>actions.pickUp(order_id)} buttonText='立即取货'/>
-				</div>
+                {buttonArea}
 				<OrderDetailTitle orderTitleIcon={'fa-th-large'} orderTitleText={orderDetail.orderAddress}/>
 				<OrderDetailTitle orderTitleIcon={'fa-map-marker'} orderTitleText={orderDetail.orderAddress}/>
 				<div className='timeAndMobile'>

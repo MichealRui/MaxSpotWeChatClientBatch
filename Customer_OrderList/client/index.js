@@ -31,8 +31,7 @@ fetch( ENV.domain + '/web/buyer_api/order_list.ction',
         body: JSON.stringify(
             {storeId : 0}
         )
-    }
-    ).then(response => response.json())
+    }).then(response => response.json())
     .then(json => {
         if(json.is_succ) {
             ReactDOM.render(

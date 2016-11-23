@@ -23,7 +23,11 @@ class ShoppingCart extends React.Component {
         const { dispatch, itemInfo} = this.props;
         const itemMethods = {
             increase: shopId => item => dispatch(increment(shopId, item)),
-            decrease: shopId => item => dispatch(decrement(shopId, item)),
+            decrease: shopId => item => {
+                if( item.count > 1) {
+                    dispatch(decrement(shopId, item))
+                }
+            },
             delete: shopId => item => dispatch(deleteItem(shopId, item)),
             editState: shopId => () =>dispatch(changeShopState(shopId)),
             toggle: shopId => () => dispatch(toggleShop(shopId))

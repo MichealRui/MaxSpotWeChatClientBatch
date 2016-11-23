@@ -91,14 +91,6 @@ class PageContainer extends React.Component {
     addCart(item) {
         let {state, dispatch} = this.props;
         let itemId = item.skuId;
-        // let newItem = state.cart.items.map((i, index) => {
-        //     let it = Object.assign({}, item)
-        //     if(i.id == itemId) {
-        //         it.count = parseInt(it.count) + 1 + '';
-        //     }
-        //     return it
-        // }).shift() || item;
-
         let target = state.cart.items.find((i) => {
             return i.id == itemId
         });

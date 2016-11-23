@@ -9,6 +9,7 @@ export default class StoreIntro extends React.Component {
 	}
 
 	brandClick() {
+		console.log('aaa')
 	    let domain  = ENV.domain;
 	    window.location.href = domain + '/buyer_brand/index.html?brandid='
         + this.props.brand.id + '&storeid=' + this.props.storeId
@@ -17,7 +18,7 @@ export default class StoreIntro extends React.Component {
 	render(){
 		let props = this.props.brand;
 		return (
-			<div className='storeIntro' onClick={() => this.brandClick.bind(this)}>
+			<div className='storeIntro' onClick={this.brandClick.bind(this)}>
                 {
                     props.imagePath.length == 0 ?
                         <img src={require('./images/default.png')} className='storeImg'/> :
