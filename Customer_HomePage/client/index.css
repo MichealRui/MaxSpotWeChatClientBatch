@@ -123,6 +123,18 @@ html { overflow-y: scroll; }
     font-size: 36px !important;
 }
 
+.font13 {
+    font-size: 13px !important;
+}
+
+[data-dpr="2"] .font13 {
+    font-size: 26px !important;
+}
+
+[data-dpr="3"] .font13 {
+    font-size: 39px !important;
+}
+
 .font14 {
   font-size: 14px !important;
 }
