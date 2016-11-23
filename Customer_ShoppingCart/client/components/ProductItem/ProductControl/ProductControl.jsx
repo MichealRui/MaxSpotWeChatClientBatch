@@ -19,10 +19,14 @@ export default class ProductControl extends React.Component {
 			<div className="productControl">
 				{/*<p className="productCost font16"><em className="font18">{item.sellprice}</em>元</p>*/}
 				<div className="inputWrapper clearfix font16">
-					<span className="button reduceButton" onClick={() => decreaseItem(item)}>-</span>
-					<input className="inputText" type='text' readOnly value={item.count} onChange={this.valueChange.bind(this)}/>
-					<span className="button addButton" onClick={() => increaseItem(item)}>+</span>
-					<span className="deleteButton fa fa-trash-o font24" onClick={() => deleteItem(item)}></span>
+					<span className="button reduceButton"
+                          onClick={() =>decreaseItem(item)}>-</span>
+					<input className="inputText" type='text' readOnly value={item.count}
+                           onChange={this.valueChange.bind(this)}/>
+					<span className="button addButton"
+                          onClick={() => increaseItem(item)}>+</span>
+					<span className="deleteButton fa fa-trash-o font24"
+                          onClick={() => deleteItem(item)}></span>
 				</div>
 			</div>
 		);
