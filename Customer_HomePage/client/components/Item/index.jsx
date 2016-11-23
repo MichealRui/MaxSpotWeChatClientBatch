@@ -46,7 +46,7 @@ export default class Item extends React.Component {
                             props.attributes ?
                                 (props.attributes[0].value?props.attributes[0].value + props.attributes[0].unit:'') +
                                 (props.attributes[1].value?' ' + props.attributes[1].value + props.attributes[1].unit:'')
-                                : ''
+                                : <br/>
                         }
                     </p>
                 </span>
