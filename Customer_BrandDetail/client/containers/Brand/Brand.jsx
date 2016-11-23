@@ -23,11 +23,11 @@ class BrandContainer extends React.Component {
 		return(
 			<div className='brandContainer'>
 				<Header iteminfo={itemInfo}/>
-				<div className="storeinfo"><p className="font12">{itemInfo.intro}</p></div>
+				<div className="storeinfo"><p className="font12">{itemInfo.brand.story}</p></div>
 				<div className="iteminfo">
 					<ul>
 						{
-							itemInfo.info.map(
+							itemInfo.skus.map(
 								(item,index)=>{
 									return <BrandItem key={index} iteminfo={item} addToCart={(item) => dispatch(addToCart(item))}/>
 								}

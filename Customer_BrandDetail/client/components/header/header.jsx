@@ -14,12 +14,12 @@ export default class header extends React.Component {
 		return (
 			<div className="header">
 				<div className="title clearfix">
-					<span><img src={item.logo} /></span>
+					<span><img src={ENV.domain + item.brand.imagePath} /></span>
 					<span>
-						<p className="font16">{item.name}</p>
-						<p className="font12">共有{item.follows}人关注</p>
+						<p className="font16">{item.brand.name}</p>
+						{/*<p className="font12">共有{item.follows}人关注</p>*/}
 					</span>
-					<span className="button font16">关注</span>
+					{/*<span className="button font16">关注</span>*/}
 				</div>
 			</div>
 

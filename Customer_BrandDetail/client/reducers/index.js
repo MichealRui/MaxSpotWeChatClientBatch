@@ -8,37 +8,35 @@ import {INIT_CART_SUCC, INIT_CART_FAIL} from '../actions/index'
 import {ERROR_ADD_CART, SUCCESS_ADD_CART} from '../actions/index'
 const domain = ENV.domain;//'http://114.215.143.97';
 const defaultState = {
-    'logo':'',
-    'name':'',
-    'follows':'',
-    'intro':'',
-    'info':[],
+    skus:[],
+    brand:[]
     // 'total':0
 };
 
 function initSucc(itemInfos, item) {
-    let brand = item.brand;
-    let skus = item.skus;
-    let info = [];
-    skus.forEach(function (value,index) {
-        info.push({
-            'storeid':1,
-            'skuid':value.skuNumber,
-            'image':'http://114.215.143.97' + value.imagePath,
-            'brand':value.brandName,
-            'name':value.shortName,
-            'sub': value.height + ' N/A',
-            'money':0
-        })
-    })
-    let brandinfo = {
-        'logo':'http://114.215.143.97'+brand.imagePath,
-        'name':brand.name,
-        'follows':brand.sortNumber,
-        'intro':brand.story,
-        'info':info
-    }
-    return Object.assign({},itemInfos, brandinfo);
+    // let brand = item.brand;
+    // let skus = item.skus;
+    // let info = [];
+    // skus.forEach(function (value,index) {
+    //     info.push({
+    //         'storeid':1,
+    //         'skuid':value.skuNumber,
+    //         'image':'http://114.215.143.97' + value.imagePath,
+    //         'brand':value.brandName,
+    //         'name':value.shortName,
+    //         'sub': value.height + ' N/A',
+    //         'money':0
+    //     })
+    // })
+    // let brandinfo = {
+    //     'logo':'http://114.215.143.97'+brand.imagePath,
+    //     'name':brand.name,
+    //     'follows':brand.sortNumber,
+    //     'intro':brand.story,
+    //     'info':info
+    // }
+    return Object.assign({}, item)
+    // return Object.assign({},itemInfos, brandinfo);
 }
 
 function addCartSucc(itemInfo){

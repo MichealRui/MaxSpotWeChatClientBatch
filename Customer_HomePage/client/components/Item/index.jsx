@@ -17,11 +17,24 @@ export default class Item extends React.Component {
             + storeid + '&skunumber=' + skunumber;
     }
 
+    getAttr(attributes) {
+        var atts = <br/>;
+        if(attributes && attributes.length > 0) {
+            atts = attributes.map(att => {
+                if(att.value) {
+                    return att.value + att.unit
+                } else return ''
+            }).reduce((pre, next) => pre + next + ' ', '')
+        }
+        return atts
+    }
+
     render() {
         let props = this.props.item;
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         let soldOut = <span className="soldOut font14">售 罄</span>;
         let domain = ENV.domain;
+        var atts = this.getAttr(props.attributes);
         return (
             <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
                 {
@@ -42,12 +55,7 @@ export default class Item extends React.Component {
                     <p className={'productName font12'}>{props.brandName}</p>
                     <p className='productDesc font14'>{props.shortName}</p>
                     <p className={'categoryName font10'}>
-                        {
-                            props.attributes ?
-                                (props.attributes[0].value?props.attributes[0].value + props.attributes[0].unit:'') +
-                                (props.attributes[1].value?' ' + props.attributes[1].value + props.attributes[1].unit:'')
-                                : <br/>
-                        }
+                        {atts}
                     </p>
                 </span>
                 <span className='unitPrice font18'>{props.sellprice/100 || 0 }元</span>
