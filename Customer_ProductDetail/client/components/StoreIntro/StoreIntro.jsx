@@ -9,7 +9,6 @@ export default class StoreIntro extends React.Component {
 	}
 
 	brandClick() {
-		console.log('aaa')
 	    let domain  = ENV.domain;
 	    window.location.href = domain + '/buyer_brand/index.html?brandid='
         + this.props.brand.id + '&storeid=' + this.props.storeId

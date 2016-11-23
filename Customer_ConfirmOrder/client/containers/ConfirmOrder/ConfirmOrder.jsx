@@ -92,9 +92,9 @@ class ConfirmOrder extends React.Component {
                 {
                     this.props.state.is_succ? (
                         <div>
-                            <div className="buttonArea clearfix">
+                            {/*<div className="buttonArea clearfix">*/}
                                 {/*<span className='font14'>剩余支付时间： {props.remainTime}</span>*/}
-                                </div>
+                                {/*</div>*/}
                             {productItems}
                             {/*<div className="totalArea">*/}
                             {/*<AccountDisplay name='商品总金额' money={props.actualMoney}/>*/}

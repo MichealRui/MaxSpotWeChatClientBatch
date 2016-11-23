@@ -25,7 +25,7 @@ export default class Header extends React.Component {
 					<p>货物已为您准备好</p>
 					<p>请及时前往相应的店铺/机器取货</p>
 				</div>
-				<div className="btn_fetch white font16" onClick={() => this.onContinueClick.bind(this)}>继续购物</div>
+				<div className="btn_fetch white font16" onClick={this.onContinueClick.bind(this)}>继续购物</div>
 			</div>
 		);
 	}
