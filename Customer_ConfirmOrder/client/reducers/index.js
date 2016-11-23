@@ -115,7 +115,7 @@ function initStart(state) {
 }
 
 function initSuccess(state, updated){
-    return Object.assign({}, state, updated);
+    return Object.assign({}, state, updated, {is_succ: true});
 }
 
 function initFail(state) {
