@@ -10,7 +10,7 @@
 }
 .addIntoCart .wrapper p {
     line-height: 1;
-    color: rgba(0,0,0,.6);
+    color: #fe7960;
 }
 .addIntoCart .buttonArea {
     position: absolute;
@@ -23,4 +23,13 @@
     background: #fff;
     color: #fa7c73;
     border: 1px solid #fa7c73;
+    /*line-height: 1.2rem;*/
+    /*border-radius: 1.8rem;*/
+    /*height: 1.2rem;*/
+}
+
+.addIntoCart .buttonArea .bigButton.empty {
+    background: #e1e1e1;
+    color: #fff;
+    border: 1px solid #e1e1e1;
 }
