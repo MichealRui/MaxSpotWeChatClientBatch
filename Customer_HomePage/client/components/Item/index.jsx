@@ -21,15 +21,16 @@ export default class Item extends React.Component {
         let props = this.props.item;
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         let soldOut = <span className="soldOut font14">售 罄</span>;
+        let domain = ENV.domain;
         return (
             <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
                 {
                     sliderItem == 'sliderItem' ?
-                        <img src={ 'http://114.215.143.97/' + props.imagePath } className='productImg' />
+                        <img src={ domain + props.imagePath } className='productImg' />
                         : (
                             props.imagePath ?
                                 <LazyLoad height={'45%'}>
-                                    <img src={ 'http://114.215.143.97/' + props.imagePath } className='productImg' />
+                                    <img src={ domain + props.imagePath } className='productImg' />
                                 </LazyLoad> :
                                 <LazyLoad height={'45%'}>
                                     <img src={ defProductImg } className='productImg' />
@@ -42,8 +43,10 @@ export default class Item extends React.Component {
                     <p className='productDesc font14'>{props.shortName}</p>
                     <p className={'categoryName font10'}>
                         {
-                            props.attributes ? props.attributes[0].value + props.attributes[0].unit
-                            + ' ' + props.attributes[1].value + props.attributes[1].unit : ''
+                            props.attributes ?
+                                (props.attributes[0].value?props.attributes[0].value + props.attributes[0].unit:'') +
+                                (props.attributes[1].value?' ' + props.attributes[1].value + props.attributes[1].unit:'')
+                                : ''
                         }
                     </p>
                 </span>
