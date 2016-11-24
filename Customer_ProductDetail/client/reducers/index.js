@@ -11,24 +11,24 @@ const mock = {
         "story":"",
         "skuTypeId":0,
         "description":"",
-        "name":"多力多滋",
+        "name":"",
         "sortNumber":0
     },
     productDetail: {
         "maxStock":0,
-        "countryName":"中国大陆",
+        "countryName":"",
         "uniqueNumber":573,
         "imagePath":'',
         "parentCategory":0,
         "remarks":"",
-        "brandName":"多力多滋",
+        "brandName":"",
         "id":578,
-        "categoryName":"休闲零食",
+        "categoryName":"",
         "safeStock":0,
         "imageId":437,
         "height":0,
         "msrp":0,
-        "name":"多力多滋超浓芝士味玉米片",
+        "name":"",
         "length":0,"quantity":0,
         "sellprice":0,
         "tags":"",
@@ -50,7 +50,7 @@ const mock = {
             {"unit":"","name":"口味","value":"芝士"},
             {"unit":"g","name":"净含量","value":"65"}
             ],
-        "shortName":"芝士味玉米片"
+        "shortName":""
     },
     storeId: '7'};
 
