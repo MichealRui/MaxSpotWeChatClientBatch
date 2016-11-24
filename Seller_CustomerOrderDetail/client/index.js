@@ -34,6 +34,7 @@ fetch(requestUrl,
     })
     .then(response => response.json())
     .then(json => {
+        alert(json)
         if(json.is_succ) {
             ReactDOM.render(
                 <CustomerOrderDetail orderDetail={json.order}/>,
