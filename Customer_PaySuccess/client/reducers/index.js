@@ -5,13 +5,11 @@
 import {INIT_START,INIT_SUCCESS,INIT_FAIL} from '../actions/index'
 
 const PaySuccessData = {
-    order:[]
+    order:{}
 }
 
 function initSuccess(orderInfo, order) {
-    let newOrders =  Object.assign({},orderInfo);
-    newOrders.order.push(order);
-    return newOrders
+    return Object.assign({},order);
 }
 
 

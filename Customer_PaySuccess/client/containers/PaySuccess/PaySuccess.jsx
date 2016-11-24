@@ -21,16 +21,18 @@ class PaySuccess extends React.Component {
 		// let props = this.props.orderDetail;
 		// props = CouponData;
 		const { dispatch, itemInfo} = this.props;
-		const orderList = itemInfo.order;
+		const orderList = itemInfo.childOrders;
+        var subOrders='';
+        if(orderList && orderList.length > 0) {
+            subOrders = orderList.map((order, index)=>{
+                return <OrderItem key={index} {...order} />
+            })
+        }
 		return (
 			<div className='PaySuccessContainer'>
 				<Header/>
 				<ul>
-					{
-						orderList.map((order, index)=>{
-							return <OrderItem key={index} {...order} />
-						})
-					}
+                    {subOrders}
 				</ul>
 			</div>
 		);
