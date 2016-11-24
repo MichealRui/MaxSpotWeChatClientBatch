@@ -17,7 +17,7 @@ export default class ProductDetailTitle extends React.Component {
 					<h1 className='font14'>{props.productName}</h1>
 					<p className='font12'>{props.productInfo}</p>
 				</div>
-				<span className="fa fa-heart font24 icon"></span>
+				{/*<span className="fa fa-heart font24 icon"></span>*/}
 			</div>
 		);
 	}

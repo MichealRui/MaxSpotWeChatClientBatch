@@ -9,7 +9,8 @@ export default class OrderItem extends React.Component {
 	}
 
 	onTakeClick() {
-	    window.location.href = ENV.domain + 'buyer_takegoods/index.html?ordernumber=' + this.props.orderNumber
+	    window.location.href =
+			ENV.domain + '/buyer_takegoods/index.html?ordernumber=' + this.props.orderNumber
     }
 
 	render(){
