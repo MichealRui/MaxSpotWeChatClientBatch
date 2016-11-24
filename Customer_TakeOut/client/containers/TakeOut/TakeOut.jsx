@@ -90,6 +90,7 @@ class TakeOut extends React.Component {
         //     },
         //     takeUri: takeUri
         // }
+        console.log(defUrl);
         return(
             <div>
                 <QrCode order={order}
