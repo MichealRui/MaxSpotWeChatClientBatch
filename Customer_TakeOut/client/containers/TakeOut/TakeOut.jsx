@@ -30,7 +30,7 @@ class TakeOut extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchOrderStatus(this.props.order.order.orderNumber);
+        this.fetchOrderStatus(this.props.order.orderNumber);
     }
 
     fetchOrderStatus(on) {
