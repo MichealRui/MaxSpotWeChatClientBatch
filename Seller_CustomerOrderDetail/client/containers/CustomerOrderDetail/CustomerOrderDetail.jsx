@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import fetch from 'isomorphic-fetch';
 import Button from '../../components/Button/Button';
 import OrderDetailProductList from '../../components/OrderDetailProductList/OrderDetailProductList';
 import CustomerOrderDetailData from './CustomerOrderDetailData';
@@ -9,12 +10,48 @@ require('./index.css');
 export default class CustomerOrderDetail extends React.Component {
 	constructor(props){
 		super(props);
+        this.state = {
+            showBtn: true
+        }
 	}
+
+	takeGood(on) {
+	    fetch('http://www.mjitech.com/web/seller_api/wx_set_order_taken.action',
+            {
+                method: 'POST',
+                mode: 'cors',
+                Origin: '*',
+                body: JSON.stringify(
+                    {order_number: on}
+                )
+            }
+        ).then(response =>response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    this.setState(
+                        {
+                            showBtn: false
+                        }
+                    )
+                }
+            }).catch(e => console.log(e))
+    }
 
 	render(){
 		let props = this.props.orderDetail;
+        let btnArea;
+        if(props && props.status == 2 && this.state.showBtn) {
+            btnArea = <div className="buttonArea">
+                <Button buttonClassName='confirmPickUp'
+                        buttonClick={() => this.takeGood(props.orderNumber).bind(this)}
+                        buttonText='确认取货'/>
+            </div>
+        } else {
+            btnArea=''
+        }
 		return(
 			<div className='orderDetailContainer'>
+                {btnArea}
 				{/*<div className="buttonArea">*/}
 					{/*<Button buttonClassName='confirmPickUp' buttonClick={()=>console.log('success')} buttonText='确认取货'/>*/}
 				{/*</div>*/}

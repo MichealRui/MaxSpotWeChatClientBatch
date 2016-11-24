@@ -8,14 +8,28 @@ require('./index.css');
 import CustomerOrderDetail from './containers/CustomerOrderDetail/CustomerOrderDetail';
 
 
-fetch("http://www.mjitech.com/web/seller_api/wx_order_detail.action",
-        // "http://www.mjitech.com/web/seller_api/wx_order_status.action",
+const detailByOrderNumber = 'http://114.215.143.97/web/seller_api/wx_order_detail.action';
+const detailByTakingNubmer = 'http://114.215.143.97/web/seller_api/wx_order_detail_by_takingnumber.action';
+let params = Util.getUrlParam();
+let orderNumber = params["order_number"] || '';
+let takingNumber = params["taking_number"] || '';
+let requestUrl;
+let requestParam;
+if(orderNumber) {
+    requestUrl = detailByOrderNumber;
+    requestParam = {order_number:orderNumber}
+} else if(takingNumber) {
+    requestUrl = detailByTakingNubmer;
+    requestParam = {taking_number:takingNumber}
+}
+
+fetch(requestUrl,
     {
         method: 'POST',
         mode: 'cors',
         Origin: '*',
         body: JSON.stringify(
-            Object.assign({}, {open_id: "123456"}, Util.getUrlParam()["order_number"])
+            requestParam
         )
     })
     .then(response => response.json())
