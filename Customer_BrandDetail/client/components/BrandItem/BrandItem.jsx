@@ -29,10 +29,10 @@ export default class BrandItem extends React.Component {
 			<li>
 				<div className="brandItem">
 					<div className="img"><img src={ENV.domain + item.imagePath}/></div>
-					<p className="font12">{item.brand}</p>
+					<p className="font12">{item.brandName}</p>
 					<p className="font14">{item.name}</p>
 					<p className="font10">{atts}</p>
-					<div className="price font18">{item.sellprice}<span className="font10">元</span></div>
+					<div className="price font18">{item.sellprice / 100}<span className="font10">元</span></div>
 					<AddCart itemInfo={item} itemClick={this.props.addToCart}/>
 				</div>
 			</li>
