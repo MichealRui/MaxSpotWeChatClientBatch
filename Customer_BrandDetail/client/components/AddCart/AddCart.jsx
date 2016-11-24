@@ -20,7 +20,7 @@ export default class AddCart extends React.Component {
 	}
 	render(){
 		return (
-			<div className="button font22" onClick={this.addCart.bind(this)}><img src={add_image} alt=""/></div>
+			<div className="button font22" onClick={() => this.addCart.bind(this)}><img src={add_image} alt=""/></div>
 		);
 	}
 }
