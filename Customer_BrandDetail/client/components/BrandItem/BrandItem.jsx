@@ -42,7 +42,7 @@ export default class BrandItem extends React.Component {
 				<div className="brandItem" onClick={this.toProduct.bind(this)}>
 					<div className="img"><img src={ENV.domain + item.imagePath}/></div>
 					<p className="font12">{item.brandName}</p>
-					<p className="font14">{item.name}</p>
+					<p className="font14">{item.shortName}</p>
 					<p className="font10">{atts}</p>
 					<div className="price font18">{item.sellprice / 100}<span className="font10">元</span></div>
 					<AddCart itemInfo={item} itemClick={this.addToCart.bind(this)}/>
