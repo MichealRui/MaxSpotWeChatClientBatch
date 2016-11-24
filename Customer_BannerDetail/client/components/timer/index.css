@@ -33,6 +33,9 @@
     text-align: center;
     line-height: 0.3333rem;
 }
+.empty .number {
+    display: none;
+}
 .timer .lasttime{
     display:none;
     font-size: 0.2222rem;

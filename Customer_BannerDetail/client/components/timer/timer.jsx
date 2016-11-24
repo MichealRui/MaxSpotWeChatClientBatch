@@ -12,7 +12,7 @@ export default class timer extends React.Component {
 		let props = this.props;
 		const item = props.iteminfo;
 		return (
-			<div className="timer">
+			<div className={item.total? "timer" : "timer empty"}>
 				<div className="number">{item.total}</div>
 				<div className="lasttime">
 					<p>剩余时间</p>
