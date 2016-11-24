@@ -27,7 +27,7 @@ export default class HomeHeader extends Component {
                         {props.store.name}
                     </span>
                     <span className="switchShopBtn font13" onClick={this.onSwitchClick.bind(this)}>
-                        切换机器
+                        切换站点
                     </span>
                 </div>
             </div>
