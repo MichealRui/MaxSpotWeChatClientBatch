@@ -20,6 +20,8 @@ class BrandContainer extends React.Component {
 	}
 	render(){
 		const{dispatch,itemInfo} = this.props;
+		let param = Util.getUrlParam();
+		let storeId = param.storeid;
 		return(
 			<div className='brandContainer'>
 				<Header iteminfo={itemInfo}/>
@@ -29,7 +31,11 @@ class BrandContainer extends React.Component {
 						{
 							itemInfo.skus.map(
 								(item,index)=>{
-									return <BrandItem key={index} iteminfo={item} addToCart={(item) => dispatch(addToCart(item))}/>
+									return <BrandItem key={index}
+													  iteminfo={item}
+													  addToCart={(item) => dispatch(addToCart(item))}
+													  storeId={storeId}
+									/>
 								}
 							)
 						}
