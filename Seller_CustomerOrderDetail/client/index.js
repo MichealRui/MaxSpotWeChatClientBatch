@@ -34,13 +34,13 @@ fetch(requestUrl,
     })
     .then(response => response.json())
     .then(json => {
-        alert(json.error_message)
         if(json.is_succ) {
             ReactDOM.render(
                 <CustomerOrderDetail orderDetail={json.order}/>,
                 document.getElementById('root')
             )
         } else {
+            alert(json.error_message)
             ReactDOM.render(
                 <div>服务器异常请刷新页面</div>,
                 document.getElementById('root')
