@@ -17,7 +17,6 @@ export default class timer extends React.Component {
 		const item = props.iteminfo;
 		return (
 			<div className={item.total ? "timer" : "timer empty"} onClick={this.toCart(this)}>
-			<div className="timer">
 				<div className="number">{item.total}</div>
 				<div className="lasttime">
 					<p>剩余时间</p>
