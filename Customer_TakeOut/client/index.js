@@ -15,6 +15,7 @@ fetch(ENV.domain + '/web/buyer_api/order_detail.ction',
         )
     }).then(response => response.json())
     .then(json => {
+        console.log(json)
         if(json.is_succ) {
             ReactDOM.render(
                 <TakeOut order={json.order}/>,
