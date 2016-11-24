@@ -34,8 +34,8 @@ fetch(requestUrl,
     })
     .then(response => response.json())
     .then(json => {
-        alert(json)
-        if(json.error_message) {
+        alert(json.error_message)
+        if(json.is_succ) {
             ReactDOM.render(
                 <CustomerOrderDetail orderDetail={json.order}/>,
                 document.getElementById('root')
