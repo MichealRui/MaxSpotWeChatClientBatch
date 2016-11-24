@@ -7,25 +7,27 @@ export default class Item extends React.Component {
         super(props)
     }
 
-    addClick() {
+    addClick(e) {
         // todo update cart
-        console.log("add")
-        let cart = this.props.cart;
-
         this.props.click(
             {
                 storeId: this.props.store.id + '',
                 skuId: this.props.item.id + '',
                 count: '1'
             }
-        )
+        );
+        e.stopPropagation()
     }
-    
+
+    showClick() {
+        this.props.show()
+    }
+
     render() {
         let props = this.props.item;
         // let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         return (
-            <div className={"item sliderItem"}>
+            <div className={"item sliderItem"} onClick={this.showClick.bind(this)}>
                 <img src={require('./images/product-1.jpg')} className='productImg' />
                 <span className='brandProductContainer'>
                     <p className={'productName font23'}>{props.brandName}</p>

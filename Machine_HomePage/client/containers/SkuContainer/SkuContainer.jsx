@@ -2,8 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Modal, Button } from 'antd';
-import SkuImage from '../SkuImage/SkuImage'
-import SkuInfo from '../SkuInfo/SkuInfo'
+import Gallery from '../../components/Gallery/Gallery';
 require('./index.css')
 
 export default class SkuContainer extends React.Component {
@@ -25,14 +24,11 @@ export default class SkuContainer extends React.Component {
             <div className="skuContainer">
                 <Modal visible={this.props.visible}
                        onCancel={this.props.onCancel()}
-                       wrapClassName="customized-modal"
+                       wrapClassName="customized1-modal"
                        footer=''
                 >
-                    <div>
-                        <div className="sku_wrapper clearfix">
-                            <SkuImage />
-                            <SkuInfo />
-                        </div>
+                    <div className="galleryWrapper">
+                        <Gallery/>
                     </div>
                 </Modal>
             </div>

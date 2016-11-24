@@ -15,7 +15,7 @@ export default class Header extends React.Component{
                 <span className="location font24">
                     国贸三期 芒果店
                 </span>
-                <span className="login" onClick={props.skuClick()}>
+                <span className="login">
                     <img src={require('./images/local_crown.png')} className="login_logo"/>
                     <span className="font24">VIP登陆</span>
                     </span>

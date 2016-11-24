@@ -1,4 +1,4 @@
-.customized-modal{
+.customized1-modal{
     position: fixed;
     overflow: auto;
     top: 0;
@@ -10,16 +10,22 @@
     outline: 0;
 }
 
-.customized-modal .ant-modal {
-    top: 70px;
-    width: 100%!important;
-
+.customized1-modal .ant-modal {
+    top:0;
+    box-sizing: border-box;
+    width:100%!important;
+    padding:90px;
 }
-.customized-modal .ant-modal .ant-modal-body {
+.customized1-modal .ant-modal .ant-modal-body {
     line-height: 1;
+    padding:0;
+    position: relative;
+    background-color: #FFFFFF;
 }
-.customized-modal .ant-modal .ant-modal-content {
-    height: 1080px;
+.customized1-modal .ant-modal .ant-modal-content {
+    height: 900px;
     background-color: #f2f2f2;
 }
-
+.customized1-modal .galleryWrapper {
+    width:40%;
+}
