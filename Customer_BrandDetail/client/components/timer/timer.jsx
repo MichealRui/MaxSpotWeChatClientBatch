@@ -16,11 +16,8 @@ export default class timer extends React.Component {
 		let props = this.props;
 		const item = props.iteminfo;
 		return (
-<<<<<<< Updated upstream
 			<div className={item.total ? "timer" : "timer empty"} onClick={this.toCart(this)}>
-=======
 			<div className="timer">
->>>>>>> Stashed changes
 				<div className="number">{item.total}</div>
 				<div className="lasttime">
 					<p>剩余时间</p>
