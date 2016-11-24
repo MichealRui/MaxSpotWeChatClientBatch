@@ -22,7 +22,7 @@ export default class OrderItem extends React.Component {
 					<div className='code font14 blue'>取货码：{props.takeGoodsNumber}</div>
 				</div>
 				<div className='fr orderAction'>
-					<div className='fl btn_fetch font14' onClick={() => this.onTakeClick()}>立即取货</div>
+					<div className='fl btn_fetch font14' onClick={this.onTakeClick.bind(this)}>立即取货</div>
 					<div className="fr font20"> > </div>
 				</div>
 			</li>
