@@ -29,7 +29,7 @@ export default class BrandItem extends React.Component {
 
     addToCart(e) {
         e.stopPropagation();
-        this.props.addToCart()
+        this.props.addToCart(this.props.itemInfo)
     }
 
 	render(){
