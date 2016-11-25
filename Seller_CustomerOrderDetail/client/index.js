@@ -25,7 +25,7 @@ if(orderNumber) {
 
 fetch(requestUrl,
     {
-        credentials: 'include',
+		credentials: 'include',
         method: 'POST',
         mode: 'cors',
         Origin: '*',
