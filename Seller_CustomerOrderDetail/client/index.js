@@ -8,8 +8,8 @@ require('./index.css');
 import CustomerOrderDetail from './containers/CustomerOrderDetail/CustomerOrderDetail';
 
 
-const detailByOrderNumber = 'http://114.215.143.97/web/seller_api/wx_order_detail.action';
-const detailByTakingNubmer = 'http://114.215.143.97/web/seller_api/wx_order_detail_by_takingnumber.action';
+const detailByOrderNumber = 'http://www.mjitech.com/web/seller_api/wx_order_detail.action';
+const detailByTakingNubmer = 'http://www.mjitech.com/web/seller_api/wx_order_detail_by_takingnumber.action';
 let params = Util.getUrlParam();
 let orderNumber = params["order_number"] || '';
 let takingNumber = params["taking_number"] || '';
