@@ -32,11 +32,13 @@ class ShoppingCart extends React.Component {
             editState: shopId => () =>dispatch(changeShopState(shopId)),
             toggle: shopId => () => dispatch(toggleShop(shopId))
         };
+        let takespace={height: '1.2rem'}
         console.log(itemInfo.remainTime);
         return(
             <div>
 	            <div className="contentContainer">
 	            	<TopBar logo={itemInfo.logo} searchClick={()=>console.log('click')}/>
+                    <div className="takespace" style={takespace}></div>
                     <Message msgContent={itemInfo.errorMessage}
                              clearMessage={() => dispatch(setMessage(""))}
                     />
