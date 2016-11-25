@@ -2,6 +2,7 @@
  * Created by wyf on 2016/10/19.
  */
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CART_FAIL} from '../contants/ActionTypes';
+import {INIT_CART_FAIL,INIT_CART_SUCC} from '../contants/ActionTypes';
 
 const mock = {
     "brand": {
@@ -52,7 +53,10 @@ const mock = {
             ],
         "shortName":""
     },
-    storeId: '7'};
+    storeId: '7',
+    total:0
+
+};
 
 
 function initStart(state) {
@@ -68,11 +72,20 @@ function initFail(state){
 }
 
 function addIntoCartSuccess(state) {
+    state.total ++ ;
     return Object.assign({}, state, {successMessage:'add into cart success'});
 }
 
 function addIntoCartFail(state) {
     return Object.assign({}, state, {errorMessage:'add into cart fail'});
+}
+
+function initCartFail(state) {
+    return Object.assign({},state,{errorMessage:'init cart fail'});
+}
+
+function initCart(state,cont) {
+    return Object.assign({},state,{total:cont});
 }
 
 export default function productDetail(state=mock, action) {
@@ -87,6 +100,10 @@ export default function productDetail(state=mock, action) {
             return addIntoCartSuccess(state);
         case ADD_INTO_CART_FAIL:
             return addIntoCartFail(state);
+        case INIT_CART_FAIL:
+            return initCartFail(state);
+        case INIT_CART_SUCC:
+            return initCart(state,action.cart);
         default:
             return state;
     }

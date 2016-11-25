@@ -3,6 +3,7 @@
  */
 import fetch from 'isomorphic-fetch';
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CART_FAIL} from '../contants/ActionTypes';
+import {INIT_CART_FAIL,INIT_CART_SUCC} from '../contants/ActionTypes';
 
 const domain = ENV.domain;
 
@@ -86,4 +87,53 @@ function addIntoCartFail() {
     return {
         type:ADD_INTO_CART_FAIL
     };
+}
+
+export function initCart() {
+    return (dispatch)=>{
+        //todo fetch
+        fetch(  domain + '/web/buyer_api/get_cart.ction',
+            {
+                credentials:'include',
+                method:'POST',
+                mode:'cors'
+            }
+        ).then(
+            response=>response.json()
+        ).then(
+            json=>{
+                if(json.is_succ) {
+                    let count = [];
+                    if(json.skus[0]){
+                        count = json.skus[0].productList.map(
+                            prod => {
+                                console.log(prod);
+                                return parseInt(prod.count);
+                            }
+                        )
+                    }
+                    count = count.reduce(
+                        (previous,current,index,array)=>previous + current,0
+                    );
+                    dispatch(initCartSucc({total:count}))
+                }else{
+                    dispatch(initCartFail({errorMessage:json.error_message}))
+                }
+            }
+        ).catch(e=>dispatch(initCartFail({errorMessage:'服务器异常'})))
+    };
+}
+
+export function initCartFail(message) {
+    return {
+        type: INIT_CART_FAIL,
+        message
+    }
+}
+
+export function initCartSucc(cart) {
+    return {
+        type: INIT_CART_SUCC,
+        cart
+    }
 }

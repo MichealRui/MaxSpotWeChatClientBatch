@@ -10,6 +10,7 @@ import ProductSlider from '../../components/ProductSlider/ProductSlider';
 import AddIntoCart from '../../components/AddIntoCart/AddIntoCart';
 import StoreIntro from '../../components/StoreIntro/StoreIntro';
 import ProductComment from '../../components/ProductComment/ProductComment';
+import ButtonBottom from '../../components/BottomButton/BottomButton'
 import Util from '../../util/WeChatUtil'
 require('./index.css');
 
@@ -28,7 +29,7 @@ class ProductDetail extends React.Component {
 
 	render(){
 		let {detail, actions} = this.props;
-		let {productDetail, brand} = detail;
+		let {productDetail, brand,total} = detail;
         let param = Util.getUrlParam();
         let storeId = param.storeid;
 		return(
@@ -59,6 +60,7 @@ class ProductDetail extends React.Component {
                     />
 				</div>
 				{/*<ProductComment productComment={productDetail.productComment}/>*/}
+                <ButtonBottom className="buttonBottom" total={total}/>
 			</div>
 		);
 	}
