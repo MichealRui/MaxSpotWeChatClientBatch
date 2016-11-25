@@ -22,6 +22,16 @@ export default class ProductSlider extends React.Component {
         };
     }
 
+	getMiddlePic(path) {
+		let particial = path.split('.');
+		if(particial.length == 2) {
+			particial[0] = particial[0] + '_middle'
+			return particial.join('.')
+		} else {
+			path
+		}
+	}
+
 	render(){
 		let sliders = [];
 		let productImgs = this.props.productImgs;
@@ -31,7 +41,7 @@ export default class ProductSlider extends React.Component {
                     {
                         img.length == 0 ?
                             <img src={require('./images/default.png')}/> :
-                            <img src={ENV.domain + img}/>
+                            <img src={ENV.domain + this.getMiddlePic(img)}/>
                     }
 
                 </div>);

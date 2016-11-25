@@ -40,10 +40,10 @@ export default class Item extends React.Component {
         return atts
     }
 
-    getSmallPic(path) {
+    getMiddlePic(path) {
         let particial = path.split('.');
         if(particial.length == 2) {
-            particial[0] = particial[0] + '_small'
+            particial[0] = particial[0] + '_middle'
             return particial.join('.')
         } else {
             path
@@ -60,11 +60,11 @@ export default class Item extends React.Component {
             <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
                 {
                     sliderItem == 'sliderItem' ?
-                        <img src={ domain + this.getSmallPic(props.imagePath) } className='productImg' />
+                        <img src={ domain + this.getMiddlePic(props.imagePath) } className='productImg' />
                         : (
                             props.imagePath ?
                                 <LazyLoad height={'45%'}>
-                                    <img src={ domain + this.getSmallPic(props.imagePath) } className='productImg' />
+                                    <img src={ 'domain' + this.getMiddlePic(props.imagePath) } className='productImg' />
                                 </LazyLoad> :
                                 <LazyLoad height={'45%'}>
                                     <img src={ defProductImg } className='productImg' />
