@@ -8,17 +8,28 @@ export default class BannerItem extends React.Component {
 		super(props);
 	}
 
-	getAttr(attributes) {
-		var atts = <br/>;
-		if(attributes && attributes.length > 0) {
-			atts = attributes.map(att => {
-				if(att.value) {
-					return att.value + att.unit
-				} else return ''
-			}).reduce((pre, next) => pre + next + ' ', '')
-		}
-		return atts
-	}
+    getAttr(attributes) {
+        let def = <br></br>;
+        var atts = def;
+        if(attributes && attributes.length > 0) {
+            atts = attributes.map(att => {
+                if(att.value) {
+                    return att.value + att.unit
+                } else return ''
+            }).reduce((pre, next) =>
+            {
+                if(pre == '' && next == '') {
+                    return ''
+                } else {
+                    return pre + next + ' '
+                }
+            }, '')
+        }
+        if(atts == '') {
+            atts=def
+        }
+        return atts
+    }
 
 	toProduct(e) {
 		let skunumber = this.props.itemInfo.skuNumber;
