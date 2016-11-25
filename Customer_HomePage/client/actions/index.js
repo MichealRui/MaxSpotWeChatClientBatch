@@ -43,12 +43,12 @@ const domain = ENV.domain;
 export function initWxConfig(url) {
     return (dispatch) => {
 
-        // fetch( domain + '/web/buyer_api/test_login_with_openid.ction ',
+        // fetch( 'http://114.215.143.97' + '/web/buyer_api/market_data.action',
         //     {
         //         credentials: 'include',
         //         method: 'POST',
         //         mode: 'cors',
-        //         body: JSON.stringify({openid: "o41Mgv7HMpgc16ViZCsVkeodDmjM"})
+        //         body: JSON.stringify({storeId: '7'})
         //     }
         // ).then (
             fetch( domain + '/web/buyer_api/get_jsapi_config_params.action',

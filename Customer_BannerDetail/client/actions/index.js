@@ -3,8 +3,6 @@
  */
 import fetch from 'isomorphic-fetch'
 
-import BannerData from '../containers/Banner/BannerData'
-
 export const INIT_START = 'INIT_START';
 
 export const INIT_SUCCESS = 'INIT_SUCCESS';
