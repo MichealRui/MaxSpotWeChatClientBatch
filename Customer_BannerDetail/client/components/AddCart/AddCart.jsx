@@ -9,6 +9,7 @@ export default class AddCart extends React.Component {
 		super(props);
 	}
 	addCart(){
+		e.stopPropagation();
 		this.props.itemClick(
 			{
 				storeId: this.props.storeId,
