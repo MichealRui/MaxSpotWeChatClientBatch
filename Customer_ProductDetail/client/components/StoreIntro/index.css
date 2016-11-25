@@ -21,6 +21,11 @@
 .storeIntro .storeIntroInfo p {
 	color: rgba(0,0,0,.8);
 	line-height: 0.416667rem;
+	word-break: break-all;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 .storeIntro .orderDetailArrow {
 	position: absolute;
