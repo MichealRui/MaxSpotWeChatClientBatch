@@ -28,6 +28,7 @@ fetch(requestUrl,
         credentials: 'include',
         method: 'POST',
         mode: 'cors',
+        Origin: '*',
         body: JSON.stringify(
             requestParam
         )
