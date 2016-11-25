@@ -8,6 +8,11 @@
 .storeinfo p{
     line-height: 16px;
     color: #666666;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .iteminfo{
     padding: 0.138889rem;

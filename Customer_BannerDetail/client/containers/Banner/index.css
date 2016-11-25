@@ -1,14 +1,7 @@
 .brandContainer {
     width: 100%;
 }
-.storeinfo{
-    padding: 0.555556rem;
-    background-color: #fff;
-}
-.storeinfo p{
-    line-height: 16px;
-    color: #666666;
-}
+
 .iteminfo{
     padding: 0.138889rem;
     padding-bottom: 0;
