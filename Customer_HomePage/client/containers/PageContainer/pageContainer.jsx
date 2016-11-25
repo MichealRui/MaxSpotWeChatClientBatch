@@ -109,9 +109,11 @@ class PageContainer extends React.Component {
     render() {
         let props = this.props.state;
         const { dispatch } = this.props;
+        let takespace={height: '1.2rem'}
         return (
             <div>
                 <HomeHeader store={props.storeInfo}/>
+                <div className="takespace" style={takespace}></div>
                 <Message msgContent={props.errorMessage}
                          clearMessage={() => dispatch(setMessage(""))}
                 />

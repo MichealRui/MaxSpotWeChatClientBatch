@@ -22,13 +22,15 @@
 }*/
 
 .headContainer {
-    position: relative;
+    /*position: relative;*/
     width: 100%;
     height: 1.2rem;
     line-height: 1.180556rem;
     background-color: #fa7c73;
     padding: 0 0.416667rem;
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
 }
 .headContainer .logo {
     vertical-align: middle;
