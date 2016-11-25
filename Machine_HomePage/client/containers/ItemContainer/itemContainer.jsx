@@ -26,6 +26,7 @@ var ItemContainer = React.createClass({
                       isSliderItem={false}
                       click={this.props.itemClick}
                       store={this.props.store}
+                      show={this.props.detailClick}
                 />
             )
         });

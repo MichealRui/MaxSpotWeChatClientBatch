@@ -32,7 +32,7 @@ class BrandContainer extends React.Component {
 							itemInfo.skus.map(
 								(item,index)=>{
 									return <BrandItem key={index}
-													  iteminfo={item}
+													  itemInfo={item}
 													  addToCart={(item) => dispatch(addToCart(item))}
 													  storeId={storeId}
 									/>

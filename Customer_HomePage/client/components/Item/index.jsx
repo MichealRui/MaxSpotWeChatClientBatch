@@ -18,13 +18,24 @@ export default class Item extends React.Component {
     }
 
     getAttr(attributes) {
-        var atts = <br/>;
+        let def = <br></br>;
+        var atts = def;
         if(attributes && attributes.length > 0) {
             atts = attributes.map(att => {
                 if(att.value) {
                     return att.value + att.unit
                 } else return ''
-            }).reduce((pre, next) => pre + next + ' ', '')
+            }).reduce((pre, next) =>
+            {
+                if(pre == '' && next == '') {
+                    return ''
+                } else {
+                    return pre + next + ' '
+                }
+            }, '')
+        }
+        if(atts == '') {
+            atts=def
         }
         return atts
     }

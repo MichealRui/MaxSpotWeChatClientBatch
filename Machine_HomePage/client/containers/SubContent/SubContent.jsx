@@ -23,6 +23,7 @@ export default class SubContent extends React.Component {
                 <ItemContainer items={current.items}
                                itemClick={this.props.addToCart}
                                store={this.props.storeData}
+                               detailClick={this.props.showProduct}
                 />
             </div>
         )

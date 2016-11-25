@@ -115,7 +115,9 @@ class PageContainer extends React.Component {
                 <Message msgContent={props.errorMessage}
                          clearMessage={() => dispatch(setMessage(""))}
                 />
-                <BannerContainer bannerData={props.banner}/>
+                <BannerContainer bannerData={props.banner}
+                                 storeId={props.storeInfo.id}
+                />
                 <SelectContainer selectorData={props.selector}
                                  onSelectClick={ key => dispatch(changeSubContent(key))}
                                  currentKey = {props.currentKey}

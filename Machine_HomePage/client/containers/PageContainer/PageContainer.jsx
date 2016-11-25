@@ -38,14 +38,14 @@ class PageContainer extends React.Component{
         })
     }
 
-    onSkuBtnClick(){
+    onProductDetailClick(){
         console.log('sku_show');
         this.setState({
             skuVisible:true
         })
     }
 
-    hideSku(){
+    hideProductDetail(){
         console.log('sku_hide');
         this.setState({
             skuVisible:false
@@ -56,14 +56,13 @@ class PageContainer extends React.Component{
         let {state, dispatch} = this.props;
         return (
             <div className="pageContainer">
-                <Header cartClick={() => this.onCartBtnClick.bind(this)}
-                        skuClick ={()=>this.onSkuBtnClick.bind(this)}
-                />
+                <Header cartClick={() => this.onCartBtnClick.bind(this)}/>
                 <Banner/>
                 <SubContent
                     contentData={state.currentSub}
                     storeData={state.storeInfo}
                     addToCart={(item) => dispatch(addToCart(item))}
+                    showProduct={(item) => this.onProductDetailClick(item)}
                 />
                 <CartContainer visible={this.state.cartVisible}
                                onCancel={ () => this.hideCart.bind(this) }
@@ -73,7 +72,7 @@ class PageContainer extends React.Component{
                                addToCart={(item) => dispatch(addToCart(item))}
                 />
                 <SkuContainer visible={this.state.skuVisible}
-                              onCancel={()=>this.hideSku.bind(this)}
+                              onCancel={()=>this.hideProductDetail.bind(this)}
                 />
             </div>
         )

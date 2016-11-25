@@ -30,7 +30,7 @@ class TakeOut extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchOrderStatus(this.props.order.order.orderNumber);
+        this.fetchOrderStatus(this.props.order.orderNumber);
     }
 
     fetchOrderStatus(on) {
@@ -58,24 +58,10 @@ class TakeOut extends React.Component {
             })
     }
 
-    encodeUTF8(str){
-        var temp = "",rs = "";
-        for( var i=0 , len = str.length; i < len; i++ ){
-            temp = str.charCodeAt(i).toString(16);
-            rs  += "\\u"+ new Array(5-temp.length).join("0") + temp;
-        }
-        return rs;
-    }
-    decodeUTF8(str){
-        return str.replace(/(\\u)(\w{4}|\w{2})/gi, function($0,$1,$2){
-            return String.fromCharCode(parseInt($2,16));
-        });
-    }
-
     render(){
         let order =this.props.order;
         let appId = 'wx4da5ecd6305e620a';
-        let takeUri = this.encodeUTF8("http://www.mjitech.com/web/wxauthorize.action");
+        let takeUri = encodeURIComponent("http://www.mjitech.com/web/wxauthorize.action");
         let defUrl=
             'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appId +
             '&redirect_uri=' + takeUri +
@@ -90,6 +76,7 @@ class TakeOut extends React.Component {
         //     },
         //     takeUri: takeUri
         // }
+        console.log(defUrl);
         return(
             <div>
                 <QrCode order={order}

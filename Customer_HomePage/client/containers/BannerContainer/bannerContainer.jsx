@@ -16,7 +16,7 @@ export default class BannerContainer extends React.Component {
         let props = this.props;
         let items = props.bannerData.map((item, index) =>  {
             return (
-                <a key={index} href={item.destUrl}>
+                <a key={index} href={item.destUrl + '?storeid=' + this.props.storeId}>
                     <img width="100%" height="175" src={item.imagePath}/>
                 </a>
             )
