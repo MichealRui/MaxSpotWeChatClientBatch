@@ -30,7 +30,7 @@ export const SET_MESSAGE = 'SET_MESSAGE';
 const domain = ENV.domain;
 export function initBanner(storeId) {
     return (dispatch)=>{
-        //todo fetch
+        /*//todo fetch
         fetch( domain + '/web/buyer_api/test_login_with_openid.ction',
             {
                 credentials : 'include',
@@ -39,7 +39,7 @@ export function initBanner(storeId) {
                 body : JSON.stringify({openid:"o41Mgv7HMpgc16ViZCsVkeodDmjM"})
 
             }
-        ).then(
+        ).then(*/
             fetch(domain+ '/web/buyer_api/market_data.action',
                 {
                     credentials:'include',
@@ -67,7 +67,7 @@ export function initBanner(storeId) {
                 ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
 
 
-        )
+        // )
 
     };
 }
