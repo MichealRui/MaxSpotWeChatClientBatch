@@ -14,10 +14,11 @@ export default class BannerContainer extends React.Component {
             slidesPerView: 1
         };
         let props = this.props;
+        let style= {height: '6.3rem'}
         let items = props.bannerData.map((item, index) =>  {
             return (
                 <a key={index} href={item.destUrl + '?storeid=' + this.props.storeId}>
-                    <img width="100%"  src={item.imagePath}/>
+                    <img width="100%"  style={style} src={item.imagePath || require('./images/default.png')}/>
                 </a>
             )
         });
