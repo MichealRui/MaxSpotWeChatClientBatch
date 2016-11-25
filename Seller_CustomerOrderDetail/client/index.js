@@ -23,6 +23,16 @@ if(orderNumber) {
     requestParam = {taking_number:takingNumber}
 }
 
+if(document.cookie) {
+    console.log('keep')
+    console.log(document.cookie)
+} else {
+    document.cookie='testcookie=mjitechtestcookie';
+    console.log('clear')
+}
+
+
+
 fetch(requestUrl,
     {
         credentials: 'include',
