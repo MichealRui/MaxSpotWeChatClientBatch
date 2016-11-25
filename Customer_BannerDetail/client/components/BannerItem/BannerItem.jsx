@@ -24,7 +24,7 @@ export default class BannerItem extends React.Component {
 		let props = this.props;
 		const item = props.iteminfo;
 		let atts = this.getAttr(item.attributes);
-        console.log(item)
+        let storeId = props.storeId;
 		return (
 			<li>
 				<div className="brandItem">
@@ -32,8 +32,11 @@ export default class BannerItem extends React.Component {
 					<p className="font12">{item.brand}</p>
 					<p className="font14">{item.name}</p>
 					<p className="font10">{atts}</p>
-					<div className="price font18">{item.sellprice}<span className="font10">元</span></div>
-					<AddCart itemInfo={item} itemClick={this.props.addToCart}/>
+					<div className="price">
+						<p className="nowprice font18">{item.sellprice}<span className="font10">元</span></p>
+						<p className="oldprice">市场价</p>
+					</div>
+					<AddCart itemInfo={item} storeId={storeId} itemClick={this.props.addToCart}/>
 				</div>
 			</li>
 		);

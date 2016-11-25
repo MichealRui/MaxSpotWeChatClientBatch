@@ -28,7 +28,7 @@ export const SUCCESS_ADD_CART = 'SUCCESS_ADD_CART';
 export const SET_MESSAGE = 'SET_MESSAGE';
 
 const domain = ENV.domain;
-export function initBanner(brandId,storeId) {
+export function initBanner(storeId) {
     return (dispatch)=>{
         //todo fetch
         fetch( domain + '/web/buyer_api/test_login_with_openid.ction',
@@ -40,14 +40,13 @@ export function initBanner(brandId,storeId) {
 
             }
         ).then(
-            fetch(domain+ '/web/buyer_api/brand_detail.ction',
+            fetch(domain+ '/web/buyer_api/market_data.action',
                 {
                     credentials:'include',
                     method:'POST',
                     mode:'cors',
                     body:JSON.stringify(
                         {
-                            brandId:brandId,
                             storeId:storeId
                         }
                     )
@@ -57,8 +56,8 @@ export function initBanner(brandId,storeId) {
                         console.log(json);
                         if(json.is_succ){
                             dispatch(initSuccess({
-                                brand:json.brand,
-                                skus:json.skus,
+                                storeId : storeId,
+                                skus:json.products,
                             }));
                             dispatch(initCart())
                         }else{
@@ -143,6 +142,7 @@ export function initFail(message) {
 }
 
 export function addToCart(item) {
+    console.log(item);
     return (dispatch)=>{
         //todo fetch
         fetch(domain + '/web/buyer_api/add_sku_to_cart.action',

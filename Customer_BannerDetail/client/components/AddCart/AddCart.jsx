@@ -11,8 +11,8 @@ export default class AddCart extends React.Component {
 	addCart(){
 		this.props.itemClick(
 			{
-				storeId: this.props.itemInfo.storeid + '',
-				skuId: this.props.itemInfo.skuid + '',
+				storeId: this.props.storeId,
+				skuId: this.props.itemInfo.id + '',
 				count: '1'
 			}
 		)

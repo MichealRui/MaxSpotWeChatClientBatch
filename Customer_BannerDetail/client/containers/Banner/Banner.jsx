@@ -13,10 +13,9 @@ class BrandContainer extends React.Component {
 	}
 	componentWillMount(){
 	    let param = Util.getUrlParam();
-		let brandId = param.brandid;
 		let storeId = param.storeid;
 		const {dispatch} = this.props;
-		dispatch(initBanner(brandId,storeId));
+		dispatch(initBanner(storeId));
 	}
 	render(){
 		const{dispatch,itemInfo} = this.props;
@@ -30,7 +29,7 @@ class BrandContainer extends React.Component {
 						{
 							itemInfo.skus.map(
 								(item,index)=>{
-									return <BrandItem key={index} iteminfo={item} addToCart={(item) => dispatch(addToCart(item))}/>
+									return <BannerItem key={index} storeId={itemInfo.storeId} iteminfo={item} addToCart={(item) => dispatch(addToCart(item))}/>
 								}
 							)
 						}
