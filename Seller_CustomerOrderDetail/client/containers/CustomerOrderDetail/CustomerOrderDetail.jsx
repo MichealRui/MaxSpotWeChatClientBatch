@@ -11,7 +11,8 @@ export default class CustomerOrderDetail extends React.Component {
 	constructor(props){
 		super(props);
         this.state = {
-            showBtn: true
+            showBtn: true,
+            statusText:''
         }
 	}
 
@@ -30,7 +31,8 @@ export default class CustomerOrderDetail extends React.Component {
                 if(json.is_succ) {
                     this.setState(
                         {
-                            showBtn: false
+                            showBtn: false,
+                            statusText: '已完成'
                         }
                     )
                 }
@@ -74,7 +76,7 @@ export default class CustomerOrderDetail extends React.Component {
 				{/*</div>*/}
 				<div className='orderStatus orderDetailInfo font14'>
 					<span>交易状态</span>
-					<span>{props.payStatusName}</span>
+					<span>{this.state.statusText || props.payStatusName}</span>
 				</div>
 				<OrderDetailProductList orderDetailProductList={props.skus} totalMoney={props.totalPrice || 0}/>
 			</div>
