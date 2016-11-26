@@ -31,7 +31,7 @@
 	margin-bottom: 0.527778rem;
 	width: 100%;
 	height: 100%;
-	object-fit: contain;
+	object-fit: cover;
 }
 
 .sliderItem .productImg {
