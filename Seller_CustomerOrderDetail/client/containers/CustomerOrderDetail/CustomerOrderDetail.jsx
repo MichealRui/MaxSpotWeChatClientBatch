@@ -29,12 +29,15 @@ export default class CustomerOrderDetail extends React.Component {
         ).then(response =>response.json())
             .then(json => {
                 if(json.is_succ) {
+                    console.log(json)
                     this.setState(
                         {
                             showBtn: false,
                             statusText: '已完成'
                         }
                     )
+                } else {
+                    console.log(json)
                 }
             }).catch(e => console.log(e))
     }
