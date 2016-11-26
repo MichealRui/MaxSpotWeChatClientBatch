@@ -45,7 +45,7 @@ export default class CustomerOrderDetail extends React.Component {
         if(props && props.status == 4 && this.state.showBtn) {
             btnArea = <div className="buttonArea">
                 <Button buttonClassName='confirmPickUp'
-                        buttonClick={() => this.takeGood(props.orderNumber).bind(this)}
+                        buttonClick={this.takeGood(props.orderNumber).bind(this)}
                         buttonText='确认取货'/>
             </div>
         } else {
