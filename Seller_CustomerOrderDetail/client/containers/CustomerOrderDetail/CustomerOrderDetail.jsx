@@ -40,7 +40,7 @@ export default class CustomerOrderDetail extends React.Component {
 	render(){
 		let props = this.props.orderDetail;
         let btnArea;
-        if(props && props.status == 2 && this.state.showBtn) {
+        if(props && props.status == 4 && this.state.showBtn) {
             btnArea = <div className="buttonArea">
                 <Button buttonClassName='confirmPickUp'
                         buttonClick={() => this.takeGood(props.orderNumber).bind(this)}
