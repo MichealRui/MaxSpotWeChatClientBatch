@@ -54,7 +54,7 @@ class ProductDetail extends React.Component {
                             }
                         )}}
                 />
-				<p className='storeInfo font12'>{brand.description}</p>
+				<p className='storeInfo font12'>{productDetail.description}</p>
 				<div className='storeIntroWrap'>
 					<StoreIntro brand = {brand}
                                 storeId = {storeId}
