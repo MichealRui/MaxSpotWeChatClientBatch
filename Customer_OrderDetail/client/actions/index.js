@@ -9,14 +9,14 @@ import {INIT_START, INIT_SUCCESS, INIT_FAIL, PICK_UP_START, PICK_UP_SUCCESS, PIC
 export function initOrderDetail(ordernumber) {
     return (dispatch)=>{
         let domain = ENV.domain;
-        let order = Util.getUrlParam().ordernumber;
+        let order = Util.getUrlParam().order_number;
         dispatch(initStart());
         fetch(domain + '/web/buyer_api/order_detail.ction',{
             credentials: 'include',
             method: 'POST',
             mode: 'cors',
             body:JSON.stringify({
-                order_number:ordernumber
+                order_number:order
             })
         })
             .then(response=>response.json())
