@@ -47,7 +47,7 @@ export default class BannerItem extends React.Component {
 			<li>
                 <div className="brandItem" onClick={this.toProduct.bind(this)}>
 					<div className="img"><img src={ENV.domain + item.imagePath}/></div>
-					<p className="font12">{item.brand}</p>
+					<p className="font12">{item.brandName}</p>
 					<p className="font14">{item.name}</p>
 					<p className="font10">{atts}</p>
 					<div className="price">
