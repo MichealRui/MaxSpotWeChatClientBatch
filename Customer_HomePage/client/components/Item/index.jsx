@@ -67,7 +67,7 @@ export default class Item extends React.Component {
                                     <img src={ domain + this.getMiddlePic(props.imagePath) } className='productImg' />
                                 </LazyLoad> :
                                 <LazyLoad height={'45%'}>
-                                    <img src={ defProductImg } className='productImg' />
+                                    <img src={ defProductImg } className='productImg contain' />
                                 </LazyLoad>
                         )
                 }
