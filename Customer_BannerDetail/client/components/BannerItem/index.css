@@ -45,7 +45,7 @@
 .brandItem .price>.oldprice{
     text-decoration:line-through;
     color:#999;
-    display: none;
+    /*display: none;*/
 }
 
 .brandItem.other .oldprice{
