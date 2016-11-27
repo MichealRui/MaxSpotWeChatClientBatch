@@ -39,6 +39,8 @@ fetch( ENV.domain + '/web/buyer_api/order_list.ction',
                 document.getElementById('root')
             )
         } else {
+            alert(json.error_message)
+            console.log(json)
             ReactDOM.render(
                 <div>服务器异常请刷新页面</div>,
                 document.getElementById('root')
