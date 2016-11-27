@@ -127,7 +127,7 @@ class OrderDetail extends React.Component {
 					<span>取货码</span>
 					<span className='code last'>{orderDetail.orderCode}</span>
 				</div>
-				<OrderDetailProductList orderDetailProductList={props.skus} totalMoney={props.totalPrice || 0}/>
+				<OrderDetailProductList orderDetailProductList={orderDetail.skus} totalMoney={orderDetail.totalPrice || 0}/>
 			</div>
 		);
 	}
