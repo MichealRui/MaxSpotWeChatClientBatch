@@ -22,7 +22,7 @@ export default class CustomerOrder extends React.Component {
 					{/*<img src={props.customerImg}/>*/}
 					<span>订单号: {props.orderNumber}</span>
 					{/*<span>{props.customerName}</span>*/}
-					<span className={statusStyle}>{props.payStatusName}</span>
+					<span className={statusStyle}>{props.statusName}</span>
 				</div>
 				<div className='orderListInfo font14'
                      onClick={ () =>
