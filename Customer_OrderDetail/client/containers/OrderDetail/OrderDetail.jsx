@@ -96,39 +96,52 @@ class OrderDetail extends React.Component {
             )
 		}
 		return(
-			<div className='orderDetailContainer'>
-                {buttonArea}
-				<OrderDetailTitle orderTitleIcon={'fa-th-large'} orderTitleText={orderDetail.orderAddress}/>
-				<OrderDetailTitle orderTitleIcon={'fa-map-marker'} orderTitleText={orderDetail.orderAddress}/>
-				<div className='timeAndMobile'>
-					<div className='orderTime'>
-						<span className="fa font20 fa-clock-o"></span>
-						<span className="time font14">08:00 - 23:00</span>
-					</div>
-					<div className='orderMobile'>
-						<span className="fa font20 fa-phone"></span>
-						<span className="mobile font14">{orderDetail.orderContactMobile}</span>
-					</div>
-				</div>
-				<div className='orderDetailNumber orderDetailInfo font14'>
-					<span>订单编号</span>
-					<span className='orderNumber'>{orderDetail.orderNumber}</span>
-					<span className={orderDetail.orderStatusClass+' orderStatus'}>{orderDetail.statusName}</span>
-				</div>
-				<div className='orderDetailDate orderDetailInfo font14'>
-					<span>交易时间</span>
-					<span className='last'>{orderDetail.sellTime}</span>
-				</div>
-				<div className='orderDetailLastDate orderDetailInfo font14'>
-					<span>最晚提货时间</span>
-					<span className='last'>{orderDetail.orderLastDate}</span>
-				</div>
-				<div className='orderCode orderDetailInfo font14'>
-					<span>取货码</span>
-					<span className='code last'>{orderDetail.orderCode}</span>
-				</div>
-				<OrderDetailProductList orderDetailProductList={orderDetail.skus} totalMoney={orderDetail.totalPrice || 0}/>
-			</div>
+		    <div>
+                {
+                    orderDetail.store ? (
+                        <div className='orderDetailContainer'>
+                            {buttonArea}
+                            <OrderDetailTitle orderTitleIcon={'fa-th-large'} orderTitleText={orderDetail.store.name}/>
+                            <OrderDetailTitle orderTitleIcon={'fa-map-marker'} orderTitleText={orderDetail.store.address}/>
+                            <div className='timeAndMobile'>
+                                <div className='orderTime'>
+                                    <span className="fa font20 fa-clock-o"></span>
+                                    <span className="time font14">08:00 - 23:00</span>
+                                </div>
+                                <div className='orderMobile'>
+                                    <span className="fa font20 fa-phone"></span>
+                                    <span className="mobile font14">{orderDetail.store.phone}</span>
+                                </div>
+                            </div>
+                            <div className='orderDetailNumber orderDetailInfo font14'>
+                                <span>订单编号</span>
+                                <span className='orderNumber'>{orderDetail.orderNumber}</span>
+                                <span className={orderDetail.orderStatusClass+' orderStatus'}>{orderDetail.statusName}</span>
+                            </div>
+                            <div className='orderDetailDate orderDetailInfo font14'>
+                                <span>交易时间</span>
+                                <span className='last'>{orderDetail.sellTime}</span>
+                            </div>
+                            {/*<div className='orderDetailLastDate orderDetailInfo font14'>*/}
+                                {/*<span>最晚提货时间</span>*/}
+                                {/*<span className='last'>{orderDetail.orderLastDate}</span>*/}
+                            {/*</div>*/}
+                            {
+                                orderDetail.takeGoodsNumber ?
+                                    (
+                                        <div className='orderCode orderDetailInfo font14'>
+                                            <span>取货码</span>
+                                            <span className='code last'>{orderDetail.takeGoodsNumber}</span>
+                                        </div>
+                                    ) : ''
+                            }
+
+                            <OrderDetailProductList orderDetailProductList={orderDetail.skus} totalMoney={orderDetail.totalPrice || 0}/>
+                        </div>
+                    ) : ''
+
+                }
+            </div>
 		);
 	}
 }

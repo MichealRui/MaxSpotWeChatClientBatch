@@ -24,7 +24,8 @@
 }
 
 .orderDetailContainer .orderDetailTitle .orderAddressArrow {
-    float: right;
+    position: absolute;
+    right: 0.2rem;
 }
 .orderDetailContainer .orderDetailTitle .orderStatus.orderComplete {
     color: green;

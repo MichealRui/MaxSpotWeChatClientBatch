@@ -12,9 +12,11 @@ export default class OrderDetailProductList extends React.Component {
 	render(){
 		let itemList = [];
 		let orderDetailProductList = this.props.orderDetailProductList;
-		orderDetailProductList.forEach(function(item, index){
-			itemList.push(<OrderDetailProductItem key={index} productItemDetail={item}/>);
-		});
+		if(orderDetailProductList && orderDetailProductList.length > 0) {
+			orderDetailProductList.forEach(function(item, index){
+				itemList.push(<OrderDetailProductItem key={index} productItemDetail={item}/>);
+			});
+		}
 		return(
 			<div className ='orderDetailProductListContainer'>
 				<ul>

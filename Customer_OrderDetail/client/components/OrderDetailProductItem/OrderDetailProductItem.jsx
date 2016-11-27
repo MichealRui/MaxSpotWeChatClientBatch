@@ -10,26 +10,27 @@ export default class OrderDetailProductItem extends React.Component {
 	}
 
 	render(){
-		let props = this.props.productItemDetail;
+		let productItem = this.props.productItemDetail
+		let props = this.props.productItemDetail.sku;
 		return(
 			<li className='orderDetailProductItemContainer'>
 				<div className='productInfo'>
-					<img src={props.productImg} className='productImg' />
+					<img src={'http://114.215.143.97' + props.imagePath} className='productImg' />
 					<span className='brandProductContainer'>
-						<p className='productName font12'>{props.productName}</p>
-						<p className='productDesc font14'>{props.productDesc}</p>
-						<p className='productTaste font10'>{props.productTaste}</p>
+						<p className='productName font12'>{props.brandName}</p>
+						<p className='productDesc font14'>{props.name}</p>
+						<p className='productTaste font10'>{props.categoryName}</p>
 					</span>
-					<span className='quantity font14'><i>x</i>{props.quantity}</span>
-					<span className='unitPrice font14'>{props.unitPrice}元</span>
+					<span className='quantity font14'><i>x</i>{productItem.count}</span>
+					<span className='unitPrice font14'>{productItem.sellPrice /100}元</span>
 				</div>
-				<div className='buyDiscount'>
-					<AccountDisplay name='买减优惠' money='-15'/>
-				</div>
+				{/*<div className='buyDiscount'>*/}
+					{/*<AccountDisplay name='买减优惠' money='-15'/>*/}
+				{/*</div>*/}
 				<div className="totalArea">
-					<AccountDisplay name='商品总金额' money='200'/>
-					<AccountDisplay name='商品优惠总计' money='-18'/>
-					<AccountDisplay name='总金额优惠总计' money='-10'/>
+					<AccountDisplay name='商品总金额' money={productItem.count * productItem.sellPrice /100}/>
+					{/*<AccountDisplay name='商品优惠总计' money='-18'/>*/}
+					{/*<AccountDisplay name='总金额优惠总计' money='-10'/>*/}
 				</div>
 			</li>
 		);
