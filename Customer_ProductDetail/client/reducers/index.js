@@ -84,8 +84,8 @@ function initCartFail(state) {
     return Object.assign({},state,{errorMessage:'init cart fail'});
 }
 
-function initCart(state,cont) {
-    return Object.assign({},state,{total:cont});
+function initCart(state,cart) {
+    return Object.assign({},state,{total:cart.count});
 }
 
 export default function productDetail(state=mock, action) {

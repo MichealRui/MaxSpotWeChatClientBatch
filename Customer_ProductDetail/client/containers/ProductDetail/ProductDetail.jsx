@@ -25,6 +25,7 @@ class ProductDetail extends React.Component {
         let storeId = param.storeid;
         let skuNumber = param.skunumber;
         actions.initProductDetail(skuNumber, storeId);
+        actions.initCart()
     }
 
 	render(){

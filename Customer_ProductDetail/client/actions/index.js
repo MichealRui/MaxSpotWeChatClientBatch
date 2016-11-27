@@ -90,38 +90,30 @@ function addIntoCartFail() {
 }
 
 export function initCart() {
-    return (dispatch)=>{
-        //todo fetch
-        fetch(  domain + '/web/buyer_api/get_cart.ction',
+    return (dispatch) => {
+        fetch( domain + '/web/buyer_api/get_cart.ction',
             {
-                credentials:'include',
-                method:'POST',
-                mode:'cors'
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
             }
-        ).then(
-            response=>response.json()
-        ).then(
-            json=>{
+        ).then(response => response.json())
+            .then(json => {
                 if(json.is_succ) {
-                    let count = [];
-                    if(json.skus[0]){
-                        count = json.skus[0].productList.map(
-                            prod => {
-                                console.log(prod);
-                                return parseInt(prod.count);
-                            }
+                    let count = json.skus.length ? json.skus.map(sku => sku.productList.map(
+                        prod => parseInt(prod.count)
+                    )).map(
+                        count => count.reduce(
+                            (previous, current, index, array) => previous + current, 0
                         )
-                    }
-                    count = count.reduce(
-                        (previous,current,index,array)=>previous + current,0
-                    );
-                    dispatch(initCartSucc({total:count}))
-                }else{
-                    dispatch(initCartFail({errorMessage:json.error_message}))
+                    ).reduce((previous, current, index, array) => previous + current, 0) : 0;
+                    console.log(count)
+                    dispatch(initCartSucc({count: count}))
+                } else {
+                    dispatch(initCartFail({errorMessage: json.error_message}))
                 }
-            }
-        ).catch(e=>dispatch(initCartFail({errorMessage:'服务器异常'})))
-    };
+            }).catch(e => dispatch(initCartFail({errorMessage: '服务器异常'})))
+    }
 }
 
 export function initCartFail(message) {
