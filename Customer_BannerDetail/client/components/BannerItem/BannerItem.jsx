@@ -31,6 +31,16 @@ export default class BannerItem extends React.Component {
         return atts
     }
 
+	getMiddlePic(path) {
+		let particial = path.split('.');
+		if(particial.length == 2) {
+			particial[0] = particial[0] + '_middle'
+			return particial.join('.')
+		} else {
+			path
+		}
+	}
+
 	toProduct(e) {
 		let skunumber = this.props.itemInfo.skuNumber;
 		let storeid = this.props.storeId;
@@ -46,13 +56,19 @@ export default class BannerItem extends React.Component {
 		return (
 			<li>
                 <div className="brandItem" onClick={this.toProduct.bind(this)}>
-					<div className="img"><img src={ENV.domain + item.imagePath}/></div>
+					<div className="img"><img src={ENV.domain + this.getMiddlePic(item.imagePath)}/></div>
 					<p className="font12">{item.brandName}</p>
 					<p className="font14">{item.name}</p>
 					<p className="font10">{atts}</p>
 					<div className="price">
 						<p className="nowprice font18">{item.sellprice /100 ||0}<span className="font10">元</span></p>
-						<p className="oldprice">市场价</p>
+						{
+							item.marketprice?
+								<p className="oldprice">市场价 {item.marketprice}元</p>
+								:
+								''
+						}
+
 					</div>
 					<AddCart itemInfo={item} storeId={storeId} itemClick={this.props.addToCart}/>
 				</div>
