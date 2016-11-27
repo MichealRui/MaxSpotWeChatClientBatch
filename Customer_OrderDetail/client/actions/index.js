@@ -6,7 +6,7 @@ import Util from '../util/WeChatUtil';
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, PICK_UP_START, PICK_UP_SUCCESS, PICK_UP_FAIL} from '../constants/ActionTypes';
 
 
-export function initOrderDetail(order_id) {
+export function initOrderDetail(ordernumber) {
     return (dispatch)=>{
         let domain = ENV.domain;
         let order = Util.getUrlParam().ordernumber;
@@ -16,7 +16,7 @@ export function initOrderDetail(order_id) {
             method: 'POST',
             mode: 'cors',
             body:JSON.stringify({
-                order_number:order
+                order_number:ordernumber
             })
         })
             .then(response=>response.json())
