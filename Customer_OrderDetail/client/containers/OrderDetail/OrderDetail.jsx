@@ -29,7 +29,7 @@ class OrderDetail extends React.Component {
 
     takeGood(orderNumber) {
         window.location.href=
-            ENV.domain + 'buyer_takegoods/index.html?ordernumber=' + orderNumber
+            ENV.domain + '/buyer_takegoods/index.html?ordernumber=' + orderNumber
 	}
 
 	render(){
