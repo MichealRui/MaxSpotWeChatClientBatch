@@ -8,7 +8,7 @@ export default class AddCart extends React.Component {
 	constructor(props){
 		super(props);
 	}
-	addCart(){
+	addCart(e){
 		e.stopPropagation();
 		this.props.itemClick(
 			{

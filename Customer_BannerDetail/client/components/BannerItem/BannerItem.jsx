@@ -42,7 +42,7 @@ export default class BannerItem extends React.Component {
 	}
 
 	toProduct(e) {
-		let skunumber = this.props.itemInfo.skuNumber;
+		let skunumber = this.props.iteminfo.skuNumber;
 		let storeid = this.props.storeId;
 		window.location.href = ENV.domain + '/buyer_product/index.html?storeid='
 			+ storeid + '&skunumber=' + skunumber;
