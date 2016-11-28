@@ -24,8 +24,8 @@ class OrderDetail extends React.Component {
 
     payNow(orderNumber) {
         console.log('pay');
-        window.location.href=
-            ENV.domain + '/buyer_confirm/wxpay/index.html?ordernumber=' + orderNumber
+        window.location.href =
+            ENV.domain + '/buyer_confirm/wxpay/index.html?ordernumber='+orderNumber
     }
 
     takeGood(orderNumber) {
@@ -44,7 +44,7 @@ class OrderDetail extends React.Component {
                         <span className='font14'>订单还未支付哦</span>
                         <Button buttonClassName='pickUpButton'
                                 {/*buttonClick={()=>this.payNow(orderNumber)}*/}
-                                buttonClick={()=>this.takeGood(orderNumber)}
+                                buttonClick={()=>this.payNow(orderNumber)}
                                 buttonText='立即支付'/>
                     </div>
                 );
