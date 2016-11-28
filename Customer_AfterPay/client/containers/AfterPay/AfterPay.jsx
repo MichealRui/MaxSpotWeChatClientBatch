@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import fetch from 'isomorphic-fetch';
 import ReactDom from 'react-dom';
 import Header from '../../components/Header/Header';
 import GetSku from '../../components/GetSku/GetSku';
@@ -21,7 +22,7 @@ class AfterPay extends React.Component {
         }
 	}
 	componentWillMount() {
-	    let state = Util.getUrlParam().state
+	    let state = Util.getUrlParam().state;
         if(state) {
 	        this.setState({
 	            pageStatus : state
