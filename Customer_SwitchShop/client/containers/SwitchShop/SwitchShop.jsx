@@ -42,7 +42,7 @@ class SwitchShop extends Component {
                 }
 
 				<div className="otherShop">
-					<h1 className='other font16'>去其他站点购买：</h1>
+					<h1 className='other font16'>选择一个站点购买：</h1>
 					<ul>
 						{otherShop}
 					</ul>

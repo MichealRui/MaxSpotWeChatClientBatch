@@ -63,7 +63,7 @@ export default class BannerItem extends React.Component {
 					<div className="price">
 						<p className="nowprice font18">{item.sellprice /100 ||0}<span className="font10">元</span></p>
 						{
-								<p className="oldprice">市场价 {
+								<p className="oldprice">原价 {
 									item.msrp > item.sellprice?
 										item.msrp /100:
 										item.sellprice/100

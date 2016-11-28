@@ -23,10 +23,10 @@ export function initOrderDetail(ordernumber) {
                 if(json.is_succ){
                     dispatch(initSuccess(json.order));
                 }else {
+                    alert(json.error_message)
                     dispatch(initFail());
                 }
-            })
-            .catch(e=>{
+            }).catch(e=>{
                 console.log(JSON.stringify(e));
             });
     }
