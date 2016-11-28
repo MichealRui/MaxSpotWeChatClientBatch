@@ -179,8 +179,8 @@ html { overflow-y: scroll; }
     }
 }
 #root {
-    display: flex;
-    justify-content: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
     background-color: #f4f4f4;
     min-height: 500px;
 }
