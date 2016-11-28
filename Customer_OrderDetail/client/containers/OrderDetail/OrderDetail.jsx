@@ -43,7 +43,8 @@ class OrderDetail extends React.Component {
                     <div className="buttonArea clearfix">
                         <span className='font14'>订单还未支付哦</span>
                         <Button buttonClassName='pickUpButton'
-                                buttonClick={()=>this.payNow(orderNumber)}
+                                {/*buttonClick={()=>this.payNow(orderNumber)}*/}
+                                buttonClick={()=>this.takeGood(orderNumber)}
                                 buttonText='立即支付'/>
                     </div>
                 );
