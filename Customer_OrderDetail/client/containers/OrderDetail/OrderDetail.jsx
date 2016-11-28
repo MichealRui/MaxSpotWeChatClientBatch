@@ -23,6 +23,7 @@ class OrderDetail extends React.Component {
     }
 
     payNow(orderNumber) {
+        console.log('pay');
         window.location.href=
             ENV.domain + '/buyer_confirm/wxpay/index.html?ordernumber=' + orderNumber
     }
@@ -41,7 +42,9 @@ class OrderDetail extends React.Component {
                 buttonArea= (
                     <div className="buttonArea clearfix">
                         <span className='font14'>订单还未支付哦</span>
-                        <Button buttonClassName='pickUpButton' buttonClick={()=>this.payNow(orderNumber)} buttonText='立即支付'/>
+                        <Button buttonClassName='pickUpButton'
+                                buttonClick={()=>this.payNow(orderNumber)}
+                                buttonText='立即支付'/>
                     </div>
                 );
                 break;
@@ -49,7 +52,9 @@ class OrderDetail extends React.Component {
                 buttonArea = (
                     <div className="buttonArea clearfix">
                         <span className='font14'>取货时请记得确认位置哦</span>
-                        <Button buttonClassName='pickUpButton' buttonClick={()=>this.takeGood(orderNumber)} buttonText='立即取货'/>
+                        <Button buttonClassName='pickUpButton'
+                                buttonClick={()=>this.takeGood(orderNumber)}
+                                buttonText='立即取货'/>
                     </div>
                 );
                 break;
@@ -57,7 +62,9 @@ class OrderDetail extends React.Component {
                 buttonArea = (
                     <div className="buttonArea clearfix">
                         <span className='font14'>取货时请记得确认位置哦</span>
-                        <Button buttonClassName='pickUpButton' buttonClick={()=>this.takeGood(orderNumber)} buttonText='立即取货'/>
+                        <Button buttonClassName='pickUpButton'
+                                buttonClick={()=>this.takeGood(orderNumber)}
+                                buttonText='立即取货'/>
                     </div>
                 );
                 break;
