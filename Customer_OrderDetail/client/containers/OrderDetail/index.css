@@ -59,7 +59,7 @@
 .orderDetailContainer .orderDetailInfo span.last {
     position: absolute;
     top: 50%;
-    left: 3.777778rem;
+    left: 2.377778rem;
     transform: translate(0,-50%);
 }
 .orderDetailContainer .orderDetailInfo .orderStatus {
