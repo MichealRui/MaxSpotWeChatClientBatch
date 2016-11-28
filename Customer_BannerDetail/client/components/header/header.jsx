@@ -13,7 +13,7 @@ export default class header extends React.Component {
 		const item = props.iteminfo;
 		return (
 			<div className="header">
-				<img src={require('./images/banner.jpg')} alt=""/>
+				<img src={require('./images/banner1.jpg')} alt=""/>
 			</div>
 
 		);
