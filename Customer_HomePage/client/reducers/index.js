@@ -91,6 +91,12 @@ function initStart(content) {
 
 function initSuccess(content, data){
 
+
+    let frontEndBanner = [{
+        destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
+        imagePath: require('../containers/BannerContainer/images/nuddlebanner.jpg')
+    }]
+
     const SELECTOR_ICONS = {
         1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
         4: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
@@ -126,7 +132,7 @@ function initSuccess(content, data){
     // };
 
     return Object.assign({}, content, {
-        banner: data.banner,
+        banner: frontEndBanner,//data.banner,
         selector: selector,
         subContent: Object.assign({}, subContent, {all: currentSub}),
         currentSub: currentSub,//data.subContent['all'],,
