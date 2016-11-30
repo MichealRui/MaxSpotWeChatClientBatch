@@ -3,6 +3,7 @@
  */
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CART_FAIL} from '../contants/ActionTypes';
 import {INIT_CART_FAIL,INIT_CART_SUCC} from '../contants/ActionTypes';
+import {INIT_WX_SUCC, INIT_WX_FAIL, JSSDK_INITED} from '../contants/ActionTypes'
 
 const mock = {
     "brand": {
@@ -54,8 +55,13 @@ const mock = {
         "shortName":""
     },
     storeId: '7',
-    total:0
-
+    total:0,
+    wxConfig : {
+        timestamp: '',
+        noncestr: '',
+        sign: '',
+    },
+    sdkInited:false
 };
 
 
@@ -88,6 +94,14 @@ function initCart(state,cart) {
     return Object.assign({},state,{total:cart.count});
 }
 
+function initWxConfigSucc(state, config) {
+    return Object.assign({}, state, { wxConfig: config })
+}
+
+function JSSDKInited(state) {
+    return Object.assign({}, state, {sdkInited: true})
+}
+
 export default function productDetail(state=mock, action) {
     switch (action.type){
         case INIT_START:
@@ -104,6 +118,10 @@ export default function productDetail(state=mock, action) {
             return initCartFail(state);
         case INIT_CART_SUCC:
             return initCart(state,action.cart);
+        case INIT_WX_SUCC:
+            return initWxConfigSucc(state, action.config);
+        case JSSDK_INITED:
+            return JSSDKInited(state);
         default:
             return state;
     }

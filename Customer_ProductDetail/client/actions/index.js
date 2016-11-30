@@ -4,8 +4,72 @@
 import fetch from 'isomorphic-fetch';
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, ADD_INTO_CART_SUCCESS, ADD_INTO_CART_FAIL} from '../contants/ActionTypes';
 import {INIT_CART_FAIL,INIT_CART_SUCC} from '../contants/ActionTypes';
+import {INIT_WX_SUCC, INIT_WX_FAIL} from '../contants/ActionTypes'
+import {JSSDK_INITED} from '../contants/ActionTypes'
 
 const domain = ENV.domain;
+
+export function initWx(url) {
+    return (dispatch) => {
+        fetch( domain + '/web/buyer_api/get_jsapi_config_params.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify({url: url})
+            }
+        ).then(response => response.json())
+            .then( json => {
+                if(json.is_succ) {
+                    dispatch(initWxConfigSucc(json.params))
+                } else {
+                    dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
+                }
+            } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
+    }
+}
+
+export function initWxConfigErr() {
+    return {
+        type: INIT_WX_FAIL
+    }
+}
+
+export function initWxConfigSucc(config) {
+    return {
+        type: INIT_WX_SUCC,
+        config
+    }
+}
+
+export function initSdk() {
+    return {
+        type: JSSDK_INITED
+    }
+}
+
+export function initProductDetailByGeo(skuNumber, geo){
+    return (dispatch) => {
+        fetch( domain + '/web/buyer_api/get_store_by_geo.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify({
+                    longitude:geo.longitude,
+                    latitude:geo.latitude
+                })
+            }
+        ).then(response => response.json())
+            .then( json => {
+                if(json.is_succ) {
+                    dispatch(initProductDetail(skuNumber, json.store.id))
+                } else {
+                    dispatch(initFail( { errorMessage: json.error_message } ))
+                }
+            } ).catch(e => dispatch(initFail( { errorMessage: '服务器错误' } )))
+    }
+}
 
 export function initProductDetail(skuNumber, storeId) {
     return (dispatch)=>{
