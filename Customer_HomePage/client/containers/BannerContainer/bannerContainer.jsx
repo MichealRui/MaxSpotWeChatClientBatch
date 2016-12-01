@@ -14,7 +14,8 @@ export default class BannerContainer extends React.Component {
             slidesPerView: 1
         };
         let props = this.props;
-        let style= {height: '6.3rem'}
+        // let style= {height: '6.3rem'}
+        let style= {}
         let items = props.bannerData.map((item, index) =>  {
             return (
                 <a key={index} href={item.destUrl}>
