@@ -1,7 +1,11 @@
 'use strict';
 import {INIT_SUCC} from '../actions/index'
 import {CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
-
+import icon_baby from '../components/Selector/images/icon_baby.png'
+import icon_daily from '../components/Selector/images/icon_daily.png'
+import icon_food from '../components/Selector/images/icon_food.png'
+import icon_glass from '../components/Selector/images/icon_glass.png'
+import icon_tint from '../components/Selector/images/icon_tint.png'
 let bannerdata = [
     {
         destUrl: "",
@@ -51,11 +55,11 @@ let data = {
 function initSuccess(content, data){
 
     const SELECTOR_ICONS = {
-        1: {key: 'food', content: '食品', faIcon:'fa-empire'},
-        2: {key: 'makeup', content: '美妆', faIcon:'fa-tint'},
-        3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella'},
-        4: {key: 'drink', content: '酒饮', faIcon:'fa-glass'},
-        5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart'}
+        1: {key: 'food', content: '食品', faIcon:'fa-empire',image:icon_food},
+        2: {key: 'drink', content: '酒饮', faIcon:'fa-glass',image:icon_glass},
+        3: {key: 'makeup', content: '美妆', faIcon:'fa-tint',image:icon_tint},
+        4: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',image:icon_daily},
+        5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',image:icon_baby}
     };
     let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
     let selector = categories.map(cat =>  SELECTOR_ICONS[cat.id]);//.filter(s => s);

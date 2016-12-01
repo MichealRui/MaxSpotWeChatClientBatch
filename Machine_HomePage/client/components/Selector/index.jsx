@@ -8,13 +8,35 @@ export default class Selector extends React.Component {
     }
     
     render() {
-        let props = [
-            {1: {key: 'food', content: '食品', faIcon:'fa-empire'},
-            2: {key: 'makeup', content: '美妆', faIcon:'fa-tint'},
-            3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella'},
-            4: {key: 'drink', content: '酒饮', faIcon:'fa-glass'},
-            5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart'}}
-        ];//this.props.data;
+        // let props = [
+        //     {1: {key: 'food', content: '食品', faIcon:'fa-empire'},
+        //     2: {key: 'makeup', content: '美妆', faIcon:'fa-tint'},
+        //     3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella'},
+        //     4: {key: 'drink', content: '酒饮', faIcon:'fa-glass'},
+        //     5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart'}}
+        // ];//this.props.data;
+
+        let props = this.props
+        let keys = props.selector
+        console.log(keys)
+        let tag = keys.map(
+            (sel,index)=>{
+                console.log(sel)
+                return (
+                    <li key={index} className={ "selector" }>
+                        <div className={"itemIcon font34 fa "}>
+                            <img width='100%' src={sel.image}/>
+                        </div>
+                        <div className='itemName font24'>
+
+                            <span>{sel.content}</span>
+                        </div>
+                    </li>
+                )
+            }
+        )
+
+
 
         return (
             <ul className="selectorContainer">
@@ -24,16 +46,15 @@ export default class Selector extends React.Component {
                     {/*<div className='itemName font24'>{props.content}</div>*/}
                 {/*</li>*/}
                 <li className={ "selector" }>
-                    <div className={"itemIcon font34 fa "}></div>
+                    <div className={"itemIcon font34 fa "}>
+                        <img width='100%' src={require('./images/icon_all.png')}/>
+                    </div>
                     <div className='itemName font24'>
-                        <img src={require('./images/icon_1.png')}/>
-                        <span>美食</span>
+
+                        <span>全部</span>
                     </div>
                 </li>
-                <li className={ "selector" }>
-                    <div className={"itemIcon font34 fa "}></div>
-                    <div className='itemName font24'>美妆</div>
-                </li>
+                {tag}
             </ul>
         )
     }
