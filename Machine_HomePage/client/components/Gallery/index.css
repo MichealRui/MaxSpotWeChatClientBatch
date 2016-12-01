@@ -1,0 +1,33 @@
+.galleryContainer {
+    border-right:1px solid black;
+    padding: 20px 60px 20px 50px;
+    height:900px;
+}
+.galleryContainer .detailContainer {
+    height:600px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.galleryContainer .detailContainer .detail {
+    width:260px;
+    height:330px;
+}
+.galleryContainer .picList {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.galleryContainer .picList .thumbnailWrapper {
+    width:125px;
+    height:120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.galleryContainer .picList .thumbnail {
+    width:75%;
+    height:85%;
+}
