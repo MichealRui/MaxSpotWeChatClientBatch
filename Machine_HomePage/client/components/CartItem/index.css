@@ -113,7 +113,7 @@
     top:-35px;
     width:220px;
     height:70px;
-    background:#fa7c73;
+    background:#ff7860;
     box-shadow:-5px 5px 30px 2px rgba(0,0,0,.3);
     border-radius:70px 70px 0 70px;
 }
@@ -137,8 +137,8 @@
     font-size:14px;
     text-align:center;
     background:#fff;
-    color:#fa7c73;
-    border:3px solid #fa7c73;
+    color:#ff7860;
+    border:3px solid #ff7860;
 }
 .current-price {
     position:absolute;

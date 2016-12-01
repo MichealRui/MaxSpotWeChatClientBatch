@@ -7,7 +7,7 @@
 	height: 1.472222rem;
 	line-height: 1.472222rem;
 	border-radius: 1.472222rem 1.472222rem 0 1.472222rem;
-	background-color: #fa7c73;
+	background-color: #ff7860;
 	color: #fff;
 	text-align: center;
 	z-index: 999;
@@ -29,8 +29,8 @@
 	line-height: 0.416667rem;
 	border-radius: 50%;
 	background-color: #fff;
-	color: #fa7c73;
-	border: 3px solid #fa7c73;
+	color: #ff7860;
+	border: 3px solid #ff7860;
 	top: 0.11rem;
 	right: -0.33rem;
 }
