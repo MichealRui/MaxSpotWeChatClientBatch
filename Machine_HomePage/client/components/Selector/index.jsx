@@ -24,13 +24,15 @@ export default class Selector extends React.Component {
                 console.log(sel)
                 return (
                     <li key={index} className={ "selector" }>
-                        <div className={"itemIcon font34 fa "}>
-                            <img width='100%' src={sel.image}/>
+                        <div className={"imageScale"}>
+                            <div className={"itemIcon font34 fa "}>
+                                <img width='100%' src={sel.image}/>
+                            </div>
+                            <div className='itemName font24'>
+                                <span>{sel.content}</span>
+                            </div>
                         </div>
-                        <div className='itemName font24'>
-
-                            <span>{sel.content}</span>
-                        </div>
+                        <span className={'triangle'}></span>
                     </li>
                 )
             }
@@ -46,15 +48,20 @@ export default class Selector extends React.Component {
                     {/*<div className='itemName font24'>{props.content}</div>*/}
                 {/*</li>*/}
                 <li className={ "selector" }>
-                    <div className={"itemIcon font34 fa "}>
-                        <img width='100%' src={require('./images/icon_all.png')}/>
-                    </div>
-                    <div className='itemName font24'>
+                    <div className={"imageScale"}>
+                        <div className={"itemIcon font34 fa "}>
+                            <img width='100%' src={require('./images/icon_all.png')}/>
+                        </div>
+                        <div className='itemName font24'>
 
-                        <span>全部</span>
+                            <span>全部</span>
+                        </div>
                     </div>
+                    <span className={'triangle'}></span>
                 </li>
                 {tag}
+
+
             </ul>
         )
     }
