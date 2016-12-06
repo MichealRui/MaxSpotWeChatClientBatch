@@ -1,6 +1,6 @@
 'use strict';
 import {INIT_SUCC} from '../actions/index'
-import {CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
+import {CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART, CHANGE_SUBCONTENT} from '../actions/index'
 import icon_baby from '../components/Selector/images/icon_baby.png'
 import icon_daily from '../components/Selector/images/icon_daily.png'
 import icon_food from '../components/Selector/images/icon_food.png'
@@ -74,12 +74,41 @@ function initSuccess(content, data){
             }
         }
         return returnValue
+
     });
+
+    /* find category items */
+    subContentArray.forEach(content => {
+        let items;
+        let key;
+        for(let i in content) {
+            items = content[i].items;
+            key = i
+        }
+        let categoryName = [...new Set(items.map(item => item.categoryName))];
+        /* add subSelector for  selector*/
+        for(let sel of selector) {
+            if(sel.key == key) {
+                sel.subSelector=categoryName
+            }
+        }
+        let categoriedItems = {};
+        for(let category of categoryName) {
+            categoriedItems[category] = items.filter(i => i.categoryName == category);
+        }
+        content[key].categoried = categoriedItems;
+    });
+    /* end finding */
+
     let subContent = {};
     for(let content of subContentArray) {
         subContent = Object.assign({}, subContent, content)
     }
-    let currentSub = data.content.filter(cat =>cat.id == 0).pop(); // find 'all'
+    let currentSub = subContent.food; // find 'food'
+    /*
+    * set default value for the first time
+    * */
+    currentSub.items = currentSub.categoried[selector[0].subSelector[0]];
     let cart = {
         remainTime: '380',
         items: currentSub.items,
@@ -101,13 +130,21 @@ function succAddCart(content, item) {
     return state
 }
 
+function changeContent(content, {key, subKey}) {
+    let newContent = Object.assign({}, content);
+    let target = newContent.subContent[key];
+    newContent.currentSub = target;
+    newContent.currentSub.items = target.categoried[subKey];
+    return newContent
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
         case INIT_SUCC:
             return initSuccess(content, action.data);
-        // case CLEAR_CART:
-        //     return clearCart(content);
+        case CHANGE_SUBCONTENT:
+            return changeContent(content, action);
         case SUCC_ADD_CART:
             return succAddCart(content, action.item);
         default:

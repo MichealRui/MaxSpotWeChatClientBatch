@@ -43,13 +43,13 @@ const domain = ENV.domain;
 export function initWxConfig(url) {
     return (dispatch) => {
 
-        // fetch( domain + '/web/buyer_api/test_login_with_openid.ction',
-        //     {
-        //         credentials: 'include',
-        //         method: 'POST',
-        //         mode: 'cors',
-        //         body: JSON.stringify({openid: "o41Mgv7HMpgc16ViZCsVkeodDmjM"})
-        //     }
+        // fetch( domain + '/web/buyer_api/test_login_with_openid.action',
+            // {
+                // credentials: 'include',
+                // method: 'POST',
+                // mode: 'cors',
+                // body: JSON.stringify({openid: "o41Mgv0eiCIKAZPpMdO1o-gGZrKs"})
+            // }
         // ).then (
             fetch( domain + '/web/buyer_api/get_jsapi_config_params.action',
                 {
