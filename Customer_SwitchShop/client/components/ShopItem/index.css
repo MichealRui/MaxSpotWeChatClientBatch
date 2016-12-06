@@ -16,10 +16,10 @@
     top:50%;
     left: 3.333333rem;
     transform: translate(0, -50%);
-    width:58%;
+    width:52%;
 }
 .shopItem .infoArea h1 {
-    margin-bottom: 0.222222rem;
+    margin-bottom: 0.1rem;
     color:#333;
     white-space: nowrap;
 }
