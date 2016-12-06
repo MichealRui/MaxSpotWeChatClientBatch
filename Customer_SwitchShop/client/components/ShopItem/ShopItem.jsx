@@ -2,7 +2,6 @@
 
 require ('./index.css');
 import React from 'react';
-import shopImg from './images/shop.jpg'
 
 export default class ShopItem extends React.Component {
 	constructor(props){
@@ -19,12 +18,12 @@ export default class ShopItem extends React.Component {
 		let props = this.props;
 		return (
 			<div className='shopItem' onClick={this.shopClick.bind(this)}>
-				<img src={shopImg} className='shopImg' />
+				<img src={ENV.domain + '/' + props.imagePath} className='shopImg' />
 				<div className='infoArea'>
 					<h1 className='font16'>{props.name}<span className="font14">i</span></h1>
 					<p className='font14'>{props.address}</p>
 				</div>
-				<span className="font20"> > </span>
+				<span className=""> <img src={require('./images/arrow.png')} alt=""/> </span>
 				{/*<span className='fa fa-angle-right orderAddressArrow font24'></span>*/}
 			</div>
 		);

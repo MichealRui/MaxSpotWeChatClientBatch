@@ -3,7 +3,7 @@
  */
 import fetch from 'isomorphic-fetch';
 import {INIT_START, INIT_SUCCESS, INIT_FAIL, SWITCH_SHOP_SUCCESS, SWITCH_SHOP_FAIL} from '../constants/ActionTypes';
-const domain = 'http://114.215.143.97';
+const domain = ENV.domain;
 export function initShopList(shopid) {
     return (dispatch)=>{
         dispatch(initStart());
@@ -15,7 +15,6 @@ export function initShopList(shopid) {
             .then(response=>response.json())
             .then(json=>{
                 if(json.is_succ){
-                    console.log('shopid:'+shopid);
                     dispatch(initSuccess(json,shopid));
                 }else {
                     dispatch(initFail());
@@ -47,8 +46,6 @@ export function initFail() {
 }
 
 export function switchShop(shop_id) {
-    console.log(getState());
-    console.log(shop_id);
     return (dispatch)=>{
         fetch(domain + '/web/buyer_api/get_all_stores.action',{
             method:'POST',
