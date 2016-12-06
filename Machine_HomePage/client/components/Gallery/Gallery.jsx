@@ -18,10 +18,17 @@ export default class Gallery extends React.Component {
         console.log('Been set')
     }
 
+    static get defaultProps () {
+        return {
+            imagePath: ['./images/product.jpg', './images/product.jpg',
+                './images/product.jpg', './images/product.jpg', './images/last.jpg']
+        }
+    }
+
     render() {
         let path = ['./images/product.jpg', './images/product.jpg',
             './images/product.jpg', './images/product.jpg', './images/last.jpg'];
-        let s = path.map((p, index) => {
+        let s = this.props.imagePath.map((p, index) => {
             return (
                 <div className="thumbnailWrapper" key={index}>
                     <img className="thumbnail"
@@ -33,7 +40,7 @@ export default class Gallery extends React.Component {
         });
         let detail = (
             <div className="detailContainer">
-                <img className="detail" src={this.state.current?require(this.state.current):require(path[0])}/>
+                <img className="detail" src={this.state.current?require(this.state.current):require('./images/product.jpg')}/>
             </div>);
         return (
             <div className="galleryContainer">
@@ -45,3 +52,4 @@ export default class Gallery extends React.Component {
         )
     }
 }
+

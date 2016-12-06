@@ -19,8 +19,8 @@ export default class Item extends React.Component {
         e.stopPropagation()
     }
 
-    showClick() {
-        this.props.show()
+    showClick(item) {
+        this.props.show(item)
     }
 
     getMiddlePic(path) {
@@ -37,7 +37,7 @@ export default class Item extends React.Component {
         let props = this.props.item;
         // let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         return (
-            <div className={"item sliderItem"} onClick={this.showClick.bind(this)}>
+            <div className={"item sliderItem"} onClick={() => this.showClick.bind(this)(props)}>
                 {
                     props.imagePath ?
                         <img src={'http://114.215.143.97' + this.getMiddlePic(props.imagePath)} className='productImg'/>

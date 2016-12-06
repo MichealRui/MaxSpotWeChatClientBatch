@@ -17,6 +17,10 @@ export const CLEAR_CART = 'CLEAR_CART';
 
 export const CHANGE_SUBCONTENT = 'CHANGE_SUBCONTENT';
 
+export const FETCH_SKU = 'FETCH_SKU';
+
+export const SET_DETAIL = 'SET_DETAIL';
+
 export function initMainContent () {
     // fetch('',
     //     {
@@ -102,5 +106,37 @@ export function changeSubContent(key, subKey) {
         type: CHANGE_SUBCONTENT,
         key,
         subKey
+    }
+}
+
+export function fetchSku(skuNumber) {
+    return (dispatch) => {
+        fetch('/local_api/sku_detail.action', {
+            credentials: 'include',
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify(
+                {sku_number: skuNumber}
+            )
+        }).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(setDetailDialog(
+                        {
+                            productDetail: json.sku,
+                            brand: json.brand
+                        }
+                    ))
+                } else {
+                    dispatch()
+                }
+            })
+    }
+}
+
+export function setDetailDialog(prod) {
+    return {
+        type: SET_DETAIL,
+        prod
     }
 }

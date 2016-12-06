@@ -10,6 +10,7 @@ import SkuContainer from '../../containers/SkuContainer/SkuContainer';
 import { initMainContent } from '../../actions/index'
 import { addToCart } from '../../actions/index'
 import {changeSubContent} from '../../actions/index'
+import {fetchSku} from '../../actions/index'
 
 class PageContainer extends React.Component{
     constructor(props) {
@@ -39,8 +40,11 @@ class PageContainer extends React.Component{
         })
     }
 
-    onProductDetailClick(){
+    onProductDetailClick(item){
         console.log('sku_show');
+        console.log(item);
+        let {dispatch} = this.props;
+        dispatch(fetchSku(item.skuNumber));
         this.setState({
             skuVisible:true
         })
@@ -64,7 +68,7 @@ class PageContainer extends React.Component{
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}
                     storeData={state.storeInfo}
                     addToCart={(item) => dispatch(addToCart(item))}
-                    showProduct={(item) => this.onProductDetailClick(item)}
+                    showProduct={(item) => this.onProductDetailClick.bind(this)(item)}
                     selector = {state.selector}
                 />
                 <CartContainer visible={this.state.cartVisible}
