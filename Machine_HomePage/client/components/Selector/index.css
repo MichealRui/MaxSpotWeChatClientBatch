@@ -40,6 +40,7 @@
 .selector .triangle{
 	width: 100%;
 	height: 0;
+    display: none;
 }
 .selector .triangle:after{
 	content: '';
@@ -56,7 +57,7 @@
 	/* border-bottom: 0.305556rem solid #ffb66e; */
 	bottom: 0;
 	transform: translate(-30px,78px) rotate(45deg);
-	display: none;
+
 }
 .selector .triangle.action{
 	display: block;

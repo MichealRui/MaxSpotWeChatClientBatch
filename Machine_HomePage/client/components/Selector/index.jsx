@@ -57,7 +57,7 @@ export default class Selector extends React.Component {
                             <span>全部</span>
                         </div>
                     </div>
-                    <span className={'triangle'}></span>
+                    <span className={'triangle action'}></span>
                 </li>
                 {tag}
 
