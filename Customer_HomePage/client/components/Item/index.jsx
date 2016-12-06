@@ -79,7 +79,7 @@ export default class Item extends React.Component {
                         {atts}
                     </p>
                 </span>
-                <span className='unitPrice font18'>{props.sellprice/100 || 0 }元</span>
+                <span className='unitPrice font18'>{props.sellprice/100 || 0 }<span className="font12"> 元 </span></span>
                 {
                     sliderItem == 'sliderItem' ? '' :
                     props.quantity > 0 ? (this.props.children||null) : soldOut
