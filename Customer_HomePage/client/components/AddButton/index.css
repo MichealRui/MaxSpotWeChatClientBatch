@@ -19,11 +19,11 @@
     background: #ff7860;
     color: #fff;
     text-align: center;
-    line-height: 0.84rem;
 }
 
 .add>img{
     width: 70%;
     height:70%;
+    vertical-align: middle;
 }
 
