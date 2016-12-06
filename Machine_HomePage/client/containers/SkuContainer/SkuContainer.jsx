@@ -11,14 +11,7 @@ export default class SkuContainer extends React.Component {
     }
     render(){
 
-        let props = this.props
-        /*let swiperConfig = {
-            // pagination: '.swiper2 .swiper-pagination',
-            freeMode: true,
-            slidesPerView: 6,
-        };*/
-
-
+        let props = this.props;
 
         return (
             <div className="skuContainer">
@@ -28,7 +21,7 @@ export default class SkuContainer extends React.Component {
                        footer=''
                 >
                     <div className="galleryWrapper">
-                        <Gallery/>
+                        <Gallery images={'s'}/>
                     </div>
                 </Modal>
             </div>

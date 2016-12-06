@@ -18,8 +18,10 @@ export default class SubContent extends React.Component {
         let current = props.contentData;
         return (
             <div className="subContentContainer">
-                <Selector selector={this.props.selector}/>
-                <SubSelector/>
+                <Selector selector={this.props.selector}
+                          changeContent={this.props.changeContent}
+                />
+                {/*<SubSelector/>*/}
                 <ItemContainer items={current.items}
                                itemClick={this.props.addToCart}
                                store={this.props.storeData}

@@ -15,6 +15,8 @@ export const FAIL_ADD_CART = 'FAIL_ADD_CART';
 
 export const CLEAR_CART = 'CLEAR_CART';
 
+export const CHANGE_SUBCONTENT = 'CHANGE_SUBCONTENT';
+
 export function initMainContent () {
     // fetch('',
     //     {
@@ -92,5 +94,13 @@ export function errorAddToCart(errorMessage) {
 export function clearCart() {
     return {
         type: CLEAR_CART
+    }
+}
+
+export function changeSubContent(key, subKey) {
+    return {
+        type: CHANGE_SUBCONTENT,
+        key,
+        subKey
     }
 }

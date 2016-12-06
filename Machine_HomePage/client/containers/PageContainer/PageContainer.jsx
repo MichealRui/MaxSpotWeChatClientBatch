@@ -9,6 +9,7 @@ import CartContainer from '../../containers/CartContainer/CartContainer';
 import SkuContainer from '../../containers/SkuContainer/SkuContainer';
 import { initMainContent } from '../../actions/index'
 import { addToCart } from '../../actions/index'
+import {changeSubContent} from '../../actions/index'
 
 class PageContainer extends React.Component{
     constructor(props) {
@@ -60,6 +61,7 @@ class PageContainer extends React.Component{
                 <Banner/>
                 <SubContent
                     contentData={state.currentSub}
+                    changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}
                     storeData={state.storeInfo}
                     addToCart={(item) => dispatch(addToCart(item))}
                     showProduct={(item) => this.onProductDetailClick(item)}

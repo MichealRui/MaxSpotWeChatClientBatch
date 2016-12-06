@@ -4,15 +4,36 @@ require('./index.css')
 
 export default class ButtonSelector extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            activated: 0
+        }
+    }
+
+    onSubClick(e, index, key, parentKey) {
+        this.setState({
+            activated:index
+        })
+        this.props.changeContent(parentKey, key)
     }
 
     render() {
+        let {selector} = this.props;
+        let tag = selector.subSelector && selector.subSelector.length != 0 ?
+            selector.subSelector.map((s, index) => {
+                return <li key={index}
+                           className={
+                               "subSelector font30 " + (index == this.state.activated ?'activated' : '')
+                           }
+                           onClick={(e) => this.onSubClick(e, index, s, selector.key)}
+
+                >{s}</li>
+
+            }) : '';
+
         return (
             <ul className="buttonSelectorContainer">
-                <li className="subSelector activated font30">全部美食</li>
-                <li className="subSelector font30">休闲零食</li>
-                <li className="subSelector font30">糕点饼干</li>
+                {tag}
             </ul>
         )
     }

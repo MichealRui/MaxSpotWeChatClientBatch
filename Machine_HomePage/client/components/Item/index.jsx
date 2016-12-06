@@ -23,12 +23,28 @@ export default class Item extends React.Component {
         this.props.show()
     }
 
+    getMiddlePic(path) {
+        let particial = path.split('.');
+        if(particial.length == 2) {
+            particial[0] = particial[0] + '_middle';
+            return particial.join('.')
+        } else {
+            path
+        }
+    }
+
     render() {
         let props = this.props.item;
         // let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         return (
             <div className={"item sliderItem"} onClick={this.showClick.bind(this)}>
-                <img src={require('./images/product-1.jpg')} className='productImg' />
+                {
+                    props.imagePath ?
+                        <img src={'http://114.215.143.97' + this.getMiddlePic(props.imagePath)} className='productImg'/>
+                        :
+                        <img src={require('./images/default.png')} className='productImg'/>
+                }
+
                 <span className='brandProductContainer'>
                     <p className={'productName font23'}>{props.brandName}</p>
                     <p className='productDesc font23'>{props.shortName}</p>
