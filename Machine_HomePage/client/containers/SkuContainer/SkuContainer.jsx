@@ -23,6 +23,8 @@ export default class SkuContainer extends React.Component {
                     <div className="galleryWrapper">
                         <Gallery images={'s'}/>
                     </div>
+                    <div className="skuInfo">
+                    </div>
                 </Modal>
             </div>
         );

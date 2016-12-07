@@ -28,4 +28,10 @@
 }
 .customized1-modal .galleryWrapper {
     width:40%;
+    float: left;
+}
+.customized1-modal .skuInfo{
+    margin-left: 40%;
+    width: 60%;
+    padding: 10% 10%;
 }

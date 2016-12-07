@@ -1,0 +1,31 @@
+.skuHeader{
+    padding: 30px 0;
+    border-bottom: 1px solid #cccccc;
+}
+.skuHeader .sub_title{
+    /*width: 80%;*/
+    text-align: left;
+    line-height: 30px;
+    overflow: hidden;
+}
+
+.skuHeader .sub_title>p{
+    width: 100%;
+}
+
+.skuHeader .sub_price{
+}
+
+.skuHeader .button{
+    border:1px solid #fa7c73;
+    background-color: #fa7c73;
+    width: 3.263889rem;
+    height: 1.305556rem;
+    border-radius:1.305556rem;
+    border-top-right-radius: 0;
+    color:#FFF;
+    display: inline-block;
+    line-height: 1.291667rem;
+    text-align: center;
+    opacity: 1;
+}

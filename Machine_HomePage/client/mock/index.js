@@ -4398,7 +4398,7 @@ let data = {
             }
         },
         {
-            "id": 2,
+            "id": 3,
             "items": [
                 {
                     "maxStock": 0,
@@ -4846,7 +4846,7 @@ let data = {
             }
         },
         {
-            "id": 3,
+            "id": 4,
             "items": [
                 {
                     "maxStock": 0,
@@ -6256,7 +6256,7 @@ let data = {
             }
         },
         {
-            "id": 4,
+            "id": 2,
             "items": [
                 {
                     "maxStock": 0,
