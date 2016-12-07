@@ -1,0 +1,54 @@
+.skuInfo_popup{
+    width: 100%;
+}
+.skuInfo_popup .hide{
+    display: none;
+}
+.skuInfo_popup .tag{
+    color:#666;
+    margin-right: 95px;
+    margin-top: 25px;
+    line-height: 40px;
+    display: inline-block;
+}
+.skuInfo_popup .tag.active{
+    color:#FA7C73;
+    border-bottom: 4px solid #fa7c73;
+}
+
+.skuInfo_popup .sku_detail ,.skuInfo_popup .sku_about{
+    margin-top: 40px;
+
+}
+
+.skuInfo_popup .sku_detail .comment .circle_img{
+    border: 1px solid #fff;
+    border-radius: 100%;
+    width: 77px;
+    height:77px;
+    float: left;
+    margin-right: 30px;
+}
+
+.skuInfo_popup .sku_detail .comment img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.skuInfo_popup .comment_text{
+    color: #000;
+    opacity: 0.9;
+    line-height: 32px;
+}
+
+.skuInfo_popup .sku_detail .item_info{
+    margin-top: 40px;
+}
+
+.skuInfo_popup .sku_about .square_img{
+    width: 120px;
+    float: left;
+    margin-right: 35px;
+}
+

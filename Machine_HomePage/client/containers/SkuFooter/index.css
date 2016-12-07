@@ -1,0 +1,40 @@
+.Skufooter{
+    position: absolute;
+    bottom:35px;
+    left: 76px;
+}
+
+.Skufooter .footer_item{
+    float: left;
+    margin-right: 64px;
+    display: inline-block;
+}
+
+.Skufooter .footer_item>span:first-child{
+    width: 76px;
+    height: 76px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.8) inset;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+}
+
+.Skufooter .footer_item .icon:after{
+     content:'';
+     width: 0;
+     height: 100%;
+     overflow: hidden;
+     display: inline-block;
+     vertical-align: middle;
+}
+
+.Skufooter .footer_item .icon>img{
+    vertical-align: middle;
+}
+
+
+.Skufooter .footer_item>span:last-child{
+    line-height: 76px;
+    display: inline-block;
+    margin-left: 16px;
+}

@@ -206,6 +206,32 @@ html { overflow-y: scroll; }
     font-size: 72px !important;
 }
 
+.font26 {
+    font-size: 26px !important;
+}
+
+[data-dpr="2"] .font26 {
+    font-size: 52px !important;
+}
+
+[data-dpr="3"] .font26 {
+    font-size: 78px !important;
+}
+
+.font27 {
+    font-size: 27px !important;
+}
+
+[data-dpr="2"] .font27 {
+    font-size: 54px !important;
+}
+
+[data-dpr="3"] .font27 {
+    font-size: 81px !important;
+}
+
+
+
 .font28 {
     font-size: 28px !important;
 }
@@ -230,6 +256,19 @@ html { overflow-y: scroll; }
     font-size: 90px !important;
 }
 
+.font32 {
+    font-size: 32px !important;
+}
+
+[data-dpr="2"] .font32 {
+    font-size: 64px !important;
+}
+
+[data-dpr="3"] .font32 {
+    font-size: 96px !important;
+}
+
+
 .font42 {
   font-size: 42px !important;
 }
@@ -242,7 +281,17 @@ html { overflow-y: scroll; }
     font-size: 126px !important;
 }
 
+.font48 {
+    font-size: 48px !important;
+}
 
+[data-dpr="2"] .font48 {
+    font-size: 96px !important;
+}
+
+[data-dpr="3"] .font48 {
+    font-size: 144px !important;
+}
 
 @media screen and (max-width: 599px){
     .user-width {
