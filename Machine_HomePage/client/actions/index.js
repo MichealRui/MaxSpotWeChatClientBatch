@@ -3,7 +3,9 @@
  */
 import fetch from 'isomorphic-fetch'
 
-import mock from '../mock/index'
+import mock from '../mock/main'
+
+import cartMock from '../mock/shopping'
 
 export const INIT_SUCC = 'INIT_SUCC';
 
@@ -20,6 +22,10 @@ export const CHANGE_SUBCONTENT = 'CHANGE_SUBCONTENT';
 export const FETCH_SKU = 'FETCH_SKU';
 
 export const SET_DETAIL = 'SET_DETAIL';
+
+export const SUCC_FETCH_CART = 'SUCC_FETCH_CART';
+
+const cart = cartMock;
 
 export function initMainContent () {
     // fetch('',
@@ -57,12 +63,11 @@ function initSucc(data) {
 export function addToCart(item) {
     return (dispatch) => {
         // dispatch(startAddToCart())
-        fetch( domain + "/web/buyer_api/add_sku_to_cart.action ",
+        fetch( "local_api/add_sku_to_cart.action",
             {
                 credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
-                Origin: 'http://114.215.143.97',
                 body: JSON.stringify(
                     Object.assign({}, item)
                 )
@@ -75,6 +80,36 @@ export function addToCart(item) {
                     dispatch(errorAddToCart({errorMessage: json.error_message}))
                 }
             }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
+    }
+}
+
+export function fetchCart() {
+    // return (dispatch) => {
+    //     fetch('local_api/get_cart.action', {
+    //         credentials: 'include',
+    //         method: 'POST',
+    //         mode: 'cors',
+    //     }).then(response => response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //                 dispatch(succFetchCart(json.skus))
+    //             } else {
+    //
+    //             }
+    //         })
+    // }
+    return (dispatch) => {
+
+        let mock = cart
+        console.log(cart);
+        return dispatch(succFetchCart(cart.skus))
+    }
+}
+
+export function succFetchCart(skus) {
+    return {
+        type:SUCC_FETCH_CART,
+        skus
     }
 }
 

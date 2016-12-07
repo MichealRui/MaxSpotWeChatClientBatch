@@ -31,7 +31,6 @@ var ItemContainer = React.createClass({
             )
         });
         return (
-
             <div className="itemContainer" >
                 <SwiperComponent
                     swiperConfig={swiperConfig}
