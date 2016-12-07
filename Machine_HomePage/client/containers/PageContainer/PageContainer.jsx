@@ -11,6 +11,7 @@ import { initMainContent } from '../../actions/index'
 import { addToCart } from '../../actions/index'
 import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
+import {fetchCart} from '../../actions/index'
 
 class PageContainer extends React.Component{
     constructor(props) {
@@ -28,6 +29,8 @@ class PageContainer extends React.Component{
 
     onCartBtnClick() {
         console.log("show");
+        const {dispatch} = this.props;
+        dispatch(fetchCart());
         this.setState({
             cartVisible: true
         })

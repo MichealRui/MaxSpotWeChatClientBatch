@@ -11,7 +11,7 @@ export default class Item extends React.Component {
         // todo update cart
         this.props.click(
             {
-                storeId: this.props.store.id + '',
+                // storeId: this.props.store.id + '',
                 skuId: this.props.item.id + '',
                 count: '1'
             }

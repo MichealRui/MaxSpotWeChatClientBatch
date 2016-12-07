@@ -1,6 +1,6 @@
 'use strict';
 import {INIT_SUCC} from '../actions/index'
-import {CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART, CHANGE_SUBCONTENT, SET_DETAIL} from '../actions/index'
+import {CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART, CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART} from '../actions/index'
 import icon_baby from '../components/Selector/images/icon_baby.png'
 import icon_daily from '../components/Selector/images/icon_daily.png'
 import icon_food from '../components/Selector/images/icon_food.png'
@@ -112,7 +112,7 @@ function initSuccess(content, data){
     let cart = {
         remainTime: '380',
         items: currentSub.items,
-        moreItems: currentSub.items,
+        moreItems: currentSub.items.slice(0, 3),
     };
     return Object.assign({}, content, {
         banner: data.banner,
@@ -144,6 +144,13 @@ function setDetail(content, prod) {
     return Object.assign({}, content, {detailContent: prod});
 }
 
+function succFetchCart(content, skus) {
+    console.log(skus)
+    let newContent = Object.assign({}, content);
+    newContent.cart.items = skus[0].productList
+    return newContent
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
@@ -155,6 +162,8 @@ export default function (
             return succAddCart(content, action.item);
         case SET_DETAIL:
             return setDetail(content, action.prod);
+        case SUCC_FETCH_CART:
+            return succFetchCart(content, action.skus)
         default:
             return content;
     }
