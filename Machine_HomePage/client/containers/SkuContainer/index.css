@@ -21,6 +21,7 @@
     padding:0;
     position: relative;
     background-color: #FFFFFF;
+    height: 100%;
 }
 .customized1-modal .ant-modal .ant-modal-content {
     height: 900px;
@@ -37,5 +38,5 @@
     padding-left: 76px;
     padding-right: 50px;
     position: relative;
-    height: 900px;
+    height: 100%;
 }

@@ -29,7 +29,7 @@ export default class SkuContainer extends React.Component {
                     </div>
                     <div className="skuInfo">
                         <Header />
-                        <Intro/>
+                        {/*<Intro/>*/}
                         <Info/>
                         <Footer />
                     </div>

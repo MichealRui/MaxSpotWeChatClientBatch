@@ -7,13 +7,15 @@ export default class Selector extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selector:[]
+            selector:[],
+            selectorKey:'food'
         }
     }
 
     setSubSelector(selector) {
         this.setState({
-            selector: selector
+            selector: selector,
+            selectorKey:selector.key
         })
         this.props.changeContent(selector.key, selector.subSelector[0])
     }
@@ -29,18 +31,16 @@ export default class Selector extends React.Component {
 
     render() {
         let props = this.props;
-        console.log("in")
-        console.log(props)
         let keys = props.selector;
         let tag = keys.map(
             (sel,index)=>{
                 return (
-                    <li key={index} className={ "selector " }
+                    <li key={index} className={ "selector "}
                         onClick={
                             () => this.setSubSelector(sel)
                         }
                     >
-                        <div className={"imageScale " + (props.selectKey == sel.key ? 'active':'')}>
+                        <div className={"imageScale " + (this.state.selectorKey == sel.key ? 'active' : '')  }>
                             <div className={"itemIcon font34 fa "}>
                                 <img width='100%' src={sel.image}/>
                             </div>
@@ -48,7 +48,7 @@ export default class Selector extends React.Component {
                                 <span>{sel.content}</span>
                             </div>
                         </div>
-                        <span className={'triangle ' + (props.selectKey == sel.key ? 'action' : '')}></span>
+                        <span className={'triangle ' + (this.state.selectorKey == sel.key ? 'action' : '') }></span>
                     </li>
                 )
             }

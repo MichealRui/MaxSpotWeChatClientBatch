@@ -121,7 +121,6 @@ function initSuccess(content, data){
         currentSub: currentSub,//data.subContent['all'],,
         storeInfo: data.store,
         cart: cart,
-        selectKey:'food'
     })
 }
 
@@ -136,7 +135,6 @@ function changeContent(content, {key, subKey}) {
     let target = newContent.subContent[key];
     newContent.currentSub = target;
     newContent.currentSub.items = target.categoried[subKey];
-    newContent.selectKey = key
     return newContent
 }
 

@@ -7,8 +7,16 @@ require('./index.css')
 export default class skuInfo extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            'skuinfo_tag_name':'sku_detail'
+        }
     }
 
+    changetags(tagName){
+        this.setState({
+            'skuinfo_tag_name':tagName
+        })
+    }
 
     render() {
 
@@ -34,16 +42,19 @@ export default class skuInfo extends React.Component {
             </div>
         )
 
+
+
         return (
 
             <div className="skuInfo_popup">
                 <div>
-                    <div className="tag sku_detail_tag active font27">商品详情</div>
-                    <div className="tag sku_about_tag font27">关于Lipe</div>
-                    <div className="sku_detail hide">
+
+                    <div className={"tag font27 " + (this.state.skuinfo_tag_name == 'sku_detail'? 'active':'')} onClick={()=>this.changetags('sku_detail')}>商品详情</div>
+                    <div className={"tag font27 " + (this.state.skuinfo_tag_name == 'sku_about'? 'active':'')} onClick={()=>this.changetags('sku_about')}>关于Lipe</div>
+                    <div className={"sku_detail " + (this.state.skuinfo_tag_name == 'sku_detail' ? '' : 'hide')}>
                         {sku_detail}
                     </div>
-                    <div className="sku_about">
+                    <div className={"sku_about " +  (this.state.skuinfo_tag_name == 'sku_about' ? '' : 'hide')}>
                         {sku_about}
                     </div>
                 </div>

@@ -20,7 +20,6 @@ export default class SubContent extends React.Component {
             <div className="subContentContainer">
                 <Selector selector={this.props.selector}
                           changeContent={this.props.changeContent}
-                          selectKey = {this.props.selectKey}
                 />
                 {/*<SubSelector/>*/}
                 <ItemContainer items={current.items}
