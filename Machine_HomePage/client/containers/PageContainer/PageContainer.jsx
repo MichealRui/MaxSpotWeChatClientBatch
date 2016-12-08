@@ -83,6 +83,7 @@ class PageContainer extends React.Component{
                 />
                 <SkuContainer visible={this.state.skuVisible}
                               onCancel={()=>this.hideProductDetail.bind(this)}
+                              product={state.product}
                 />
             </div>
         )

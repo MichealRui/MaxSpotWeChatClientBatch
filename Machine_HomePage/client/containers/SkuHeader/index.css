@@ -52,6 +52,7 @@
 }
 
 
+
 .skuHeader .button{
     border:1px solid #fa7c73;
     background-color: #fa7c73;
@@ -64,8 +65,13 @@
     line-height: 94px;
     text-align: center;
     opacity: 1;
+
+}
+.skuHeader .button.pre_price{
     transform: translate(0px,-30px);
 }
+
+
 .skuHeader .sub_info .button>span
 {
     -webkit-filter: opacity(0.9);

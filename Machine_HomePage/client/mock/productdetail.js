@@ -1,0 +1,74 @@
+/**
+ * Created by ruibing on 16/12/7.
+ */
+let data = {
+    "brand":{
+        "imagePath":"/static/skubrand/0/0/272//272.jpg",
+        "url":"",
+        "id":272,
+        "story":"Doritos（多力多滋）是一种调味墨西哥玉米片品牌，1960年由菲多利公司的子公司创立。多力多滋销于全球各个国家，并推出了多种口味。多力多滋的主要成分为玉米、玉米油及香料。",
+        "imageId":0,
+        "skuTypeId":0,
+        "description":"",
+        "name":"多力多滋",
+        "sortNumber":0
+    },
+    "sku":{
+        "maxStock":0,
+        "countryName":"中国大陆",
+        "uniqueNumber":578,
+        "shelfThickness":0,
+        "imagePath":"/static/sku/0/0/578/1481175348674.png",
+        "parentCategory":0,
+        "shelfWidth":0,
+        "remarks":"",
+        "brandName":"多力多滋",
+        "id":578,
+        "categoryName":"休闲零食",
+        "title":"浓郁芝士冲击味蕾",
+        "safeStock":0,
+        "height":24,
+        "imageId":1027,
+        "msrp":0,
+        "description":"Doritos源自于西班牙文，有“一小块黄金”之意。超浓芝士味玉米片有着爆炸性的酥脆，超浓郁的口味，彻底征服你的味蕾。无油烘焙玉米片，百分百健康。将玉米片与香浓的起士以慢火微烤，浓厚的乳香配合玉米的香甜，每一口都是前所未有的美味震撼冲击你的味蕾。",
+        "name":"超浓芝士味玉米片",
+        "shelfHeight":0,
+        "length":19,
+        "quantity":0,
+        "sellprice":1160,
+        "tags":"",
+        "publishTime":"Tue Sep 20 18:53:22 CST 2016",
+        "status":2,
+        "width":6,
+        "barcode":"4710543613501",
+        "country":1,
+        "expirationDays":0,
+        "unit":"袋",
+        "category":6,
+        "minStock":0,
+        "skuNumber":"UF000578",
+        "images":[
+            "/static/sku/0/0/578/1481175348674.png",
+            "/static/sku/0/0/578/59476.jpg",
+            "/static/sku/0/0/578/64625.jpg",
+            "/static/sku/0/0/578/69491.jpg"
+        ],
+        "brand":272,
+        "attributes":[
+            {
+                "unit":"",
+                "name":"口味",
+                "value":"芝士"
+            },
+            {
+                "unit":"g",
+                "name":"净含量",
+                "value":"65"
+            }
+        ],
+        "shortName":"芝士味玉米片"
+    },
+    "is_succ":true
+}
+
+export default data;

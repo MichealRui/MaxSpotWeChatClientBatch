@@ -307,3 +307,7 @@ html { overflow-y: scroll; }
     /*background-color: #f4f4f4;*/
     /*min-height: 500px;*/
 /*}*/
+
+.hide{
+    display: none;
+}

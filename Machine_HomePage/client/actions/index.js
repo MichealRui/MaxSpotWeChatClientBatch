@@ -7,6 +7,8 @@ import mock from '../mock/main'
 
 import cartMock from '../mock/shopping'
 
+import productMock from '../mock/productdetail'
+
 export const INIT_SUCC = 'INIT_SUCC';
 
 export const ADDTO_CART = 'ADDTO_CART';
@@ -20,6 +22,8 @@ export const CLEAR_CART = 'CLEAR_CART';
 export const CHANGE_SUBCONTENT = 'CHANGE_SUBCONTENT';
 
 export const FETCH_SKU = 'FETCH_SKU';
+
+export const SUCC_FETCH_SKU = 'SUCC_FETCH_SKU';
 
 export const SET_DETAIL = 'SET_DETAIL';
 
@@ -144,28 +148,39 @@ export function changeSubContent(key, subKey) {
     }
 }
 
-export function fetchSku(skuNumber) {
-    return (dispatch) => {
-        fetch('/local_api/sku_detail.action', {
-            credentials: 'include',
-            method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify(
-                {sku_number: skuNumber}
-            )
-        }).then(response => response.json())
-            .then(json => {
-                if(json.is_succ) {
-                    dispatch(setDetailDialog(
-                        {
-                            productDetail: json.sku,
-                            brand: json.brand
-                        }
-                    ))
-                } else {
-                    dispatch()
-                }
-            })
+export function fetchSku() {
+    // return (dispatch) => {
+    //     fetch('/local_api/sku_detail.action', {
+    //         credentials: 'include',
+    //         method: 'POST',
+    //         mode: 'cors',
+    //         body: JSON.stringify(
+    //             {sku_number: skuNumber}
+    //         )
+    //     }).then(response => response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //                 dispatch(setDetailDialog(
+    //                     {
+    //                         productDetail: json.sku,
+    //                         brand: json.brand
+    //                     }
+    //                 ))
+    //             } else {
+    //                 dispatch()
+    //             }
+    //         })
+    // }
+    return (dispatch)=>{
+        let product = productMock;
+        return dispatch(succFetchSku(product))
+    }
+}
+
+export function succFetchSku(product_detail) {
+    return{
+        type: SUCC_FETCH_SKU,
+        product:product_detail
     }
 }
 

@@ -1,6 +1,6 @@
 'use strict';
 import {INIT_SUCC} from '../actions/index'
-import {CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART, CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART} from '../actions/index'
+import {CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART, CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU} from '../actions/index'
 import icon_baby from '../components/Selector/images/icon_baby.png'
 import icon_daily from '../components/Selector/images/icon_daily.png'
 import icon_food from '../components/Selector/images/icon_food.png'
@@ -138,6 +138,12 @@ function changeContent(content, {key, subKey}) {
     return newContent
 }
 
+function succFetchSku(content,product) {
+    let newContent = Object.assign({},content);
+    newContent.product = product
+    return newContent
+}
+
 function setDetail(content, prod) {
     return Object.assign({}, content, {detailContent: prod});
 }
@@ -162,6 +168,8 @@ export default function (
             return setDetail(content, action.prod);
         case SUCC_FETCH_CART:
             return succFetchCart(content, action.skus)
+        case SUCC_FETCH_SKU:
+            return succFetchSku(content,action.product)
         default:
             return content;
     }

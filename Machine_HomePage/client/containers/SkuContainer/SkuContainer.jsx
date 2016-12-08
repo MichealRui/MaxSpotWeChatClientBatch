@@ -16,7 +16,9 @@ export default class SkuContainer extends React.Component {
     render(){
 
         let props = this.props;
-
+        console.log(props)
+        let product = props.product
+        let sku = product ? product.sku : ''
         return (
             <div className="skuContainer">
                 <Modal visible={this.props.visible}
@@ -25,12 +27,12 @@ export default class SkuContainer extends React.Component {
                        footer=''
                 >
                     <div className="galleryWrapper">
-                        <Gallery images={'s'}/>
+                        <Gallery images={sku?sku.images:''}/>
                     </div>
                     <div className="skuInfo">
-                        <Header />
+                        <Header item={product}/>
                         {/*<Intro/>*/}
-                        <Info/>
+                        <Info item={product}/>
                         <Footer />
                     </div>
                 </Modal>

@@ -7,7 +7,7 @@ export default class Gallery extends React.Component {
     constructor(props) {
         super(props)
         this.state={
-            current:''
+            current:props.images[0]
         }
     }
 
@@ -18,35 +18,30 @@ export default class Gallery extends React.Component {
         console.log('Been set')
     }
 
-    static get defaultProps () {
-        return {
-            imagePath: ['./images/product.jpg', './images/product.jpg',
-                './images/product.jpg', './images/product.jpg', './images/last.jpg']
-        }
-    }
 
     render() {
-        let path = ['./images/product.jpg', './images/product.jpg',
-            './images/product.jpg', './images/product.jpg', './images/last.jpg'];
-        let s = this.props.imagePath.map((p, index) => {
+        let props = this.props
+        console.log(props)
+        let images_item = this.props.images.map((img, index) => {
+
             return (
                 <div className="thumbnailWrapper" key={index}>
                     <img className="thumbnail"
-                         src={require(p)}
-                         onClick={() => this.setCurrent(p)}
+                         src={ENV.domain + img}
+                         onClick={() => this.setCurrent(ENV.domain + img)}
                     />
                 </div>
             )
         });
         let detail = (
             <div className="detailContainer">
-                <img className="detail" src={this.state.current?require(this.state.current):require('./images/product.jpg')}/>
+                <img className="detail" src={this.state.current?this.state.current:require('./images/default.png')}/>
             </div>);
         return (
             <div className="galleryContainer">
                 {detail}
                 <div className="picList">
-                    {s}
+                    {images_item}
                 </div>
             </div>
         )
