@@ -1,0 +1,30 @@
+.PaySuccHeader{
+    width: 100%;
+    height: 326px;
+    background-color: #05af10;
+    position: relative;
+}
+
+.PaySuccHeader .box{
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 1300px;
+    height: 196px;
+    display: inline-block;
+}
+.PaySuccHeader .box .text{
+    display: inline-block;
+    /* font-size: 40px; */
+    line-height: 77px;
+    vertical-align: middle;
+    margin-left: 30px;
+    color: #fff;
+
+}
+.PaySuccHeader .box img{
+    vertical-align: middle;
+}

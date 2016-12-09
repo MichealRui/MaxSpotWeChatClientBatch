@@ -11,7 +11,7 @@ export default class Header extends React.Component{
         let props = this.props;
         return (
             <div className="headerContainer clearfix">
-                <img src={require('./images/local_logo.png')} className="logo"/>
+                <img src={require('./images/local_logo.png')} onClick={props.paySuccClick()} className="logo"/>
                 <span className="location font24">
                     国贸三期 芒果店
                 </span>

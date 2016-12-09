@@ -269,6 +269,18 @@ html { overflow-y: scroll; }
 }
 
 
+.font36 {
+    font-size: 36px !important;
+}
+
+[data-dpr="2"] .font36 {
+    font-size: 72px !important;
+}
+
+[data-dpr="3"] .font36 {
+    font-size: 108px !important;
+}
+
 .font42 {
   font-size: 42px !important;
 }
@@ -279,6 +291,18 @@ html { overflow-y: scroll; }
 
 [data-dpr="3"] .font42 {
     font-size: 126px !important;
+}
+
+.font44 {
+    font-size: 44px !important;
+}
+
+[data-dpr="2"] .font44 {
+    font-size: 88px !important;
+}
+
+[data-dpr="3"] .font44 {
+    font-size: 132px !important;
 }
 
 .font48 {

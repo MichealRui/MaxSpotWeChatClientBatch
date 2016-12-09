@@ -7,6 +7,7 @@ import Banner from '../../components/Banner/Banner'
 import SubContent from '../../containers/SubContent/SubContent'
 import CartContainer from '../../containers/CartContainer/CartContainer';
 import SkuContainer from '../../containers/SkuContainer/SkuContainer';
+import PaySuccContainer from '../../containers/PaySuccContainer/PaySuccContainer';
 import { initMainContent } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index'
 import {changeSubContent} from '../../actions/index'
@@ -18,7 +19,8 @@ class PageContainer extends React.Component{
         super(props);
         this.state = {
             cartVisible:false,
-            skuVisible:false
+            skuVisible:false,
+            paySuccVisible:false
         }
     }
 
@@ -61,12 +63,24 @@ class PageContainer extends React.Component{
         })
     }
 
+    onPaySuccClick(){
+        this.setState({
+            paySuccVisible:true
+        })
+    }
+    hidePaySucc(){
+        this.setState({
+            paySuccVisible:false
+        })
+    }
+
     render() {
         let {state, dispatch} = this.props;
         return (
             <div className="pageContainer">
                 <Header cartClick={() => this.onCartBtnClick.bind(this)}
                         {...state.cart}
+                        paySuccClick={()=>this.onPaySuccClick.bind(this)}
                 />
                 <Banner/>
                 <SubContent
@@ -87,6 +101,10 @@ class PageContainer extends React.Component{
                 <SkuContainer visible={this.state.skuVisible}
                               onCancel={()=>this.hideProductDetail.bind(this)}
                               product={state.product}
+                />
+                <PaySuccContainer visible={this.state.paySuccVisible}
+                                  onCancel={()=>this.hidePaySucc.bind(this)}
+
                 />
             </div>
         )
