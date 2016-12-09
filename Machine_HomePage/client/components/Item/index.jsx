@@ -10,13 +10,10 @@ export default class Item extends React.Component {
     addClick(e) {
         // todo update cart
         this.props.click(
-            {
-                // storeId: this.props.store.id + '',
-                skuId: this.props.item.id + '',
-                count: '1'
-            }
+            this.props.item
         );
-        e.stopPropagation()
+        e.stopPropagation();
+        e.preventDefault();
     }
 
     showClick(item) {
@@ -29,7 +26,7 @@ export default class Item extends React.Component {
             particial[0] = particial[0] + '_middle';
             return particial.join('.')
         } else {
-            path
+            return path
         }
     }
 

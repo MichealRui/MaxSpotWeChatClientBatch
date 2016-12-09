@@ -13,6 +13,12 @@ export default class SubContent extends React.Component {
         super(props)
     }
 
+    shouldComponentUpdate(nextProps, nextState){
+        return !!((this.props.contentData.items.length !== nextProps.contentData.items.length)
+        && (this.props.contentData.items[0].id != nextProps.contentData.items[0].id));
+
+    }
+
     render() {
         let props = this.props;
         let current = props.contentData;

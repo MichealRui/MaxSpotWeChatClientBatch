@@ -17,6 +17,18 @@ export const SUCC_ADD_CART = 'SUCC_ADD_CART';
 
 export const FAIL_ADD_CART = 'FAIL_ADD_CART';
 
+export const DELETE_ONE_CART = 'DELETE_ONE_CART';
+
+export const SUCC_DELETE_CART = 'SUCC_DELETE_CART';
+
+export const FAIL_DELETE_CART = 'FAIL_DELETE_CART';
+
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+
+export const SUCC_REMOVE_CART = 'SUCC_REMOVE_CART';
+
+export const FAIL_REMOVE_CART = 'FAIL_REMOVE_CART';
+
 export const CLEAR_CART = 'CLEAR_CART';
 
 export const CHANGE_SUBCONTENT = 'CHANGE_SUBCONTENT';
@@ -30,6 +42,8 @@ export const SET_DETAIL = 'SET_DETAIL';
 export const SUCC_FETCH_CART = 'SUCC_FETCH_CART';
 
 const cart = cartMock;
+
+
 
 export function initMainContent () {
     // fetch('',
@@ -65,25 +79,101 @@ function initSucc(data) {
 }
 
 export function addToCart(item) {
+    // return (dispatch) => {
+    //     fetch( "local_api/add_sku_to_cart.action",
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //             body: JSON.stringify(
+    //                 Object.assign({}, {
+    //                 skuId: '' + item.id,
+    //                 count: '1'
+    //                 })
+    //             )
+    //         })
+    //         .then(response => response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //                 dispatch(successAddToCart(item))
+    //             } else {
+    //                 dispatch(errorAddToCart({errorMessage: json.error_message}))
+    //             }
+    //         }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
+    // }
     return (dispatch) => {
-        // dispatch(startAddToCart())
-        fetch( "local_api/add_sku_to_cart.action",
-            {
-                credentials: 'include',
-                method: 'POST',
-                mode: 'cors',
-                body: JSON.stringify(
-                    Object.assign({}, item)
-                )
-            })
-            .then(response => response.json())
-            .then(json => {
-                if(json.is_succ) {
-                    dispatch(successAddToCart(item))
-                } else {
-                    dispatch(errorAddToCart({errorMessage: json.error_message}))
-                }
-            }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
+        dispatch(successAddToCart(item))
+    }
+}
+
+export function deleteOneFromCart(item) {
+    // return (dispatch) => {
+    //     fetch( "local_api/remove_sku_from_cart.action",
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //             body: JSON.stringify(
+    //                 Object.assign({}, {
+    //                 skuId: '' + item.id,
+    //                 count: '1'
+    //                 })
+    //             )
+    //         })
+    //         .then(response => response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //                 dispatch(succDeleteItem(item))
+    //             } else {
+    //                 dispatch(errorAddToCart({errorMessage: json.error_message}))
+    //             }
+    //         }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
+    // }
+    return (dispatch) => {
+        dispatch(succDeleteItem(item))
+    }
+}
+
+export function succDeleteItem(item) {
+    return {
+        type: SUCC_DELETE_CART,
+        item
+    }
+}
+
+export function removeFromCart(item) {
+
+    // return (dispatch) => {
+    //     fetch('local_api/remove_sku_from_cart.action', {
+    //         credentials: 'include',
+    //         method: 'POST',
+    //         mode: 'cors',
+    //         body: JSON.stringify(
+    //             Object.assign({}, {
+    //             skuId: '' + item.id,
+    //                 count: item.count
+    //                 })
+    //             )
+    //     }).then(response => response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //                 dispatch(succFetchCart(json.skus))
+    //             } else {
+    //
+    //             }
+    //         })
+    // }
+
+    return (dispatch) => {
+        console.log(item)
+        dispatch(succRemoveItem(item))
+    }
+}
+
+export function succRemoveItem(item) {
+    return {
+        type: SUCC_REMOVE_CART,
+        item
     }
 }
 
@@ -103,10 +193,9 @@ export function fetchCart() {
     //         })
     // }
     return (dispatch) => {
-
-        let mock = cart
-        console.log(cart);
-        return dispatch(succFetchCart(cart.skus))
+        return dispatch(succFetchCart(
+            Object.assign({}, cart).skus
+        ))
     }
 }
 
@@ -117,13 +206,10 @@ export function succFetchCart(skus) {
     }
 }
 
-export function startAddToCart() {
-
-}
-
 export function successAddToCart(item) {
     return {
-        type: SUCC_ADD_CART
+        type: SUCC_ADD_CART,
+        item
     }
 }
 

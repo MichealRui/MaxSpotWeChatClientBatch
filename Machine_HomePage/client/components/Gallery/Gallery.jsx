@@ -7,7 +7,7 @@ export default class Gallery extends React.Component {
     constructor(props) {
         super(props)
         this.state={
-            current:props.images[0]
+            current:'./images/default.png'
         }
     }
 

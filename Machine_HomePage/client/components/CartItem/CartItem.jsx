@@ -17,6 +17,22 @@ export default class CartItem extends React.Component{
         }
     }
 
+    removeItem() {
+        this.props.remove(this.props.item)
+    }
+
+    decrease() {
+        this.props.dec(
+            this.props.item
+        )
+    }
+
+    addItem() {
+        this.props.add(
+            this.props.item
+        )
+    }
+
     render() {
         let props = this.props.item;
         return (
@@ -34,11 +50,11 @@ export default class CartItem extends React.Component{
                 </h3>
                 <div className="item-panel clearfix">
                     <div className="counting clearfix">
-                        <a className="btn-minus">-</a>
+                        <a className="btn-minus" disabled={props.count == 1} onClick={() => this.decrease.bind(this)()}>-</a>
                         <span type="text" className="quantity" value={props.count} readOnly="readOnly">{props.count}</span>
-                        <a className="btn-plus">+</a>
+                        <a className="btn-plus" disabled={ props.quantity <= props.count} onClick={() => this.addItem.bind(this)()}>+</a>
                     </div>
-                    <a className="trash">Remove this item!</a>
+                    <a className="trash" onClick={() => this.removeItem.bind(this)()}>Remove this item!</a>
                 </div>
             </div>
         )

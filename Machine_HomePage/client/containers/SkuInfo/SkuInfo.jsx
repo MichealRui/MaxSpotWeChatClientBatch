@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import image from '../../components/Gallery/images/product-3.jpg'
 require('./index.css')
 
 export default class skuInfo extends React.Component {
@@ -26,7 +25,7 @@ export default class skuInfo extends React.Component {
         let sku_detail = (
             <div>
                 <div className="comment hide">
-                    <div className="circle_img"><img src={image} /></div>
+                    <div className="circle_img"><img src={''} /></div>
                     <div className="comment_text">
                         <p className="font26">爱跑步的女孩</p>
                         <p className="font26">“这是我吃过最好吃的面包干，没有之一”

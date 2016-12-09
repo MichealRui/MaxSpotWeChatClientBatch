@@ -1,6 +1,10 @@
 'use strict';
 import {INIT_SUCC} from '../actions/index'
-import {CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART, CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU} from '../actions/index'
+import {
+    CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART,
+    CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
+    SUCC_DELETE_CART,SUCC_REMOVE_CART
+} from '../actions/index'
 import icon_baby from '../components/Selector/images/icon_baby.png'
 import icon_daily from '../components/Selector/images/icon_daily.png'
 import icon_food from '../components/Selector/images/icon_food.png'
@@ -111,8 +115,10 @@ function initSuccess(content, data){
     currentSub.items = currentSub.categoried[selector[0].subSelector[0]];
     let cart = {
         remainTime: '380',
-        items: currentSub.items,
+        items: [],
         moreItems: currentSub.items.slice(0, 3),
+        count: 0,
+        totalPrice:0
     };
     return Object.assign({}, content, {
         banner: data.banner,
@@ -122,12 +128,6 @@ function initSuccess(content, data){
         storeInfo: data.store,
         cart: cart,
     })
-}
-
-function succAddCart(content, item) {
-    let state = Object.assign({}, content)
-    state.cart.items.push(item);
-    return state
 }
 
 function changeContent(content, {key, subKey}) {
@@ -148,11 +148,65 @@ function setDetail(content, prod) {
     return Object.assign({}, content, {detailContent: prod});
 }
 
+function succAddCart(content, prod) {
+    let state = Object.assign({}, content);
+    let cartItems = state.cart.items;
+    let findResult = cartItems.find(i => i.id == prod.id) || [];
+    findResult.length == 0 ?
+        cartItems.push(Object.assign({}, prod, {count:1})):
+        cartItems.forEach(i => {
+            if(i.id == prod.id) {
+                i.count = parseInt(i.count) + 1
+            }
+            return i
+        });
+    state.cart = finalCartStatus(state.cart);
+    return state
+}
+
+function finalCartStatus(cart){
+    let newCart = Object.assign({}, cart);
+    let cartItems = newCart.items;
+    newCart.totalPrice = cartItems.map(
+        product => product.count * product.sellprice
+    ).reduce(
+        (pre, next) =>
+            parseInt(pre) + parseInt(next)
+        , 0)  / 100;
+    return newCart
+}
+
 function succFetchCart(content, skus) {
-    console.log(skus)
+    console.log(skus);
     let newContent = Object.assign({}, content);
-    newContent.cart.items = skus[0].productList
+    let newSku = Object.assign({}, skus)
+    newContent.cart.items = newSku[0].productList;
+    newContent.cart = finalCartStatus(newContent.cart);
     return newContent
+}
+
+function decreaseItem(content, prod) {
+    let state = Object.assign({}, content);
+    let cart = state.cart
+    let findResult = cart.items.find(i => i.id == prod.id) || [];
+    if(findResult.length != 0) {
+        cart.items.forEach(i => {
+            if(i.id == prod.id) {
+                i.count = parseInt(i.count) - 1
+            }
+            return i
+        })
+    }
+    state.cart = finalCartStatus(state.cart);
+    return state
+}
+
+function succRemoveItem(content, prod) {
+    let state = Object.assign({}, content);
+    let cart = state.cart;
+    cart.items = cart.items.filter(i => i.id != prod.id);
+    state.cart = finalCartStatus(state.cart);
+    return state
 }
 
 export default function (
@@ -162,10 +216,14 @@ export default function (
             return initSuccess(content, action.data);
         case CHANGE_SUBCONTENT:
             return changeContent(content, action);
-        case SUCC_ADD_CART:
-            return succAddCart(content, action.item);
         case SET_DETAIL:
             return setDetail(content, action.prod);
+        case SUCC_ADD_CART:
+            return succAddCart(content, action.item);
+        case SUCC_DELETE_CART:
+            return decreaseItem(content, action.item);
+        case SUCC_REMOVE_CART:
+            return succRemoveItem(content, action.item)
         case SUCC_FETCH_CART:
             return succFetchCart(content, action.skus)
         case SUCC_FETCH_SKU:

@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import image from '../../components/Gallery/images/product-3.jpg'
 require('./index.css')
 
 export default class skuFooter extends React.Component {

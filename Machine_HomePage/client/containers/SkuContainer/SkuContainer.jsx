@@ -13,8 +13,22 @@ export default class SkuContainer extends React.Component {
     constructor(props) {
         super(props)
     }
-    render(){
 
+    getMiddlePicList(images) {
+        return images.map(image => this.getMiddlePic(image))
+    }
+
+    getMiddlePic(path) {
+        let particial = path.split('.');
+        if(particial.length == 2) {
+            particial[0] = particial[0] + '_middle';
+            return particial.join('.')
+        } else {
+            return path
+        }
+    }
+
+    render(){
         let props = this.props;
         console.log(props)
         let product = props.product
@@ -27,7 +41,7 @@ export default class SkuContainer extends React.Component {
                        footer=''
                 >
                     <div className="galleryWrapper">
-                        <Gallery images={sku?sku.images:''}/>
+                        <Gallery images={sku?this.getMiddlePicList(sku.images):''}/>
                     </div>
                     <div className="skuInfo">
                         <Header item={product}/>

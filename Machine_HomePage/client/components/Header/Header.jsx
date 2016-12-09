@@ -23,7 +23,7 @@ export default class Header extends React.Component{
                     <span className="bag"></span>
                     <span className="shopping-count"></span>
                     <span className="fa fa-cny font20"></span>
-                    <span className="sumprice font20">50</span>
+                    <span className="sumprice font20">{props.totalPrice || 0}</span>
                 </span>
             </div>
         )

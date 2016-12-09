@@ -37,25 +37,25 @@ export default class CartBottom extends React.Component {
 
                 <div className="cart-my-total">
                     <div className="my-total-box">
-                        <div className="price-one-line clearfix">
-                            <span className="price-name">商品总金额</span>
-                            <span className="price-num">¥2321</span>
-                        </div>
-                        <div className="price-one-line clearfix">
-                            <span className="price-name">优惠总计</span>
-                            <span className="price-num">¥-321</span>
-                        </div>
-                        <div className="price-one-line clearfix">
-                            <span className="price-name">优惠总计</span>
-                            <span className="price-num">¥-300</span>
-                        </div>
-                        <div className="price-one-line clearfix">
-                            <span className="price-name">优惠总计</span>
-                            <span className="price-num">¥-220</span>
-                        </div>
+                        {/*<div className="price-one-line clearfix">*/}
+                            {/*<span className="price-name">商品总金额</span>*/}
+                            {/*<span className="price-num">¥2321</span>*/}
+                        {/*</div>*/}
+                        {/*<div className="price-one-line clearfix">*/}
+                            {/*<span className="price-name">优惠总计</span>*/}
+                            {/*<span className="price-num">¥-321</span>*/}
+                        {/*</div>*/}
+                        {/*<div className="price-one-line clearfix">*/}
+                            {/*<span className="price-name">优惠总计</span>*/}
+                            {/*<span className="price-num">¥-300</span>*/}
+                        {/*</div>*/}
+                        {/*<div className="price-one-line clearfix">*/}
+                            {/*<span className="price-name">优惠总计</span>*/}
+                            {/*<span className="price-num">¥-220</span>*/}
+                        {/*</div>*/}
                         <div className="price-one-line should-pay clearfix">
                             <span className="price-name">应付金额</span>
-                            <span className="price-num total-pay">¥1480</span>
+                            <span className="price-num total-pay">¥{this.props.totalPrice}</span>
                         </div>
                     </div>
                 </div>

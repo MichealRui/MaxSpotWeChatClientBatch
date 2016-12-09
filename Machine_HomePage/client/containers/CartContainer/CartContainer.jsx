@@ -21,7 +21,12 @@ export default class CartContainer extends React.Component {
         };
 
         let items = props.items.map((item, index) => {
-            return <CartItem item={item} key={index}/>
+            return <CartItem item={item}
+                             key={index}
+                             dec={props.decItem}
+                             add={props.addToCart}
+                             remove={props.removeItem}
+            />
         });
 
         return (
@@ -43,7 +48,7 @@ export default class CartContainer extends React.Component {
                     </div>
                     <CartBottom moreItems={props.moreItems}
                                 itemClick={props.addToCart}
-                                store={props.storeData}
+                                totalPrice={props.totalPrice}
                     />
                     </div>
                 </Modal>
