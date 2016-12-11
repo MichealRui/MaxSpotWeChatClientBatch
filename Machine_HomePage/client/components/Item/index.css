@@ -56,7 +56,7 @@
 .brandProductContainer .productDesc {
     width: 200px;
 	color: rgba(0,0,0,.9);
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	/*line-height: 1.5;*/
     white-space: nowrap;
     -ms-text-overflow: ellipsis;
@@ -65,13 +65,38 @@
 }
 .brandProductContainer .categoryName {
 	color: rgba(0,0,0,.6);
-	margin-bottom: 0.388889rem;
+	margin-bottom: 10px;
 }
 .item.commonItem .brandProductContainer .categoryName {
 	display: block;
 }
+
+.item .oldPrices{
+	font-size: 18px;
+	position: absolute;
+	bottom: 12px;
+	text-align: center;
+	left: 124px;
+	text-decoration: line-through;
+	color: rgba(0,0,0,.6);
+}
+
 .item .unitPrice {
 	display: block;
 	color: #2db9ed;
 	text-align: left;
+}
+
+.item .soldOut{
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+	width: 72px;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;
+	font-size: 22px;
+	color: #999;
+	border: 1px solid #999;
+	border-radius: 5px;
 }

@@ -5,11 +5,7 @@ import {
     CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
     SUCC_DELETE_CART,SUCC_REMOVE_CART
 } from '../actions/index'
-import icon_baby from '../components/Selector/images/icon_baby.png'
-import icon_daily from '../components/Selector/images/icon_daily.png'
-import icon_food from '../components/Selector/images/icon_food.png'
-import icon_glass from '../components/Selector/images/icon_glass.png'
-import icon_tint from '../components/Selector/images/icon_tint.png'
+import icon_images from '../mock/images'
 let bannerdata = [
     {
         destUrl: "",
@@ -57,15 +53,15 @@ let data = {
 };
 
 function initSuccess(content, data){
-
     const SELECTOR_ICONS = {
-        1: {key: 'food', content: '食品', faIcon:'fa-empire',image:icon_food},
-        2: {key: 'drink', content: '酒饮', faIcon:'fa-glass',image:icon_glass},
-        3: {key: 'makeup', content: '美妆', faIcon:'fa-tint',image:icon_tint},
-        4: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',image:icon_daily},
-        5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',image:icon_baby}
+        1: {key: 'food', content: '食品', faIcon:'fa-empire',image:icon_images.img_sp},
+        2: {key: 'makeup', content: '护肤美妆', faIcon:'fa-tint',image:icon_images.img_hfmz},
+        3: {key: 'daily', content: '杂货', faIcon:'fa-umbrella',image:icon_images.img_zh},
+        4: {key: 'drink', content: '酒水饮料', faIcon:'fa-glass',image:icon_images.img_jsyl},
+        5: {key: 'baby', content: '儿童母婴', faIcon:'fa-deviantart',image:icon_images.img_etmy}
     };
     let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
+    console.log(categories)
     let selector = categories.map(cat =>  SELECTOR_ICONS[cat.id]);//.filter(s => s);
     let subContentArray = categories.map(cat => {
         let key = SELECTOR_ICONS[cat.id]["key"];

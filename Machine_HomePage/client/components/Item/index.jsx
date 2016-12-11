@@ -30,8 +30,34 @@ export default class Item extends React.Component {
         }
     }
 
+    getAttr(attributes){
+        let dif = <span></span>;
+        var attr = dif;
+        if(attributes && attributes.length > 0){
+            attr = attributes.map((item,index)=>{
+                if(item.value){
+                    return item.value + item.unit;
+                }else{
+                    return ''
+                }
+            }).reduce((pre,next)=>{
+                if(pre == '' && next == ''){
+                    return '';
+                }else{
+                    return pre + next + ' '
+                }
+            },'')
+        }
+        if(attr == ''){
+            attr = dif
+        }
+        return attr
+    }
+
     render() {
         let props = this.props.item;
+        console.log(props)
+        var atts = this.getAttr(props.attributes)
         // let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         return (
             <div className={"item sliderItem"} onClick={() => this.showClick.bind(this)(props)}>
@@ -45,9 +71,15 @@ export default class Item extends React.Component {
                 <span className='brandProductContainer'>
                     <p className={'productName font23'}>{props.brandName}</p>
                     <p className='productDesc font23'>{props.shortName}</p>
+                    <p className={'categoryName font18'}>
+                    {atts}
+                    </p>
                 </span>
-                <span className='unitPrice font28'>{props.sellprice / 100 || 0}元</span>
-                <span className="add font30" onClick={this.addClick.bind(this)}>+</span>
+
+                <span className='unitPrice font28'>{props.sellprice / 100 || 0}<span className="font20">元</span></span>
+                <span className={"oldPrices font20 " + (props.quantity > 0 && props.msrp ? '' : 'hide')}>市场价 {props.msrp/100}元</span>
+                <span className={"add font30 "+ (props.quantity > 0 ? '' : 'hide')} onClick={this.addClick.bind(this)}>+</span>
+                <span className={"soldOut font22 "+ (props.quantity > 0 ? 'hide' : '')}>售罄</span>
             </div>
         );
     }

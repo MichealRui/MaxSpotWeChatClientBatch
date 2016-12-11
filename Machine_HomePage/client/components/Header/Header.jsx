@@ -13,17 +13,18 @@ export default class Header extends React.Component{
             <div className="headerContainer clearfix">
                 <img src={require('./images/local_logo.png')} onClick={props.paySuccClick()} className="logo"/>
                 <span className="location font24">
-                    国贸三期 芒果店
+                    <img src={require('./images/add.png')} alt=""/>
+                    国贸三期B1芒果
                 </span>
-                <span className="login">
+                <span className="login hide">
                     <img src={require('./images/local_crown.png')} className="login_logo"/>
                     <span className="font24">VIP登陆</span>
                     </span>
                 <span className="cart" onClick={props.cartClick()}>
-                    <span className="bag"></span>
-                    <span className="shopping-count"></span>
+                    <span className="bag"><img src={require('./images/cart.png')} alt=""/></span>
+                    <span className="shopping-count font20">10</span>
                     <span className="fa fa-cny font20"></span>
-                    <span className="sumprice font20">{props.totalPrice || 0}</span>
+                    <span className="sumprice font36">{props.totalPrice || 0}</span>
                 </span>
             </div>
         )

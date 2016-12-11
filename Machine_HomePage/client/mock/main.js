@@ -4398,7 +4398,7 @@ let data = {
             }
         },
         {
-            "id": 3,
+            "id": 2,
             "items": [
                 {
                     "maxStock": 0,
@@ -4846,7 +4846,7 @@ let data = {
             }
         },
         {
-            "id": 4,
+            "id": 3,
             "items": [
                 {
                     "maxStock": 0,
@@ -6256,7 +6256,7 @@ let data = {
             }
         },
         {
-            "id": 2,
+            "id": 4,
             "items": [
                 {
                     "maxStock": 0,
@@ -6662,7 +6662,7 @@ let data = {
                 "imagePath": "http://test.mjitech.com/images/thanksgiving_banner.jpg",
                 "destUrl": "http://test.mjitech.com/buyer_activity/thanksgiving/index.html"
             }
-        }
+        },
     ],
     "selectedStore": {
         "region": 5,
@@ -6687,7 +6687,7 @@ let data = {
     },
     "banners": [
         {
-            "imagePath": "http://test.mjitech.com/images/thanksgiving_banner.jpg",
+            "imagePath": "",
             "destUrl": "http://test.mjitech.com/buyer_activity/thanksgiving/index.html"
         }
     ],

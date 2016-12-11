@@ -82,7 +82,7 @@ class PageContainer extends React.Component{
                         {...state.cart}
                         paySuccClick={()=>this.onPaySuccClick.bind(this)}
                 />
-                <Banner/>
+                <Banner bannerData={state.banner}/>
                 <SubContent
                     contentData={state.currentSub}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}

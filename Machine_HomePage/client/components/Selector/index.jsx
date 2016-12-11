@@ -32,15 +32,16 @@ export default class Selector extends React.Component {
     render() {
         let props = this.props;
         let keys = props.selector;
+        console.log(keys)
         let tag = keys.map(
             (sel,index)=>{
                 return (
-                    <li key={index} className={ "selector "}
+                    <li key={index} className={ "selector " + (this.state.selectorKey == sel.key ? 'active' : '')  }
                         onClick={
                             () => this.setSubSelector(sel)
                         }
                     >
-                        <div className={"imageScale " + (this.state.selectorKey == sel.key ? 'active' : '')  }>
+                        <div className={"imageScale " }>
                             <div className={"itemIcon font34 fa "}>
                                 <img width='100%' src={sel.image}/>
                             </div>
@@ -48,7 +49,6 @@ export default class Selector extends React.Component {
                                 <span>{sel.content}</span>
                             </div>
                         </div>
-                        <span className={'triangle ' + (this.state.selectorKey == sel.key ? 'action' : '') }></span>
                     </li>
                 )
             }
