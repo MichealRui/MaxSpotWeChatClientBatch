@@ -32,7 +32,6 @@ export default class Selector extends React.Component {
     render() {
         let props = this.props;
         let keys = props.selector;
-        console.log(keys)
         let tag = keys.map(
             (sel,index)=>{
                 return (

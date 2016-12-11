@@ -22,7 +22,7 @@ export default class Header extends React.Component{
                     </span>
                 <span className="cart" onClick={props.cartClick()}>
                     <span className="bag"><img src={require('./images/cart.png')} alt=""/></span>
-                    <span className="shopping-count font20">10</span>
+                    <span className={"shopping-count font20 "+(props.count > 0 ? '' : 'hide')}>{props.count}</span>
                     <span className="fa fa-cny font20"></span>
                     <span className="sumprice font36">{props.totalPrice || 0}</span>
                 </span>
