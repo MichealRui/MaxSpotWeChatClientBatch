@@ -7,6 +7,8 @@ import SwiperComponent from '../../components/Swiper/index'
 import CartBottom from '../CartBottom/CartBottom'
 import ReactQrCode from 'qrcode.react'
 import QrCode from  '../../components/QRContent/QrContent'
+import CartStatus from '../../containers/CartContainer/CartStatus';
+import Taking from '../PaySuccContainer/PaySuccContainer'
 require('./index.css');
 
 export default class CartContainer extends React.Component {
@@ -26,11 +28,9 @@ export default class CartContainer extends React.Component {
         }
     }
 
-    setWaiting() {
-        this.setState({
-                pageStatus: 'waiting'
-        })
-    }
+    static defaultProps = {
+        cartStatus: CartStatus.SHOW_CART,
+    };
 
     fetchOrderStatus() {
         let {qr, order, fetchOrder} = this.props;
@@ -60,6 +60,46 @@ export default class CartContainer extends React.Component {
             />
         });
 
+        let cartContent;
+        switch (props.cartStatus) {
+            case CartStatus.SHOW_CART:
+                cartContent = (
+
+                    <div>
+                        <div className="itemContainer" >
+                            <SwiperComponent
+                                swiperConfig={swiperConfig}
+                                swiperContainer={'swiper3'}
+                            >
+                                {items}
+                            </SwiperComponent>
+                        </div>
+                        <CartBottom moreItems={props.moreItems}
+                                    itemClick={props.addToCart}
+                                    totalPrice={props.totalPrice}
+                                    submit={props.submit}
+                                    setLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
+                        />
+                    </div>
+                );
+                break;
+            case CartStatus.SHOW_LOADING:
+                cartContent = (
+                    <div> Loading </div>
+                );
+                break;
+            case CartStatus.SHOW_QR:
+                cartContent = <QrCode qr={props.qr} order={props.order}/>
+                break;
+            case CartStatus.SHOW_TAKING:
+                cartContent = <Taking/>
+                break;
+            default:
+                cartContent = <div> error </div>
+        }
+
+
+
         return (
             <div className="cartContainer">
                 {/*<Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>*/}
@@ -69,23 +109,7 @@ export default class CartContainer extends React.Component {
                        footer=''
                 >
                     {
-                        props.qr ?
-                            <ReactQrCode value={props.qr}/>:
-                            <div>
-                                <div className="itemContainer" >
-                                    <SwiperComponent
-                                        swiperConfig={swiperConfig}
-                                        swiperContainer={'swiper3'}
-                                    >
-                                        {items}
-                                    </SwiperComponent>
-                                </div>
-                                <CartBottom moreItems={props.moreItems}
-                                            itemClick={props.addToCart}
-                                            totalPrice={props.totalPrice}
-                                            submit={props.submit}
-                                />
-                            </div>
+                        cartContent
                     }
 
                 </Modal>

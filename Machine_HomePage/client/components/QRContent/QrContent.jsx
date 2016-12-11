@@ -20,6 +20,7 @@ export default class QrContent extends React.Component {
 
     render () {
         let qr = this.props.qr;
+        let order=  this.props.order
         return (
             <div>
                 <ReactQrCode value={qr}/>
