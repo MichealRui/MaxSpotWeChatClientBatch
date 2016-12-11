@@ -56,7 +56,6 @@ export default class Item extends React.Component {
 
     render() {
         let props = this.props.item;
-        console.log(props)
         var atts = this.getAttr(props.attributes)
         // let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         return (
