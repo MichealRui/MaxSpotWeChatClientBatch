@@ -41,6 +41,12 @@ export const SET_DETAIL = 'SET_DETAIL';
 
 export const SUCC_FETCH_CART = 'SUCC_FETCH_CART';
 
+export const QR_CLICK = 'QC_CLICK';
+
+export const SUBMIT_CART='SUBMIT_CART';
+
+export const SET_PAYMENT_CODE = 'SET_PAYMENT_CODE';
+
 const cart = cartMock;
 
 
@@ -222,7 +228,7 @@ export function errorAddToCart(errorMessage) {
 
 export function clearCart() {
     return {
-        type: CLEAR_CART
+        type: CLEAR_CART,
     }
 }
 
@@ -231,6 +237,66 @@ export function changeSubContent(key, subKey) {
         type: CHANGE_SUBCONTENT,
         key,
         subKey
+    }
+}
+
+export function submitCart(cart) {
+    // return (dispatch) => {
+    //     fetch('local_api/submit_cart.action',
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //         }
+    //     ).then(response =>response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //
+    //             } else {
+    //
+    //             }
+    //         })
+    // }
+
+    return (dispatch) => {
+        dispatch(fetchQrCode())
+    }
+}
+
+// export function succSubmitCart() {
+//     return(dispatch) => {
+//         dispatch(fetchQrCode())
+//     };
+// }
+
+export function fetchQrCode(orderNumber='S012016120918937') {
+    // return (dispatch) => {
+    //     fetch('', {
+    //         credentials: 'include',
+    //         method: 'POST',
+    //         mode: 'cors',
+    //     }).then(response => response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //
+    //             } else {
+    //
+    //             }
+    //         })
+    // }
+    let url = 'http://www.baidu.com'
+    return(dispatch) => {
+        dispatch({
+            type: SET_PAYMENT_CODE,
+            qrCode: url
+        })
+    }
+}
+
+export function clearQr() {
+    return {
+        type:SET_PAYMENT_CODE,
+        qrCode: ''
     }
 }
 

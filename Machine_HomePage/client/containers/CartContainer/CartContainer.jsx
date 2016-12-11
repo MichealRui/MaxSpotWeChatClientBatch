@@ -5,6 +5,7 @@ import { Modal, Button } from 'antd';
 import CartItem from '../../components/CartItem/CartItem'
 import SwiperComponent from '../../components/Swiper/index'
 import CartBottom from '../CartBottom/CartBottom'
+import ReactQrCode from 'qrcode.react'
 require('./index.css')
 
 export default class CartContainer extends React.Component {
@@ -37,20 +38,26 @@ export default class CartContainer extends React.Component {
                        wrapClassName="customized-modal"
                        footer=''
                 >
-                    <div>
-                    <div className="itemContainer" >
-                        <SwiperComponent
-                            swiperConfig={swiperConfig}
-                            swiperContainer={'swiper3'}
-                        >
-                            {items}
-                        </SwiperComponent>
-                    </div>
-                    <CartBottom moreItems={props.moreItems}
-                                itemClick={props.addToCart}
-                                totalPrice={props.totalPrice}
-                    />
-                    </div>
+                    {
+                        props.qr ?
+                            <ReactQrCode value={props.qr}/>:
+                            <div>
+                                <div className="itemContainer" >
+                                    <SwiperComponent
+                                        swiperConfig={swiperConfig}
+                                        swiperContainer={'swiper3'}
+                                    >
+                                        {items}
+                                    </SwiperComponent>
+                                </div>
+                                <CartBottom moreItems={props.moreItems}
+                                            itemClick={props.addToCart}
+                                            totalPrice={props.totalPrice}
+                                            submit={props.submit}
+                                />
+                            </div>
+                    }
+
                 </Modal>
             </div>
         );
