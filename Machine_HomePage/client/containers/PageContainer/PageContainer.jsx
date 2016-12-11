@@ -13,7 +13,8 @@ import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/inde
 import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
 import {fetchCart} from '../../actions/index'
-import {submitCart, clearQr, fetchOrderStatus} from '../../actions/index'
+import {submitCart, clearQr, fetchOrderStatus, setCartStatus} from '../../actions/index'
+import CartStatus from '../CartContainer/CartStatus';
 
 
 class PageContainer extends React.Component{
@@ -35,6 +36,7 @@ class PageContainer extends React.Component{
     onCartBtnClick() {
         console.log("show");
         const {dispatch} = this.props;
+        dispatch(setCartStatus(CartStatus.SHOW_CART));
         dispatch(fetchCart());
         this.setState({
             cartVisible: true
@@ -102,6 +104,7 @@ class PageContainer extends React.Component{
                                decItem={(item) => dispatch(deleteOneFromCart(item))}
                                removeItem={(item) => dispatch(removeFromCart(item))}
                                submit={() => dispatch(submitCart())}
+                               setCart={(status) => dispatch(setCartStatus(status))}
                                qr={state.qrCode}
                                order={state.order}
                                fetchOrder={(or) => dispatch(fetchOrderStatus(or))}

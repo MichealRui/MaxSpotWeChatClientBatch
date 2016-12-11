@@ -5,7 +5,7 @@ import {
     CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
     SUCC_DELETE_CART,SUCC_REMOVE_CART,
     SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,
-    SET_ORDER
+    SET_ORDER, SET_CART_STATUS
 } from '../actions/index'
 import icon_images from '../mock/images'
 let bannerdata = [
@@ -116,7 +116,7 @@ function initSuccess(content, data){
         items: [],
         moreItems: currentSub.items.slice(0, 3),
         count: 0,
-        totalPrice:0
+        totalPrice:0,
     };
     return Object.assign({}, content, {
         banner: data.banner,
@@ -212,7 +212,13 @@ function setPaymentCode(content, url) {
 
 function setOrder (content, order) {
     let newOrder = Object.assign({}, order);
-    return Object({}, content, newOrder)
+    return Object.assign({}, content, newOrder)
+}
+
+function setCartStatus(content, cartStatus) {
+    let state =  Object.assign({}, content);
+    state.cart.cartStatus = cartStatus;
+    return state
 }
 
 export default function (
@@ -238,6 +244,8 @@ export default function (
             return setPaymentCode(content, action.qrCode);
         case SET_ORDER:
             return setOrder(content, action.order);
+        case SET_CART_STATUS:
+            setCartStatus(content, action.cartStatus);
         default:
             return content;
     }

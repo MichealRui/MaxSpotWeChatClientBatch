@@ -11,6 +11,7 @@ export default class CartBottom extends React.Component {
     }
 
     onClickQr() {
+        this.props.setLoading();
         this.props.submit()
     }
 

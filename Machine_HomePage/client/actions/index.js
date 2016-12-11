@@ -9,6 +9,8 @@ import cartMock from '../mock/shopping'
 
 import productMock from '../mock/productdetail'
 
+import CartStatus from '../../client/containers/CartContainer/CartStatus'
+
 export const INIT_SUCC = 'INIT_SUCC';
 
 export const ADDTO_CART = 'ADDTO_CART';
@@ -48,6 +50,8 @@ export const SUBMIT_CART='SUBMIT_CART';
 export const SET_PAYMENT_CODE = 'SET_PAYMENT_CODE';
 
 export const SET_ORDER = 'SET_ORDER';
+
+export const SET_CART_STATUS = 'SET_CART_STATUS';
 
 const cart = cartMock;
 
@@ -275,12 +279,6 @@ export function setOrder(order) {
     }
 }
 
-// export function succSubmitCart() {
-//     return(dispatch) => {
-//         dispatch(fetchQrCode())
-//     };
-// }
-
 export function fetchQrCode() {
     // return (dispatch) => {
     //     fetch('', {
@@ -302,6 +300,7 @@ export function fetchQrCode() {
             type: SET_PAYMENT_CODE,
             qrCode: url
         })
+        dispatch(setCartStatus(CartStatus.SHOW_QR))
     }
 }
 
@@ -309,6 +308,13 @@ export function clearQr() {
     return {
         type:SET_PAYMENT_CODE,
         qrCode: ''
+    }
+}
+
+export function setCartStatus(cartStatus) {
+    return {
+        type:SET_CART_STATUS,
+        cartStatus
     }
 }
 
