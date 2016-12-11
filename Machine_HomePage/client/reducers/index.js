@@ -3,7 +3,8 @@ import {INIT_SUCC} from '../actions/index'
 import {
     CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART,
     CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
-    SUCC_DELETE_CART,SUCC_REMOVE_CART
+    SUCC_DELETE_CART,SUCC_REMOVE_CART,
+    SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE
 } from '../actions/index'
 import icon_images from '../mock/images'
 let bannerdata = [
@@ -175,7 +176,7 @@ function finalCartStatus(cart){
 function succFetchCart(content, skus) {
     console.log(skus);
     let newContent = Object.assign({}, content);
-    let newSku = Object.assign({}, skus)
+    let newSku = Object.assign({}, skus);
     newContent.cart.items = newSku[0].productList;
     newContent.cart = finalCartStatus(newContent.cart);
     return newContent
@@ -205,6 +206,10 @@ function succRemoveItem(content, prod) {
     return state
 }
 
+function setPaymentCode(content, url) {
+    return Object.assign({}, content, { qrCode: url });
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
@@ -219,11 +224,13 @@ export default function (
         case SUCC_DELETE_CART:
             return decreaseItem(content, action.item);
         case SUCC_REMOVE_CART:
-            return succRemoveItem(content, action.item)
+            return succRemoveItem(content, action.item);
         case SUCC_FETCH_CART:
-            return succFetchCart(content, action.skus)
+            return succFetchCart(content, action.skus);
         case SUCC_FETCH_SKU:
-            return succFetchSku(content,action.product)
+            return succFetchSku(content,action.product);
+        case SET_PAYMENT_CODE:
+            return setPaymentCode(content, action.qrCode);
         default:
             return content;
     }

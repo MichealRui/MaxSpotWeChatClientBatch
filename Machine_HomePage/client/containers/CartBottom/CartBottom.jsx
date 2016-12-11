@@ -10,6 +10,10 @@ export default class CartBottom extends React.Component {
         super(props)
     }
 
+    onClickQr() {
+        this.props.submit()
+    }
+
     render() {
 
         let swiperConfig = {
@@ -60,7 +64,7 @@ export default class CartBottom extends React.Component {
                     </div>
                 </div>
 
-                <div className="cart-weixin-pay">
+                <div className="cart-weixin-pay" onClick={() => this.onClickQr.bind(this)()}>
                     <img className="wx-pic" src={require("./images/weixinpay.png")} width="224" alt="微信支付" />
                 </div>
             </div>

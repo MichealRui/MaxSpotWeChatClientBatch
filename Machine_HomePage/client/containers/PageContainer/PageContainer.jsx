@@ -13,6 +13,8 @@ import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/inde
 import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
 import {fetchCart} from '../../actions/index'
+import {submitCart, clearQr} from '../../actions/index'
+
 
 class PageContainer extends React.Component{
     constructor(props) {
@@ -41,6 +43,8 @@ class PageContainer extends React.Component{
 
     hideCart() {
         console.log("hide");
+        const {dispatch} = this.props;
+        dispatch(clearQr())
         this.setState({
             cartVisible: false
         })
@@ -97,6 +101,8 @@ class PageContainer extends React.Component{
                                addToCart={(item) => dispatch(addToCart(item))}
                                decItem={(item) => dispatch(deleteOneFromCart(item))}
                                removeItem={(item) => dispatch(removeFromCart(item))}
+                               submit={() => dispatch(submitCart())}
+                               qr={state.qrCode}
                 />
                 <SkuContainer visible={this.state.skuVisible}
                               onCancel={()=>this.hideProductDetail.bind(this)}
