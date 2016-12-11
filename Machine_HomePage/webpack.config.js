@@ -32,6 +32,10 @@ var baseConfig = {
         loader: "url-loader?mimetype=image/png"
       },
       {
+        test: /\.(gif)$/,
+        loader: "url-loader?mimetype=image/gif"
+      },
+      {
         test: /\.html$/,
         loader: 'file?name=[name].[ext]'
       },

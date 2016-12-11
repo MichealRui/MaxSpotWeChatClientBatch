@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Modal, Button } from 'antd';
 import Header from '../PaySuccHeader/PaySuccHeader'
+import Info from '../PaySuccShow/PaySuccShow'
+import Bottom from '../PaySuccBottom/PaySuccBottom'
 require('./index.css')
 
 export default class PaySuccContainer extends React.Component {
@@ -23,7 +25,8 @@ export default class PaySuccContainer extends React.Component {
                 >
 
                     <Header />
-
+                    <Info />
+                    <Bottom />
                 </Modal>
             </div>
         );

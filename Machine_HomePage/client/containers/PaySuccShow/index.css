@@ -1,0 +1,43 @@
+.PaySuccShow{
+    position: relative;
+    width: 100%;
+    height: 55%;
+}
+.PaySuccShow .info{
+    margin:0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 90px 55px 0 90px;
+
+}
+.PaySuccShow .info .pics{
+    display: inline-block;
+    position: relative;
+    width: 22%;
+    padding: 20px;
+    margin: 0 75px;
+}
+.PaySuccShow .info .pics>p{
+    text-align: center;
+    color: #000;
+    line-height: 90px;
+}
+.PaySuccShow .info .pics>img{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.PaySuccShow .info .pics .icon{
+    position: absolute;
+    width: 76px;
+    height: 76px;
+    top:-38px;
+    left: -38px;
+    border-radius: 50% 50%;
+    background-color: #fa7c73;
+    color:#fff;
+    text-align: center;
+    line-height: 76px;
+}

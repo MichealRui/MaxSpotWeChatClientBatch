@@ -1,8 +1,9 @@
 .PaySuccHeader{
     width: 100%;
-    height: 326px;
+    height: 30%;
     background-color: #05af10;
     position: relative;
+    overflow: hidden;
 }
 
 .PaySuccHeader .box{
