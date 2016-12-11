@@ -47,6 +47,8 @@ export const SUBMIT_CART='SUBMIT_CART';
 
 export const SET_PAYMENT_CODE = 'SET_PAYMENT_CODE';
 
+export const SET_ORDER = 'SET_ORDER';
+
 const cart = cartMock;
 
 
@@ -259,7 +261,17 @@ export function submitCart(cart) {
     // }
 
     return (dispatch) => {
-        dispatch(fetchQrCode())
+        dispatch(setOrder({
+            orderNumber: 'S012016120918937'
+        }))
+        dispatch(fetchQrCode('S012016120918937'))
+    }
+}
+
+export function setOrder(order) {
+    return {
+        type: SET_ORDER,
+        order
     }
 }
 
@@ -269,7 +281,7 @@ export function submitCart(cart) {
 //     };
 // }
 
-export function fetchQrCode(orderNumber='S012016120918937') {
+export function fetchQrCode() {
     // return (dispatch) => {
     //     fetch('', {
     //         credentials: 'include',
@@ -297,6 +309,26 @@ export function clearQr() {
     return {
         type:SET_PAYMENT_CODE,
         qrCode: ''
+    }
+}
+
+export function fetchOrderStatus(orderNumber) {
+    return (dispatch) => {
+        fetch('/local_api/order_status.action',{
+            credentials: 'include',
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                order_number: orderNumber
+            })
+        }).then(reponse => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(setOrderStatus())
+                } else {
+
+                }
+            }).catch(e => dispatch())
     }
 }
 

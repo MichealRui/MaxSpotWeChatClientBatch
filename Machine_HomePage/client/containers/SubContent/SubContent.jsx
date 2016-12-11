@@ -14,9 +14,12 @@ export default class SubContent extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState){
-        return !!((this.props.contentData.items.length !== nextProps.contentData.items.length)
-        && (this.props.contentData.items[0].id != nextProps.contentData.items[0].id));
-
+        return !(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items));
+        // if(this.props.contentData.items.length !== nextProps.contentData.items.length) {
+        //     return true
+        // } else if(this.props.contentData.items.length == nextProps.contentData.items.length) {
+        //     return this.props.contentData.items[0].id != nextProps.contentData.items[0].id;
+        // }
     }
 
     render() {

@@ -4,7 +4,8 @@ import {
     CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART,
     CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
     SUCC_DELETE_CART,SUCC_REMOVE_CART,
-    SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE
+    SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,
+    SET_ORDER
 } from '../actions/index'
 import icon_images from '../mock/images'
 let bannerdata = [
@@ -130,8 +131,7 @@ function initSuccess(content, data){
 function changeContent(content, {key, subKey}) {
     let newContent = Object.assign({}, content);
     let target = newContent.subContent[key];
-    newContent.currentSub = target;
-    newContent.currentSub.items = target.categoried[subKey];
+    newContent.currentSub = Object.assign({}, newContent.currentSub, {items: target.categoried[subKey]});
     return newContent
 }
 
@@ -210,6 +210,11 @@ function setPaymentCode(content, url) {
     return Object.assign({}, content, { qrCode: url });
 }
 
+function setOrder (content, order) {
+    let newOrder = Object.assign({}, order);
+    return Object({}, content, newOrder)
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
@@ -231,6 +236,8 @@ export default function (
             return succFetchSku(content,action.product);
         case SET_PAYMENT_CODE:
             return setPaymentCode(content, action.qrCode);
+        case SET_ORDER:
+            return setOrder(content, action.order);
         default:
             return content;
     }

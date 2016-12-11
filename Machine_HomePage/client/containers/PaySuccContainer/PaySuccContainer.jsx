@@ -15,7 +15,6 @@ export default class PaySuccContainer extends React.Component {
 
     render(){
         let props = this.props;
-        console.log(props)
         return (
             <div className="skuContainer">
                 <Modal visible={this.props.visible}

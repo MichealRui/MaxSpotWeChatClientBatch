@@ -76,9 +76,16 @@ export default class Item extends React.Component {
                 </span>
 
                 <span className='unitPrice font28'>{props.sellprice / 100 || 0}<span className="font20">元</span></span>
-                <span className={"oldPrices font20 " + (props.quantity > 0 && props.msrp ? '' : 'hide')}>市场价 {props.msrp/100}元</span>
-                <span className={"add font30 "+ (props.quantity > 0 ? '' : 'hide')} onClick={this.addClick.bind(this)}>+</span>
-                <span className={"soldOut font22 "+ (props.quantity > 0 ? 'hide' : '')}>售罄</span>
+                {
+                    props.quantity > 0 ?
+                        <span>
+                            <span className={"oldPrices font20 "}>市场价 {props.msrp/100}元</span>
+                            <span className={"add font30 "} onClick={this.addClick.bind(this)}>+</span>
+                        </span> :
+                        <span>
+                            <span className={"soldOut font22 "}>售罄</span>
+                        </span>
+                }
             </div>
         );
     }

@@ -6,17 +6,47 @@ import CartItem from '../../components/CartItem/CartItem'
 import SwiperComponent from '../../components/Swiper/index'
 import CartBottom from '../CartBottom/CartBottom'
 import ReactQrCode from 'qrcode.react'
-require('./index.css')
+import QrCode from  '../../components/QRContent/QrContent'
+require('./index.css');
 
 export default class CartContainer extends React.Component {
+
+    /*
+     *  default : show cart
+     *  onQrClick : waiting  //submit order
+     *  QrCode : show QRcode
+     *  taking gif : show taking gif
+     * */
+
     constructor(props) {
-        super(props)
+        super(props);
+        this.state= {
+            sleepTime:2000,
+            pageStatus:0
+        }
     }
+
+    setWaiting() {
+        this.setState({
+                pageStatus: 'waiting'
+        })
+    }
+
+    fetchOrderStatus() {
+        let {qr, order, fetchOrder} = this.props;
+        let PAID = '2';
+        if(order.status != PAID) {
+            fetchOrder(order.orderNumber);
+            window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
+        } else {
+
+        }
+    }
+
     render(){
 
-        let props = this.props
+        let props = this.props;
         let swiperConfig = {
-            // pagination: '.swiper2 .swiper-pagination',
             freeMode: true,
             slidesPerView: 6,
         };

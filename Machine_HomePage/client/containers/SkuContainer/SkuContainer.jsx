@@ -30,7 +30,6 @@ export default class SkuContainer extends React.Component {
 
     render(){
         let props = this.props;
-        console.log(props)
         let product = props.product
         let sku = product ? product.sku : ''
         return (

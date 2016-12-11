@@ -13,7 +13,7 @@ import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/inde
 import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
 import {fetchCart} from '../../actions/index'
-import {submitCart, clearQr} from '../../actions/index'
+import {submitCart, clearQr, fetchOrderStatus} from '../../actions/index'
 
 
 class PageContainer extends React.Component{
@@ -103,6 +103,8 @@ class PageContainer extends React.Component{
                                removeItem={(item) => dispatch(removeFromCart(item))}
                                submit={() => dispatch(submitCart())}
                                qr={state.qrCode}
+                               order={state.order}
+                               fetchOrder={(or) => dispatch(fetchOrderStatus(or))}
                 />
                 <SkuContainer visible={this.state.skuVisible}
                               onCancel={()=>this.hideProductDetail.bind(this)}
