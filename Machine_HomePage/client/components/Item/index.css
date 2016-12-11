@@ -45,6 +45,7 @@
 }
 .brandProductContainer {
 	text-align: left;
+	white-space: nowrap;
 }
 .brandProductContainer .productName {
 	color: rgba(0,0,0,.8);
