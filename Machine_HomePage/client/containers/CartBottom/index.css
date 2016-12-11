@@ -1,5 +1,6 @@
 .cart-other-content {
     padding:0 0 27px 21px;
+    background-color: #FFFFFF;
 }
 .cart-friends-choice {
     float:left;
@@ -29,6 +30,11 @@
 .cart-my-total, .cart-weixin-pay {
     min-height:440px;
 }
+
+.cart-friends-choice .item{
+    border:1px solid #cccccc;
+}
+
 .cart-my-total {
     float:left;
     position:relative;
@@ -44,6 +50,8 @@
     top:50%;
     margin-top:-130px;/* 为多行金额的整体垂直居中，动态调整这个值 */
     width:100%;
+    padding: 0 94px;
+
 }
 .price-one-line {
     margin:10px auto;
@@ -73,6 +81,20 @@
     margin-top:15px;
 }
 
+.cart-my-total .button{
+    width: 380px;
+    height: 100px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border:1px solid #e5e5e5;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+
 .cart-weixin-pay {
     float:right;
     width:412px;
@@ -81,4 +103,18 @@
 .wx-pic {
     margin:0 auto;
     display:block;
+}
+.cart-weixin-pay .text{
+    position: relative;
+    margin-left: 12px;
+}
+.cart-weixin-pay .text>span{
+    position: absolute;
+    width: 385px;
+    top: 22px;
+    left: 0;
+    display: inline-block;
+    text-align: center;
+    color: #FFFFFF;
+
 }

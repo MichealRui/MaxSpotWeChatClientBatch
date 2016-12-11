@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+.cart-item .categoryName{
+    margin-top: 9px;
+}
+
 .item-pic {
     margin:0 auto;
     width:100%;
@@ -23,7 +27,7 @@
 }
 
 .item-name {
-    margin:10px 0 20px;
+    margin:10px 0 6px;
     width:100%;
     display: block;
 }
@@ -40,19 +44,21 @@
 }
 
 .item-price {
-    margin-bottom:45px;
+    margin-bottom:22px;
     overflow:hidden;
 }
 .final-price {
-    display:block;
+    /*display:block;*/
     float:left;
-    margin-right:5px;
+    /*margin-right:5px;*/
     font-size:28px;
     color:#28abef;
+    display: inline-block;
+    margin-right: 20px;
 }
 .market-price {
-    display:block;
-    float:left;
+    display:inline-block;
+    /*float:left;*/
     margin-top:8px;
     font-size:16px;
     color:#a3a3a3;
@@ -62,8 +68,14 @@
 .item-panel {
     overflow:hidden;
 }
+
 .counting {
     float:left;
+    margin-right: 24px;
+}
+.undershop{
+    line-height: 50px;
+    color: #f7ce14;
 }
 .btn-minus, .btn-plus {
     display:block;
@@ -96,6 +108,7 @@
     border-left:none;
     border-right:none;
     background:#fff;
+    text-align: center;
 }
 .trash {
     display:block;
@@ -150,3 +163,48 @@
 .current-price em {
     font-size:36px;
 }
+
+.cart-item .layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(255,255,255,.6);
+}
+.cart-item .layer .dialog{
+    position: absolute;
+    width: 100%;
+    height: 55%;
+    top: 45%;
+    background-color: #FFFFFF;
+}
+.cart-item .layer .dialog .del{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #333;
+    bottom:60%;
+
+}
+.cart-item .layer .dialog .btn{
+    position: absolute;
+    width: 100%;
+    padding: 0 20px;
+    bottom: 20%;
+
+}
+.cart-item .layer .dialog .btn>div{
+    border:1px solid #e1e1e1;
+    height: 50px;
+    width: 80px;
+    border-radius: 20px;
+    color: #666;
+    line-height:50px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 18px;
+
+
+}
+
