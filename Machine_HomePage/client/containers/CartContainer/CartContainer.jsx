@@ -88,14 +88,14 @@ export default class CartContainer extends React.Component {
                 cartContent = <div> error </div>
         }
 
-
+        console.log()
 
         return (
             <div className="cartContainer">
                 {/*<Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>*/}
-                <Modal visible={this.props.visible}
-                       onCancel={this.props.onCancel()}
-                       wrapClassName="customized-modal"
+                <Modal visible={props.visible}
+                       onCancel={props.onCancel()}
+                       wrapClassName={props.cartStatus == CartStatus.SHOW_TAKING ? 'customized_taking-modal':'customized-modal'}
                        footer=''
                 >
                     {
