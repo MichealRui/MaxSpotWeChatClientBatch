@@ -1,11 +1,9 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import CartItem from '../../components/CartItem/CartItem'
 import SwiperComponent from '../../components/Swiper/index'
 import CartBottom from '../CartBottom/CartBottom'
-import ReactQrCode from 'qrcode.react'
 import QrCode from  '../../components/QRContent/QrContent'
 import CartStatus from '../../containers/CartContainer/CartStatus';
 import Taking from '../PaySuccContainer/PaySuccContainer'
@@ -23,7 +21,6 @@ export default class CartContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state= {
-            sleepTime:2000,
             pageStatus:0
         }
     }
@@ -31,17 +28,6 @@ export default class CartContainer extends React.Component {
     static defaultProps = {
         cartStatus: CartStatus.SHOW_CART,
     };
-
-    fetchOrderStatus() {
-        let {qr, order, fetchOrder} = this.props;
-        let PAID = '2';
-        if(order.status != PAID) {
-            fetchOrder(order.orderNumber);
-            window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
-        } else {
-
-        }
-    }
 
     render(){
 
@@ -64,7 +50,6 @@ export default class CartContainer extends React.Component {
         switch (props.cartStatus) {
             case CartStatus.SHOW_CART:
                 cartContent = (
-
                     <div>
                         <div className="itemContainer" >
                             <SwiperComponent
@@ -78,7 +63,7 @@ export default class CartContainer extends React.Component {
                                     itemClick={props.addToCart}
                                     totalPrice={props.totalPrice}
                                     submit={props.submit}
-                                    setLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
+                                    setCartLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
                         />
                     </div>
                 );
@@ -89,10 +74,15 @@ export default class CartContainer extends React.Component {
                 );
                 break;
             case CartStatus.SHOW_QR:
-                cartContent = <QrCode qr={props.qr} order={props.order}/>
+                cartContent = <QrCode qr={props.qr}
+                                      order={props.order}
+                                      fetchOrder={(or) => props.fetchOrder(or)}
+                                      setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
+                                      setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}
+                />;
                 break;
             case CartStatus.SHOW_TAKING:
-                cartContent = <Taking/>
+                cartContent = <Taking/>;
                 break;
             default:
                 cartContent = <div> error </div>

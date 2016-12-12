@@ -1,5 +1,4 @@
 'use strict';
-import ReactDOM from 'react-dom'
 import React from 'react'
 import { connect }  from 'react-redux';
 import Header from '../../components/Header/Header'
@@ -7,7 +6,6 @@ import Banner from '../../components/Banner/Banner'
 import SubContent from '../../containers/SubContent/SubContent'
 import CartContainer from '../../containers/CartContainer/CartContainer';
 import SkuContainer from '../../containers/SkuContainer/SkuContainer';
-import PaySuccContainer from '../../containers/PaySuccContainer/PaySuccContainer';
 import { initMainContent } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index'
 import {changeSubContent} from '../../actions/index'
@@ -92,7 +90,6 @@ class PageContainer extends React.Component{
                 <SubContent
                     contentData={state.currentSub}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}
-                    storeData={state.storeInfo}
                     addToCart={(item) => dispatch(addToCart(item))}
                     showProduct={(item) => this.onProductDetailClick.bind(this)(item)}
                     selector = {state.selector}
@@ -112,10 +109,6 @@ class PageContainer extends React.Component{
                 <SkuContainer visible={this.state.skuVisible}
                               onCancel={()=>this.hideProductDetail.bind(this)}
                               product={state.product}
-                />
-                <PaySuccContainer visible={this.state.paySuccVisible}
-                                  onCancel={()=>this.hidePaySucc.bind(this)}
-
                 />
             </div>
         )

@@ -122,8 +122,8 @@ function initSuccess(content, data){
         banner: data.banner,
         selector: selector,
         subContent: subContent,
-        currentSub: currentSub,//data.subContent['all'],,
-        storeInfo: data.store,
+        currentSub: currentSub, //data.subContent['all'],,
+        // storeInfo: data.store,
         cart: cart,
     })
 }
@@ -211,13 +211,16 @@ function setPaymentCode(content, url) {
 }
 
 function setOrder (content, order) {
+    console.log(order);
     let newOrder = Object.assign({}, order);
-    return Object.assign({}, content, newOrder)
+    let state = Object.assign({}, content)
+    state.order = newOrder;
+    return state
 }
 
 function setCartStatus(content, cartStatus) {
     let state =  Object.assign({}, content);
-    state.cart.cartStatus = cartStatus;
+    state.cart = Object.assign({}, {...state.cart}, {cartStatus: cartStatus});
     return state
 }
 
@@ -245,7 +248,7 @@ export default function (
         case SET_ORDER:
             return setOrder(content, action.order);
         case SET_CART_STATUS:
-            setCartStatus(content, action.cartStatus);
+             return setCartStatus(content, action.cartStatus);
         default:
             return content;
     }

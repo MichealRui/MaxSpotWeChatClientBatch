@@ -58,26 +58,32 @@ const cart = cartMock;
 
 
 export function initMainContent () {
-    // fetch('',
-    //     {
-    //         credentials: 'include',
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         body: JSON.stringify(
-    //             Object.assign({}, item)
-    //         )
-    //     }).then(response => response.json()
-    //     .then(json => {
-    //         if(json.is_succ) {
-    //
-    //         }
-    //     })
-    // )
+    // return (dispatch) => {
+    //     fetch('local_api/get_mainpage_data.action',
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //         }).then(response => response.json()
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //                 dispatch(initSucc({
+    //                     banner: json.banners,
+    //                     content: json.categories,
+    //                     store: json.selectedStore
+    //                 }))
+    //             } else {
+    //                 console.log(json);
+    //                 console.log('init error')
+    //             }
+    //         })
+    //     );
+    // };
+
     return (dispatch) => {
         dispatch(initSucc({
             banner: mock.banners,
-            content: mock.categories,
-            store: mock.selectedStore
+            content: mock.categories
         }))
     }
 }
@@ -266,8 +272,9 @@ export function submitCart(cart) {
 
     return (dispatch) => {
         dispatch(setOrder({
-            orderNumber: 'S012016120918937'
-        }))
+            orderNumber: 'S012016120918937',
+            status:1
+        }));
         dispatch(fetchQrCode('S012016120918937'))
     }
 }
@@ -294,12 +301,12 @@ export function fetchQrCode() {
     //             }
     //         })
     // }
-    let url = 'http://www.baidu.com'
+    let url = 'http://www.baidu.com';
     return(dispatch) => {
         dispatch({
             type: SET_PAYMENT_CODE,
             qrCode: url
-        })
+        });
         dispatch(setCartStatus(CartStatus.SHOW_QR))
     }
 }
