@@ -23,7 +23,7 @@ export default class ButtonSelector extends React.Component {
             selector.subSelector.map((s, index) => {
                 return <li key={index}
                            className={
-                               "subSelector font30 " + (index == this.state.activated ?'activated' : '')
+                               "subSelector font26 " + (index == this.state.activated ?'activated' : '')
                            }
                            onClick={(e) => this.onSubClick(e, index, s, selector.key)}
 

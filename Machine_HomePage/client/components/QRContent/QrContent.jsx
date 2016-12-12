@@ -22,9 +22,9 @@ export default class QrContent extends React.Component {
         }
     }
 
-    componentWillMount() {
-        this.fetchOrderStatus.bind(this)()
-    }
+    // componentWillMount() {
+    //     this.fetchOrderStatus.bind(this)()
+    // }
 
     render () {
         let qr = this.props.qr;

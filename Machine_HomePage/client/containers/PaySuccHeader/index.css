@@ -1,6 +1,7 @@
 .PaySuccHeader{
     width: 100%;
-    height: 30%;
+    height:330px;
+    /*height: 30%;*/
     background-color: #05af10;
     position: relative;
     overflow: hidden;

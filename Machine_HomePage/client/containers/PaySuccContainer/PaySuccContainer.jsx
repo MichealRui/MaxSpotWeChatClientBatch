@@ -16,7 +16,7 @@ export default class PaySuccContainer extends React.Component {
     render(){
         let props = this.props;
         return (
-            <div className="skuContainer">
+            <div className="takingContainer">
                 {/*<Modal visible={this.props.visible}*/}
                        {/*onCancel={this.props.onCancel()}*/}
                        {/*wrapClassName="customized1-modal"*/}
@@ -25,7 +25,7 @@ export default class PaySuccContainer extends React.Component {
 
                     <Header />
                     <Info />
-                    <Bottom />
+                    {/*<Bottom />*/}
                 {/*</Modal>*/}
             </div>
         );

@@ -59,7 +59,7 @@ const cart = cartMock;
 
 export function initMainContent () {
     // return (dispatch) => {
-    //     fetch('local_api/get_mainpage_data.action',
+    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/get_mainpage_data.action',//'local_api/get_mainpage_data.action',
     //         {
     //             credentials: 'include',
     //             method: 'POST',
