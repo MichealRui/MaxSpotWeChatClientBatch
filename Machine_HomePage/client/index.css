@@ -334,14 +334,8 @@ html { overflow-y: scroll; }
     }
 }
 #root {
-    padding-bottom: 30px;
+    padding-bottom: 25px;
 }
-/*#root {*/
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*background-color: #f4f4f4;*/
-    /*min-height: 500px;*/
-/*}*/
 
 .hide{
     display: none;
