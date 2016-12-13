@@ -18,11 +18,15 @@ export default class Gallery extends React.Component {
         console.log('Been set')
     }
 
+    componentWillMount() {
+        this.setCurrent(
+            ENV.domain + this.props.images[0]
+        )
+    }
 
     render() {
         let props = this.props
-        console.log(props)
-        let images_item = this.props.images.map((img, index) => {
+        let images_item = props.images.length == 0 ? []: props.images.map((img, index) => {
 
             return (
                 <div className="thumbnailWrapper" key={index}>

@@ -28,11 +28,10 @@ class PageContainer extends React.Component{
     componentWillMount() {
         const { dispatch } = this.props;
         dispatch(initMainContent());
-        dispatch(fetchCart())
+        // dispatch(fetchCart())
     }
 
     onCartBtnClick() {
-        console.log("show");
         const {dispatch} = this.props;
         dispatch(setCartStatus(CartStatus.SHOW_CART));
         dispatch(fetchCart());
@@ -42,17 +41,14 @@ class PageContainer extends React.Component{
     }
 
     hideCart() {
-        console.log("hide");
         const {dispatch} = this.props;
-        dispatch(clearQr())
+        dispatch(clearQr());
         this.setState({
             cartVisible: false
         })
     }
 
     onProductDetailClick(item){
-        console.log('sku_show');
-        console.log(item);
         let {dispatch} = this.props;
         dispatch(fetchSku(item.skuNumber));
         this.setState({
@@ -67,24 +63,12 @@ class PageContainer extends React.Component{
         })
     }
 
-    onPaySuccClick(){
-        this.setState({
-            paySuccVisible:true
-        })
-    }
-    hidePaySucc(){
-        this.setState({
-            paySuccVisible:false
-        })
-    }
-
     render() {
         let {state, dispatch} = this.props;
         return (
             <div className="pageContainer">
                 <Header cartClick={() => this.onCartBtnClick.bind(this)}
                         {...state.cart}
-                        paySuccClick={()=>this.onPaySuccClick.bind(this)}
                 />
                 <Banner bannerData={state.banner}/>
                 <SubContent

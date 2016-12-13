@@ -30,8 +30,8 @@ export default class SkuContainer extends React.Component {
 
     render(){
         let props = this.props;
-        let product = props.product
-        let sku = product ? product.sku : ''
+        let product = props.product;
+        let sku = product ? product.productDetail : '';
         return (
             <div className="skuContainer">
                 <Modal visible={this.props.visible}
@@ -39,15 +39,24 @@ export default class SkuContainer extends React.Component {
                        wrapClassName="customized1-modal"
                        footer=''
                 >
-                    <div className="galleryWrapper">
-                        <Gallery images={sku?this.getMiddlePicList(sku.images):''}/>
-                    </div>
-                    <div className="skuInfo">
-                        <Header item={product}/>
-                        {/*<Intro/>*/}
-                        <Info item={product}/>
-                        <Footer />
-                    </div>
+                                <div className="galleryWrapper">
+                                    {
+                                        product ? <Gallery images={sku?this.getMiddlePicList(sku.images):''}/>:''
+                                    }
+
+                                </div>
+                                <div className="skuInfo">
+                                    {
+                                        product? (
+                                            <div>
+                                                <Header item={product}/>
+                                                {/*<Intro/>*/}
+                                                <Info item={product}/>
+                                                <Footer />
+                                            </div>
+                                        ):''
+                                    }
+                                </div>
                 </Modal>
             </div>
         );

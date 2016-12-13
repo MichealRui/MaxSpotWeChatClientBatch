@@ -76,19 +76,21 @@ export default class CartContainer extends React.Component {
             case CartStatus.SHOW_QR:
                 cartContent = <QrCode qr={props.qr}
                                       order={props.order}
+                                      totalPrice={props.totalPrice}
                                       fetchOrder={(or) => props.fetchOrder(or)}
                                       setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
                                       setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}
                 />;
                 break;
             case CartStatus.SHOW_TAKING:
-                cartContent = <Taking/>;
+                cartContent = <Taking
+                    onCancel={props.onCancel()}
+                    isModalVisible={props.visible}
+                />;
                 break;
             default:
                 cartContent = <div> error </div>
         }
-
-        console.log()
 
         return (
             <div className="cartContainer">

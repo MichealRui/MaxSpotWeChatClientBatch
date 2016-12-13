@@ -39,7 +39,7 @@ export default class skuHeader extends React.Component {
         console.log(props)
         let item = props.item
 
-        let sku = item.sku;
+        let sku = item.productDetail;
         let brand = item.brand
         let attributes = sku.attributes
         var attr = this.getAttribute(attributes)

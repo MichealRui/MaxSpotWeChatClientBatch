@@ -20,7 +20,7 @@ export default class skuInfo extends React.Component {
     render() {
         let props = this.props;
         let product = props.item;
-        let sku = product.sku
+        let sku = product.productDetail
         let brand = product.brand
         let sku_detail = (
             <div>

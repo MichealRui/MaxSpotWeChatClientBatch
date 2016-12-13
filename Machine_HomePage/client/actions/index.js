@@ -55,8 +55,6 @@ export const SET_CART_STATUS = 'SET_CART_STATUS';
 
 const cart = cartMock;
 
-
-
 export function initMainContent () {
     // return (dispatch) => {
     //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/get_mainpage_data.action',//'local_api/get_mainpage_data.action',
@@ -72,6 +70,7 @@ export function initMainContent () {
     //                     content: json.categories,
     //                     store: json.selectedStore
     //                 }))
+    //                 dispatch(fetchCart())
     //             } else {
     //                 console.log(json);
     //                 console.log('init error')
@@ -98,7 +97,7 @@ function initSucc(data) {
 
 export function addToCart(item) {
     // return (dispatch) => {
-    //     fetch( "local_api/add_sku_to_cart.action",
+    //     fetch( "http://10.16.42.57:9090/maxbox_pc/local_api/add_sku_to_cart.action",
     //         {
     //             credentials: 'include',
     //             method: 'POST',
@@ -126,7 +125,7 @@ export function addToCart(item) {
 
 export function deleteOneFromCart(item) {
     // return (dispatch) => {
-    //     fetch( "local_api/remove_sku_from_cart.action",
+    //     fetch( "http://10.16.42.57:9090/maxbox_pc/local_api/remove_sku_from_cart.action",
     //         {
     //             credentials: 'include',
     //             method: 'POST',
@@ -162,20 +161,21 @@ export function succDeleteItem(item) {
 export function removeFromCart(item) {
 
     // return (dispatch) => {
-    //     fetch('local_api/remove_sku_from_cart.action', {
-    //         credentials: 'include',
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         body: JSON.stringify(
-    //             Object.assign({}, {
-    //             skuId: '' + item.id,
-    //                 count: item.count
+    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/remove_sku_from_cart.action',
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //             body: JSON.stringify(
+    //                 Object.assign({}, {
+    //                 skuId: '' + item.id,
+    //                     count: item.count
     //                 })
     //             )
-    //     }).then(response => response.json())
+    //         }).then(response => response.json())
     //         .then(json => {
     //             if(json.is_succ) {
-    //                 dispatch(succFetchCart(json.skus))
+    //                 dispatch(succRemoveItem(item))
     //             } else {
     //
     //             }
@@ -197,11 +197,12 @@ export function succRemoveItem(item) {
 
 export function fetchCart() {
     // return (dispatch) => {
-    //     fetch('local_api/get_cart.action', {
-    //         credentials: 'include',
-    //         method: 'POST',
-    //         mode: 'cors',
-    //     }).then(response => response.json())
+    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/get_cart.action',
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //         }).then(response => response.json())
     //         .then(json => {
     //             if(json.is_succ) {
     //                 dispatch(succFetchCart(json.skus))
@@ -252,9 +253,9 @@ export function changeSubContent(key, subKey) {
     }
 }
 
-export function submitCart(cart) {
+export function submitCart() {
     // return (dispatch) => {
-    //     fetch('local_api/submit_cart.action',
+    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/submit_cart.action',
     //         {
     //             credentials: 'include',
     //             method: 'POST',
@@ -263,7 +264,8 @@ export function submitCart(cart) {
     //     ).then(response =>response.json())
     //         .then(json => {
     //             if(json.is_succ) {
-    //
+    //                 dispatch(setOrder(json.order));
+    //                 dispatch(fetchQrCode(json.order.orderNumber))
     //             } else {
     //
     //             }
@@ -286,12 +288,15 @@ export function setOrder(order) {
     }
 }
 
-export function fetchQrCode() {
+export function fetchQrCode(orderNumber) {
     // return (dispatch) => {
-    //     fetch('', {
+    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/request_pay.action', {
     //         credentials: 'include',
     //         method: 'POST',
     //         mode: 'cors',
+    //         body: JSON.stringify(
+    //             orderNumber
+    //         )
     //     }).then(response => response.json())
     //         .then(json => {
     //             if(json.is_succ) {
@@ -300,7 +305,7 @@ export function fetchQrCode() {
     //
     //             }
     //         })
-    // }
+    // };
     let url = 'http://www.baidu.com';
     return(dispatch) => {
         dispatch({
@@ -345,19 +350,20 @@ export function fetchOrderStatus(orderNumber) {
     }
 }
 
-export function fetchSku() {
+export function fetchSku(skuNumber) {
     // return (dispatch) => {
-    //     fetch('/local_api/sku_detail.action', {
-    //         credentials: 'include',
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         body: JSON.stringify(
-    //             {sku_number: skuNumber}
-    //         )
-    //     }).then(response => response.json())
+    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/sku_detail.action',//'/local_api/sku_detail.action',
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //             body: JSON.stringify(
+    //                 {sku_number: skuNumber}
+    //             )
+    //         }).then(response => response.json())
     //         .then(json => {
     //             if(json.is_succ) {
-    //                 dispatch(setDetailDialog(
+    //                 dispatch(succFetchSku(
     //                     {
     //                         productDetail: json.sku,
     //                         brand: json.brand
@@ -367,7 +373,7 @@ export function fetchSku() {
     //                 dispatch()
     //             }
     //         })
-    // }
+    // };
     return (dispatch)=>{
         let product = productMock;
         return dispatch(succFetchSku(product))

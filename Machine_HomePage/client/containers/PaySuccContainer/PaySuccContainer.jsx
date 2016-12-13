@@ -1,32 +1,44 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Modal, Button } from 'antd';
 import Header from '../PaySuccHeader/PaySuccHeader'
 import Info from '../PaySuccShow/PaySuccShow'
-import Bottom from '../PaySuccBottom/PaySuccBottom'
-require('./index.css')
+require('./index.css');
 
 export default class PaySuccContainer extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state={
+            sleepTime:1000,
+            count:5
+        }
     }
 
+    countOne(){
+        this.setState({
+            count: this.state.count - 1
+        });
+    }
+
+    countBack() {
+        if(this.state.count > 0){
+            window.setTimeout( () => {
+                this.countOne();
+                this.countBack();
+            }, this.state.sleepTime)
+        } else {
+            this.props.onCancel()
+        }
+    }
+
+    componentDidMount() {
+        this.countBack()
+    }
 
     render(){
-        let props = this.props;
         return (
             <div className="takingContainer">
-                {/*<Modal visible={this.props.visible}*/}
-                       {/*onCancel={this.props.onCancel()}*/}
-                       {/*wrapClassName="customized1-modal"*/}
-                       {/*footer=''*/}
-                {/*>*/}
-
                     <Header />
                     <Info />
-                    {/*<Bottom />*/}
-                {/*</Modal>*/}
             </div>
         );
     }

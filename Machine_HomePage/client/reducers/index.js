@@ -106,18 +106,29 @@ function initSuccess(content, data){
     for(let content of subContentArray) {
         subContent = Object.assign({}, subContent, content)
     }
-    let currentSub = subContent.food; // find 'food'
+    let currentSub; // find 'food'
+    for(let key in subContent) {
+        currentSub = subContent[key]; //get first key
+        break;
+    }
     /*
     * set default value for the first time
     * */
     currentSub.items = currentSub.categoried[selector[0].subSelector[0]];
-    let cart = {
-        remainTime: '380',
-        items: [],
-        moreItems: currentSub.items.slice(0, 3),
-        count: 0,
-        totalPrice:0,
-    };
+
+
+    let cart;
+    if(content.cart.items.length) {
+        cart = Object.assign({}, content.cart)
+    } else {
+        cart = {
+            items: [],
+            moreItems: currentSub.items.slice(0, 3),
+            count: 0,
+            totalPrice:0,
+        };
+    }
+
     return Object.assign({}, content, {
         banner: data.banner,
         selector: selector,
@@ -125,6 +136,7 @@ function initSuccess(content, data){
         currentSub: currentSub, //data.subContent['all'],,
         // storeInfo: data.store,
         cart: cart,
+        product:''
     })
 }
 
@@ -137,7 +149,7 @@ function changeContent(content, {key, subKey}) {
 
 function succFetchSku(content,product) {
     let newContent = Object.assign({},content);
-    newContent.product = product
+    newContent.product = product;
     return newContent
 }
 
@@ -174,7 +186,6 @@ function finalCartStatus(cart){
 }
 
 function succFetchCart(content, skus) {
-    console.log(skus);
     let newContent = Object.assign({}, content);
     let newSku = Object.assign({}, skus);
     newContent.cart.items = newSku[0].productList;

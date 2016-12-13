@@ -34,7 +34,13 @@ export default class QrContent extends React.Component {
             <div className="qrcode" onClick={() => this.props.setCartTaking()}>
                 <div className="code clearfix"><ReactQrCode size={size} value={qr}/></div>
                 <div className="payInfo">
-                    <div className="title font48">微信扫一扫支付<span className="price"><span className="font32">￥</span>120</span></div>
+                    <div className="title font48">
+                        微信扫一扫支付
+                        <span className="price">
+                            <span className="font32">￥</span>
+                            {this.props.totalPrice}
+                        </span>
+                    </div>
                     <div className="text font34">如何取货</div>
                     <div className="iconInfo clearfix">
                         <div className="stepInfo">
