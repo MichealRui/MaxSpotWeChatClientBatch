@@ -9,22 +9,27 @@ export default class PaySuccContainer extends React.Component {
         super(props);
         this.state={
             sleepTime:1000,
-            count:5
+            count:30,
+            timer:null
         }
     }
 
     countOne(){
+        console.log(this.state.count);
         this.setState({
             count: this.state.count - 1
         });
     }
 
     countBack() {
-        if(this.state.count > 0){
-            window.setTimeout( () => {
+        if(this.state.count > 0 && this.props.isModalVisible){
+            this.state.timer=
+                window.setTimeout( () => {
                 this.countOne();
                 this.countBack();
             }, this.state.sleepTime)
+        } else if(this.state.count > 0 && !this.props.isModalVisible){
+            window.clearTimeout(this.state.timer);
         } else {
             this.props.onCancel()
         }

@@ -6,6 +6,7 @@ import SwiperComponent from '../../components/Swiper/index'
 import CartBottom from '../CartBottom/CartBottom'
 import QrCode from  '../../components/QRContent/QrContent'
 import CartStatus from '../../containers/CartContainer/CartStatus';
+import Loading from '../../components/LoadingContent/Loading'
 import Taking from '../PaySuccContainer/PaySuccContainer'
 require('./index.css');
 
@@ -70,7 +71,7 @@ export default class CartContainer extends React.Component {
                 break;
             case CartStatus.SHOW_LOADING:
                 cartContent = (
-                    <div> Loading </div>
+                    <Loading/>
                 );
                 break;
             case CartStatus.SHOW_QR:
