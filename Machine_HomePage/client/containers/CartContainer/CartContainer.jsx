@@ -4,6 +4,7 @@ import { Modal } from 'antd';
 import CartItem from '../../components/CartItem/CartItem'
 import SwiperComponent from '../../components/Swiper/index'
 import CartBottom from '../CartBottom/CartBottom'
+import DefaultCart from '../../components/DefaultCart/DefaultCart'
 import QrCode from  '../../components/QRContent/QrContent'
 import CartStatus from '../../containers/CartContainer/CartStatus';
 import Loading from '../../components/LoadingContent/Loading'
@@ -34,43 +35,23 @@ export default class CartContainer extends React.Component {
     render(){
 
         let props = this.props;
-        console.log(props)
-        let swiperConfig = {
-            freeMode: true,
-            slidesPerView: 6,
-        };
-
-        let items = props.items.map((item, index) => {
-            return <CartItem item={item}
-                             key={index}
-                             dec={props.decItem}
-                             add={props.addToCart}
-                             remove={props.removeItem}
-            />
-        });
 
         let cartContent;
         switch (props.cartStatus) {
             case CartStatus.SHOW_CART:
                 cartContent = (
-                    <div>
-                        <Cart cartStyle={{top:-38+'px',right:150+'px'}} count={props.count} totalPrice={props.totalPrice || 0}/>
-                        <div className="itemContainer" >
-                            <SwiperComponent
-                                swiperConfig={swiperConfig}
-                                swiperContainer={'swiper3'}
-                            >
-                                {items}
-                            </SwiperComponent>
-                        </div>
-                        <CartBottom moreItems={props.moreItems}
-                                    itemClick={props.addToCart}
-                                    totalPrice={props.totalPrice}
-                                    submit={props.submit}
-                                    setCartLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
-                                    clearCart={() => props.clearCart()}
-                        />
-                    </div>
+                    <DefaultCart
+                        items={props.items}
+                        moreItems={props.moreItems}
+                        itemClick={props.addToCart}
+                        decItem={props.decItem}
+                        addToCart={props.addToCart}
+                        removeItem={props.removeItem}
+                        totalPrice={props.totalPrice}
+                        submit={props.submit}
+                        setCartLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
+                        clearCart={() => props.clearCart()}
+                    />
                 );
                 break;
             case CartStatus.SHOW_LOADING:

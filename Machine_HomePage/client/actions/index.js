@@ -401,7 +401,10 @@ export function fetchSku(skuNumber) {
     // };
     return (dispatch)=>{
         let product = productMock;
-        return dispatch(succFetchSku(product))
+        return dispatch(succFetchSku({
+            productDetail: product.sku,
+            brand: product.brand
+        }))
     }
 }
 
