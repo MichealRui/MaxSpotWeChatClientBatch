@@ -1,0 +1,35 @@
+.vertical-center-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical-center-modal .ant-modal {
+    top: 0;
+    width: 1015px !important;
+}
+
+.vertical-center-modal .ant-modal .ant-modal-content {
+    height: 550px;
+    background-color: #f2f2f2;
+    padding:0 100px;
+}
+
+.vertical-center-modal .alertTitle {
+    color: #ff7860;
+}
+
+.vertical-center-modal .alertDes {
+    color: black;
+}
+
+.vertical-center-modal .alertBtn {
+    width:380px;
+    height:100px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 120px;
+    border:1px solid #e5e5e5;
+    color: #666666;
+    display: inline-block;
+}
