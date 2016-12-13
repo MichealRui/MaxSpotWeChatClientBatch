@@ -8,6 +8,7 @@ import QrCode from  '../../components/QRContent/QrContent'
 import CartStatus from '../../containers/CartContainer/CartStatus';
 import Loading from '../../components/LoadingContent/Loading'
 import Taking from '../PaySuccContainer/PaySuccContainer'
+import Cart from '../../components/Cart/Cart'
 require('./index.css');
 
 export default class CartContainer extends React.Component {
@@ -33,6 +34,7 @@ export default class CartContainer extends React.Component {
     render(){
 
         let props = this.props;
+        console.log(props)
         let swiperConfig = {
             freeMode: true,
             slidesPerView: 6,
@@ -52,6 +54,7 @@ export default class CartContainer extends React.Component {
             case CartStatus.SHOW_CART:
                 cartContent = (
                     <div>
+                        <Cart cartStyle={{top:-38+'px',right:150+'px'}} count={props.count} totalPrice={props.totalPrice || 0}/>
                         <div className="itemContainer" >
                             <SwiperComponent
                                 swiperConfig={swiperConfig}

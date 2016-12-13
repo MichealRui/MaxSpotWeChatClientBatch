@@ -13,9 +13,7 @@ export default class Loading extends React.Component {
                     <img src={require('./image/loading.gif')} alt=""/>
                     <p className="text font34">
                         <span> 正在生成订单……</span>
-
                     </p>
-
                 </div>
             </div>
         )
