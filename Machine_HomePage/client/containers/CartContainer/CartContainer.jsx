@@ -68,6 +68,7 @@ export default class CartContainer extends React.Component {
                                     totalPrice={props.totalPrice}
                                     submit={props.submit}
                                     setCartLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
+                                    clearCart={() => props.clearCart()}
                         />
                     </div>
                 );

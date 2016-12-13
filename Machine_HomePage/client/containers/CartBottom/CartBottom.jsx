@@ -44,11 +44,11 @@ export default class CartBottom extends React.Component {
                     <div className="my-total-box">
                         <div className="price-one-line clearfix">
                             <span className="price-name">商品总金额</span>
-                            <span className="price-num">¥2321</span>
+                            <span className="price-num">¥{this.props.totalPrice}</span>
                         </div>
                         <div className="price-one-line clearfix">
                             <span className="price-name">优惠总计</span>
-                            <span className="price-num">¥-321</span>
+                            <span className="price-num">¥0</span>
                         </div>
                         {/*<div className="price-one-line clearfix">*/}
                             {/*<span className="price-name">优惠总计</span>*/}
@@ -62,7 +62,7 @@ export default class CartBottom extends React.Component {
                             <span className="price-name">应付金额</span>
                             <span className="price-num total-pay">¥{this.props.totalPrice}</span>
                         </div>
-                        <div className="button font34">清空购物袋</div>
+                        <div className="button font34" onClick={() => this.props.clearCart()}>清空购物袋</div>
                     </div>
                 </div>
 

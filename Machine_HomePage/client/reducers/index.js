@@ -5,7 +5,7 @@ import {
     CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
     SUCC_DELETE_CART,SUCC_REMOVE_CART,
     SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,
-    SET_ORDER, SET_CART_STATUS
+    SET_ORDER, SET_CART_STATUS, SUCC_CLEAR_CART
 } from '../actions/index'
 import icon_images from '../mock/images'
 let bannerdata = [
@@ -235,6 +235,13 @@ function setCartStatus(content, cartStatus) {
     return state
 }
 
+function clearCart(content) {
+    let state = Object.assign({}, content);
+    state.cart.items = [];
+    state.cart = finalCartStatus(state.cart);
+    return state
+}
+
 export default function (
     content=data, action) {
     switch (action.type) {
@@ -260,6 +267,8 @@ export default function (
             return setOrder(content, action.order);
         case SET_CART_STATUS:
              return setCartStatus(content, action.cartStatus);
+        case SUCC_CLEAR_CART:
+            return clearCart(content);
         default:
             return content;
     }

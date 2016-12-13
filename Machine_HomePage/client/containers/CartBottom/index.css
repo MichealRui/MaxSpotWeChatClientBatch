@@ -1,6 +1,8 @@
 .cart-other-content {
     padding:0 0 27px 21px;
     background-color: #FFFFFF;
+    position: absolute;
+    top: 490px;
 }
 .cart-friends-choice {
     float:left;

@@ -33,6 +33,8 @@ export const FAIL_REMOVE_CART = 'FAIL_REMOVE_CART';
 
 export const CLEAR_CART = 'CLEAR_CART';
 
+export const SUCC_CLEAR_CART = 'SUCC_CLEAR_CART';
+
 export const CHANGE_SUBCONTENT = 'CHANGE_SUBCONTENT';
 
 export const FETCH_SKU = 'FETCH_SKU';
@@ -240,10 +242,33 @@ export function errorAddToCart(errorMessage) {
 }
 
 export function clearCart() {
-    return {
-        type: CLEAR_CART,
+    // return (dispatch) => {
+    //     fetch('local_api/clear_cart.action',
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //         }
+    //     ).then(response => response.json())
+    //         .then(json => {
+    //             if (json.is_succ) {
+    //                 dispatch(succClearCart())
+    //             } else {
+    //
+    //             }
+    //         })
+    // };
+    return (dispatch) => {
+        return dispatch(succClearCart())
     }
 }
+
+function succClearCart() {
+    return {
+        type: SUCC_CLEAR_CART,
+    }
+}
+
 
 export function changeSubContent(key, subKey) {
     return {
