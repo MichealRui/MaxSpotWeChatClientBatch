@@ -171,3 +171,18 @@ html { overflow-y: scroll; }
     font-size: 72px !important;
 }
 
+.font34 {
+    font-size: 34px !important;
+}
+
+[data-dpr="2"] .font34 {
+    font-size: 68px !important;
+}
+
+[data-dpr="3"] .font34 {
+    font-size: 102px !important;
+}
+
+.hide{
+    display: none;
+}

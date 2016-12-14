@@ -4,6 +4,7 @@ import TopBar from '../../components/TopBar/TopBar';
 import BottomBar from '../../components/BottomBar/BottomBar';
 import ProductSection from '../../components/ShopSection/ShopSection';
 import Message from '../../components/Message/Message'
+import Empty from '../../components/Empty/Empty'
 import { connect }  from 'react-redux';
 import { fetchItem, increment, decrement, deleteItem, changeShopState, setMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
 // import ShoppingCartData from './ShoppingCartData.js';
@@ -81,6 +82,9 @@ class ShoppingCart extends React.Component {
                     {/*<ProductEdit {...itemInfo} />*/}
                     {/*<Repurchase {...itemInfo} />*/}
 	            </div>
+                <div className="empty hide">
+                    <Empty />
+                </div>
                 <BottomBar
                     totalMoney={itemInfo.totalMoney}
                     activateStore={itemInfo.activateShop}
