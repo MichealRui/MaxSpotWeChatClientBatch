@@ -177,7 +177,13 @@ function finalCartStatus(cart){
     let newCart = Object.assign({}, cart);
     let cartItems = newCart.items;
     newCart.totalPrice = cartItems.map(
-        product => product.count * product.sellprice
+        product => {
+            if(product.quantity > 0) {
+                return product.count * product.sellprice
+            } else {
+                return 0
+            }
+        }
     ).reduce(
         (pre, next) =>
             parseInt(pre) + parseInt(next)

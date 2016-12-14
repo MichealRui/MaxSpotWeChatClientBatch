@@ -4,7 +4,10 @@ require('./index.css')
 
 export default class CartItem extends React.Component{
     constructor(props) {
-        super(props)
+        super(props);
+        this.state={
+            showDelete: false
+        }
     }
 
     getMiddlePic(path) {
@@ -57,11 +60,24 @@ export default class CartItem extends React.Component{
         return atts;
     }
 
+    toggleDelete () {
+        this.setState({
+            showDelete: !this.state.showDelete
+        })
+    }
+
     render() {
         let props = this.props.item;
         // console.log(props)
         var atts = this.getAtts(props.attributes)
-        console.log(atts)
+        console.log(atts);
+        let soldOut = props.quantity ? (
+            <div className={"counting clearfix "}>
+                <a className="btn-minus" disabled={props.count == 1} onClick={() => this.decrease.bind(this)()}>-</a>
+                <span type="text" className="quantity" value={props.count} readOnly="readOnly">{props.count}</span>
+                <a className="btn-plus" disabled={ props.quantity <= props.count} onClick={() => this.addItem.bind(this)()}>+</a>
+            </div>
+        ) : <div className={ 'counting undershop font20' }>此商品已售罄</div>;
         return (
             <div className="cart-item my-item">
                 <div className="item-pic">
@@ -79,20 +95,18 @@ export default class CartItem extends React.Component{
                     <span className="market-price font20 hide">市场价¥126</span>
                 </h3>
                 <div className="item-panel clearfix">
-                    <div className={"counting undershop font20 hide"}>此商品已售罄</div>
-                    <div className={"counting clearfix "}>
-                        <a className="btn-minus" disabled={props.count == 1} onClick={() => this.decrease.bind(this)()}>-</a>
-                        <span type="text" className="quantity" value={props.count} readOnly="readOnly">{props.count}</span>
-                        <a className="btn-plus" disabled={ props.quantity <= props.count} onClick={() => this.addItem.bind(this)()}>+</a>
-                    </div>
-                    <a className="trash" onClick={() => this.removeItem.bind(this)()}>Remove this item!</a>
+                    {soldOut}
+                    <a className="trash" onClick={() => this.toggleDelete.bind(this)()}>Remove this item!</a>
                 </div>
-                <div className="layer hide">
+                <div className={"layer " + (this.state.showDelete ? '': 'hide')}>
                     <div className="dialog">
                         <div className="font26 del">删除此商品？</div>
                         <div className="btn clearfix">
-                            <div className="btn_yes font30">确定</div>
-                            <div className="btn_no font30">取消</div>
+                            <div className="btn_yes font30" onClick={() => {
+                                this.toggleDelete.bind(this)();
+                                this.removeItem.bind(this)();
+                            }}>确定</div>
+                            <div className="btn_no font30" onClick={() => this.toggleDelete.bind(this)()}>取消</div>
                         </div>
                     </div>
                 </div>

@@ -51,6 +51,7 @@ export default class CartContainer extends React.Component {
                         submit={props.submit}
                         setCartLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
                         clearCart={() => props.clearCart()}
+                        isModalVisible={props.visible}
                     />
                 );
                 break;
@@ -88,10 +89,7 @@ export default class CartContainer extends React.Component {
                        wrapClassName={wrapClassName}
                        footer=''
                 >
-                    {
-                        cartContent
-                    }
-
+                    {cartContent}
                 </Modal>
             </div>
         );

@@ -1,8 +1,6 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Item from '../../components/Item/index'
-import SwiperComponent from '../../components/Swiper/index'
 require('./index.css');
 
 export default class CartBottom extends React.Component {
@@ -11,17 +9,15 @@ export default class CartBottom extends React.Component {
     }
 
     onClickQr() {
-        this.props.setCartLoading();
-        this.props.submit()
+        if(this.props.showAlert) {
+            return false;
+        } else {
+            this.props.setCartLoading();
+            this.props.submit()
+        }
     }
 
     render() {
-
-        let swiperConfig = {
-            // pagination: '.swiper2 .swiper-pagination',
-            freeMode: true,
-            slidesPerView: 3
-        };
 
         let items = this.props.moreItems.map((item, index) => {
             return (
@@ -66,9 +62,9 @@ export default class CartBottom extends React.Component {
                     </div>
                 </div>
 
-                <div className="cart-weixin-pay" onClick={() => this.onClickQr.bind(this)()}>
+                <div className="cart-weixin-pay"  onClick={() => this.onClickQr.bind(this)()}>
                     <img className="wx-pic" src={require("./images/weixinpay.png")} width="224" alt="微信支付" />
-                    <div className="text font20">
+                    <div className={"text font20 " + (this.props.showAlert?'':'hide')}>
                         <img src={require('./images/backborder.png')} alt=""/>
                         <span className="font20">部分商品缺货或已下架，请编辑购物袋</span>
                     </div>
