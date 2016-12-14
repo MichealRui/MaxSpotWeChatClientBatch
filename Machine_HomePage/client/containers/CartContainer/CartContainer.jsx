@@ -51,6 +51,7 @@ export default class CartContainer extends React.Component {
                         submit={props.submit}
                         setCartLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
                         clearCart={() => props.clearCart()}
+                        isModalVisible={props.visible}
                     />
                 );
                 break;
@@ -83,13 +84,14 @@ export default class CartContainer extends React.Component {
                 {/*<Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>*/}
                 <Modal visible={props.visible}
                        onCancel={props.onCancel()}
-                       wrapClassName={props.cartStatus == CartStatus.SHOW_TAKING ? 'customized_taking-modal':'customized-modal'}
+                       wrapClassName={
+                           props.cartStatus == CartStatus.SHOW_TAKING ?
+                               'customized_taking-modal':
+                               'customized-modal'
+                       }
                        footer=''
                 >
-                    {
-                        cartContent
-                    }
-
+                    {cartContent}
                 </Modal>
             </div>
         );

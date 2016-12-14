@@ -98,7 +98,7 @@ let data = {
                 "name": "经典巧克力棒",
                 "shelfHeight": 0,
                 "length": 9,
-                "quantity": 2,
+                "quantity":0,
                 "sellprice": 560,
                 "tags": "",
                 "publishTime": "Wed Sep 21 20:16:55 CST 2016",

@@ -102,6 +102,9 @@
     width:412px;
     padding-top:80px;
 }
+.cart-weixin-pay .hide {
+    display: none;
+}
 .wx-pic {
     margin:0 auto;
     display:block;
