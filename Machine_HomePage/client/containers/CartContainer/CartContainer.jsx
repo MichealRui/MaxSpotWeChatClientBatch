@@ -35,7 +35,7 @@ export default class CartContainer extends React.Component {
     render(){
 
         let props = this.props;
-
+        let wrapClassName = 'customized-modal'
         let cartContent;
         switch (props.cartStatus) {
             case CartStatus.SHOW_CART:
@@ -67,12 +67,14 @@ export default class CartContainer extends React.Component {
                                       setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
                                       setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}
                 />;
+                wrapClassName = 'customized_qrcode-modal'
                 break;
             case CartStatus.SHOW_TAKING:
                 cartContent = <Taking
                     onCancel={props.onCancel()}
                     isModalVisible={props.visible}
                 />;
+                wrapClassName = 'customized_taking-modal'
                 break;
             default:
                 cartContent = <div> error </div>
@@ -83,7 +85,7 @@ export default class CartContainer extends React.Component {
                 {/*<Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>*/}
                 <Modal visible={props.visible}
                        onCancel={props.onCancel()}
-                       wrapClassName={props.cartStatus == CartStatus.SHOW_TAKING ? 'customized_taking-modal':'customized-modal'}
+                       wrapClassName={wrapClassName}
                        footer=''
                 >
                     {

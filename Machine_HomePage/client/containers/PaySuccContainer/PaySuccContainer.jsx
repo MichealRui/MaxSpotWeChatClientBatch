@@ -42,6 +42,11 @@ export default class PaySuccContainer extends React.Component {
     render(){
         return (
             <div className="takingContainer">
+                    <div className="timer_info">
+                        <div className="info_text">
+                            <img src={require('./image/5_4.png')} alt=""/>
+                            完成，回首页（{this.state.timer}s）</div>
+                    </div>
                     <Header />
                     <Info />
             </div>

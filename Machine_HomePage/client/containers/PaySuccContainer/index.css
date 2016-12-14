@@ -28,15 +28,21 @@
     background-color: #f2f2f2;
 }
 .customized_taking-modal .ant-modal .ant-modal-content .ant-modal-close{
-    width: 84px;
+
+}
+
+
+.takingContainer .timer_info{
+    width: 630px;
     height: 84px;
     border: 1px solid #fff;
-    border-radius: 50% 50%;
+    border-radius: 42px;
     color:#fa7c73;
-    transform: translate(-10px,-60px);
+    transform: translate(1190px,-45px);
     background: #fff;
 }
-.customized_taking-modal .ant-modal .ant-modal-content .ant-modal-close .ant-modal-close-x{
+
+.takingContainer .timer_info .info_text{
     width: 100%;
     height: 100%;
     font-size: 44px;
@@ -44,4 +50,9 @@
     font-weight: 600;
     text-align: center;
     line-height: 82px;
+    display: block;
+}
+.takingContainer .timer_info .info_text>img{
+    vertical-align: middle;
+    margin-right: 10px;
 }
