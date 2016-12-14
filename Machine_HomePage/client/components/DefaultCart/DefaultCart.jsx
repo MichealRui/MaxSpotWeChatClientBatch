@@ -5,6 +5,7 @@ import Cart from '../../components/Cart/Cart'
 import CartItem from '../../components/CartItem/CartItem'
 import CartBottom from '../../containers/CartBottom/CartBottom'
 import AlertDialog from '../../components/AlertDialog/AlertDialog';
+import Empty from '../../components/Empty/Empty'
 require('./index.css');
 
 export default class DefaultCart extends React.Component {
@@ -80,6 +81,7 @@ export default class DefaultCart extends React.Component {
             freeMode: true,
             slidesPerView: 6,
         };
+        let item_count = props.items.length;
         let items = props.items.map((item, index) => {
             return <CartItem item={item}
                              key={index}
@@ -88,19 +90,25 @@ export default class DefaultCart extends React.Component {
                              remove={props.removeItem}
             />
         });
+
+
+
         let showPayAlert = props.items.filter( item =>
                 item.quantity == 0
             ).length > 0;
         return (
             <div onClick={() => this.renewAlert.bind(this)()}>
-                <Cart cartStyle={{top:-38+'px',right:150+'px'}} count={props.count} totalPrice={props.totalPrice || 0}/>
-                <div className="itemContainer" >
+                <Cart cartStyle={{top:-38+'px',right:150+'px'}} count={props.count ? props.count : item_count} totalPrice={props.totalPrice || 0}/>
+                <div className={"itemContainer " + (item_count > 0 ? '':'hide')} >
                     <SwiperComponent
                         swiperConfig={swiperConfig}
                         swiperContainer={'swiper3'}
                     >
                         {items}
                     </SwiperComponent>
+                </div>
+                <div className={"emptyContainer " + (item_count > 0 ? 'hide' : '')}>
+                    <Empty />
                 </div>
                 <CartBottom moreItems={props.moreItems}
                             itemClick={props.addToCart}
