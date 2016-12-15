@@ -49,7 +49,7 @@ export default class SkuContainer extends React.Component {
                                     {
                                         product? (
                                             <div>
-                                                <Header item={product}/>
+                                                <Header item={product} addToCart={(product) => props.addToCart(product)}/>
                                                 {/*<Intro/>*/}
                                                 <Info item={product}/>
                                                 <Footer />

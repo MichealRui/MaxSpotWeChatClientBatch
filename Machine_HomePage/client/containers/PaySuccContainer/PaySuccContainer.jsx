@@ -9,7 +9,7 @@ export default class PaySuccContainer extends React.Component {
         super(props);
         this.state={
             sleepTime:1000,
-            count:30,
+            count:100,
             timer:null
         }
     }
@@ -48,7 +48,7 @@ export default class PaySuccContainer extends React.Component {
                     <div className="timer_info">
                         <div className="info_text">
                             <img src={require('./image/5_4.png')} alt=""/>
-                            完成，回首页（{this.state.timer}s）</div>
+                            完成，回首页（{this.state.count}s）</div>
                     </div>
                     <Header />
                     <Info />

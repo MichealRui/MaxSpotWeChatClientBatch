@@ -32,6 +32,14 @@ export default class skuHeader extends React.Component {
         return atts;
     }
 
+    addClick(e) {
+        // todo update cart
+        this.props.addToCart(
+            this.props.item.productDetail
+        );
+        e.stopPropagation();
+        e.preventDefault();
+    }
 
     render() {
         let props = this.props
@@ -62,7 +70,7 @@ export default class skuHeader extends React.Component {
                 {sub_title}
                 <div className="sub_info">
                     {sub_price}
-                    <button className="button font32"><span>加入购物袋</span></button>
+                    <button className="button font32" onClick={(e) => this.addClick.bind(this)(e)}><span>加入购物袋</span></button>
                 </div>
 
             </div>

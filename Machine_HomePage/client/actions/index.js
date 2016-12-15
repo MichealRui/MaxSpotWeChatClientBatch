@@ -58,35 +58,35 @@ export const SET_CART_STATUS = 'SET_CART_STATUS';
 const cart = cartMock;
 
 export function initMainContent () {
-    // return (dispatch) => {
-    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/get_mainpage_data.action',//'local_api/get_mainpage_data.action',
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //         }).then(response => response.json()
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 dispatch(initSucc({
-    //                     banner: json.banners,
-    //                     content: json.categories,
-    //                     store: json.selectedStore
-    //                 }))
-    //                 dispatch(fetchCart())
-    //             } else {
-    //                 console.log(json);
-    //                 console.log('init error')
-    //             }
-    //         })
-    //     );
-    // };
-
     return (dispatch) => {
-        dispatch(initSucc({
-            banner: mock.banners,
-            content: mock.categories
-        }))
-    }
+        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/get_mainpage_data.action',//'local_api/get_mainpage_data.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+            }).then(response => response.json()
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(initSucc({
+                        banner: json.banners,
+                        content: json.categories,
+                        store: json.selectedStore
+                    }))
+                    dispatch(fetchCart())
+                } else {
+                    console.log(json);
+                    console.log('init error')
+                }
+            })
+        );
+    };
+
+    // return (dispatch) => {
+    //     dispatch(initSucc({
+    //         banner: mock.banners,
+    //         content: mock.categories
+    //     }))
+    // }
 }
 
 function initSucc(data) {
@@ -98,59 +98,59 @@ function initSucc(data) {
 }
 
 export function addToCart(item) {
-    // return (dispatch) => {
-    //     fetch( "http://10.16.42.57:9090/maxbox_pc/local_api/add_sku_to_cart.action",
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //             body: JSON.stringify(
-    //                 Object.assign({}, {
-    //                 skuId: '' + item.id,
-    //                 count: '1'
-    //                 })
-    //             )
-    //         })
-    //         .then(response => response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 dispatch(successAddToCart(item))
-    //             } else {
-    //                 dispatch(errorAddToCart({errorMessage: json.error_message}))
-    //             }
-    //         }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
-    // }
     return (dispatch) => {
-        dispatch(successAddToCart(item))
+        fetch( "http://10.16.66.34:9090/maxbox_pc/local_api/add_sku_to_cart.action",
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(
+                    Object.assign({}, {
+                    skuId: '' + item.id,
+                    count: '1'
+                    })
+                )
+            })
+            .then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(successAddToCart(item))
+                } else {
+                    dispatch(errorAddToCart({errorMessage: json.error_message}))
+                }
+            }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
     }
+    // return (dispatch) => {
+    //     dispatch(successAddToCart(item))
+    // }
 }
 
 export function deleteOneFromCart(item) {
-    // return (dispatch) => {
-    //     fetch( "http://10.16.42.57:9090/maxbox_pc/local_api/remove_sku_from_cart.action",
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //             body: JSON.stringify(
-    //                 Object.assign({}, {
-    //                 skuId: '' + item.id,
-    //                 count: '1'
-    //                 })
-    //             )
-    //         })
-    //         .then(response => response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 dispatch(succDeleteItem(item))
-    //             } else {
-    //                 dispatch(errorAddToCart({errorMessage: json.error_message}))
-    //             }
-    //         }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
-    // }
     return (dispatch) => {
-        dispatch(succDeleteItem(item))
+        fetch( "http://10.16.66.34:9090/maxbox_pc/local_api/remove_sku_from_cart.action",
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(
+                    Object.assign({}, {
+                    skuId: '' + item.id,
+                    count: '1'
+                    })
+                )
+            })
+            .then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(succDeleteItem(item))
+                } else {
+                    dispatch(errorAddToCart({errorMessage: json.error_message}))
+                }
+            }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
     }
+    // return (dispatch) => {
+    //     dispatch(succDeleteItem(item))
+    // }
 }
 
 export function succDeleteItem(item) {
@@ -162,32 +162,32 @@ export function succDeleteItem(item) {
 
 export function removeFromCart(item) {
 
-    // return (dispatch) => {
-    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/remove_sku_from_cart.action',
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //             body: JSON.stringify(
-    //                 Object.assign({}, {
-    //                 skuId: '' + item.id,
-    //                     count: item.count
-    //                 })
-    //             )
-    //         }).then(response => response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 dispatch(succRemoveItem(item))
-    //             } else {
-    //
-    //             }
-    //         })
-    // }
-
     return (dispatch) => {
-        console.log(item)
-        dispatch(succRemoveItem(item))
+        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/remove_sku_from_cart.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(
+                    Object.assign({}, {
+                    skuId: '' + item.id,
+                        count: item.count
+                    })
+                )
+            }).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(succRemoveItem(item))
+                } else {
+
+                }
+            })
     }
+    //
+    // return (dispatch) => {
+    //     console.log(item)
+    //     dispatch(succRemoveItem(item))
+    // }
 }
 
 export function succRemoveItem(item) {
@@ -198,26 +198,26 @@ export function succRemoveItem(item) {
 }
 
 export function fetchCart() {
-    // return (dispatch) => {
-    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/get_cart.action',
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //         }).then(response => response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 dispatch(succFetchCart(json.skus))
-    //             } else {
-    //
-    //             }
-    //         })
-    // }
     return (dispatch) => {
-        return dispatch(succFetchCart(
-            Object.assign({}, cart).skus
-        ))
+        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/get_cart.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+            }).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(succFetchCart(json.skus))
+                } else {
+
+                }
+            })
     }
+    // return (dispatch) => {
+    //     return dispatch(succFetchCart(
+    //         Object.assign({}, cart).skus
+    //     ))
+    // }
 }
 
 export function succFetchCart(skus) {
@@ -242,25 +242,25 @@ export function errorAddToCart(errorMessage) {
 }
 
 export function clearCart() {
-    // return (dispatch) => {
-    //     fetch('local_api/clear_cart.action',
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //         }
-    //     ).then(response => response.json())
-    //         .then(json => {
-    //             if (json.is_succ) {
-    //                 dispatch(succClearCart())
-    //             } else {
-    //
-    //             }
-    //         })
-    // };
     return (dispatch) => {
-        return dispatch(succClearCart())
-    }
+        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/clear_cart.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if (json.is_succ) {
+                    dispatch(succClearCart())
+                } else {
+
+                }
+            })
+    };
+    // return (dispatch) => {
+    //     return dispatch(succClearCart())
+    // }
 }
 
 function succClearCart() {
@@ -279,31 +279,31 @@ export function changeSubContent(key, subKey) {
 }
 
 export function submitCart() {
-    // return (dispatch) => {
-    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/submit_cart.action',
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //         }
-    //     ).then(response =>response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 dispatch(setOrder(json.order));
-    //                 dispatch(fetchQrCode(json.order.orderNumber))
-    //             } else {
-    //
-    //             }
-    //         })
-    // }
-
     return (dispatch) => {
-        dispatch(setOrder({
-            orderNumber: 'S012016120918937',
-            status:1
-        }));
-        dispatch(fetchQrCode('S012016120918937'))
+        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/submit_cart.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+            }
+        ).then(response =>response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(setOrder(json.order));
+                    dispatch(fetchQrCode(json.order.orderNumber))
+                } else {
+
+                }
+            })
     }
+
+    // return (dispatch) => {
+    //     dispatch(setOrder({
+    //         orderNumber: 'S012016120918937',
+    //         status:1
+    //     }));
+    //     dispatch(fetchQrCode('S012016120918937'))
+    // }
 }
 
 export function setOrder(order) {
@@ -314,31 +314,35 @@ export function setOrder(order) {
 }
 
 export function fetchQrCode(orderNumber) {
-    // return (dispatch) => {
-    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/request_pay.action', {
-    //         credentials: 'include',
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         body: JSON.stringify(
-    //             orderNumber
-    //         )
-    //     }).then(response => response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //
-    //             } else {
-    //
-    //             }
-    //         })
-    // };
-    let url = 'http://www.baidu.com';
-    return(dispatch) => {
-        dispatch({
-            type: SET_PAYMENT_CODE,
-            qrCode: url
-        });
-        dispatch(setCartStatus(CartStatus.SHOW_QR))
-    }
+    return (dispatch) => {
+        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/request_pay.action', {
+            credentials: 'include',
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify(
+                {'orderNumber': orderNumber}
+            )
+        }).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch({
+                        type: SET_PAYMENT_CODE,
+                        qrCode: json.payUrl,
+                    })
+                    dispatch(setCartStatus(CartStatus.SHOW_QR))
+                } else {
+
+                }
+            })
+    };
+    // let url = 'http://www.baidu.com';
+    // return(dispatch) => {
+    //     dispatch({
+    //         type: SET_PAYMENT_CODE,
+    //         qrCode: url
+    //     });
+    //     dispatch(setCartStatus(CartStatus.SHOW_QR))
+    // }
 }
 
 export function clearQr() {
@@ -357,7 +361,7 @@ export function setCartStatus(cartStatus) {
 
 export function fetchOrderStatus(orderNumber) {
     return (dispatch) => {
-        fetch('/local_api/order_status.action',{
+        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/order_status.action',{
             credentials: 'include',
             method: 'POST',
             mode: 'cors',
@@ -376,36 +380,36 @@ export function fetchOrderStatus(orderNumber) {
 }
 
 export function fetchSku(skuNumber) {
-    // return (dispatch) => {
-    //     fetch('http://10.16.42.57:9090/maxbox_pc/local_api/sku_detail.action',//'/local_api/sku_detail.action',
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //             body: JSON.stringify(
-    //                 {sku_number: skuNumber}
-    //             )
-    //         }).then(response => response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 dispatch(succFetchSku(
-    //                     {
-    //                         productDetail: json.sku,
-    //                         brand: json.brand
-    //                     }
-    //                 ))
-    //             } else {
-    //                 dispatch()
-    //             }
-    //         })
-    // };
-    return (dispatch)=>{
-        let product = productMock;
-        return dispatch(succFetchSku({
-            productDetail: product.sku,
-            brand: product.brand
-        }))
-    }
+    return (dispatch) => {
+        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/sku_detail.action',//'/local_api/sku_detail.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(
+                    {sku_number: skuNumber}
+                )
+            }).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    dispatch(succFetchSku(
+                        {
+                            productDetail: json.sku,
+                            brand: json.brand
+                        }
+                    ))
+                } else {
+                    dispatch()
+                }
+            })
+    };
+    // return (dispatch)=>{
+    //     let product = productMock;
+    //     return dispatch(succFetchSku({
+    //         productDetail: product.sku,
+    //         brand: product.brand
+    //     }))
+    // }
 }
 
 export function succFetchSku(product_detail) {
