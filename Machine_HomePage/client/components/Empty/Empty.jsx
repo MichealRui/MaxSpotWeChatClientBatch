@@ -14,7 +14,7 @@ export default class Header extends React.Component{
                 <img src={require('./image/empty.png')} alt=""/>
                 <div className="text">
                     <p className="font42">购物车是空的哦~</p>
-                    <div className="button font30">去首页逛逛</div>
+                    <div className="button font30" onClick={() => this.props.cancel()}>去首页逛逛</div>
                 </div>
             </div>
         )

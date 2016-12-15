@@ -13,7 +13,7 @@
 .customized_qrcode-modal .ant-modal {
     top: 70px;
     width: 100%!important;
-
+    height: 1010px;
 }
 .customized_qrcode-modal .ant-modal-close {
     width:100px;
@@ -24,7 +24,7 @@
     padding:0;
 }
 .customized_qrcode-modal .ant-modal .ant-modal-content {
-    height: 1080px;
+    height: 1010px;
     background-color: #f2f2f2;
 }
 .customized_qrcode-modal .ant-modal .ant-modal-content .ant-modal-close{

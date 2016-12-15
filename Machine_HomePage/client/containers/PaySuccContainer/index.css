@@ -13,7 +13,7 @@
 .customized_taking-modal .ant-modal {
     top: 70px;
     width: 100%!important;
-
+    height: 1010px;
 }
 .customized_taking-modal .ant-modal-close {
     width:100px;
@@ -24,14 +24,12 @@
     padding:0;
 }
 .customized_taking-modal .ant-modal .ant-modal-content {
-    height: 1080px;
+    height: 1010px;
     background-color: #f2f2f2;
 }
 .customized_taking-modal .ant-modal .ant-modal-content .ant-modal-close{
-
+    display: none;
 }
-
-
 .takingContainer .timer_info{
     width: 630px;
     height: 84px;
@@ -40,6 +38,8 @@
     color:#fa7c73;
     transform: translate(1190px,-45px);
     background: #fff;
+    position: absolute;
+    z-index: 9;
 }
 
 .takingContainer .timer_info .info_text{

@@ -53,22 +53,6 @@ export default class AlertDialog extends React.Component {
         window.clearTimeout(this.state.timer)
     }
 
-
-    // showAlertModal() {
-    //     this.setState({
-    //         alertVisible: true
-    //     });
-    //     this.countAlert()
-    // }
-    //
-    // cancelAlertModal() {
-    //     this.setState({
-    //         alertVisible: false
-    //     });
-    //     this.renewAlert();
-    //     this.countBack();
-    // }
-
     render() {
 
 

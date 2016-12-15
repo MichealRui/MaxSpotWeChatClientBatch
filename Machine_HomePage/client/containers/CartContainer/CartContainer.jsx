@@ -51,6 +51,7 @@ export default class CartContainer extends React.Component {
                         setCartLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
                         clearCart={() => props.clearCart()}
                         isModalVisible={props.visible}
+                        goBack={props.onCancel()}
                     />
                 );
                 break;

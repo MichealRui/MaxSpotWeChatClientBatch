@@ -108,7 +108,7 @@ export default class DefaultCart extends React.Component {
                     </SwiperComponent>
                 </div>
                 <div className={"emptyContainer " + (item_count > 0 ? 'hide' : '')}>
-                    <Empty />
+                    <Empty cancel={() => this.props.goBack()}/>
                 </div>
                 <CartBottom moreItems={props.moreItems}
                             itemClick={props.addToCart}
