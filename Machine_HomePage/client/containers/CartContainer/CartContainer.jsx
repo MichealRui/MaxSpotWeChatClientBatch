@@ -31,7 +31,7 @@ export default class CartContainer extends React.Component {
     render(){
 
         let props = this.props;
-        let wrapClassName = 'customized-modal'
+        let wrapClassName = 'customized_default-modal';
         let cartContent;
         switch (props.cartStatus) {
             case CartStatus.HIDE_CART:
@@ -67,7 +67,7 @@ export default class CartContainer extends React.Component {
                                       setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
                                       setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}
                 />;
-                wrapClassName = 'customized_qrcode-modal'
+                wrapClassName = 'customized_qrcode-modal';
                 break;
             case CartStatus.SHOW_TAKING:
                 cartContent = <Taking

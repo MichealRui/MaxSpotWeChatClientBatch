@@ -13,8 +13,8 @@ export default class DefaultCart extends React.Component {
         super(props);
         this.state={
             sleepTime:1000,
-            maxCount:5,
-            currentCount:5,
+            maxCount:120,
+            currentCount:120,
             alertVisible:false,
             timer:null,
             alertMax:30
