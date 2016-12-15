@@ -15,7 +15,6 @@ export default class PaySuccContainer extends React.Component {
     }
 
     countOne(){
-        console.log(this.state.count);
         this.setState({
             count: this.state.count - 1
         });
@@ -37,6 +36,10 @@ export default class PaySuccContainer extends React.Component {
 
     componentDidMount() {
         this.countBack()
+    }
+
+    componentWillUnmount() {
+        window.clearTimeout(this.state.timer);
     }
 
     render(){

@@ -1,15 +1,11 @@
 'use strict';
 import React from 'react';
 import { Modal } from 'antd';
-import CartItem from '../../components/CartItem/CartItem'
-import SwiperComponent from '../../components/Swiper/index'
-import CartBottom from '../CartBottom/CartBottom'
 import DefaultCart from '../../components/DefaultCart/DefaultCart'
 import QrCode from  '../../components/QRContent/QrContent'
 import CartStatus from '../../containers/CartContainer/CartStatus';
 import Loading from '../../components/LoadingContent/Loading'
 import Taking from '../PaySuccContainer/PaySuccContainer'
-import Cart from '../../components/Cart/Cart'
 require('./index.css');
 
 export default class CartContainer extends React.Component {
@@ -38,6 +34,9 @@ export default class CartContainer extends React.Component {
         let wrapClassName = 'customized-modal'
         let cartContent;
         switch (props.cartStatus) {
+            case CartStatus.HIDE_CART:
+                cartContent = <div></div>;
+                break;
             case CartStatus.SHOW_CART:
                 cartContent = (
                     <DefaultCart

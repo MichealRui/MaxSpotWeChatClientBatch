@@ -42,10 +42,11 @@ class PageContainer extends React.Component{
 
     hideCart() {
         const {dispatch} = this.props;
-        dispatch(clearQr());
         this.setState({
             cartVisible: false
-        })
+        });
+        dispatch(clearQr());
+        dispatch(setCartStatus(CartStatus.HIDE_CART));
     }
 
     onProductDetailClick(item){
