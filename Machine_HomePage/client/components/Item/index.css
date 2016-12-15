@@ -88,6 +88,11 @@
 	text-align: left;
 }
 
+.item .add{
+	line-height: 52px;
+	font-weight: bold;
+}
+
 .item .soldOut{
 	position: absolute;
 	bottom: 10px;
