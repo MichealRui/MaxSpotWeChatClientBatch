@@ -22,16 +22,16 @@ export default class QrContent extends React.Component {
         }
     }
 
-    // componentWillMount() {
-    //     this.fetchOrderStatus.bind(this)()
-    // }
+    componentWillMount() {
+        this.fetchOrderStatus.bind(this)()
+    }
 
     render () {
         let qr = this.props.qr;
         console.log(qr)
         let size = 270;
         return (
-            <div className="qrcode" onClick={() => this.props.setCartTaking()}>
+            <div className="qrcode">
                 <div className="code clearfix"><ReactQrCode size={size} value={qr}/></div>
                 <div className="payInfo">
                     <div className="title font48">
