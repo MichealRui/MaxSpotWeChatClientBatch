@@ -31,7 +31,7 @@ export default class QrContent extends React.Component {
         console.log(qr)
         let size = 270;
         return (
-            <div className="qrcode">
+            <div className="qrcode" onClick={() => this.props.setCartTaking()}>
                 <div className="code clearfix"><ReactQrCode size={size} value={qr}/></div>
                 <div className="payInfo">
                     <div className="title font48">

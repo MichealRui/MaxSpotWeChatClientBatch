@@ -48,9 +48,9 @@ let data = {
         "minStock":0,
         "skuNumber":"UF000578",
         "images":[
-            "/static/sku/0/0/578/1481175348674.png",
             "/static/sku/0/0/578/59476.jpg",
             "/static/sku/0/0/578/64625.jpg",
+            "/static/sku/0/0/578/69491.jpg",
             "/static/sku/0/0/578/69491.jpg"
         ],
         "brand":272,

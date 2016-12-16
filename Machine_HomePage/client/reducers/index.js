@@ -176,6 +176,17 @@ function succAddCart(content, prod) {
 function finalCartStatus(cart){
     let newCart = Object.assign({}, cart);
     let cartItems = newCart.items;
+    let count = cartItems.map (
+        product => {
+            if(product.quantity > 0) {
+                return product.count
+            } else {
+                return 0
+            }
+        }
+    ).reduce (
+        (pre, next) => parseInt(pre) + parseInt(next), 0) ;
+
     newCart.totalPrice = cartItems.map(
         product => {
             if(product.quantity > 0) {
@@ -188,6 +199,8 @@ function finalCartStatus(cart){
         (pre, next) =>
             parseInt(pre) + parseInt(next)
         , 0)  / 100;
+
+    newCart.count = count
     return newCart
 }
 

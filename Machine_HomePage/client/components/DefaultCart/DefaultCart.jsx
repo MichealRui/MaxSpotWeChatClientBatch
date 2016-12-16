@@ -29,7 +29,6 @@ export default class DefaultCart extends React.Component {
         window.clearTimeout(this.state.timer);
     }
 
-
     countOne(){
         console.log(this.state.currentCount);
         this.setState({
@@ -91,14 +90,12 @@ export default class DefaultCart extends React.Component {
             />
         });
 
-
-
         let showPayAlert = props.items.filter( item =>
                 item.quantity == 0
             ).length > 0;
         return (
             <div onClick={() => this.renewAlert.bind(this)()}>
-                <Cart cartStyle={{top:-38+'px',right:150+'px'}} count={props.count ? props.count : item_count} totalPrice={props.totalPrice || 0}/>
+                <Cart cartStyle={{top:-38+'px',right:150+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
                 <div className={"itemContainer " + (item_count > 0 ? '':'hide')} >
                     <SwiperComponent
                         swiperConfig={swiperConfig}
@@ -124,7 +121,9 @@ export default class DefaultCart extends React.Component {
                             alertVisible={this.state.alertVisible}
                             max={this.state.alertMax}
                             cancel={() => this.cancelAlertModal.bind(this)()}
+                            goBack={() => this.props.goBack()}
                             sleepTime={this.state.sleepTime}
+                            clearCart={() => props.clearCart()}
                         /> : ''
                 }
             </div>

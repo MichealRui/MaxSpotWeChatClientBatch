@@ -25,18 +25,26 @@ export default class Gallery extends React.Component {
     }
 
     render() {
-        let props = this.props
-        let images_item = props.images.length == 0 ? []: props.images.map((img, index) => {
+        let props = this.props;
+        const GalleryMaxLength=8;
+        let images_item = props.images.length == 0 ? []:
+            props.images.map((img, index) => {
+                return (
+                    <div className="thumbnailWrapper" key={index}>
+                        <img className="thumbnail"
+                             src={ENV.domain + img}
+                             onClick={() => this.setCurrent(ENV.domain + img)}
+                        />
+                    </div>
+                )
+            });
 
-            return (
-                <div className="thumbnailWrapper" key={index}>
-                    <img className="thumbnail"
-                         src={ENV.domain + img}
-                         onClick={() => this.setCurrent(ENV.domain + img)}
-                    />
+        for(let l=images_item.length; l < GalleryMaxLength; l++) {
+            images_item.push(
+                <div className="thumbnailWrapper" key={l}>
                 </div>
             )
-        });
+        }
         let detail = (
             <div className="detailContainer">
                 <img className="detail" src={this.state.current?this.state.current:require('./images/default.png')}/>

@@ -31,8 +31,15 @@ export default class AlertDialog extends React.Component {
             window.clearTimeout(this.state.timer);
         } else {
             // todo clear cart
-            this.props.cancel()
+            window.clearTimeout(this.state.timer);
+            this.clearCart()
         }
+    }
+
+    clearCart() {
+        this.props.cancel();
+        this.props.goBack();
+        this.props.clearCart();
     }
 
     continueBuy() {
@@ -55,7 +62,6 @@ export default class AlertDialog extends React.Component {
 
     render() {
 
-
         return (
             <Modal visible={this.props.alertVisible}
                    onCancel={this.props.cancel}
@@ -73,7 +79,7 @@ export default class AlertDialog extends React.Component {
                     <div className="alertBtn font34" onClick={() => this.continueBuy.bind(this)()}>
                         { "继续购物(" + this.state.count + ")"}
                     </div>
-                    <div className="alertBtn font34">
+                    <div className="alertBtn font34" onClick={() => this.clearCart.bind(this)()}>
                         清空购物袋
                     </div>
                 </div>

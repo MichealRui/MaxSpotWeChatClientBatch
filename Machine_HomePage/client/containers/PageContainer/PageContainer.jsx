@@ -14,7 +14,6 @@ import {fetchCart} from '../../actions/index'
 import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart} from '../../actions/index'
 import CartStatus from '../CartContainer/CartStatus';
 
-
 class PageContainer extends React.Component{
     constructor(props) {
         super(props);
@@ -42,11 +41,11 @@ class PageContainer extends React.Component{
 
     hideCart() {
         const {dispatch} = this.props;
+        dispatch(clearQr());
+        dispatch(setCartStatus(CartStatus.HIDE_CART));
         this.setState({
             cartVisible: false
         });
-        dispatch(clearQr());
-        dispatch(setCartStatus(CartStatus.HIDE_CART));
     }
 
     onProductDetailClick(item){

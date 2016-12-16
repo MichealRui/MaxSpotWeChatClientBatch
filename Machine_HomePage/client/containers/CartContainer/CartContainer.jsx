@@ -45,6 +45,7 @@ export default class CartContainer extends React.Component {
                         itemClick={props.addToCart}
                         decItem={props.decItem}
                         addToCart={props.addToCart}
+                        count={props.count}
                         removeItem={props.removeItem}
                         totalPrice={props.totalPrice}
                         submit={props.submit}

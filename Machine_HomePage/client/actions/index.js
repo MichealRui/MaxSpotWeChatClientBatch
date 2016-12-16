@@ -163,7 +163,7 @@ export function succDeleteItem(item) {
 export function removeFromCart(item) {
 
     // return (dispatch) => {
-    //     fetch('http://10.16.66.34:9090/maxbox_pc/local_api/remove_sku_from_cart.action',
+    //     fetch('/maxbox_pc/local_api/remove_sku_from_cart.action',
     //         {
     //             credentials: 'include',
     //             method: 'POST',
@@ -199,7 +199,7 @@ export function succRemoveItem(item) {
 
 export function fetchCart() {
     // return (dispatch) => {
-    //     fetch('http://10.16.66.34:9090/maxbox_pc/local_api/get_cart.action',
+    //     fetch('/maxbox_pc/local_api/get_cart.action',
     //         {
     //             credentials: 'include',
     //             method: 'POST',
@@ -243,7 +243,7 @@ export function errorAddToCart(errorMessage) {
 
 export function clearCart() {
     // return (dispatch) => {
-    //     fetch('http://10.16.66.34:9090/maxbox_pc/local_api/clear_cart.action',
+    //     fetch('/maxbox_pc/local_api/clear_cart.action',
     //         {
     //             credentials: 'include',
     //             method: 'POST',
@@ -280,7 +280,7 @@ export function changeSubContent(key, subKey) {
 
 export function submitCart() {
     // return (dispatch) => {
-    //     fetch('http://10.16.66.34:9090/maxbox_pc/local_api/submit_cart.action',
+    //     fetch('/maxbox_pc/local_api/submit_cart.action',
     //         {
     //             credentials: 'include',
     //             method: 'POST',
@@ -315,7 +315,7 @@ export function setOrder(order) {
 
 export function fetchQrCode(orderNumber) {
     // return (dispatch) => {
-    //     fetch('http://10.16.66.34:9090/maxbox_pc/local_api/request_pay.action', {
+    //     fetch('/maxbox_pc/local_api/request_pay.action', {
     //         credentials: 'include',
     //         method: 'POST',
     //         mode: 'cors',
@@ -361,12 +361,12 @@ export function setCartStatus(cartStatus) {
 
 export function fetchOrderStatus(orderNumber) {
     return (dispatch) => {
-        fetch('http://10.16.66.34:9090/maxbox_pc/local_api/order_status.action',{
+        fetch('/maxbox_pc/local_api/get_order_detail.action',{
             credentials: 'include',
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
-                order_number: orderNumber
+                orderNumber : orderNumber
             })
         }).then(reponse => response.json())
             .then(json => {
@@ -381,7 +381,7 @@ export function fetchOrderStatus(orderNumber) {
 
 export function fetchSku(skuNumber) {
     // return (dispatch) => {
-    //     fetch('http://10.16.66.34:9090/maxbox_pc/local_api/sku_detail.action',//'/local_api/sku_detail.action',
+    //     fetch('/maxbox_pc/local_api/sku_detail.action',
     //         {
     //             credentials: 'include',
     //             method: 'POST',
