@@ -8,6 +8,7 @@ export default class QrContent extends React.Component {
         super(props);
         this.state={
             sleepTime:2000,
+            timer:null
         }
     }
 
@@ -16,10 +17,14 @@ export default class QrContent extends React.Component {
         let PAID = '2';
         if(order.status != PAID) {
             fetchOrder(order.orderNumber);
-            window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
+            this.state.timer = window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
         } else {
             setCartQr();
         }
+    }
+
+    componentWillUnmount() {
+        window.clearTimeout(this.state.timer);
     }
 
     componentWillMount() {

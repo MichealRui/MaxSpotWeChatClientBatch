@@ -43,7 +43,6 @@ export default class SkuContainer extends React.Component {
                                     {
                                         product ? <Gallery images={sku?this.getMiddlePicList(sku.images):''}/>:''
                                     }
-
                                 </div>
                                 <div className="skuInfo">
                                     {

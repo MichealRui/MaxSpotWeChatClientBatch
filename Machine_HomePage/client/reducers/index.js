@@ -160,7 +160,7 @@ function setDetail(content, prod) {
 function succAddCart(content, prod) {
     let state = Object.assign({}, content);
     let cartItems = state.cart.items;
-    let findResult = cartItems.find(i => i.id == prod.id) || [];
+    let findResult = cartItems.filter(i => i.id == prod.id) || [];
     findResult.length == 0 ?
         cartItems.push(Object.assign({}, prod, {count:1})):
         cartItems.forEach(i => {
@@ -214,8 +214,8 @@ function succFetchCart(content, skus) {
 
 function decreaseItem(content, prod) {
     let state = Object.assign({}, content);
-    let cart = state.cart
-    let findResult = cart.items.find(i => i.id == prod.id) || [];
+    let cart = state.cart;
+    let findResult = cart.items.filter(i => i.id == prod.id) || [];
     if(findResult.length != 0) {
         cart.items.forEach(i => {
             if(i.id == prod.id) {

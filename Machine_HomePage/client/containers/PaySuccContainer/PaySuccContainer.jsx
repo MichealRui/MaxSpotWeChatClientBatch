@@ -9,7 +9,7 @@ export default class PaySuccContainer extends React.Component {
         super(props);
         this.state={
             sleepTime:1000,
-            count:100,
+            count:30,
             timer:null
         }
     }

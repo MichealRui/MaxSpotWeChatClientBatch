@@ -27,7 +27,7 @@ export default class skuHeader extends React.Component {
             },'')
         }
         if(atts == ''){
-            atts = def
+            atts = ''
         }
         return atts;
     }

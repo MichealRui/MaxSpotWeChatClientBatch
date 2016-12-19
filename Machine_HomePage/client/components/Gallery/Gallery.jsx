@@ -14,13 +14,19 @@ export default class Gallery extends React.Component {
     setCurrent(p) {
          this.setState({
              current:p
-         })
+         });
         console.log('Been set')
     }
 
     componentWillMount() {
         this.setCurrent(
             ENV.domain + this.props.images[0]
+        )
+    }
+
+    componentWillReceiveProps(nextProp, nextState) {
+        this.setCurrent(
+            ENV.domain + nextProp.images[0]
         )
     }
 
