@@ -16,7 +16,7 @@ export default class Selector extends React.Component {
         this.setState({
             selector: selector,
             selectorKey:selector.key
-        })
+        });
         this.props.changeContent(selector.key, selector.subSelector[0])
     }
 
@@ -58,7 +58,10 @@ export default class Selector extends React.Component {
                 <ul className="selectorContainer">
                     {tag}
                 </ul>
-                <SubSelector selector={this.state.selector} changeContent={this.props.changeContent}/>
+                <SubSelector selector={this.state.selector}
+                             changeContent={this.props.changeContent}
+                             selectorKey={this.state.selectorKey}
+                />
             </div>
         )
     }
