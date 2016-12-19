@@ -86,6 +86,8 @@
 	display: block;
 	color: #2db9ed;
 	text-align: left;
+	position: absolute;
+	bottom: 12px;
 }
 
 .item .add{

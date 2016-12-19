@@ -9,7 +9,7 @@ export default class skuHeader extends React.Component {
     }
 
     getAttribute(attribute){
-        let def = '<span></span>'
+        let def = '<span>&#12288;</span>'
         var atts = def;
         if(attribute && attribute.length > 0){
             atts = attribute.map((att)=>{

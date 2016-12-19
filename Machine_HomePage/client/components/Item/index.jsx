@@ -31,7 +31,7 @@ export default class Item extends React.Component {
     }
 
     getAttr(attributes){
-        let dif = <span></span>;
+        let dif = <span>&#12288;</span>;
         var attr = dif;
         if(attributes && attributes.length > 0){
             attr = attributes.map((item,index)=>{

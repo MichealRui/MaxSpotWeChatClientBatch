@@ -61,10 +61,12 @@ export const SET_ORDER_STATUS = 'SET_ORDER_STATUS';
 
 const cart = cartMock;
 
+const domain = ENV.domain == 'http:www.mjitech.com' ? '' : 'http://10.16.42.48:9090';
+
 export function initMainContent () {
     return (dispatch) => {
-        fetch('/maxbox_pc/local_api/get_mainpage_data.action',//'local_api/get_mainpage_data.action',
-            {
+        fetch(domain+'/maxbox_pc/local_api/get_mainpage_data.action',//'local_api/get_mainpage_data.action',
+        {
                 credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
@@ -103,7 +105,7 @@ function initSucc(data) {
 
 export function addToCart(item) {
     return (dispatch) => {
-        fetch( "/maxbox_pc/local_api/add_sku_to_cart.action",
+        fetch( domain+"/maxbox_pc/local_api/add_sku_to_cart.action",
             {
                 credentials: 'include',
                 method: 'POST',
@@ -131,7 +133,7 @@ export function addToCart(item) {
 
 export function deleteOneFromCart(item) {
     return (dispatch) => {
-        fetch( "/maxbox_pc/local_api/remove_sku_from_cart.action",
+        fetch( domain+"/maxbox_pc/local_api/remove_sku_from_cart.action",
             {
                 credentials: 'include',
                 method: 'POST',
@@ -167,7 +169,7 @@ export function succDeleteItem(item) {
 export function removeFromCart(item) {
 
     return (dispatch) => {
-        fetch('/maxbox_pc/local_api/remove_sku_from_cart.action',
+        fetch(domain+'/maxbox_pc/local_api/remove_sku_from_cart.action',
             {
                 credentials: 'include',
                 method: 'POST',
@@ -203,7 +205,7 @@ export function succRemoveItem(item) {
 
 export function fetchCart() {
     return (dispatch) => {
-        fetch('/maxbox_pc/local_api/get_cart.action',
+        fetch(domain+'/maxbox_pc/local_api/get_cart.action',
             {
                 credentials: 'include',
                 method: 'POST',
@@ -247,7 +249,7 @@ export function errorAddToCart(errorMessage) {
 
 export function clearCart() {
     return (dispatch) => {
-        fetch('/maxbox_pc/local_api/clear_cart.action',
+        fetch(domain+'/maxbox_pc/local_api/clear_cart.action',
             {
                 credentials: 'include',
                 method: 'POST',
@@ -284,7 +286,7 @@ export function changeSubContent(key, subKey) {
 
 export function submitCart() {
     return (dispatch) => {
-        fetch('/maxbox_pc/local_api/submit_cart.action',
+        fetch(domain+'/maxbox_pc/local_api/submit_cart.action',
             {
                 credentials: 'include',
                 method: 'POST',
@@ -319,7 +321,7 @@ export function setOrder(order) {
 
 export function fetchQrCode(orderNumber) {
     return (dispatch) => {
-        fetch('/maxbox_pc/local_api/request_pay.action', {
+        fetch(domain+'/maxbox_pc/local_api/request_pay.action', {
             credentials: 'include',
             method: 'POST',
             mode: 'cors',
@@ -366,7 +368,7 @@ export function setCartStatus(cartStatus) {
 
 export function fetchOrderStatus(orderNumber) {
     return (dispatch) => {
-        fetch('/maxbox_pc/local_api/get_order_detail.action',{
+        fetch(domain+'/maxbox_pc/local_api/get_order_detail.action',{
             credentials: 'include',
             method: 'POST',
             mode: 'cors',
@@ -395,7 +397,7 @@ export function fetchOrderStatus(orderNumber) {
 
 export function fetchSku(skuNumber) {
     return (dispatch) => {
-        fetch('/maxbox_pc/local_api/sku_detail.action',
+        fetch(domain+'/maxbox_pc/local_api/sku_detail.action',
             {
                 credentials: 'include',
                 method: 'POST',
