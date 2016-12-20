@@ -59,6 +59,8 @@ export const FETCH_ORDER_ERROR = 'FETCH_ORDER_ERROR';
 
 export const SET_ORDER_STATUS = 'SET_ORDER_STATUS';
 
+export const SET_RECOMMEND = 'SET_RECOMMEND';
+
 const cart = cartMock;
 
 const domain = (ENV.domain == 'http:www.mjitech.com') || (ENV.domain == 'http://test.mjitech,com') ? '' : 'http://10.16.66.34:9090';
@@ -214,6 +216,7 @@ export function fetchCart() {
             .then(json => {
                 if(json.is_succ) {
                     dispatch(succFetchCart(json.skus))
+                    // dispatch(setReco(json.skus[0].recommends))
                 } else {
 
                 }
@@ -225,6 +228,13 @@ export function fetchCart() {
     //     ))
     // }
 }
+
+// export function setReco(recommends){
+//     return {
+//         type: SET_RECOMMEND,
+//         recommends
+//     }
+// }
 
 export function succFetchCart(skus) {
     return {

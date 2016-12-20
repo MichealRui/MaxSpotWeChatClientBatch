@@ -21,10 +21,6 @@ export default class DefaultCart extends React.Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState){
-        return JSON.stringify(this.props.count) != JSON.stringify(nextProps.count);
-    }
-
     componentDidMount() {
         this.countBack()
     }
@@ -104,6 +100,7 @@ export default class DefaultCart extends React.Component {
                     <SwiperComponent
                         swiperConfig={swiperConfig}
                         swiperContainer={'swiper3'}
+                        reload={false}
                     >
                         {items}
                     </SwiperComponent>

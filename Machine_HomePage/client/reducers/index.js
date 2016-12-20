@@ -5,7 +5,8 @@ import {
     CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
     SUCC_DELETE_CART,SUCC_REMOVE_CART,
     SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,
-    SET_ORDER, SET_CART_STATUS, SUCC_CLEAR_CART
+    SET_ORDER, SET_CART_STATUS, SUCC_CLEAR_CART,
+    SET_RECOMMEND
 } from '../actions/index'
 import icon_images from '../mock/images'
 let bannerdata = [
@@ -208,6 +209,7 @@ function succFetchCart(content, skus) {
     let newContent = Object.assign({}, content);
     let newSku = Object.assign({}, skus);
     newContent.cart.items = newSku[0].productList;
+    newContent.cart.moreItems = newSku[0].recommends;
     newContent.cart = finalCartStatus(newContent.cart);
     return newContent
 }

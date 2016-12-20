@@ -21,7 +21,9 @@ export default class SwiperComponent extends React.Component {
     }
 
     componentDidUpdate() {
-        this.state.swiper.init();
+        if(this.props.reload) {
+            this.state.swiper.init();
+        }
     }
 
     render() {
