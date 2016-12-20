@@ -61,7 +61,7 @@ export const SET_ORDER_STATUS = 'SET_ORDER_STATUS';
 
 const cart = cartMock;
 
-const domain = ENV.domain == 'http:www.mjitech.com' ? '' : 'http://10.16.66.34:9090';
+const domain = (ENV.domain == 'http:www.mjitech.com') || (ENV.domain == 'http://test.mjitech,com') ? '' : 'http://10.16.66.34:9090';
 
 export function initMainContent () {
     return (dispatch) => {
