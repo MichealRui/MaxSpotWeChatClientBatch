@@ -64,7 +64,6 @@ export default class CartContainer extends React.Component {
             case CartStatus.SHOW_QR:
                 cartContent = <QrCode qr={props.qr}
                                       order={props.order}
-                                      totalPrice={props.totalPrice}
                                       fetchOrder={(or) => props.fetchOrder(or)}
                                       setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
                                       setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}

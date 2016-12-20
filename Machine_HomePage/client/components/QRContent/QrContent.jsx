@@ -43,7 +43,7 @@ export default class QrContent extends React.Component {
                         微信扫一扫支付
                         <span className="price">
                             <span className="font32">￥</span>
-                            {this.props.totalPrice}
+                            {this.props.order.totalPrice / 100}
                         </span>
                     </div>
                     <div className="text font34">如何取货</div>
