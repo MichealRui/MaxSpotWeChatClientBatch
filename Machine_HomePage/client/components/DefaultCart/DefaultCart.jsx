@@ -21,6 +21,10 @@ export default class DefaultCart extends React.Component {
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState){
+        return JSON.stringify(this.props.items) != JSON.stringify(nextProps.items);
+    }
+
     componentDidMount() {
         this.countBack()
     }
