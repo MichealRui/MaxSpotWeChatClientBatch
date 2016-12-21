@@ -9,7 +9,7 @@ export default class CartBottom extends React.Component {
     }
 
     onClickQr() {
-        if(this.props.showAlert) {
+        if(this.props.showAlert || this.props.totalPrice <= 0) {
             return false;
         } else {
             this.props.setCartLoading();
@@ -58,12 +58,20 @@ export default class CartBottom extends React.Component {
                             <span className="price-name">应付金额</span>
                             <span className="price-num total-pay">¥{this.props.totalPrice}</span>
                         </div>
-                        <div className="button font34" onClick={() => this.props.clearCart()}>清空购物袋</div>
+                        <div className={"button font34 " + (this.props.totalPrice <= 0 ? 'disabled':'')}
+                             disabled={this.props.totalPrice <= 0}
+                             onClick={() => this.props.clearCart()}>清空购物袋</div>
                     </div>
                 </div>
 
                 <div className="cart-weixin-pay"  onClick={() => this.onClickQr.bind(this)()}>
-                    <img className="wx-pic" src={require("./images/weixinpay.png")} width="224" alt="微信支付" />
+                    {
+                        this.props.totalPrice > 0 ?
+                            <img className="wx-pic" src={require("./images/weixinpay.png")} width="224" alt="微信支付" />
+                            :
+                            <img className="wx-pic" src={require("./images/weixin_grey.png")} width="224" alt="微信支付" />
+                    }
+
                     <div className={"text font20 " + (this.props.showAlert?'':'hide')}>
                         <img src={require('./images/backborder.png')} alt=""/>
                         <span className="font20">部分商品缺货或已下架，请编辑购物袋</span>

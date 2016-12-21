@@ -70,7 +70,7 @@ export default class CartItem extends React.Component{
         let props = this.props.item;
         // console.log(props)
         var atts = this.getAtts(props.attributes)
-        console.log(atts);
+        let domain=ENV.domain;
         let soldOut = props.quantity ? (
             <div className={"counting clearfix "}>
                 <a className="btn-minus" disabled={props.count == 1} onClick={() => this.decrease.bind(this)()}>-</a>
@@ -81,7 +81,7 @@ export default class CartItem extends React.Component{
         return (
             <div className="cart-item my-item">
                 <div className="item-pic">
-                    <img src={'http://114.215.143.97' + this.getMiddlePic(props.imagePath)} alt="Product name" />
+                    <img src={domain + this.getMiddlePic(props.imagePath)} alt="Product name" />
                 </div>
                 <h2 className="item-name">
                     <span>{props.brandName}</span>

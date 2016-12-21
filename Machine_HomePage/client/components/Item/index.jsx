@@ -56,13 +56,14 @@ export default class Item extends React.Component {
 
     render() {
         let props = this.props.item;
-        var atts = this.getAttr(props.attributes)
+        var atts = this.getAttr(props.attributes);
+        let domain=ENV.domain;
         // let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         return (
             <div className={"item sliderItem"} onClick={() => this.showClick.bind(this)(props)}>
                 {
                     props.imagePath ?
-                        <img src={'http://114.215.143.97' + this.getMiddlePic(props.imagePath)} className='productImg'/>
+                        <img src={domain + this.getMiddlePic(props.imagePath)} className='productImg'/>
                         :
                         <img src={require('./images/default.png')} className='productImg'/>
                 }
