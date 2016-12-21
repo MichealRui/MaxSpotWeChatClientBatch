@@ -21,6 +21,7 @@
 
 .customized_default-modal .ant-modal .ant-modal-body {
     line-height: 1;
+    padding-top: 40px;
 }
 .customized_default-modal .ant-modal .ant-modal-content {
     height: 1010px;
