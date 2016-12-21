@@ -46,7 +46,7 @@ export default class QrContent extends React.Component {
                             {this.props.order.totalPrice / 100}
                         </span>
                     </div>
-                    <div className="text font34">如何取货</div>
+                    <div className="text font34">如何支付</div>
                     <div className="iconInfo clearfix">
                         <div className="stepInfo">
                             <div className="icon"><img src={require('./image/4_1.png')} alt=""/></div>
