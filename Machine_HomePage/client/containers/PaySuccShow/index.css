@@ -8,35 +8,120 @@
     width: 100%;
     height: 100%;
     position: relative;
-    padding: 150px 55px 0 185px;
+    /*padding: 150px 55px 0 185px;*/
+    padding-top:100px;
 
 }
+
 .PaySuccShow .info .pics{
-    display: inline-block;
+    display: none;
     position: relative;
-    width: 22%;
-    padding: 20px;
-    margin: 0 75px;
+    width: 1190px;
+    height: 485px;
+    margin: 0 347px;
+    box-shadow:20px 20px 5px #fff2f1;
+    background-color: #fff;
 }
-.PaySuccShow .info .pics>p{
-    text-align: center;
-    color: #000;
-    line-height: 90px;
+
+.PaySuccShow .info .pics.active{
+    display: inline-block;
 }
+
 .PaySuccShow .info .pics>img{
-    text-align: center;
-    width: 100%;
-    height: 100%;
+    /*text-align: center;*/
+    width: 430px;
+    /*height: 100%;*/
+    vertical-align: middle;
+    margin: 86px;
 }
-.PaySuccShow .info .pics .icon{
-    position: absolute;
-    width: 76px;
-    height: 76px;
-    top:-38px;
-    left: -38px;
-    border-radius: 50% 50%;
-    background-color: #fa7c73;
+
+.PaySuccShow .info .pics .text{
+    vertical-align: middle;
+    display: inline-block;
+}
+.PaySuccShow .info .pics .text .step{
+    font-weight: bold;
+    color:#f7ce14;
+}
+.PaySuccShow .info .pics .text .step>span{
+    border:1px solid #f7ce14;
+    width: 55px;
+    height: 55px;
+    background-color: #f7ce14;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
     color:#fff;
+    display: inline-block;
+    margin: 0 15px;
     text-align: center;
-    line-height: 76px;
+    line-height: 55px;
+
+}
+.PaySuccShow .info .pics .text .infotxt{
+    color:rgba(0,0,0,.8);
+}
+
+.PaySuccShow .info .pics .text>p{
+    line-height: 100px;
+}
+
+.PaySuccShow .info  .icon{
+    display: inline-block;
+    border: 1px solid transparent;
+    width:85px ;
+    height: 85px;
+    background-color: #e1e1e1;
+    vertical-align: middle;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: absolute;
+    top:300px;
+}
+/*.PaySuccShow .info  .icon:after{*/
+   /*content: '';*/
+    /*border:1px solid transparent;*/
+    /*background-color: #fff;*/
+    /*width: 20px;*/
+    /*height: 20px;*/
+    /*transform: rotate(90deg);*/
+    /*-webkit-transform: rotate(90deg);*/
+/*}*/
+
+
+.PaySuccShow .info  .icon.action{
+    background-color: #ff7860;
+}
+
+.PaySuccShow .info  .righticon{
+    right: 220px;
+}
+.PaySuccShow .info  .lefticon{
+    left: 220px;
+}
+
+.triangle_border_left{
+    width: 0;
+    height: 0;
+    border-width: 25px 25px 25px 0;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
+    /* margin: 40px auto; */
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 16px 20px;
+}
+.triangle_border_right{
+    width: 0;
+    height: 0;
+    border-width: 25px 0 25px 25px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    /* margin: 40px auto; */
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 16px 32px;
 }

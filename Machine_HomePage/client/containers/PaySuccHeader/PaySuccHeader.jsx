@@ -14,11 +14,11 @@ export default class PaySuccHeader extends React.Component {
 
         return (
             <div className="PaySuccHeader">
+                <img src={require('./image/bg.png')} className="bg" alt=""/>
                 <div className="box">
-                    <img className="smile" src={require('./image/smile.png')} alt=""/>
+                    <img className="smile" src={require('./image/5_5.png')} alt=""/>
                     <div className="text">
-                        <p className="font44">恭喜你！订单支付成功</p>
-                        <p className="font36">您的微信会收到一个取货二维码，请带着它去右侧出货口扫码取货</p>
+                        <p className="font60">支付成功，您现在可以取货了。</p>
                     </div>
                 </div>
             </div>
