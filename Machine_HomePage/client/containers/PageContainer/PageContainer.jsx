@@ -6,6 +6,7 @@ import Banner from '../../components/Banner/Banner'
 import SubContent from '../../containers/SubContent/SubContent'
 import CartContainer from '../../containers/CartContainer/CartContainer';
 import SkuContainer from '../../containers/SkuContainer/SkuContainer';
+import FetchSkuContainer from '../../containers/FetchSkuContainer/FetchSkuContainer';
 import { initMainContent } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index'
 import {changeSubContent} from '../../actions/index'
@@ -20,7 +21,8 @@ class PageContainer extends React.Component{
         this.state = {
             cartVisible:false,
             skuVisible:false,
-            paySuccVisible:false
+            paySuccVisible:false,
+            fetchSkuVisible:false
         }
     }
 
@@ -48,6 +50,18 @@ class PageContainer extends React.Component{
         });
     }
 
+    onFetchSkuBtnClick() {
+        this.setState({
+            fetchSkuVisible: true
+        })
+    }
+
+    hideFetchSku() {
+        this.setState({
+            fetchSkuVisible: false
+        });
+    }
+
     onProductDetailClick(item){
         let {dispatch} = this.props;
         dispatch(fetchSku(item.skuNumber));
@@ -57,7 +71,6 @@ class PageContainer extends React.Component{
     }
 
     hideProductDetail(){
-        console.log('sku_hide');
         this.setState({
             skuVisible:false
         })
@@ -68,6 +81,7 @@ class PageContainer extends React.Component{
         return (
             <div className="pageContainer">
                 <Header cartClick={() => this.onCartBtnClick.bind(this)}
+                        fetchSkuClick={()=>this.onFetchSkuBtnClick.bind(this)}
                         {...state.cart}
                 />
                 <Banner bannerData={state.banner}/>
@@ -95,6 +109,9 @@ class PageContainer extends React.Component{
                               onCancel={()=>this.hideProductDetail.bind(this)}
                               product={state.product}
                               addToCart={(item) => dispatch(addToCart(item))}
+                />
+                <FetchSkuContainer visible={this.state.fetchSkuVisible}
+                                   onCancel={()=>this.hideFetchSku.bind(this)}
                 />
             </div>
         )

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Cart from '../Cart/Cart'
+import FetchSku from '../FetchSkuButton/FetchSkuButton'
 require('./index.css')
 
 
@@ -22,8 +23,12 @@ export default class Header extends React.Component{
                     <span className="font24">VIP登陆</span>
                     </span>
                 <span className="" onClick={props.cartClick()}>
-                    <Cart count={props.count} totalPrice={props.totalPrice || 0}/>
+                    <Cart count={props.count} cartStyle={{right:'200px'}} totalPrice={props.totalPrice || 0}/>
                 </span>
+                <span onClick={props.fetchSkuClick()}>
+                    <FetchSku />
+                </span>
+
             </div>
         )
     }
