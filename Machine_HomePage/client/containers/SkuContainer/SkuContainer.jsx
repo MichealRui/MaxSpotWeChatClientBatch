@@ -36,7 +36,7 @@ export default class SkuContainer extends React.Component {
             <div className="skuContainer">
                 <Modal visible={this.props.visible}
                        onCancel={this.props.onCancel()}
-                       wrapClassName="customized1-modal"
+                       wrapClassName="customized1_sku-modal"
                        footer=''
                 >
                                 <div className="galleryWrapper">
