@@ -31,3 +31,6 @@
     width:75%;
     height:85%;
 }
+.galleryContainer .picList .thumbnail.active {
+    border:1px solid #ff7860;
+}

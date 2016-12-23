@@ -7,20 +7,22 @@ export default class Gallery extends React.Component {
     constructor(props) {
         super(props)
         this.state={
-            current:'./images/default.png'
+            current:'./images/default.png',
+            current_key:0
         }
     }
 
-    setCurrent(p) {
+    setCurrent(p,key) {
          this.setState({
-             current:p
+             current:p,
+             current_key:key
          });
-        console.log('Been set')
     }
 
     componentWillMount() {
         this.setCurrent(
-            ENV.domain + this.props.images[0]
+            ENV.domain + this.props.images[0],
+            0
         )
     }
 
@@ -36,10 +38,10 @@ export default class Gallery extends React.Component {
         let images_item = props.images.length == 0 ? []:
             props.images.map((img, index) => {
                 return (
-                    <div className="thumbnailWrapper" key={index}>
-                        <img className="thumbnail"
+                    <div className="thumbnailWrapper " key={index}>
+                        <img className={"thumbnail " + (this.state.current_key == index ? 'active':'')}
                              src={ENV.domain + img}
-                             onClick={() => this.setCurrent(ENV.domain + img)}
+                             onClick={() => this.setCurrent(ENV.domain + img,index)}
                         />
                     </div>
                 )
