@@ -111,7 +111,7 @@ class PageContainer extends React.Component{
                               addToCart={(item) => dispatch(addToCart(item))}
                 />
                 <FetchSkuContainer visible={this.state.fetchSkuVisible}
-                                   onCancel={()=>this.hideFetchSku.bind(this)}
+                                   onCancel={this.hideFetchSku.bind(this)}
                 />
             </div>
         )
