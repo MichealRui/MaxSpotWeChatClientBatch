@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
-require('./index.css')
+require('./index.css');
 
 export default class FetchSkuShow extends React.Component {
     constructor(props) {
@@ -25,7 +24,6 @@ export default class FetchSkuShow extends React.Component {
     }
 
     render() {
-
         return (
             <div className="FetchSkuShow">
                 <div className="info">
@@ -57,8 +55,16 @@ export default class FetchSkuShow extends React.Component {
                             <p className="infotxt font32">扫码成功请在出货口取货</p>
                         </div>
                     </div>
-                    <div className={"lefticon icon " + (this.state.fetch_cur_pics > 1 ? 'action': '')} onClick={(e)=>this.delPicNum(e)}><span className="triangle_border_left"></span></div>
-                    <div className={"righticon icon " + (this.state.fetch_cur_pics < 4 ? 'action': '')} onClick={(e)=>this.addPicNum(e)}><span className="triangle_border_right"></span></div>
+                    <div className={"lefticon icon " + (this.state.fetch_cur_pics > 1 ? 'action': '')}
+                         onClick={(e)=>this.delPicNum(e)}
+                    >
+                        <span className="triangle_border_left"></span>
+                    </div>
+                    <div className={"righticon icon " + (this.state.fetch_cur_pics < 4 ? 'action': '')}
+                         onClick={(e)=>this.addPicNum(e)}
+                    >
+                        <span className="triangle_border_right"></span>
+                    </div>
                 </div>
             </div>
 

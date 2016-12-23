@@ -364,3 +364,6 @@ html { overflow-y: scroll; }
 .hide{
     display: none;
 }
+.ant-modal-mask {
+    opacity:0.9;
+}

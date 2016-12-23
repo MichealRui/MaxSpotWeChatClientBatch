@@ -23,7 +23,6 @@ export default class FetchSkuContainer extends React.Component {
                         <Header />
                         <Info />
                     </div>
-
                 </Modal>
             </div>
         );

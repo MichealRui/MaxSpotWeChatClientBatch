@@ -8,7 +8,6 @@ import reducers from './reducers/index';
 require('./index.css');
 import Page from './containers/PageContainer/PageContainer';
 
-
 // init thunk
 function activateVendor() {
     const loggerMiddleware = createLogger();
@@ -33,8 +32,3 @@ function renderPage(store) {
 
 let store = activateVendor();
 renderPage(store);
-
-// ReactDOM.render(
-//       <Page Coupon={window.Max.Coupon}/>,
-//   document.getElementById('root')
-// );

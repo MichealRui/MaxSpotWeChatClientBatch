@@ -109,3 +109,27 @@
 	border: 1px solid #999;
 	border-radius: 5px;
 }
+
+.imageContainer {
+	/*position: relative;*/
+}
+
+.imageContainer .J_animate {
+	/*position: absolute;*/
+	/*left:0;*/
+    /*top:0;*/
+    /*z-index: 99999;*/
+}
+.fly{
+    animation:flyright 5s
+}
+@keyframes flyright {
+    from {
+        left: 0;
+        top:0;
+    }
+    to {
+        top:1500px;
+        left:1500px;
+    }
+}
