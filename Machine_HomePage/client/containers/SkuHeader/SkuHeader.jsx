@@ -43,8 +43,6 @@ export default class skuHeader extends React.Component {
 
     render() {
         let props = this.props
-        console.log('fine')
-        console.log(props)
         let item = props.item
 
         let sku = item.productDetail;
@@ -61,7 +59,7 @@ export default class skuHeader extends React.Component {
         let sub_price = (
             <div className="sub_price">
                 <p className="font48"><span className="font32">￥</span>{sku.sellprice/100 || 0 }</p>
-                <p className="font24 hide">市场价 126元</p>
+                <p className={"font24 "+(sku.quantity>0 ? '':'hide')}>市场价 {sku.msrp/100}元</p>
             </div>
         )
 
@@ -70,7 +68,7 @@ export default class skuHeader extends React.Component {
                 {sub_title}
                 <div className="sub_info">
                     {sub_price}
-                    <button className="button font32" onClick={(e) => this.addClick.bind(this)(e)}><span>加入购物袋</span></button>
+                    <button className={"button font32 " + (sku.quantity>0 ? 'pre_price':'empty')} onClick={(e) => this.addClick.bind(this)(e)}><span>{sku.quantity>0 ? '加入购物袋':'售 罄'}</span></button>
                 </div>
 
             </div>
