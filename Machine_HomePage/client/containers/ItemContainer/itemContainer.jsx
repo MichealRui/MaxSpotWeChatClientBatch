@@ -1,20 +1,13 @@
 'use strict';
 import React from 'react';
 import Item from '../../components/Item/index'
-import AddButton from '../../components/AddButton/addButton'
 import SwiperComponent from '../../components/Swiper/index'
-// import MasonryMixin from './MasonryMixin'
 require('./index.css');
-
-var masonryOptions = {
-    transitionDuration: 0
-};
 
 var ItemContainer = React.createClass({
 
     render() {
         let swiperConfig = {
-            // pagination: '.swiper2 .swiper-pagination',
             freeMode: true,
             slidesPerView: 6,
         };

@@ -1,11 +1,6 @@
 'use strict';
-import ReactDOM from 'react-dom'
 import React from 'react'
-import { connect }  from 'react-redux';
-import Header from '../../components/Header/Header'
-import Banner from '../../components/Banner/Banner'
 import Selector from '../../components/Selector/index'
-import SubSelector from '../../components/ButtonSelector/ButtonSelector'
 import ItemContainer from '../ItemContainer/itemContainer'
 
 export default class SubContent extends React.Component {

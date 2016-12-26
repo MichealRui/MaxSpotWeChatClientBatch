@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
+import { Router, Route, hashHistory } from 'react-router';
 import reducers from './reducers/index';
 require('./index.css');
 import Page from './containers/PageContainer/PageContainer';
@@ -23,7 +24,9 @@ function activateVendor() {
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
-            <Page/>
+            <Router history={hashHistory}>
+                <Route path="/" component={Page} />
+            </Router>
         </Provider>
         ,
         document.getElementById('root')
