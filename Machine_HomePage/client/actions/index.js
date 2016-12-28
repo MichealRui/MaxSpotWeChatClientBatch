@@ -306,9 +306,10 @@ export function submitCart() {
             .then(json => {
                 if(json.is_succ) {
                     dispatch(setOrder(json.order));
+                    dispatch(setCartStatus(CartStatus.SHOW_LOADING));
                     dispatch(fetchQrCode(json.order.orderNumber))
                 } else {
-
+                    console.log(json)
                 }
             })
     };

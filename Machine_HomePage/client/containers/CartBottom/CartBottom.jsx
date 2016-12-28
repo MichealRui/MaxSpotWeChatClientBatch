@@ -12,7 +12,7 @@ export default class CartBottom extends React.Component {
         if(this.props.showAlert || this.props.totalPrice <= 0) {
             return false;
         } else {
-            this.props.setCartLoading();
+            // this.props.setCartLoading();
             this.props.submit()
         }
     }
