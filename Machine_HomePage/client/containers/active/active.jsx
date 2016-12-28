@@ -1,13 +1,11 @@
-
 'use strict';
 import React from 'react';
 import { connect }  from 'react-redux';
 import Header from '../../components/active_Header/Header';
-import Banner from '../../components/active_Banner/Banner';
+import Banner from '../../components/Banner/Banner';
 import SubContent from '../active_SubContent/SubContent';
 import CartContainer from '../CartContainer/CartContainer';
 import SkuContainer from '../SkuContainer/SkuContainer';
-import FetchSkuContainer from '../FetchSkuContainer/FetchSkuContainer';
 import { initMainContent } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index';
 import {changeSubContent} from '../../actions/index';
@@ -27,13 +25,12 @@ class PageContainer extends React.Component{
     componentWillMount() {
         const { dispatch } = this.props;
         dispatch(initMainContent());
-        // dispatch(fetchCart())
     }
 
     onCartBtnClick() {
         const {dispatch} = this.props;
         dispatch(setCartStatus(CartStatus.SHOW_CART));
-        dispatch(fetchCart());console.log('cart')
+        dispatch(fetchCart());
         this.setState({
             cartVisible: true
         })
@@ -45,18 +42,6 @@ class PageContainer extends React.Component{
         dispatch(setCartStatus(CartStatus.HIDE_CART));
         this.setState({
             cartVisible: false
-        });
-    }
-
-    onFetchSkuBtnClick() {
-        this.setState({
-            fetchSkuVisible: true
-        })
-    }
-
-    hideFetchSku() {
-        this.setState({
-            fetchSkuVisible: false
         });
     }
 
@@ -108,9 +93,6 @@ class PageContainer extends React.Component{
                               onCancel={()=>this.hideProductDetail.bind(this)}
                               product={state.product}
                               addToCart={(item) => dispatch(addToCart(item))}
-                />
-                <FetchSkuContainer visible={this.state.fetchSkuVisible}
-                                   onCancel={this.hideFetchSku.bind(this)}
                 />
             </div>
         )

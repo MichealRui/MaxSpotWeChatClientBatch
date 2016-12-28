@@ -65,9 +65,7 @@ export default class Item extends React.Component {
             <div className={"item sliderItem"} onClick={() => this.showClick.bind(this)(props)}>
                 {
                     props.imagePath ?
-                        <div className="imageContainer" ref="imageContainer">
-                            <img src={domain + this.getMiddlePic(props.imagePath)} className='productImg'/>
-                        </div>
+                        <img src={domain + this.getMiddlePic(props.imagePath)} className='productImg'/>
                         :
                         <img src={require('./images/default.png')} className='productImg'/>
                 }

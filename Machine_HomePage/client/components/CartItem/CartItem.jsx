@@ -81,7 +81,13 @@ export default class CartItem extends React.Component{
         return (
             <div className="cart-item my-item">
                 <div className="item-pic">
-                    <img src={domain + this.getMiddlePic(props.imagePath)} alt="Product name" />
+                    {
+                        props.imagePath?
+                            <img src={domain + this.getMiddlePic(props.imagePath)} alt="Product name" />
+                            :
+                            <img src={require('./images/default.png')} className='productImg'/>
+                    }
+
                 </div>
                 <h2 className="item-name">
                     <span>{props.brandName}</span>

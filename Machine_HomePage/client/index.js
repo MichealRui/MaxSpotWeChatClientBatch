@@ -28,6 +28,7 @@ function renderPage(store) {
                 <Route path='/' component={Page}/>
                 <Route path='/maxbox_pc' component={Page}/>
                 <Route path='/maxbox_pc/orderTest' component={Page}/>
+                <Route path='/active' component={Activity}/>
             </Router>
         </Provider>
         ,

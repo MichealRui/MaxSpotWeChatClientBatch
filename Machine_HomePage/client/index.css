@@ -358,7 +358,7 @@ html { overflow-y: scroll; }
     }
 }
 #root {
-    padding-bottom: 25px;
+    /*padding-bottom: 25px;*/
 }
 
 .hide{
