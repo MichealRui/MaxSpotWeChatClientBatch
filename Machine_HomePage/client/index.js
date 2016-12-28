@@ -8,7 +8,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import reducers from './reducers/index';
 require('./index.css');
 import Page from './containers/PageContainer/PageContainer';
-
+import Activity from './containers/active/active';
 // init thunk
 function activateVendor() {
     const loggerMiddleware = createLogger();
@@ -26,6 +26,7 @@ function renderPage(store) {
         <Provider store={store}>
             <Router history={hashHistory}>
                 <Route path="/" component={Page} />
+                <Route path="/active" component={Activity} />
             </Router>
         </Provider>
         ,
