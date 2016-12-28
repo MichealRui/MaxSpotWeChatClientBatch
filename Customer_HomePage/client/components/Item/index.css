@@ -63,6 +63,10 @@
 }
 .item.commonItem .brandProductContainer .productName {
 	display: block;
+	white-space: nowrap;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 .brandProductContainer .productDesc {
     width: 150px;
