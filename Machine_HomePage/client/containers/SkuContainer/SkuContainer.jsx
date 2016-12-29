@@ -41,9 +41,10 @@ export default class SkuContainer extends React.Component {
                 >
                                 <div className="galleryWrapper">
                                     {
-                                        product ? <Gallery images={sku?this.getMiddlePicList(
-                                            new Array(sku.imagePath).concat(sku.images)
-                                        ):''}/>:''
+                                        product ? <Gallery images={sku ?
+                                            this.getMiddlePicList(sku.images)
+                                            :''
+                                        }/>:''
                                     }
                                 </div>
                                 <div className="skuInfo">
