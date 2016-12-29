@@ -30,7 +30,6 @@ export default class DefaultCart extends React.Component {
     }
 
     countOne(){
-        console.log(this.state.currentCount);
         this.setState({
             currentCount: this.state.currentCount - 1
         });
@@ -112,7 +111,6 @@ export default class DefaultCart extends React.Component {
                             itemClick={props.addToCart}
                             totalPrice={props.totalPrice}
                             submit={props.submit}
-                            setCartLoading={() => props.setCartLoading()}
                             clearCart={() => props.clearCart()}
                             showAlert={showPayAlert}
                 />

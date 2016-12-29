@@ -49,7 +49,6 @@ export default class CartContainer extends React.Component {
                         removeItem={props.removeItem}
                         totalPrice={props.totalPrice}
                         submit={props.submit}
-                        setCartLoading={() => props.setCart(CartStatus.SHOW_LOADING)}
                         clearCart={() => props.clearCart()}
                         isModalVisible={props.visible}
                         goBack={props.onCancel()}
@@ -75,7 +74,7 @@ export default class CartContainer extends React.Component {
                     onCancel={props.onCancel()}
                     isModalVisible={props.visible}
                 />;
-                wrapClassName = 'customized_taking-modal'
+                wrapClassName = 'customized_taking-modal';
                 break;
             default:
                 cartContent = <div> error </div>
