@@ -31,7 +31,7 @@ export default class FetchSkuShow extends React.Component {
                         <img src={require('./image/01.gif')} alt=""/>
                         <div className="text">
                             <p className="step font34"> 第 <span>1</span>步</p>
-                            <p className="infotxt font32">在微信“罐售价便利店”进入购买记录页，找到你要取货的订单。</p>
+                            <p className="infotxt font32">在微信“怪兽家便利店”进入购买记录页，找到你要取货的订单。</p>
                         </div>
                     </div>
                     <div className={"pics " +　(this.state.fetch_cur_pics ==  2 ? 'active': '')}>
