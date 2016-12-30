@@ -11,7 +11,7 @@ import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/inde
 import {changeSubContent} from '../../actions/index';
 import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart, fetchCart,fetchSku} from '../../actions/index'
 import CartStatus from '../CartContainer/CartStatus';
-class PageContainer extends React.Component{
+class Active extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -104,4 +104,4 @@ function select(store) {
     return Object.assign({}, {state: store})
 }
 
-export default connect(select)(PageContainer)
+export default connect(select)(Active)

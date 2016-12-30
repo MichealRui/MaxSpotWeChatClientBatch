@@ -8,7 +8,7 @@ import { Router, Route, IndexRedirect, Redirect, hashHistory } from 'react-route
 import reducers from './reducers/index';
 require('./index.css');
 import Page from './containers/PageContainer/PageContainer';
-import Activity from './containers/active/active';
+import Activity from './containers/active/Active';
 // init thunk
 function activateVendor() {
     const loggerMiddleware = createLogger();

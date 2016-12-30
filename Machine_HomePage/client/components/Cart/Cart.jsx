@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 require('./index.css')
 
 
@@ -15,7 +14,7 @@ export default class Cart extends React.Component{
 
     componentWillReceiveProps(nextProps){
         console.log(nextProps);
-        if((nextProps.count != this.props.count) && nextProps.count != 0 && !this.state.cartLock){
+        if((nextProps.count > this.props.count) && nextProps.count != 0 && !this.state.cartLock){
             this.setState({
                 cartActive:'active',
                 cartLock : true
