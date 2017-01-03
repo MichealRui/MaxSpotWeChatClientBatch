@@ -116,7 +116,7 @@ export default class CartItem extends React.Component{
                         </div>
                     </div>
                 </div>
-                {/*<div className={ "layer " + (props.quantity ? 'hide':'')}></div>*/}
+                <div className={ "layer " + (props.quantity< 0 ? 'hide':'')}></div>
             </div>
         )
     }
