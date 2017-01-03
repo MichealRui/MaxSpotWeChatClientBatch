@@ -11,8 +11,8 @@
     align-items: center;
 }
 .galleryContainer .detailContainer .detail {
-    width:260px;
-    height:330px;
+    width:100%;
+    height:100%;
 }
 .galleryContainer .picList {
     display: flex;
@@ -28,8 +28,8 @@
     align-items: center;
 }
 .galleryContainer .picList .thumbnail {
-    width:75%;
-    height:85%;
+    width:100%;
+    height:100%;
 }
 .galleryContainer .picList .thumbnail.active {
     border:1px solid #ff7860;

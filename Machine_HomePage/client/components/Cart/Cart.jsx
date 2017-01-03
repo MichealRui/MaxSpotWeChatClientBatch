@@ -25,7 +25,7 @@ export default class Cart extends React.Component{
                         cartActive:'',
                         cartLock : false
                     })
-                }, 3000)
+                }, 1000)
             )
         }
     }

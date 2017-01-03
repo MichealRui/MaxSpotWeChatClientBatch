@@ -122,7 +122,7 @@ export default class CartItem extends React.Component{
                         <span className="font20 noQuantity">{"剩余库存 " + props.quantity + " 件"}</span>
                     </div>:''
                 }
-                {/*<div className={ "layer " + (props.quantity > 0 ? 'hide':'')}></div>*/}
+                <div className={ "layer " + (props.quantity > 0 ? 'hide':'')}></div>
             </div>
         )
     }
