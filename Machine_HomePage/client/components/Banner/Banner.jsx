@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {Link} from 'react-router';
 import Swiper from '../../components/Swiper/index'
 require('./index.css')
 
@@ -19,9 +19,9 @@ export default class Banner extends React.Component {
         let style = {}
         let items = bannerData.map((item,index)=>{
             return (
-                <a key={index} href={item.destUrl}>
+                <Link key={index} to="/active">
                     <img width='100%' style={style} src={require('./images/banner_default.png')} alt=""/>
-                </a>
+                </Link>
             )
         })
 
