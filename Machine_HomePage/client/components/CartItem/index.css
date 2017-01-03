@@ -211,7 +211,33 @@
     display: inline-block;
     text-align: center;
     margin: 0 18px;
+}
 
+.cart-item .noQuantity {
+    display: block;
+    background-color: #f7ce14;
+    text-align: center;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 3px;
+    left:19px;
+}
 
+.cart-item .noQuantity span {
+    width: 150px;
+    height: 30px;
+    color: #fff;
+    line-height: 30px;
+}
+
+.cart-item .noQuantity .triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #f7ce14;
+    position: absolute;
+    top: -46px;
+    left: 80px;
 }
 

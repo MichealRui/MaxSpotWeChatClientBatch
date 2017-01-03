@@ -19,12 +19,13 @@ export default class SkuContainer extends React.Component {
     }
 
     getMiddlePic(path) {
+        let domain= ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
         let particial = path.split('.');
         if(particial.length == 2) {
             particial[0] = particial[0] + '_middle';
-            return particial.join('.')
+            return domain + particial.join('.')
         } else {
-            return path
+            return domain + path
         }
     }
 

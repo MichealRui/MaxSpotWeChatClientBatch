@@ -90,11 +90,11 @@ export default class DefaultCart extends React.Component {
         });
 
         let showPayAlert = props.items.filter( item =>
-                item.quantity == 0
+                (item.quantity == 0) || (item.count > item.quantity) || (item.status == 0)
             ).length > 0;
         return (
             <div onClick={() => this.renewAlert.bind(this)()}>
-                <Cart cartStyle={{top:-38+'px',right:150+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
+                <Cart cartStyle={{top:-43+'px',right:199+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
                 <div className={"itemContainer " + (item_count > 0 ? '':'hide')} >
                     <SwiperComponent
                         swiperConfig={swiperConfig}

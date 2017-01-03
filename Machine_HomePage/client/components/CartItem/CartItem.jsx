@@ -70,7 +70,7 @@ export default class CartItem extends React.Component{
         let props = this.props.item;
         // console.log(props)
         var atts = this.getAtts(props.attributes)
-        let domain=ENV.domain;
+        let domain= ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
         let soldOut = props.quantity ? (
             <div className={"counting clearfix "}>
                 <a className="btn-minus" disabled={props.count == 1} onClick={() => this.decrease.bind(this)()}>-</a>
@@ -116,7 +116,13 @@ export default class CartItem extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div className={ "layer " + (props.quantity< 0 ? 'hide':'')}></div>
+                {
+                    props.count > props.quantity ? <div className="noQuantity">
+                        <span className="triangle-up "></span>
+                        <span className="font20 noQuantity">{"剩余库存 " + props.quantity + " 件"}</span>
+                    </div>:''
+                }
+                {/*<div className={ "layer " + (props.quantity > 0 ? 'hide':'')}></div>*/}
             </div>
         )
     }

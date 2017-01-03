@@ -63,7 +63,7 @@ export const SET_RECOMMEND = 'SET_RECOMMEND';
 
 const cart = cartMock;
 
-const domain = (ENV.domain == 'http:www.mjitech.com') || (ENV.domain == 'http://test.mjitech,com') ? '' : 'http://10.16.66.34:9090';
+const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.34:9090' : 'http://10.16.66.34:8080';
 
 export function initMainContent () {
     return (dispatch) => {

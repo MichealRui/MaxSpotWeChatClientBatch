@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
 require('./index.css')
 
 export default class Gallery extends React.Component {
@@ -21,14 +20,14 @@ export default class Gallery extends React.Component {
 
     componentWillMount() {
         this.setCurrent(
-            ENV.domain + this.props.images[0],
+            this.props.images[0],
             0
         )
     }
 
     componentWillReceiveProps(nextProp, nextState) {
         this.setCurrent(
-            ENV.domain + nextProp.images[0]
+            nextProp.images[0]
         )
     }
 
@@ -40,8 +39,8 @@ export default class Gallery extends React.Component {
                 return (
                     <div className="thumbnailWrapper " key={index}>
                         <img className={"thumbnail " + (this.state.current_key == index ? 'active':'')}
-                             src={ENV.domain + img}
-                             onClick={() => this.setCurrent(ENV.domain + img,index)}
+                             src={img}
+                             onClick={() => this.setCurrent(img,index)}
                         />
                     </div>
                 )
