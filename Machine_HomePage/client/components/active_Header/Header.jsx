@@ -1,5 +1,6 @@
 import React from 'react';
-import Cart from '../Cart/Cart'
+import Cart from '../Cart/Cart';
+import {Link} from 'react-router';
 require('./index.css');
 
 
@@ -11,7 +12,9 @@ export default class Header extends React.Component{
         let props = this.props;
         return (
             <div className="headerContainer clearfix">
-                <img src={require('./images/active_return.png')} className="logo"/>
+                <Link to="/">
+                    <img src={require('./images/active_return.png')} className="logo"/>
+                </Link>
                 <img src={require('./images/active_logo.png')} className="logo"/>
 
                 <span className="location font24">
