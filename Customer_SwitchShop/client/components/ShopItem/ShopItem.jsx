@@ -27,7 +27,7 @@ export default class ShopItem extends React.Component {
 			<div className='shopItem' onClick={this.shopClick.bind(this)}>
 				<img src={ENV.domain + '/' + props.imagePath} className='shopImg' />
 				<div className='infoArea'>
-					<h1 className='font15'>{props.name}<span onClick={<this className="shopDetailClick"></this>.bind(this)} className="font14">i</span></h1>
+					<h1 className='font15'>{props.name}<span onClick={this.shopDetailClick.bind(this)} className="font14">i</span></h1>
 					<p className='font12'>{props.address}</p>
 				</div>
 				<span className=""> <img src={require('./images/arrow.png')} alt=""/> </span>
