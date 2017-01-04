@@ -27,6 +27,7 @@ var ItemContainer = React.createClass({
                 <SwiperComponent
                     swiperConfig={swiperConfig}
                     swiperContainer={'swiper2'}
+                    reload={this.props.reload}
                 >
                     {items}
                 </SwiperComponent>

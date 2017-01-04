@@ -285,7 +285,6 @@ function succClearCart() {
     }
 }
 
-
 export function changeSubContent(key, subKey) {
     return {
         type: CHANGE_SUBCONTENT,

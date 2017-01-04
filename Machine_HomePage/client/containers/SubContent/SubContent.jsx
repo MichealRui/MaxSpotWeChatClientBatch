@@ -9,6 +9,7 @@ export default class SubContent extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState){
+        console.log(!(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items)))
         return !(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items));
     }
 
@@ -25,6 +26,7 @@ export default class SubContent extends React.Component {
                                itemClick={this.props.addToCart}
                                store={this.props.storeData}
                                detailClick={this.props.showProduct}
+                               reload={true}
                 />
             </div>
         )
