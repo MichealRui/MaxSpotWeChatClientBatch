@@ -1,12 +1,11 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Modal, Button } from 'antd';
 import Gallery from '../../components/Gallery/Gallery';
 import Header from '../SkuHeader/SkuHeader'
-import Intro from '../SkuIntro/SkuIntro'
 import Info from '../SkuInfo/SkuInfo'
 import Footer from '../SkuFooter/SkuFooter'
+import Cart from '../../components/Cart/Cart'
 require('./index.css')
 
 export default class SkuContainer extends React.Component {
@@ -40,6 +39,7 @@ export default class SkuContainer extends React.Component {
                        wrapClassName="customized1_sku-modal"
                        footer=''
                 >
+                    <Cart cartStyle={{top:-43+'px',right:199+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
                                 <div className="galleryWrapper">
                                     {
                                         product ? <Gallery images={sku ?
