@@ -12,7 +12,7 @@ export default class Gallery extends React.Component {
         return (
             <li className="shopImg">
                 {
-                    gallerySrc ? <img src={gallerySrc} alt="店铺实拍"/> : ''
+                    gallerySrc ? <img src={ENV.domain + gallerySrc} alt="店铺实拍"/> : ''
                 }
             </li>
         )
