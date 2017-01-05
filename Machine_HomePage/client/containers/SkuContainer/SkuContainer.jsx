@@ -39,7 +39,7 @@ export default class SkuContainer extends React.Component {
                        wrapClassName="customized1_sku-modal"
                        footer=''
                 >
-                    <Cart cartStyle={{top:-43+'px',right:199+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
+                    <Cart cartStyle={{top:-48+'px',right:110+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
                                 <div className="galleryWrapper">
                                     {
                                         product ? <Gallery images={sku ?
