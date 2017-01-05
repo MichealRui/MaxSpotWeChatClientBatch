@@ -6,7 +6,7 @@ import {
     SUCC_DELETE_CART,SUCC_REMOVE_CART,
     SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,
     SET_ORDER, SET_CART_STATUS, SUCC_CLEAR_CART,
-    SET_RECOMMEND
+    SET_RECOMMEND, SUCC_INIT_ACTIVITY
 } from '../actions/index'
 import icon_images from '../mock/images'
 let bannerdata = [
@@ -46,13 +46,18 @@ let storeInfo = {
 
 };
 
+let activity = {
+    items:[]
+}
+
 let data = {
     banner: bannerdata,
     selector: selector,
     subContent: subContent,
     currentSub: subContent['all'],
     cart: shoppingCart,
-    storeInfo: storeInfo
+    storeInfo: storeInfo,
+    activity:activity
 };
 
 function initSuccess(content, data){
@@ -64,7 +69,6 @@ function initSuccess(content, data){
         5: {key: 'baby', content: '儿童母婴', faIcon:'fa-deviantart',image:icon_images.img_etmy}
     };
     let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
-    console.log(categories)
     let selector = categories.map(cat =>  SELECTOR_ICONS[cat.id]);//.filter(s => s);
     let subContentArray = categories.map(cat => {
         let key = SELECTOR_ICONS[cat.id]["key"];
@@ -243,7 +247,6 @@ function setPaymentCode(content, url) {
 }
 
 function setOrder (content, order) {
-    console.log(order);
     let newOrder = Object.assign({}, order);
     let state = Object.assign({}, content)
     state.order = newOrder;
@@ -260,6 +263,11 @@ function clearCart(content) {
     let state = Object.assign({}, content);
     state.cart.items = [];
     state.cart = finalCartStatus(state.cart);
+    return state
+}
+
+function initActivity(content, activityContent) {
+    let state = Object.assign({}, content, {activity:{items:activityContent}})
     return state
 }
 
@@ -290,6 +298,8 @@ export default function (
              return setCartStatus(content, action.cartStatus);
         case SUCC_CLEAR_CART:
             return clearCart(content);
+        case SUCC_INIT_ACTIVITY:
+            return initActivity(content, action.activityContent);
         default:
             return content;
     }

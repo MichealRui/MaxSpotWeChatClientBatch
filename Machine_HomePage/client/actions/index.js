@@ -61,6 +61,8 @@ export const SET_ORDER_STATUS = 'SET_ORDER_STATUS';
 
 export const SET_RECOMMEND = 'SET_RECOMMEND';
 
+export const SUCC_INIT_ACTIVITY = 'SUCC_INIT_ACTIVITY';
+
 const cart = cartMock;
 
 const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.34:9090' : 'http://10.16.66.34:8080';
@@ -448,5 +450,32 @@ export function setDetailDialog(prod) {
     return {
         type: SET_DETAIL,
         prod
+    }
+}
+
+export function initActivity() {
+    return (dispatch) => {
+        fetch(domain + '/maxbox_pc/local_api/get_marketing_data.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    console.log(json);
+                    dispatch(succInitActivity(json.products))
+                } else {
+                    console.log('error')
+                }
+            })
+    }
+}
+
+export function succInitActivity(activityContent) {
+    return {
+        type: SUCC_INIT_ACTIVITY,
+        activityContent
     }
 }

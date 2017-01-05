@@ -6,7 +6,7 @@ import Banner from '../../components/Banner/Banner';
 import SubContent from '../active_SubContent/SubContent';
 import CartContainer from '../CartContainer/CartContainer';
 import SkuContainer from '../SkuContainer/SkuContainer';
-import { initMainContent } from '../../actions/index'
+import { initMainContent, initActivity } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index';
 import {changeSubContent} from '../../actions/index';
 import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart, fetchCart,fetchSku} from '../../actions/index'
@@ -24,7 +24,8 @@ class Active extends React.Component{
 
     componentWillMount() {
         const { dispatch } = this.props;
-        dispatch(initMainContent());
+        // dispatch(initMainContent());
+        dispatch(initActivity())
     }
 
     onCartBtnClick() {
@@ -69,7 +70,7 @@ class Active extends React.Component{
                 />
                 <Banner bannerData={state.banner}/>
                 <SubContent
-                    contentData={state.currentSub}
+                    contentData={state.activity}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}
                     addToCart={(item) => dispatch(addToCart(item))}
                     showProduct={(item) => this.onProductDetailClick.bind(this)(item)}

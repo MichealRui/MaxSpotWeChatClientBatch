@@ -7,7 +7,7 @@ import SubContent from '../../containers/SubContent/SubContent'
 import CartContainer from '../../containers/CartContainer/CartContainer';
 import SkuContainer from '../../containers/SkuContainer/SkuContainer';
 import FetchSkuContainer from '../../containers/FetchSkuContainer/FetchSkuContainer';
-import { initMainContent } from '../../actions/index'
+import { initMainContent, initActivity } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index'
 import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
@@ -29,7 +29,7 @@ class PageContainer extends React.Component{
     componentWillMount() {
         const { dispatch } = this.props;
         dispatch(initMainContent());
-        // dispatch(fetchCart())
+        dispatch(initActivity())
     }
 
     onCartBtnClick() {
