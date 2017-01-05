@@ -54,13 +54,22 @@
 
 
 .skuHeader .button{
+    /*border:1px solid transparent;*/
+    /*background-color: #fa7c73;*/
+    /*width: 235px;*/
+    /*height: 94px;*/
+    /*border-radius:94px;*/
+    /*border-top-right-radius: 0;*/
+    /*color:#FFF;*/
+    /*display: inline-block;*/
+    /*line-height: 94px;*/
+    /*text-align: center;*/
+    /*opacity: 1;*/
     border:1px solid transparent;
-    background-color: #fa7c73;
     width: 235px;
     height: 94px;
     border-radius:94px;
-    border-top-right-radius: 0;
-    color:#FFF;
+    color:#fa7c73;
     display: inline-block;
     line-height: 94px;
     text-align: center;
@@ -69,13 +78,17 @@
 
 .skuHeader .button.pre_price{
     transform: translate(0px,-30px);
+    background: #fff url(images/pre_price.png) center;
+    background-repeat: no-repeat;
 }
 
 .skuHeader .button.empty{
-    background-color: #e1e1e1;
+    /*background-color: #e1e1e1;*/
+    background: #fff url(images/empty.png) no-repeat center;
 }
 
 .skuHeader .sub_info .button>span
 {
     -webkit-filter: opacity(0.9);
+    line-height:94px;
 }

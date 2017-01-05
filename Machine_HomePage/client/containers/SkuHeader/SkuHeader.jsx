@@ -68,7 +68,7 @@ export default class skuHeader extends React.Component {
                 {sub_title}
                 <div className="sub_info">
                     {sub_price}
-                    <button className={"button font32 " + (sku.quantity>0 ? 'pre_price':'empty')} onClick={(e) => this.addClick.bind(this)(e)}><span>{sku.quantity>0 ? '加入购物袋':'售 罄'}</span></button>
+                    <button className={"button font32 " + (sku.quantity>0 ? 'pre_price':'empty')} onClick={(e) => this.addClick.bind(this)(e)}><span>{sku.quantity>0 ? '购 买':'售罄'}</span></button>
                 </div>
 
             </div>
