@@ -43,15 +43,24 @@ export default class BrandItem extends React.Component {
     //     this.props.addToCart(this.props.itemInfo)
     // }
 
+	getMiddlePic(path) {
+		let particial = path.split('.');
+		if(particial.length == 2) {
+			particial[0] = particial[0] + '_middle'
+			return particial.join('.')
+		} else {
+			return path
+		}
+	}
+
 	render(){
 		let props = this.props;
 		const item = props.itemInfo;
 		let atts = this.getAttr(item.attributes);
-        console.log(item)
 		return (
 			<li>
 				<div className="brandItem" onClick={this.toProduct.bind(this)}>
-					<div className="img"><img src={ENV.domain + item.imagePath}/></div>
+					<div className="img"><img src={ENV.domain + this.getMiddlePic(item.imagePath)}/></div>
 					<p className="font12">{item.brandName}</p>
 					<p className="font14">{item.shortName}</p>
 					<p className="font10">{atts}</p>

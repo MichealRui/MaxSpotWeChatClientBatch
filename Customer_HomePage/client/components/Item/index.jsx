@@ -46,7 +46,7 @@ export default class Item extends React.Component {
             particial[0] = particial[0] + '_middle'
             return particial.join('.')
         } else {
-            path
+            return path
         }
     }
 
