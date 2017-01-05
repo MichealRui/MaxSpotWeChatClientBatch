@@ -2,24 +2,27 @@
     position: relative;
     border-bottom: 1px solid #ccc;
     height: 2rem;
+    padding:0 0.3rem;
 }
 .orderItem .orderAction{
     margin: 0.556rem 0;
-    margin-right: 0.556rem;
+    /*margin-right: 0.556rem;*/
+    width:30%;
 }
 
 .orderItem>.orderInfo{
     margin: 0.3rem 0;
-    margin-left: 0.556rem;
+    /*margin-left: 0.556rem;*/
+    width:70%;
 }
 .orderAction>div:first-child{
     border:1px solid #cecece;
     border-radius: 12px;
-    width: 2.403rem;
+    width: 2.2rem;
     height: 0.805rem;
     line-height: 0.805rem;
     text-align: center;
-    margin-right: 0.15rem;
+    /*margin-right: 0.15rem;*/
 }
 .orderItem .fl>div{
     line-height: 0.7rem;
