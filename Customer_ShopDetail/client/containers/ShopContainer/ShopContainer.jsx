@@ -20,22 +20,29 @@ class ShopContainer extends React.Component {
 	render(){
 
 		const { dispatch, itemInfo} = this.props;
-
+		const store = itemInfo.store
 		const itemMethod = {
 			changelike:item=>dispatch(changeLike(item)),
 		};
 		return (
 			<div className="shopContainer">
-                <Header itemInfo={itemInfo.header} itemMethod={itemMethod}/>
-                <Info itemInfo={itemInfo.info}/>
-				<ul className="imageContainer">
-				{
-					itemInfo.gallery.map(
-					(gallery,index) =>
-						<Gallery key={index} address={gallery}/>
-					)
-				}
-				</ul>
+                {
+                    store ?
+                        (<div>
+                            <Header store={store} itemMethod={itemMethod}/>
+                            <Info store={store}/>
+                            <ul className="imageContainer">
+                                {
+                                    itemInfo.store.images.map(
+                                        (gallery,index) =>
+                                            <Gallery key={index} address={gallery}/>
+                                    )
+                                }
+                            </ul>
+                        </div>
+                        ):''
+                }
+
             </div>
 		);
 	}
