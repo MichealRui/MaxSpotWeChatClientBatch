@@ -29,7 +29,6 @@ class PageContainer extends React.Component{
     componentWillMount() {
         const { dispatch } = this.props;
         dispatch(initMainContent());
-        dispatch(initActivity())
     }
 
     onCartBtnClick() {
@@ -84,7 +83,7 @@ class PageContainer extends React.Component{
                         fetchSkuClick={()=>this.onFetchSkuBtnClick.bind(this)}
                         {...state.cart}
                 />
-                <Banner bannerData={state.banner}/>
+                <Banner bannerData={[]}/>
                 <SubContent
                     contentData={state.currentSub}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}

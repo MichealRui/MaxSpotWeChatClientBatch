@@ -47,7 +47,8 @@ let storeInfo = {
 };
 
 let activity = {
-    items:[]
+    items:[],
+    banner:[]
 }
 
 let data = {
@@ -266,9 +267,8 @@ function clearCart(content) {
     return state
 }
 
-function initActivity(content, activityContent) {
-    let state = Object.assign({}, content, {activity:{items:activityContent}})
-    return state
+function initActivity(content, products, banner) {
+    return  Object.assign({}, content, {activity:{items:products, banner:[banner]}})
 }
 
 export default function (
@@ -299,7 +299,7 @@ export default function (
         case SUCC_CLEAR_CART:
             return clearCart(content);
         case SUCC_INIT_ACTIVITY:
-            return initActivity(content, action.activityContent);
+            return initActivity(content, action.products, action.banner);
         default:
             return content;
     }

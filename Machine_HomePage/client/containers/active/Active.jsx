@@ -68,7 +68,7 @@ class Active extends React.Component{
                         fetchSkuClick={()=>this.onFetchSkuBtnClick.bind(this)}
                         {...state.cart}
                 />
-                <Banner bannerData={state.banner}/>
+                <Banner bannerData={state.activity.banner}/>
                 <SubContent
                     contentData={state.activity}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}

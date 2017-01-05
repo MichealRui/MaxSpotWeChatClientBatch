@@ -82,6 +82,7 @@ export function initMainContent () {
                         content: json.categories,
                         store: json.selectedStore
                     }))
+                    dispatch(initActivity())
                     dispatch(fetchCart())
                 } else {
                     console.log(json);
@@ -465,7 +466,7 @@ export function initActivity() {
             .then(json => {
                 if(json.is_succ) {
                     console.log(json);
-                    dispatch(succInitActivity(json.products))
+                    dispatch(succInitActivity({...json}))
                 } else {
                     console.log('error')
                 }
@@ -473,9 +474,9 @@ export function initActivity() {
     }
 }
 
-export function succInitActivity(activityContent) {
+export function succInitActivity({products, banner}) {
     return {
         type: SUCC_INIT_ACTIVITY,
-        activityContent
+        products, banner
     }
 }
