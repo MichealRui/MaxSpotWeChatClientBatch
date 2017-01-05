@@ -2,7 +2,7 @@
 .brandItem .img{
     display: block;
     position: relative;
-    margin: 1.055556rem 1.0rem 0.5rem 0.833333rem;
+    /*margin: 1.055556rem 1.0rem 0.5rem 0.833333rem;*/
 }
 .brandItem .img img{
     width: 100%;
