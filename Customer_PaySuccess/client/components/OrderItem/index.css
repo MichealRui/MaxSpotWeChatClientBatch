@@ -3,6 +3,7 @@
     border-bottom: 1px solid #ccc;
     height: 2rem;
     padding:0 0.3rem;
+    background: #FFFFFF;
 }
 .orderItem .orderAction{
     margin: 0.556rem 0;
