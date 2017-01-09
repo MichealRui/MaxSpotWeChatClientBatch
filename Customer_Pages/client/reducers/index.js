@@ -7,11 +7,11 @@ import { CLEAR_CART , SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
 import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../actions/index'
 import { INIT_CART_SUCC, INIT_CART_FAIL } from '../actions/index'
 import { SET_MESSAGE } from '../actions/index'
-import icon_deviantart from '../components/Selector/image/icon_deviantart.png';
-import icon_empire from '../components/Selector/image/icon_empire.png';
-import icon_glass from '../components/Selector/image/icon_glass.png';
-import icon_makeup from '../components/Selector/image/icon_makeup.png';
-import icon_umbrella from '../components/Selector/image/icon_umbrella.png';
+import icon_deviantart from '../components/HomePage/Selector/image/icon_deviantart.png';
+import icon_empire from '../components/HomePage/Selector/image/icon_empire.png';
+import icon_glass from '../components/HomePage/Selector/image/icon_glass.png';
+import icon_makeup from '../components/HomePage/Selector/image/icon_makeup.png';
+import icon_umbrella from '../components/HomePage/Selector/image/icon_umbrella.png';
 
 const SELECTOR_ICONS = {
     1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},

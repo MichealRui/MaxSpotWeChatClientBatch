@@ -68,23 +68,6 @@ export function initWxConfig(url) {
                     }
                 } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
         // );
-
-
-        // fetch('http://www.mjitech.com/web/buyer_api/get_jsapi_config_params.ction',
-        //     {
-        //         method: 'POST',
-        //         mode: 'cors',
-        //         Origin: '*',
-        //         body: JSON.stringify({url: url})
-        //     }
-        // ).then(response => response.json())
-        //     .then( json => {
-        //         if(json.is_succ) {
-        //             dispatch(initWxConfigSucc(json.config))
-        //         } else {
-        //             dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
-        //         }
-        //     } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
     }
 }
 
@@ -200,10 +183,6 @@ export function addToCart(item) {
                 }
             }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
     }
-}
-
-export function startAddToCart() {
-
 }
 
 export function successAddToCart(item) {

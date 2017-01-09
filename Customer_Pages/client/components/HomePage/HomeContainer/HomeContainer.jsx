@@ -1,8 +1,8 @@
 'use strict';
 import React, { Component } from 'react';
-import HomeHeader from '../../HomeHeader/HomeHeader';
-import HeaderButton from '../../HeaderButton/HeaderButton';
-import ProductClass from '../../ProductClass/ProductClass';
+import HomeHeader from '../HomeHeader/HomeHeader';
+import HeaderButton from '../HeaderButton/HeaderButton';
+import ProductClass from '../ProductClass/ProductClass';
 import HomeMade from '../../HomeMade/HomeMade';
 import Banner from '../BannerContainer/bannerContainer';
 require ('./index.css');

@@ -2,12 +2,12 @@
 import React from 'react'
 import { connect }  from 'react-redux';
 import wx from 'weixin-js-sdk';
-import HomeHeader from '../../components/HomeHeader/HomeHeader';
-import BottomButton from '../../components/BottomButton/BottomButton';
-import BannerContainer from '../BannerContainer/bannerContainer';
-import SelectContainer from '../SelectorContainer/selectorContainer';
-import SubContent from '../SubContent/subContent'
-import Message from '../../components/Message/Message';
+import HomeHeader from '../../components/HomePage/HomeHeader/HomeHeader';
+import BottomButton from '../../components/HomePage/BottomButton/BottomButton';
+import BannerContainer from '../../components/HomePage/BannerContainer/bannerContainer';
+import SelectContainer from '../../components/HomePage/SelectorContainer/selectorContainer';
+import SubContent from '../../components/HomePage/SubContent/subContent'
+import Message from '../../components/CommoonComponents/Message/Message';
 import { initWxConfig, initSdk } from '../../actions/index'
 import { initSubContent, initStart, changeSubContent } from '../../actions/index'
 import { startAddToCart, clearCart, addToCart, initCart } from '../../actions/index'
