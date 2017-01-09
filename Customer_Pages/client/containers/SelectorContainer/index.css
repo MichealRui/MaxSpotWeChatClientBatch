@@ -1,0 +1,7 @@
+.selectorContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 0 0.583333rem;
+    background-color: #fff;
+}
