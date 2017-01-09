@@ -1,0 +1,9 @@
+.homeContainer {
+	width: 100%;
+	position: relative;
+}
+.homeContainer .banner {
+	width: 100%;
+	height: 5.555556rem;
+	background-color: #fdceb0;
+}
