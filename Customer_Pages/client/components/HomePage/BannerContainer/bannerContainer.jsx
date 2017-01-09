@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react'
-import SwiperComponent from '../../components/Swiper/index'
+import SwiperComponent from '../../Swiper/index'
 // require('./index.css');
 
 export default class BannerContainer extends React.Component {

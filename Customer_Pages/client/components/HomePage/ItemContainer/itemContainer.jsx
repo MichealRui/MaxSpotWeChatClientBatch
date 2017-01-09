@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
-import Item from '../../components/Item/index'
-import AddButton from '../../components/AddButton/addButton'
+import Item from '../../Item/index'
+import AddButton from '../../AddButton/addButton'
 import MasonryMixin from './MasonryMixin'
 require('./index.css');
 

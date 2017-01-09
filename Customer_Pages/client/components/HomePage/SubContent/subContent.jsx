@@ -1,9 +1,7 @@
 'use strict';
 import React from 'react'
-import SubBanner from '../../components/SubBanner/index'
-import SwiperComponent from '../../components/Swiper/index'
 import ItemContainer from '../ItemContainer/itemContainer'
-import Item from '../../components/Item/index'
+import Item from '../../Item/index'
 require('./index.css');
 
 export default class SubContent extends React.Component {

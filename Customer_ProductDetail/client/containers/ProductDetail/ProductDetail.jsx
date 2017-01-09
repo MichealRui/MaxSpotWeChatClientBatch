@@ -5,12 +5,10 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from '../../actions/index';
 import wx from 'weixin-js-sdk';
-import Button from '../../components/Button/Button';
 import ProductDetailTitle from '../../components/ProductDetailTitle/ProductDetailTitle';
 import ProductSlider from '../../components/ProductSlider/ProductSlider';
 import AddIntoCart from '../../components/AddIntoCart/AddIntoCart';
 import StoreIntro from '../../components/StoreIntro/StoreIntro';
-import ProductComment from '../../components/ProductComment/ProductComment';
 import ButtonBottom from '../../components/BottomButton/BottomButton'
 import Util from '../../util/WeChatUtil'
 require('./index.css');

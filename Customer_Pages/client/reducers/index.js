@@ -94,7 +94,7 @@ function initSuccess(content, data){
 
     let frontEndBanner = [{
         destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
-        imagePath: require('../containers/BannerContainer/images/nuddlebanner.jpg')
+        imagePath: require('../components/HomePage/BannerContainer/images/nuddlebanner.jpg')
     }]
 
     const SELECTOR_ICONS = {

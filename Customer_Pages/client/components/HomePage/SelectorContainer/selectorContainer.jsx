@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react'
-import Selector from '../../components/Selector'
+import Selector from '../../Selector'
 import icon_all from './image/icon_1.png'
 require('./index.css');
 
