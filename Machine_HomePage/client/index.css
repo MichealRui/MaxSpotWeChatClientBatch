@@ -360,6 +360,13 @@ html { overflow-y: scroll; }
 #root {
     /*padding-bottom: 25px;*/
     overflow: hidden!important;
+    -webkit-scroll-snap-points-x:;
+}
+
+body::-webkit-scrollbar {
+    background: transparent;
+    width:0;
+    height:0;
 }
 
 .hide{
