@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
-import { Router, Route, IndexRedirect, Redirect, hashHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import reducers from './reducers/index';
 require('./index.css');
 import Page from './containers/PageContainer/PageContainer';

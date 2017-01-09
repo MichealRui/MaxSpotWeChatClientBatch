@@ -3,12 +3,6 @@
  */
 import fetch from 'isomorphic-fetch'
 
-import mock from '../mock/main'
-
-import cartMock from '../mock/shopping'
-
-import productMock from '../mock/productdetail'
-
 import CartStatus from '../../client/containers/CartContainer/CartStatus'
 
 export const INIT_SUCC = 'INIT_SUCC';
@@ -63,9 +57,7 @@ export const SET_RECOMMEND = 'SET_RECOMMEND';
 
 export const SUCC_INIT_ACTIVITY = 'SUCC_INIT_ACTIVITY';
 
-const cart = cartMock;
-
-const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.34:9090' : 'http://10.16.66.34:8080';
+const domain = '';//(ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.34:9090' : 'http://10.16.66.34:8080';
 
 export function initMainContent () {
     return (dispatch) => {
