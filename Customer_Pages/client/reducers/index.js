@@ -85,17 +85,13 @@ function changeSubContent(content, key) {
     return newContent
 }
 
-function initStart(content) {
-    return Object.assign({}, content)
-}
-
 function initSuccess(content, data){
 
 
     let frontEndBanner = [{
         destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
         imagePath: require('../components/HomePage/BannerContainer/images/nuddlebanner.jpg')
-    }]
+    }];
 
     const SELECTOR_ICONS = {
         1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
@@ -128,18 +124,18 @@ function initSuccess(content, data){
     let currentSub = data.content.filter(cat =>cat.id == 0).pop(); // find 'all'
     // let cart = {
     //     remainTime: '380',
-    //     count: 5
-    // };
+//     count: 5
+// };
 
-    return Object.assign({}, content, {
-        banner: frontEndBanner,//data.banner,
-        selector: selector,
-        subContent: Object.assign({}, subContent, {all: currentSub}),
-        currentSub: currentSub,//data.subContent['all'],,
-        storeInfo: data.store,
-        currentKey:'all',
-        // cart: cart
-    })
+return Object.assign({}, content, {
+    banner: frontEndBanner,//data.banner,
+    selector: selector,
+    subContent: Object.assign({}, subContent, {all: currentSub}),
+    currentSub: currentSub,//data.subContent['all'],,
+    storeInfo: data.store,
+    currentKey:'all',
+    // cart: cart
+})
 }
 
 function initFail(content, message) {
@@ -154,14 +150,14 @@ function succAddCart(content, ) {
 
 function clearCart(content, cart) {
     return Object.assign({}, content, {
-        cart: {count:0, remainTime:''}
-    })
+    cart: {count:0, remainTime:''}
+})
 }
 
 function failAddCart(content, message) {
     return Object.assign({}, content, {
-        errorMessage: message.errorMessage
-    })
+    errorMessage: message.errorMessage
+})
 }
 
 function initWxConfigSucc(content, config) {
@@ -189,35 +185,39 @@ function setMessage(content, message) {
 }
 
 export default function (
-    content=data, action) {
+content=data, action) {
     switch (action.type) {
-        case INIT_START:
-            return initStart(content);
-        case INIT_SUCCESS:
-            return initSuccess(content, action.content);
-        case INIT_FAIL:
-            return initFail(content, action.errorMessage);
-        case CHANGE_SUBCONTENT:
-            return changeSubContent(content, action.key);
-        case CLEAR_CART:
-            return clearCart(content);
-        case SUCC_ADD_CART:
-            return succAddCart(content, action.item);
-        case FAIL_ADD_CART:
-            return failAddCart(content, action.errorMessage);
-        case INIT_WX_CONFIG_SUCC:
-            return initWxConfigSucc(content, action.config);
-        case INIT_WX_CONFIG_ERR:
-            return initWxConfigErr(content);
-        case JSSDK_INITED:
-            return JSSDKInited(content);
-        case INIT_CART_SUCC:
-            return initCartSucc(content, action.cart);
-        case INIT_CART_FAIL:
-            return initCartFail(content, action.message);
-        case SET_MESSAGE:
-            return setMessage(content, action.errorMessage)
-        default:
-            return content;
-    }
+    case INIT_START:
+    return initStart(content);
+    case INIT_SUCCESS:
+    return initSuccess(content, action.content);
+    case INIT_FAIL:
+    return initFail(content, action.errorMessage);
+    case CHANGE_SUBCONTENT:
+    return changeSubContent(content, action.key);
+    case CLEAR_CART:
+    return clearCart(content);
+    case SUCC_ADD_CART:
+    return succAddCart(content, action.item);
+    case FAIL_ADD_CART:
+    return failAddCart(content, action.errorMessage);
+    case INIT_WX_CONFIG_SUCC:
+    return initWxConfigSucc(content, action.config);
+    case INIT_WX_CONFIG_ERR:
+    return initWxConfigErr(content);
+    case JSSDK_INITED:
+    return JSSDKInited(content);
+    case INIT_CART_SUCC:
+    return initCartSucc(content, action.cart);
+    case INIT_CART_FAIL:
+    return initCartFail(content, action.message);
+    case SET_MESSAGE:
+    return setMessage(content, action.errorMessage)
+    default:
+    return content;
+}
+}
+
+function initStart(content) {
+    return Object.assign({}, content)
 }
