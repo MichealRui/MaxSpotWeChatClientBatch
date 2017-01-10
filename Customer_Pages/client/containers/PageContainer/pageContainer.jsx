@@ -95,7 +95,7 @@ class PageContainer extends React.Component {
             return i.id == itemId
         });
         if (target) {
-            target.count = parseInt(target.count) + 1 + ''
+            target.count = parseInt(target.count) + 1 + '';
             dispatch(addToCart({
                 storeId: this.props.state.storeInfo.id + '',
                 skuId: target.id + '',

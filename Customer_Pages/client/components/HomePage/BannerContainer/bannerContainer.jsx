@@ -15,18 +15,18 @@ export default class BannerContainer extends React.Component {
         };
         let props = this.props;
         // let style= {height: '6.3rem'}
-        let style= {}
-        let items = props.bannerData.map((item, index) =>  {
+        let style= {};
+        let banners = props.bannerData.map((banner, index) =>  {
             return (
-                <a key={index} href={item.destUrl}>
-                    <img width="100%"  style={style} src={item.imagePath || require('./images/banner_default.png')}/>
+                <a key={index} href={banner.destUrl}>
+                    <img width="100%"  style={style} src={banner.imagePath || require('./images/banner_default.png')}/>
                 </a>
             )
         });
             
         return (
             <SwiperComponent swiperConfig={swiperConfig} swiperContainer={'swiper1'}>
-                {items}
+                {banners}
             </SwiperComponent>
         )
     }

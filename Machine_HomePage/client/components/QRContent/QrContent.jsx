@@ -14,7 +14,7 @@ export default class QrContent extends React.Component {
 
     fetchOrderStatus() {
         let {order, fetchOrder, setCartQr} = this.props;
-        let PAID = '2';
+        let PAID = '3';
         if(order.status != PAID) {
             fetchOrder(order.orderNumber);
             this.state.timer = window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
