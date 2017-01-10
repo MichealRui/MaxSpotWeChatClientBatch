@@ -19,7 +19,7 @@ export default class Header extends React.Component{
 
                 <span className="location font24">
                     <img src={require('./images/add.png')} alt=""/>
-                    国贸三期B1芒果
+                    华贸商业街
                 </span>
                 <span className="login hide">
                     <img src={require('./images/local_crown.png')} className="login_logo"/>
