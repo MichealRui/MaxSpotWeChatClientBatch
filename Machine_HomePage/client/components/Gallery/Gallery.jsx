@@ -52,9 +52,10 @@ export default class Gallery extends React.Component {
                 </div>
             )
         }
+        let back={backgroundImage:'url(' + this.state.current + ')',backgroundSize:'contain'};
         let detail = (
-            <div className="detailContainer">
-                <img className="detail" src={this.state.current?this.state.current:require('./images/default.png')}/>
+            <div className="detailContainer" style={back}>
+                {/*<img className="detail" src={this.state.current?this.state.current:require('./images/default.png')}/>*/}
             </div>);
         return (
             <div className="galleryContainer">

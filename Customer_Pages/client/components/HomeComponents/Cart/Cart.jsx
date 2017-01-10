@@ -4,7 +4,7 @@ import Counter from '../../CommoonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
 require ('./index.css');
 
-export default class BottomButton extends Component {
+export default class Cart extends Component {
     constructor(props) {
         super(props);
     }
@@ -13,6 +13,12 @@ export default class BottomButton extends Component {
         e.stopPropagation();
         window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
     }
+
+    static defaultProps = {
+        cart:{
+            count:0
+        }
+    };
 
     render() {
         let cart = this.props.cart;
@@ -24,7 +30,7 @@ export default class BottomButton extends Component {
                 <div className='cartIcon'>
                     <a className='shopping_cart font30'>
                         <img src={cart_img} alt=""/>
-                        {cart.count>=0?(<span className='count font10'>{cart.count}</span>):''}
+                        <span className='count font10'>{cart.count || 0}</span>
                     </a>
                 </div>
                     {

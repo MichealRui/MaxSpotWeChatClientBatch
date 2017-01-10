@@ -7,11 +7,11 @@ import { CLEAR_CART , SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
 import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../actions/index'
 import { INIT_CART_SUCC, INIT_CART_FAIL } from '../actions/index'
 import { SET_MESSAGE } from '../actions/index'
-import icon_deviantart from '../components/HomePage/Selector/image/icon_deviantart.png';
-import icon_empire from '../components/HomePage/Selector/image/icon_empire.png';
-import icon_glass from '../components/HomePage/Selector/image/icon_glass.png';
-import icon_makeup from '../components/HomePage/Selector/image/icon_makeup.png';
-import icon_umbrella from '../components/HomePage/Selector/image/icon_umbrella.png';
+import icon_deviantart from '../components/HomeComponents/Selector/image/icon_deviantart.png';
+import icon_empire from '../components/HomeComponents/Selector/image/icon_empire.png';
+import icon_glass from '../components/HomeComponents/Selector/image/icon_glass.png';
+import icon_makeup from '../components/HomeComponents/Selector/image/icon_makeup.png';
+import icon_umbrella from '../components/HomeComponents/Selector/image/icon_umbrella.png';
 
 const SELECTOR_ICONS = {
     1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
@@ -90,7 +90,7 @@ function initSuccess(content, data){
 
     let frontEndBanner = [{
         destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
-        imagePath: require('../components/HomePage/BannerContainer/images/nuddlebanner.jpg')
+        imagePath: require('../components/HomeComponents/BannerContainer/images/nuddlebanner.jpg')
     }];
 
     const SELECTOR_ICONS = {
@@ -101,11 +101,8 @@ function initSuccess(content, data){
         5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
     };
     let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
-    console.log(data)
     let selector = categories.map(cat =>  SELECTOR_ICONS[cat.id]);//.filter(s => s);
-    console.log(selector)
     let subContentArray = categories.map(cat => {
-        console.log(cat.id)
         let key = SELECTOR_ICONS[cat.id]["key"];
         let returnValue = {};
         if(key) {
@@ -122,20 +119,15 @@ function initSuccess(content, data){
         subContent = Object.assign({}, subContent, content)
     }
     let currentSub = data.content.filter(cat =>cat.id == 0).pop(); // find 'all'
-    // let cart = {
-    //     remainTime: '380',
-//     count: 5
-// };
 
-return Object.assign({}, content, {
-    banner: frontEndBanner,//data.banner,
-    selector: selector,
-    subContent: Object.assign({}, subContent, {all: currentSub}),
-    currentSub: currentSub,//data.subContent['all'],,
-    storeInfo: data.store,
-    currentKey:'all',
-    // cart: cart
-})
+    return Object.assign({}, content, {
+        banner: frontEndBanner,//data.banner,
+        selector: selector,
+        subContent: Object.assign({}, subContent, {all: currentSub}),
+        currentSub: currentSub,//data.subContent['all'],,
+        storeInfo: data.store,
+        currentKey:'all'
+    })
 }
 
 function initFail(content, message) {
@@ -187,35 +179,35 @@ function setMessage(content, message) {
 export default function (
 content=data, action) {
     switch (action.type) {
-    case INIT_START:
-    return initStart(content);
-    case INIT_SUCCESS:
-    return initSuccess(content, action.content);
-    case INIT_FAIL:
-    return initFail(content, action.errorMessage);
-    case CHANGE_SUBCONTENT:
-    return changeSubContent(content, action.key);
-    case CLEAR_CART:
-    return clearCart(content);
-    case SUCC_ADD_CART:
-    return succAddCart(content, action.item);
-    case FAIL_ADD_CART:
-    return failAddCart(content, action.errorMessage);
-    case INIT_WX_CONFIG_SUCC:
-    return initWxConfigSucc(content, action.config);
-    case INIT_WX_CONFIG_ERR:
-    return initWxConfigErr(content);
-    case JSSDK_INITED:
-    return JSSDKInited(content);
-    case INIT_CART_SUCC:
-    return initCartSucc(content, action.cart);
-    case INIT_CART_FAIL:
-    return initCartFail(content, action.message);
-    case SET_MESSAGE:
-    return setMessage(content, action.errorMessage)
-    default:
-    return content;
-}
+        case INIT_START:
+            return initStart(content);
+        case INIT_SUCCESS:
+            return initSuccess(content, action.content);
+        case INIT_FAIL:
+            return initFail(content, action.errorMessage);
+        case CHANGE_SUBCONTENT:
+            return changeSubContent(content, action.key);
+        case CLEAR_CART:
+            return clearCart(content);
+        case SUCC_ADD_CART:
+            return succAddCart(content, action.item);
+        case FAIL_ADD_CART:
+            return failAddCart(content, action.errorMessage);
+        case INIT_WX_CONFIG_SUCC:
+            return initWxConfigSucc(content, action.config);
+        case INIT_WX_CONFIG_ERR:
+            return initWxConfigErr(content);
+        case JSSDK_INITED:
+            return JSSDKInited(content);
+        case INIT_CART_SUCC:
+            return initCartSucc(content, action.cart);
+        case INIT_CART_FAIL:
+            return initCartFail(content, action.message);
+        case SET_MESSAGE:
+            return setMessage(content, action.errorMessage);
+        default:
+            return content;
+    }
 }
 
 function initStart(content) {

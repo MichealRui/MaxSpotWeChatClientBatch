@@ -28,6 +28,15 @@ export default class SkuContainer extends React.Component {
         }
     }
 
+    getDetailPicList(images) {
+        return images.map(image => this.getDetailPic(image))
+    }
+
+    getDetailPic(path) {
+        let domain= ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
+        return domain + path
+    }
+
     render(){
         let props = this.props;
         let product = props.product;
@@ -43,7 +52,7 @@ export default class SkuContainer extends React.Component {
                                 <div className="galleryWrapper">
                                     {
                                         product ? <Gallery images={sku ?
-                                            this.getMiddlePicList(sku.images)
+                                            this.getDetailPicList(sku.images)
                                             :''
                                         }/>:''
                                     }
