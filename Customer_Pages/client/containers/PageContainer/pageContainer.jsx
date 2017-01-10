@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect }  from 'react-redux';
 import wx from 'weixin-js-sdk';
-import HomeHeader from '../../components/HomeComponents/HomeHeader/HomeHeader';
+import HomeHeader from '../../components/HomeComponents/Header/Header';
 import BottomButton from '../../components/HomeComponents/Cart/Cart';
 import BannerContainer from '../../components/HomeComponents/BannerContainer/bannerContainer';
 import SelectContainer from '../../components/HomeComponents/SelectorContainer/selectorContainer';
@@ -109,7 +109,7 @@ class PageContainer extends React.Component {
     render() {
         let props = this.props.state;
         const { dispatch } = this.props;
-        let takespace={height: '1.2rem'}
+        let takespace={height: '1.2rem'};
         return (
             <div>
                 <HomeHeader store={props.storeInfo}/>

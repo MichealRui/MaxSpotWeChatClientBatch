@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 require ('./index.css');
 
-export default class HeaderButton extends Component {
+export default class SwitchShopBar extends Component {
     constructor(props) {
         super(props);
     }

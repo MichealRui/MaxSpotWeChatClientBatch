@@ -28,7 +28,6 @@ export default class Header extends React.Component{
                 <span className="" onClick={props.cartClick()}>
                     <Cart count={props.count} Style={{right:'60px'}} totalPrice={props.totalPrice || 0}/>
                 </span>
-
             </div>
         )
     }

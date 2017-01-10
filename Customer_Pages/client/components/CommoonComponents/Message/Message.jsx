@@ -4,18 +4,26 @@ require('./index.css');
 export default class Message extends React.Component {
 	constructor(props){
 		super(props);
+        this.state={ message:'' }
 	}
-	
-	componentWillReceiveProps() {
-		window.setTimeout(() => {
-		    if(this.props.msgContent){
-		        this.props.clearMessage()
+
+	static defaultProps = {
+	    msgContent:''
+    };
+
+	componentWillReceiveProps(nextProps) {
+	    this.setState({
+	        message: nextProps.msgContent
+        });
+        window.setTimeout(() => {
+		    if(nextProps.msgContent){
+                this.setState( { message:'' } );
             }
         }, 2000)
 	}
 	
 	render(){
-		let msgContent = this.props.msgContent;
+		let msgContent = this.state.message;
 		if(msgContent){
 			return (
 				<div className="message font16">

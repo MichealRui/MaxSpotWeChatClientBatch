@@ -1,8 +1,9 @@
 'use strict';
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 require ('./index.css');
 
-export default class HomeHeader extends Component {
+export default class Header extends Component {
     constructor(props) {
         super(props);
     }
@@ -14,7 +15,7 @@ export default class HomeHeader extends Component {
     }
 
     render() {
-        let props = this.props
+        let props = this.props;
         return (
             <div className="headerContainer">
                 <div className="homeHeader">
@@ -26,9 +27,11 @@ export default class HomeHeader extends Component {
                     <span className="shopAddress font13">
                         {props.store.name}
                     </span>
-                    <span className="switchShopBtn font13" onClick={this.onSwitchClick.bind(this)}>
-                        切换站点
-                    </span>
+                    <Link to={"/switchshop?storeid=" + props.store.id}>
+                        <span className="switchShopBtn font13">
+                            切换站点
+                        </span>
+                    </Link>
                 </div>
             </div>
         );
