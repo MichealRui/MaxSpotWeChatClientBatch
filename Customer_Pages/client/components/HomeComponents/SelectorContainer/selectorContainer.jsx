@@ -12,6 +12,10 @@ export default class SelectorContainer extends React.Component {
         }
     }
 
+    static defaultProps={
+        selectorData:[]
+    }
+
     onclick(e) {
         let key = e.target.getAttribute("data-key");
         key?this.props.onSelectClick(key) : false;
@@ -19,7 +23,6 @@ export default class SelectorContainer extends React.Component {
 
     render() {
         let keys = this.props.selectorData;
-        console.log(this.props.currentKey)
         let tags = keys.map((selector, index) => {
             return (
                 <Selector
@@ -34,11 +37,14 @@ export default class SelectorContainer extends React.Component {
         let all = (
             <li className="selector J_all" key="all"
                 onClick={() => this.props.onSelectClick(defaultKey)}>
-                <div className={"itemIcon font30 " + (this.props.currentKey == defaultKey? 'activated':'')}><img src={icon_all} alt=""/></div>
+                <div className={"itemIcon font30 " + (this.props.currentKey == defaultKey? 'activated':'')}>
+                    <img src={icon_all} alt=""/>
+                </div>
                 <div className='itemName font14'>全部</div>
                 <span className={"triangle " + (this.props.currentKey == defaultKey? 'activated':'')}
                       data-key={defaultKey}></span>
-            </li>)
+            </li>
+        )
 
         let lastOne = tags.length == 0 ?'': all
         return (
