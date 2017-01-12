@@ -8,10 +8,12 @@ export default class Message extends React.Component {
 	}
 
 	static defaultProps = {
-	    msgContent:''
+	    msgContent: '',
+        clearTime: 2000 //default clearTime
     };
 
 	componentWillReceiveProps(nextProps) {
+	    let props = this.props;
 	    this.setState({
 	        message: nextProps.msgContent
         });
@@ -19,7 +21,7 @@ export default class Message extends React.Component {
 		    if(nextProps.msgContent){
                 this.setState( { message:'' } );
             }
-        }, 2000)
+        }, props.clearTime)
 	}
 	
 	render(){

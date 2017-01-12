@@ -6,7 +6,7 @@ require('./index.css');
 
 export default class SelectorContainer extends React.Component {
     constructor(props) {
-        super (props)
+        super (props);
         this.state={
             activated:[]
         }
@@ -14,7 +14,7 @@ export default class SelectorContainer extends React.Component {
 
     static defaultProps={
         selectorData:[]
-    }
+    };
 
     onclick(e) {
         let key = e.target.getAttribute("data-key");
@@ -33,23 +33,9 @@ export default class SelectorContainer extends React.Component {
                 />
             )
         });
-        let defaultKey = 'all';
-        let all = (
-            <li className="selector J_all" key="all"
-                onClick={() => this.props.onSelectClick(defaultKey)}>
-                <div className={"itemIcon font30 " + (this.props.currentKey == defaultKey? 'activated':'')}>
-                    <img src={icon_all} alt=""/>
-                </div>
-                <div className='itemName font14'>全部</div>
-                <span className={"triangle " + (this.props.currentKey == defaultKey? 'activated':'')}
-                      data-key={defaultKey}></span>
-            </li>
-        )
 
-        let lastOne = tags.length == 0 ?'': all
         return (
             <ul className="selectorContainer" onClick={this.onclick.bind(this)}>
-                {lastOne}
                 {tags}
             </ul>
         )

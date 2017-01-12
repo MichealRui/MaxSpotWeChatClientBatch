@@ -121,7 +121,7 @@ class PageContainer extends React.Component {
                                  storeId={props.storeInfo.id}
                 />
                 <SelectContainer selectorData={props.selector}
-                                 onSelectClick={ key => dispatch(changeSubContent(key))}
+                                 onSelectClick={ key => dispatch(changeSubContent(key)) }
                                  currentKey = {props.currentKey}
                 />
                 <SubContent

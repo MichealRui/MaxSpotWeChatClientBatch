@@ -7,19 +7,12 @@ import { CLEAR_CART , SUCC_ADD_CART, FAIL_ADD_CART} from '../actions/index'
 import { INIT_WX_CONFIG_SUCC, INIT_WX_CONFIG_ERR , JSSDK_INITED} from '../actions/index'
 import { INIT_CART_SUCC, INIT_CART_FAIL } from '../actions/index'
 import { SET_MESSAGE } from '../actions/index'
+import icon_all from '../components/HomeComponents/Selector/image/icon_all.png';
 import icon_deviantart from '../components/HomeComponents/Selector/image/icon_deviantart.png';
 import icon_empire from '../components/HomeComponents/Selector/image/icon_empire.png';
 import icon_glass from '../components/HomeComponents/Selector/image/icon_glass.png';
 import icon_makeup from '../components/HomeComponents/Selector/image/icon_makeup.png';
 import icon_umbrella from '../components/HomeComponents/Selector/image/icon_umbrella.png';
-
-const SELECTOR_ICONS = {
-    1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
-    2: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
-    3: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
-    4: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
-    5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
-};
 
 let bannerdata = [
     {
@@ -87,21 +80,21 @@ function changeSubContent(content, key) {
 
 function initSuccess(content, data){
 
-
     let frontEndBanner = [{
         destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
         imagePath: require('../components/HomeComponents/BannerContainer/images/nuddlebanner.jpg')
     }];
 
     const SELECTOR_ICONS = {
+        0: {key: 'all', content:'全部', faIcon:'', icon: icon_all},
         1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
         4: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
         2: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
         3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
         5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
     };
-    let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
-    let selector = categories.map(cat =>  SELECTOR_ICONS[cat.id]);//.filter(s => s);
+    let categories = data.content;//.filter(cat => cat); //get category except category 'all'
+    let selector = data.content.map(cat =>  SELECTOR_ICONS[cat.id]);//.filter(s => s);
     let subContentArray = categories.map(cat => {
         let key = SELECTOR_ICONS[cat.id]["key"];
         let returnValue = {};
@@ -126,7 +119,7 @@ function initSuccess(content, data){
         subContent: Object.assign({}, subContent, {all: currentSub}),
         currentSub: currentSub,//data.subContent['all'],,
         storeInfo: data.store,
-        currentKey:'all'
+        currentKey: 'all'
     })
 }
 
@@ -148,8 +141,8 @@ function clearCart(content, cart) {
 
 function failAddCart(content, message) {
     return Object.assign({}, content, {
-    errorMessage: message.errorMessage
-})
+        errorMessage: message.errorMessage
+    })
 }
 
 function initWxConfigSucc(content, config) {
