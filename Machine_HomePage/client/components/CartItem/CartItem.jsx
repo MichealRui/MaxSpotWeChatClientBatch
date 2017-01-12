@@ -98,7 +98,11 @@ export default class CartItem extends React.Component{
                 </h2>
                 <h3 className="item-price">
                     <span className="final-price">{props.sellprice /100 || 0}<span className="font20">元</span></span>
-                    <span className="market-price font20 hide">市场价¥126</span>
+                    {
+                        props.msrp > 0 ?
+                            <span className="market-price font20">市场价¥{props.msrp/100}元</span>
+                            :''
+                    }
                 </h3>
                 <div className="item-panel clearfix">
                     {soldOut}
