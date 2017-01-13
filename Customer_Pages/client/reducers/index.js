@@ -135,8 +135,8 @@ function succAddCart(content, ) {
 
 function clearCart(content, cart) {
     return Object.assign({}, content, {
-    cart: {count:0, remainTime:''}
-})
+        cart: {count:0, remainTime:''}
+    })
 }
 
 function failAddCart(content, message) {

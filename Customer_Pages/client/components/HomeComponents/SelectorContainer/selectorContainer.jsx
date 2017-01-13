@@ -9,16 +9,11 @@ export default class SelectorContainer extends React.Component {
         super (props);
         this.state={
             activated:[]
+        };
+        this._onclick = e => {
+            let key = e.target.getAttribute("data-key");
+            key ? this.props.onSelectClick(key) : false;
         }
-    }
-
-    static defaultProps={
-        selectorData:[]
-    };
-
-    onclick(e) {
-        let key = e.target.getAttribute("data-key");
-        key?this.props.onSelectClick(key) : false;
     }
 
     render() {
@@ -35,9 +30,17 @@ export default class SelectorContainer extends React.Component {
         });
 
         return (
-            <ul className="selectorContainer" onClick={this.onclick.bind(this)}>
+            <ul className="selectorContainer" onClick={this._onclick.bind(this)}>
                 {tags}
             </ul>
         )
     }
 }
+
+SelectorContainer.PropTypes = {
+    selectorData:React.PropTypes.Array
+};
+
+SelectorContainer.defaultProps = {
+    selectorData:[]
+};

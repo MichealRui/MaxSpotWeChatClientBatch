@@ -7,10 +7,6 @@ export default class BannerContainer extends React.Component {
         super(props)
     }
 
-    static defaultProps = {
-        bannerData:[]
-    };
-
     render() {
         let swiperConfig = {
             pagination: '.swiper1 .swiper-pagination',
@@ -33,3 +29,11 @@ export default class BannerContainer extends React.Component {
         )
     }
 }
+
+BannerContainer.PropTypes={
+    bannerData:React.propTypes.Array
+};
+
+BannerContainer.defaultProps= {
+    bannerData:[]
+};

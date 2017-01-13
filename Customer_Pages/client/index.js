@@ -6,7 +6,7 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducers from './reducers/index';
 require('./index.css');
-import Page from './containers/PageContainer/pageContainer'
+import Home from './containers/PageContainer/pageContainer'
 
 // init thunk
 function activateVendor() {
@@ -23,7 +23,7 @@ function activateVendor() {
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
-            <Page/>
+            <Home/>
         </Provider>
         ,
         document.getElementById('root')

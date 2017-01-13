@@ -7,18 +7,16 @@ require ('./index.css');
 export default class Cart extends Component {
     constructor(props) {
         super(props);
-    }
-
-    cartOnClick(e) {
-        e.stopPropagation();
-        window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
-    }
-
-    static defaultProps = {
-        cart:{
-            count:0
+        this._cartOnClick = e => {
+            e.stopPropagation();
+            window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
         }
-    };
+    }
+
+    // cartOnClick(e) {
+    //     e.stopPropagation();
+    //     window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
+    // }
 
     render() {
         let cart = this.props.cart;
@@ -33,12 +31,22 @@ export default class Cart extends Component {
                         <span className='count font10'>{cart.count || 0}</span>
                     </a>
                 </div>
-                    {
-                        cart.remainTime ?
-                        <Counter remainTime={cart.remainTime}
-                                 timeUpCallback={clearCart}/> : ''
-                    }
+                {
+                    cart.remainTime ?
+                    <Counter remainTime={cart.remainTime}
+                             timeUpCallback={clearCart}/> : ''
+                }
             </div>
         );
     }
 }
+
+Cart.propTypes = {
+    cart: React.PropTypes.object
+};
+
+Cart.defaultProps = {
+    cart: {
+        count:0
+    }
+};
