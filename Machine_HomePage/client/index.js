@@ -20,10 +20,23 @@ function activateVendor() {
         )
     );
 }
+//
+// const rootRoute = {
+//     path:'/',
+//     indexRoute: {
+//         getComponent(nextState, cb) {
+//             require.ensure([], (require) => {
+//                 cb(null, require('./containers/PageContainer/PageContainer'))
+//             }, 'page')
+//         }
+//     }
+// }
 
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
+            {/*<Router history={hashHistory} routes={rootRoute}>*/}
+            {/*</Router>*/}
             <Router history={hashHistory}>
                 <Route path='/' component={Page}/>
                 <Route path='/maxbox_pc' component={Page}/>

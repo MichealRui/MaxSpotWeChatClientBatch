@@ -74,7 +74,6 @@ export function initMainContent () {
                         content: json.categories,
                         store: json.selectedStore
                     }))
-                    dispatch(initActivity())
                     dispatch(fetchCart())
                 } else {
                     console.log(json);

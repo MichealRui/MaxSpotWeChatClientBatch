@@ -7,7 +7,7 @@ import SubContent from '../../containers/SubContent/SubContent'
 import CartContainer from '../../containers/CartContainer/CartContainer';
 import SkuContainer from '../../containers/SkuContainer/SkuContainer';
 import FetchSkuContainer from '../../containers/FetchSkuContainer/FetchSkuContainer';
-import { initMainContent, initActivity } from '../../actions/index'
+import { initMainContent } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index'
 import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
@@ -123,4 +123,4 @@ function select(store) {
     return Object.assign({}, {state: store})
 }
 
-export default connect(select)(PageContainer)
+module.exports = connect(select)(PageContainer)
