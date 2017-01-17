@@ -23,7 +23,7 @@ export default class Cart extends Component {
         let clearCart = this.props.clearCart;
         return (
             <div className={cart.remainTime?"bottomButton":"bottomButton empty"}
-                 onClick={this.cartOnClick.bind(this)}
+                 onClick={this._cartOnClick.bind(this)}
             >
                 <div className='cartIcon'>
                     <a className='shopping_cart font30'>

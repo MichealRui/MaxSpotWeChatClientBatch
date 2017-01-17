@@ -48,3 +48,12 @@ export default class SubContent extends React.Component {
         )
     }
 }
+
+SubContent.propTypes={
+    contentData:React.PropTypes.object
+};
+SubContent.defaultProps={
+    contentData:{
+        freeItems:[]
+    }
+};

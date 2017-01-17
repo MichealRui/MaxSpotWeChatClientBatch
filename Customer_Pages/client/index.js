@@ -31,4 +31,5 @@ function renderPage(store) {
 }
 
 let store = activateVendor();
+console.log(store.getState())
 renderPage(store);

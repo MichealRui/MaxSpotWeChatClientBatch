@@ -8,32 +8,34 @@ import BannerContainer from '../../components/HomeComponents/BannerContainer/ban
 import SelectContainer from '../../components/HomeComponents/SelectorContainer/selectorContainer';
 import SubContent from '../../components/HomeComponents/SubContent/subContent'
 import Message from '../../components/CommoonComponents/Message/Message';
-import { initWxConfig, initSdk } from '../../actions/index'
-import { initSubContent, initStart, changeSubContent } from '../../actions/index'
-import { startAddToCart, clearCart, addToCart, initCart } from '../../actions/index'
-import { locationSucc, locationFail, initByStoreId} from '../../actions/index';
-import { setMessage } from '../../actions/index'
+import { initWxConfig, initSdk } from '../../actions/WeiXin'
+import { changeSubContent, locationSucc, locationFail, initByStoreId } from '../../actions/Home'
+import { clearCart, addToCart, initCart } from '../../actions/Cart'
+import { setMessage } from '../../actions/Message'
 import util from '../../util/WeChatUtil'
 
 class PageContainer extends React.Component {
     constructor(props) {
-        super (props)
+        super (props);
+        this._storeId = util.getUrlParam().storeid;
     }
 
     componentWillMount() {
         const { dispatch } = this.props;
-        let storeId = util.getUrlParam().storeid;
-        storeId ? dispatch(initByStoreId(storeId)) : dispatch(initWxConfig(window.location.href));
+        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(window.location.href, initCart));
     }
 
     componentDidUpdate() {
-        const { dispatch } = this.props;
-        let props = this.props.state;
-        let config = props.wxConfig;
-        if(config.sign && !props.sdkInited) {
-            if(this.initWx(config)) {
-                dispatch(initSdk());
-                this.getGeo().bind(this);
+        if(this._storeId) {
+            return false
+        } else {
+            const { dispatch, state } = this.props;
+            let config = state.weixin.wxConfig;
+            if(config.sign && !state.weixin.sdkInited) {
+                if(this.initWx(config)) {
+                    dispatch(initSdk());
+                    this.getGeo();
+                }
             }
         }
     }
@@ -53,7 +55,6 @@ class PageContainer extends React.Component {
         } catch (e) {
             return false
         }
-
     }
 
     getGeo() {
@@ -107,29 +108,27 @@ class PageContainer extends React.Component {
     }
 
     render() {
-        let props = this.props.state;
-        const { dispatch } = this.props;
-        let takespace={height: '1.2rem'};
+        const { dispatch, state } = this.props;
+        const { cart, message, storeInfo, content} = state;
+        let takespace = {height: '1.2rem'};
         return (
             <div>
-                <HomeHeader store={props.storeInfo}/>
+                <HomeHeader store={content.storeInfo}/>
                 <div className="takespace" style={takespace}></div>
-                <Message msgContent={props.errorMessage}
-                         clearMessage={() => dispatch(setMessage(""))}
+                <Message msgContent={message}
+                         clearMessage={() => dispatch(setMessage({errorMessage: ""}))}
                 />
-                <BannerContainer bannerData={props.banner}
-                                 storeId={props.storeInfo.id}
-                />
-                <SelectContainer selectorData={props.selector}
+                <BannerContainer bannerData={content.banner}/>
+                <SelectContainer selectorData={content.selector}
                                  onSelectClick={ key => dispatch(changeSubContent(key)) }
-                                 currentKey = {props.currentKey}
+                                 currentKey = {content.currentKey}
                 />
                 <SubContent
-                    contentData={props.currentSub}
-                    storeData={props.storeInfo}
+                    contentData={content.currentSub}
+                    storeData={content.storeInfo}
                     addToCart={(item) => dispatch(addToCart(item))}
                 />
-                <BottomButton cart={props.cart}
+                <BottomButton cart={cart.cart}
                               clearCart={() => dispatch(clearCart())}/>
             </div>
         )

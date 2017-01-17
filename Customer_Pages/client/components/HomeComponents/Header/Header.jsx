@@ -37,3 +37,12 @@ export default class Header extends Component {
         );
     }
 }
+Header.propTypes={
+    store:React.PropTypes.object
+};
+Header.defaultProps={
+    store:{
+        id:'',
+        name:''
+    }
+};

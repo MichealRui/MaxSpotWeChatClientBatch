@@ -1,6 +1,11 @@
 /**
  * Created by ruibing on 17/1/12.
  */
+
+export const INIT_CART_SUCC = 'INIT_CART_SUCC';
+
+export const INIT_CART_FAIL = 'INIT_CART_FAIL';
+
 export const ADDTO_CART = 'ADDTO_CART';
 
 export const SUCC_ADD_CART = 'SUCC_ADD_CART';

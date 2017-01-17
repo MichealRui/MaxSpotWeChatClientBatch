@@ -29,3 +29,10 @@ export default class ItemContainer extends React.Component{
         )
     }
 }
+
+ItemContainer.propTypes={
+    items:React.PropTypes.array
+};
+ItemContainer.defaultProps={
+    items:[]
+};

@@ -30,8 +30,8 @@ export default class BannerContainer extends React.Component {
     }
 }
 
-BannerContainer.PropTypes={
-    bannerData:React.propTypes.Array
+BannerContainer.propTypes={
+    bannerData:React.PropTypes.array
 };
 
 BannerContainer.defaultProps= {

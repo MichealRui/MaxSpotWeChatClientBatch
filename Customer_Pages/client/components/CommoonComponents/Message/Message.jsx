@@ -4,33 +4,29 @@ require('./index.css');
 export default class Message extends React.Component {
 	constructor(props){
 		super(props);
-        this.state={ message:'' }
 	}
 
 	static defaultProps = {
-	    msgContent: '',
+	    msgContent: {errorMessage:''},
         clearTime: 2000 //default clearTime
     };
 
 	componentWillReceiveProps(nextProps) {
 	    let props = this.props;
-	    this.setState({
-	        message: nextProps.msgContent
-        });
         window.setTimeout(() => {
-		    if(nextProps.msgContent){
-                this.setState( { message:'' } );
+		    if(nextProps.msgContent.errorMessage){
+                props.clearMessage()
             }
         }, props.clearTime)
 	}
 	
 	render(){
-		let msgContent = this.state.message;
-		if(msgContent){
+		const {msgContent} = this.props;
+		if(msgContent.errorMessage){
 			return (
 				<div className="message font16">
 					<i className="msgIcon">!</i>
-					<span className="msgContent">{msgContent}</span>
+					<span className="msgContent">{msgContent.errorMessage}</span>
 				</div>
 			);
 		}else {
