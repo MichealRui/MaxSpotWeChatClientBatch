@@ -81,11 +81,11 @@ export default class Item extends React.Component {
                 {
                     props.quantity > 0 ?
                         <span>
-                            {
-                                props.msrp > 0 ?
-                                    <span className={"oldPrices font20 "}>市场价 {props.msrp/100}元</span>
-                                    :''
-                            }
+                            {/*{*/}
+                                {/*props.msrp > 0 ?*/}
+                                    {/*<span className={"oldPrices font20 "}>市场价 {props.msrp/100}元</span>*/}
+                                    {/*:''*/}
+                            {/*}*/}
                             <span className={"add font60 "} onClick={this.addClick.bind(this)}>+</span>
                         </span> :
                         <span>

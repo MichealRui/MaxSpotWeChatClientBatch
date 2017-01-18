@@ -359,6 +359,7 @@ html { overflow-y: scroll; }
 }
 #root {
     overflow: hidden!important;
+    user-select: none;
 }
 
 body::-webkit-scrollbar {

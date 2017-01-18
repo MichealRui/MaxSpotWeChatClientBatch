@@ -70,6 +70,7 @@ class PageContainer extends React.Component{
     }
 
     hideProductDetail(){
+        console.log("hide sku")
         this.setState({
             skuVisible:false
         })
