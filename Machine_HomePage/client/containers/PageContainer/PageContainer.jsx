@@ -65,14 +65,13 @@ class PageContainer extends React.Component{
         let {dispatch} = this.props;
         dispatch(fetchSku(item.skuNumber));
         this.setState({
-            skuVisible:true
-        })
+            skuVisible:true,
+        });
     }
 
     hideProductDetail(){
-        console.log("hide sku")
         this.setState({
-            skuVisible:false
+            skuVisible:false,
         })
     }
 

@@ -1,12 +1,12 @@
 'use strict';
 import React from 'react';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import Gallery from '../../components/Gallery/Gallery';
 import Header from '../SkuHeader/SkuHeader'
 import Info from '../SkuInfo/SkuInfo'
 import Footer from '../SkuFooter/SkuFooter'
 import Cart from '../../components/Cart/Cart'
-require('./index.css')
+require('./index.css');
 
 export default class SkuContainer extends React.Component {
     constructor(props) {
@@ -49,26 +49,26 @@ export default class SkuContainer extends React.Component {
                        footer=''
                 >
                     <Cart cartStyle={{top:-48+'px',right:110+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
-                                <div className="galleryWrapper">
-                                    {
-                                        product ? <Gallery images={sku ?
-                                            this.getDetailPicList(sku.images)
-                                            :''
-                                        }/>:''
-                                    }
+                    <div className="galleryWrapper">
+                        {
+                            product ? <Gallery images={sku ?
+                                this.getDetailPicList(sku.images)
+                                :''
+                            }/>:''
+                        }
+                    </div>
+                    <div className="skuInfo">
+                        {
+                            product? (
+                                <div>
+                                    <Header item={product} addToCart={(product) => props.addToCart(product)}/>
+                                    {/*<Intro/>*/}
+                                    <Info item={product}/>
+                                    <Footer />
                                 </div>
-                                <div className="skuInfo">
-                                    {
-                                        product? (
-                                            <div>
-                                                <Header item={product} addToCart={(product) => props.addToCart(product)}/>
-                                                {/*<Intro/>*/}
-                                                <Info item={product}/>
-                                                <Footer />
-                                            </div>
-                                        ):''
-                                    }
-                                </div>
+                            ):''
+                        }
+                    </div>
                 </Modal>
             </div>
         );
