@@ -8,8 +8,7 @@ export default class SubContent extends React.Component {
         super(props)
     }
 
-    shouldComponentUpdate(nextProps, nextState){
-        console.log(!(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items)))
+    shouldComponentUpdate(nextProps){
         return !(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items));
     }
 

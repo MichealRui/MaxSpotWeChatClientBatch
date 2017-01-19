@@ -10,7 +10,13 @@ require('./index.css');
 
 export default class SkuContainer extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this._maxCount=60;
+        this.sleepTime=1000;
+        this.state={
+            timer:null,
+            currentCount: this._maxCount
+        }
     }
 
     getMiddlePicList(images) {
@@ -37,6 +43,48 @@ export default class SkuContainer extends React.Component {
         return domain + path
     }
 
+    countOne() {
+        console.log('count one ');
+        console.log(this.state.currentCount);
+        this.setState({
+            currentCount:this.state.currentCount - 1
+        });
+    }
+
+    countBack() {
+        if(this.state.currentCount == 0) {
+            this.props.onCancel()()
+        } else {
+            let timer = window.setTimeout(
+                () => {
+                    this.countOne();
+                    this.countBack()
+                }, this.sleepTime);
+            this.setState({
+                timer: timer
+            })
+        }
+    }
+
+    renewCount() {
+        this.setState({
+            currentCount:this._maxCount
+        })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.visible && !this.state.timer) {
+            this.countBack()
+        }
+        if(!nextProps.visible) {
+            window.clearTimeout(this.state.timer);
+            this.setState({
+                timer: null,
+                currentCount:this._maxCount
+            })
+        }
+    }
+
     render(){
         let props = this.props;
         let product = props.product;
@@ -48,26 +96,31 @@ export default class SkuContainer extends React.Component {
                        wrapClassName="customized1_sku-modal"
                        footer=''
                 >
-                    <Cart cartStyle={{top:-48+'px',right:110+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
-                    <div className="galleryWrapper">
-                        {
-                            product ? <Gallery images={sku ?
-                                this.getDetailPicList(sku.images)
-                                :''
-                            }/>:''
-                        }
-                    </div>
-                    <div className="skuInfo">
-                        {
-                            product? (
-                                <div>
-                                    <Header item={product} addToCart={(product) => props.addToCart(product)}/>
-                                    {/*<Intro/>*/}
-                                    <Info item={product}/>
-                                    <Footer />
-                                </div>
-                            ):''
-                        }
+                    <div className="skuContent" onClick={() => this.renewCount()}>
+                        <Cart cartStyle={{top:-48+'px',right:110+'px'}}
+                              count={props.count || 0}
+                              totalPrice={props.totalPrice || 0}
+                        />
+                        <div className="galleryWrapper">
+                            {
+                                product ? <Gallery images={sku ?
+                                    this.getDetailPicList(sku.images)
+                                    :''
+                                }/>:''
+                            }
+                        </div>
+                        <div className="skuInfo">
+                            {
+                                product? (
+                                    <div>
+                                        <Header item={product} addToCart={(product) => props.addToCart(product)}/>
+                                        {/*<Intro/>*/}
+                                        <Info item={product}/>
+                                        <Footer />
+                                    </div>
+                                ):''
+                            }
+                        </div>
                     </div>
                 </Modal>
             </div>

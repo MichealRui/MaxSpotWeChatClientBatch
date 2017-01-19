@@ -10,6 +10,10 @@
     outline: 0;
 }
 
+.customized1_sku-modal .skuContent {
+    height:100%;
+}
+
 .customized1_sku-modal .ant-modal {
     top:0;
     box-sizing: border-box;
@@ -26,7 +30,6 @@
 }
 .customized1_sku-modal .ant-modal .ant-modal-content {
     height: 900px;
-    background-color: #f2f2f2;
 }
 
 .customized1_sku-modal .ant-modal .ant-modal-content .ant-modal-close{
