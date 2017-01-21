@@ -31,7 +31,7 @@ export default class SettleCollection extends React.Component {
 					<ReactQrCode value={this.props.takeuri}/>
 				</div>
 				<p className='settleQRCodeIntroduce font14'>
-					请店长打开微信端主页，点击右上方"+"图标，进入"扫一扫"功能，并对准上方二维码进行扫码支付
+					请在设备出货口旁对准“取货扫码区”扫此码取货，扫码成功时会听到“滴”的一声。
 				</p>
         		{/*<Button buttonText="支付成功" buttonClass="paySuccess" />*/}
         		<Button
