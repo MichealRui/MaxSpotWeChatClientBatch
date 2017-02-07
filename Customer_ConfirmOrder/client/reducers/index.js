@@ -115,6 +115,10 @@ function initStart(state) {
 }
 
 function initSuccess(state, updated){
+    //check if exist childOrder
+    if(!updated.orderInfo.childOrders) {
+        updated.orderInfo.childOrders = [updated.orderInfo]
+    }
     return Object.assign({}, state, updated, {is_succ: true});
 }
 

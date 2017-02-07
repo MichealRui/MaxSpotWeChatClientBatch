@@ -27,7 +27,7 @@ export default class Banner extends React.Component {
                     )
                 })
         ) : (
-                <Link to="/active">
+                <Link to="/active" onClick={() => console.log('header clicked')}>
                     <img width='100%' style={style} src={require(defPic)} alt=""/>
                 </Link>
             );

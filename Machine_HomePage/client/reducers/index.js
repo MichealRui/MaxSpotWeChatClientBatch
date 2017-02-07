@@ -17,7 +17,6 @@ let bannerdata = [
 ];
 
 let selector = [
-    {key: '', content: '', faIcon: ''},
 ];
 
 let subContent =
@@ -49,7 +48,7 @@ let storeInfo = {
 let activity = {
     items:[],
     banner:[]
-}
+};
 
 let data = {
     banner: bannerdata,
@@ -58,7 +57,8 @@ let data = {
     currentSub: subContent['all'],
     cart: shoppingCart,
     storeInfo: storeInfo,
-    activity:activity
+    activity:activity,
+    currentSelector:{parentKey:'', subKey:''}
 };
 
 function initSuccess(content, data){
@@ -108,6 +108,10 @@ function initSuccess(content, data){
     });
     /* end finding */
 
+    /* def current selector */
+    let currentSelector = selector[0];
+    currentSelector.subKey = selector[0].subSelector[0];
+
     let subContent = {};
     for(let content of subContentArray) {
         subContent = Object.assign({}, subContent, content)
@@ -142,7 +146,8 @@ function initSuccess(content, data){
         currentSub: currentSub, //data.subContent['all'],,
         // storeInfo: data.store,
         cart: cart,
-        product:''
+        product:'',
+        currentSelector:currentSelector
     })
 }
 
@@ -150,6 +155,9 @@ function changeContent(content, {key, subKey}) {
     let newContent = Object.assign({}, content);
     let target = newContent.subContent[key];
     newContent.currentSub = Object.assign({}, newContent.currentSub, {items: target.categoried[subKey]});
+    newContent.currentSelector = newContent.selector.filter(s => s.key == key).pop();
+    newContent.currentSelector.subKey = subKey
+    // newContent.currentSelector = {parentKey: key, subKey:subKey};
     return newContent
 }
 

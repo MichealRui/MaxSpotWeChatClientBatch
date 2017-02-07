@@ -18,16 +18,19 @@ export default class Gallery extends React.Component {
          });
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(JSON.stringify(this.props.images) != JSON.stringify(nextProps.images)) {
+            this.setCurrent(
+                nextProps.images[0],
+                0
+            )
+        }
+    }
+
     componentWillMount() {
         this.setCurrent(
             this.props.images[0],
             0
-        )
-    }
-
-    componentWillReceiveProps(nextProp, nextState) {
-        this.setCurrent(
-            nextProp.images[0]
         )
     }
 

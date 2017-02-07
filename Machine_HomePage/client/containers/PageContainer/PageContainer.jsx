@@ -90,6 +90,7 @@ class PageContainer extends React.Component{
                     addToCart={(item) => dispatch(addToCart(item))}
                     showProduct={(item) => this.onProductDetailClick.bind(this)(item)}
                     selector = {state.selector}
+                    currentSelector={state.currentSelector}
                 />
                 <CartContainer visible={this.state.cartVisible}
                                onCancel={ () => this.hideCart.bind(this) }
