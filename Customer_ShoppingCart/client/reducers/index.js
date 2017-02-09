@@ -185,39 +185,51 @@ function getProductStatus(iteminfo) {
 }
 
 function checkProductStatus(product) {
-    let productState = Object.assign({},product,{msg:'',err_status:0,show_tips:false});
-    if(productState.status != 1){
+    const PRODUCT_OUT_SELL= 1; //售罄 或 下架
+    const PRODUCT_ON_SELL = 1 ; //在售
+    const PRODUCT_LOW_STOCK = 3 //库存不足
+    let productState = Object.assign({},product,{err_msg:'',err_status:0,show_tips:false});
+    if(productState.status != PRODUCT_ON_SELL){
         //商品已下架
-        productState.msg = '此商品已下架';
-        productState.err_status = 1;
+        productState.err_msg = '此商品已下架';
+        productState.err_status = PRODUCT_OUT_SELL;
     }else if(productState.quantity <= 0){
         //商品售罄
-        productState.msg = '此商品已售罄，暂无法购买';
-        productState.err_status = 1;
+        productState.err_msg = '此商品已售罄，暂无法购买';
+        productState.err_status = PRODUCT_OUT_SELL;
     }else if(productState.count > productState.quantity){
         //库存不足
-        productState.msg = '剩余库存'+productState.quantity+'件';
-        productState.err_status = 3;
+        productState.err_msg = '剩余库存'+productState.quantity+'件';
+        productState.err_status = PRODUCT_LOW_STOCK;
         productState.show_tips = true;
     }
     return productState;
 }
 
 function initSuccess(state, itemInfo) {
+    const PRODUCT_OUT_SELL= 1; //售罄 或 下架
+    const PRODUCT_LOW_STOCK = 3 //库存不足
+    const PRODUCT_NORMAL = 0 //库存正常
     let info = {skus: itemInfo};
+    let metionMsg = '';
+    let pageStatus = {editable: false, activated: true ,commited:true};
+    info.skus.forEach(
+        sku => {
+            let newsku = sku.productList.map((product) => {
+                product =  checkProductStatus(product);
+                if(product.err_status == PRODUCT_LOW_STOCK){
+                    pageStatus = {editable: true, activated: false , commited:false};
+                }
+                if(product.err_status != PRODUCT_NORMAL){
+                    metionMsg = '部分商品缺货或已下架';
+                }
+                return product;
+            });
+            sku.productList = newsku;
+        }
+    );
+    info.metionMessage = metionMsg;
     info.activateShop = info.skus.map(sku => {
-        let pageStatus = {editable: false, activated: true ,commited:true};
-        sku.productList.map((product) => {
-            product.err_msg = checkProductStatus(product).msg;
-            product.err_status = checkProductStatus(product).err_status;
-            product.show_tips = checkProductStatus(product).show_tips;
-            if(product.err_status == 3){
-                pageStatus = {editable: true, activated: false , commited:false};
-            }
-            if(product.err_status != 0){
-                info.metionMessage = '部分商品缺货或已下架';
-            }
-        })
         let id = sku.id;
         let stores = {};
         stores[id] = pageStatus;
