@@ -1,8 +1,14 @@
 .productControl {
     display:inline-block;
     width:45%;
-    vertical-align:middle;
-    padding: 0.388889rem 0;
+    /*vertical-align:middle;*/
+    /*padding: 0.388889rem 0;*/
+    /* vertical-align: middle; */
+    /* padding: 0.388889rem 0; */
+    position: absolute;
+    top: 1.288888rem;
+    margin-left: 3rem;
+    z-index: 99;
 }
 .productControl .productCost {
     display: inline-block;
@@ -18,26 +24,29 @@
 }
 .button, 
 .inputText {
-    height: 1.0rem;
-    line-height: 1.0rem;
+    height: 0.58333rem;
+    line-height: 0.58333rem;
 }
 .button {
     display: inline-block;
-    width: 0.861111rem;
+    /*width: 0.861111rem;*/
+    width: 0.58333rem;
+    height: 0.58333rem;
     cursor: pointer;
     text-align: center;
     border: 1px solid #e5e5e5;
-    vertical-align: middle;
-    background-color: #f0f0f0;
+    /*vertical-align: middle;*/
+    line-height: 0.583333rem;
+    /*background-color: #f0f0f0;*/
 }
-.button.reduceButton {
-    border-right: none;
-    border-radius: 50% 0 0 50%;
-}
-.button.addButton {
-    border-left: none;
-    border-radius: 0 50% 50% 0;
-}
+/*.button.reduceButton {*/
+    /*border-right: none;*/
+    /*border-radius: 50% 0 0 50%;*/
+/*}*/
+/*.button.addButton {*/
+    /*border-left: none;*/
+    /*border-radius: 0 50% 50% 0;*/
+/*}*/
 .deleteButton {
     display: inline-block;
     /* width: 0.930556rem;
@@ -50,9 +59,50 @@
     border:none;
 }
 .inputText {
-    width:0.930556rem;
+    /*width:0.930556rem;*/
+    width:0.58333rem;
     padding:0;
-    border:1px solid #e5e5e5;
+    /*border:1px solid #e5e5e5;*/
     text-align: center;
     vertical-align: middle;
+}
+
+.hideactive .button,.hideactive .inputText{
+    display: none;
+}
+
+.color_ccc{
+    color:#ccc;
+}
+
+.productControl .tips{
+    position: absolute;
+    top: 0.7888888rem;
+    border: 1px solid #ff7860;
+    padding: 0.05rem;
+    width: 2rem;
+    left: 1.5rem;
+    text-align: center;
+    line-height: 0.344444rem;
+    color:#ff7860;
+}
+
+.productControl .tips:after{
+    content:'';
+    position: absolute;
+    border:1px solid;
+    border-color: #ff7860 transparent transparent #ff7860;
+    width: 0.3rem;
+    height: 0.3rem;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    right: 0.3rem;
+    top: -0.166666rem;
+    background: #fff;
+}
+
+.productControl .tips>span{
+    position: relative;
+    z-index: 2;
+    display: inline-block;
 }

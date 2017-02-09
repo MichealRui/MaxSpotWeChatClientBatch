@@ -43,9 +43,10 @@ export default class ProductSection extends React.Component {
                 <div className="editTitle">
                     <label className={labelClassName} onClick={this.checkboxChange}>
                     </label>
-                    <span className='machineAddress font14'>
-		              {itemInfo.name}
-		            </span>
+                    <div className='machineAddress font14'>
+		              <p className="machineAddressName">{itemInfo.name}</p>
+		              <p className="machineAddressAdd font10">{itemInfo.address}</p>
+		            </div>
                     <span className='editButton font14 J_edit' onClick={() => itemMethod.editState()}>
                         {!editable ? '编辑': '完成'}
 		            </span>

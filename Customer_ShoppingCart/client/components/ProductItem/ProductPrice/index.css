@@ -1,0 +1,38 @@
+.productPrice{
+    position: absolute;
+    top:1.288888rem;
+    margin-left: 1.6rem;
+    display: inline-block;
+}
+
+.productPrice.color_000 span {
+    color:#000;
+}
+
+.productPrice > .price{
+    color:#00ccff;
+}
+
+.hide{
+    display: none;
+}
+
+.productPrice .count,.productPrice .icon{
+    margin-left: 0.1rem;
+    color:#00ccff;
+    display: inline-block;
+}
+.productPrice .count.active,.productPrice .icon.active{
+    color:#eebe2c;
+}
+
+
+.productTips{
+    color:#eebe2c;
+    line-height: 0.44444rem;
+}
+
+.hideactive .count,.hideactive .icon{
+    display: none;
+}
+

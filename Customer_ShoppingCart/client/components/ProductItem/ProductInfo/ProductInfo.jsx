@@ -13,11 +13,11 @@ export default class ProductInfo extends React.Component{
 		const props = this.props.data;
 		return (
 			<div className="productInfo">
-				<img src={props.imagePath} className='productImg'/>
+				<div className="productImg">
+					<img src={props.imagePath}/>
+				</div>
 				<div className="wrapper">
-					<p className='productName font12'>{props.brandName}</p>
-					<p className='productDesc font14'>{props.name}</p>
-					<p className='productTaste font10'>{props.categoryName}</p>
+					<p className='productName font12'>{props.brandName} {props.name} {props.categoryName}</p>
 				</div>
 			</div>
 		)

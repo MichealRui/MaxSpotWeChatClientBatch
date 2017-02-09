@@ -34,7 +34,8 @@ function calcuTotalSum(itemInfo) {
         sku => {
             let id = sku.id;
             let s = itemInfo.activateShop.filter(
-                shop => shop[id] && shop[id].activated && !shop[id].editable
+                //shop => shop[id] && shop[id].activated && !shop[id].editable
+                shop => shop[id] && shop[id].activated
             );
             return s.length != 0
         }
@@ -46,6 +47,7 @@ function calcuTotalSum(itemInfo) {
 
 function finalState(itemInfo) {
     let calculatedItemInfo = calcuShopSum(itemInfo);
+    //calculatedItemInfo = getProductStatus(calculatedItemInfo);
     return Object.assign({}, calculatedItemInfo , {totalMoney: calcuTotalSum(calculatedItemInfo)})
 }
 
@@ -161,12 +163,54 @@ function setMessage(itemInfo, message) {
     return Object.assign({}, itemInfo, {errorMessage: message})
 }
 
+function getProductStatus(iteminfo) {
+    let newItemInfo = Object.assign({},iteminfo);
+    newItemInfo.skus.forEach(
+        sku=>{
+            sku.productList.map(
+                (product)=>{
+                    product.err_msg = checkProductStatus(product).msg;
+                    product.err_status = checkProductStatus(product).err_status;
+                }
+            )
+        }
+    );
+    return newItemInfo;
+}
+
+function checkProductStatus(product) {
+    let productState = {msg:'',err_status:0,show_tips:false};
+    if(product.status != 1){
+        //商品已下架
+        productState.msg = '此商品已下架';
+        productState.err_status = 1;
+    }else if(product.quantity <= 0){
+        //商品售罄
+        productState.msg = '此商品已售罄，暂无法购买';
+        productState.err_status = 1;
+    }else if(product.count > product.quantity){
+        //库存不足
+        productState.msg = '剩余库存'+product.quantity+'件';
+        productState.err_status = 3;
+        productState.show_tips = true;
+    }
+    return productState;
+}
+
 function initSuccess(state, itemInfo) {
     let info = {skus: itemInfo};
     info.activateShop = info.skus.map(sku => {
+        let pageStatus = {editable: false, activated: true ,commited:true};
+        sku.productList.map((product) => {
+            product.err_msg = checkProductStatus(product).msg;
+            product.err_status = checkProductStatus(product).err_status;
+            if(product.err_status == 3){
+                pageStatus = {editable: true, activated: false , commited:false};
+            }
+        })
         let id = sku.id;
         let stores = {};
-        stores[id] = {editable: false, activated: true};
+        stores[id] = pageStatus;
         return stores;
     });
     return finalState(info)
@@ -211,11 +255,11 @@ function editState(itemInfo, shopId) {
 }
 
 function clearCart(itemInfo) {
-    return {skus:[], activateShop:[{1:{editable: false, activated: true}}], remainTime: ''}
+    return {skus:[], activateShop:[{1:{editable: false, activated: true , commited:false}}], remainTime: ''}
 }
 
  export default function (itemInfo = {skus:[], activateShop:[{1:{editable: false, activated: true}}], remainTime: '', errorMessage:''}, action){
-    switch(action.type){
+     switch(action.type){
         case INIT_SUCCESS:
             return initSuccess(itemInfo, action.skus);
         case TOGGLE_SHOP:

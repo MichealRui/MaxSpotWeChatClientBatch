@@ -13,7 +13,8 @@ export default class BottomBar extends React.Component{
 		let stores =  this.props.activateStore.filter(
 		    shop => {
                 let id = Object.keys(shop).shift();
-                return shop[id].activated && !shop[id].editable
+                // return shop[id].activated && !shop[id].editable
+                return shop[id].activated
 		    }
         ).map(s => Object.keys(s).shift());
         if(this.props.totalMoney == 0) {
@@ -35,8 +36,8 @@ export default class BottomBar extends React.Component{
 			}
 		).then(response => response.json())
 			.then(json => {
+				console.log(json);
 				if(json.is_succ) {
-					console.log(json);
 				    window.location.href =
 						'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
 				//	todo redirect to qrcode scan page

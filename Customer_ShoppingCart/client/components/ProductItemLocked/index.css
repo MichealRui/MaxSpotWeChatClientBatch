@@ -1,7 +1,9 @@
 .editItem {
-	padding:0.416667rem 0.555556rem;
+	/*padding:0.416667rem 0.555556rem;*/
+	padding:0.555556rem;
     border-bottom: 1px solid #e6e6e6;
     background-color: #fff;
+	position: relative;
 }
 .editItem:last-child {
 	margin-bottom: 0.277778rem;
@@ -13,4 +15,13 @@
 }
 .editItem .icon {
 	magin: 0.222222rem;
+}
+
+.editItem .layer{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,.6);
 }
