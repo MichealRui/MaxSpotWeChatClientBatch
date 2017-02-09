@@ -7,7 +7,7 @@ import { TOGGLE_SHOP, CHANGE_SHOP_STATE } from '../actions/actions'
 import { CLEAR_CART } from '../actions/actions'
 import { ADD_ITEM, DELETE_ITEM, DELETE_ITEM_FAIL,INCREMENT_COUNTER_SUCC, INCREMENT_COUNTER_FAIL, DECREMENT_COUNTER_SUCC, DECREMENT_COUNTER_FAIL} from '../actions/actions'
 import {FETCH_ITEM_REQUEST, FETCH_ITEM_RECEIVE, FETCH_ITEM_ERROR} from '../actions/actions'
-import { SET_MESSAGE } from '../actions/actions'
+import { SET_MESSAGE , SET_METION_MESSAGE } from '../actions/actions'
 
 function isEmptyObject(e) {
     var t;
@@ -162,6 +162,9 @@ function fetchItemError(itemInfo) {
 function setMessage(itemInfo, message) {
     return Object.assign({}, itemInfo, {errorMessage: message})
 }
+function setMetionMessage(itemInfo, message) {
+    return Object.assign({}, itemInfo, {metionMessage: message})
+}
 
 function getProductStatus(iteminfo) {
     let newItemInfo = Object.assign({},iteminfo);
@@ -206,6 +209,9 @@ function initSuccess(state, itemInfo) {
             product.err_status = checkProductStatus(product).err_status;
             if(product.err_status == 3){
                 pageStatus = {editable: true, activated: false , commited:false};
+            }
+            if(product.err_status != 0){
+                info.metionMessage = '部分商品缺货或已下架';
             }
         })
         let id = sku.id;
@@ -258,7 +264,7 @@ function clearCart(itemInfo) {
     return {skus:[], activateShop:[{1:{editable: false, activated: true , commited:false}}], remainTime: ''}
 }
 
- export default function (itemInfo = {skus:[], activateShop:[{1:{editable: false, activated: true}}], remainTime: '', errorMessage:''}, action){
+ export default function (itemInfo = {skus:[], activateShop:[{1:{editable: false, activated: true}}], remainTime: '', errorMessage:'',metionMessage:''}, action){
      switch(action.type){
         case INIT_SUCCESS:
             return initSuccess(itemInfo, action.skus);
@@ -290,6 +296,8 @@ function clearCart(itemInfo) {
             return fetchItemError(itemInfo, action.skuId, action.message);
         case SET_MESSAGE:
             return setMessage(itemInfo, action.message);
+         case SET_METION_MESSAGE:
+             return setMetionMessage(itemInfo, action.message);
         default:
             return itemInfo;
     }

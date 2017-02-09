@@ -1,7 +1,7 @@
-.message {
+.shoppingmessage {
 	height: 1.25rem;
 	line-height: 1.25rem;
-	padding-left: 1.25rem;
+	padding-left: 1rem;
 	color: #fff;
 	background-color: #f79191;
     position: fixed;
@@ -10,15 +10,27 @@
     z-index: 999;
     width:100%;
 }
-.message .msgIcon {
+.shoppingmessage .msgMetion{
 	display: inline-block;
 	width: 0.388889rem;
-	height: 0.388889rem;
-	line-height: 0.388889rem;
-	text-align: center;
-	border-radius: 50%;
-	background-color: #fff;
-	margin-right: 0.208333rem;
-	font-style: normal;
-	color:  #f79191;
+}
+.shoppingmessage .msgMetion > img{
+	width: 100%;
+}
+
+.shoppingmessage .msgContent{
+	position: relative;
+	display: inline-block;
+	width: 70%;
+	margin-left: 0.2rem;
+	margin-right: 0.2rem;
+}
+
+.shoppingmessage .msgClose{
+	display: inline-block;
+	width: 0.288889rem;
+	/*float: right;*/
+}
+.shoppingmessage .msgClose > img{
+	width: 100%;
 }

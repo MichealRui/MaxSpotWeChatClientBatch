@@ -4,9 +4,10 @@ import TopBar from '../../components/TopBar/TopBar';
 import BottomBar from '../../components/BottomBar/BottomBar';
 import ProductSection from '../../components/ShopSection/ShopSection';
 import Message from '../../components/Message/Message'
+import ShoppingMessage from '../../components/ShoppingMessage/ShoppingMessage'
 import Empty from '../../components/Empty/Empty'
 import { connect }  from 'react-redux';
-import { fetchItem, increment, decrement, deleteItem, changeShopState, setMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
+import { fetchItem, increment, decrement, deleteItem, changeShopState, setMessage, setMetionMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
 // import ShoppingCartData from './ShoppingCartData.js';
 require('./index.css');
 
@@ -44,6 +45,10 @@ class ShoppingCart extends React.Component {
                     <Message msgContent={itemInfo.errorMessage}
                              clearMessage={() => dispatch(setMessage(""))}
                     />
+                    <ShoppingMessage metionMsg = {itemInfo.metionMessage}
+                                     clearMessage = {() => dispatch(setMetionMessage(""))}
+                    />
+
                     {
                         itemInfo.skus.map(
                             (sku, index) => {
