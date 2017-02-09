@@ -33,10 +33,9 @@ class ShoppingCart extends React.Component {
             delete: shopId => item => dispatch(deleteItem(shopId, item)),
             editState: shopId => () =>dispatch(changeShopState(shopId)),
             toggle: shopId => () => dispatch(toggleShop(shopId)),
-            setMessage:message => () => dispatch(setMessage(message))
+            setMetionMessage:message => () => dispatch(setMetionMessage(message))
         };
         let takespace={height: '1.2rem'}
-        console.log(itemInfo.remainTime);
         return(
             <div>
 	            <div className="contentContainer">

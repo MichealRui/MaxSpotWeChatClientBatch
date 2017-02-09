@@ -35,7 +35,7 @@ export default class ProductControl extends React.Component {
 					<span className="deleteButton fa fa-trash-o font24"
                           onClick={() => deleteItem(item)}></span>
 				</div>
-				<div className={"tips font10 "+(item.err_status == 3 && this.state.tips_show ? '':'hide')}><span>{item.err_msg}</span></div>
+				<div className={"tips font10 "+(item.show_tips ? '':'hide')}><span>{item.err_msg}</span></div>
 			</div>
 		);
 	}
