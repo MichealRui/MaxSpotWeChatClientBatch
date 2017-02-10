@@ -20,11 +20,10 @@ export default class OrderItem extends React.Component {
 			<li className='orderItem clearfix'>
 				<div className='fl orderInfo'>
 					<div className='address font14'>{props.store.name}</div>
-					<div className='code font14 blue'>订单号：{props.orderNumber}</div>
+					<div className='code font12 darkGray'>订单号：{props.orderNumber}</div>
 				</div>
 				<div className='fr orderAction'>
-					<div className='fl btn_fetch font14' onClick={this.onTakeClick.bind(this)}>立即取货</div>
-					<div className="fr font20"> > </div>
+					<div className='fl btn_fetch font14 white' onClick={this.onTakeClick.bind(this)}>立即取货</div>
 				</div>
 			</li>
 		);
