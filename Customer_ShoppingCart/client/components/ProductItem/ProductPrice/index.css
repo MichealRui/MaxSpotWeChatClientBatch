@@ -1,6 +1,6 @@
 .productPrice{
     position: absolute;
-    top:1.288888rem;
+    top:1.388888rem;
     margin-left: 1.6rem;
     display: inline-block;
 }
@@ -29,7 +29,7 @@
 
 .productTips{
     color:#eebe2c;
-    line-height: 0.44444rem;
+    line-height: 0.54444rem;
 }
 
 .hideactive .count,.hideactive .icon{

@@ -49,7 +49,7 @@ function calcuTotalSum(itemInfo) {
 
 function finalState(itemInfo) {
     let calculatedItemInfo = calcuShopSum(itemInfo);
-    //calculatedItemInfo = getProductStatus(calculatedItemInfo);
+    calculatedItemInfo = getProductStatus(calculatedItemInfo);
     return Object.assign({}, calculatedItemInfo , {totalMoney: calcuTotalSum(calculatedItemInfo)})
 }
 
@@ -171,6 +171,21 @@ function setMetionMessage(itemInfo, message) {
     return Object.assign({}, itemInfo, {metionMessage: message})
 }
 
+function getProductStatus(itemInfo) {
+    itemInfo.skus.forEach(
+        sku => {
+            let skunew = sku.productList.map(
+                (product) => {
+                    product = checkProductStatus(product)
+                    return product;
+                }
+            );
+            sku.productList = skunew;
+        }
+    )
+    return itemInfo;
+}
+
 
 function checkProductStatus(product) {
     const PRODUCT_OUT_SELL= 1; //下架
@@ -208,17 +223,17 @@ function initSuccess(state, itemInfo) {
             let newsku = sku.productList.map((product) => {
                 product =  checkProductStatus(product);
                 if(product.err_status == PRODUCT_LOW_STOCK){
-                    pageStatus = {editable: true, activated: false , commited:false};
+                    pageStatus = {editable: true, activated: true , commited:true};
                 }
                 switch (product.err_status){
                     case PRODUCT_OUT_SELL:
-                        metionMsg = '部分商品已下架';
+                        metionMsg = '已下架或售罄商品不参与购物结算';
                         break;
                     case PRODUCT_EMPTY_SELL:
-                        metionMsg = '部分商品已售罄';
+                        metionMsg = '已下架或售罄商品不参与购物结算';
                         break;
                     case PRODUCT_LOW_STOCK:
-                        metionMsg = '部分商品库存不足';
+                        metionMsg = '部分商品缺货，请编辑购物车”';
                         break;
                 }
                 return product;

@@ -22,7 +22,7 @@ class ShoppingCart extends React.Component {
     }
     
     render(){
-        const { dispatch, itemInfo} = this.props;
+        const { dispatch, itemInfo } = this.props;
         const itemMethods = {
             increase: shopId => item => dispatch(increment(shopId, item)),
             decrease: shopId => item => {

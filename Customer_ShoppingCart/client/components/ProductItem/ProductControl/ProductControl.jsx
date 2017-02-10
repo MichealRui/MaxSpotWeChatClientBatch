@@ -27,15 +27,16 @@ export default class ProductControl extends React.Component {
 				{/*<p className="productCost font16"><em className="font18">{item.sellprice}</em>元</p>*/}
 				<div className={"inputWrapper clearfix font12 " + (item.err_status == PRODUCT_OUT_SELL || item.err_status == PRODUCT_EMPTY_SELL ? 'hideactive' : '')}>
 					<span className={"button reduceButton " + (item.count <= 1 ? 'color_ccc' : '')}
-                          onClick={() => item.count <= 1 ? '' : decreaseItem(item)}>-</span>
-					<input className="inputText" type='text' readOnly value={item.count}
-                           onChange={this.valueChange.bind(this)}/>
+                          onClick={() => decreaseItem(item)}>-</span>
+					{/*<input className="inputText" type='text' readOnly value={item.count}*/}
+                           {/*onChange={this.valueChange.bind(this)}/>*/}
+				   	<span className="inputText">{item.count}</span>
 					<span className={"button addButton " + (item.count >= item.quantity ? 'color_ccc' : '')}
-                          onClick={() => item.count >= item.quantity ? '' : increaseItem(item)}>+</span>
+                          onClick={() => increaseItem(item)}>+</span>
 					<span className="deleteButton fa fa-trash-o font24"
                           onClick={() => deleteItem(item)}></span>
 				</div>
-				<div className={"tips font10 "+(item.show_tips ? '':'hide')}><span>{item.err_msg}</span></div>
+				{/*<div className={"tips font10 "+(item.show_tips ? '':'hide')}><span>{item.err_msg}</span></div>*/}
 			</div>
 		);
 	}

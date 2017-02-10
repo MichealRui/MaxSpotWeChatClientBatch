@@ -53,9 +53,9 @@ export default class BottomBar extends React.Component{
 			<div className='bottomBar'>
 				<div>
 					<div>
-						<p className='totalMoney font12'>总金额：<em>{props.totalMoney || 0}</em><i>元</i></p>
+						<p className='totalMoney font14'>总金额：<em>{props.totalMoney || 0}</em><i>元</i></p>
 
-						<p className='remainTime font12'>
+						<p className='remainTime font14'>
                             {/*<span>剩余时间：</span>*/}
                             {/*<Counter remainTime={props.remainTime}*/}
                                      {/*timeUpCallback={props.clearCart}*/}
