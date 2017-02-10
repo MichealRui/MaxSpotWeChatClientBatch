@@ -214,7 +214,7 @@ function finalCartStatus(cart){
             parseInt(pre) + parseInt(next)
         , 0)  / 100;
 
-    newCart.count = count
+    newCart.count = count;
     return newCart
 }
 

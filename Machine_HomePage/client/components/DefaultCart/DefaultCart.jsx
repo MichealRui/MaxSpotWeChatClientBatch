@@ -89,6 +89,29 @@ export default class DefaultCart extends React.Component {
             />
         });
 
+        /**
+         * for valentine
+         */
+
+        let giftData = {
+            brandName: '怪兽家',
+            shortName: '怪兽家情人节礼盒',
+            isGift:true,
+            giftAvailable:props.totalPrice > 30
+        };
+        //
+        let gift = (
+            <CartItem
+                item={giftData}
+                key={-1}
+            />
+        );
+
+        items.push(gift);
+        /**
+         * end for valentine
+         */
+
         let showPayAlert = props.items.filter( item =>
                 (item.quantity == 0) || (item.count > item.quantity) || (item.status == 0)
             ).length > 0;

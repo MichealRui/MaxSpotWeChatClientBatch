@@ -69,6 +69,7 @@ export default class CartItem extends React.Component{
     render() {
         let props = this.props.item;
         let isGift = this.props.item.isGift;
+        let giftAvailable = this.props.item.giftAvailable;
         var atts = this.getAtts(props.attributes);
         let domain= ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
         let soldOut = props.quantity ? (
@@ -78,7 +79,23 @@ export default class CartItem extends React.Component{
                 <a className="btn-plus" disabled={ props.quantity <= props.count} onClick={() => this.addItem.bind(this)()}>+</a>
             </div>
         ) : <div className={ 'counting undershop font20' }>此商品已售罄</div>;
-        let footer = isGift?'':
+
+        let gift = (
+            <div>
+                <div className="gift-count">
+                    x 1
+                </div>
+                <div className= {"gift-footer " + (giftAvailable?"gift-active":"gift-fail")}>
+                    <span className="gift-desc1">满30 </span> <span className="gift-desc2">/ 享赠</span>
+                </div>
+                {
+                    giftAvailable ? null: <div className="gift-fail-cover"></div>
+                }
+            </div>
+        );
+
+        let footer = isGift? gift
+            :
             (
                 <div>
                     <h3 className="item-price">

@@ -8,6 +8,7 @@
     border-radius:4px;
     background:#fff;
     box-sizing: border-box;
+    position: relative;
 }
 
 .cart-item .categoryName{
@@ -241,3 +242,52 @@
     left: 80px;
 }
 
+/*add for gift cartItem*/
+.cart-item .gift-footer {
+    position: absolute;
+    left:0;
+    bottom:0;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.cart-item .gift-footer.gift-active {
+    background: url("./images/gift-active.png") no-repeat;
+    background-size: 100%;
+}
+
+.cart-item .gift-footer.gift-fail {
+    background: url("./images/gift-fail.png") no-repeat;
+    background-size: 100%;
+}
+
+.cart-item .gift-count {
+    text-align: right;
+    font-size: 23px;
+    width: 100%;
+}
+
+.cart-item .gift-footer .gift-desc1 {
+    height:80px;
+    line-height: 80px;
+    font-size: 20px;
+}
+
+.cart-item .gift-footer .gift-desc2 {
+    height:80px;
+    line-height: 80px;
+    font-size: 30px;
+}
+
+.cart-item .gift-fail-cover {
+    height:456px;
+    width:276px;
+    position: absolute;
+    z-index:5;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    opacity: 0.4;
+}
