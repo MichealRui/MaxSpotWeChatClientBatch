@@ -20,7 +20,7 @@ function calcuShopSum(itemInfo) {
     let newItemInfo = Object.assign({}, itemInfo);
     newItemInfo.skus.forEach( sku => {
         sku.shopSum = sku.productList.map(
-                product => product.count * product.sellprice
+                product => product.err_status == 1 ? 0 : product.count * product.sellprice
             ).reduce(
                 (previous, current, index, array) => previous + current
             , 0) / 100
