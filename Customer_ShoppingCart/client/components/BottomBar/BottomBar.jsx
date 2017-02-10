@@ -20,7 +20,6 @@ export default class BottomBar extends React.Component{
         if(this.props.totalMoney == 0) {
             return false;
         }
-
 		const domain = ENV.domain;
 		fetch( domain + '/web/buyer_api/submit_carts.ction',
 			{
@@ -42,7 +41,7 @@ export default class BottomBar extends React.Component{
 						'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
 				//	todo redirect to qrcode scan page
 				} else {
-					dispatchError(json.error_message)
+					this.props.onError(json.error_message)
 				}
 			})
 	}

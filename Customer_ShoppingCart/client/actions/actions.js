@@ -619,10 +619,12 @@ export function increment(shopId, item) {
             })
         }).then(response => response.json())
             .then(json => {
+                console.log('increase');
+                console.log(json);
                 if (json.is_succ) {
                     dispatch(succIncrement(shopId, item))
                 } else {
-                    dispatch(failIncrement(shopId, item, json.error_message))
+                    dispatch(failIncrement(shopId, item, json.error_message,json.err_code))
                 }
             }).catch(e => dispatch(failIncrement(shopId, item, '服务器异常')))
     };
@@ -636,12 +638,13 @@ function succIncrement(shopId, item) {
     }
 }
 
-function failIncrement(shopId, item, error) {
+function failIncrement(shopId, item, error , err_code) {
     return {
         type: INCREMENT_COUNTER_FAIL,
         item,
         shopId,
-        errorMessage: error
+        errorMessage: error,
+        errCode:err_code
     }
 }
 

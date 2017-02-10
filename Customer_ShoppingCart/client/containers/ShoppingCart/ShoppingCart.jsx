@@ -96,7 +96,7 @@ class ShoppingCart extends React.Component {
                     itemList={itemInfo.productList}
                     remainTime={itemInfo.remainTime}
                     clearCart={() => dispatch(clearCart())}
-                    onError={(message) => dispatch(setMessage(message))}
+                    onError={(message) => dispatch(setMetionMessage(message))}
                 />
             </div>
         );

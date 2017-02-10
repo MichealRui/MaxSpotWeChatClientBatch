@@ -125,8 +125,9 @@ function increaseCount(itemInfo, item, shopId) {
         })
 }
 
-function failIncrementCount(itemInfo, item, shopId, errorMessage) {
-    return Object.assign({}, itemInfo, {errorMessage: errorMessage})
+function failIncrementCount(itemInfo, item, shopId, errorMessage,errCode) {
+
+    return Object.assign({}, itemInfo, {metionMessage:errorMessage})
 }
 
 function decreaseCount (itemInfo, item, shopId) {
@@ -208,8 +209,8 @@ function checkProductStatus(product) {
 
 function initSuccess(state, itemInfo) {
     const PRODUCT_OUT_SELL= 1; //售罄 或 下架
-    const PRODUCT_LOW_STOCK = 3 //库存不足
-    const PRODUCT_NORMAL = 0 //库存正常
+    const PRODUCT_LOW_STOCK = 3; //库存不足
+    const PRODUCT_NORMAL = 0; //库存正常
     let info = {skus: itemInfo};
     let metionMsg = '';
     let pageStatus = {editable: false, activated: true ,commited:true};
@@ -299,7 +300,7 @@ function clearCart(itemInfo) {
         case INCREMENT_COUNTER_SUCC:
             return increaseCount(itemInfo, action.item, action.shopId);
         case INCREMENT_COUNTER_FAIL:
-            return failIncrementCount(itemInfo, action.item, action.shopId, action.errorMessage);
+            return failIncrementCount(itemInfo, action.item, action.shopId, action.errorMessage,action.errCode);
         case DECREMENT_COUNTER_SUCC:
             return decreaseCount(itemInfo, action.item, action.shopId);
         case DECREMENT_COUNTER_FAIL:
