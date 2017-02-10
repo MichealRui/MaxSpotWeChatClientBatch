@@ -12,8 +12,12 @@ export default class ProductPrice extends React.Component{
 	render(){
 		const props = this.props.data;
 		const editStatus = this.props.editStatus;
+		const PRODUCT_OUT_SELL= 1; //下架
+		const PRODUCT_EMPTY_SELL= 2; //售罄
+		const PRODUCT_ON_SELL = 1 ; //在售
+		const PRODUCT_LOW_STOCK = 3 //库存不足
 		return (
-			<div className={"productPrice " + (props.err_status == 1 || editStatus == 'false' ? '' : 'hideactive') + (props.err_status == 1 ? ' color_000' : '')}>
+			<div className={"productPrice " + (props.err_status == PRODUCT_OUT_SELL || props.err_status == PRODUCT_EMPTY_SELL || editStatus == 'false' ? '' : 'hideactive') + (props.err_status == PRODUCT_OUT_SELL || props.err_status == PRODUCT_EMPTY_SELL ? ' color_000' : '')}>
 				<span className='price font14'>{props.sellprice / 100}<span className="font10"> 元</span></span>
 				<span className={'icon font10 ' + (props.err_status == 3 ? 'active' : '') }>X</span>
 				<span className={'count font10 ' + (props.err_status == 3 ? 'active' : '')}>{props.count}</span>

@@ -18,10 +18,14 @@ export default class ProductControl extends React.Component {
 	render(){
 		const { decreaseItem, increaseItem, deleteItem } = this.props;
 		const item = this.props.data;
+        const PRODUCT_OUT_SELL= 1; //下架
+        const PRODUCT_EMPTY_SELL= 2; //售罄
+        const PRODUCT_ON_SELL = 1 ; //在售
+        const PRODUCT_LOW_STOCK = 3 //库存不足
 		return (
 			<div className="productControl">
 				{/*<p className="productCost font16"><em className="font18">{item.sellprice}</em>元</p>*/}
-				<div className={"inputWrapper clearfix font12 " + (item.err_status == 1 ? 'hideactive' : '')}>
+				<div className={"inputWrapper clearfix font12 " + (item.err_status == PRODUCT_OUT_SELL || item.err_status == PRODUCT_EMPTY_SELL ? 'hideactive' : '')}>
 					<span className={"button reduceButton " + (item.count <= 1 ? 'color_ccc' : '')}
                           onClick={() => item.count <= 1 ? '' : decreaseItem(item)}>-</span>
 					<input className="inputText" type='text' readOnly value={item.count}

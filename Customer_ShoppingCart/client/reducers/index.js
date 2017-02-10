@@ -17,10 +17,12 @@ function isEmptyObject(e) {
 }
 
 function calcuShopSum(itemInfo) {
+    const PRODUCT_OUT_SELL= 1; //下架
+    const PRODUCT_EMPTY_SELL= 2; //售罄
     let newItemInfo = Object.assign({}, itemInfo);
     newItemInfo.skus.forEach( sku => {
         sku.shopSum = sku.productList.map(
-                product => product.err_status == 1 ? 0 : product.count * product.sellprice
+                product => product.err_status == PRODUCT_OUT_SELL || product.err_status == PRODUCT_EMPTY_SELL ? 0 : product.count * product.sellprice
             ).reduce(
                 (previous, current, index, array) => previous + current
             , 0) / 100
@@ -126,7 +128,6 @@ function increaseCount(itemInfo, item, shopId) {
 }
 
 function failIncrementCount(itemInfo, item, shopId, errorMessage,errCode) {
-
     return Object.assign({}, itemInfo, {metionMessage:errorMessage})
 }
 
@@ -170,23 +171,10 @@ function setMetionMessage(itemInfo, message) {
     return Object.assign({}, itemInfo, {metionMessage: message})
 }
 
-function getProductStatus(iteminfo) {
-    let newItemInfo = Object.assign({},iteminfo);
-    newItemInfo.skus.forEach(
-        sku=>{
-            sku.productList.map(
-                (product)=>{
-                    product.err_msg = checkProductStatus(product).msg;
-                    product.err_status = checkProductStatus(product).err_status;
-                }
-            )
-        }
-    );
-    return newItemInfo;
-}
 
 function checkProductStatus(product) {
-    const PRODUCT_OUT_SELL= 1; //售罄 或 下架
+    const PRODUCT_OUT_SELL= 1; //下架
+    const PRODUCT_EMPTY_SELL= 2; //售罄
     const PRODUCT_ON_SELL = 1 ; //在售
     const PRODUCT_LOW_STOCK = 3 //库存不足
     let productState = Object.assign({},product,{err_msg:'',err_status:0,show_tips:false});
@@ -197,7 +185,7 @@ function checkProductStatus(product) {
     }else if(productState.quantity <= 0){
         //商品售罄
         productState.err_msg = '此商品已售罄，暂无法购买';
-        productState.err_status = PRODUCT_OUT_SELL;
+        productState.err_status = PRODUCT_EMPTY_SELL;
     }else if(productState.count > productState.quantity){
         //库存不足
         productState.err_msg = '剩余库存'+productState.quantity+'件';
@@ -208,7 +196,8 @@ function checkProductStatus(product) {
 }
 
 function initSuccess(state, itemInfo) {
-    const PRODUCT_OUT_SELL= 1; //售罄 或 下架
+    const PRODUCT_OUT_SELL= 1; //下架
+    const PRODUCT_EMPTY_SELL= 2; //售罄
     const PRODUCT_LOW_STOCK = 3; //库存不足
     const PRODUCT_NORMAL = 0; //库存正常
     let info = {skus: itemInfo};
@@ -221,8 +210,16 @@ function initSuccess(state, itemInfo) {
                 if(product.err_status == PRODUCT_LOW_STOCK){
                     pageStatus = {editable: true, activated: false , commited:false};
                 }
-                if(product.err_status != PRODUCT_NORMAL){
-                    metionMsg = '部分商品缺货或已下架';
+                switch (product.err_status){
+                    case PRODUCT_OUT_SELL:
+                        metionMsg = '部分商品已下架';
+                        break;
+                    case PRODUCT_EMPTY_SELL:
+                        metionMsg = '部分商品已售罄';
+                        break;
+                    case PRODUCT_LOW_STOCK:
+                        metionMsg = '部分商品库存不足';
+                        break;
                 }
                 return product;
             });

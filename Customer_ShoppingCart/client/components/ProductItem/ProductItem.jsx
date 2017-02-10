@@ -12,6 +12,10 @@ export default class ProductItem extends React.Component{
 	
 	render(){
 		const props = this.props;
+		const PRODUCT_OUT_SELL= 1; //下架
+		const PRODUCT_EMPTY_SELL= 2; //售罄
+		const PRODUCT_ON_SELL = 1 ; //在售
+		const PRODUCT_LOW_STOCK = 3 //库存不足
         return (
 			<li className='itemWrap'>
 				<ProductInfo data={props.data} />
@@ -21,7 +25,7 @@ export default class ProductItem extends React.Component{
 								increaseItem={this.props.increase}
 								decreaseItem={this.props.decrease}
 				/>
-				<div className={(props.data.err_status == 1 ? 'layer' : '')}></div>
+				<div className={(props.data.err_status == PRODUCT_OUT_SELL || props.data.err_status == PRODUCT_EMPTY_SELL ? 'layer' : '')}></div>
 			</li>
       	)
 	}
