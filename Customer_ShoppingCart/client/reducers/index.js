@@ -217,6 +217,7 @@ function initSuccess(state, itemInfo) {
     const PRODUCT_NORMAL = 0; //库存正常
     let info = {skus: itemInfo};
     let metionMsg = '';
+    let metionCode = 0;
     let pageStatus = {editable: false, activated: true ,commited:true};
     info.skus.forEach(
         sku => {
@@ -225,16 +226,21 @@ function initSuccess(state, itemInfo) {
                 if(product.err_status == PRODUCT_LOW_STOCK){
                     pageStatus = {editable: true, activated: true , commited:true};
                 }
-                switch (product.err_status){
-                    case PRODUCT_OUT_SELL:
-                        metionMsg = '已下架或售罄商品不参与购物结算';
-                        break;
-                    case PRODUCT_EMPTY_SELL:
-                        metionMsg = '已下架或售罄商品不参与购物结算';
-                        break;
-                    case PRODUCT_LOW_STOCK:
-                        metionMsg = '部分商品缺货，请编辑购物车”';
-                        break;
+                if(metionCode != PRODUCT_LOW_STOCK){
+                    switch (product.err_status){
+                        case PRODUCT_OUT_SELL:
+                            metionMsg = '已下架或售罄商品不参与购物结算';
+                            metionCode = PRODUCT_OUT_SELL;
+                            break;
+                        case PRODUCT_EMPTY_SELL:
+                            metionMsg = '已下架或售罄商品不参与购物结算';
+                            metionCode = PRODUCT_EMPTY_SELL;
+                            break;
+                        case PRODUCT_LOW_STOCK:
+                            metionMsg = '部分商品缺货，请编辑购物车';
+                            metionCode = PRODUCT_LOW_STOCK;
+                            break;
+                    }
                 }
                 return product;
             });
