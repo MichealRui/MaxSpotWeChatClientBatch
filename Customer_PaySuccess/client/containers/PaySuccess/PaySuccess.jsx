@@ -3,6 +3,8 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import OrderItem from '../../components/OrderItem/OrderItem';
+import Util from  '../../util/WeChatUtil'
+
 import { connect } from 'react-redux';
 import {initPaySuccess,initStart,initSuccess} from '../../actions/index'
 require('./index.css');
@@ -11,17 +13,16 @@ class PaySuccess extends React.Component {
 	constructor(props){
 		super(props);
 	}
+
 	componentWillMount() {
-		console.log(this.props)
 		const { dispatch } = this.props;
 		dispatch(initPaySuccess());
 	}
 
 	render(){
-		// let props = this.props.orderDetail;
-		// props = CouponData;
+		let orderNumber = Util.getUrlParam().ordernumber;
 		const { dispatch, itemInfo} = this.props;
-		const orderList = itemInfo.childOrders;
+		const orderList = itemInfo.childOrders || itemInfo.order;
         var subOrders='';
         if(orderList && orderList.length > 0) {
             subOrders = orderList.map((order, index)=>{
@@ -30,7 +31,10 @@ class PaySuccess extends React.Component {
         }
 		return (
 			<div className='PaySuccessContainer'>
-				<Header/>
+				<Header
+					orderLength={orderList.length || 0}
+					orderNumber={orderNumber}
+				/>
 				<ul>
                     {subOrders}
 				</ul>
