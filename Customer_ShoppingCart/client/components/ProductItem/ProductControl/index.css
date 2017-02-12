@@ -1,12 +1,12 @@
 .productControl {
     display:inline-block;
-    width:54%;
+    width:60%;
     /*vertical-align:middle;*/
     /*padding: 0.388889rem 0;*/
     /* vertical-align: middle; */
     /* padding: 0.388889rem 0; */
     position: absolute;
-    top: 1.288888rem;
+    top: 1.4777778rem;
     margin-left: 3rem;
     z-index: 99;
 }

@@ -31,6 +31,7 @@
     box-sizing: border-box;
     position: fixed;
     top: 0;
+    z-index: 99;
 }
 .headContainer .logo {
     vertical-align: middle;

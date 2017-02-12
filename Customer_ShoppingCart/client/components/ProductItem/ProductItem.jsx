@@ -15,9 +15,10 @@ export default class ProductItem extends React.Component{
 		const PRODUCT_OUT_SELL= 1; //下架
 		const PRODUCT_EMPTY_SELL= 2; //售罄
 		const PRODUCT_ON_SELL = 1 ; //在售
-		const PRODUCT_LOW_STOCK = 3 //库存不足
+		const PRODUCT_LOW_STOCK = 3; //库存不足
+		const PRODUCT_NORMAL = 0; //正常商品
         return (
-			<li className='itemWrap'>
+			<li className={'itemWrap ' + (props.data.err_status == PRODUCT_NORMAL ? 'normal':'')}>
 				<ProductInfo data={props.data} />
 				<ProductPrice data={props.data} editStatus="true"/>
 				<ProductControl data = {props.data}
