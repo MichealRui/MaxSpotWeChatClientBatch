@@ -38,8 +38,8 @@ export default class BottomBar extends React.Component{
 			.then(json => {
 				console.log(json);
 				if(json.is_succ) {
-				    // window.location.href =
-						// 'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
+				    window.location.href =
+						'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
 				//	todo redirect to qrcode scan page
 				} else {
 					// this.props.onError(json.error_message)
