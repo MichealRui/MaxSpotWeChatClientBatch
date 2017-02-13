@@ -36,14 +36,25 @@ export default class BottomBar extends React.Component{
 			}
 		).then(response => response.json())
 			.then(json => {
-				console.log(json);
 				if(json.is_succ) {
 				    window.location.href =
 						'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
 				//	todo redirect to qrcode scan page
 				} else {
 					// this.props.onError(json.error_message)
-					this.props.onError("部分商品库存不足或已下架");
+					if(json.orderResults.length > 0){
+						let order_res = json.orderResults.filter(
+							res => res.is_succ == false
+						)
+						if(order_res.length > 0){
+							this.props.onError(order_res[0].error_message);
+						}else{
+							this.props.onError("库存不足或商品售罄");
+						}
+					}else{
+						this.props.onError(json.error_message);
+					}
+
 				}
 			})
 	}
