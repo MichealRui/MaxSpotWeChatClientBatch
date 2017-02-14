@@ -20,7 +20,9 @@ export default class BottomBar extends React.Component{
         if(this.props.totalMoney == 0) {
             return false;
         }
-
+		const PRODUCT_LOW_STOCK = -12; //库存不足
+		const PRODUCT_EMPTY_SELL = -15; //售罄
+		const PRODUCT_OUT_SELL = -16; //售罄
 		const domain = ENV.domain;
 		fetch( domain + '/web/buyer_api/submit_carts.ction',
 			{
@@ -47,7 +49,17 @@ export default class BottomBar extends React.Component{
 							res => res.is_succ == false
 						)
 						if(order_res.length > 0){
-							this.props.onError(order_res[0].error_message);
+							let err_msg = order_res[0].error_message
+							switch (order_res[0].error_code){
+								case PRODUCT_LOW_STOCK:
+									err_msg = '部分商品缺货，请编辑购物袋';
+									break;
+								case PRODUCT_EMPTY_SELL:
+								case PRODUCT_OUT_SELL:
+									err_msg = "已下架或售罄商品不参与购物结算";
+									break;
+							}
+							this.props.onError(err_msg);
 						}else{
 							this.props.onError("库存不足或商品售罄");
 						}
