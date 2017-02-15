@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
+import { Link } from 'react-router'
 const defProductImg = require('./images/default.png');
 require('./index.css');
 
@@ -56,8 +57,11 @@ export default class Item extends React.Component {
         let soldOut = <span className="soldOut font14">售 罄</span>;
         let domain = ENV.domain;
         var atts = this.getAttr(props.attributes);
+        let storeid = this.props.storeid;
+        let skunumber = this.props.item.skuNumber;
         return (
-            <div className={"item "+sliderItem} onClick={this.itemClick.bind(this)}>
+            <Link to={"/productDetail/"+storeid+"/"+skunumber}>
+                <div className={"item "+sliderItem} >
                 {
                     sliderItem == 'sliderItem' ?
                         <img src={ domain + this.getMiddlePic(props.imagePath) } className='productImg' />
@@ -86,6 +90,7 @@ export default class Item extends React.Component {
                 }
 
             </div>
+            </Link>
         );
     }
 }

@@ -5,8 +5,10 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducers from './reducers/index';
+import {Router ,Route , hashHistory} from 'react-router';
 require('./index.css');
 import Home from './containers/PageContainer/pageContainer'
+import ProductDetail from './containers/ProductDetailContainer/productDetailContainer'
 
 // init thunk
 function activateVendor() {
@@ -23,7 +25,10 @@ function activateVendor() {
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
-            <Home/>
+            <Router history={hashHistory}>
+                <Route path='/' component={Home}></Route>
+                <Route path='/productDetail/:storeid/:skuNumber' component={ProductDetail}></Route>
+            </Router>
         </Provider>
         ,
         document.getElementById('root')
@@ -31,5 +36,4 @@ function renderPage(store) {
 }
 
 let store = activateVendor();
-console.log(store.getState());
 renderPage(store);
