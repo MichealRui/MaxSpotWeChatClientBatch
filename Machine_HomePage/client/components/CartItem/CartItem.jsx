@@ -86,7 +86,7 @@ export default class CartItem extends React.Component{
                     x 1
                 </div>
                 <div className= {"gift-footer " + (giftAvailable?"gift-active":"gift-fail")}>
-                    <span className="gift-desc1">满30 </span> <span className="gift-desc2">/ 享赠</span>
+                    <span className="gift-desc1">满29 </span> <span className="gift-desc2">/ 享赠</span>
                 </div>
                 {
                     giftAvailable ? null: <div className="gift-fail-cover"></div>

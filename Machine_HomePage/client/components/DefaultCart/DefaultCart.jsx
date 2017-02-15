@@ -96,8 +96,9 @@ export default class DefaultCart extends React.Component {
         let giftData = {
             brandName: '怪兽家',
             shortName: '怪兽家情人节礼盒',
+            imagePath: '/static/sku/0/0/895/1486959009314.jpg',
             isGift:true,
-            giftAvailable:props.totalPrice > 30
+            giftAvailable:props.totalPrice >= 29
         };
         //
         let gift = (
