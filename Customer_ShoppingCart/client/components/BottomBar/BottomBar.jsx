@@ -2,6 +2,7 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 import Counter from '../Counter/Counter';
+import { initShoppingCart } from '../../actions/actions'
 require('./index.css');
 
 export default class BottomBar extends React.Component{
@@ -63,8 +64,10 @@ export default class BottomBar extends React.Component{
 						}else{
 							this.props.onError("库存不足或商品售罄");
 						}
+						dispatch(initShoppingCart())
 					}else{
 						this.props.onError(json.error_message);
+						dispatch(initShoppingCart())
 					}
 
 				}
