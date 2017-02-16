@@ -2,7 +2,6 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 import Counter from '../Counter/Counter';
-import { initShoppingCart } from '../../actions/actions'
 require('./index.css');
 
 export default class BottomBar extends React.Component{
@@ -25,6 +24,7 @@ export default class BottomBar extends React.Component{
 		const PRODUCT_EMPTY_SELL = -15; //售罄
 		const PRODUCT_OUT_SELL = -16; //售罄
 		const domain = ENV.domain;
+		console.log(domain)
 		fetch( domain + '/web/buyer_api/submit_carts.ction',
 			{
 				credentials: 'include',
@@ -39,9 +39,10 @@ export default class BottomBar extends React.Component{
 			}
 		).then(response => response.json())
 			.then(json => {
+				console.log(json);
 				if(json.is_succ) {
 				    window.location.href =
-						'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
+                    	'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
 				//	todo redirect to qrcode scan page
 				} else {
 					// this.props.onError(json.error_message)
@@ -64,10 +65,10 @@ export default class BottomBar extends React.Component{
 						}else{
 							this.props.onError("库存不足或商品售罄");
 						}
-						dispatch(initShoppingCart())
+						this.props.initShopCart()
 					}else{
 						this.props.onError(json.error_message);
-						dispatch(initShoppingCart())
+						this.props.initShopCart()
 					}
 
 				}
