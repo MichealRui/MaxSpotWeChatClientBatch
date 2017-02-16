@@ -10,8 +10,6 @@ export default class ProductDetailTitle extends React.Component {
 
 	render(){
 		let props = this.props;
-		console.log("titleData")
-		console.log(props.titleData);
 		return (
 			<div className='productDetailTitle'>
 				<div className="titleContent">

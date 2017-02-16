@@ -9,6 +9,7 @@ import {Router ,Route , hashHistory} from 'react-router';
 require('./index.css');
 import Home from './containers/PageContainer/pageContainer'
 import ProductDetail from './containers/ProductDetailContainer/productDetailContainer'
+import BrandDetail from './containers/BrandDetailContainer/brandDetailContainer'
 
 // init thunk
 function activateVendor() {
@@ -28,6 +29,7 @@ function renderPage(store) {
             <Router history={hashHistory}>
                 <Route path='/' component={Home}></Route>
                 <Route path='/productDetail/:storeid/:skuNumber' component={ProductDetail}></Route>
+                <Route path='/brand/:storeId/:brandId' component={BrandDetail}></Route>
             </Router>
         </Provider>
         ,
