@@ -21,18 +21,17 @@ export default class ProductSlider extends React.Component {
 
 	render(){
 		let swiperConfig = {
-			pagination:'.swiper-pagination',
+			pagination:'.swiper1 .swiper-pagination',
 			slidesPerView:1,
 			freeMode: false
 		}
+		let style = {}
 		let props = this.props;
 		let productImgs = props.sliderData.images;
 		let sliders = productImgs.map(
 			(img,index)=>{
 				return (
-					<div className="swiper-slide" key={index}>
-						<img src={ENV.domain + this.getMiddlePic(img) || require('./images/default.png')} alt=""/>
-					</div>
+					<img width="60%" key={index} style={style} src={ ENV.domain + this.getMiddlePic(img) || require('./images/default.png')} alt=""/>
 				)
 			}
 		)

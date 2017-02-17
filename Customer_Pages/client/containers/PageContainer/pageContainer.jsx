@@ -17,7 +17,7 @@ import util from '../../util/WeChatUtil'
 class PageContainer extends React.Component {
     constructor(props) {
         super (props);
-        this._storeId = util.getUrlParam().storeid;
+        this._storeId = this.props.params.storeId || util.getUrlParam().storeid;
     }
 
     componentWillMount() {

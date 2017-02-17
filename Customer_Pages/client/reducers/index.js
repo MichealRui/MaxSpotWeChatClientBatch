@@ -7,7 +7,8 @@ import message from './Message'
 import cart from './Cart'
 import weixin from './WeiXin'
 import productDetail from './ProductDetail'
-import brandDetail from './BrandDetail'
+import brandDetail from './BrandDetail';
+import switchShop from './SwitchShop'
 
 export default combineReducers({
     content,
@@ -15,6 +16,7 @@ export default combineReducers({
     weixin,
     message,
     productDetail,
-    brandDetail
+    brandDetail,
+    switchShop
 })
 

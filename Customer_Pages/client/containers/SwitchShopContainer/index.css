@@ -1,0 +1,7 @@
+.shopContainer {
+    width: 100%;
+}
+.shopContainer .currentShop>h1,
+.shopContainer .otherShop>h1 {
+    padding: 0.583333rem 0 0.277778rem 0.416667rem;
+}

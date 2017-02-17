@@ -9,7 +9,6 @@ import { initBrand } from '../../actions/BrandDetail';
 import BrandHeader from '../../components/BrandDetailComponents/BrandHeader/BrandHeader'
 import BrandItem from '../../components/BrandDetailComponents/BrandItem/BrandItem'
 import ButtomButtom from '../../components/HomeComponents/Cart/Cart'
-require('./index.css');
 class BrandDetailContainer extends React.Component {
     constructor(props){
         super (props);

@@ -10,7 +10,7 @@ require('./index.css');
 import Home from './containers/PageContainer/pageContainer'
 import ProductDetail from './containers/ProductDetailContainer/productDetailContainer'
 import BrandDetail from './containers/BrandDetailContainer/brandDetailContainer'
-
+import SwitchShop from './containers/SwitchShopContainer/SwitchShopContainer'
 // init thunk
 function activateVendor() {
     const loggerMiddleware = createLogger();
@@ -27,9 +27,10 @@ function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
             <Router history={hashHistory}>
-                <Route path='/' component={Home}></Route>
+                <Route path='/(:storeId)' component={Home}></Route>
                 <Route path='/productDetail/:storeid/:skuNumber' component={ProductDetail}></Route>
                 <Route path='/brand/:storeId/:brandId' component={BrandDetail}></Route>
+                <Route path='/switchshop/:storeId' component={SwitchShop}></Route>
             </Router>
         </Provider>
         ,
