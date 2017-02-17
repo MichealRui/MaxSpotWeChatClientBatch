@@ -1,0 +1,42 @@
+.ShopDetailInfo {
+    margin-bottom: 0.6667rem;
+}
+
+.ShopDetailInfo li {
+    height: 1.972222rem;
+    background-color: #fff;
+    /*margin-bottom: 0.138889rem;*/
+    border-bottom: solid 1px #f2f2f2;
+    position: relative;
+}
+
+.ShopDetailInfo li .icon {
+    position: absolute;
+    top:50%;
+    left: 0.583333rem;
+    transform: translate(0, -50%);
+    color: #909090;
+}
+
+.ShopDetailInfo li .content {
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    left: 1.388889rem;
+    transform: translate(0, -50%);
+    width: 75%;
+    color:#666;
+    line-height: 0.5555555rem;
+}
+
+.ShopDetailInfo li .rightArrow {
+    position: absolute;
+    top:50%;
+    right: 0.583333rem;
+    transform: translate(0, -50%);
+    color: rgba(0,0,0,.8);
+}
+
+.ShopDetailInfo li:last-child .content {
+    color: #2db9ed;
+}
