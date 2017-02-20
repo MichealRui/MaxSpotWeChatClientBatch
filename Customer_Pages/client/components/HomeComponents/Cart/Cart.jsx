@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Counter from '../../CommoonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
+import {Link} from 'react-router'
 require ('./index.css');
 
 export default class Cart extends Component {
@@ -22,21 +23,22 @@ export default class Cart extends Component {
         let cart = this.props.cart;
         let clearCart = this.props.clearCart;
         return (
-            <div className={cart.remainTime?"bottomButton":"bottomButton empty"}
-                 onClick={this._cartOnClick.bind(this)}
-            >
-                <div className='cartIcon'>
-                    <a className='shopping_cart font30'>
-                        <img src={cart_img} alt=""/>
-                        <span className='count font10'>{cart.count || 0}</span>
-                    </a>
+            <Link to="/shoppingCart">
+                <div className={cart.remainTime?"bottomButton":"bottomButton empty"}
+                >
+                    <div className='cartIcon'>
+                        <div className='shopping_cart font30'>
+                            <img src={cart_img} alt=""/>
+                            <span className='count font10'>{cart.count || 0}</span>
+                        </div>
+                    </div>
+                    {
+                        cart.remainTime ?
+                        <Counter remainTime={cart.remainTime}
+                                 timeUpCallback={clearCart}/> : ''
+                    }
                 </div>
-                {
-                    cart.remainTime ?
-                    <Counter remainTime={cart.remainTime}
-                             timeUpCallback={clearCart}/> : ''
-                }
-            </div>
+            </Link>
         );
     }
 }

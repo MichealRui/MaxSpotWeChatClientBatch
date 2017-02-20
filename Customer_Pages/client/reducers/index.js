@@ -9,7 +9,8 @@ import weixin from './WeiXin'
 import productDetail from './ProductDetail'
 import brandDetail from './BrandDetail';
 import switchShop from './SwitchShop';
-import shopDetail from './ShopDetail'
+import shopDetail from './ShopDetail';
+import shoppingCart from './ShoppingCart'
 
 export default combineReducers({
     content,
@@ -19,6 +20,7 @@ export default combineReducers({
     productDetail,
     brandDetail,
     switchShop,
-    shopDetail
+    shopDetail,
+    shoppingCart
 })
 

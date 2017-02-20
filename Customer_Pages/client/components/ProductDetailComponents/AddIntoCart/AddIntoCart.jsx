@@ -15,11 +15,12 @@ export default class AddIntoCart extends React.Component {
 		let btn_class = props.productData.quantity > 0 ? 'addProduct': 'addProduct empty';
 		let data = {
 			skuId : props.productData.id,
-			storeId : props.storeId
+			storeId : props.storeId,
+			count : "1"
 		}
 		return(
-			<div className="addIntoCart">
-				<div className='wrapper'>
+			<div className="ProductDetailaddIntoCart">
+				<div className='wrappers'>
 					<h1 className='font16'>￥<span className='font24'>{props.productData.sellprice / 100}</span></h1>
 					<p className='font12'>库存 {props.productData.quantity}件</p>
 				</div>

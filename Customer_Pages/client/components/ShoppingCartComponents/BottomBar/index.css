@@ -1,0 +1,59 @@
+.bottomBar{
+    position: fixed;
+    height: 1.527778rem;
+    background: #fff;
+    width: 100%;
+    bottom: 0;
+    line-height: 1.527778rem;
+    z-index: 999;
+}
+.bottomBar>div,
+.bottomBar>span {
+    display: inline-block;
+}
+.bottomBar>div {
+    position: relative;
+    text-indent: 0.555556rem;
+    width: 60%;
+    box-sizing: border-box;
+}
+.bottomBar>div div {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.bottomBar>div p {
+    line-height: 0.472222rem;
+}
+.bottomBar>div p.remainTime {
+    color: #f2745b;
+}
+.bottomBar>div em {
+    font-style: normal;
+}
+.bottomBar>div p.totalMoney em {
+    color: #42c0ef;
+}
+.bottomBar>div i {
+    color: #42c0ef;
+    font-style: normal;
+}
+.bottomBar .button.settleButton {
+    float: right;
+    width: 40%;
+    background: #eb5d41;
+    height: 100%;
+    line-height: 1.527778rem;
+    color: #fff;
+    border:none;
+}
+
+.bottomBar .button.settleButton.disabled {
+    float: right;
+    width: 40%;
+    background: grey;
+    height: 100%;
+    line-height: 1.527778rem;
+    color: #fff;
+    border:none;
+}

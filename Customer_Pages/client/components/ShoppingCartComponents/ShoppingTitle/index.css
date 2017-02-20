@@ -1,0 +1,31 @@
+.titleContainer {
+	padding: 0 0.555556rem;
+	height: 1.944444rem;
+	line-height: 1.944444rem;
+	border-bottom: 1px solid #e6e6e6;
+	background-color: #fff;
+}
+.titleContainer span {
+	vertical-align: middle;
+}
+.titleContainer .icon {
+	width: 0.555556rem;
+	height: 0.555556rem;
+	line-height: 0.555556rem;
+	text-align: center;
+	border-radius: 50%;
+}
+.titleContainer .icon.iconSucc {
+	background-color: #f2745b;
+	color: #fff;
+}
+.titleContainer .machineAddress {
+	margin-left: 0.416667rem;
+	color: rgba(0,0,0,.8);
+}
+.titleContainer .status {
+	float: right;
+}
+.titleContainer .status.statusSucc {
+	color: #f2745b;
+}

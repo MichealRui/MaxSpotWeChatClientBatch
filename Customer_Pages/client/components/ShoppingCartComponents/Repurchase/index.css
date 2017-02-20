@@ -1,0 +1,33 @@
+.repurchase {
+	background-color: #fff;
+}
+.repurchase .repurchaseTitle {
+	padding: 0.694444rem 0.555556rem;
+	border-bottom: 1px solid #e6e6e6;
+}
+.repurchase .repurchaseTitle .icon {
+	color: #e29644;
+}
+.repurchase .repurchaseTitle .content {
+	margin-left: 0.361111rem;
+	color: rgba(0,0,0,.8);
+}
+.repurchase .repurchaseItem {
+	padding:0.416667rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+}
+.repurchase .repurchaseItem .repurchaseButton,
+.repurchase .repurchaseItem .deleteButton {
+	float: right;
+}
+.repurchase .repurchaseItem .repurchaseButton {
+	display: inline-block;
+	width: 2.666667rem;
+	height: 1.0rem;
+	line-height: 1.0rem;
+	border: 1px solid #e5e5e5;
+}
+.repurchase .repurchaseItem .deleteButton {
+	line-height: 1.305556rem;
+}

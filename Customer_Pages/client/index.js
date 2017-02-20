@@ -12,6 +12,7 @@ import ProductDetail from './containers/ProductDetailContainer/productDetailCont
 import BrandDetail from './containers/BrandDetailContainer/brandDetailContainer'
 import SwitchShop from './containers/SwitchShopContainer/SwitchShopContainer'
 import ShopDetail from './containers/ShopDetailContainer/ShopDetailContainer'
+import ShoppingCart from './containers/ShoppingCartContainer/ShoppingCartContainer'
 // init thunk
 function activateVendor() {
     const loggerMiddleware = createLogger();
@@ -28,11 +29,12 @@ function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
             <Router history={hashHistory}>
-                <Route path='/(:storeId)' component={Home}></Route>
                 <Route path='/productDetail/:storeid/:skuNumber' component={ProductDetail}></Route>
                 <Route path='/brand/:storeId/:brandId' component={BrandDetail}></Route>
                 <Route path='/switchshop/:storeId' component={SwitchShop}></Route>
                 <Route path='/shopDetail/:storeId' component={ShopDetail}></Route>
+                <Route path='/shoppingCart' component={ShoppingCart}></Route>
+                <Route path='/(:storeId)' component={Home}></Route>
             </Router>
         </Provider>
         ,

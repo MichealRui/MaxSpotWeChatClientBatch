@@ -1,0 +1,74 @@
+.editContainer {
+    background-color: #fff;
+    margin-top: 0.277778rem;
+}
+.editContainer .editTitle {
+    /*padding: 0.75rem 0.555556rem;*/
+    padding: 0.45555555rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+}
+.editContainer .editTitle .toggle {
+    position: absolute;
+    left: -100px;
+    display: none;
+}
+.editContainer .editTitle .checkLabel {
+    display: inline-block;
+    width: 0.555556rem;
+    height: 0.555556rem;
+    line-height: 0.555556rem;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+}
+.editContainer .editTitle .checked {
+    background-color: #f2745b;
+    border:1px solid #fff;
+}
+.editContainer .editTitle .machineAddress {
+    color: rgba(0,0,0,.8);
+    margin-left: 0.388889rem;
+    vertical-align: middle;
+    display: inline-block;
+    width: 74%;
+}
+.editContainer .editTitle .machineAddress>p {
+    line-height: 0.5rem;
+}
+.editContainer .editTitle .machineAddress .machineAddressAdd{
+    color:#999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.editContainer .editTitle .editButton {
+    float: right;
+    color: #f2745b;
+    /*line-height: 0.555556rem;*/
+    line-height: 0.855556rem;
+    width: 1.027778rem;
+    height: 0.555556rem;
+    /*border-radius: 0.291667rem;*/
+    /*border: 1px solid #f2745b;*/
+    text-align: center;
+    vertical-align: middle;
+}
+/*.editContainer .editItem {*/
+    /*padding:0.416667rem 0.555556rem;*/
+    /*border-bottom: 1px solid #e6e6e6;*/
+    /*background-color: #fff;*/
+/*}*/
+/*.editContainer .editItem:last-child {*/
+    /*margin-bottom: 0.277778rem;*/
+/*}*/
+/*.editContainer .editItem>span {*/
+    /*float: right;*/
+    /*color: #2db9ed;*/
+    /*margin-top: 0.666667rem;*/
+/*}*/
+/*.editContainer .editItem .icon {*/
+    /*magin: 0.222222rem;*/
+/*}*/
