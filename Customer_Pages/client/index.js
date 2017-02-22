@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducers from './reducers/index';
@@ -13,7 +14,10 @@ import BrandDetail from './containers/BrandDetailContainer/brandDetailContainer'
 import SwitchShop from './containers/SwitchShopContainer/SwitchShopContainer'
 import ShopDetail from './containers/ShopDetailContainer/ShopDetailContainer'
 import ShoppingCart from './containers/ShoppingCartContainer/ShoppingCartContainer'
+import ConfirmOrder from './containers/ConfirmOrderContainer/confirmOrderContainer'
 // init thunk
+
+
 function activateVendor() {
     const loggerMiddleware = createLogger();
     return createStore(
@@ -29,6 +33,7 @@ function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
             <Router history={hashHistory}>
+                <Route path='/confirmOrder/:orderNumber' component={ConfirmOrder}></Route>
                 <Route path='/productDetail/:storeid/:skuNumber' component={ProductDetail}></Route>
                 <Route path='/brand/:storeId/:brandId' component={BrandDetail}></Route>
                 <Route path='/switchshop/:storeId' component={SwitchShop}></Route>

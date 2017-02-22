@@ -15,10 +15,8 @@ export default class TopBar extends React.Component {
             <Link to="/">
             <div className='headContainer'>
                 <img src={require('./images/logo.png')} className='logo'/>
-
-                    <span ref='searchContinue' className='searchContinue'
-                        >再去逛逛</span>
-
+                <span ref='searchContinue' className='searchContinue'
+                    >再去逛逛</span>
             </div>
             </Link>
         );

@@ -8,6 +8,13 @@ export default class BottomBar extends React.Component{
 	constructor(props){
 		super(props);
 	}
+
+	componentWillReceiveProps(nextProps){
+		if(nextProps.order_number){
+			this.context.router.push("/confirmOrder/"+nextProps.order_number);
+		}
+	}
+
 	
 	createOrderClick() {
 		let stores =  this.props.activateStore.filter(
@@ -20,64 +27,11 @@ export default class BottomBar extends React.Component{
         if(this.props.totalMoney == 0) {
             return false;
         }
-		const PRODUCT_LOW_STOCK = -12; //库存不足
-		const PRODUCT_EMPTY_SELL = -15; //售罄
-		const PRODUCT_OUT_SELL = -16; //售罄
-		const domain = ENV.domain;
-		console.log(domain)
-		fetch( domain + '/web/buyer_api/submit_carts.ction',
-			{
-				credentials: 'include',
-				method: 'POST',
-				mode: 'cors',
-				cache: 'default',
-				body: JSON.stringify(
-					{
-						storeIds: stores
-					}
-				)
-			}
-		).then(response => response.json())
-			.then(json => {
-				console.log(json);
-				if(json.is_succ) {
-				    window.location.href =
-                    	'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
-				//	todo redirect to qrcode scan page
-				} else {
-					// this.props.onError(json.error_message)
-					if(json.orderResults.length > 0){
-						let order_res = json.orderResults.filter(
-							res => res.is_succ == false
-						)
-						if(order_res.length > 0){
-							let err_msg = order_res[0].error_message
-							switch (order_res[0].error_code){
-								case PRODUCT_LOW_STOCK:
-									err_msg = '部分商品缺货，请编辑购物袋';
-									break;
-								case PRODUCT_EMPTY_SELL:
-								case PRODUCT_OUT_SELL:
-									err_msg = "已下架或售罄商品不参与购物结算";
-									break;
-							}
-							this.props.onError(err_msg);
-						}else{
-							this.props.onError("库存不足或商品售罄");
-						}
-						this.props.initShopCart()
-					}else{
-						this.props.onError(json.error_message);
-						this.props.initShopCart()
-					}
-
-				}
-			})
+        this.props.submitCart(stores);
 	}
 
 	render(){
 		let props = this.props;
-		let stores = this.props.activateStore;
 		return(
 			<div className='bottomBar'>
 				<div>
@@ -100,4 +54,20 @@ export default class BottomBar extends React.Component{
 			</div>
 		)
 	}
+}
+
+BottomBar.PropTypes = {
+	totalMoney : React.PropTypes.number,
+	activateStore : React.PropTypes.object,
+	order_number : React.PropTypes.string,
+};
+
+BottomBar.defaultProps = {
+	totalMoney:0,
+	activateStore:{},
+	order_number:''
+};
+
+BottomBar.contextTypes = {
+	router : React.PropTypes.object
 }

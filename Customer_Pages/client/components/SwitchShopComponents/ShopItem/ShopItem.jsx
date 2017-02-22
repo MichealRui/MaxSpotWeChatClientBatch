@@ -12,7 +12,7 @@ export default class ShopItem extends React.Component {
         let id = this.props.id;
         // window.location.href = ENV.domain + '/buyer_shopdetail/index.html?storeid=' + id
 		window.location.href = ENV.domain + '/buyer_home/index.html?storeid=' + id
-}
+	}
 
     shopDetailClick(event){
 		event.preventDefault();

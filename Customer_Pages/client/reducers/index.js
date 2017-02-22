@@ -10,7 +10,8 @@ import productDetail from './ProductDetail'
 import brandDetail from './BrandDetail';
 import switchShop from './SwitchShop';
 import shopDetail from './ShopDetail';
-import shoppingCart from './ShoppingCart'
+import shoppingCart from './ShoppingCart';
+import confirmOrder from './ConfirmOrder'
 
 export default combineReducers({
     content,
@@ -21,6 +22,7 @@ export default combineReducers({
     brandDetail,
     switchShop,
     shopDetail,
-    shoppingCart
+    shoppingCart,
+    confirmOrder
 })
 

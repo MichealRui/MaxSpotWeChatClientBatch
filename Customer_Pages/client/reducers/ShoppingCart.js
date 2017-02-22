@@ -114,6 +114,7 @@ function initSuccess(content,data) {
         }
     );
     info.metionMessage = '';
+    info.order_number = '';
     info.activateShop = info.skus.map(
         sku =>{
             let id = sku.id;
@@ -219,6 +220,40 @@ function succIncrementItem(itemInfo,item) {
     })
 }
 
+function failSubmitCart(itemInfo,content) {
+    const PRODUCT_LOW_STOCK = -12; //库存不足
+    const PRODUCT_EMPTY_SELL = -15; //售罄
+    const PRODUCT_OUT_SELL = -16; //售罄
+    let newItemInfo = Object.assign({},itemInfo);
+    let err_msg = content.error_message;
+    if(content.orderResults.length > 0){
+        let order_res = content.orderResults.filter(
+            res => res.is_succ == false
+        )
+        if(order_res && order_res.length > 0){
+            err_msg = order_res[0].error_message;
+            switch (order_res[0].error_code){
+                case PRODUCT_LOW_STOCK:
+                    err_msg = '部分商品缺货，请编辑购物袋';
+                    break;
+                case PRODUCT_EMPTY_SELL:
+                case PRODUCT_OUT_SELL:
+                    err_msg = "已下架或售罄商品不参与购物结算";
+                    break;
+            }
+        }else{
+            err_msg = "库存不足或商品售罄"
+        }
+    }
+    newItemInfo.metionMessage = err_msg;
+    return finalState(newItemInfo);
+}
+
+function succSubmitCart(itemInfo,orderNumber) {
+    let newItemInfo = Object.assign({},itemInfo,{order_number:orderNumber});
+    return finalState(newItemInfo);
+}
+
 export default function (content={},action) {
     switch (action.type){
         case actionTypes.INIT_SHOPPING_CART_START:
@@ -237,6 +272,10 @@ export default function (content={},action) {
             return toggleShop(content,action.shopId);
         case actionTypes.SHOPPINT_CART_CHANGE_SHOP_STATE:
             return changeShopState(content,action.shopId);
+        case actionTypes.SUBMIT_SHOPPING_CART_SUCCESS:
+            return succSubmitCart(content,action.content);
+        case actionTypes.SUBMIT_SHOPPING_CART_FAIL:
+            return failSubmitCart(content,action.content);
         default:
             return content;
     }

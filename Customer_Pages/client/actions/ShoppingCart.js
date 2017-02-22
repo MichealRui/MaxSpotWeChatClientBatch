@@ -144,3 +144,45 @@ export function changeShopState(shopId) {
         shopId
     }
 }
+
+export function submitCart(stores) {
+    return (dispatch) => {
+        fetch( domain + '/web/buyer_api/submit_carts.ction',
+            {
+                credentials : 'include',
+                method : 'POST',
+                mode : 'cors',
+                cache : 'default',
+                body : JSON.stringify({
+                    storeIds: stores
+                })
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if(json.is_succ){
+                    // window.location.href =
+                    //     'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
+                    dispatch(succSubmitCart(json.order.orderNumber));
+                }else{
+                    dispatch(failSubmitCart(json));
+                    dispatch(initShoppingCart())
+                }
+            })
+    }
+
+}
+
+function succSubmitCart(content) {
+    return {
+        type : actionTypes.SUBMIT_SHOPPING_CART_SUCCESS,
+        content
+    }
+
+}
+
+function failSubmitCart(content) {
+    return {
+        type : actionTypes.SUBMIT_SHOPPING_CART_FAIL,
+        content
+    }
+}
