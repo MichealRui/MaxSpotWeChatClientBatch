@@ -15,6 +15,8 @@ import SwitchShop from './containers/SwitchShopContainer/SwitchShopContainer'
 import ShopDetail from './containers/ShopDetailContainer/ShopDetailContainer'
 import ShoppingCart from './containers/ShoppingCartContainer/ShoppingCartContainer'
 import ConfirmOrder from './containers/ConfirmOrderContainer/confirmOrderContainer'
+import PaySuccess from './containers/PaySuccessContainer/PaySuccessContainer'
+import OrderList from './containers/OrderListContainer/OrderListContainer'
 // init thunk
 
 
@@ -34,11 +36,13 @@ function renderPage(store) {
         <Provider store={store}>
             <Router history={hashHistory}>
                 <Route path='/confirmOrder/:orderNumber' component={ConfirmOrder}></Route>
+                <Route path='/paySucc/:orderNumber' component={PaySuccess}></Route>
                 <Route path='/productDetail/:storeid/:skuNumber' component={ProductDetail}></Route>
                 <Route path='/brand/:storeId/:brandId' component={BrandDetail}></Route>
                 <Route path='/switchshop/:storeId' component={SwitchShop}></Route>
                 <Route path='/shopDetail/:storeId' component={ShopDetail}></Route>
                 <Route path='/shoppingCart' component={ShoppingCart}></Route>
+                <Route path='/orderList' component={OrderList}></Route>
                 <Route path='/(:storeId)' component={Home}></Route>
             </Router>
         </Provider>

@@ -12,7 +12,8 @@ import switchShop from './SwitchShop';
 import shopDetail from './ShopDetail';
 import shoppingCart from './ShoppingCart';
 import confirmOrder from './ConfirmOrder'
-
+import paySucc from './PaySuccess';
+import orderList from './OrderList'
 export default combineReducers({
     content,
     cart,
@@ -23,6 +24,8 @@ export default combineReducers({
     switchShop,
     shopDetail,
     shoppingCart,
-    confirmOrder
+    confirmOrder,
+    paySucc,
+    orderList
 })
 

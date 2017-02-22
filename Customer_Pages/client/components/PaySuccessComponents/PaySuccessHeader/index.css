@@ -1,0 +1,38 @@
+.PaySuccessHeader{
+    position: relative;
+    width: 100%;
+    background: #05af10;
+    overflow: hidden;
+}
+.PaySuccessHeader .white{
+    color:#fff;
+    text-align: center;
+}
+.PaySuccessHeader .smile{
+    position: relative;
+    height: 2.514rem;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+}
+.PaySuccessHeader .smile>img{
+    width: 2.514rem;
+}
+.PaySuccessHeader .title{
+    line-height: 40px;
+    margin-top: 0.6rem;
+    opacity: 0.8;
+}
+.PaySuccessHeader .text>p{
+    opacity: 0.7;
+    line-height: 22px;
+}
+.PaySuccessHeader .btn_fetch{
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 26px;
+    width: 3.5rem;
+    height: 0.9722rem;
+    text-align: center;
+    margin: 0.528rem auto;
+    line-height: 0.9722rem;
+}

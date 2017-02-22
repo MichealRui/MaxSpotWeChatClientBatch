@@ -19,9 +19,9 @@ class ConfirmOrderContainer extends React.Component {
 
     payOrder(){
         let config = this.props.state.confirmOrder.wxConfig;
-        console.log('config');
-        console.log(config);
         let appId = 'wx4da5ecd6305e620a';
+        let orderNum = this._orderNumber;
+        let routers = this.context.router;
         wx.ready(function () {
             wx.chooseWXPay({
                 appId: appId,
@@ -33,6 +33,7 @@ class ConfirmOrderContainer extends React.Component {
                 success: function(r){
                     console.log('succes');
                     console.log(r);
+                    routers.push('/paySucc/'+orderNum);
                     // let order = Util.getUrlParam().ordernumber;
                     // window.location.href =
                     //     ENV.domain + '/buyer_paysucc/index.html?ordernumber=' + order
@@ -40,6 +41,8 @@ class ConfirmOrderContainer extends React.Component {
                 fail: function(r){
                     console.log('fail');
                     console.log(r);
+                    routers.push('/orderList/');
+                    //browserHistory.push('/paySucc/'+orderNum)
                     // window.location.href =
                     //     ENV.domain + '/buyer_orderlist/index.html'
                 },
@@ -74,6 +77,10 @@ class ConfirmOrderContainer extends React.Component {
         )
     }
 }
+
+ConfirmOrderContainer.contextTypes = {
+    router : React.PropTypes.object
+};
 
 function select(store) {
     return Object.assign({},{state:store});
