@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import AccountDisplay from '../AccountDisplay/AccountDisplay'
 require ('./index.css');
 
 export default class OrderProductInfo extends React.Component {
@@ -15,7 +16,7 @@ export default class OrderProductInfo extends React.Component {
 			<li className='orderProductInfo'>
 				<div className='productInfo'>
 					<img src={sku.imagePath} className='productImg' />
-					<span className='brandProductContainer'>
+					<span className='orderProductContainer'>
 						<p className='productName font12'>{sku.brandName}</p>
 						<p className='productDesc font14'>{sku.shortName}</p>
 						<p className='productTaste font10'>{sku.categoryName}</p>
@@ -23,6 +24,14 @@ export default class OrderProductInfo extends React.Component {
 					<span className='quantity font14'><i>x</i>{props.product.count}</span>
 					<span className='unitPrice font14'>{props.product.sellPrice / 100}元</span>
 				</div>
+				{
+					props.product.showPrice ? (
+						<div className="totalArea">
+							<AccountDisplay name='商品总金额' money={props.product.count * props.product.sellPrice /100}/>
+						</div>
+					):''
+				}
+
 			</li>
 		);
 	}
@@ -40,6 +49,7 @@ OrderProductInfo.defaultProps = {
 			categoryName : ''
 		},
 		count : 0,
-		sellPrice : 0
+		sellPrice : 0,
+		showPrice : false
 	}
 }

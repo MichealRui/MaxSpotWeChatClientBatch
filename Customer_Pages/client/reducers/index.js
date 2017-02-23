@@ -13,7 +13,8 @@ import shopDetail from './ShopDetail';
 import shoppingCart from './ShoppingCart';
 import confirmOrder from './ConfirmOrder'
 import paySucc from './PaySuccess';
-import orderList from './OrderList'
+import orderList from './OrderList';
+import orderDetail from './OrderDetail'
 export default combineReducers({
     content,
     cart,
@@ -26,6 +27,7 @@ export default combineReducers({
     shoppingCart,
     confirmOrder,
     paySucc,
-    orderList
+    orderList,
+    orderDetail
 })
 

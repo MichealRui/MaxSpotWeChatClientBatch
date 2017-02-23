@@ -2,6 +2,7 @@
 
 import React from 'react';
 import OrderProductItemList from '../OrderProductItemList/OrderProductItemList';
+import {Link} from 'react-router';
 require('./index.css');
 
 export default class CustomerOrder extends React.Component {
@@ -22,16 +23,15 @@ export default class CustomerOrder extends React.Component {
 					{/*<span>{props.customerName}</span>*/}
 					<span className={statusStyle}>{props.orderInfo.statusName}</span>
 				</div>
-				<div className='orderListInfo font14'
-                     onClick={ () =>
-                         window.location.href=
-							 'http://www.mjitech.com/buyer_orderdetail/index.html?order_number=' + props.orderInfo.orderNumber}>
+				<Link to={"/orderDetail/"+props.orderInfo.orderNumber}>
+				<div className='orderListInfo font14'>
 					<p>
 						<span className='orderCost'>￥ {props.orderInfo.totalPrice / 100 || 0}</span>
 						<span className='orderDate'>{props.orderInfo.sellTime}</span>
 					</p>
 					<OrderProductItemList productItemList={props.orderInfo.skus} />
 				</div>
+				</Link>
 			</div>
 		);
 	}

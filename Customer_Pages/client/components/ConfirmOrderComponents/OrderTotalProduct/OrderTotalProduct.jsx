@@ -1,8 +1,8 @@
 "use strict";
 import React from 'react';
 import OrderDetailTitle from '../OrderDetailTitle/OrderDetailTitle'
-import ProductInfo from '../OrderProductInfo/OrderProductInfo'
-import AccountDisplay from '../AccountDisplay/AccountDisplay'
+import ProductInfo from '../../CommoonComponents/OrderProductInfo/OrderProductInfo'
+import AccountDisplay from '../../CommoonComponents/AccountDisplay/AccountDisplay'
 import TotalCount from '../OrderTotalCount/OrderTotalCount'
 require('./index.css')
 export default class OrderTotalProduct extends React.Component {
@@ -15,10 +15,9 @@ export default class OrderTotalProduct extends React.Component {
 
     render(){
         let props = this.props;
-        console.log("totalproduct");
-        console.log(props.productItem);
         let productInfoItems = props.productItem.skus.map(
             (product,index) => {
+                product.showPrice = false
                 return (
                     <ProductInfo key={index} product={product}/>
                 )
@@ -32,7 +31,9 @@ export default class OrderTotalProduct extends React.Component {
                     {productInfoItems}
                 </ul>
                 {props.productItem.discount ? <AccountDisplay name="买减优惠" money={props.productItem.discount}/> : ''}
-                <TotalCount totalCount = {total} totalMoney={props.productItem.totalPrice/100 || 0}/>
+                <div className="totalAccount">
+                    <AccountDisplay name={"共 "+total+ "件商品"} money={"合计 "+(props.productItem.totalPrice/100 || 0)}/>
+                </div>
             </div>
         )
     }

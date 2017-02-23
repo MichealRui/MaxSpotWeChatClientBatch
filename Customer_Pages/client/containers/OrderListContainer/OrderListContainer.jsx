@@ -18,8 +18,6 @@ class OrderListContainer extends React.Component {
         const {state,dispatch} = this.props;
         const {orderList } = state;
         const {orders} = orderList
-        console.log('orders');
-        console.log(orders);
         let listArr = orders && orders.length ?
             orders.map(
                 (order,index)=>

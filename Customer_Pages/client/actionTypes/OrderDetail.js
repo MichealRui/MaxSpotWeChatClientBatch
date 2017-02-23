@@ -1,0 +1,7 @@
+import * as Message from './common/Message';
+
+const INIT_ORDERDETAIL_START = 'INIT_ORDERDETAIL_START';
+const INIT_ORDERDETAIL_SUCCESS = 'INIT_ORDERDETAIL_SUCCESS';
+const INIT_ORDERDETAIL_FALI = 'INIT_ORDERDETAIL_FALI';
+const OrderDetailActionTypes = {INIT_ORDERDETAIL_START,INIT_ORDERDETAIL_SUCCESS,INIT_ORDERDETAIL_FALI};
+module.exports = {...Message,...OrderDetailActionTypes};

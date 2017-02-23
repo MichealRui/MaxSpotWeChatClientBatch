@@ -7,22 +7,22 @@
     background: #ccc;
     vertical-align: middle;
 }
-.orderProductInfo .brandProductContainer {
+.orderProductInfo .orderProductContainer {
     display:inline-block;
     width:50%;
     margin-left:0.583333rem;
     vertical-align:middle;
 }
-.brandProductContainer p {
+.orderProductContainer p {
     margin:0 0 0.097222rem 0;
 }
-.brandProductContainer .productDesc {
+.orderProductContainer .productDesc {
     margin:0 0 0.194444rem 0;
 }
-.brandProductContainer .productTaste {
+.orderProductContainer .productTaste {
     color: rgba(0,0,0,.6);
 }
-.brandProductContainer p:last-child {
+.orderProductContainer p:last-child {
     margin-bottom: 0;
 }
 .orderProductInfo span {

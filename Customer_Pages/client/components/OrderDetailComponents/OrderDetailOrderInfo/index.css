@@ -1,0 +1,18 @@
+.orderDetailOrderInfo{
+
+}
+.orderDetailOrderInfo .storeOrderInfo .arrow_icon{
+    line-height: 24px;
+    right: 0.5rem;
+}
+
+.orderDetailOrderInfo .storeOrderInfo>span,
+.orderDetailOrderInfo .storeTimeInfo>span,
+.orderDetailOrderInfo .storeCodeInfo>span{
+    color: #000;
+}
+/*orderAddress*/
+.orderDetailOrderInfo .storeCodeInfo .orderAddress{
+    color: #ea5d42;
+    margin-left: 0.85556rem;
+}
