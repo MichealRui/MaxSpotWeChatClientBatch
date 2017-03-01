@@ -1,0 +1,97 @@
+.ShowErrWindow .shop_err h2{
+    text-align: center;
+    line-height: 1.2rem;
+}
+.ShowErrWindow .shop_err h5{
+    text-align: center;
+    line-height:1rem;
+    color: #999;
+}
+.ShowErrWindow .line{
+    width:100%;
+    height:0;
+    border-top: 1px solid #999;
+    line-height:2rem;
+    font-weight:normal;
+    margin: 0.4rem 0;
+}
+.ShowErrWindow .shop_err h3{
+    text-align: left;
+    line-height: 1rem;
+    color: #999;
+    overflow: hidden;
+    font-size: 0.2rem;
+    margin-bottom: 0.4rem;
+}
+.ShowErrWindow .shop_err h3 img{
+    display: inline-block;
+    width: 0.3rem;
+    height: 0.4rem;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+}
+.ShowErrWindow .model .shop_err h3 p{
+    display: block;
+    width: 50%;
+    float: right;
+    line-height:0.6rem;
+    margin-bottom:0;
+    text-align: left;
+}
+.ShowErrWindow .shop_err .local p{
+    color: #333;
+}
+.ShowErrWindow .shop_err .should-local p{
+    color: #ff7860;
+}
+.ShowErrWindow .should-local p span{
+    color: #999;
+    font-size:0.2rem;
+}
+.ShowErrWindow .shop_errTop{
+    width: 100%;
+    height: auto;
+    margin-top:20px;
+    text-align: center;
+}
+.ShowErrWindow .shop_errTop .top-icon{
+    width:80%;
+
+}
+.ShowErrWindow .shop-errOK{
+    width:70%;
+    height:38px;
+    background: #ff7860;
+    border-radius: 20px;
+    color: #fff;
+    margin-left:15%;
+    outline: 0;
+    border:0;
+}
+
+.ShowErrWindow .localinfo{
+    width: 100%;
+    display: block;
+    margin-bottom: 1rem;
+}
+.ShowErrWindow .localinfo .local_icon{
+    display: inline-block;
+    color:#ff7860;
+    margin-right:8%;
+}
+.ShowErrWindow .localinfo .tips_text{
+    display: inline-block;
+    color:#999;
+    float: left;
+    width: 45%;
+}
+.ShowErrWindow .localinfo .address{
+    display: inline-block;
+    color:#666;
+    width: 55%;
+    line-height: 0.5rem;
+}
+
+.ShowErrWindow .closeIcon{
+    display: none !important;
+}

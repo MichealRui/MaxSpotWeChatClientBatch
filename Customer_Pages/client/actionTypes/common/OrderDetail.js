@@ -1,0 +1,10 @@
+/**
+ * Created by ruibing on 17/1/12.
+ */
+
+export const INIT_ORDERDETAIL_SUCCESS = 'INIT_ORDERDETAIL_SUCCESS';
+
+export const INIT_ORDERDETAIL_FAIL = 'INIT_ORDERDETAIL_FAIL';
+
+export const INIT_ORDERDETAIL_START = 'INIT_ORDERDETAIL_START';
+

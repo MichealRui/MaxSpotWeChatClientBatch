@@ -11,12 +11,12 @@
     width:30%;
 }
 
-.PaySuccOrderItem>.orderInfo{
+.PaySuccOrderItem .orderInfo{
     margin: 0.3rem 0;
     /*margin-left: 0.556rem;*/
     width:70%;
 }
-.PaySuccOrderItem .orderAction>div:first-child{
+.PaySuccOrderItem .orderAction .action1{
     border:1px solid #cecece;
     border-radius: 12px;
     width: 2.2rem;
@@ -24,11 +24,12 @@
     line-height: 0.805rem;
     text-align: center;
     /*margin-right: 0.15rem;*/
+    color:#000;
 }
 .PaySuccOrderItem .fl>div{
     line-height: 0.7rem;
 }
-.PaySuccOrderItem .orderAction>div:nth-child(2){
+.PaySuccOrderItem .orderAction .action2{
     margin-top: 0.15rem;
     color:#929292;
 }

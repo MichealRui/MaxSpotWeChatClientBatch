@@ -18,6 +18,7 @@ import ConfirmOrder from './containers/ConfirmOrderContainer/confirmOrderContain
 import PaySuccess from './containers/PaySuccessContainer/PaySuccessContainer'
 import OrderList from './containers/OrderListContainer/OrderListContainer'
 import OrderDetail from './containers/OrderDetailContainer/OrderDetailContainer'
+import TakeGoods from './containers/TakeGoodsContainer/TakeGoodsContainer'
 // init thunk
 
 
@@ -39,6 +40,7 @@ function renderPage(store) {
                 <Route path='/confirmOrder/:orderNumber' component={ConfirmOrder}></Route>
                 <Route path='/paySucc/:orderNumber' component={PaySuccess}></Route>
                 <Route path='/orderDetail/:orderNumber' component={OrderDetail}></Route>
+                <Route path='/takeGoods/:orderNumber' component={TakeGoods}></Route>
                 <Route path='/productDetail/:storeid/:skuNumber' component={ProductDetail}></Route>
                 <Route path='/brand/:storeId/:brandId' component={BrandDetail}></Route>
                 <Route path='/switchshop/:storeId' component={SwitchShop}></Route>

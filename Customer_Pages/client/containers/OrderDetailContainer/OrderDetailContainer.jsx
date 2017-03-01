@@ -14,12 +14,13 @@ class OrderDetailContainer extends React.Component {
     }
 
     componentWillMount(){
-        const {dispatch} = this.props;
-        dispatch(initOrderDetail(this._ordernumber))
+        const {dispatch,state} = this.props;
+        const {orderDetail} = state;
+        orderDetail.orderNumber && this._ordernumber == orderDetail.orderNumber ? '' : dispatch(InitOrderDetail(this._ordernumber))
     }
 
     render(){
-        const {state,dispatch} = this.props;
+        const {state} = this.props;
         const {orderDetail} = state;
         return(
             <div className="orderDetailContainer">

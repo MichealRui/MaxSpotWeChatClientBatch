@@ -28,8 +28,12 @@ var baseConfig = {
         loader: "file-loader"
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|jpeg)$/,
         loader: "url-loader?mimetype=image/png"
+      },
+      {
+        test: /\.(gif)$/,
+        loader: "url-loader?mimetype=image/gif"
       },
       {
         test: /\.html$/,

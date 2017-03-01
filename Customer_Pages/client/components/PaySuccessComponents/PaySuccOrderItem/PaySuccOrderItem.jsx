@@ -2,6 +2,7 @@
 
 require('./index.css');
 import React from 'react';
+import {Link} from 'react-router'
 
 export default class PaySuccOrderItem extends React.Component {
 	constructor(props){
@@ -22,8 +23,10 @@ export default class PaySuccOrderItem extends React.Component {
 					<div className='code font14 blue'>订单号：{props.orderInfo.orderNumber}</div>
 				</div>
 				<div className='fr orderAction'>
-					<div className='fl btn_fetch font14' onClick={this.onTakeClick.bind(this)}>立即取货</div>
-					<div className="fr font20"> > </div>
+					<Link to={"/takeGoods/"+props.orderInfo.orderNumber}>
+						<div className='fl btn_fetch font14 action1'>立即取货</div>
+					</Link>
+					<div className="fr font20 action2"> > </div>
 				</div>
 			</li>
 		);
