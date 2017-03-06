@@ -89,27 +89,9 @@ class PageContainer extends React.Component {
         });
     }
 
-    addCart(item) {
-        let {state, dispatch} = this.props;
-        let itemId = item.skuId;
-        let target = state.cart.items.find((i) => {
-            return i.id == itemId
-        });
-        if (target) {
-            target.count = parseInt(target.count) + 1 + '';
-            dispatch(addToCart({
-                storeId: this.props.state.storeInfo.id + '',
-                skuId: target.id + '',
-                count: target.count
-            }))
-        } else {
-            dispatch(addToCart(item))
-        }
-    }
-
     render() {
         const { dispatch, state } = this.props;
-        const { cart, message, storeInfo, content} = state;
+        const { cart, message, content} = state;
         let takespace = {height: '1.2rem'};
         return (
             <div>

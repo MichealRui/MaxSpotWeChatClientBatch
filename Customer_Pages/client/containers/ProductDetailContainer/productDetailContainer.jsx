@@ -24,10 +24,13 @@ class ProductDetailContainer extends React.Component {
 
     render(){
         let {state,dispatch} = this.props;
-        let { cart,productDetail } = state;
+        let { cart, productDetail, message} = state;
 
         return (
             <div className="productDetailContainer">
+                <Message msgContent={message}
+                         clearMessage={() => dispatch(setMessage({errorMessage: ""}))}
+                />
                 <div className='area'></div>
                 <ProductDetailTitle
                     titleData = {productDetail.product}
@@ -43,8 +46,7 @@ class ProductDetailContainer extends React.Component {
                     brandData = {productDetail.brand}
                     storeId = {productDetail.storeId}
                 />
-                <ButtonBottom cart={cart.cart}
-                              clearCart={() => dispatch(clearCart())}/>
+                <ButtonBottom cart={cart.cart}/>
             </div>
         )
     }

@@ -54,7 +54,7 @@ export function initProductDetail(skuNumber, storeId) {
                 }else{
                     dispatch(messageAction.setMessage({errorMessage:json.err_message}))
                 }
-            }).catch((e)=>dispatch(messageAction.setMessage({errorMessage:'服务器错误sss'})));
+            }).catch((e)=>dispatch(messageAction.setMessage({errorMessage:'服务器错误'})));
         dispatch(cartAction.initCart());
     }
 }
