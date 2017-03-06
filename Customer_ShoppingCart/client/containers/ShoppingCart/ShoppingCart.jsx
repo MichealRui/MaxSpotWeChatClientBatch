@@ -97,6 +97,7 @@ class ShoppingCart extends React.Component {
                     remainTime={itemInfo.remainTime}
                     clearCart={() => dispatch(clearCart())}
                     onError={(message) => dispatch(setMetionMessage(message))}
+                    initShopCart = {()=>dispatch(initShoppingCart())}
                 />
             </div>
         );
