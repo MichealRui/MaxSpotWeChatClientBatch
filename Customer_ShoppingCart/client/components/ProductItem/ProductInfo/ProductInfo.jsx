@@ -1,7 +1,4 @@
 'use strict';
-
-/*require('./index.css');*/
-
 import React from 'react';
 require('./index.css');
 export default class ProductInfo extends React.Component{
@@ -15,6 +12,11 @@ export default class ProductInfo extends React.Component{
 			<div className="productInfo">
 				<div className="productImg">
 					<img src={props.imagePath}/>
+					{
+						this.props.isGift ?
+							<span className={"giftBanner font12 "+ (this.props.activate ? 'activate':'fail')}>赠品</span>:null
+					}
+
 				</div>
 				<div className="wrapper">
 					<p className='productName font14'>{props.brandName} {props.name} </p>

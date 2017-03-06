@@ -31,6 +31,9 @@ export const FETCH_ITEM_ERROR = 'FETCH_ITEM_ERROR';
 export const SET_MESSAGE = 'SET_MESSAGE';
 export const SET_METION_MESSAGE = 'SET_METION_MESSAGE';
 
+/* campaign */
+export const INIT_CAMPAIGN_SUCC = 'INIT_CAMPAIGN_SUCC';
+
 const domain = ENV.domain;
 
 const mock = {
@@ -455,10 +458,61 @@ export function initShoppingCart() {
     }
 }
 
+export function start() {
+    // return (dispatch) => {
+    //     fetch(domain + '/web/buyer_api/get_campaign.ction',
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //         }
+    //     ).then(response => response.json())
+    //         .then(json => {
+    //             if (json.is_succ) {
+    //                 dispatch(initSuccess(json.campaigns))
+    //             } else {
+    //                 dispatch(setMessage({errorMessage: json.error_message}));
+    //                 // dispatch(initError())
+    //             }
+    //         })
+    // }
+    return (dispatch) => {
+        dispatch(initShoppingCart());
+        let campaigns = {
+            campaigns: [
+                {
+                    campaignId:1,
+                    campaignTag:'满100减20',
+                    total:10000,
+                    discount:2000,
+                    sku:{
+                        brandName:'SALT',
+                        name:'可口樱桃汁',
+                        imagePath: 'https://img.alicdn.com/tps/TB1btK6JVXXXXbuXXXXXXXXXXXX-328-328.jpg_120x120.jpg',
+                        attributes:[
+                            {"unit":"g","name":"净含量","value":"65"}
+                            ],
+                        count:1
+                    },
+                    recursive:true
+                }
+            ]
+        }
+        return dispatch(initCampaignSucc(campaigns))
+    };
+}
+
 export function initSuccess(skus) {
     return {
         type: INIT_SUCCESS,
         skus
+    }
+}
+
+export function initCampaignSucc(campaigns) {
+    return {
+        type: INIT_CAMPAIGN_SUCC,
+        campaigns
     }
 }
 

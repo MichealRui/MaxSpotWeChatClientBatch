@@ -7,6 +7,7 @@ import Message from '../../components/Message/Message'
 import ShoppingMessage from '../../components/ShoppingMessage/ShoppingMessage'
 import Empty from '../../components/Empty/Empty'
 import { connect }  from 'react-redux';
+import { start } from '../../actions/actions'
 import { fetchItem, increment, decrement, deleteItem, changeShopState, setMessage, setMetionMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
 // import ShoppingCartData from './ShoppingCartData.js';
 require('./index.css');
@@ -18,7 +19,8 @@ class ShoppingCart extends React.Component {
 
     componentWillMount() {
         const { dispatch } = this.props;
-        dispatch(initShoppingCart())
+        dispatch(start());
+        // dispatch(initShoppingCart())
     }
     
     render(){
@@ -67,9 +69,7 @@ class ShoppingCart extends React.Component {
                                                             store={store}
                                     />)
                                 }
-                        }
-
-                        )
+                        })
                     }
                     {/*<ProductSection itemMethod={itemMethods} address={itemInfo.machineAddress} itemInfo={this.props.itemInfo}/>*/}
                     {/*<ShoppingTitle machineAddress={itemInfo.machineAddress} statusText={itemInfo.statusText}/>*/}

@@ -7,7 +7,7 @@ import WindowText from '../../components/WindowText';
 require('./index.css');
 
 class TakeOut extends React.Component {
-    
+
     constructor(props){
         super(props);
         this.state={

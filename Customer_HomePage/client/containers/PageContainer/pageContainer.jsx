@@ -33,7 +33,7 @@ class PageContainer extends React.Component {
         if(config.sign && !props.sdkInited) {
             if(this.initWx(config)) {
                 dispatch(initSdk());
-                this.getGeo().bind(this);
+                this.getGeo();
             }
         }
     }
