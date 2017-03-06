@@ -1,0 +1,186 @@
+.afterPayHeader{
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0.5rem;
+}
+.afterPayHeader .rotate-circle {
+    position: absolute;
+    width: 5.75rem;
+    height: 5.75rem;
+    top: 0.5rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #ff7860;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    box-shadow: inset 0 0 0 8px rgba(250,124,115,1);
+}
+
+.afterPayHeader .rotate-circle.circles-shadow{
+    box-shadow:inset 0 0 0 8px rgba(250, 124, 115, .2);
+}
+@keyframes spinner-circle-clipper {
+     0% {
+         transform: rotate(0deg);
+         -webkit-transform: rotate(0deg);
+     }
+     100% {
+         transform: rotate(180deg);
+         -webkit-transform: rotate(180deg);
+     }
+ }
+
+@-webkit-keyframes spinner-circle-clipper {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+}
+.afterPayHeader .rotate-circle i{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    border-radius: 50%;
+    clip:rect(0rem, 5.75rem, 5.75rem, 3rem);
+    animation: spinner-circle-clipper 2s ease-in-out infinite;
+    -webkit-animation: spinner-circle-clipper 2s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    /*margin-left: -1rem;*/
+}
+
+@keyframes spinner-circle {
+    0% {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+}
+@-webkit-keyframes spinner-circle {
+    0% {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+}
+
+.afterPayHeader .rotate-circle i:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    clip: rect(0rem, 5.75rem, 5.75rem, 3rem);
+    animation: spinner-circle 2s ease-in-out infinite;
+    border-radius: 50%;
+    box-shadow:inset 0px 0px 0px 8px #ff7860;
+    transform-origin: 50% 50%;
+}
+
+
+.afterPayHeader .circle-insert {
+    width: 100%;
+    height: 5.75rem;
+    text-align: center;
+    position: relative;
+}
+
+.afterPayHeader .circle-insert:after{
+    content:'';
+    width:0;
+    height: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    display: inline-block;
+}
+.afterPayHeader .circle-insert .insert-html{
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.colorfca609{
+    color:#fca609 !important;
+}
+.colorff7860{
+    color:#ff7860 !important;
+}
+.color000{
+    color: #000!important;
+}
+.color999{
+    color:#999!important;
+}
+
+/*
+    margin-top: 0.6rem;
+    color: #fff;
+    border: 1px solid transparent;
+    width: 2.78rem;
+    background: #fca609;
+*/
+
+.afterPayHeader .texts{
+    margin-top: 0.7rem;
+}
+.afterPayHeader .buttons{
+    color: #fff;
+    border: 1px solid transparent;
+    width: 2.78rem;
+}
+
+.afterPayHeader .buttons.backcolorfca609{
+    background-color: #fca609;
+}
+.afterPayHeader .buttons.backcolorff7860{
+    background-color: #ff7860;
+}
+
+.afterPayHeader .insert-text{
+    padding: 0.5rem;
+    color: #999999;
+    text-align: center;
+
+}
+.afterPayHeader .insert-text.lineh4{
+    line-height: 4rem;
+}
+.afterPayHeader .insert-text.lineh05{
+    line-height: 0.5rem;
+}
+
+.afterPayHeader .number-text{
+    display: inline-block;
+    margin: 0 0.2rem;
+}
+.afterPayHeader .subinfo{
+    line-height: 1rem;
+    color: #999;
+}
+
+
+
+
+
+
+
+
+
+
+
+

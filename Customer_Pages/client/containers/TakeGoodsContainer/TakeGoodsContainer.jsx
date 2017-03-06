@@ -29,7 +29,7 @@ class TakeGoodsContainer extends React.Component {
     }
 
     fetchO(od) {
-        const Taking = 4;
+        const Taking = 1;
         const {dispatch,state} = this.props;
         let status = 0;
         if(state.orderDetail.order){
@@ -43,6 +43,7 @@ class TakeGoodsContainer extends React.Component {
             window.setTimeout( ()=>this.fetchO.bind(this)(od), this.sleepTime )
         } else {
             //history.pushState()
+            this.context.router.push('/afterPay/'+status+'/'+od);
         }
 
     }
@@ -102,8 +103,6 @@ class TakeGoodsContainer extends React.Component {
         let {state} = this.props;
         let {orderDetail} = state;
         let {order} = orderDetail;
-        console.log(order);
-        console.log(this.state);
         let newOrder = order ? (order.childOrders ? Object.assign({},{order:order.childOrders[0]}) : Object.assign({},{order:order})) : {}
         let appId = 'wx4da5ecd6305e620a';
         let takeUri = encodeURIComponent("http://www.mjitech.com/web/wxauthorize.action");
@@ -165,6 +164,9 @@ TakeGoodsContainer.defaultProps = {
         }
     }
 };
+TakeGoodsContainer.contextTypes={
+    router : React.PropTypes.object
+}
 
 function select(store) {
     return Object.assign({},{state:store})

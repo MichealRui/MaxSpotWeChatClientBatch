@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {initOrderDetail} from '../../actions/OrderDetail';
+import {InitOrderDetail} from '../../actions/OrderDetail';
 import OrderHeader from '../../components/OrderDetailComponents/OrderDetailHeader/OrderDetailHeader'
 import OrderDetailStoreInfo from '../../components/OrderDetailComponents/OrderDetailStoreInfo/OrderDetailStoreInfo'
 import OrderDetailOrderInfo from '../../components/OrderDetailComponents/OrderDetailOrderInfo/OrderDetailOrderInfo'

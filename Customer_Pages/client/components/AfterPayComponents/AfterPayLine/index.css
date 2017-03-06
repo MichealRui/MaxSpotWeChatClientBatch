@@ -1,0 +1,67 @@
+.afterPayLine{
+    border:2px solid #999999;
+}
+
+
+.afterPayLine .circle{
+    border:2px solid #fff;
+    width: 0.3rem;
+    height: 0.3rem;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #dadada;
+    position: absolute;
+    bottom:0;
+    right: 0;
+    -webkit-transform: translate(0%,-58%);
+    transform: translate(0%,-58%);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    z-index: 22;
+    line-height: 0.3rem;
+}
+
+.afterPayLine .batch{
+    position: absolute;
+    color: #999;
+    width: 1.1rem;
+    text-align: center;
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    line-height: 0.5rem;
+    transform: translate(24%,20%);
+}
+
+.afterPayLine .batch.border{
+    border: 1px solid #999;
+}
+
+.afterPayLine .circle.big{
+    width: 0.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    -webkit-transform: translate(0%,-22%);
+    transform: translate(0%,-22%);
+}
+
+
+.backcolorff7860{
+    background-color: #ff7860 !important;
+}
+.backcolor2fd03d{
+    background-color: #2fd03d !important;
+}
+
+.colorff7860{
+    color: #ff7860 !important;
+}
+.color2fd03d{
+    color: #2fd03d !important;
+}
+.bordercolorff7860{
+    border-color: #ff7860 !important;
+}
+.bordercolor2fd03d{
+    border-color: #2fd03d !important;
+}
