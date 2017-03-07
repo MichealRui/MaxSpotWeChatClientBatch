@@ -36,7 +36,8 @@ class PageContainer extends React.Component{
         dispatch(setCartStatus(CartStatus.SHOW_CART));
         dispatch(fetchCart());
         this.setState({
-            cartVisible: true
+            cartVisible: true,
+            skuVisible: false
         })
     }
 
@@ -110,6 +111,7 @@ class PageContainer extends React.Component{
                               product={state.product}
                               addToCart={(item) => dispatch(addToCart(item))}
                               {...state.cart}
+                              onCartClick = {()=>this.onCartBtnClick.bind(this)}
                 />
                 <FetchSkuContainer visible={this.state.fetchSkuVisible}
                                    onCancel={this.hideFetchSku.bind(this)}

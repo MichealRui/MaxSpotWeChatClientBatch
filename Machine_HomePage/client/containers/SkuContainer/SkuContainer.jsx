@@ -98,10 +98,12 @@ export default class SkuContainer extends React.Component {
                        footer=''
                 >
                     <div className="skuContent" onClick={() => this.renewCount()}>
-                        <Cart cartStyle={{top:-48+'px',right:110+'px'}}
-                              count={props.count || 0}
-                              totalPrice={props.totalPrice || 0}
-                        />
+                        <span className="" onClick={props.onCartClick()}>
+                            <Cart cartStyle={{top:-48+'px',right:110+'px'}}
+                                  count={props.count || 0}
+                                  totalPrice={props.totalPrice || 0}
+                            />
+                        </span>
                         <div className="galleryWrapper">
                             {
                                 product ? <Gallery images={sku ?
