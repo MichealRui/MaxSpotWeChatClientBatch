@@ -5,3 +5,22 @@
 .orderDetailProductListContainer>p span {
 	margin-left: 0.722222rem;
 }
+.orderDetailProductListContainer .context {
+    border-bottom: 1px solid #e6e6e6;
+    color: #999999;
+    padding-top: 0.555556rem;
+}
+.orderDetailProductListContainer .context .content {
+    padding: 0.555556rem;
+    padding-top: 0;
+    text-align: right;
+}
+
+.orderDetailProductListContainer .context .content.black{
+    color: black;
+}
+
+.orderDetailProductListContainer .totalArea {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
+}

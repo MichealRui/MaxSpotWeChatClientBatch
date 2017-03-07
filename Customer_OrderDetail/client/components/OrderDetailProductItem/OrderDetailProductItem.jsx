@@ -27,11 +27,11 @@ export default class OrderDetailProductItem extends React.Component {
 				{/*<div className='buyDiscount'>*/}
 					{/*<AccountDisplay name='买减优惠' money='-15'/>*/}
 				{/*</div>*/}
-				<div className="totalArea">
-					<AccountDisplay name='商品总金额' money={productItem.count * productItem.sellPrice /100}/>
+				{/*<div className="totalArea">*/}
+					{/*<AccountDisplay name='商品总金额' money={productItem.count * productItem.sellPrice /100}/>*/}
 					{/*<AccountDisplay name='商品优惠总计' money='-18'/>*/}
 					{/*<AccountDisplay name='总金额优惠总计' money='-10'/>*/}
-				</div>
+				{/*</div>*/}
 			</li>
 		);
 	}

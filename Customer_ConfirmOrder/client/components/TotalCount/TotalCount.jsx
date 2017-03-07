@@ -12,7 +12,7 @@ export default class TotalCount extends React.Component {
 		let props = this.props;
 		return(
 			<div className="totalCountContainer font14">
-				共 {props.totalCount} 件商品 合计 {props.totalMoney} 元
+				{props.totalCount} 件商品 合计 {props.totalMoney} 元
 			</div>
 		);
 	}

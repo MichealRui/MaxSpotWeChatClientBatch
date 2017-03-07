@@ -1,8 +1,13 @@
 .totalProductsContainer {
-	margin-bottom: 0.305556rem;
+	/*margin-bottom: 0.305556rem;*/
 }
 .totalProductsContainer .accountDisplay {
 	padding: 0.555556rem;
 	border-bottom: 1px solid #e6e6e6;
 	line-height: 1;
+}
+.takeSpace {
+	height:0.305556rem;
+	width:100%;
+	background-color: #f4f4f4;
 }

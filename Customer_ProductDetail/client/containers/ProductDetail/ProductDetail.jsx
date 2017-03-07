@@ -10,6 +10,7 @@ import AddIntoCart from '../../components/AddIntoCart/AddIntoCart';
 import StoreIntro from '../../components/StoreIntro/StoreIntro';
 import ButtonBottom from '../../components/BottomButton/BottomButton';
 import Campaign from '../../components/Campaign/Campaign';
+
 import Util from '../../util/WeChatUtil'
 require('./index.css');
 
