@@ -1,0 +1,24 @@
+.campaignContainer {
+    position: relative;
+    /*height: 4.3rem;*/
+    background-color: #fff;
+    margin:0.134rem 0;
+    padding-top:0.6rem;
+    padding-bottom:0.467rem;
+    padding-left: 0.533rem;
+}
+.campaignContainer .campaignTag {
+    /*position: absolute;*/
+    /*top:0.6rem;*/
+    /*left:0.66rem;*/
+    display: inline-block;
+    min-width:0.5rem;
+    border: 1px solid #555555;
+    border-radius: 0.15rem;
+    padding-left:0.33rem;
+    padding-right: 0.33rem;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    text-align: center;
+    color: #666666;
+}

@@ -134,6 +134,7 @@ export default class DefaultCart extends React.Component {
                 <CartBottom moreItems={props.moreItems}
                             itemClick={props.addToCart}
                             totalPrice={props.totalPrice}
+                            totalDiscount={props.totalDiscount}
                             submit={props.submit}
                             clearCart={() => props.clearCart()}
                             showAlert={showPayAlert}

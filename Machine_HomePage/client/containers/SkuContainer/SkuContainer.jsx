@@ -6,6 +6,7 @@ import Header from '../SkuHeader/SkuHeader'
 import Info from '../SkuInfo/SkuInfo'
 import Footer from '../SkuFooter/SkuFooter'
 import Cart from '../../components/Cart/Cart'
+import Campaign from '../../components/Campaign/Campaign';
 require('./index.css');
 
 export default class SkuContainer extends React.Component {
@@ -115,6 +116,7 @@ export default class SkuContainer extends React.Component {
                                     <div>
                                         <Header item={product} addToCart={(product) => props.addToCart(product)}/>
                                         {/*<Intro/>*/}
+                                        <Campaign campaign={sku.campaign}/>
                                         <Info item={product}/>
                                         <Footer />
                                     </div>

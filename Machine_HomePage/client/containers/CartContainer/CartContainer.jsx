@@ -48,6 +48,7 @@ export default class CartContainer extends React.Component {
                         count={props.count}
                         removeItem={props.removeItem}
                         totalPrice={props.totalPrice}
+                        totalDiscount = {props.totalDiscount}
                         submit={props.submit}
                         clearCart={() => props.clearCart()}
                         isModalVisible={props.visible}

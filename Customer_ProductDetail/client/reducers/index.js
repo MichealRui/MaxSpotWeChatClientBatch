@@ -70,6 +70,24 @@ function initStart(state) {
 }
 
 function initSuccess(state, content){
+    /*
+    * for campaign test
+    * */
+    // content.productDetail.campaign = {
+    //     campaignId:1,
+    //     campaignTag:'双11特惠: 第二件 享5折',
+    //     sku:{
+    //         brandName:'SALT',
+    //         shortName:'可口樱桃汁',
+    //         imagePath: 'https://img.alicdn.com/tps/TB1btK6JVXXXXbuXXXXXXXXXXXX-328-328.jpg_120x120.jpg',
+    //         attributes:[
+    //             {"unit":"g","name":"净含量","value":"65"}
+    //             ]
+    //     }
+    // };
+    /*
+     * end campaign test
+     * */
     return Object.assign({}, state, content);
 }
 

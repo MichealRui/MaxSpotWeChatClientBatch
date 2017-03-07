@@ -1,5 +1,4 @@
 'use strict';
-
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -9,7 +8,8 @@ import ProductDetailTitle from '../../components/ProductDetailTitle/ProductDetai
 import ProductSlider from '../../components/ProductSlider/ProductSlider';
 import AddIntoCart from '../../components/AddIntoCart/AddIntoCart';
 import StoreIntro from '../../components/StoreIntro/StoreIntro';
-import ButtonBottom from '../../components/BottomButton/BottomButton'
+import ButtonBottom from '../../components/BottomButton/BottomButton';
+import Campaign from '../../components/Campaign/Campaign';
 import Util from '../../util/WeChatUtil'
 require('./index.css');
 
@@ -122,6 +122,7 @@ class ProductDetail extends React.Component {
                             }
                         )}}
                 />
+                <Campaign campaign={productDetail.campaign}/>
 				<p className='storeInfo font12'>{productDetail.description}</p>
 				<div className='storeIntroWrap'>
 					<StoreIntro brand = {brand}
