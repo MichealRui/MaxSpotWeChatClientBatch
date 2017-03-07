@@ -3,7 +3,6 @@
 }
 .orderDetailProductItemContainer .productInfo {
     padding: 0.347222rem 0.555556rem;
-    border-bottom: 1px solid #e6e6e6;
 }
 .orderDetailProductItemContainer .productImg {
     width:1.388889rem;
@@ -31,10 +30,15 @@
 .orderDetailProductItemContainer span {
     vertical-align: middle;
 }
-.orderDetailProductItemContainer .unitPrice,
+.orderDetailProductItemContainer .unitPrice{
+    float: right;
+    line-height: 1.527778rem;
+    color:#2db9ed;
+}
 .orderDetailProductItemContainer .quantity {
     float: right;
     line-height: 1.527778rem;
+    color: #999999;
 }
 .orderDetailProductItemContainer .quantity i {
     font-style: normal;
