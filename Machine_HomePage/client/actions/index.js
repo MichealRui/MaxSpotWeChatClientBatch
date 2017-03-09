@@ -73,7 +73,7 @@ export function initMainContent () {
                         banner: json.banners,
                         content: json.categories,
                         store: json.selectedStore
-                    }))
+                    }));
                     dispatch(fetchCart())
                 } else {
                     console.log(json);

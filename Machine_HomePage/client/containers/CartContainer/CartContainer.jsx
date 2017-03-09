@@ -29,7 +29,6 @@ export default class CartContainer extends React.Component {
     };
 
     render(){
-
         let props = this.props;
         let wrapClassName = 'customized_default-modal';
         let cartContent;
@@ -46,6 +45,7 @@ export default class CartContainer extends React.Component {
                         decItem={props.decItem}
                         addToCart={props.addToCart}
                         count={props.count}
+                        campaignList={props.campaignedProductList}
                         removeItem={props.removeItem}
                         totalPrice={props.totalPrice}
                         totalDiscount = {props.totalDiscount}

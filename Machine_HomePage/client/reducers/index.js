@@ -207,7 +207,6 @@ function operator_computeCampaignByType(campaignedList) {
 }
 
 function operator_computeCampaignType_1(cUnit) {
-    const ToCent = 100;
     let {deductMoney, totalMoney, totalCount, campaignId, recursive} = cUnit;
     let sumCount = cUnit.list.map(product => product.count).reduce (
         (pre, next) => { return pre + next }, 0
@@ -216,17 +215,16 @@ function operator_computeCampaignType_1(cUnit) {
     let totalSum = cUnit.list.map(calMoney).reduce(
         (pre, next) => {return pre + next}, 0
     );
-    let activate = !totalCount ? (totalSum >= totalMoney * ToCent) : sumCount >= totalCount;
+    let activate = !totalCount ? (totalSum >= totalMoney ) : sumCount >= totalCount;
     cUnit.activate = activate;
     let mult = activate && recursive ?
-        totalMoney ? Math.floor( totalSum / (totalMoney * ToCent)) : Math.floor( sumCount / totalCount )
+        totalMoney ? Math.floor( totalSum / (totalMoney )) : Math.floor( sumCount / totalCount )
         : 1;
-    cUnit.totalDiscount = activate ? deductMoney * ToCent * mult : 0;
+    cUnit.totalDiscount = activate ? deductMoney * mult : 0;
     return cUnit
 }
 
 function operator_computeCampaignType_2(cUnit) {
-    const ToCent = 100;
     let {discountCount, discountMoney, discountDiscount, recursive}  = cUnit;
     let sumCount = cUnit.list.map(product => product.count).reduce(
         (pre, next) => {return pre + next}, 0
@@ -241,13 +239,12 @@ function operator_computeCampaignType_2(cUnit) {
     let mult = activate && recursive ?
         Math.floor( sumCount / discountCount ) : 1;
     cUnit.totalDiscount = activate ?
-        discountMoney ? discountMoney * ToCent * mult : discountDiscount * sellPrice * mult
+        discountMoney ? discountMoney * mult : discountDiscount * sellPrice * mult
         : 0;
     return cUnit
 }
 
 function operator_computeCampaignType_3(cUnit) {
-    const ToCent = 100;
     let { presentMoney, presentCount, recursive } = cUnit;
     let sumCount = cUnit.list.map(product => product.count).reduce(
         (pre, next) => { return pre + next }, 0
@@ -256,10 +253,10 @@ function operator_computeCampaignType_3(cUnit) {
     let totalSum = cUnit.list.map(calMoney).reduce(
         (pre, next) => { return pre + next }, 0
     );
-    let activate = presentMoney ? totalSum >= presentMoney * ToCent : sumCount >= presentCount;
+    let activate = presentMoney ? totalSum >= presentMoney : sumCount >= presentCount;
     cUnit.activate = activate;
     let mult = activate && recursive ?
-        presentMoney ? Math.floor( totalSum / (presentMoney * ToCent) ) : Math.floor(sumCount / presentCount)
+        presentMoney ? Math.floor( totalSum / presentMoney ) : Math.floor(sumCount / presentCount)
         : 1;
     !activate && cUnit.presentSku ? cUnit.presentSku.err_status = PRODUCT_OUT_SELL : null;
     cUnit.presentSku ? cUnit.presentSku.count = mult : null;

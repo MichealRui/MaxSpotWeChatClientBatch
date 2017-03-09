@@ -127,8 +127,9 @@ export default class CartItem extends React.Component{
                 </div>
             );
         let marketPrice = props.msrp > 0 ? <span className="market-price font20">市场价¥{props.msrp/100}元</span> :'';
+
         return (
-            <div className="cart-item my-item">
+            <div className={"cart-item my-item " + (this.props.campaign ? 'campaign':'') }>
                 <div className="item-pic">
                     {
                         props.imagePath?

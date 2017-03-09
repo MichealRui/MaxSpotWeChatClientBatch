@@ -10,16 +10,18 @@ export default class Campaign extends React.Component {
     render(){
         let campaign = this.props.campaign;
         return campaign  == Campaign.defaultProps.campaign ? null : (
-            <div className="campaignContainer">
-                <div className="campaignTag font13">
-                    {campaign.campaignTag}
+            <div className="campaignWrapper">
+                <div className="campaignContainer">
+                    <div className="campaignTag font13">
+                        {campaign.campaignTag}
+                    </div>
+                    {
+                        campaign.item ?
+                            <CampaignItem campaignItem={campaign.sku} tag={campaign.campaignTag}/>
+                            :
+                            null
+                    }
                 </div>
-                {
-                    campaign.item ?
-                        <CampaignItem campaignItem={campaign.sku} tag={campaign.campaignTag}/>
-                        :
-                        null
-                }
             </div>
         )
     }

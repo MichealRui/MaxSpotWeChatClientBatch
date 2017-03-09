@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.cart-item.campaign {
+    margin:0;
+}
+
 .cart-item .categoryName{
     margin-top: 9px;
 }
