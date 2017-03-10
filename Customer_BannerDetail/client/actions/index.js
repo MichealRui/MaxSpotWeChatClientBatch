@@ -38,34 +38,37 @@ export function initBanner(storeId) {
 
             }
         ).then(*/
-            fetch(domain+ '/web/buyer_api/market_data.action',
-                {
-                    credentials:'include',
-                    method:'POST',
-                    mode:'cors',
-                    body:JSON.stringify(
-                        {
-                            storeId:storeId
-                        }
-                    )
-                }).then((response)=>response.json())
-                .then(
-                    json=>{
-                        console.log(json);
-                        if(json.is_succ){
-                            dispatch(initSuccess({
-                                storeId : storeId,
-                                skus:json.products,
-                            }));
-                            dispatch(initCart())
-                        }else{
-                            dispatch(initFail({errorMessage:json.error_message}))
-                        }
-                    }
-                ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
-
+            // fetch(domain+ '/web/buyer_api/market_data.action',
+            //     {
+            //         credentials:'include',
+            //         method:'POST',
+            //         mode:'cors',
+            //         body:JSON.stringify(
+            //             {
+            //                 storeId:storeId
+            //             }
+            //         )
+            //     }).then((response)=>response.json())
+            //     .then(
+            //         json=>{
+            //             console.log(json);
+            //             if(json.is_succ){
+            //                 dispatch(initSuccess({
+            //                     storeId : storeId,
+            //                     skus:json.products,
+            //                 }));
+            //                 dispatch(initCart())
+            //             }else{
+            //                 dispatch(initFail({errorMessage:json.error_message}))
+            //             }
+            //         }
+            //     ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
 
         // )
+                        dispatch(initSuccess({
+                            storeId : storeId,
+                            skus:dataDetail.products,
+                        }));
 
     };
 }
