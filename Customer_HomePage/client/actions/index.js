@@ -43,14 +43,14 @@ const domain = ENV.domain;
 export function initWxConfig(url) {
     return (dispatch) => {
 
-        // fetch( domain + '/web/buyer_api/test_login_with_openid.action',
-        //     {
-        //         credentials: 'include',
-        //         method: 'POST',
-        //         mode: 'cors',
-        //         body: JSON.stringify({openid: "o41Mgv0eiCIKAZPpMdO1o-gGZrKs"})
-        //     }
-        // ).then (
+        fetch( domain + '/web/buyer_api/test_login_with_openid.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify({openid: "o41Mgv0eiCIKAZPpMdO1o-gGZrKs"})
+            }
+        ).then (
             fetch( domain + '/web/buyer_api/get_jsapi_config_params.action',
                 {
                     credentials: 'include',
@@ -67,7 +67,7 @@ export function initWxConfig(url) {
                         dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
                     }
                 } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
-        // );
+        );
 
 
         // fetch('http://www.mjitech.com/web/buyer_api/get_jsapi_config_params.ction',

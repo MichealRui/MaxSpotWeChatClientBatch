@@ -318,18 +318,19 @@ function dealCampaign(campaigns, productList) {
         type2CampaignedProductList,
         type3CampaignedProductList
     );
+
+    /* deal global campaign */
+    // let globalCampaign = campaigns.find( campaign => campaign.isAllSku );
+    // if(globalCampaign) {
+    //     campaignedProductList.push(
+    //         Object.assign({}, { list: productList }, globalCampaign )
+    //     )
+    // }
+    /* end deal global campaign */
+
     campaignedProductList.push(
         { list: productList.filter ( product => !product.campaign ) }
     );
-
-    /* deal global campaign */
-    let globalCampaign = campaigns.find( campaign => campaign.isAllSku );
-    if(globalCampaign) {
-        campaignedProductList.push(
-            Object.assign({}, { list: productList }, globalCampaign )
-        )
-    }
-    /* end deal global campaign */
 
     return (campaignOperator) => campaignOperator(campaignedProductList)
 }
