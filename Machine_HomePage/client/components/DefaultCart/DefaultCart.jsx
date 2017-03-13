@@ -75,34 +75,32 @@ export default class DefaultCart extends React.Component {
 
     generateProductStructure(campaignDetail) {
         let {store, itemInfo, decItem, addToCart, removeItem} = this.props;
-        let {campaignId, campaignTag, presentSku, list, totalDiscount, activate, initStatus} = campaignDetail;
+        let {campaignId, campaignTag, presentSku, list, totalDiscount, activate, initStatus, isAllSku} = campaignDetail;
 
         let productStructure = list.length > 0 ?
             (
                 <div className="campaignContainer">
                     {
-                        campaignId ? <div className={"font22 campaignTag "+ (activate?"activate":"fail")}>
+                        campaignId && !isAllSku ? <div className={"font22 campaignTag "+ (activate?"activate":"fail")}>
                             { (activate?"已满足 ":"不满足 ") + "【"+campaignTag+"】"}
                         </div>:null
                     }
 
                         <div className="itemListContainer clearfix">
                             {
-                                list.map( (product, index) =>
+                               !isAllSku ? list.map( (product, index) =>
                                     <CartItem item={product}
                                               key={index}
                                               dec={decItem}
                                               add={addToCart}
                                               remove={removeItem}
                                               campaign={campaignId}
-                                    />)
+                                    />) : null
                             }
                         </div>
-
-
-                    {/*{*/}
-                        {/*presentSku ? <CartItem data={presentSku} isGift={true} activate={activate}/> : null*/}
-                    {/*}*/}
+                    {
+                        presentSku ? <CartItem item={presentSku} isGift={true} activate={activate} campaign={campaignId}/> : null
+                    }
                 </div>
             ) : null;
         if(productStructure) {

@@ -61,6 +61,11 @@ let data = {
     currentSelector:{parentKey:'', subKey:''}
 };
 
+const PRODUCT_UNAVAILABLE = 0; //下架
+const PRODUCT_ON_SELL = 1 ; //在售
+const PRODUCT_OUT_SELL = 2; //售罄
+const PRODUCT_LOW_STOCK = 3; //库存不足
+
 function initSuccess(content, data){
     const SELECTOR_ICONS = {
         1: {key: 'food', content: '食品', faIcon:'fa-empire',image:icon_images.img_sp},
@@ -181,15 +186,20 @@ function dealCampaign(campaigns, productList) {
         type2CampaignedProductList,
         type3CampaignedProductList
     );
-    console.log(campaignedProductList)
+
+    /* deal global campaign */
+    let globalCampaign = campaigns.find( campaign => campaign.isAllSku );
+    if(globalCampaign) {
+        campaignedProductList.push(
+            Object.assign({}, { list: productList }, globalCampaign )
+        )
+    }
+    /* end deal global campaign */
+
     campaignedProductList.push(
         { list: productList.filter ( product => !product.campaign ) }
     );
     return (campaignOperator) => campaignOperator(campaignedProductList)
-}
-
-function operator_computeGlobalCampaign(campaignedList) {
-
 }
 
 function operator_computeCampaignByType(campaignedList) {
