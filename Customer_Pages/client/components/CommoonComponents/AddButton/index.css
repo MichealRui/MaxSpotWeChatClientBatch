@@ -1,0 +1,38 @@
+.addContainer {
+    position: absolute;
+    bottom: 0.277778rem;
+    right: 0.277778rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 1.5rem 0 0 0;
+}
+.add {
+    position: absolute;
+    bottom: 0.207778rem;
+    right: 0.277778rem;
+    /*bottom: 0.177778rem;*/
+    /*right: 0.177778rem;*/
+    width: 0.833333rem;
+    height: 0.833333rem;
+    border-radius: 0.416667rem 0.416667rem 0 0.416667rem;
+    background: #ff7860;
+    color: #fff;
+    text-align: center;
+}
+
+.add:after{
+    content: '';
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.add>img{
+    width: 70%;
+    height:70%;
+    vertical-align: middle;
+}
+

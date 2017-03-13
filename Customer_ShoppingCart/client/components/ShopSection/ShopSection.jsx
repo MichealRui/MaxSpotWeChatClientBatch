@@ -54,7 +54,7 @@ export default class ProductSection extends React.Component {
                     }
                 </ul>
              : null;
-        
+
         return new Array(productStructure)
     }
 

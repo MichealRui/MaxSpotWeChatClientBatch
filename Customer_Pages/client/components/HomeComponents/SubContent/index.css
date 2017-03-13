@@ -1,0 +1,33 @@
+.subContentContainer .swiper-container {
+    width: 100%;
+}
+.subContentContainer .swiper-wrapper {
+	display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    position: relative;
+}
+/*.subContentContainer .swiper-slide {
+    width: 207px !important;
+}*/
+.swiper-wrapper .item.more {
+	height: 4.652778rem;
+	padding: 0;
+	width: 207px;
+	border-top: none;
+    float: none;
+}
+.swiper-wrapper .item.more>div {
+	position: absolute;
+	top: 50%;
+	left:44%;
+	transform: translate(-50%,-50%);
+}
+.swiper-wrapper .item.more>div p:first-child {
+	margin-bottom: 0.277778rem;
+	color: rgba(0,0,0,.8);
+}
+.swiper-wrapper .item.more>div p:last-child {
+	color: rgba(0,0,0,.6);
+}

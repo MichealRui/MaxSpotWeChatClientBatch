@@ -23,8 +23,8 @@ function isEmptyObject(e) {
 }
 
 function calcuShopSum(itemInfo) {
-    const PRODUCT_OUT_SELL= 1; //下架
-    const PRODUCT_EMPTY_SELL= 2; //售罄
+    // const PRODUCT_OUT_SELL= 1; //下架
+    // const PRODUCT_EMPTY_SELL= 2; //售罄
     let newItemInfo = Object.assign({}, itemInfo);
 
     newItemInfo.skus.forEach( sku => {
@@ -33,7 +33,7 @@ function calcuShopSum(itemInfo) {
             .reduce((pre, next) => pre + next , 0);
         sku.shopSum = (
             sku.productList.map(
-                product => product.err_status == PRODUCT_OUT_SELL || product.err_status == PRODUCT_EMPTY_SELL ? 0 : product.count * product.sellprice
+                product => product.err_status != PRODUCT_ON_SELL ? 0 : product.count * product.sellprice
             ).reduce(
                 (previous, current, index, array) => previous + current, 0) - sku.shopDiscount
             ) / 100
