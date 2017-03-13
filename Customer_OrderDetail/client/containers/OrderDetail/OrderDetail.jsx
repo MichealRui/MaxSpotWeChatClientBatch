@@ -143,7 +143,12 @@ class OrderDetail extends React.Component {
                                     ) : ''
                             }
 
-                            <OrderDetailProductList orderDetailProductList={orderDetail.skus} totalMoney={orderDetail.totalPrice || 0}/>
+                            <OrderDetailProductList
+                                orderDetailProductList={orderDetail.skus}
+                                totalMoney={orderDetail.totalPrice || 0}
+                                campaigns={orderDetail.promotions}
+                                {...orderDetail}
+                            />
                         </div>
                     ) : ''
 

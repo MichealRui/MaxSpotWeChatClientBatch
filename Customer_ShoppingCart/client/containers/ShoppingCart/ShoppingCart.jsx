@@ -4,9 +4,11 @@ import TopBar from '../../components/TopBar/TopBar';
 import BottomBar from '../../components/BottomBar/BottomBar';
 import ProductSection from '../../components/ShopSection/ShopSection';
 import Message from '../../components/Message/Message'
+import ShoppingMessage from '../../components/ShoppingMessage/ShoppingMessage'
 import Empty from '../../components/Empty/Empty'
 import { connect }  from 'react-redux';
-import { fetchItem, increment, decrement, deleteItem, changeShopState, setMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
+import { start } from '../../actions/actions'
+import { fetchItem, increment, decrement, deleteItem, changeShopState, setMessage, setMetionMessage, initShoppingCart, toggleShop, clearCart } from '../../actions/actions';
 // import ShoppingCartData from './ShoppingCartData.js';
 require('./index.css');
 
@@ -17,11 +19,12 @@ class ShoppingCart extends React.Component {
 
     componentWillMount() {
         const { dispatch } = this.props;
-        dispatch(initShoppingCart())
+        dispatch(start());
+        // dispatch(initShoppingCart())
     }
     
     render(){
-        const { dispatch, itemInfo} = this.props;
+        const { dispatch, itemInfo } = this.props;
         const itemMethods = {
             increase: shopId => item => dispatch(increment(shopId, item)),
             decrease: shopId => item => {
@@ -31,10 +34,10 @@ class ShoppingCart extends React.Component {
             },
             delete: shopId => item => dispatch(deleteItem(shopId, item)),
             editState: shopId => () =>dispatch(changeShopState(shopId)),
-            toggle: shopId => () => dispatch(toggleShop(shopId))
+            toggle: shopId => () => dispatch(toggleShop(shopId)),
+            setMetionMessage:message => () => dispatch(setMetionMessage(message))
         };
         let takespace={height: '1.2rem'}
-        console.log(itemInfo.remainTime);
         return(
             <div>
 	            <div className="contentContainer">
@@ -43,6 +46,10 @@ class ShoppingCart extends React.Component {
                     <Message msgContent={itemInfo.errorMessage}
                              clearMessage={() => dispatch(setMessage(""))}
                     />
+                    <ShoppingMessage metionMsg = {itemInfo.metionMessage}
+                                     clearMessage = {() => dispatch(setMetionMessage(""))}
+                    />
+
                     {
                         itemInfo.skus.map(
                             (sku, index) => {
@@ -62,9 +69,7 @@ class ShoppingCart extends React.Component {
                                                             store={store}
                                     />)
                                 }
-                        }
-
-                        )
+                        })
                     }
                     {/*<ProductSection itemMethod={itemMethods} address={itemInfo.machineAddress} itemInfo={this.props.itemInfo}/>*/}
                     {/*<ShoppingTitle machineAddress={itemInfo.machineAddress} statusText={itemInfo.statusText}/>*/}
@@ -91,7 +96,8 @@ class ShoppingCart extends React.Component {
                     itemList={itemInfo.productList}
                     remainTime={itemInfo.remainTime}
                     clearCart={() => dispatch(clearCart())}
-                    onError={(message) => dispatch(setMessage(message))}
+                    onError={(message) => dispatch(setMetionMessage(message))}
+                    initShopCart = {()=>dispatch(initShoppingCart())}
                 />
             </div>
         );

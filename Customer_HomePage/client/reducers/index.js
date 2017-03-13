@@ -131,8 +131,16 @@ function initSuccess(content, data){
     //     count: 5
     // };
 
+    /*
+    * mock campaign
+    * */
+    // currentSub.items[0].campaign={ campaignId:1, campaignTag: '满100减20'};
+    /*
+    * end mock campaign
+    * */
+
     return Object.assign({}, content, {
-        banner: frontEndBanner,//data.banner,
+        banner: frontEndBanner, //data.banner,
         selector: selector,
         subContent: Object.assign({}, subContent, {all: currentSub}),
         currentSub: currentSub,//data.subContent['all'],,

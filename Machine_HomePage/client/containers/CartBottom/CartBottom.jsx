@@ -18,7 +18,6 @@ export default class CartBottom extends React.Component {
     }
 
     render() {
-
         let items = this.props.moreItems.map((item, index) => {
             return (
                 <Item item={item} key={index}
@@ -44,7 +43,7 @@ export default class CartBottom extends React.Component {
                         </div>
                         <div className="price-one-line clearfix">
                             <span className="price-name">优惠总计</span>
-                            <span className="price-num">¥0</span>
+                            <span className="price-num">¥{this.props.totalDiscount}</span>
                         </div>
                         {/*<div className="price-one-line clearfix">*/}
                             {/*<span className="price-name">优惠总计</span>*/}
@@ -56,7 +55,9 @@ export default class CartBottom extends React.Component {
                         {/*</div>*/}
                         <div className="price-one-line should-pay clearfix">
                             <span className="price-name">应付金额</span>
-                            <span className="price-num total-pay">¥{this.props.totalPrice}</span>
+                            <span className="price-num total-pay">¥{
+                                ((this.props.totalPrice * 100 - this.props.totalDiscount * 100) /100).toFixed(1)
+                            }</span>
                         </div>
                         <div className={"button font34 " + (this.props.totalPrice <= 0 ? 'disabled':'')}
                              disabled={this.props.totalPrice <= 0}

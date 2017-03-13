@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ProductInfo from '../ProductItem/ProductInfo/ProductInfo';
+import ProductPrice from '../ProductItem/ProductPrice/ProductPrice'
 require('./index.css');
 
 export default class ProductItemLocked extends React.Component {
@@ -11,40 +12,17 @@ export default class ProductItemLocked extends React.Component {
 
 	render(){
 	    const product = this.props.data;
+		const PRODUCT_OUT_SELL= 1; //下架
+		const PRODUCT_EMPTY_SELL= 2; //售罄
+		const PRODUCT_ON_SELL = 1 ; //在售
+		const PRODUCT_LOW_STOCK = 3 //库存不足
+		const PRODUCT_NORMAL = 0 //正常商品
 		return (
-
-			<li className='editItem font14'>
-				<ProductInfo data={product} />
-				<span className='count'>{product.count}</span>
-				<span className='icon'>X</span>
-				<span className='price'>{product.sellprice / 100}元</span>
+			<li className={"editItem font14 " + (product.err_status == PRODUCT_NORMAL ? 'normal':'')}>
+				<ProductInfo data={product} isGift={this.props.isGift} activate={this.props.activate}/>
+				<ProductPrice data={product} editStatus="false"/>
+				<div className={(product.err_status == PRODUCT_OUT_SELL || product.err_status == PRODUCT_EMPTY_SELL ? 'layer' : '')}></div>
 			</li>
-			// <div className='editContainer'>
-			// 	<div className="editTitle">
-		     //        <label className={labelClassName} onClick={this.checkboxChange}>
-		     //        </label>
-		     //        <span className='machineAddress font14'>
-		     //          {props.machineAddress}
-		     //        </span>
-		     //        <span className='editButton font14' onClick={() => console.log('edit')}>
-		     //        	编辑
-		     //        </span>
-			// 	</div>
-			// 	<ul>
-			// 		{
-			// 			props.productList.map((product, index)=>{
-			// 				return (
-			// 						<li key={index} className='editItem font14'>
-			// 							<ProductInfo data={product} />
-			// 							<span className='count'>{product.count}</span>
-			// 							<span className='icon'>X</span>
-			// 							<span className='price'>{product.sellprice}元</span>
-			// 						</li>
-			// 					);
-			// 				})
-			// 		}
-			// 	</ul>
-			// </div>
 		);
 	}
 }

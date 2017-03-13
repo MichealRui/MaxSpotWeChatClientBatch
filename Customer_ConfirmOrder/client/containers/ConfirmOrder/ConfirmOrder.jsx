@@ -82,10 +82,13 @@ class ConfirmOrder extends React.Component {
 
 	render(){
         let props = this.props.state.orderInfo;
-
         let productItems = props.childOrders.map(
             (productItem, index) =>
-                <TotalProducts key={index} productItem={productItem}/>
+                <TotalProducts key={index}
+                               productItem={productItem}
+                               store={productItem.store}
+                               promotions={productItem.promotions}
+                />
         );
         return(
             <div className='orderDetailContainer'>
@@ -96,13 +99,12 @@ class ConfirmOrder extends React.Component {
                                 {/*<span className='font14'>剩余支付时间： {props.remainTime}</span>*/}
                                 {/*</div>*/}
                             {productItems}
-                            {/*<div className="totalArea">*/}
-                            {/*<AccountDisplay name='商品总金额' money={props.actualMoney}/>*/}
-                            {/*<AccountDisplay name='商品优惠总计' money={props.productDiscount}/>*/}
-                            {/*<AccountDisplay name='总金额优惠总计' money={props.limitDiscount}/>*/}
-                            {/*</div>*/}
+                            <div className="totalArea">
+                            <AccountDisplay name='商品总金额' money={props.originalPrice / 100}/>
+                            <AccountDisplay name='商品优惠总计' money={(props.originalPrice - props.totalPrice)/100}/>
+                            </div>
                             <div className='font14 totalMoney'>
-                                <AccountDisplay name='应付金额' money={props.totalPrice/100 || 0}/>
+                                <AccountDisplay name='应付总金额' money={props.totalPrice/100 || 0}/>
                             </div>
                             <Button buttonClassName={'weiXinPay'}
                                     buttonText={'微信支付'+ (props.totalPrice/100 || 0)+'元'}

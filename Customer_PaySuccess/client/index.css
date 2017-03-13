@@ -183,6 +183,30 @@ html { overflow-y: scroll; }
     font-size: 72px !important;
 }
 
+.font26 {
+    font-size: 26px !important;
+}
+
+[data-dpr="2"] .font26 {
+    font-size: 52px !important;
+}
+
+[data-dpr="3"] .font26 {
+    font-size: 78px !important;
+}
+
+.font36 {
+    font-size: 36px !important;
+}
+
+[data-dpr="2"] .font36 {
+    font-size: 72px !important;
+}
+
+[data-dpr="3"] .font36 {
+    font-size: 108px !important;
+}
+
 .font42 {
   font-size: 42px !important;
 }

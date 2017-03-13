@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.cart-item.campaign {
+    margin:0;
+}
+
 .cart-item .categoryName{
     margin-top: 9px;
 }
@@ -171,8 +175,8 @@
 
 .cart-item .layer{
     position: absolute;
-    width: 100%;
-    height: 90%;
+    width: 90%;
+    height: 100%;
     left: 0;
     top: 0;
     background: rgba(255,255,255,.6);

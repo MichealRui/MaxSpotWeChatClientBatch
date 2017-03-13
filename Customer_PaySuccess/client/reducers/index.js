@@ -9,6 +9,10 @@ const PaySuccessData = {
 }
 
 function initSuccess(orderInfo, order) {
+    //check if exist childOrder
+    if(!order.childOrders) {
+        order.childOrders = [order]
+    }
     return Object.assign({},order);
 }
 
