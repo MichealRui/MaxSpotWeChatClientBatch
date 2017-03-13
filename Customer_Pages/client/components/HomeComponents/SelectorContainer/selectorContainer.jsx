@@ -16,6 +16,16 @@ export default class SelectorContainer extends React.Component {
         }
     }
 
+    getMiddlePic(path) {
+        let particial = path.split('.');
+        if(particial.length == 2) {
+            particial[0] = particial[0] + '_middle'
+            return particial.join('.')
+        } else {
+            return path
+        }
+    }
+
     render() {
         let swiperConfig = {
             pagination:'',
@@ -29,8 +39,15 @@ export default class SelectorContainer extends React.Component {
             slidesPerView: 4,
             spaceBetween: 0,
         };
+        let swiperConfigs1 = {
+            pagination:'',
+            freeMode: false,
+            slidesPerView: 2,
+            spaceBetween: 0,
+        }
         let swiperContainer = 'swiper-containers';
         let swiperContainers = 'swiper-containerss';
+        let freeswiperContainers = 'free-swiper-container';
         let props = this.props;
         let keys = props.selectorData;
         let tags = keys.map((selector, index) => {
@@ -55,11 +72,29 @@ export default class SelectorContainer extends React.Component {
                 )
             })
         }
+
+        let content = props.contentData;
+        let freeItems = content.freeItems;
+        // let domain = ENV.domain;
+        let domain = "http://114.215.143.97/";
+        let frees = content.freeItems && content.freeItems.length > 0 ? freeItems.map((item,index)=>{
+            return (
+                <li key={index} className="freeItems">
+                    <img className="freeItemImg" src={domain + this.getMiddlePic(item.imagePath) } alt=""/>
+                    <div className="freeItemText font14">{item.shortName}</div>
+                </li>
+            )
+        }) : '';
         return (
             <div>
                 <ul className="selectorContainer" onClick={this._onclick.bind(this)}>
                     <Swiper swiperConfig={swiperConfig} swiperContainer={swiperContainer}>
                         {tags}
+                    </Swiper>
+                </ul>
+                <ul className={"selectorContainer freeitem " + (content.freeItems && content.freeItems.length ? "m02" : 'hide')}>
+                    <Swiper swiperConfig={swiperConfigs1} swiperContainer={freeswiperContainers}>
+                        {frees}
                     </Swiper>
                 </ul>
                 <ul className="selectorContainer sub">
@@ -76,6 +111,7 @@ export default class SelectorContainer extends React.Component {
 SelectorContainer.PropTypes = {
     selectorData:React.PropTypes.Array,
     currentSelector:React.PropTypes.object,
+    contentData:React.PropTypes.object,
 };
 
 SelectorContainer.defaultProps = {
@@ -83,5 +119,8 @@ SelectorContainer.defaultProps = {
     currentSelector :{
         key : '',
         subKey : ''
+    },
+    contentData : {
+        freeItems : []
     }
 };

@@ -7,12 +7,16 @@
     border-bottom: 1px solid #eeeeee;
     padding-left: 0.2rem;
     overflow: hidden;
+    box-sizing: border-box;
 }
-.selectorContainer .swiper-containerss{
-    width: 88%;
-}
+
 .selectorContainer.sub{
     padding: 0;
+}
+
+.selectorContainer.sub .swiper-containerss{
+    /*margin: 0;*/
+    width: 80%;
 }
 
 .selectorContainer .subSelector{
@@ -25,4 +29,47 @@
 }
 .selectorContainer .swiper-containers{
     overflow:visible;
+}
+
+.selectorContainer.freeitem{
+    padding: 0.2rem;
+}
+.selectorContainer.freeitem.m02{
+    margin-bottom: 0.2rem;
+}
+.selectorContainer.freeitem.hide{
+    display: none;
+}
+
+
+.selectorContainer.freeitem .free-swiper-container{
+    margin: 0;
+}
+
+.selectorContainer .freeItems{
+    height: 2.1rem;
+    width: 90%;
+    position: relative;
+}
+
+.selectorContainer .freeItems:after{
+    content:'';
+    width:0;
+    height: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.selectorContainer .freeItems .freeItemImg{
+    width: 40%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.selectorContainer .freeItems .freeItemText{
+    display: inline-block;
+    vertical-align: middle;
+    width: 45%;
+    margin-left: 5%;
 }
