@@ -28,33 +28,33 @@ export default class ProductSection extends React.Component {
         let {store, itemInfo} = this.props;
         let editable = store[itemInfo.id].editable;
         console.log('editable:' + editable);
-        let {campaignId, campaignTag, presentSku, list, totalDiscount, activate, initStatus} = campaignDetail;
+        let {campaignId, campaignTag, presentSku, list, activate, isAllSku} = campaignDetail;
 
         let productStructure = list.length > 0 ?
-            (
                 <ul className="campaignContainer">
                     {
-                        campaignId ? <div className={"font11 campaignTag "+ (activate?"activate":"fail")}>
-                            { (activate?"已满足 ":"不满足 ") + "【"+campaignTag+"】"}
+                        campaignId && !isAllSku ?
+                            <div className={"font11 campaignTag "+ (activate?"activate":"fail")}>
+                                { (activate?"已满足 ":"不满足 ") + "【"+campaignTag+"】"}
                             </div>:null
                     }
                     {
-                        !editable ? list.map(product =>
-                            <ProductItemLocked key={product.skuNumber} data={product}/>
-                        ) : list.map(product => <ProductItem key={product.skuNumber} data={product}
+                        !isAllSku ?
+                            (!editable ? list.map(product =>
+                                <ProductItemLocked key={product.skuNumber} data={product}/>
+                            ) : list.map(product =>
+                                <ProductItem key={product.skuNumber} data={product}
                                          increase={this._itemMethod.increase}
                                          decrease={this._itemMethod.decrease}
                                          delete={this._itemMethod.delete}
-                            />
-                        )
+                                />)) : null
                     }
                     {
                         presentSku ? <ProductItemLocked data={presentSku} isGift={true} activate={activate}/> : null
                     }
                 </ul>
-            ) : null;
-
-
+             : null;
+        
         return new Array(productStructure)
     }
 

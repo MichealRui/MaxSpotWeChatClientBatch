@@ -14,7 +14,14 @@ export default class ProductInfo extends React.Component {
 		return(
 			<li className='productInfoContainer'>
 				<div className='productInfo'>
-					<img src={sku.imagePath} className='productImg' />
+					<div className="productImg">
+						<img src={'http://114.215.143.97' + sku.imagePath} className='productImg' />
+						{
+							sku.isPresent ?
+								<span className={"giftBanner font12 activate"}>赠品</span> : null
+						}
+
+					</div>
 					<span className='brandProductContainer'>
 						<p className='productName font12'>{sku.brandName}</p>
 						<p className='productDesc font14'>{sku.shortName}</p>

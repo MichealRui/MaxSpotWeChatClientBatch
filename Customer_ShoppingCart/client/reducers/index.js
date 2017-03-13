@@ -60,13 +60,10 @@ function calcuTotalSum(itemInfo) {
 
 function finalState(itemInfo) {
     /* deal with campaign*/
-
     itemInfo.skus.forEach(
         sku => sku.campaignedProductList =
             dealCampaign(sku.campaigns, sku.productList)
-            //(operator_computeCampaignListSum)
             (operator_computeCampaignByType)
-            // (operator_computeCampaignDetail)
     );
     /* end deal with campaign*/
 
@@ -320,14 +317,13 @@ function dealCampaign(campaigns, productList) {
     );
 
     /* deal global campaign */
-    // let globalCampaign = campaigns.find( campaign => campaign.isAllSku );
-    // if(globalCampaign) {
-    //     campaignedProductList.push(
-    //         Object.assign({}, { list: productList }, globalCampaign )
-    //     )
-    // }
+    let globalCampaign = campaigns.find( campaign => campaign.isAllSku );
+    if(globalCampaign) {
+        campaignedProductList.push(
+            Object.assign({}, { list: productList }, globalCampaign )
+        )
+    }
     /* end deal global campaign */
-
     campaignedProductList.push(
         { list: productList.filter ( product => !product.campaign ) }
     );
