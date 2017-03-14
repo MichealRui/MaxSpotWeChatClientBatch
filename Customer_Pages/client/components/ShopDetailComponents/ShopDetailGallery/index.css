@@ -1,3 +1,6 @@
+.ShopDetailGallery{
+    position: relative;
+}
 .ShopDetailGallery .fr {
     position: absolute;
     right: 0.65rem;
@@ -28,4 +31,10 @@
 }
 .ShopDetailGallery .fll{
     float: left;
+}
+.ShopDetailGallery .shop_text{
+    position: absolute;
+    top: -0.58888888rem;
+    left: 0.388888888rem;
+
 }

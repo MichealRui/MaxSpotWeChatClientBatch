@@ -20,6 +20,7 @@ export default class ShopDetailGallery extends React.Component {
         )
         return (
             <div className="ShopDetailGallery">
+                <div className="shop_text font16">位置图片</div>
                 <ul className="imageContainer">
                     {img_list}
                 </ul>

@@ -75,8 +75,8 @@ export default class SelectorContainer extends React.Component {
 
         let content = props.contentData;
         let freeItems = content.freeItems;
-        // let domain = ENV.domain;
-        let domain = "http://114.215.143.97/";
+        let domain = ENV.domain;
+        // let domain = "http://114.215.143.97/";
         let frees = content.freeItems && content.freeItems.length > 0 ? freeItems.map((item,index)=>{
             return (
                 <li key={index} className="freeItems">

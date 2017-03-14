@@ -48,7 +48,7 @@
 
 .selectorContainer .freeItems{
     height: 2.1rem;
-    width: 90%;
+    /*width: 90%;*/
     position: relative;
 }
 
@@ -70,6 +70,6 @@
 .selectorContainer .freeItems .freeItemText{
     display: inline-block;
     vertical-align: middle;
-    width: 45%;
+    width: 50%;
     margin-left: 5%;
 }
