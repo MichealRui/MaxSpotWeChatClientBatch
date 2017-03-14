@@ -29,7 +29,7 @@ export default class PaySuccessHeader extends React.Component {
 					<Link to="/">
 						<div className="btn_fetch c_999 font14 fl" >继续购物</div>
 					</Link>
-					<Link to="/">
+					<Link to="/orderList">
 						<div className="btn_fetch c_999 font14 fr" >查看订单</div>
 					</Link>
 				</div>
