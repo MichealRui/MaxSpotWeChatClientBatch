@@ -33,7 +33,6 @@ export default class PaySuccessHeader extends React.Component {
 						<div className="btn_fetch c_999 font14 fr" >查看订单</div>
 					</Link>
 				</div>
-
 			</div>
 		);
 	}

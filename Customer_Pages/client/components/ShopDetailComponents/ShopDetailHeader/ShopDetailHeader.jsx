@@ -12,7 +12,7 @@ export default class ShopDetailHeader extends React.Component{
         return (
             <div className="ShopDetailHeader">
                 <img className="shopImg" src={ENV.domain + props.storeInfo.imagePath} />
-                <div className="shopName">{props.storeInfo.name}</div>
+                <div className="shopName font14">{props.storeInfo.name}</div>
                 <span className={'fa fa-heart active fa-1 favourite'} aria-hidden="true"></span>
             </div>
         )

@@ -12,19 +12,19 @@ export default class ShopDetailInfo extends React.Component {
         return (
             <ul className="ShopDetailInfo">
                 <li>
-                    <span className="fa fa-map-marker icon" aria-hidden="true"></span>
+                    <span className="fa fa-map-marker icon font20" aria-hidden="true"></span>
                     <p className="content font14">{props.storeInfo.address}</p>
-                    <span className="fa fa-angle-right rightArrow"></span>
+                    <span className="fa fa-angle-right rightArrow font20"></span>
                 </li>
                 <li>
-                    <span className="fa fa-clock-o icon"></span>
-                    <p className="content">{props.storeInfo.openingTime}</p>
-                    <span className="fa fa-angle-right rightArrow"></span>
+                    <span className="fa fa-clock-o icon font20" ></span>
+                    <p className="content font14">{props.storeInfo.openingTime}</p>
+                    {/*<span className="fa fa-angle-right rightArrow font20"></span>*/}
                 </li>
                 <li>
-                    <span className="fa fa-phone icon"></span>
-                    <p className="content">{props.storeInfo.phone}</p>
-                    <span className="fa fa-angle-right rightArrow"></span>
+                    <span className="fa fa-phone icon font20"></span>
+                    <p className="content font14">{props.storeInfo.phone}</p>
+                    {/*<span className="fa fa-angle-right rightArrow font20"></span>*/}
                 </li>
             </ul>
         )
