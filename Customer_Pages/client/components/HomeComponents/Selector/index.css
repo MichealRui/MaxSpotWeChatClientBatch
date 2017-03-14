@@ -16,6 +16,8 @@
 }
 
 .selector .itemIcon img{
+	/*width: 1.555556rem;*/
+	/*height: 1.555556rem;*/
 	width: 100%;
 	/*transition: all 1s;*/
 	/*-moz-transition: all 1s; !* Firefox 4 *!*/
@@ -37,7 +39,7 @@
 	position: absolute;
 	width: 100%;
 	text-align: center;
-	bottom: 0px;
+	bottom: 0;
 	padding: 4px 0;
 	left: 0;
 	border: 1px solid transparent;
