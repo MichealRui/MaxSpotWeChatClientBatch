@@ -29,7 +29,7 @@ class TakeGoodsContainer extends React.Component {
     }
 
     fetchO(od) {
-        const Taking = 1;
+        const Taking = 4;
         const {dispatch,state} = this.props;
         let status = 0;
         if(state.orderDetail.order){
