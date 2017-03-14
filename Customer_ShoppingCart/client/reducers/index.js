@@ -33,7 +33,7 @@ function calcuShopSum(itemInfo) {
             .reduce((pre, next) => pre + next , 0);
         sku.shopSum = (
             sku.productList.map(
-                product => product.err_status != PRODUCT_ON_SELL ? 0 : product.count * product.sellprice
+                product => !product.err_status ? product.count * product.sellprice : 0
             ).reduce(
                 (previous, current, index, array) => previous + current, 0) - sku.shopDiscount
             ) / 100
