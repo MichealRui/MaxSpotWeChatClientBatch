@@ -219,10 +219,11 @@ export function initSuccess(content) {
 //     }
 // }
 
-export function changeSubContent(key) {
+export function changeSubContent(key,subKey) {
     return {
         type: actionTypes.CHANGE_SUBCONTENT,
-        key
+        key,
+        subKey
     }
 }
 

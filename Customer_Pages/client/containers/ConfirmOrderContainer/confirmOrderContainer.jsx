@@ -41,8 +41,8 @@ class ConfirmOrderContainer extends React.Component {
                 fail: function(r){
                     console.log('fail');
                     console.log(r);
-                    // routers.push('/orderList/');
-                    routers.push('/paySucc/'+orderNum)
+                    routers.push('/orderList/');
+                    // routers.push('/paySucc/'+orderNum)
                     // window.location.href =
                     //     ENV.domain + '/buyer_orderlist/index.html'
                 },

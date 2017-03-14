@@ -1,5 +1,6 @@
 .selector {
-	width: 16.66666%;
+	/*width: 16.66666%;*/
+	width: 80%;
 	text-align: center;
 	display: inline-block;
 	cursor: pointer;
@@ -7,18 +8,19 @@
 }
 .selector .itemIcon {
 	display: block;
-	width: 0.972222rem;
-	height: 0.972222rem;
-	color: #71ccf2;
-	margin: 0 auto;
+	/*width: 0.972222rem;*/
+	/*height: 0.972222rem;*/
+	/*color: #71ccf2;*/
+	/*margin: 0 auto;*/
+	width: 100%;
 }
 
 .selector .itemIcon img{
 	width: 100%;
-	transition: all 1s;
-	-moz-transition: all 1s; /* Firefox 4 */
-	-webkit-transition: all 1s; /* Safari 和 Chrome */
-	-o-transition: all 1s;
+	/*transition: all 1s;*/
+	/*-moz-transition: all 1s; !* Firefox 4 *!*/
+	/*-webkit-transition: all 1s; !* Safari 和 Chrome *!*/
+	/*-o-transition: all 1s;*/
 }
 
 .selector .itemIcon.activated img{
@@ -28,10 +30,37 @@
 
 
 .selector .itemName {
-	display: block;
-	color: rgba(0,0,0,.8);
-	margin-top: 0.261111rem;
-	line-height: 1;
+	/*display: block;*/
+	color: rgba(255,255,255,.8);
+	/*margin-top: 0.261111rem;*/
+	/*line-height: 1;*/
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 0px;
+	padding: 4px 0;
+	left: 0;
+	border: 1px solid transparent;
+	/* background: #ff0; */
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	box-sizing: border-box;
+	/*color: #fff;*/
+}
+
+.selector .itemName.activated{
+	background-color: #ff7860;
+}
+
+.selector .itemName.activated:after{
+	content: '';
+	position: absolute;
+	border:2px solid #ff7860;
+	bottom: -0.3rem;
+	width: 50%;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 .selector .triangle {
