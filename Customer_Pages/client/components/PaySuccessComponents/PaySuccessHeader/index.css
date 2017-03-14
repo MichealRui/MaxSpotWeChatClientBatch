@@ -1,11 +1,20 @@
 .PaySuccessHeader{
     position: relative;
     width: 100%;
-    background: #05af10;
+    /*background: #05af10;*/
+    background-color: #FFFFFF;
     overflow: hidden;
 }
 .PaySuccessHeader .white{
     color:#fff;
+    text-align: center;
+}
+.PaySuccessHeader .black{
+    color:#000;
+    text-align: center;
+}
+.PaySuccessHeader .b5b5b5{
+    color: #b5b5b5;
     text-align: center;
 }
 .PaySuccessHeader .smile{
@@ -16,7 +25,7 @@
     text-align: center;
 }
 .PaySuccessHeader .smile>img{
-    width: 2.514rem;
+    width: 70%;
 }
 .PaySuccessHeader .title{
     line-height: 40px;
@@ -27,12 +36,25 @@
     opacity: 0.7;
     line-height: 22px;
 }
+.PaySuccessHeader .btn_all{
+    margin: 0 1.875rem;
+}
 .PaySuccessHeader .btn_fetch{
-    border: 1px solid rgba(255,255,255,0.5);
+    border: 1px solid #b5b5b5;
     border-radius: 26px;
-    width: 3.5rem;
+    width: 2.63rem;
     height: 0.9722rem;
     text-align: center;
     margin: 0.528rem auto;
     line-height: 0.9722rem;
+    display: inline-block;
+}
+.PaySuccessHeader .c_999{
+    color: #999;
+}
+.PaySuccessHeader .fl{
+    float: left;
+}
+.PaySuccessHeader .fr{
+    float: right;
 }

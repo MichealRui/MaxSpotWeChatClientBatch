@@ -1,6 +1,7 @@
 .PaySuccOrderItem{
     position: relative;
     border-bottom: 1px solid #ccc;
+    border-top:1px solid #ccc;
     height: 2rem;
     padding:0 0.3rem;
     background: #FFFFFF;
@@ -42,10 +43,18 @@
 .PaySuccOrderItem .blue{
     color:#b9e8f9;
 }
+.PaySuccOrderItem .c_999{
+    color:#999;
+}
 .PaySuccOrderItem .fr{
     float: right;
 }
 
 .PaySuccOrderItem .fl{
     float: left;
+}
+.PaySuccOrderItem .btn_fetch{
+    background-color: #ff7860;
+    margin: 0;
+    color: #FFFFFF;
 }

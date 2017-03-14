@@ -3,6 +3,7 @@
 require('./index.css');
 import React from 'react';
 import {Link} from 'react-router'
+import Button from '../../CommoonComponents/Button/Button'
 
 export default class PaySuccOrderItem extends React.Component {
 	constructor(props){
@@ -20,13 +21,14 @@ export default class PaySuccOrderItem extends React.Component {
 			<li className='PaySuccOrderItem clearfix'>
 				<div className='fl orderInfo'>
 					<div className='address font14'>{props.orderInfo.store.name}</div>
-					<div className='code font14 blue'>订单号：{props.orderInfo.orderNumber}</div>
+					<div className='code font14 c_999'>订单号：{props.orderInfo.orderNumber}</div>
 				</div>
 				<div className='fr orderAction'>
 					<Link to={"/takeGoods/"+props.orderInfo.orderNumber}>
-						<div className='fl btn_fetch font14 action1'>立即取货</div>
+						<Button buttonClassName="btn_fetch" buttonText="立即取货"/>
+						{/*<div className=' btn_fetch font14 action1'>立即取货</div>*/}
 					</Link>
-					<div className="fr font20 action2"> > </div>
+					{/*<div className="fr font20 action2 hide"> > </div>*/}
 				</div>
 			</li>
 		);

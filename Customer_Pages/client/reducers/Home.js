@@ -37,7 +37,6 @@ function changeSubContent(content, {key,subKey}) {
 }
 
 function initSuccess(content, data){
-
     let frontEndBanner = [{
         destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
         imagePath: require('../components/HomeComponents/BannerContainer/images/nuddlebanner.jpg')
@@ -114,11 +113,6 @@ function initSuccess(content, data){
     })
 }
 
-function changeContent(content,{key,subKey}) {
-    let newContent = Object.assign({},content);
-    let target = newContent.subContent[key];
-    //newContent.currentSub = Object.assign({},newContent)
-}
 
 function initFail(content, message) {
     return Object.assign({}, content, {errorMessage: message.errorMessage})
