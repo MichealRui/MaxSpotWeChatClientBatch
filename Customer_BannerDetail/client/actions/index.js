@@ -25,7 +25,7 @@ export const SUCCESS_ADD_CART = 'SUCCESS_ADD_CART';
 
 export const SET_MESSAGE = 'SET_MESSAGE';
 
-const domain = ENV.domain;
+const domain = ''//ENV.domain;
 export function initBanner(storeId) {
     return (dispatch)=>{
         /*//todo fetch
@@ -68,7 +68,9 @@ export function initBanner(storeId) {
                         dispatch(initSuccess({
                             storeId : storeId,
                             skus:dataDetail.products,
+                            banner:dataDetail.banner
                         }));
+                        dispatch(initCart())
 
     };
 }
@@ -128,10 +130,11 @@ export function initStart() {
     }
 }
 
-export function initSuccess(cont) {
+export function initSuccess(cont, banner) {
     return {
         type: INIT_SUCCESS,
-        cont
+        cont,
+        banner
     }
 }
 

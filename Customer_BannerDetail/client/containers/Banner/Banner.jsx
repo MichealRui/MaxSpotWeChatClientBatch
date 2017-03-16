@@ -13,7 +13,7 @@ class BrandContainer extends React.Component {
 	}
 	componentWillMount(){
 	    let param = Util.getUrlParam();
-		let storeId = param.storeid;
+		let storeId = param.store_id;
 		const {dispatch} = this.props;
 		dispatch(initBanner(storeId));
 	}
@@ -22,7 +22,7 @@ class BrandContainer extends React.Component {
         console.log(itemInfo);
 		return(
 			<div className='brandContainer'>
-				<Header/>
+				<Header banner={itemInfo.banner}/>
 				{/*<div className="storeinfo"><p className="font12">{itemInfo.brand.story}</p></div>*/}
 				<div className="iteminfo">
 					<ul>

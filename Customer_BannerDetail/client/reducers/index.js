@@ -9,11 +9,12 @@ import {ERROR_ADD_CART, SUCCESS_ADD_CART} from '../actions/index'
 const domain = ENV.domain;//'http://114.215.143.97';
 const defaultState = {
     skus:[],
-    brand:[]
+    brand:[],
+    banner:''
     // 'total':0
 };
 
-function initSucc(itemInfos, item) {
+function initSucc(itemInfos, item, banner) {
     // let brand = item.brand;
     // let skus = item.skus;
     // let info = [];
@@ -35,7 +36,7 @@ function initSucc(itemInfos, item) {
     //     'intro':brand.story,
     //     'info':info
     // }
-    return Object.assign({}, item)
+    return Object.assign({}, item);
     // return Object.assign({},itemInfos, brandinfo);
 }
 
@@ -65,7 +66,7 @@ function initFail(itemInfo,message) {
 export default function (itemInfo = defaultState,action) {
     switch (action.type){
         case INIT_SUCCESS:
-            return initSucc(itemInfo, action.cont);
+            return initSucc(itemInfo, action.cont, action.banner);
         case INIT_FAIL:
             return initFail(itemInfo,action.message);
         case ERROR_ADD_CART:
