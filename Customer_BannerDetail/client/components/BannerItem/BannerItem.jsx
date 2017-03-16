@@ -74,7 +74,7 @@ export default class BannerItem extends React.Component {
 						}
 					</div>
 					{
-						props.quantity > 0 ?
+						item.quantity > 0 ?
 							(
 								<AddCart itemInfo={item} storeId={storeId} itemClick={this.props.addToCart}/>
 							) : soldOut
