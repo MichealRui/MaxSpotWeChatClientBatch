@@ -2,6 +2,9 @@
 import React from 'react'
 import Selector from '../Selector/index'
 import Swiper from '../../CommoonComponents/Swiper/index'
+import {Link} from 'react-router';
+import util from '../../../util/WeChatUtil';
+import LazyLoad from 'react-lazy-load';
 require('./index.css');
 
 export default class SelectorContainer extends React.Component {
@@ -16,15 +19,6 @@ export default class SelectorContainer extends React.Component {
         }
     }
 
-    getMiddlePic(path) {
-        let particial = path.split('.');
-        if(particial.length == 2) {
-            particial[0] = particial[0] + '_middle'
-            return particial.join('.')
-        } else {
-            return path
-        }
-    }
 
     render() {
         let swiperConfig = {
@@ -50,6 +44,8 @@ export default class SelectorContainer extends React.Component {
         let freeswiperContainers = 'free-swiper-container';
         let props = this.props;
         let keys = props.selectorData;
+        let defaultImg = DEFALUT_INFO.defaultImg;
+
         let tags = keys.map((selector, index) => {
             return (
                 <Selector
@@ -79,10 +75,19 @@ export default class SelectorContainer extends React.Component {
         let domain = "http://114.215.143.97";
         let frees = content.freeItems && content.freeItems.length > 0 ? freeItems.map((item,index)=>{
             return (
-                <li key={index} className="freeItems">
-                    <img className="freeItemImg" src={domain + this.getMiddlePic(item.imagePath) } alt=""/>
-                    <div className="freeItemText font14">{item.shortName}</div>
-                </li>
+                <Link key={index} to={"/productDetail/"+props.storeData.id+"/"+item.skuNumber}>
+                    <li className="freeItems">
+                        {item.imagePath ?
+                            <LazyLoad className="freeItemImg">
+                                <img className="" src={domain + util.getMiddlePic(item.imagePath) } alt=""/>
+                            </LazyLoad> :
+                            <LazyLoad className="freeItemImg">
+                                <img className="" src={defaultImg} alt=""/>
+                            </LazyLoad>
+                        }
+                        <div className="freeItemText font14">{item.shortName}</div>
+                    </li>
+                </Link>
             )
         }) : '';
         return (
@@ -112,6 +117,7 @@ SelectorContainer.PropTypes = {
     selectorData:React.PropTypes.Array,
     currentSelector:React.PropTypes.object,
     contentData:React.PropTypes.object,
+    storeData:React.PropTypes.object,
 };
 
 SelectorContainer.defaultProps = {
@@ -122,5 +128,8 @@ SelectorContainer.defaultProps = {
     },
     contentData : {
         freeItems : []
+    },
+    storeData : {
+        id : 0
     }
 };

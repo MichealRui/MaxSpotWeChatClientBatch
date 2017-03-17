@@ -3,15 +3,12 @@
 require ('./index.css');
 import React from 'react';
 import {Link} from 'react-router'
+import util from '../../../util/WeChatUtil';
+import LazyLoad from 'react-lazy-load';
+
 export default class ShopItem extends React.Component {
 	constructor(props){
 		super(props);
-	}
-
-    shopClick() {
-        let id = this.props.id;
-        // window.location.href = ENV.domain + '/buyer_shopdetail/index.html?storeid=' + id
-		window.location.href = ENV.domain + '/buyer_home/index.html?storeid=' + id
 	}
 
     shopDetailClick(event){
@@ -24,10 +21,16 @@ export default class ShopItem extends React.Component {
 
 	render(){
 		let props = this.props;
+		let defaultImg = DEFALUT_INFO.defaultImg;
+		let domain = ENV.domain;
+		domain = "http://114.215.143.97/";
 		return (
 			<Link to={"/"+ this.props.id}>
 				<div className='shopItem'>
-					<img src={ENV.domain + '/' + props.imagePath} className='shopImg' />
+					{
+						props.imagePath ? <img src={domain+ util.getMiddlePic(props.imagePath)} className='shopImg' /> :
+							<img src={defaultImg} className='shopImg' />
+					}
 					<div className='infoArea'>
 						<h1 className='font15'>{props.name}
 							<span className="font14 icon1 getStoreInfo" onClick={this.shopDetailClick.bind(this)}>i</span>

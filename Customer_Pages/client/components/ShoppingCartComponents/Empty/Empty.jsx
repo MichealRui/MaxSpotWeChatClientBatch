@@ -9,16 +9,15 @@ export default class Empty extends React.Component {
         super(props);
     }
 
-    searchClick(){
-        window.location.href = ENV.domain + '/buyer_home/index.html'
-    }
-    
     render(){
         const props = this.props;
         let newInfo = props.itemInfo.filter(
             sku => sku.productList && sku.productList.length > 0
         );
-        let style = (!newInfo || newInfo.length == 0) ? {display:'block'} : {display:'none'};
+        let style = {};
+        // let style = this.state.show_empty ? {display:'block'} : {display:'none'};
+        // let style = props.showEmpty ? {display:'block'} : {display:'none'};
+        // let style = newInfo && newInfo.length > 0 ? {display:'none'} : {display:'block'};
         return(
             <div className='item_empty' style={style}>
                 <div className="image"><img src={require('./images/empty.png')} className='logo'/></div>
@@ -34,11 +33,13 @@ export default class Empty extends React.Component {
 }
 
 Empty.PropTypes = {
-    itemInfo:React.PropTypes.array
+    itemInfo:React.PropTypes.array,
+    showEmpty : React.PropTypes.bool
 }
 
 Empty.defaultProps = {
     itemInfo : [],
+    showEmpty : false
 }
 
 

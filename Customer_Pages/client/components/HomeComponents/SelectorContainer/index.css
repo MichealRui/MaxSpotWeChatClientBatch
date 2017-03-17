@@ -65,6 +65,10 @@
     width: 40%;
     height: auto;
     vertical-align: middle;
+    display: inline-block;
+}
+.selectorContainer .freeItems .freeItemImg>img{
+   width: 100%;
 }
 
 .selectorContainer .freeItems .freeItemText{
@@ -72,4 +76,5 @@
     vertical-align: middle;
     width: 50%;
     margin-left: 5%;
+    color : #000;
 }

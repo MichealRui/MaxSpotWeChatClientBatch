@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import util from '../../../util/WeChatUtil'
 require('./index.css');
 
 export default class OrderProductItemList extends React.Component {
@@ -8,21 +9,17 @@ export default class OrderProductItemList extends React.Component {
 		super(props);
 	}
 
-	// getMiddlePic(path) {
-	// 	let particial = path.split('.');
-	// 	if(particial.length == 2) {
-	// 		particial[0] = particial[0] + '_middle'
-	// 		return particial.join('.')
-	// 	} else {
-	// 		path
-	// 	}
-	// }
 
 	render(){
 		let productItemList = this.props.productItemList;
+		let defaultImg = DEFALUT_INFO.defaultImg;
+		// let domain = ENV.domain;
+		let domain = "http://114.215.143.97";
 		let orderProductItemList = [];
 		productItemList.forEach(function(item, index){
-			orderProductItemList.push(<li key={index}><img src={item.sku.imagePath} /></li>);
+			let imginfo = item.sku.imagePath ? <li key={index}><img src={domain + util.getMiddlePic(item.sku.imagePath)} /></li>
+				:<li key={index}><img src={defaultImg} /></li>;
+			orderProductItemList.push(imginfo);
 		});
 		return(
 			<div className='orderProductItemList'>

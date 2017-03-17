@@ -24,7 +24,7 @@ class ShoppingCartContainer extends React.Component {
 
     render(){
         const {state,dispatch} = this.props;
-        const {shoppingCart,message} = state;
+        const {shoppingCart,message,cart} = state;
         const itemMethods = {
             increase : shopId => item => dispatch(incrementItem(Object.assign({},{storeId:''+shopId,skuId:''+item.id,count:"1"},{skuNumber:item.skuNumber}))),
             decrease : shopId => item => {
@@ -33,14 +33,18 @@ class ShoppingCartContainer extends React.Component {
                 }
             },
             delete : shopId => item => dispatch(deleteItem(Object.assign({},{storeId:''+shopId,skuId:''+item.id,count:""+item.count},{skuNumber:item.skuNumber}))),
-            editState : shopId => () =>dispatch(changeShopState(shopId)),
+            editState : shopId => () => dispatch(changeShopState(shopId)),
             toggle : shopId => () => dispatch(toggleShop(shopId)),
             setMetionMessage : shopId => message => () => dispatch(setMetionMessage(message))
         };
         const bottomMsg = {
 
         }
-        let {metionMessage,skus,activateShop,totalMoney,order_number} = shoppingCart;
+        let {metionMessage,skus,activateShop,totalMoney,order_number,show_empty} = shoppingCart;
+        let count =  0;
+        if(cart){
+            count = cart.cart ? cart.cart.count : 0
+        }
         let takespace = {height:'1.2rem'};
         return (
             <div>
@@ -58,7 +62,9 @@ class ShoppingCartContainer extends React.Component {
                         activateShop = {activateShop}
                         itemMethods = {itemMethods}
                     />
-                    <Empty itemInfo = {skus}/>
+                    {
+                        show_empty && count == 0 ? <Empty itemInfo = {skus}/> : ''
+                    }
                     <BottomBar
                         totalMoney = {totalMoney}
                         activateStore = {activateShop}

@@ -81,6 +81,15 @@ function initSuccess(content,data) {
     const PRODUCT_NORMAL = 0; //库存正常
     let metionCode = PRODUCT_NORMAL;
     let info = {skus:data};
+    info.show_empty = true;
+    if(data && data.length > 0){
+        data.forEach((item,index)=>{
+            if(item.productList && item.productList.length > 0 ){
+                info.show_empty = false;
+                return;
+            }
+        })
+    }
     let pageStatus = {editable:false,activated:true,commited:true};
     info.skus.forEach(
         sku => {
@@ -173,13 +182,23 @@ function changeShopState(itemInfo,shopId) {
 }
 
 function succDeleteItem(itemInfo,item) {
-    let newItemList = Object.assign({},itemInfo);
+    let tempInfo = JSON.parse(JSON.stringify(itemInfo));
+    let newItemList = Object.assign({},tempInfo);
     newItemList.skus.map(sku => {
         if(sku.id == item.storeId){
             let list = sku.productList;
             sku.productList = list.filter(it=>it.skuNumber!=item.skuNumber);
         }
     });
+    newItemList.show_empty = true;
+    if(newItemList.sku && newItemList.sku.length > 0){
+        newItemList.forEach((item)=>{
+            if(item.productList && item.productList.length > 0){
+                newItemList.show_empty = false;
+                return;
+            }
+        })
+    }
     return finalState(newItemList)
 }
 

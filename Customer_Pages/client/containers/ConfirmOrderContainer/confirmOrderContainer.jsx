@@ -31,16 +31,12 @@ class ConfirmOrderContainer extends React.Component {
                 signType: "MD5",
                 paySign: config.paySign,
                 success: function(r){
-                    console.log('succes');
-                    console.log(r);
                     routers.push('/paySucc/'+orderNum);
                     // let order = Util.getUrlParam().ordernumber;
                     // window.location.href =
                     //     ENV.domain + '/buyer_paysucc/index.html?ordernumber=' + order
                 },
                 fail: function(r){
-                    console.log('fail');
-                    console.log(r);
                     routers.push('/orderList/');
                     // routers.push('/paySucc/'+orderNum)
                     // window.location.href =
@@ -48,8 +44,7 @@ class ConfirmOrderContainer extends React.Component {
                 },
                 cancel: function(r){
                     //todo
-                    console.log(r);
-                    console.log('cancel')
+                    routers.push('/orderList/');
                 }
             })
         })

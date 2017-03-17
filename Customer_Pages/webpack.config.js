@@ -117,7 +117,9 @@ var envConfig = {
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
       }),
       new webpack.ProvidePlugin({
-          ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development')
+          ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development'),
+          // DEFALUT_INFO : __dirname + '/client/env/' + (process.env.NODE_ENV || 'development'),
+          DEFALUT_INFO : __dirname + '/client/defaultInfo/development',
       }),
     ]
   }

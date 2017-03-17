@@ -2,6 +2,7 @@
 
 import React from 'react';
 import AccountDisplay from '../AccountDisplay/AccountDisplay'
+import util from '../../../util/WeChatUtil'
 require ('./index.css');
 
 export default class OrderProductInfo extends React.Component {
@@ -12,10 +13,19 @@ export default class OrderProductInfo extends React.Component {
 	render(){
 		let props = this.props;
 		let sku = props.product.sku;
+		let defaultImg = DEFALUT_INFO.defaultImg;
+		// let domain = ENV.domain;
+		let domain = "http://114.215.143.97";
 		return(
 			<li className='orderProductInfo'>
 				<div className='productInfo'>
-					<img src={sku.imagePath} className='productImg' />
+					{
+						sku.imagePath ?
+							<img src={domain + util.getMiddlePic(sku.imagePath)} className='productImg' />
+							:
+							<img src={defaultImg} className='productImg' />
+					}
+
 					<span className='orderProductContainer'>
 						<p className='productName font12'>{sku.brandName}</p>
 						<p className='productDesc font14'>{sku.shortName}</p>

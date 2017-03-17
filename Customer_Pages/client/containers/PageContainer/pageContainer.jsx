@@ -105,6 +105,7 @@ class PageContainer extends React.Component {
                                  onSelectClick={ (key,subKey) => dispatch(changeSubContent(key,subKey)) }
                                  currentSelector = {content.currentSelector}
                                  contentData = {content.currentSub}
+                                 storeData={content.storeInfo}
                 />
                 <SubContent
                     contentData={content.currentSub}

@@ -3,6 +3,7 @@
 /*require('./index.css');*/
 
 import React from 'react';
+import util from '../../../../util/WeChatUtil';
 require('./index.css');
 export default class ProductInfo extends React.Component{
 	constructor(props){
@@ -11,10 +12,19 @@ export default class ProductInfo extends React.Component{
 
 	render(){
 		const props = this.props.data;
+		let defaultImg = DEFALUT_INFO.defaultImg;
+		// let domain = ENV.domain;
+		let domain = "http://114.215.143.97";
 		return (
 			<div className="productInfo">
 				<div className="productImg">
-					<img src={props.imagePath}/>
+					{
+						props.imagePath ?
+							<img src={domain + util.getMiddlePic(props.imagePath)}/>
+							:
+							<img src={defaultImg}/>
+					}
+
 				</div>
 				<div className="wrapper">
 					<p className='productName font14'>{props.brandName} {props.name} </p>

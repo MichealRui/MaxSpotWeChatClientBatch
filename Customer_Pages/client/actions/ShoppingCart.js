@@ -3,6 +3,7 @@ import * as actionTypes from '../actionTypes/ShoppingCart';
 import * as cartAction from './Cart';
 import * as messageAction from './Message';
 
+
 const domain = ENV.domain;
 
 export function initShoppingCart() {
@@ -54,6 +55,7 @@ export function deleteItem(item) {
                 json => {
                     if(json.is_succ){
                         dispatch(succDeleteItem(item))
+                        dispatch(cartAction.initCart())
                     }else{
                         dispatch(messageAction.setMessage({errorMessage:json.error_message}))
                     }
@@ -163,9 +165,11 @@ export function submitCart(stores) {
                     // window.location.href =
                     //     'http://www.mjitech.com/buyer_confirm/wxpay/index.html?ordernumber=' + json.order.orderNumber;
                     dispatch(succSubmitCart(json.order.orderNumber));
+                    dispatch(cartAction.initCart());
                 }else{
                     dispatch(failSubmitCart(json));
                     dispatch(initShoppingCart())
+                    dispatch(cartAction.initCart());
                 }
             })
     }
@@ -186,3 +190,4 @@ function failSubmitCart(content) {
         content
     }
 }
+
