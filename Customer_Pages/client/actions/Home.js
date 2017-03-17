@@ -9,6 +9,17 @@ import * as messageAction from './Message';
 
 const domain = ENV.domain;
 
+function login() {
+            fetch( domain + '/web/buyer_api/test_login_with_openid.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify({openid: "o41Mgv0eiCIKAZPpMdO1o-gGZrKs"})
+            }
+        )
+}
+
 // export function initWxConfig(url) {
 //     return (dispatch) => {
 //         fetch( domain + '/web/buyer_api/test_login_with_openid.action',
@@ -36,65 +47,6 @@ const domain = ENV.domain;
 //                 }
 //             } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
 //         )
-//     }
-// }
-
-// export function initCart() {
-//     return (dispatch) => {
-//         fetch( domain + '/web/buyer_api/get_cart.ction',
-//             {
-//                 credentials: 'include',
-//                 method: 'POST',
-//                 mode: 'cors',
-//             }
-//         ).then(response => response.json())
-//             .then(json => {
-//                 if(json.is_succ) {
-//                     let count = json.skus.length ? json.skus.map(sku => sku.productList.map(
-//                         prod => parseInt(prod.count)
-//                     )).map(
-//                         count => count.reduce(
-//                             (previous, current, index, array) => previous + current, 0
-//                         )
-//                     ).reduce((previous, current, index, array) => previous + current, 0) : 0;
-//                     dispatch(initCartSucc({count: count}))
-//                 } else {
-//                     dispatch(initCartFail({errorMessage: json.error_message}))
-//                 }
-//             }).catch(e => dispatch(initCartFail({errorMessage: '服务器异常'})))
-//     }
-// }
-//
-// export function initCartSucc(cart) {
-//     return {
-//         type: actionTypes.INIT_CART_SUCC,
-//         cart
-//     }
-// }
-//
-// export function initCartFail(message) {
-//     return {
-//         type: actionTypes.INIT_CART_FAIL,
-//         message
-//     }
-// }
-
-// export function initWxConfigSucc(config) {
-//     return {
-//         type: actionTypes.INIT_WX_CONFIG_SUCC,
-//         config
-//     }
-// }
-//
-// export function initWxConfigErr() {
-//     return {
-//         type: actionTypes.INIT_WX_CONFIG_ERR
-//     }
-// }
-//
-// export function initSdk() {
-//     return {
-//         type: actionTypes.JSSDK_INITED
 //     }
 // }
 
