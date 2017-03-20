@@ -13,8 +13,8 @@ export default class ProductInfo extends React.Component{
 	render(){
 		const props = this.props.data;
 		let defaultImg = DEFALUT_INFO.defaultImg;
-		// let domain = ENV.domain;
-		let domain = "http://114.215.143.97";
+		let domain = ENV.domain;
+		// let domain = "http://114.215.143.97";
 		return (
 			<div className="productInfo">
 				<div className="productImg">
