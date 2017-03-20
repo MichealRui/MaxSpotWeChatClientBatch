@@ -7,6 +7,7 @@
     box-sizing: border-box;
     border: 1px solid #d9d9d9;
 	background-color: #fff;
+	display: inline-block;
 }
 .item.sliderItem {
 	border-right: none;
@@ -21,10 +22,14 @@
     /*width: 48%;*/
     /*height:7rem;*/
 	float: left;
-	margin: 0.138889rem 0 2rem 0.138889rem;
+	margin: 0.138889rem 0 0 0.138889rem;
 	padding: .75rem 0.555556rem 0.416667rem 0.555556rem;
 	width: 48%;
 	height: 7rem;
+}
+
+.item.commonItem:last-child{
+	margin-bottom: 2rem;
 }
 
 .item .LazyLoad {
