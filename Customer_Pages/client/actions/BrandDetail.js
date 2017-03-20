@@ -6,6 +6,8 @@ import * as messageAction from './Message';
 const domain = ENV.domain;
 
 export function initBrand(brandId,storeId) {
+    console.log(brandId)
+    console.log(storeId)
     return (dispatch) => {
         dispatch(initStart());
         fetch( domain + '/web/buyer_api/brand_detail.ction',
@@ -20,6 +22,7 @@ export function initBrand(brandId,storeId) {
             }).then((response)=>response.json())
             .then(
                 json => {
+                    console.log(json);
                    if(json.is_succ){
                        dispatch(initSuccess({
                            brand : json.brand,

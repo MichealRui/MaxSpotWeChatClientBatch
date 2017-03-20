@@ -20,7 +20,10 @@ export default class BrandHeader extends React.Component {
 					<div className="title clearfix">
 						<span>
 							{
-								props.brandInfo.imagePath ? <img src={domain + util.getMiddlePic(props.brandInfo.imagePath)} /> :
+								props.brandInfo.imagePath ?
+									/*<img src={domain + util.getMiddlePic(props.brandInfo.imagePath)} /> */
+									<img src={domain + props.brandInfo.imagePath} />
+									:
 									<img src={defaultImg} />
 							}
 						</span>

@@ -29,9 +29,15 @@
 	height: 7rem;
 }
 
+.item_a:last-child .item{
+	margin-bottom: 2rem;
+}
+
 .item_a:last-child .item.commonItem{
 	margin-bottom: 2rem;
 }
+
+
 
 .item .LazyLoad {
     margin-bottom: 0.527778rem;

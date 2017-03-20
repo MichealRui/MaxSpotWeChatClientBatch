@@ -30,7 +30,9 @@ export default class StoreIntro extends React.Component {
 					<Link to={"/brand/"+storeId+"/"+brandId}>
 						<div className='storeIntro'>
 							{
-								props.brandData.imagePath ? <img src={domain + util.getMiddlePic(props.brandData.imagePath)} className='storeImg'/>
+								props.brandData.imagePath ?
+									/*<img src={domain + util.getMiddlePic(props.brandData.imagePath)} className='storeImg'/>*/
+									<img src={domain + props.brandData.imagePath} className='storeImg'/>
 															:
 									<img src={defaultImg} className='storeImg'/>
 
