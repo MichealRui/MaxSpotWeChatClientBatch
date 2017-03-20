@@ -4,8 +4,10 @@ import BannerItem from '../../components/BannerItem/BannerItem';
 import Header from '../../components/header/header';
 import Timer from '../../components/timer/timer';
 import { connect } from 'react-redux';
+import Message from '../../components/Message/Message';
 import Util from '../../util/WeChatUtil';
 import {initBanner,initStart,initSuccess,initFail,addToCart} from '../../actions/index'
+import { setMessage } from '../../actions/index'
 require('./index.css');
 class BrandContainer extends React.Component {
 	constructor(props){
@@ -19,10 +21,12 @@ class BrandContainer extends React.Component {
 	}
 	render(){
 		const{dispatch,itemInfo} = this.props;
-        console.log(itemInfo);
 		return(
 			<div className='brandContainer'>
 				<Header banner={itemInfo.banner}/>
+				<Message msgContent={itemInfo.errorMessage}
+						 clearMessage={() => dispatch(setMessage(""))}
+				/>
 				{/*<div className="storeinfo"><p className="font12">{itemInfo.brand.story}</p></div>*/}
 				<div className="iteminfo">
 					<ul>

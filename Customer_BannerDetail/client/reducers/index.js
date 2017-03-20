@@ -6,11 +6,13 @@ import {INIT_START,INIT_SUCCESS,INIT_FAIL} from '../actions/index'
 import {ADD_COUNT} from '../actions/index'
 import {INIT_CART_SUCC, INIT_CART_FAIL} from '../actions/index'
 import {ERROR_ADD_CART, SUCCESS_ADD_CART} from '../actions/index'
+import { SET_MESSAGE } from '../actions/index'
 const domain = ENV.domain;//'http://114.215.143.97';
 const defaultState = {
     skus:[],
     brand:[],
-    banner:''
+    banner:'',
+    errorMessage:''
     // 'total':0
 };
 
@@ -62,6 +64,9 @@ function initFail(itemInfo,message) {
     return Object.assign({},itemInfo,{errorMessage:message.errorMessage})
 }
 
+function setMessage(content, message) {
+    return Object.assign({}, content, {errorMessage: message.errorMessage})
+}
 
 export default function (itemInfo = defaultState,action) {
     switch (action.type){
@@ -77,6 +82,8 @@ export default function (itemInfo = defaultState,action) {
             return initCartSucc(itemInfo,action.cart)
         case INIT_CART_FAIL:
             return initCartFail(itemInfo,action.message)
+        case SET_MESSAGE:
+            return setMessage(itemInfo, action.message)
         default:
             return itemInfo;
     }

@@ -25,7 +25,7 @@ export const SUCCESS_ADD_CART = 'SUCCESS_ADD_CART';
 
 export const SET_MESSAGE = 'SET_MESSAGE';
 
-const domain = ''//ENV.domain;
+const domain = '';//ENV.domain;
 export function initBanner(storeId) {
     return (dispatch)=>{
         /*//todo fetch
@@ -176,7 +176,6 @@ export function addToCart(item) {
 function successAddCart() {
     return {
         type:SUCCESS_ADD_CART,
-
     }
 }
 
