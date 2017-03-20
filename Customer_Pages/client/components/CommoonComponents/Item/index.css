@@ -8,6 +8,7 @@
     border: 1px solid #d9d9d9;
 	background-color: #fff;
 	display: inline-block;
+	text-decoration:none;
 }
 .item.sliderItem {
 	border-right: none;
@@ -28,7 +29,7 @@
 	height: 7rem;
 }
 
-.item.commonItem:last-child{
+.item_a:last-child .item.commonItem{
 	margin-bottom: 2rem;
 }
 

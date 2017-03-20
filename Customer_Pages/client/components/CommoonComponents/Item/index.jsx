@@ -60,8 +60,8 @@ export default class Item extends React.Component {
         let storeid = this.props.storeid;
         let skunumber = this.props.item.skuNumber;
         return (
-            <Link to={"/productDetail/"+storeid+"/"+skunumber} className={"item "+sliderItem}>
-
+            <Link to={"/productDetail/"+storeid+"/"+skunumber} className="item_a">
+                <div className={"item "+sliderItem} >
                 {
                     sliderItem == 'sliderItem' ?
                         <img src={ domain + this.getMiddlePic(props.imagePath) } className='productImg' />
@@ -89,7 +89,7 @@ export default class Item extends React.Component {
                     props.quantity > 0 ? (this.props.children||null) : soldOut
                 }
 
-
+            </div>
             </Link>
         );
     }
