@@ -12,9 +12,9 @@ export default class Header extends React.Component{
         let props = this.props;
         return (
             <div className="headerContainer clearfix">
-                <Link to="/">
+                <a href="/" target="_self">
                     <img src={require('./images/active_return.png')} className="logo"/>
-                </Link>
+                </a>
                 <img src={require('./images/active_logo.png')} className="logo"/>
 
                 <span className="location font24">

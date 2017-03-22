@@ -100,7 +100,8 @@ var envConfig = {
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
       }),
       new webpack.ProvidePlugin({
-        ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development')
+        ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development'),
+        IMAGECONFIG: __dirname + '/client/config/image'
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
       new webpack.NoErrorsPlugin(),
@@ -117,7 +118,8 @@ var envConfig = {
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
       }),
       new webpack.ProvidePlugin({
-        ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development')
+        ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development'),
+        IMAGECONFIG: __dirname + '/client/config/image'
       }),
     ]
   }

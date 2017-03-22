@@ -20,29 +20,17 @@ function activateVendor() {
         )
     );
 }
-//
-// const rootRoute = {
-//     path:'/',
-//     indexRoute: {
-//         getComponent(nextState, cb) {
-//             require.ensure([], (require) => {
-//                 cb(null, require('./containers/PageContainer/PageContainer'))
-//             }, 'page')
-//         }
-//     }
-// }
 
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
-            {/*<Router history={hashHistory} routes={rootRoute}>*/}
+            <Page />
+            {/*<Router history={hashHistory}>*/}
+                {/*/!*<Route path='/' component={Page}/>*!/*/}
+                {/*/!*<Route path='/maxbox_pc' component={Page}/>*!/*/}
+                {/*/!*<Route path='/maxbox_pc/orderTest' component={Page}/>*!/*/}
+                {/*<Route path='/active' component={Activity}/>*/}
             {/*</Router>*/}
-            <Router history={hashHistory}>
-                <Route path='/' component={Page}/>
-                <Route path='/maxbox_pc' component={Page}/>
-                <Route path='/maxbox_pc/orderTest' component={Page}/>
-                <Route path='/active' component={Activity}/>
-            </Router>
         </Provider>
         ,
         document.getElementById('root')

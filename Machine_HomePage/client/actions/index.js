@@ -57,7 +57,7 @@ export const SET_RECOMMEND = 'SET_RECOMMEND';
 
 export const SUCC_INIT_ACTIVITY = 'SUCC_INIT_ACTIVITY';
 
-const domain = ''//(ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.62:9090' : 'http://10.16.66.62:8080';
+const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.62:9090' : 'http://10.16.66.62:8080';
 
 export function initMainContent () {
     return (dispatch) => {
@@ -446,22 +446,25 @@ export function setDetailDialog(prod) {
 }
 
 export function initActivity() {
+    // return (dispatch) => {
+    //     fetch(domain + '/maxbox_pc/local_api/get_marketing_data.action',
+    //         {
+    //             credentials: 'include',
+    //             method: 'POST',
+    //             mode: 'cors',
+    //         }
+    //     ).then(response => response.json())
+    //         .then(json => {
+    //             if(json.is_succ) {
+    //                 console.log(json);
+    //                 dispatch(succInitActivity({...json}))
+    //             } else {
+    //                 console.log('error')
+    //             }
+    //         })
+    // }
     return (dispatch) => {
-        fetch(domain + '/maxbox_pc/local_api/get_marketing_data.action',
-            {
-                credentials: 'include',
-                method: 'POST',
-                mode: 'cors',
-            }
-        ).then(response => response.json())
-            .then(json => {
-                if(json.is_succ) {
-                    console.log(json);
-                    dispatch(succInitActivity({...json}))
-                } else {
-                    console.log('error')
-                }
-            })
+        dispatch(succInitActivity(activeData))
     }
 }
 
