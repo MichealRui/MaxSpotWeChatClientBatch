@@ -120,3 +120,18 @@
     border-radius: 0.05rem;
 	border: 1px solid #aaa;
 }
+
+/*
+	add campaign tag
+*/
+.item .campaignTag {
+	background-color: #65cc37;
+	width: 1.68rem;
+	height: 0.69rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	line-height: 0.69rem;
+	color: #ffffff;
+}
