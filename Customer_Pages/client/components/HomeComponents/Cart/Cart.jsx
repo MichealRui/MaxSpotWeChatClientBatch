@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Counter from '../../CommoonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
+
 import {Link} from 'react-router'
 require ('./index.css');
 
@@ -9,7 +10,6 @@ export default class Cart extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         let cart = this.props.cart;
         let clearCart = this.props.clearCart;

@@ -22,7 +22,6 @@ import TakeGoods from './containers/TakeGoodsContainer/TakeGoodsContainer'
 import AfterPay from './containers/AfterPayContainer/AfterPayContainer'
 // init thunk
 
-
 function activateVendor() {
     const loggerMiddleware = createLogger();
     return createStore(

@@ -53,7 +53,6 @@ export default class Item extends React.Component {
 
     render() {
         let props = this.props.item;
-        console.log(props);
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         let soldOut = <span className="soldOut font14">售 罄</span>;
         let domain = ENV.domain;

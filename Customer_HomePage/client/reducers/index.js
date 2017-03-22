@@ -140,7 +140,7 @@ function initSuccess(content, data){
     * */
 
     return Object.assign({}, content, {
-        banner: frontEndBanner, //data.banner,
+        banner: data.banner,
         selector: selector,
         subContent: Object.assign({}, subContent, {all: currentSub}),
         currentSub: currentSub,//data.subContent['all'],,

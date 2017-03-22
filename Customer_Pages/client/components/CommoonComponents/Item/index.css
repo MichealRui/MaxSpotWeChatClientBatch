@@ -36,9 +36,6 @@
 .item_a:last-child .item.commonItem{
 	margin-bottom: 2rem;
 }
-
-
-
 .item .LazyLoad {
     margin-bottom: 0.527778rem;
     height:50%!important;

@@ -25,7 +25,7 @@ export const SUCCESS_ADD_CART = 'SUCCESS_ADD_CART';
 
 export const SET_MESSAGE = 'SET_MESSAGE';
 
-const domain = ENV.domain;
+const domain = '';//ENV.domain;
 export function initBanner(storeId) {
     return (dispatch)=>{
         /*//todo fetch
@@ -38,34 +38,39 @@ export function initBanner(storeId) {
 
             }
         ).then(*/
-            fetch(domain+ '/web/buyer_api/market_data.action',
-                {
-                    credentials:'include',
-                    method:'POST',
-                    mode:'cors',
-                    body:JSON.stringify(
-                        {
-                            storeId:storeId
-                        }
-                    )
-                }).then((response)=>response.json())
-                .then(
-                    json=>{
-                        console.log(json);
-                        if(json.is_succ){
-                            dispatch(initSuccess({
-                                storeId : storeId,
-                                skus:json.products,
-                            }));
-                            dispatch(initCart())
-                        }else{
-                            dispatch(initFail({errorMessage:json.error_message}))
-                        }
-                    }
-                ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
-
+            // fetch(domain+ '/web/buyer_api/market_data.action',
+            //     {
+            //         credentials:'include',
+            //         method:'POST',
+            //         mode:'cors',
+            //         body:JSON.stringify(
+            //             {
+            //                 storeId:storeId
+            //             }
+            //         )
+            //     }).then((response)=>response.json())
+            //     .then(
+            //         json=>{
+            //             console.log(json);
+            //             if(json.is_succ){
+            //                 dispatch(initSuccess({
+            //                     storeId : storeId,
+            //                     skus:json.products,
+            //                 }));
+            //                 dispatch(initCart())
+            //             }else{
+            //                 dispatch(initFail({errorMessage:json.error_message}))
+            //             }
+            //         }
+            //     ).catch(e=>dispatch(initFail({errorMessage:'服务器异常'})))
 
         // )
+                        dispatch(initSuccess({
+                            storeId : storeId,
+                            skus:dataDetail.products,
+                            banner:dataDetail.banner
+                        }));
+                        dispatch(initCart())
 
     };
 }
@@ -125,10 +130,11 @@ export function initStart() {
     }
 }
 
-export function initSuccess(cont) {
+export function initSuccess(cont, banner) {
     return {
         type: INIT_SUCCESS,
-        cont
+        cont,
+        banner
     }
 }
 
@@ -170,7 +176,6 @@ export function addToCart(item) {
 function successAddCart() {
     return {
         type:SUCCESS_ADD_CART,
-
     }
 }
 

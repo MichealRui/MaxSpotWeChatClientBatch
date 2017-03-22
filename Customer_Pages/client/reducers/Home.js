@@ -9,6 +9,7 @@ import icon_glass from '../components/HomeComponents/Selector/image/icon_glass.p
 import icon_makeup from '../components/HomeComponents/Selector/image/icon_makeup.png';
 import icon_umbrella from '../components/HomeComponents/Selector/image/icon_umbrella.png';
 
+
 import img_cwyp from '../components/HomeComponents/Selector/image/cwyp.png';
 import img_djbb from '../components/HomeComponents/Selector/image/djbb.png';
 import img_dzcp from '../components/HomeComponents/Selector/image/dzcp.png';
@@ -112,7 +113,6 @@ function initSuccess(content, data){
         currentSelector:currentSelector
     })
 }
-
 
 function initFail(content, message) {
     return Object.assign({}, content, {errorMessage: message.errorMessage})

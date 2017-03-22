@@ -7,7 +7,6 @@ export default class Button extends React.Component {
 	constructor(props){
 		super(props);
 	}
-
 	addClick(e){
 		e.stopPropagation();
 		this.props.buttonClick(
