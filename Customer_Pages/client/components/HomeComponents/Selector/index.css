@@ -1,0 +1,54 @@
+.selector {
+	width: 16.66666%;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+    position: relative;
+}
+.selector .itemIcon {
+	display: block;
+	width: 0.972222rem;
+	height: 0.972222rem;
+	color: #71ccf2;
+	margin: 0 auto;
+}
+
+.selector .itemIcon img{
+	width: 100%;
+	transition: all 1s;
+	-moz-transition: all 1s; /* Firefox 4 */
+	-webkit-transition: all 1s; /* Safari 和 Chrome */
+	-o-transition: all 1s;
+}
+
+.selector .itemIcon.activated img{
+	transform: scale(1.4);
+}
+
+
+
+.selector .itemName {
+	display: block;
+	color: rgba(0,0,0,.8);
+	margin-top: 0.261111rem;
+	line-height: 1;
+}
+
+.selector .triangle {
+    display: none;
+    width: 100%;
+    height: 0;
+}
+.selector .triangle:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0.305556rem solid transparent;
+    border-bottom: 0.305556rem solid #c7e8ef;
+    /*top: -0.58rem;*/
+    left: 0.472222rem;
+}
+.selector .triangle.activated{
+    display: block;
+}
