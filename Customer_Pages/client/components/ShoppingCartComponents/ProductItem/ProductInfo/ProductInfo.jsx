@@ -16,13 +16,17 @@ export default class ProductInfo extends React.Component{
 		let domain = ENV.domain;
 		domain = "http://114.215.143.97";
 		return (
-			<div className="productInfo">
+			<div className="ShoppcartProductInfo">
 				<div className="productImg">
 					{
 						props.imagePath ?
 							<img src={domain + util.getMiddlePic(props.imagePath)}/>
 							:
 							<img src={defaultImg}/>
+					}
+					{
+						this.props.isGift ?
+							<span className={"giftBanner font12 "+ (this.props.activate ? "activate":"fail")}>赠品</span> : null
 					}
 
 				</div>

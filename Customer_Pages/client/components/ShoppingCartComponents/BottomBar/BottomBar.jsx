@@ -49,7 +49,7 @@ export default class BottomBar extends React.Component{
 				</div>
 				<span className={"button settleButton J_createOrder font18 " + (props.totalMoney == 0 ? 'disabled': '') }
                       onClick={this.createOrderClick.bind(this)}
-                      disabled={props.totalMoney == 0}
+                      disabled={props.totalMoney <= 0}
                 >结算</span>
 			</div>
 		)

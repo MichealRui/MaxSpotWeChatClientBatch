@@ -56,6 +56,9 @@ export default class ProductSection extends React.Component {
                         ))  : null
 
                 }
+                {
+                    presentSku ? <ProductItemLocked data={presentSku} isGift={true} activate={activate}/> : null
+                }
             </ul> : null;
         return new Array(productStructure);
     }

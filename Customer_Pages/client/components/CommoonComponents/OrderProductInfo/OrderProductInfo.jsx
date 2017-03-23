@@ -19,12 +19,19 @@ export default class OrderProductInfo extends React.Component {
 		return(
 			<li className='orderProductInfo'>
 				<div className='productInfo'>
-					{
-						sku.imagePath ?
-							<img src={domain + util.getMiddlePic(sku.imagePath)} className='productImg' />
-							:
-							<img src={defaultImg} className='productImg' />
-					}
+					<div className="productImg">
+						{
+							sku.imagePath ?
+								<img src={domain + util.getMiddlePic(sku.imagePath)} className='productImg' />
+								:
+								<img src={defaultImg} className='productImg' />
+						}
+						{
+							sku.isPresent ?
+								<span className={"giftBanner font12 activate"}>赠品</span> : null
+						}
+					</div>
+
 
 					<span className='orderProductContainer'>
 						<p className='productName font12'>{sku.brandName}</p>

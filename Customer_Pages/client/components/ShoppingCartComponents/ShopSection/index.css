@@ -56,6 +56,25 @@
     text-align: center;
     vertical-align: middle;
 }
+.editContainer .campaignContainer {
+    padding-top:0.133rem;
+    background-color: #fafafa;
+}
+.editContainer .campaignTag{
+    height:0.8rem;
+    padding-left: 0.53rem;
+    line-height:0.8rem;
+    border-bottom: 1px solid #e6e6e6;
+    border-top:  1px solid #e6e6e6;
+    background-color: #ffffff;
+    color: #999999;
+}
+.editContainer .campaignTag.activate {
+    color: #ff0000;
+}
+.editContainer .campaignTag.fail {
+    color: #999999;
+}
 /*.editContainer .editItem {*/
     /*padding:0.416667rem 0.555556rem;*/
     /*border-bottom: 1px solid #e6e6e6;*/
