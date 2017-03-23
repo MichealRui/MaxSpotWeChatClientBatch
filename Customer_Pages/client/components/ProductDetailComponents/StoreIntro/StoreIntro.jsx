@@ -4,6 +4,7 @@ require ('./index.css');
 import React from 'react';
 import {Link} from 'react-router'
 import util from '../../../util/WeChatUtil';
+
 export default class StoreIntro extends React.Component {
 	constructor(props){
 		super(props);

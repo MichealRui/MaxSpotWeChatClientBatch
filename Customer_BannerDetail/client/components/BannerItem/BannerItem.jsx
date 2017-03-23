@@ -51,27 +51,34 @@ export default class BannerItem extends React.Component {
 	render(){
 		let props = this.props;
 		const item = props.iteminfo;
+		let campaignTag = item.campaign ? <div className="campaignTag font12">{item.campaign.campaignTag}</div>:null;
 		let atts = this.getAttr(item.attributes);
+		let soldOut = <span className="soldOut font14">售 罄</span>;
         let storeId = props.storeId;
 		return (
 			<li>
                 <div className="brandItem" onClick={this.toProduct.bind(this)}>
+					{campaignTag}
 					<div className="img"><img src={ENV.domain + this.getMiddlePic(item.imagePath)}/></div>
 					<p className="font12">{item.brandName}</p>
 					<p className="font14">{item.name}</p>
 					<p className="font10">{atts}</p>
 					<div className="price">
 						<p className="nowprice font18">{item.sellprice /100 ||0}<span className="font10">元</span></p>
-						{
-								<p className="oldprice">原价 {
-									item.msrp > item.sellprice?
-										item.msrp /100:
-										item.sellprice/100
-								}元</p>
-						}
-
+						{/*{*/}
+							{/*<p className="oldprice">原价 {*/}
+								{/*item.msrp > item.sellprice?*/}
+								{/*item.msrp /100:*/}
+								{/*item.sellprice/100*/}
+							{/*}元</p>*/}
+						{/*}*/}
 					</div>
-					<AddCart itemInfo={item} storeId={storeId} itemClick={this.props.addToCart}/>
+					{
+						item.quantity > 0 ?
+							(
+								<AddCart itemInfo={item} storeId={storeId} itemClick={this.props.addToCart}/>
+							) : soldOut
+					}
 				</div>
 			</li>
 		);

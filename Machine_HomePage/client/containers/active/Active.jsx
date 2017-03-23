@@ -6,6 +6,7 @@ import Banner from '../../components/Banner/Banner';
 import SubContent from '../active_SubContent/SubContent';
 import CartContainer from '../CartContainer/CartContainer';
 import SkuContainer from '../SkuContainer/SkuContainer';
+import FetchSkuContainer from '../../containers/FetchSkuContainer/FetchSkuContainer';
 import { initMainContent, initActivity } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index';
 import {changeSubContent} from '../../actions/index';
@@ -60,6 +61,18 @@ class Active extends React.Component{
         })
     }
 
+    onFetchSkuBtnClick() {
+        this.setState({
+            fetchSkuVisible: true
+        })
+    }
+
+    hideFetchSku() {
+        this.setState({
+            fetchSkuVisible: false
+        });
+    }
+
     render() {
         let {state, dispatch} = this.props;
         return (
@@ -94,6 +107,11 @@ class Active extends React.Component{
                               onCancel={()=>this.hideProductDetail.bind(this)}
                               product={state.product}
                               addToCart={(item) => dispatch(addToCart(item))}
+                              onCartClick = {()=>this.onCartBtnClick.bind(this)}
+                              {...state.cart}
+                />
+                <FetchSkuContainer visible={this.state.fetchSkuVisible}
+                                   onCancel={this.hideFetchSku.bind(this)}
                 />
             </div>
         )

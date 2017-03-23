@@ -23,8 +23,8 @@ function isEmptyObject(e) {
 }
 
 function calcuShopSum(itemInfo) {
-    const PRODUCT_OUT_SELL= 1; //下架
-    const PRODUCT_EMPTY_SELL= 2; //售罄
+    // const PRODUCT_OUT_SELL= 1; //下架
+    // const PRODUCT_EMPTY_SELL= 2; //售罄
     let newItemInfo = Object.assign({}, itemInfo);
 
     newItemInfo.skus.forEach( sku => {
@@ -33,7 +33,7 @@ function calcuShopSum(itemInfo) {
             .reduce((pre, next) => pre + next , 0);
         sku.shopSum = (
             sku.productList.map(
-                product => product.err_status == PRODUCT_OUT_SELL || product.err_status == PRODUCT_EMPTY_SELL ? 0 : product.count * product.sellprice
+                product => !product.err_status ? product.count * product.sellprice : 0
             ).reduce(
                 (previous, current, index, array) => previous + current, 0) - sku.shopDiscount
             ) / 100
@@ -60,13 +60,10 @@ function calcuTotalSum(itemInfo) {
 
 function finalState(itemInfo) {
     /* deal with campaign*/
-
     itemInfo.skus.forEach(
         sku => sku.campaignedProductList =
             dealCampaign(sku.campaigns, sku.productList)
-            //(operator_computeCampaignListSum)
             (operator_computeCampaignByType)
-            // (operator_computeCampaignDetail)
     );
     /* end deal with campaign*/
 
@@ -283,6 +280,10 @@ function initSuccess(state, itemInfo) {
 }
 
 function dealCampaign(campaigns, productList) {
+    const CampaignType1 = 1; //满减
+    const CampaignType2 = 2; //第N件优惠
+    const CampaignType3 = 3; //满赠
+
     /* rearrange product by campaign id */
     let tempCampaignedProductList = campaigns.map(campaign => {
         return Object.assign({}, { list:productList.filter(
@@ -290,8 +291,10 @@ function dealCampaign(campaigns, productList) {
         )}, campaign);
     }).filter(cunit => cunit.list.length > 0);
     /* end rearrange */
+
     /* filter the campaign of 第N件优惠*/
-    let type2Temp = tempCampaignedProductList.filter(cUnit => cUnit.campaignType == 2);
+    let type2Temp =
+        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == CampaignType2);
     let type2CampaignedProductList = [];
     for(let t2Cunit of type2Temp) {
         let campaign = campaigns.find( campaign => campaign.campaignId == t2Cunit.campaignId );
@@ -302,20 +305,29 @@ function dealCampaign(campaigns, productList) {
         )
     }
     let type1CampaignedProductList =
-        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == 1);
+        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == CampaignType1);
 
     let type3CampaignedProductList =
-        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == 3);
+        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == CampaignType3);
 
     let campaignedProductList = [].concat(
         type1CampaignedProductList,
         type2CampaignedProductList,
         type3CampaignedProductList
     );
-    console.log(campaignedProductList)
+
+    /* deal global campaign */
+    let globalCampaign = campaigns.find( campaign => campaign.isAllSku );
+    if(globalCampaign) {
+        campaignedProductList.push(
+            Object.assign({}, { list: productList }, globalCampaign )
+        )
+    }
+    /* end deal global campaign */
     campaignedProductList.push(
         { list: productList.filter ( product => !product.campaign ) }
     );
+
     return (campaignOperator) => campaignOperator(campaignedProductList)
 }
 

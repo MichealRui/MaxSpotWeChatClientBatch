@@ -19,7 +19,6 @@ export default class SelectorContainer extends React.Component {
         }
     }
 
-
     render() {
         let swiperConfig = {
             pagination:'',
@@ -108,7 +107,6 @@ export default class SelectorContainer extends React.Component {
                     </Swiper>
                 </ul>
             </div>
-
         )
     }
 }

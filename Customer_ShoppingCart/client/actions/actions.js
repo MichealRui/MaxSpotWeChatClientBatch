@@ -429,15 +429,6 @@ const mock = {
 
 
 export function initShoppingCart() {
-    // return (dispatch) => {
-    //     if (mock.is_succ) {
-    //         dispatch(initSuccess(mock.skus));
-    //     } else {
-    //         dispatch(setMessage({errorMessage: 'error'}));
-    //         dispatch(initError());
-    //     }
-    // }
-
 
     return (dispatch) => {
         fetch(domain + '/web/buyer_api/get_cart.ction',
@@ -458,61 +449,10 @@ export function initShoppingCart() {
     }
 }
 
-export function start() {
-    // return (dispatch) => {
-    //     fetch(domain + '/web/buyer_api/get_campaign.ction',
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //         }
-    //     ).then(response => response.json())
-    //         .then(json => {
-    //             if (json.is_succ) {
-    //                 dispatch(initSuccess(json.campaigns))
-    //             } else {
-    //                 dispatch(setMessage({errorMessage: json.error_message}));
-    //                 // dispatch(initError())
-    //             }
-    //         })
-    // }
-    return (dispatch) => {
-        dispatch(initShoppingCart());
-        let campaigns = {
-            campaigns: [
-                {
-                    campaignId:1,
-                    campaignTag:'满100减20',
-                    total:10000,
-                    discount:2000,
-                    sku:{
-                        brandName:'SALT',
-                        name:'可口樱桃汁',
-                        imagePath: 'https://img.alicdn.com/tps/TB1btK6JVXXXXbuXXXXXXXXXXXX-328-328.jpg_120x120.jpg',
-                        attributes:[
-                            {"unit":"g","name":"净含量","value":"65"}
-                            ],
-                        count:1
-                    },
-                    recursive:true
-                }
-            ]
-        }
-        return dispatch(initCampaignSucc(campaigns))
-    };
-}
-
 export function initSuccess(skus) {
     return {
         type: INIT_SUCCESS,
         skus
-    }
-}
-
-export function initCampaignSucc(campaigns) {
-    return {
-        type: INIT_CAMPAIGN_SUCC,
-        campaigns
     }
 }
 

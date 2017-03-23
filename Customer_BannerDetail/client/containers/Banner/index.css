@@ -17,6 +17,7 @@
     background-color:#fff;
     padding: 0 0.277778rem 0.277778rem 0.416667rem;
     overflow: hidden;
+    position: relative;
 }
 .iteminfo ul>li:nth-child(2n){
     margin-right: 0;

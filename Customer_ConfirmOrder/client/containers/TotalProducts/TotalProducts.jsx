@@ -22,7 +22,7 @@ export default class TotalProducts extends React.Component {
 			if(promotion.deductMoney ) {
 				return promotion.campaign.campaignTag + '  -'+promotion.deductMoney / 100 +  ' 元';
 			}
-		});
+		}).filter(t => t);
 		let sum = count  + '件商品 合计' + productItem.originalPrice / 100 + '元';
 		tags.unshift(sum);
 

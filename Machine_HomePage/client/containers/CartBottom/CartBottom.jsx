@@ -18,7 +18,8 @@ export default class CartBottom extends React.Component {
     }
 
     render() {
-        let items = this.props.moreItems.map((item, index) => {
+        let items = this.props.moreItems && this.props.moreItems.length > 0 ?
+            this.props.moreItems.map((item, index) => {
             return (
                 <Item item={item} key={index}
                       isSliderItem={false}
@@ -26,7 +27,7 @@ export default class CartBottom extends React.Component {
                       store={this.props.store}
                 />
             )
-        });
+        }) : null;
         return (
             <div className="cart-other-content clearfix">
                 <div className="cart-friends-choice clearfix">

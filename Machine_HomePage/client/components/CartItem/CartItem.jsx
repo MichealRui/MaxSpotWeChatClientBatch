@@ -71,7 +71,7 @@ export default class CartItem extends React.Component{
         let isGift = this.props.item.isPresent;
         let giftAvailable = this.props.item.giftAvailable;
         var atts = this.getAtts(props.attributes);
-        let domain= ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
+        let domain= IMAGECONFIG.host;//ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
         let soldOut = props.quantity ? (
             <div className={"counting clearfix "}>
                 <a className="btn-minus" disabled={props.count == 1} onClick={() => this.decrease.bind(this)()}>-</a>

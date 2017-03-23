@@ -317,7 +317,7 @@ function finalCartStatus(cart){
 
     newCart.campaignedProductList =
             dealCampaign(newCart.campaigns, cartItems)
-            (operator_computeCampaignByType);
+            (operator_computeCampaignByType) || [];
     /* end deal with campaign*/
 
     let count = cartItems.map (

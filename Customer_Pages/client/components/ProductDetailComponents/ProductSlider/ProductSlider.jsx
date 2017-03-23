@@ -2,6 +2,7 @@
 
 import React from 'react';
 import SwiperComponent from '../../CommoonComponents/Swiper/index';
+
 import util from '../../../util/WeChatUtil';
 require('./index.css');
 
@@ -9,7 +10,6 @@ export default class ProductSlider extends React.Component {
 	constructor(props){
 		super(props);
 	}
-
 
 	render(){
 		let swiperConfig = {

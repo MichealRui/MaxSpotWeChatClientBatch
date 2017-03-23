@@ -122,9 +122,10 @@ export default class DefaultCart extends React.Component {
             slidesPerView: 6,
         };
         let item_count = props.items.length;
-        let items = props.campaignList.map(
+        let items = props.campaignList && props.campaignList.length > 0 ?
+        props.campaignList.map(
             this.reduceProductStructure.bind(this)
-        ).filter(product => product);
+        ).filter(product => product): null;
         //     props.items.map((item, index) => {
         //     return <CartItem item={item}
         //                      key={index}
