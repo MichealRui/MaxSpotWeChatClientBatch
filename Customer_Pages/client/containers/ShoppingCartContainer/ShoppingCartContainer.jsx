@@ -37,9 +37,6 @@ class ShoppingCartContainer extends React.Component {
             toggle : shopId => () => dispatch(toggleShop(shopId)),
             setMetionMessage : shopId => message => () => dispatch(setMetionMessage(message))
         };
-        const bottomMsg = {
-
-        }
         let {metionMessage,skus,activateShop,totalMoney,order_number,show_empty} = shoppingCart;
         let count =  0;
         if(cart){
@@ -61,6 +58,7 @@ class ShoppingCartContainer extends React.Component {
                         itemInfo = {skus}
                         activateShop = {activateShop}
                         itemMethods = {itemMethods}
+
                     />
                     {
                         show_empty && count == 0 ? <Empty itemInfo = {skus}/> : ''
@@ -71,6 +69,7 @@ class ShoppingCartContainer extends React.Component {
                         order_number = {order_number}
                         //clearCart = {()=>dispatch(clearCart())}
                         submitCart = {(stores)=>dispatch(submitCart(stores))}
+
                     />
                 </div>
             </div>
