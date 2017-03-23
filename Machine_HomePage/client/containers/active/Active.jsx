@@ -75,13 +75,18 @@ class Active extends React.Component{
 
     render() {
         let {state, dispatch} = this.props;
+        let bannerStyle = {width:'100%', height:350}
+        let containerStyle = {width:'100%','padding-left':'60','padding-right':'50', 'background-color':'white'};
         return (
             <div className="pageContainer" id="pageContainer">
                 <Header cartClick={() => this.onCartBtnClick.bind(this)}
                         fetchSkuClick={()=>this.onFetchSkuBtnClick.bind(this)}
                         {...state.cart}
                 />
-                <Banner bannerData={state.activity.banner}/>
+                {/*<Banner bannerData={state.activity.banner}/>*/}
+                <div className="activeBannerContainer" style={containerStyle}>
+                    <img src={state.activity.banner} style={bannerStyle}/>
+                </div>
                 <SubContent
                     contentData={state.activity}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}

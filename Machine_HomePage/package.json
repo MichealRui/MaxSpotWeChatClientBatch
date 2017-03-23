@@ -7,8 +7,8 @@
   "scripts": {
     "clean": "rm -rf static/*",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development webpack-dev-server --env=dev -d --history-api-fallback --hot --inline --progress --colors --port 80",
-    "start:prepub": "NODE_ENV=production webpack-dev-server --env=dev -d --history-api-fallback --hot --inline --progress --colors --port 80",
+    "start": "NODE_ENV=development webpack-dev-server --env=dev -d --history-api-fallback --hot --inline --progress --colors --port 80 --host 0.0.0.0",
+    "start:prepub": "NODE_ENV=production webpack-dev-server --env=dev -d --history-api-fallback --hot --inline --progress --colors --port 80 --host 0.0.0.0",
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production webpack --env=build --progress --colors",
     "prebuild:test": "npm run clean",

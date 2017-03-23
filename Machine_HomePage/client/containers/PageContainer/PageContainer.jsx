@@ -23,12 +23,30 @@ class PageContainer extends React.Component{
             skuVisible:false,
             paySuccVisible:false,
             fetchSkuVisible:false
-        }
+        };
+        this.maxIdleTime = 1200; // 5 minute
+        this.idleTime = 0;
     }
 
     componentWillMount() {
         const { dispatch } = this.props;
         dispatch(initMainContent());
+        this.listenIdleTime.bind(this)();
+    }
+
+    listenIdleTime() {
+        if(this.idleTime < this.maxIdleTime) {
+            this.idleTime = this.idleTime + 1;
+            console.log(this.idleTime);
+            window.setTimeout(
+                () => this.listenIdleTime() , 1000
+            )
+        } else {
+            const { dispatch } = this.props;
+            dispatch(initMainContent());
+            this.idleTime = 0;
+            this.listenIdleTime.bind(this)();
+        }
     }
 
     onCartBtnClick() {
@@ -79,12 +97,14 @@ class PageContainer extends React.Component{
     render() {
         let {state, dispatch} = this.props;
         return (
-            <div className="pageContainer">
+            <div className="pageContainer" onClick={() => this.idleTime = 0}
+                 onTouchStart={() => this.idleTime = 0}
+            >
                 <Header cartClick={() => this.onCartBtnClick.bind(this)}
                         fetchSkuClick={()=>this.onFetchSkuBtnClick.bind(this)}
                         {...state.cart}
                 />
-                <Banner bannerData={[]}/>
+                <Banner bannerData={state.banner}/>
                 <SubContent
                     contentData={state.currentSub}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}

@@ -31,6 +31,7 @@ function renderPage(store) {
                 {/*/!*<Route path='/maxbox_pc/orderTest' component={Page}/>*!/*/}
                 {/*<Route path='/active' component={Activity}/>*/}
             {/*</Router>*/}
+            {/*<Activity/>*/}
         </Provider>
         ,
         document.getElementById('root')
