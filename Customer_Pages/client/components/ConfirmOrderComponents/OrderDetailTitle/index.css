@@ -1,33 +1,33 @@
-.orderDetailContainer .orderDetailTitle {
+.orderDetailTitle {
     padding: 0.486111rem 0.555556rem;
     border-bottom: 1px solid #e6e6e6;
     background-color: #fff;
 }
-.orderDetailContainer .orderDetailTitle .fa {
+.orderDetailTitle .fa {
     color: #929292;
 }
-.orderDetailContainer .orderDetailTitle .orderAddress {
+.orderDetailTitle .orderAddress {
     color: #000;
 }
-.orderDetailContainer .orderDetailTitle .fa-th-large,
-.orderDetailContainer .orderDetailTitle .orderAddress {
+.orderDetailTitle .fa-th-large,
+.orderDetailTitle .orderAddress {
     line-height: 24px;
 }
-[data-dpr='2'] .orderDetailContainer .orderDetailTitle .fa-th-large,
-[data-dpr='2'] .orderDetailContainer .orderDetailTitle .orderAddress {
+[data-dpr='2'] .orderDetailTitle .fa-th-large,
+[data-dpr='2'] .orderDetailTitle .orderAddress {
     line-height: 48px;
 }
-[data-dpr='3'] .orderDetailContainer .orderDetailTitle .fa-th-large,
-[data-dpr='3'] .orderDetailContainer .orderDetailTitle .orderAddress {
+[data-dpr='3'] .orderDetailTitle .fa-th-large,
+[data-dpr='3'] .orderDetailTitle .orderAddress {
     line-height: 72px;
 }
 
-.orderDetailContainer .orderDetailTitle .orderAddressArrow {
+.orderDetailTitle .orderAddressArrow {
     float: right;
 }
-.orderDetailContainer .orderDetailTitle .orderStatus.orderComplete {
+.orderDetailTitle .orderStatus.orderComplete {
     color: green;
 }
-.orderDetailContainer .orderDetailTitle .orderStatus.orderUnComplete {
+.orderDetailTitle .orderStatus.orderUnComplete {
     color: red;
 }

@@ -6,6 +6,7 @@ import fetch from 'isomorphic-fetch'
 import * as actionTypes from '../actionTypes/Home';
 import * as cartAction from './Cart';
 import * as messageAction from './Message';
+import * as shoppingCartAction from './ShoppingCart'
 
 const domain = ENV.domain;
 
@@ -187,6 +188,7 @@ export function initSubContent(d) {
     console.log(" initing ");
     return (dispatch) =>  {
         dispatch(initStart());
+        dispatch(shoppingCartAction.initStart())
         fetch( d.url,
             {
                 method: 'POST',

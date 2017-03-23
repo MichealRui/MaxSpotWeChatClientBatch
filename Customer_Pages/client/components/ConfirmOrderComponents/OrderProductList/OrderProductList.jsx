@@ -10,10 +10,16 @@ export default class OrderProductList extends React.Component{
 
     render(){
         let props = this.props;
+        console.log(props);
         let productItems = props.productList.childOrders.map(
             (productItem,index)=>{
                 return(
-                    <OrderTotalProduct key={index} productItem={productItem}/>
+                    <OrderTotalProduct
+                        key={index}
+                        productItem={productItem}
+                        store = {productItem.store}
+                        promotions = {productItem.promotions}
+                    />
                 )
             }
         )

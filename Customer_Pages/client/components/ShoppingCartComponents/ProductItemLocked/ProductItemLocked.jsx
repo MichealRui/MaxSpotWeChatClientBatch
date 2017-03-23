@@ -4,7 +4,6 @@ import React from 'react';
 import ProductInfo from '../ProductItem/ProductInfo/ProductInfo';
 import ProductPrice from '../ProductItem/ProductPrice/ProductPrice'
 require('./index.css');
-import testImg from '../ProductItem/ProductInfo/images/productImg.jpg'
 
 export default class ProductItemLocked extends React.Component {
 	constructor(props){
@@ -20,7 +19,7 @@ export default class ProductItemLocked extends React.Component {
 		const PRODUCT_NORMAL = 0 //正常商品
 		return (
 			<li className={"editItem font14 " + (product.err_status == PRODUCT_NORMAL ? 'normal':'')}>
-				<ProductInfo data={product}/>
+				<ProductInfo data={product} isGift={this.props.isGift} activate={this.props.activate}/>
 				<ProductPrice data={product} editStatus="false"/>
 				<div className={(product.err_status == PRODUCT_OUT_SELL || product.err_status == PRODUCT_EMPTY_SELL ? 'layer' : '')}></div>
 			</li>

@@ -1,5 +1,5 @@
 .item {
-    float: left;
+    /*float: left;*/
     position: relative;
     margin: 0;
     text-align: center;
@@ -22,20 +22,20 @@
     /*padding: 1.0rem 0.555556rem 0.416667rem 0.555556rem;*/
     /*width: 48%;*/
     /*height:7rem;*/
-	float: left;
+    /*float: left;*/
 	margin: 0.138889rem 0 0 0.138889rem;
 	padding: .75rem 0.555556rem 0.416667rem 0.555556rem;
 	width: 48%;
 	height: 7rem;
 }
 
-.item_a:last-child .item{
-	margin-bottom: 2rem;
-}
+/*.item_a:last-child .item{*/
+	/*margin-bottom: 2rem;*/
+/*}*/
 
-.item_a:last-child .item.commonItem{
-	margin-bottom: 2rem;
-}
+/*.item_a:last-child .item.commonItem{*/
+	/*margin-bottom: 2rem;*/
+/*}*/
 .item .LazyLoad {
     margin-bottom: 0.527778rem;
     height:50%!important;
@@ -123,7 +123,7 @@
 */
 .item .campaignTag {
 	background-color: #65cc37;
-	width: 1.68rem;
+	/*width: 1.68rem;*/
 	height: 0.69rem;
 	position: absolute;
 	top: 0;
@@ -131,4 +131,5 @@
 	text-align: center;
 	line-height: 0.69rem;
 	color: #ffffff;
+	padding: 0 0.1111rem;
 }

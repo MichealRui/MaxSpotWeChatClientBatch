@@ -1,17 +1,38 @@
 import * as actionTypes from '../actionTypes/ShoppingCart';
 
+const PRODUCT_UNAVAILABLE = 0; //下架
+const PRODUCT_ON_SELL = 1 ; //在售
+const PRODUCT_OUT_SELL = 2; //售罄
+const PRODUCT_LOW_STOCK = 3; //库存不足
+
+const CampaignType1 = 1; //满减
+const CampaignType2 = 2; //第N件优惠
+const CampaignType3 = 3; //满赠
+
 function initStart(content) {
-    return Object.assign({},content);
+    return Object.assign({},content,{showBottom:false});
+}
+
+function isEmptyObject(e) {
+    var t;
+    for (t in e)
+        return !1;
+    return !0
 }
 
 function calcuShopSum(itemInfo) {
     let newItemInfo = Object.assign({}, itemInfo);
+
     newItemInfo.skus.forEach( sku => {
-        sku.shopSum = sku.productList.map(
-                product => product.count * product.sellprice
-            ).reduce(
-                (previous, current, index, array) => previous + current
-                , 0) / 100
+        sku.shopDiscount = sku.campaignedProductList
+              .map(cUnit => cUnit.totalDiscount || 0 )
+            .reduce((pre, next) => pre + next , 0);
+        sku.shopSum = (
+                sku.productList.map(
+                    product => !product.err_status ? product.count * product.sellprice : 0
+                ).reduce(
+                    (previous, current, index, array) => previous + current, 0) - sku.shopDiscount
+            ) / 100
     });
     return newItemInfo;
 }
@@ -21,20 +42,140 @@ function calcuTotalSum(itemInfo) {
         sku => {
             let id = sku.id;
             let s = itemInfo.activateShop.filter(
+                //shop => shop[id] && shop[id].activated && !shop[id].editable
                 shop => shop[id] && shop[id].activated
             );
-            return s.length != 0;
+            return s.length != 0
         }
     );
     return filteredSkus.length == 0 ? 0
-        : filteredSkus.map(sku => sku.shopSum).reduce((pre,next)=>pre+next+0);
+        : filteredSkus.map(sku => sku.shopSum).reduce((pre, next) => pre + next, 0)
 }
 
 function finalState(itemInfo) {
+    /* deal with campaign*/
+    itemInfo.skus.forEach(
+        sku => sku.campaignedProductList =
+            dealCampaign(sku.campaigns, sku.productList)
+            (operator_computeCampaignByType)
+    );
+    /* end deal with campaign*/
+
     let calculatedItemInfo = calcuShopSum(itemInfo);
     calculatedItemInfo = getProductStatus(calculatedItemInfo);
-    return Object.assign({}, calculatedItemInfo , {totalMoney: calcuTotalSum(calculatedItemInfo)})
+    return Object.assign({}, calculatedItemInfo , {totalMoney: calcuTotalSum(calculatedItemInfo)} ,{showBottom:true})}
+
+/*campaigns*/
+
+function dealCampaign(campaigns,productList) {
+    let tempCampaignedProductList = campaigns.map(cam => {
+        return Object.assign({},{ list : productList.filter(
+            product => product.campaign && (product.campaign.campaignId == cam.campaignId)
+        )},cam);
+    }).filter(cunit => cunit.list.length > 0);
+    /*第n件优惠*/
+    let type2temp = tempCampaignedProductList.filter(cUnit => cUnit.campaignType == CampaignType2);
+    let type2CampaignedProductList = [];
+    for(let t2Cunit of type2temp){
+        let campaign = campaigns.find( cam => cam.campaignId == t2Cunit.campaignId);
+        type2CampaignedProductList.push(
+            t2Cunit.list.map(
+                product => Object.assign({},{list : new Array(product)},campaign)
+            ).shift()
+        )
+    }
+    /*第n件优惠 end*/
+    let type1CampaignedProductList =
+        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == CampaignType1);
+
+    let type3CampaignedProductList =
+        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == CampaignType3);
+
+    let campaignedProductList = [].concat(
+        type1CampaignedProductList,
+        type2CampaignedProductList,
+        type3CampaignedProductList
+    )
+    let globalCampaign = campaigns.find( campaign => campaign.isAllSku );
+    if(globalCampaign){
+        campaignedProductList.push(
+            Object.assign({},{list : productList},globalCampaign)
+        )
+    }
+    campaignedProductList.push(
+        {list : productList.filter(product => !product.campaign)}
+    );
+    return (campaignOperator) => campaignOperator(campaignedProductList)
+
 }
+
+function operator_computeCampaignByType(campaignedList) {
+    const CashDiscount = {1: operator_computeCampaignType_1};
+    const CountDiscount = {2: operator_computeCampaignType_2};
+    const GiftDiscount = {3: operator_computeCampaignType_3};
+    let operators = Object.assign({},CashDiscount,CountDiscount,GiftDiscount);
+    return campaignedList.map(
+        cUnit => {
+            let {campaignId,campaignType} = cUnit;
+            if(campaignId){
+                return operators[campaignType](cUnit);
+            }
+            return cUnit;
+        }
+    )
+}
+
+
+function operator_computeCampaign_common(cUnit) {
+    // let {deductMoney, totalMoney, totalCount, campaignId, recursive} = cUnit;
+    let sumCount = cUnit.list.map(product => product.count).reduce(
+        (pre , next) => { return pre + next },0
+    );
+    let calMoney = (product) => product.sellprice * product.count;
+    let totalSum = cUnit.list.map(calMoney).reduce(
+        (pre , next)=>{return pre + next},0
+    );
+    return Object.assign({},{sumCount : sumCount},{totalSum : totalSum});
+}
+
+function operator_computeCampaignType_1(cUnit) {
+    let {deductMoney, totalMoney, totalCount, campaignId, recursive} = cUnit;
+    let {sumCount,totalSum} = operator_computeCampaign_common(cUnit);
+    let activate = !totalCount ? (totalSum >= totalMoney) : (sumCount >=totalCount);
+    cUnit.activate = activate; //是否激活此活动
+    let mult = activate && recursive ?
+        totalMoney ? Math.floor( totalSum / totalMoney) : Math.floor(sumCount / totalCount ) : 1;
+    cUnit.totalDiscount = activate ? deductMoney * mult : 0; //优惠金额
+
+    return cUnit;
+}
+
+function operator_computeCampaignType_2(cUnit) {
+    let {discountCount, discountMoney, discountDiscount, recursive} = cUnit;
+    let {sumCount,totalSum} = operator_computeCampaign_common(cUnit);
+    let sellPrice = cUnit.list[0].sellPrice;
+    let activate = sumCount >= discountCount;
+    cUnit.activate = activate;
+    let mult = activate && recursive ?
+        Math.floor(sumCount / discountCount) : 1;
+    cUnit.totalDiscount = activate ?
+        discountMoney ? discountMoney * mult : discountDiscount * sellPrice * mult : 0;
+    return cUnit;
+}
+
+function operator_computeCampaignType_3(cUnit) {
+    let { presentMoney, presentCount, recursive } = cUnit;
+    let {sumCount,totalSum} = operator_computeCampaign_common(cUnit);
+    let activate = presentMoney ? totalSum >= presentMoney : sumCount >= presentCount;
+    cUnit.activate = activate;
+    let mult = activate && recursive ?
+        presentMoney ? Math.floor(totalSum / presentMoney) : Math.floor(sumCount/ presentCount) : 1;
+    !activate && cUnit.presentSku ? cUnit.presentSku.err_status = PRODUCT_OUT_SELL : null;
+    cUnit.presentSku ? cUnit.presentSku.count = mult : null;
+    return cUnit;
+}
+
+/*end campaigns*/
 
 function getProductStatus(itemInfo) {
     itemInfo.skus.forEach(
@@ -52,34 +193,25 @@ function getProductStatus(itemInfo) {
 }
 
 function checkProductStatus(product) {
-    const PRODUCT_OUT_SELL= 1; //下架
-    const PRODUCT_EMPTY_SELL= 2; //售罄
-    const PRODUCT_ON_SELL = 1 ; //在售
-    const PRODUCT_LOW_STOCK = 3 //库存不足
-    let productState = Object.assign({},product,{err_msg:'',err_status:0,show_tips:false});
-    if(productState.status != PRODUCT_ON_SELL){
+    let STATUS = {};
+    let statusTag = '';
+    STATUS[PRODUCT_UNAVAILABLE] = {err_msg : '此商品已下架',err_status : PRODUCT_UNAVAILABLE};
+    STATUS[PRODUCT_OUT_SELL] = {err_msg : '此商品已售罄，暂无法购买' , err_status : PRODUCT_OUT_SELL};
+    STATUS[PRODUCT_LOW_STOCK] = {err_msg: '剩余库存'+product.quantity+'件', err_status: PRODUCT_LOW_STOCK};
+    if(product.status != PRODUCT_ON_SELL){
         //商品已下架
-        productState.err_msg = '此商品已下架';
-        productState.err_status = PRODUCT_OUT_SELL;
-    }else if(productState.quantity <= 0){
-        //商品售罄
-        productState.err_msg = '此商品已售罄，暂无法购买';
-        productState.err_status = PRODUCT_EMPTY_SELL;
-    }else if(productState.count > productState.quantity){
-        //库存不足
-        productState.err_msg = '剩余库存'+productState.quantity+'件';
-        productState.err_status = PRODUCT_LOW_STOCK;
-        productState.show_tips = true;
+        statusTag = PRODUCT_UNAVAILABLE;
     }
-    return productState;
+    if(product.quantity <= 0){
+        statusTag = PRODUCT_OUT_SELL;
+    }
+    if(product.count > product.quantity){
+        statusTag = PRODUCT_LOW_STOCK;
+    }
+    return Object.assign({},product,STATUS[statusTag]);
 }
 
 function initSuccess(content,data) {
-    const PRODUCT_OUT_SELL= 1; //下架
-    const PRODUCT_EMPTY_SELL= 2; //售罄
-    const PRODUCT_LOW_STOCK = 3; //库存不足
-    const PRODUCT_NORMAL = 0; //库存正常
-    let metionCode = PRODUCT_NORMAL;
     let info = {skus:data};
     info.show_empty = true;
     if(data && data.length > 0){
@@ -90,40 +222,28 @@ function initSuccess(content,data) {
             }
         })
     }
+    let metionMsg = '';
+    let metionCode = 0;
     let pageStatus = {editable:false,activated:true,commited:true};
+    let campaigns = data.campaigns;
     info.skus.forEach(
         sku => {
-            let newsku = sku.productList.map(
-                product => {
-                    product = checkProductStatus(product);
-                    if(product.err_status == PRODUCT_LOW_STOCK){
-                        pageStatus = {editable: true, activated: true , commited:true};
-                    }
-                    if(metionCode != PRODUCT_LOW_STOCK){
-                        switch (product.err_status){
-                            case PRODUCT_OUT_SELL:
-                                metionMsg = '已下架或售罄商品不参与购物结算';
-                                metionCode = PRODUCT_OUT_SELL;
-                                break;
-                            case PRODUCT_EMPTY_SELL:
-                                metionMsg = '已下架或售罄商品不参与购物结算';
-                                metionCode = PRODUCT_EMPTY_SELL;
-                                break;
-                            case PRODUCT_LOW_STOCK:
-                                metionMsg = '部分商品缺货，请编辑购物车';
-                                metionCode = PRODUCT_LOW_STOCK;
-                                break;
-                        }
-                    }
-                    return product;
-                }
-
-            );
-            sku.productList = newsku;
+            sku.productList = sku.productList.map((product)=>{
+                product = checkProductStatus(product);
+                return product;
+            });
+            /*set message*/
+            sku.productList.filter(
+                product => product.err_status && product.err_status != PRODUCT_ON_SELL  //??PRODUCT_LOW_STOCK
+            ).length > 0 ? metionMsg = '已下架或售罄商品不参与购物结算' : null;
+            /*end set message*/
+            sku.productList.filter(
+                product => product.err_status && product.err_status == PRODUCT_LOW_STOCK
+            ).length > 0 ? pageStatus = {editable: true, activated: true , commited:true} : null
         }
     );
-    info.metionMessage = '';
-    info.order_number = '';
+    info.metionMessage = metionMsg;
+    // info.order_number = '';
     info.activateShop = info.skus.map(
         sku =>{
             let id = sku.id;
@@ -131,8 +251,8 @@ function initSuccess(content,data) {
             stores[id] = pageStatus;
             return stores;
         }
-    )
-    return finalState(info);
+    );
+    return finalState(Object.assign({},content,info));
 }
 
 function setMetionMessage(content,data) {
@@ -240,9 +360,9 @@ function succIncrementItem(itemInfo,item) {
 }
 
 function failSubmitCart(itemInfo,content) {
-    const PRODUCT_LOW_STOCK = -12; //库存不足
-    const PRODUCT_EMPTY_SELL = -15; //售罄
-    const PRODUCT_OUT_SELL = -16; //售罄
+    const PRODUCT_LOW_STOCK_E = -12; //库存不足
+    const PRODUCT_EMPTY_SELL_E = -15; //售罄
+    const PRODUCT_OUT_SELL_E = -16; //售罄
     let newItemInfo = Object.assign({},itemInfo);
     let err_msg = content.error_message;
     if(content.orderResults.length > 0){
@@ -252,11 +372,11 @@ function failSubmitCart(itemInfo,content) {
         if(order_res && order_res.length > 0){
             err_msg = order_res[0].error_message;
             switch (order_res[0].error_code){
-                case PRODUCT_LOW_STOCK:
+                case PRODUCT_LOW_STOCK_E:
                     err_msg = '部分商品缺货，请编辑购物袋';
                     break;
-                case PRODUCT_EMPTY_SELL:
-                case PRODUCT_OUT_SELL:
+                case PRODUCT_EMPTY_SELL_E:
+                case PRODUCT_OUT_SELL_E:
                     err_msg = "已下架或售罄商品不参与购物结算";
                     break;
             }

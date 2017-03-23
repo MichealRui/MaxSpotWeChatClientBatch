@@ -7,13 +7,22 @@ require('./index.css');
 export default class BottomBar extends React.Component{
 	constructor(props){
 		super(props);
+		this.state = {
+			showBottom : false
+		}
 	}
 
 	componentWillReceiveProps(nextProps){
 		if(nextProps.order_number){
 			this.context.router.push("/confirmOrder/"+nextProps.order_number);
 		}
+		if(nextProps.hideBottom){
+			this.setState({
+				showBottom : true
+			})
+		}
 	}
+
 
 	
 	createOrderClick() {
@@ -33,7 +42,7 @@ export default class BottomBar extends React.Component{
 	render(){
 		let props = this.props;
 		return(
-			<div className='bottomBar'>
+			<div className={'bottomBar ' +(props.showBottom ? '' : 'hide')}>
 				<div>
 					<div>
 						<p className='totalMoney font14'>总金额：<em>{props.totalMoney || 0}</em><i>元</i></p>
@@ -49,7 +58,7 @@ export default class BottomBar extends React.Component{
 				</div>
 				<span className={"button settleButton J_createOrder font18 " + (props.totalMoney == 0 ? 'disabled': '') }
                       onClick={this.createOrderClick.bind(this)}
-                      disabled={props.totalMoney == 0}
+                      disabled={props.totalMoney <= 0}
                 >结算</span>
 			</div>
 		)
@@ -60,12 +69,14 @@ BottomBar.PropTypes = {
 	totalMoney : React.PropTypes.number,
 	activateStore : React.PropTypes.object,
 	order_number : React.PropTypes.string,
+	showBottom : React.PropTypes.bool
 };
 
 BottomBar.defaultProps = {
 	totalMoney:0,
 	activateStore:{},
-	order_number:''
+	order_number:'',
+	showBottom : false
 };
 
 BottomBar.contextTypes = {

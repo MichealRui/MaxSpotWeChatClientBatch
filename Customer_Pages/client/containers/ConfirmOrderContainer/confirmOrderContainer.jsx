@@ -44,7 +44,7 @@ class ConfirmOrderContainer extends React.Component {
                 },
                 cancel: function(r){
                     //todo
-                    routers.push('/orderList/');
+                    //routers.push('/');
                 }
             })
         })
