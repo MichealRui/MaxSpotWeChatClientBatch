@@ -28,7 +28,7 @@ export function initShoppingCart() {
     }
 }
 
-function initStart() {
+export function initStart() {
     return {
         type : actionTypes.INIT_SHOPPING_CART_START
     }

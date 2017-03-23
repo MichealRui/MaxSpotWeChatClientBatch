@@ -10,7 +10,7 @@ const CampaignType2 = 2; //第N件优惠
 const CampaignType3 = 3; //满赠
 
 function initStart(content) {
-    return Object.assign({},content);
+    return Object.assign({},content,{showBottom:false});
 }
 
 function isEmptyObject(e) {
@@ -63,7 +63,7 @@ function finalState(itemInfo) {
 
     let calculatedItemInfo = calcuShopSum(itemInfo);
     calculatedItemInfo = getProductStatus(calculatedItemInfo);
-    return Object.assign({}, calculatedItemInfo , {totalMoney: calcuTotalSum(calculatedItemInfo)})}
+    return Object.assign({}, calculatedItemInfo , {totalMoney: calcuTotalSum(calculatedItemInfo)} ,{showBottom:true})}
 
 /*campaigns*/
 
@@ -251,7 +251,7 @@ function initSuccess(content,data) {
             stores[id] = pageStatus;
             return stores;
         }
-    )
+    );
     return finalState(Object.assign({},content,info));
 }
 
