@@ -11,6 +11,7 @@ export default class Banner extends React.Component {
     render() {
         let props = this.props;
         let bannerData = props.bannerData;
+        let domain= IMAGECONFIG.host;
         let defPic = './images/banner_default.png';
         let swiperConfig = {
             pagination: '.swiper1 .swiper-pagination',
@@ -21,9 +22,9 @@ export default class Banner extends React.Component {
             bannerData.map(
                 (img,index)=>{
                     return (
-                        <Link key={index} to="/active">
-                            <img width='100%' style={style} src={ENV.domain + img} alt=""/>
-                        </Link>
+                        <a key={index} href={img.destUrl}>
+                            <img width='100%' style={style} src={domain + img.imagePath} alt=""/>
+                        </a>
                     )
                 })
         ) : (

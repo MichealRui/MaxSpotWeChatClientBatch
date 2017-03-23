@@ -464,7 +464,7 @@ export function initActivity() {
     //         })
     // }
     return (dispatch) => {
-        dispatch(succInitActivity(activeData))
+        dispatch(succInitActivity({...activeData}))
     }
 }
 
