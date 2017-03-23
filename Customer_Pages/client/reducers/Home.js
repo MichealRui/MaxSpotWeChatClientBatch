@@ -104,7 +104,7 @@ function initSuccess(content, data){
     let currentSub = subContent[currentKey];
     currentSub.items = currentSub.categoried[currentSelector.subKey];
     return Object.assign({}, content, {
-        banner: frontEndBanner,//data.bannxer,
+        banner: data.banner,//data.bannxer,
         selector: selector,
         subContent: Object.assign({}, subContent),//Object.assign({}, subContent, {all: currentSub}),
         currentSub: currentSub,//data.subContent['all'],,

@@ -5,6 +5,7 @@ import Swiper from '../../CommoonComponents/Swiper/index'
 import {Link} from 'react-router';
 import util from '../../../util/WeChatUtil';
 import LazyLoad from 'react-lazy-load';
+import BannerContainer from '../BannerContainer/bannerContainer';
 require('./index.css');
 
 export default class SelectorContainer extends React.Component {
@@ -37,14 +38,20 @@ export default class SelectorContainer extends React.Component {
             freeMode: false,
             slidesPerView: 2,
             spaceBetween: 0,
-        }
+        };
+        let swiperConfigs2 = {
+            pagination:'',
+            freeMode: false,
+            slidesPerView: 1,
+            spaceBetween: 0,
+        };
         let swiperContainer = 'swiper-containers';
         let swiperContainers = 'swiper-containerss';
         let freeswiperContainers = 'free-swiper-container';
+        let bannerSwiperContainers = 'bannerSwiperContainers';
         let props = this.props;
         let keys = props.selectorData;
         let defaultImg = DEFALUT_INFO.defaultImg;
-
         let tags = keys.map((selector, index) => {
             return (
                 <Selector
@@ -88,7 +95,13 @@ export default class SelectorContainer extends React.Component {
                     </li>
                 </Link>
             )
-        }) : '';
+        }) : null;
+        let arr = [];
+        arr.push(content.banner);
+        let bannerInfo = content.banner ?
+            <BannerContainer bannerData={arr} swiperClass={bannerSwiperContainers}/>
+            : null;
+
         return (
             <div>
                 <ul className="selectorContainer" onClick={this._onclick.bind(this)}>
@@ -96,6 +109,7 @@ export default class SelectorContainer extends React.Component {
                         {tags}
                     </Swiper>
                 </ul>
+                {bannerInfo}
                 <ul className={"selectorContainer freeitem " + (content.freeItems && content.freeItems.length ? "m02" : 'hide')}>
                     <Swiper swiperConfig={swiperConfigs1} swiperContainer={freeswiperContainers}>
                         {frees}
@@ -125,7 +139,8 @@ SelectorContainer.defaultProps = {
         subKey : ''
     },
     contentData : {
-        freeItems : []
+        freeItems : [],
+        banner : {}
     },
     storeData : {
         id : 0

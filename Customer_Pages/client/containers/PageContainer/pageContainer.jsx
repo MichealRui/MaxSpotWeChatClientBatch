@@ -96,11 +96,11 @@ class PageContainer extends React.Component {
         return (
             <div>
                 <HomeHeader store={content.storeInfo}/>
-                <div className="takespace" style={takespace}></div>
+                {/*<div className="takespace" style={takespace}></div>*/}
                 <Message msgContent={message}
                          clearMessage={() => dispatch(setMessage({errorMessage: ""}))}
                 />
-                <BannerContainer bannerData={content.banner}/>
+                <BannerContainer bannerData={content.banner} swiperClass="swiper1"/>
                 <SelectContainer selectorData={content.selector}
                                  onSelectClick={ (key,subKey) => dispatch(changeSubContent(key,subKey)) }
                                  currentSelector = {content.currentSelector}
@@ -120,7 +120,6 @@ class PageContainer extends React.Component {
 }
 
 function select(store) {
-    console.log('dispatched')
     return Object.assign({}, {state: store})
 }
 

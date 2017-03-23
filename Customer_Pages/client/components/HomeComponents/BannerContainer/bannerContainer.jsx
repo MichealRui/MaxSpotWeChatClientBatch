@@ -12,6 +12,7 @@ export default class BannerContainer extends React.Component {
             pagination: '.swiper1 .swiper-pagination',
             slidesPerView: 1
         };
+
         let props = this.props;
         let style= {};
         let banners = props.bannerData.map((banner, index) =>  {
@@ -23,7 +24,7 @@ export default class BannerContainer extends React.Component {
         });
             
         return (
-            <SwiperComponent swiperConfig={swiperConfig} swiperContainer={'swiper1'}>
+            <SwiperComponent swiperConfig={swiperConfig} swiperContainer={props.swiperClass}>
                 {banners}
             </SwiperComponent>
         )
@@ -31,9 +32,11 @@ export default class BannerContainer extends React.Component {
 }
 
 BannerContainer.propTypes={
-    bannerData:React.PropTypes.array
+    bannerData:React.PropTypes.array,
+    swiperClass : React.PropTypes.string
 };
 
 BannerContainer.defaultProps= {
-    bannerData:[]
+    bannerData:[],
+    swiperClass : ''
 };
