@@ -10,7 +10,6 @@ export default class OrderProductList extends React.Component{
 
     render(){
         let props = this.props;
-        console.log(props);
         let productItems = props.productList.childOrders.map(
             (productItem,index)=>{
                 return(
