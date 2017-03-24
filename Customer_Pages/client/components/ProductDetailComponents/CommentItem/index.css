@@ -1,0 +1,31 @@
+.commentItem {
+	position: relative;
+	padding: 0.555556rem;
+	border-bottom: 1px solid #f2f2f2;
+}
+.commentItem .commentImg {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.555556rem;
+	width: 1.0rem;
+	height: 1.0rem;
+	border-radius: 50%;
+}
+.commentItem .content {
+	margin-left: 1.333333rem;
+}
+.commentItem .content .userName {
+	color: rgba(0,0,0,.5);
+	margin-bottom: 0.222222rem;
+	line-height: 1;
+}
+.commentItem .content .userComment {
+	color: rgba(0,0,0,.8);
+	line-height: 0.416667rem;
+}
+.commentItem .commentDate {
+	position: absolute;
+	top: 0.555556rem;
+	right: 0.555556rem;
+	color: rgba(0,0,0,.5);
+}

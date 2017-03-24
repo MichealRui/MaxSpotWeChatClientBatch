@@ -1,0 +1,26 @@
+.productDetailTitle {
+    padding: 0 0.625rem 0 0.555556rem;
+    position: relative;
+    background: #fff;
+}
+.productDetailTitle .titleContent {
+    display: inline-block;
+    color: rgba(0,0,0,.9);
+    line-height: 1;
+}
+.productDetailTitle .titleContent h2 {
+    margin-bottom: 0.111111rem;
+}
+.productDetailTitle .titleContent h1 {
+    margin-bottom: 0.222222rem;
+}
+.productDetailTitle .titleContent p {
+    color: rgba(0,0,0,.5);
+    padding-bottom: 5px;
+}
+.productDetailTitle .icon {
+    position: absolute;
+    right: 0.625rem;
+    top: 50%;
+    transform: translate(0,-50%);
+}

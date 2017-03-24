@@ -1,0 +1,31 @@
+.commentContainer {
+	margin-top: 0.138889rem;
+	background: #fff;
+}
+.commentContainer .commentTitle {
+	position: relative;
+	height: 1.458333rem;
+	line-height: 1.458333rem;
+	border-bottom: 1px solid #f2f2f2;
+	padding-left: 0.555556rem;
+	color: rgba(0,0,0,.8);
+}
+.commentContainer .commentTitle .commentIcon {
+	color: #eb5d41;
+	margin-right: 0.208333rem;
+}
+.commentContainer .commentTitle .more {
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	right: 0.555556rem;
+	color: #ff7860;
+	line-height: 1.458333rem;
+}
+.commentContainer .commentTitle .more .orderDetailArrow,
+.commentContainer .commentTitle .more .commentCount {
+	vertical-align: middle;
+}
+.commentContainer .commentTitle .more .commentCount {
+	margin-right: 5px;
+}
