@@ -1,0 +1,21 @@
+.orderDetailHeader .buttonArea{
+    padding: 0.222222rem 0.277778rem 0.222222rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #2db9ee;
+    line-height: 1.083333rem;
+}
+.orderDetailHeader .buttonArea>span {
+    color: #fff;
+}
+
+.orderDetailHeader .bigButton.pickUpButton {
+    width: 3.138889rem;
+    height: 1.055556rem;
+    line-height: 1.055556rem;
+    border-radius: 0.527778rem;
+    background: rgba(0,0,0,.2);
+    border: 1px solid #80d5f2;
+    color: #fff;
+    float: right;
+    margin: 0;
+}

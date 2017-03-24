@@ -1,0 +1,64 @@
+.shopItem {
+    position: relative;
+    height: 2.666667rem;
+    background-color: #fff;
+    border:1px solid #cecece;
+    margin-bottom: 0.138889rem;
+}
+.shopItem .shopImg {
+    width: 2.638889rem;
+    height: 2.666667rem;
+    background: #ccc;
+}
+.shopItem .infoArea {
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    left: 3.333333rem;
+    transform: translate(0, -50%);
+    width:52%;
+}
+.shopItem .infoArea h1 {
+    margin-bottom: 0.1rem;
+    color:#333;
+    white-space: nowrap;
+}
+
+.shopItem .infoArea h1 .icon1{
+    border: solid 1px #c7c7cc;
+    border-radius: 50%;
+    width: 0.4rem;
+    height: 0.4rem;
+    display: inline-block;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    color:#c7c7cc;
+    text-align: center;
+    line-height: 0.4rem;
+    margin-left: 0.2rem;
+}
+
+.shopItem .infoArea p {
+    line-height: 0.5rem;
+    color: #8d8d8d;
+}
+.shopItem .orderAddressArrow {
+    position: absolute;
+    top:50%;
+    right: 0.583333rem;
+    transform: translate(0, -50%);
+    color: rgba(0,0,0,.8);
+}
+
+.shopItem>span{
+    /*color:#c7c7cc;*/
+    display: inline-block;
+    position: absolute;
+    top: 36%;
+    right: 0.416667rem;
+    width: 0.402778rem;
+    height:0.458333rem;
+    /*font-weight: bold;*/
+    transform: scale(0.7);
+}

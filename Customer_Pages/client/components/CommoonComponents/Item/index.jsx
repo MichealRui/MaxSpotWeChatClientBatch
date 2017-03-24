@@ -59,9 +59,11 @@ export default class Item extends React.Component {
         var atts = this.getAttr(props.attributes);
         let storeid = this.props.storeid;
         let skunumber = this.props.item.skuNumber;
+        let campaignTag = props.campaign && props.campaign.campaignTag ? <div className="campaignTag font12">{props.campaign.campaignTag}</div>:'';
         return (
-            <Link to={"/productDetail/"+storeid+"/"+skunumber}>
+            <Link to={"/productDetail/"+storeid+"/"+skunumber} className="item_a">
                 <div className={"item "+sliderItem} >
+                {campaignTag}
                 {
                     sliderItem == 'sliderItem' ?
                         <img src={ domain + this.getMiddlePic(props.imagePath) } className='productImg' />

@@ -17,7 +17,7 @@ import util from '../../util/WeChatUtil'
 class PageContainer extends React.Component {
     constructor(props) {
         super (props);
-        this._storeId = util.getUrlParam().storeid;
+        this._storeId = this.props.params.storeId || util.getUrlParam().storeid;
     }
 
     componentWillMount() {
@@ -49,7 +49,7 @@ class PageContainer extends React.Component {
                 timestamp: config.timestamp,
                 nonceStr: config.noncestr,
                 signature: config.sign,
-                jsApiList: ["getLocation"]
+                jsApiList: ["getLocation","chooseWXPay"]
             });
             return true;
         } catch (e) {
@@ -89,27 +89,9 @@ class PageContainer extends React.Component {
         });
     }
 
-    addCart(item) {
-        let {state, dispatch} = this.props;
-        let itemId = item.skuId;
-        let target = state.cart.items.find((i) => {
-            return i.id == itemId
-        });
-        if (target) {
-            target.count = parseInt(target.count) + 1 + '';
-            dispatch(addToCart({
-                storeId: this.props.state.storeInfo.id + '',
-                skuId: target.id + '',
-                count: target.count
-            }))
-        } else {
-            dispatch(addToCart(item))
-        }
-    }
-
     render() {
         const { dispatch, state } = this.props;
-        const { cart, message, storeInfo, content} = state;
+        const { cart, message, content} = state;
         let takespace = {height: '1.2rem'};
         return (
             <div>
@@ -118,10 +100,12 @@ class PageContainer extends React.Component {
                 <Message msgContent={message}
                          clearMessage={() => dispatch(setMessage({errorMessage: ""}))}
                 />
-                <BannerContainer bannerData={content.banner}/>
+                <BannerContainer bannerData={content.banner} swiperClass="swiper1"/>
                 <SelectContainer selectorData={content.selector}
-                                 onSelectClick={ key => dispatch(changeSubContent(key)) }
-                                 currentKey = {content.currentKey}
+                                 onSelectClick={ (key,subKey) => dispatch(changeSubContent(key,subKey)) }
+                                 currentSelector = {content.currentSelector}
+                                 contentData = {content.currentSub}
+                                 storeData={content.storeInfo}
                 />
                 <SubContent
                     contentData={content.currentSub}
@@ -136,7 +120,6 @@ class PageContainer extends React.Component {
 }
 
 function select(store) {
-    console.log('dispatched')
     return Object.assign({}, {state: store})
 }
 

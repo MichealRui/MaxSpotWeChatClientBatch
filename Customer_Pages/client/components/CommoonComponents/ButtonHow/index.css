@@ -1,0 +1,13 @@
+.howGet{
+    width:28%;
+    float: right;
+    padding-top:0.5rem;
+    color: #ff7860;
+    text-align: center;
+}
+.howGet img{
+    width:0.8rem;
+}
+.howGet p{
+    line-height:1rem;
+}

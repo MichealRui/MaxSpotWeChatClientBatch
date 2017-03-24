@@ -207,6 +207,18 @@ html { overflow-y: scroll; }
     font-size: 72px !important;
 }
 
+.font26 {
+    font-size: 26px !important;
+}
+
+[data-dpr="2"] .font26 {
+    font-size: 52px !important;
+}
+
+[data-dpr="3"] .font26 {
+    font-size: 78px !important;
+}
+
 .font30 {
   font-size: 30px !important;
 }

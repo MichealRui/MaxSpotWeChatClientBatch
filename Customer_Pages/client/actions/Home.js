@@ -6,8 +6,21 @@ import fetch from 'isomorphic-fetch'
 import * as actionTypes from '../actionTypes/Home';
 import * as cartAction from './Cart';
 import * as messageAction from './Message';
+import * as shoppingCartAction from './ShoppingCart'
 
 const domain = ENV.domain;
+
+
+function login() {
+            fetch( domain + '/web/buyer_api/test_login_with_openid.action',
+            {
+                credentials: 'include',
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify({openid: "o41Mgv0eiCIKAZPpMdO1o-gGZrKs"})
+            }
+        )
+}
 
 // export function initWxConfig(url) {
 //     return (dispatch) => {
@@ -175,6 +188,7 @@ export function initSubContent(d) {
     console.log(" initing ");
     return (dispatch) =>  {
         dispatch(initStart());
+        dispatch(shoppingCartAction.initStart())
         fetch( d.url,
             {
                 method: 'POST',
@@ -219,10 +233,11 @@ export function initSuccess(content) {
 //     }
 // }
 
-export function changeSubContent(key) {
+export function changeSubContent(key,subKey) {
     return {
         type: actionTypes.CHANGE_SUBCONTENT,
-        key
+        key,
+        subKey
     }
 }
 

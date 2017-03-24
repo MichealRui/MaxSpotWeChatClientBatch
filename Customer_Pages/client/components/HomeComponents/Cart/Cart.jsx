@@ -2,41 +2,34 @@
 import React, { Component } from 'react';
 import Counter from '../../CommoonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
+
+import {Link} from 'react-router'
 require ('./index.css');
 
 export default class Cart extends Component {
     constructor(props) {
         super(props);
-        this._cartOnClick = e => {
-            e.stopPropagation();
-            window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
-        }
     }
-
-    // cartOnClick(e) {
-    //     e.stopPropagation();
-    //     window.location.href = 'http://www.mjitech.com/buyer_cart/index.html'
-    // }
-
     render() {
         let cart = this.props.cart;
         let clearCart = this.props.clearCart;
         return (
-            <div className={cart.remainTime?"bottomButton":"bottomButton empty"}
-                 onClick={this._cartOnClick.bind(this)}
-            >
-                <div className='cartIcon'>
-                    <a className='shopping_cart font30'>
-                        <img src={cart_img} alt=""/>
-                        <span className='count font10'>{cart.count || 0}</span>
-                    </a>
+            <Link to="/shoppingCart">
+                <div className={cart.remainTime?"bottomButton":"bottomButton empty"}
+                >
+                    <div className='cartIcon'>
+                        <div className='shopping_cart font30'>
+                            <img src={cart_img} alt="购物车"/>
+                            <span className='count font10'>{cart.count || 0}</span>
+                        </div>
+                    </div>
+                    {
+                        cart.remainTime ?
+                        <Counter remainTime={cart.remainTime}
+                                 timeUpCallback={clearCart}/> : null
+                    }
                 </div>
-                {
-                    cart.remainTime ?
-                    <Counter remainTime={cart.remainTime}
-                             timeUpCallback={clearCart}/> : ''
-                }
-            </div>
+            </Link>
         );
     }
 }

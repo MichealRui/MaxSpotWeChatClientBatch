@@ -1,0 +1,103 @@
+.confirmOrderContainer {
+    width: 100%;
+    /*padding-bottom: 2.666667rem;*/
+    background-color: #FFFFFF;
+}
+/*.confirmOrderContainer .buttonArea {*/
+    /*padding: 0.222222rem 0.277778rem 0.222222rem 0.555556rem;*/
+    /*border-bottom: 1px solid #e6e6e6;*/
+    /*background-color: #2db9ee;*/
+    /*line-height: 1.083333rem;*/
+    /*text-align: center;*/
+/*}*/
+/*.confirmOrderContainer .buttonArea>span {*/
+    /*color: #fff;*/
+/*}*/
+/*.confirmOrderContainer .bigButton.pickUpButton {*/
+    /*width: 3.138889rem;*/
+    /*height: 1.055556rem;*/
+    /*line-height: 1.055556rem;*/
+    /*border-radius: 0.527778rem;*/
+    /*background: rgba(0,0,0,.2);*/
+    /*border: 1px solid #80d5f2;*/
+    /*color: #fff;*/
+    /*float: right;*/
+    /*margin: 0;*/
+/*}*/
+/*.confirmOrderContainer>div {*/
+    /*background-color: #fff;*/
+/*}*/
+/*.confirmOrderContainer .timeAndMobile {*/
+    /*border-bottom: 1px solid #e6e6e6;*/
+    /*margin-bottom: 0.138889rem;*/
+/*}*/
+/*.confirmOrderContainer .timeAndMobile div {*/
+    /*display: inline-block;*/
+    /*width: 50%;*/
+    /*padding: 0.486111rem 0.555556rem;*/
+    /*background-color: #fff;*/
+    /*box-sizing: border-box;*/
+/*}*/
+/*.confirmOrderContainer .timeAndMobile .orderMobile {*/
+    /*border-left: 1px solid #e6e6e6;*/
+/*}*/
+/*.confirmOrderContainer .timeAndMobile .orderTime .time,*/
+/*.confirmOrderContainer .timeAndMobile .orderMobile .mobile {*/
+    /*margin-left: 0.555556rem;*/
+/*}*/
+/*.confirmOrderContainer .timeAndMobile .fa {*/
+    /*color: #929292;*/
+/*}*/
+/*.confirmOrderContainer .orderDetailInfo {*/
+    /*position: relative;*/
+    /*line-height: 1;*/
+    /*padding:0.625rem 0.555556rem;*/
+    /*border-bottom: 1px solid #e6e6e6;*/
+    /*color: #191919;*/
+/*}*/
+/*.confirmOrderContainer .orderStatus {*/
+    /*margin-bottom: 0.097222rem;*/
+/*}*/
+/*.confirmOrderContainer .orderDetailInfo .orderNumber,*/
+/*.confirmOrderContainer .orderDetailInfo span.last {*/
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 3.777778rem;*/
+    /*transform: translate(0,-50%);*/
+/*}*/
+/*.confirmOrderContainer .orderDetailInfo .orderStatus {*/
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*right: 0.555556rem;*/
+    /*transform: translate(0,-50%);*/
+/*}*/
+/*.confirmOrderContainer .orderDetailInfo .orderStatus.orderUncomplete {*/
+    /*color: #ea5d42;*/
+/*}*/
+/*.confirmOrderContainer .orderDetailInfo span.code {*/
+    /*color: #e95c40;*/
+/*}*/
+
+/*.confirmOrderContainer .totalArea {*/
+    /*padding: 0.5rem;*/
+/*}*/
+/*.confirmOrderContainer .totalMoney {*/
+    /*padding: 0.555556rem;*/
+    /*text-align: right;*/
+    /*color: #2db9ed;*/
+    /*background-color: #fff;*/
+    /*border-top: 1px solid #e6e6e6;*/
+/*}*/
+.bigButton.weiXinPay {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 1.527778rem;
+    line-height: 1.527778rem;
+    text-align: center;
+    color: #fff;
+    background-color: #05af10;
+    z-index: 999;
+    border-radius: 0;
+    margin-bottom: 0;
+}

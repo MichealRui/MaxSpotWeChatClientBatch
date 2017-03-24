@@ -1,0 +1,35 @@
+.orderDetailProductListContainer{
+    background-color: #FFFFFF;
+}
+.orderDetailProductListContainer>p {
+    text-align: right;
+    padding: 0.555556rem;
+}
+.orderDetailProductListContainer>p span {
+	margin-left: 0.722222rem;
+}
+
+.orderDetailProductListContainer .contexts {
+    border-bottom: 1px solid #e6e6e6;
+    color: #999999;
+    padding-top: 0.555556rem;
+    padding-right: 0.55556rem;
+    text-align: right;
+    line-height: 0.5555556rem;
+}
+.orderDetailProductListContainer .contexts>p>span{
+    margin-right: 0.233333rem;
+}
+
+.orderDetailProductListContainer .quantity,
+.orderDetailProductListContainer .unitPrice{
+    color: #000000;
+}
+.orderDetailProductListContainer .totalArea {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+.orderDetailProductListContainer .productCost {
+    font-style: normal;
+    color: #5D9DFD;
+}

@@ -1,0 +1,11 @@
+.orderTotalProduct {
+	/*margin-bottom: 0.305556rem;*/
+}
+.orderTotalProduct .accountDisplay {
+	padding: 0.555556rem;
+	border-bottom: 1px solid #e6e6e6;
+	line-height: 1;
+}
+.orderTotalProduct .totalAccount .accountDisplay{
+	border-bottom: none;
+}

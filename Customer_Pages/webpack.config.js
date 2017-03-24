@@ -28,8 +28,12 @@ var baseConfig = {
         loader: "file-loader"
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|jpeg)$/,
         loader: "url-loader?mimetype=image/png"
+      },
+      {
+        test: /\.(gif)$/,
+        loader: "url-loader?mimetype=image/gif"
       },
       {
         test: /\.html$/,
@@ -96,7 +100,8 @@ var envConfig = {
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
       }),
       new webpack.ProvidePlugin({
-          ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development')
+          ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development'),
+          DEFALUT_INFO : __dirname + '/client/defaultInfo/development',
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
       new webpack.NoErrorsPlugin(),
@@ -113,7 +118,9 @@ var envConfig = {
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
       }),
       new webpack.ProvidePlugin({
-          ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development')
+          ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'development'),
+          // DEFALUT_INFO : __dirname + '/client/env/' + (process.env.NODE_ENV || 'development'),
+          DEFALUT_INFO : __dirname + '/client/defaultInfo/development',
       }),
     ]
   }

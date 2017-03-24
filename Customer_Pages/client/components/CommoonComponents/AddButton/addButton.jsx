@@ -9,8 +9,8 @@ export default class AddButton extends React.Component {
     
     addClick(e) {
         // todo update cart
-        console.log("add")
         e.stopPropagation();
+        e.preventDefault();
         let cart = this.props.cart;
 
         this.props.click(

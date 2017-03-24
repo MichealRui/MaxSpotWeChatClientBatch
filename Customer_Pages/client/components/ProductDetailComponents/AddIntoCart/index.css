@@ -1,24 +1,24 @@
-.addIntoCart {
+.ProductDetailaddIntoCart {
     padding: 0.555556rem 0.694444rem 0.555556rem 0.555556rem;
     position: relative;
     background: #fff;
 }
-.addIntoCart .wrapper h1 {
+.ProductDetailaddIntoCart .wrappers h1 {
     color: #2db9ed;
     line-height: 1;
     margin-bottom: 0.222222rem;
 }
-.addIntoCart .wrapper p {
+.ProductDetailaddIntoCart .wrappers p {
     line-height: 1;
     color: #fe7960;
 }
-.addIntoCart .buttonArea {
+.ProductDetailaddIntoCart .buttonArea {
     position: absolute;
     right: 0.625rem;
     top: 50%;
     transform: translate(0,-50%);
 }
-.addIntoCart .buttonArea .bigButton {
+.ProductDetailaddIntoCart .buttonArea .bigButton {
     width: 2.972222rem;
     background: #fff;
     color: #ff7860;
@@ -27,8 +27,7 @@
     /*border-radius: 1.8rem;*/
     /*height: 1.2rem;*/
 }
-
-.addIntoCart .buttonArea .bigButton.empty {
+.ProductDetailaddIntoCart .buttonArea .bigButton.empty {
     background: #e1e1e1;
     color: #fff;
     border: 1px solid #e1e1e1;

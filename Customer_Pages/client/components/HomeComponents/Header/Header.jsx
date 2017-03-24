@@ -27,7 +27,7 @@ export default class Header extends Component {
                     <span className="shopAddress font13">
                         {props.store.name}
                     </span>
-                    <Link to={"/switchshop?storeid=" + props.store.id}>
+                    <Link to={"/switchshop/" + props.store.id}>
                         <span className="switchShopBtn font13">
                             切换站点
                         </span>

@@ -1,0 +1,27 @@
+.item_empty{
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 2rem;
+}
+.item_empty img{
+    display: inherit;
+    margin: 0 auto;
+}
+.item_empty .text{
+    text-align: center;
+    color: #999999;
+    margin-top: 1.11rem;
+}
+
+.item_empty .button{
+    border:1px solid #ff7860;
+    width: 4.17rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #ff7860;
+    border-radius: 1.25rem;
+    -webkit-border-radius: 1.25rem;
+    margin-top: 2.71rem;
+}

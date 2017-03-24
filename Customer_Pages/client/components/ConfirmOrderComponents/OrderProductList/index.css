@@ -1,0 +1,10 @@
+.orderTotalProduct .totalMoney {
+    text-align: right;
+    color: #2db9ed;
+    background-color: #fff;
+    border-top: 1px solid #e6e6e6;
+}
+
+.orderTotalProduct .totalMoney .accountDisplay{
+    border-bottom : none;
+}

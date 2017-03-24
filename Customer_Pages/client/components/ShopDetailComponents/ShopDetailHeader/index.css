@@ -1,0 +1,38 @@
+.ShopDetailHeader {
+    position: relative;
+    /*height: 2.666667rem;*/
+    height: 1.833333rem;
+    background-color: #fff;
+    border:1px solid #cecece;
+    margin-bottom: 0.138889rem;
+}
+
+.ShopDetailHeader .shopImg {
+    /*width: 2.638889rem;*/
+    /*height: 2.666667rem;*/
+    width: 1.833333rem;
+    height: 1.833333rem;
+    background: #ccc;
+}
+
+.ShopDetailHeader .shopName {
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    left: 2.388889rem;
+    transform: translate(0, -50%);
+    color: #333;
+}
+
+.ShopDetailHeader .favourite {
+    position: absolute;
+    top:50%;
+    right: 0.583333rem;
+    transform: translate(0, -50%);
+    color: rgba(0,0,0,.8);
+    display: none;
+}
+
+.ShopDetailHeader .favourite.active {
+    color: red;
+}

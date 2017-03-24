@@ -2,6 +2,8 @@
 
 import React from 'react';
 import SwiperComponent from '../../CommoonComponents/Swiper/index';
+
+import util from '../../../util/WeChatUtil';
 require('./index.css');
 
 export default class ProductSlider extends React.Component {
@@ -9,31 +11,25 @@ export default class ProductSlider extends React.Component {
 		super(props);
 	}
 
-	getMiddlePic(path) {
-		let particial = path.split('.');
-		if(particial.length == 2) {
-			particial[0] = particial[0] + '_middle'
-			return particial.join('.')
-		} else {
-			path
-		}
-	}
-
 	render(){
 		let swiperConfig = {
-			pagination:'.swiper-pagination',
+			pagination:'.swiper1 .swiper-pagination',
 			slidesPerView:1,
 			freeMode: false
 		}
+		let style = {}
 		let props = this.props;
 		let productImgs = props.sliderData.images;
+		let defaultImg = DEFALUT_INFO.defaultImg;
+		// let domain = ENV.domain;
+		let domain = "http://114.215.143.97/";
 		let sliders = productImgs.map(
 			(img,index)=>{
-				return (
-					<div className="swiper-slide" key={index}>
-						<img src={ENV.domain + this.getMiddlePic(img) || require('./images/default.png')} alt=""/>
-					</div>
-				)
+                return (
+                    img ? <img width="60%" key={index} style={style} src={ domain + util.getMiddlePic(img) } alt=""/>
+                    :
+                    <img width="60%" key={index} style={style} src={defaultImg} alt=""/>
+                )
 			}
 		)
 		return (

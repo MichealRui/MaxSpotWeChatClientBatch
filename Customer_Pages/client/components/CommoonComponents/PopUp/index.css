@@ -1,0 +1,52 @@
+.model {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.8);
+    z-index: 999;
+}
+.model .windowWrap {
+    position: absolute;
+    width: 70%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 1.208333rem 0.833333rem;
+    background-color: #fff;
+    border-radius: 0.277778rem;
+}
+.model .closeIcon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50% 50%;
+    -webkit-border-radius: 50% 50%;
+    background: #fff;
+    transform: translate(50% ,-50%);
+    -webkit-transform: translate(50% ,-50%);
+    text-align: center;
+    box-shadow: 0 0px 5px #888888;
+    -webkit-box-shadow: 0 0px 5px #888888;
+}
+
+@font-face {font-family: "iconfont";
+    src: url('http://at.alicdn.com/t/font_06owli150v5z5mi.eot?t=1488354705224'); /* IE9*/
+    src: url('http://at.alicdn.com/t/font_06owli150v5z5mi.eot?t=1488354705224#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('http://at.alicdn.com/t/font_06owli150v5z5mi.woff?t=1488354705224') format('woff'), /* chrome, firefox */
+    url('http://at.alicdn.com/t/font_06owli150v5z5mi.ttf?t=1488354705224') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('http://at.alicdn.com/t/font_06owli150v5z5mi.svg?t=1488354705224#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-close:before { content: "\e602"; }

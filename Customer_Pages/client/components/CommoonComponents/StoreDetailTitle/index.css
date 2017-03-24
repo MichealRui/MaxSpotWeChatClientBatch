@@ -1,0 +1,40 @@
+ .storeDetailTitle {
+    padding: 0.486111rem 0.555556rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+ .storeDetailTitle .fa {
+    color: #929292;
+}
+ .storeDetailTitle .orderAddress {
+    color: #000;
+    margin-left: 0.555556rem;
+}
+ .storeDetailTitle .fa-th-large,
+ .storeDetailTitle .orderAddress {
+    line-height: 24px;
+}
+[data-dpr='2']  .storeDetailTitle .fa-th-large,
+[data-dpr='2']  .storeDetailTitle .orderAddress {
+    line-height: 48px;
+}
+[data-dpr='3']  .storeDetailTitle .fa-th-large,
+[data-dpr='3']  .storeDetailTitle .orderAddress {
+    line-height: 72px;
+}
+
+ .storeDetailTitle .orderAddressArrow {
+    position: absolute;
+    right: 0.2rem;
+}
+ .storeDetailTitle .orderStatus.orderComplete {
+    color: green;
+}
+ .storeDetailTitle .orderStatus.orderUnComplete {
+    color: red;
+}
+ 
+ .storeDetailTitle .hide{
+     display: none;
+ }

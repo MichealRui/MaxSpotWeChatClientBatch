@@ -1,0 +1,181 @@
+/*.settleContainer {*/
+    /*padding: 0.902778rem 0.972222rem 0;*/
+/*}*/
+/*.settleContainer>div:after {*/
+    /*display: block;*/
+    /*content: '';*/
+    /*clear:both;*/
+/*}*/
+/*.settleContainer .shopName {*/
+    /*text-align: center;*/
+/*}*/
+/*.settleContainer .shopName h1 {*/
+    /*line-height: 1;*/
+    /*margin-bottom: 0.277778rem;*/
+/*}*/
+/*.settleContainer .shopName p {*/
+    /*color: rgba(0,0,0,.5);*/
+    /*line-height: 1;*/
+    /*margin-bottom: 0.75rem;*/
+/*}*/
+/*.settleContainer .settleCount {*/
+    /*text-align: center;*/
+    /*color: #2db9ed;*/
+/*}*/
+/*.settleContainer .settleCount h1 {*/
+    /*line-height: 1;*/
+    /*margin-bottom: 0.694444rem;*/
+/*}*/
+/*.settleContainer .settleCount em {*/
+    /*font-weight: normal;*/
+    /*font-weight: 900;*/
+/*}*/
+/*.settleContainer .settleQRCode {*/
+    /*width: 80%;*/
+    /*margin: 0 auto 0.555556rem;*/
+/*}*/
+/*.settleContainer .qrCodeContainer {*/
+    /*margin-bottom: 0.625rem;*/
+/*}*/
+/*.settleContainer p.settleQRCodeIntroduce {*/
+    /*line-height: 18px;*/
+    /*color: #7f7f7f;*/
+    /*margin-bottom: 1.111111rem;*/
+    /*text-align: center;*/
+/*}*/
+/*[data-dpr='2'] .settleContainer p.settleQRCodeIntroduce {*/
+    /*line-height: 36px;*/
+/*}*/
+/*[data-dpr='3'] .settleContainer p.settleQRCodeIntroduce {*/
+    /*line-height: 54px;*/
+/*}*/
+/*.settleContainer .qrCodeContainer {*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+/*}*/
+
+
+.settleContainer {
+    /*padding: 0.902778rem 0.972222rem 0;*/
+    width:100vw;
+    background: #fff;
+}
+.settleContainer>div:after {
+    display: block;
+    content: '';
+    clear:both;
+}
+.settleContainer .shopName {
+    /*text-align: center;*/
+    margin-left: 1.6rem;
+    width:50%;
+    float: left;
+}
+.settleContainer .shopName h1 {
+    line-height: 1;
+    margin-bottom: 0.277778rem;
+    margin-top: 0.6rem;
+    display: inline-block;
+    position: relative;
+}
+.settleContainer .shopName h5{
+    color: #8d8d8d;
+    line-height: 0.5rem;
+    margin-bottom: 0.45rem;
+}
+.settleContainer .shopName p {
+    color: rgba(0,0,0,.5);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+.settleContainer .settleCount {
+    text-align: center;
+    color: #2db9ed;
+}
+.settleContainer .settleCount h1 {
+    line-height: 1;
+    margin: 0.694444rem 0;
+}
+.settleContainer .settleCount em {
+    font-weight: normal;
+    font-weight: 900;
+}
+.settleContainer .settleQRCode {
+    width: 80%;
+    margin: 0 auto 0.555556rem;
+}
+.settleContainer .qrCodeContainer {
+    /*width:5.37rem;*/
+    margin-bottom: 0.625rem;
+}
+.settleContainer p.settleQRCodeIntroduce {
+    line-height: 18px;
+    color: #7f7f7f;
+    margin-top: 1.111111rem;
+    text-align: center;
+    margin-bottom: 1.6rem;
+}
+[data-dpr='2'] .settleContainer p.settleQRCodeIntroduce {
+    line-height: 36px;
+}
+[data-dpr='3'] .settleContainer p.settleQRCodeIntroduce {
+    line-height: 54px;
+}
+.settleContainer .qrCodeContainer {
+    display: flex;
+    justify-content: center;
+    margin-top:2rem;
+}
+.footer{
+    background-color: #fff;
+    text-align: center;
+    color: #2db9ed;
+    line-height: 18px;
+    padding-bottom: 1.4rem;
+    margin-top: 0.8rem;
+}
+.settleContainer_top{
+    background:#f2f2f2;
+    width:100vw;
+    height:auto;
+    border-bottom: 1px solid #c9c9c9;
+}
+.shopName img,.shopName .map_mark{
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.5rem;
+    height: 0.8rem;
+    position: absolute;
+    left:-0.8rem;
+}
+.shopName .map_mark{
+    top: -0.1rem;
+    color: #999;
+}
+.howGet{
+    width:28%;
+    float: right;
+    padding-top:0.5rem;
+    color: #ff7860;
+    text-align: center;
+}
+.howGet img{
+    width:0.8rem;
+}
+.howGet p{
+    line-height:1rem;
+}
+#footer{
+    background-color: #fff;
+    text-align: center;
+    color: #2db9ed;
+    line-height: 18px;
+    padding-bottom: 1.4rem;
+    margin-top: 0.8rem;
+}
+
+.bigButton.enable {
+    color: #2db9ed;
+    padding-bottom: 1.4rem;
+
+}

@@ -1,0 +1,72 @@
+.afterPayFooter{
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0.5rem;
+}
+.afterPayFooter .info-img{
+    height: 2.3rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #eee;
+    box-sizing: border-box;
+    padding: 0.4rem;
+    position: relative;
+}
+
+.afterPayFooter .info-img-layer{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.1);
+}
+
+.afterPayFooter .info-img-layer.hide{
+    display: none;
+}
+.afterPayFooter .info-img-layer.show{
+    display: block;
+}
+
+.afterPayFooter .info-img .img{
+    background-color: #fff;
+    width: 1.48rem;
+    height: 1.48rem;
+    margin-right: 0.14444444rem;
+    position: relative;
+    display: inline-block;
+}
+.afterPayFooter .info-img .img:last-child{
+    margin: 0;
+}
+.afterPayFooter .info-img .img>img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 80%;
+}
+.afterPayFooter .progress-info{
+    width: 100%;
+    padding: 0 0.4rem;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.afterPayFooter .swiper-container{
+    height: 1.5rem;
+}
+.afterPayFooter .row-line{
+    display: flex;
+    margin-top: 1rem;
+}
+
+.afterPayFooter .swiper-containers{
+    overflow: visible;
+}

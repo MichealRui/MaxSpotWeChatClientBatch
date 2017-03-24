@@ -1,0 +1,60 @@
+.PaySuccOrderItem{
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    border-top:1px solid #ccc;
+    height: 2rem;
+    padding:0 0.3rem;
+    background: #FFFFFF;
+}
+.PaySuccOrderItem .orderAction{
+    margin: 0.556rem 0;
+    /*margin-right: 0.556rem;*/
+    width:30%;
+}
+
+.PaySuccOrderItem .orderInfo{
+    margin: 0.3rem 0;
+    /*margin-left: 0.556rem;*/
+    width:70%;
+}
+.PaySuccOrderItem .orderAction .action1{
+    border:1px solid #cecece;
+    border-radius: 12px;
+    width: 2.2rem;
+    height: 0.805rem;
+    line-height: 0.805rem;
+    text-align: center;
+    /*margin-right: 0.15rem;*/
+    color:#000;
+}
+.PaySuccOrderItem .fl>div{
+    line-height: 0.7rem;
+}
+.PaySuccOrderItem .orderAction .action2{
+    margin-top: 0.15rem;
+    color:#929292;
+}
+.PaySuccOrderItem .white{
+    color:#fff;
+}
+.PaySuccOrderItem .black{
+    color:#000;
+}
+.PaySuccOrderItem .blue{
+    color:#b9e8f9;
+}
+.PaySuccOrderItem .c_999{
+    color:#999;
+}
+.PaySuccOrderItem .fr{
+    float: right;
+}
+
+.PaySuccOrderItem .fl{
+    float: left;
+}
+.PaySuccOrderItem .btn_fetch{
+    background-color: #ff7860;
+    margin: 0;
+    color: #FFFFFF;
+}

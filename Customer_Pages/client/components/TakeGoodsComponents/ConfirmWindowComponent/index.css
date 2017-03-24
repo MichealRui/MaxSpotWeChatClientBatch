@@ -1,0 +1,68 @@
+/*.ConfirmWindow .windowWrap p {*/
+    /*line-height: 20px;*/
+    /*margin-bottom: 1.388889rem;*/
+    /*text-align: center;*/
+/*}*/
+/*[data-dpr="2"] .ConfirmWindow .windowWrap p {*/
+    /*line-height: 40px;*/
+    /*margin-bottom: 1.388889rem;*/
+/*}*/
+/*[data-dpr="3"] .ConfirmWindow .windowWrap p {*/
+    /*line-height: 60px;*/
+    /*margin-bottom: 1.388889rem;*/
+/*}*/
+/*.ConfirmWindow .windowWrap h1 {*/
+    /*line-height: 1;*/
+    /*text-align: center;*/
+    /*color: #2db9ed;*/
+    /*margin-bottom: 1.444444rem;*/
+    /*font-weight: 900;*/
+/*}*/
+/*.ConfirmWindow .windowWrap .bigButton.paySuccess,*/
+/*.ConfirmWindow .windowWrap .bigButton.payFailed {*/
+    /*height: 1.25rem;*/
+    /*line-height: 1.25rem;*/
+    /*border-radius: 0.625rem;*/
+/*}*/
+
+/*.ConfirmWindow .closeIcon{*/
+    /*display: none !important;*/
+/*}*/
+
+.ConfirmWindow h2{
+    text-align: center;
+    line-height: 2rem;
+}
+.ConfirmWindow p{
+    line-height:0.6rem;
+    color: #999;
+    margin-bottom: 0.8rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.ConfirmWindow .shop_errTop{
+    width: 100%;
+    height: auto;
+    margin-top:20px;
+    text-align: center;
+}
+.ConfirmWindow .shop_errTop img{
+    width:80%;
+
+}
+.ConfirmWindow .windowWrap .color29c6e1{
+    font-size: 0.6rem;
+    color: #29c6e1;
+    text-align: center;
+}
+
+.ConfirmWindow .shop-errOK{
+    width:4.27rem;
+    height:1rem;
+    background: #ff7860;
+    border-radius: 20px;
+    color: #fff;
+    margin-left:1.4rem;
+    outline: 0;
+    border:0;
+}
