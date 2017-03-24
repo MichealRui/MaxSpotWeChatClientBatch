@@ -9,6 +9,18 @@
 	margin-left: 0.722222rem;
 }
 
+.orderDetailProductListContainer .contexts {
+    border-bottom: 1px solid #e6e6e6;
+    color: #999999;
+    padding-top: 0.555556rem;
+    padding-right: 0.55556rem;
+    text-align: right;
+    line-height: 0.5555556rem;
+}
+.orderDetailProductListContainer .contexts>p>span{
+    margin-right: 0.233333rem;
+}
+
 .orderDetailProductListContainer .quantity,
 .orderDetailProductListContainer .unitPrice{
     color: #000000;

@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import OrderTotalProduct from '../OrderTotalProduct/OrderTotalProduct'
-import AccountDisplay from '../AccountDisplay/AccountDisplay'
+import AccountDisplay from '../../CommoonComponents/AccountDisplay/AccountDisplay'
 require('./index.css')
 export default class OrderProductList extends React.Component{
     constructor(props){

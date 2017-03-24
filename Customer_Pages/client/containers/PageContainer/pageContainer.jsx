@@ -96,7 +96,7 @@ class PageContainer extends React.Component {
         return (
             <div>
                 <HomeHeader store={content.storeInfo}/>
-                {/*<div className="takespace" style={takespace}></div>*/}
+                <div className="takespace" style={takespace}></div>
                 <Message msgContent={message}
                          clearMessage={() => dispatch(setMessage({errorMessage: ""}))}
                 />

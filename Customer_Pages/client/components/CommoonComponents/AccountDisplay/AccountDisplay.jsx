@@ -11,9 +11,9 @@ export default class AccountDisplay extends React.Component {
 	render(){
 		let props = this.props;
 		return (
-			<p className='accountDisplay clearfix font14'>
-				<span className='money'>{props.money}元</span>
+			<p className='accountDisplay font14'>
 				<span className='name'>{props.name}</span>
+				<span className='money'>{props.money}元</span>
 			</p>
 		);
 	}

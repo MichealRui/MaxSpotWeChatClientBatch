@@ -1,11 +1,18 @@
 .accountDisplay {
 	margin: 0;
 	line-height: 0.833333rem;
+	text-align: right;
+	/*padding-right: 0.55556rem;*/
 }
-.accountDisplay .money,
+.accountDisplay .money{
+	width: 20%;
+	display: inline-block;
+}
 .accountDisplay .name {
-	float: right;
+	/*float: right;*/
+	width: 80%;
+	display: inline-block;
 }
-.accountDisplay .money {
-	margin-left: 0.555556rem;
-}
+/*.accountDisplay .money {*/
+	/*margin-left: 0.555556rem;*/
+/*}*/
