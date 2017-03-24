@@ -21,9 +21,6 @@ class ShoppingCartContainer extends React.Component {
         const {dispatch} = this.props;
         dispatch(initShoppingCart())
     }
-    componentwillreceiveprops(nextProps){
-        console.log(nextProps);
-    }
 
     render(){
         const {state,dispatch} = this.props;
@@ -41,7 +38,6 @@ class ShoppingCartContainer extends React.Component {
             setMetionMessage : shopId => message => () => dispatch(setMetionMessage(message))
         };
         let {metionMessage,skus,activateShop,totalMoney,order_number,show_empty,showBottom} = shoppingCart;
-        console.log(shoppingCart)
         let count =  0;
         if(cart){
             count = cart.cart ? cart.cart.count : 0

@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import { connect } from 'react-redux';
-import {InitOrderDetail} from '../../actions/OrderDetail'
+import {InitPaySuccess} from '../../actions/PaySuccess'
 import Header from '../../components/PaySuccessComponents/PaySuccessHeader/PaySuccessHeader'
 import OrderList from '../../components/PaySuccessComponents/PaySuccessOrderList/PaySuccessOrderList'
 class PaySuccessContainer extends React.Component {
@@ -12,14 +12,13 @@ class PaySuccessContainer extends React.Component {
 
     componentWillMount(){
         const {dispatch,state} = this.props;
-        const {orderDetail} = state;
-        orderDetail.orderNumber && this._ordernumber == orderDetail.orderNumber ? '' : dispatch(InitOrderDetail(this._ordernumber))
+        dispatch(InitPaySuccess(this._ordernumber))
     }
 
     render(){
         const {state} = this.props;
-        const {orderDetail} = state;
-        const {order} = orderDetail;
+        const {paySuccess} = state;
+        const {order} = paySuccess;
         return (
             <div className="paySuccessContainer">
                 <div>

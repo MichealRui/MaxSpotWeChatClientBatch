@@ -1,0 +1,7 @@
+
+import * as Message from './common/Message';
+
+const INIT_BANNERDETAIL_START = 'INIT_BANNERDETAIL_START';
+const INIT_BANNERDETAIL_SUCCESS = 'INIT_BANNERDETAIL_SUCCESS';
+
+module.exports = {...Message,...{INIT_BANNERDETAIL_START,INIT_BANNERDETAIL_SUCCESS}}

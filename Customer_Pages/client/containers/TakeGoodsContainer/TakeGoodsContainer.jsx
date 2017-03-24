@@ -1,7 +1,7 @@
 "use strict"
 import React from 'react';
 import {connect} from 'react-redux'
-import {InitOrderDetail,initInfo} from '../../actions/OrderDetail';
+import {InitTakeGoods} from '../../actions/TakeGoods';
 import QrCode from '../../components/TakeGoodsComponents/QrCode/QrCode'
 import ConfirmWindow from '../../components/TakeGoodsComponents/ConfirmWindowComponent/ConfirmWindowComponent'
 import WindowText from '../../components/TakeGoodsComponents/ConfirmWindowComponent/WindowText';
@@ -32,13 +32,13 @@ class TakeGoodsContainer extends React.Component {
         const Taking = 4;
         const {dispatch,state} = this.props;
         let status = 0;
-        if(state.orderDetail.order){
-            if(state.orderDetail.order.status){
-                status = state.orderDetail.order.status;
+        if(state.takeGoods.order){
+            if(state.takeGoods.order.status){
+                status = state.takeGoods.order.status;
             }
         }
         //let status = state.orderDetail.order.status;
-        dispatch(InitOrderDetail(od))
+        dispatch(InitTakeGoods(od))
         if(status != Taking) {
             window.setTimeout( ()=>this.fetchO.bind(this)(od), this.sleepTime )
         } else {
@@ -101,8 +101,8 @@ class TakeGoodsContainer extends React.Component {
 
     render(){
         let {state} = this.props;
-        let {orderDetail} = state;
-        let {order} = orderDetail;
+        let {takeGoods} = state;
+        let {order} = takeGoods;
         let newOrder = order ? (order.childOrders ? Object.assign({},{order:order.childOrders[0]}) : Object.assign({},{order:order})) : {}
         let appId = 'wx4da5ecd6305e620a';
         let takeUri = encodeURIComponent("http://www.mjitech.com/web/wxauthorize.action");
@@ -156,7 +156,7 @@ TakeGoodsContainer.PropTypes = {
 };
 TakeGoodsContainer.defaultProps = {
     state : {
-        orderDetail : {
+        takeGoods : {
             order : {
                 childOrders : [],
                 status : 0
