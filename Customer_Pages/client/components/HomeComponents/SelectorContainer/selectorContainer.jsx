@@ -96,10 +96,10 @@ export default class SelectorContainer extends React.Component {
                 </Link>
             )
         }) : null;
-        let arr = [];
-        arr.push(content.banner);
+        // let arr = [];
+        // arr.push(content.banner);
         let bannerInfo = content.banner ?
-            <BannerContainer bannerData={arr} swiperClass={bannerSwiperContainers}/>
+            <BannerContainer bannerData={content.banner} swiperClass={bannerSwiperContainers}/>
             : null;
 
         return (

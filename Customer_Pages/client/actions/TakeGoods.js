@@ -1,8 +1,8 @@
 import fetch from 'isomorphic-fetch';
-import * as actionTypes from '../actionTypes/OrderDetail';
+import * as actionTypes from '../actionTypes/TakeGoods';
 import * as messageAction from '../actions/Message'
 const domain = ENV.domain;
-export function InitOrderDetail(orderNumber) {
+export function InitTakeGoods(orderNumber) {
     return (dispatch) => {
         dispatch(initStart());
         fetch(domain + '/web/buyer_api/order_detail.ction',{
@@ -27,13 +27,13 @@ export function InitOrderDetail(orderNumber) {
 
 function initStart() {
     return {
-        type: actionTypes.INIT_ORDERDETAIL_START
+        type: actionTypes.INIT_TAKEGOODS_START
     }
 }
 
 function initSuccess(order) {
     return {
-        type: actionTypes.INIT_ORDERDETAIL_SUCCESS,
+        type: actionTypes.INIT_TAKEGOODS_SUCCESS,
         order
     }
 }

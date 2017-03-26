@@ -10,7 +10,7 @@ const CampaignType2 = 2; //第N件优惠
 const CampaignType3 = 3; //满赠
 
 function initStart(content) {
-    return Object.assign({},content,{showBottom:false});
+    return Object.assign({},content,{showBottom:false},{order_number:''});
 }
 
 function isEmptyObject(e) {
@@ -252,7 +252,7 @@ function initSuccess(content,data) {
             return stores;
         }
     );
-    return finalState(Object.assign({},content,info));
+    return finalState(Object.assign({},content,info,{order_number:''}));
 }
 
 function setMetionMessage(content,data) {
