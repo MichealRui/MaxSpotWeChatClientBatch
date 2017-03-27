@@ -67,7 +67,7 @@ function initSuccess(content, data){
         let returnValue = {};
         if(key){
             returnValue[key] = {
-                banner : cat.banner,
+                banner : cat.banners,
                 freeItems : cat.freeItems,
                 items : cat.items
             }
