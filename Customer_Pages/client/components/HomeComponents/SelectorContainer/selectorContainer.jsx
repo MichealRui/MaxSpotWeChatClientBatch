@@ -140,7 +140,7 @@ SelectorContainer.defaultProps = {
     },
     contentData : {
         freeItems : [],
-        banner : {}
+        banner : []
     },
     storeData : {
         id : 0
