@@ -100,7 +100,7 @@ class PageContainer extends React.Component {
                 <Message msgContent={message}
                          clearMessage={() => dispatch(setMessage({errorMessage: ""}))}
                 />
-                <BannerContainer bannerData={content.banner} swiperClass="swiper1"/>
+                <BannerContainer storeData={content.storeInfo} bannerData={content.banner} swiperClass="swiper1"/>
                 <SelectContainer selectorData={content.selector}
                                  onSelectClick={ (key,subKey) => dispatch(changeSubContent(key,subKey)) }
                                  currentSelector = {content.currentSelector}

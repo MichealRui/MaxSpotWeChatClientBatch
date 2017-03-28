@@ -8,11 +8,11 @@ export default class Header extends Component {
         super(props);
     }
 
-    onSwitchClick() {
-        let props = this.props;
-        window.location.href =
-            ENV.domain + '/buyer_switchshop/index.html' + '?storeid=' + props.store.id
-    }
+    // onSwitchClick() {
+    //     let props = this.props;
+    //     window.location.href =
+    //         ENV.domain + '/buyer_switchshop/index.html' + '?storeid=' + props.store.id
+    // }
 
     render() {
         let props = this.props;
