@@ -99,7 +99,7 @@ export default class SelectorContainer extends React.Component {
         // let arr = [];
         // arr.push(content.banner);
         let bannerInfo = content.banner ?
-            <BannerContainer bannerData={content.banner} swiperClass={bannerSwiperContainers}/>
+            <BannerContainer storeData={props.storeData} bannerData={content.banner} swiperClass={bannerSwiperContainers}/>
             : null;
 
         return (

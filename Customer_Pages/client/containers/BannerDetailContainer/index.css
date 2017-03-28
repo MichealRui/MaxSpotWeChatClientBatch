@@ -1,0 +1,13 @@
+.bannerDetailContainer {
+    width: 100%;
+}
+.bannerDetailContainer .bannerContainerHeader{
+    /*padding: 0.555556rem;*/
+    background-color: #fff;
+    /*height:11.33rem;*/
+}
+
+.bannerDetailContainer .bannerContainerHeader>img{
+    width: 100%;
+    height: 100%;
+}
