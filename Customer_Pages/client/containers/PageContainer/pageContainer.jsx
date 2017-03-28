@@ -12,6 +12,7 @@ import { initWxConfig, initSdk } from '../../actions/WeiXin'
 import { changeSubContent, locationSucc, locationFail, initByStoreId } from '../../actions/Home'
 import { clearCart, addToCart, initCart } from '../../actions/Cart'
 import { setMessage } from '../../actions/Message'
+import Loading from '../../components/CommoonComponents/Loading/Loading'
 import util from '../../util/WeChatUtil'
 
 class PageContainer extends React.Component {
@@ -91,7 +92,7 @@ class PageContainer extends React.Component {
 
     render() {
         const { dispatch, state } = this.props;
-        const { cart, message, content} = state;
+        const { cart, message, content , loading} = state;
         let takespace = {height: '1.2rem'};
         return (
             <div>
@@ -100,6 +101,7 @@ class PageContainer extends React.Component {
                 <Message msgContent={message}
                          clearMessage={() => dispatch(setMessage({errorMessage: ""}))}
                 />
+                <Loading loadingData={loading}/>
                 <BannerContainer storeData={content.storeInfo} bannerData={content.banner} swiperClass="swiper1"/>
                 <SelectContainer selectorData={content.selector}
                                  onSelectClick={ (key,subKey) => dispatch(changeSubContent(key,subKey)) }

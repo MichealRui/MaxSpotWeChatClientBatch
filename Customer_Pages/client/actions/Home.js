@@ -7,6 +7,7 @@ import * as actionTypes from '../actionTypes/Home';
 import * as cartAction from './Cart';
 import * as messageAction from './Message';
 import * as shoppingCartAction from './ShoppingCart'
+import * as loadingAction from './Loading'
 
 const domain = ENV.domain;
 
@@ -188,6 +189,7 @@ export function initSubContent(d) {
     console.log(" initing ");
     return (dispatch) =>  {
         dispatch(initStart());
+        dispatch(loadingAction.toggleStatue({status:true}));
         dispatch(shoppingCartAction.initStart())
         fetch( d.url,
             {
@@ -206,6 +208,7 @@ export function initSubContent(d) {
                         content: json.categories,
                         store: json.selectedStore
                     }))
+                    dispatch(loadingAction.toggleStatue({status:false}));
                 } else {
                     dispatch(messageAction.setMessage({errorMessage: json.error_message}))
                 }

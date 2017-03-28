@@ -4,6 +4,7 @@
 import { combineReducers } from 'redux'
 import content from './Home'
 import message from './Message'
+import loading from './Loading'
 import cart from './Cart'
 import weixin from './WeiXin'
 import productDetail from './ProductDetail'
@@ -23,6 +24,7 @@ export default combineReducers({
     cart,
     weixin,
     message,
+    loading,
     productDetail,
     brandDetail,
     switchShop,
