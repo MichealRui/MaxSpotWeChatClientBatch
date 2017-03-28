@@ -60,39 +60,44 @@ export default class Item extends React.Component {
         let storeid = this.props.storeid;
         let skunumber = this.props.item.skuNumber;
         let campaignTag = props.campaign && props.campaign.campaignTag ? <div className="campaignTag font12">{props.campaign.campaignTag}</div>:'';
-        return (
-            <Link to={"/productDetail/"+storeid+"/"+skunumber} className="item_a">
-                <div className={"item "+sliderItem} >
-                {campaignTag}
-                {
-                    sliderItem == 'sliderItem' ?
-                        <img src={ domain + this.getMiddlePic(props.imagePath) } className='productImg' />
-                        : (
-                            props.imagePath ?
-                                <LazyLoad height={'45%'}>
-                                    <img src={ 'http://114.215.143.97' + this.getMiddlePic(props.imagePath) } className='productImg' />
-                                </LazyLoad> :
-                                <LazyLoad height={'45%'}>
-                                    <img src={ defProductImg } className='productImg contain' />
-                                </LazyLoad>
-                        )
-                }
-                {/*<img src={'http://114.215.143.97' + props.imagePath} className='productImg' />*/}
-                <span className='brandProductContainer'>
+        if(props.status == 2){
+            return null
+        }else{
+            return (
+                <Link to={"/productDetail/"+storeid+"/"+skunumber} className="item_a">
+                    <div className={"item "+sliderItem} >
+                        {campaignTag}
+                        {
+                            sliderItem == 'sliderItem' ?
+                                <img src={ domain + this.getMiddlePic(props.imagePath) } className='productImg' />
+                                : (
+                                props.imagePath ?
+                                    <LazyLoad height={'45%'}>
+                                        <img src={ 'http://114.215.143.97' + this.getMiddlePic(props.imagePath) } className='productImg' />
+                                    </LazyLoad> :
+                                    <LazyLoad height={'45%'}>
+                                        <img src={ defProductImg } className='productImg contain' />
+                                    </LazyLoad>
+                            )
+                        }
+                        {/*<img src={'http://114.215.143.97' + props.imagePath} className='productImg' />*/}
+                        <span className='brandProductContainer'>
                     <p className={'productName font12'}>{props.brandName}</p>
                     <p className='productDesc font14'>{props.shortName}</p>
                     <p className={'categoryName font10'}>
                         {atts}
                     </p>
                 </span>
-                <span className='unitPrice font18'>{props.sellprice/100 || 0 }<span className="font12"> 元 </span></span>
-                {
-                    sliderItem == 'sliderItem' ? '' :
-                    props.quantity > 0 ? (this.props.children||null) : soldOut
-                }
+                        <span className='unitPrice font18'>{props.sellprice/100 || 0 }<span className="font12"> 元 </span></span>
+                        {
+                            sliderItem == 'sliderItem' ? '' :
+                                props.quantity > 0 ? (this.props.children||null) : soldOut
+                        }
 
-            </div>
-            </Link>
-        );
+                    </div>
+                </Link>
+            );
+        }
+
     }
 }
