@@ -15,7 +15,7 @@ require('./index.css');
 class AfterPay extends React.Component {
 	constructor(props){
 		super(props);
-		this.orderStatusApi = ENV.domain + '/web/buyer_api/order_detail.action';
+		this.orderStatusApi = ENV.domain + '/web/buyer_api/order_detail.ction';
 		this.sleepTime = 1000;
         this.state = {
             pageStatus: 1
