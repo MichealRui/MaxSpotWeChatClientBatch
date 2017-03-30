@@ -206,7 +206,8 @@ export function initSubContent(d) {
                     dispatch(initSuccess({
                         banner: json.banners,
                         content: json.categories,
-                        store: json.selectedStore
+                        store: json.selectedStore,
+                        channel : json.channel
                     }))
                     dispatch(loadingAction.toggleStatue({status:false}));
                 } else {

@@ -2,7 +2,7 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router'
-const defProductImg = require('./images/default.png');
+import util from '../../../util/WeChatUtil'
 require('./index.css');
 
 export default class Item extends React.Component {
@@ -56,32 +56,33 @@ export default class Item extends React.Component {
         let sliderItem = this.props.isSliderItem? "sliderItem":"commonItem";
         let soldOut = <span className="soldOut font14">售 罄</span>;
         let domain = ENV.domain;
+        domain = 'http://114.215.143.97';
+        let defProductImg = DEFALUT_INFO.defaultImg
         var atts = this.getAttr(props.attributes);
         let storeid = this.props.storeid;
         let skunumber = this.props.item.skuNumber;
-        let campaignTag = props.campaign && props.campaign.campaignTag ? <div className="campaignTag font12">{props.campaign.campaignTag}</div>:'';
+        let campaignTag = props.tips ? <div className="campaignTag font12">{props.tips}</div>:'';
         if(props.status == 2){
             return null
         }else{
             return (
                 <Link to={"/productDetail/"+storeid+"/"+skunumber} className="item_a">
-                    <div className={"item "+sliderItem} >
+                    <div className={"item "+sliderItem + (props.quantity > 0 ? '' : ' sellout')} >
                         {campaignTag}
                         {
                             sliderItem == 'sliderItem' ?
-                                <img src={ domain + this.getMiddlePic(props.imagePath) } className='productImg' />
+                                <img src={ domain + util.getMiddlePic(props.imagePath) } className='productImg' />
                                 : (
                                 props.imagePath ?
                                     <LazyLoad height={'45%'}>
-                                        <img src={ 'http://114.215.143.97' + this.getMiddlePic(props.imagePath) } className='productImg' />
+                                        <img src={ domain + util.getMiddlePic(props.imagePath) } className='productImg' />
                                     </LazyLoad> :
                                     <LazyLoad height={'45%'}>
                                         <img src={ defProductImg } className='productImg contain' />
                                     </LazyLoad>
                             )
                         }
-                        {/*<img src={'http://114.215.143.97' + props.imagePath} className='productImg' />*/}
-                        <span className='brandProductContainer'>
+                    <span className='brandProductContainer'>
                     <p className={'productName font12'}>{props.brandName}</p>
                     <p className='productDesc font14'>{props.shortName}</p>
                     <p className={'categoryName font10'}>
@@ -90,11 +91,15 @@ export default class Item extends React.Component {
                 </span>
                         <span className='unitPrice font18'>{props.sellprice/100 || 0 }<span className="font12"> 元 </span></span>
                         {
-                            sliderItem == 'sliderItem' ? '' :
-                                props.quantity > 0 ? (this.props.children||null) : soldOut
+                            sliderItem == 'sliderItem' ? '' : (this.props.children||null)
+
                         }
+                        <div className="itemLayer">
+                            <div className="circleSellout font14">缺货</div>
+                        </div>
 
                     </div>
+
                 </Link>
             );
         }

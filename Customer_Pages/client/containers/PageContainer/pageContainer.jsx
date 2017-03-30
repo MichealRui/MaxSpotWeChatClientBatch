@@ -7,6 +7,7 @@ import BottomButton from '../../components/HomeComponents/Cart/Cart';
 import BannerContainer from '../../components/HomeComponents/BannerContainer/bannerContainer';
 import SelectContainer from '../../components/HomeComponents/SelectorContainer/selectorContainer';
 import SubContent from '../../components/HomeComponents/SubContent/subContent'
+import CampaignContainer from '../../components/HomeComponents/CampaignContainer/CampaignContainer';
 import Message from '../../components/CommoonComponents/Message/Message';
 import { initWxConfig, initSdk } from '../../actions/WeiXin'
 import { changeSubContent, locationSucc, locationFail, initByStoreId } from '../../actions/Home'
@@ -103,6 +104,7 @@ class PageContainer extends React.Component {
                 />
                 <Loading loadingData={loading}/>
                 <BannerContainer storeData={content.storeInfo} bannerData={content.banner} swiperClass="swiper1"/>
+                <CampaignContainer channelData={content.channel} storeData={content.storeInfo}/>
                 <SelectContainer selectorData={content.selector}
                                  onSelectClick={ (key,subKey) => dispatch(changeSubContent(key,subKey)) }
                                  currentSelector = {content.currentSelector}

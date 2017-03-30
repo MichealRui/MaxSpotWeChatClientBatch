@@ -1,0 +1,11 @@
+
+
+.state_info.get_success .button{
+    width: 100%;
+    background-color: #ff7860;
+    color: #fff4f4;
+    text-align: center;
+    line-height: 1rem;
+    border-radius: 26px;
+    margin: 1rem 0;
+}

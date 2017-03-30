@@ -20,7 +20,9 @@ import OrderList from './containers/OrderListContainer/OrderListContainer'
 import OrderDetail from './containers/OrderDetailContainer/OrderDetailContainer'
 import TakeGoods from './containers/TakeGoodsContainer/TakeGoodsContainer'
 import AfterPay from './containers/AfterPayContainer/AfterPayContainer'
+import AfterPayOld from './containers/AfterPayContainerOld/AfterPay'
 import BannerDetail from './containers/BannerDetailContainer/BannerDetailContainer'
+import Activity from './containers/PromotionContainer/PromotionContainer'
 // init thunk
 
 function activateVendor() {
@@ -46,10 +48,11 @@ function renderPage(store) {
                 <Route path='/brand/:storeId/:brandId' component={BrandDetail}></Route>
                 <Route path='/switchshop/:storeId' component={SwitchShop}></Route>
                 <Route path='/shopDetail/:storeId' component={ShopDetail}></Route>
-                <Route path='/afterPay/:states/:orderNumber' component={AfterPay}></Route>
+                <Route path='/afterPay/:states/:orderNumber' component={AfterPayOld}></Route>
                 <Route path='/BannerDetail/:storeId/:campaignId' component={BannerDetail}></Route>
                 <Route path='/shoppingCart' component={ShoppingCart}></Route>
                 <Route path='/orderList' component={OrderList}></Route>
+                <Route path='/activity/:type/:storeId' component={Activity}></Route>
                 <Route path='/(:storeId)' component={Home}></Route>
             </Router>
         </Provider>
