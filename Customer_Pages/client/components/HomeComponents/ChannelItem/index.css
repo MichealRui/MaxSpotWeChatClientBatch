@@ -1,0 +1,46 @@
+.channelItem{
+    width: 45.9999999%;
+    margin-left: 0.27rem;
+    background-color: #FFFFFF;
+    display: inline-block;
+    position: relative;
+    height: 2.66667rem;
+}
+.channelItem .campaignItemImg{
+    width: 58%;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+}
+
+.channelItem .campaignItemImg>img{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.channelItem .campaignPost{
+    width: 42%;
+    height: 100%;
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+}
+.channelItem .campaignPost>img{
+    width: 68%;
+}
+.channelItem .newPost{
+    background-color: #65cc37;
+    padding: 0.5rem 0;
+}
+.channelItem .hotPost{
+    background-color: #eb3916;
+    padding: 0.4rem 0;
+}

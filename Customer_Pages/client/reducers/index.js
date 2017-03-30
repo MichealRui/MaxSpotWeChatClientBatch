@@ -19,6 +19,7 @@ import afterPay from './AfterPay'
 import paySuccess from './PaySuccess'
 import takeGoods from './TakeGoods'
 import bannerDetail from './BannerDetail'
+import promotion from './Promotion'
 export default combineReducers({
     content,
     cart,
@@ -36,6 +37,7 @@ export default combineReducers({
     afterPay,
     paySuccess,
     takeGoods,
-    bannerDetail
+    bannerDetail,
+    promotion
 })
 

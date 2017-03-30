@@ -1,0 +1,121 @@
+.activityItems{
+    width: 100%;
+    margin-bottom: 0.267rem;
+    background-color: #FFFFFF;
+    padding: 0.53333rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.activityItems .activityItem{
+    position: relative;
+    width: 100%;
+    padding-bottom: 0.8rem;
+}
+.activityItems .activityItem .activityItemsImg{
+    width: 2.8rem;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+.activityItems .activityItem .activityItemsImg>img{
+    width: 100%;
+}
+.activityItems .activityItem .activityItemsInfo{
+    display: inline-block;
+    margin-left: 0.2rem;
+    color: #000000;
+    line-height: 0.5rem;
+}
+
+.activityItems .activityItem .activityItemsInfo>p:last-child{
+    color: #999;
+}
+.activityItems .activityItem .activityItemsInfo>p:first-child{
+    color: #333;
+}
+
+.activityItems .activityItem .activityItemsMoney{
+    position: absolute;
+    margin-left: 3rem;
+    bottom: 1rem;
+    color: #2db9ed;
+}
+.activityItems .activityItem .activityItemsMoney>span{
+    display: inline-block;
+    margin-left: 0.1rem;
+}
+
+.activityItems .activityItem .activityItemsTags{
+    position: absolute;
+    background-color: #65cc37;
+    padding: 0 0.1111rem;
+    color: #FFFFFF;
+    text-align: center;
+    height: 0.46rem;
+    line-height: 0.46rem;
+    margin-left: 3rem;
+    bottom:0.4666rem;
+    border-radius: 0.05rem;
+    -webkit-border-radius: 0.05rem;
+}
+
+.activityItems .activityDesc.hide{
+    display: none;
+}
+
+.activityItems .activityDesc{
+    border-top: 1px solid #ccc;
+    width: 100%;
+    color : #999999;
+    box-sizing: border-box;
+    padding: 0.5333rem;
+    padding-bottom: 0;
+    text-align: left;
+    line-height: 0.42222222rem;
+}
+
+.activityItems .activityLayer{
+    display: none;
+}
+
+.activityItems.sellout .activityLayer{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.6);
+}
+
+.activityItems.sellout .activityLayer .sellouts{
+    position: absolute;
+    top:1.15555555rem;
+    margin: auto;
+    width: 1.6rem;
+    height: 1.6rem;
+    color: #FFFFFF;
+    line-height: 1.6rem;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    left: 1.15555555rem;
+}
+
+.activityItems.sellout .activityItemsTags{
+    background-color: rgba(0,0,0,0.6) !important;
+}
+
+.activityItems.sellout .add{
+    background-color: rgba(0,0,0,0.6) !important;
+}
+
+.activityItems.sellout .activityItemsMoney{
+    color: rgba(0,0,0,0.6) !important;
+}
+
+.activityItems.sellout .activityItemsInfo>p{
+    color:#999 !important;
+}
