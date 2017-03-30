@@ -8,21 +8,20 @@ import GetSuccess from '../../components/AfterPayComponentsOld/GetSuccess/GetSuc
 import GetFail from '../../components/AfterPayComponentsOld/GetFail/GetFail';
 import Footer from '../../components/AfterPayComponentsOld/Footer/Footer';
 import { connect } from 'react-redux';
-import Util from '../../util/WeChatUtil'
-/*import {initAfterPay,initStart,initSuccess,addLike} from '../../actions/AfterPayOld'*/
 require('./index.css');
 
 class AfterPay extends React.Component {
 	constructor(props){
 		super(props);
-		this.orderStatusApi = ENV.domain + '/web/buyer_api/order_detail.action';
+		this.orderStatusApi = ENV.domain + '/web/buyer_api/order_detail.ction';
 		this.sleepTime = 1000;
+
         this.state = {
             pageStatus: 1
         }
 	}
 	componentWillMount() {
-	    let state = Util.getUrlParam().state;
+        let state = this.props.params.states;
         if(state) {
 	        this.setState({
 	            pageStatus : state
@@ -31,7 +30,7 @@ class AfterPay extends React.Component {
 	}
 
     componentDidMount() {
-        let orderNumber = Util.getUrlParam().ordernumber;
+        let orderNumber = this.props.params.orderNumber;
         this.fetchOrderStatus(orderNumber);
     }
 
@@ -39,11 +38,12 @@ class AfterPay extends React.Component {
         const CompleteTaking = 5;
         fetch( this.orderStatusApi,
             {
+                credentials : 'include',
                 method: 'POST',
                 mode: 'cors',
                 Origin: '*',
                 body: JSON.stringify({
-                    order_number: on ,
+                    order_number: on
                 })
             })
             .then(response => response.json())
@@ -77,7 +77,6 @@ class AfterPay extends React.Component {
             2: succ,
             3: fail
         }
-
 		return (
 			<div className='AfterPayContainer'>
 				<Header/>
