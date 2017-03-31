@@ -11,7 +11,6 @@ export default class StateInfo extends React.Component {
 
 	render(){
 		let props = this.props;
-		let{addLike,itemInfo} = this.props;
 		return (
 			<div className="state_info get_success">
 				<div className='icons'>
