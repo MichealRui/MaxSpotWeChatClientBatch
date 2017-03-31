@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react';
 import fetch from 'isomorphic-fetch';
-import ReactDom from 'react-dom';
 import Header from '../../components/AfterPayComponentsOld/Header/Header';
 import GetSku from '../../components/AfterPayComponentsOld/GetSku/GetSku';
 import GetSuccess from '../../components/AfterPayComponentsOld/GetSuccess/GetSuccess';
@@ -31,7 +30,7 @@ class AfterPay extends React.Component {
 
     componentDidMount() {
         let orderNumber = this.props.params.orderNumber;
-        this.fetchOrderStatus(orderNumber);
+        this.fetchOrderStatus.bind(this)(orderNumber);
     }
 
     fetchOrderStatus(on) {
@@ -49,7 +48,6 @@ class AfterPay extends React.Component {
             .then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    console.log("status: " + json.order.status);
                     if(json.order.status == CompleteTaking) {
                         this.setState({
                             pageStatus :2
@@ -67,16 +65,16 @@ class AfterPay extends React.Component {
 
 	render(){
 		// props = CouponData;
-		const { dispatch, itemInfo} = this.props;
-				let getting = <GetSku itemInfo={itemInfo} />;
-                let succ = <GetSuccess itemInfo={itemInfo}  addLike={()=>dispatch(addLike())} />;
-				let fail = <GetFail />;
+
+        let getting = <GetSku />;
+        let succ = <GetSuccess />;
+        let fail = <GetFail />;
 
         let stateInfo = {
             1: getting,
             2: succ,
             3: fail
-        }
+        };
 		return (
 			<div className='AfterPayContainer'>
 				<Header/>

@@ -5,6 +5,8 @@ import {initPromotion} from '../../actions/Promotion';
 import PromotionContent from '../../components/PromotionComponents/PromotionContent/PromotionContent';
 import Message from '../../components/CommoonComponents/Message/Message';
 import {setMessage} from '../../actions/Message';
+import {addToCart,clearCart} from '../../actions/Cart';
+import ButtonButtom from '../../components/HomeComponents/Cart/Cart'
 require('./index.css');
 
 class PromotionContainer extends React.Component{
@@ -19,12 +21,15 @@ class PromotionContainer extends React.Component{
     }
     render(){
         const {state,dispatch} = this.props;
-        const {promotion , message} = state;
+        const {promotion , message ,cart} = state;
+        let store = {id:this._storeId}
         return (
             <div className="promotionContainer">
                 <Message msgContent={message}
                          clearMessage={() => dispatch(setMessage({errorMessage: ""}))}/>
-                <PromotionContent promotionData={promotion} type={this._type}/>
+                <PromotionContent promotionData={promotion} storeInfo={store} type={this._type} addCart={(item)=>dispatch(addToCart(item))}/>
+                <ButtonButtom cart={cart.cart}
+                              clearCart={() => dispatch(clearCart())} />
             </div>
         )
     }

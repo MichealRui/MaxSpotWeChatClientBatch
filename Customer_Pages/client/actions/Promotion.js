@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import * as actionTypes from '../actionTypes/Promotion';
 import * as messageAction from './Message';
+import * as cartAction from './Cart';
 
 const domain = ENV.domain;
 
@@ -19,7 +20,8 @@ export function initPromotion(type,storeId) {
                     }else{
                         dispatch(messageAction.setMessage({errorMessage:json.error_message}))
                     }
-                }).catch(e=>messageAction.setMessage({errorMessage:'服务器问题'}))
+                }).catch(e=>messageAction.setMessage({errorMessage:'服务器问题'}));
+        dispatch(cartAction.initCart());
     }
 }
 

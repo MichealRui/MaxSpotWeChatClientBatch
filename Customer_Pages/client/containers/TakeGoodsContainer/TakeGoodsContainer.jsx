@@ -24,7 +24,7 @@ class TakeGoodsContainer extends React.Component {
 
     componentWillMount(){
         const {dispatch} = this.props;
-        this.fetchO.bind(this)(this._orderNumber)
+        this.fetchO.bind(this)(this._orderNumber);
         //dispatch(InitOrderDetail(this._orderNumber));
     }
 
@@ -43,7 +43,7 @@ class TakeGoodsContainer extends React.Component {
             window.setTimeout( ()=>this.fetchO.bind(this)(od), this.sleepTime )
         } else {
             //history.pushState()
-            this.context.router.push('/afterPay/'+status+'/'+od);
+            this.context.router.push('/afterPay/1/'+od);
         }
 
     }

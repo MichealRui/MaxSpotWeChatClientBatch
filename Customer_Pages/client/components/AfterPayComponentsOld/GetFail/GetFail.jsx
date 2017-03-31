@@ -21,7 +21,7 @@ export default class StateInfo extends React.Component {
 				<div className='text font16'>
 					<p>哎呀 出了些小插曲，请尝试重新取</p>
 				</div>
-				<div className="button font16">给小Max点个赞</div>
+				<div className="button font16 hide">给小Max点个赞</div>
 			</div>
 		);
 	}

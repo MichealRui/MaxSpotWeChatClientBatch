@@ -38,14 +38,13 @@ class ConfirmOrderContainer extends React.Component {
                     //     ENV.domain + '/buyer_paysucc/index.html?ordernumber=' + order
                 },
                 fail: function(r){
-                    alert('fail' + JSON.stringify(r));
+                    alert("fail" + JSON.stringify(r));
                     routers.push('/orderList/');
                     // routers.push('/paySucc/'+orderNum)
                     // window.location.href =
                     //     ENV.domain + '/buyer_orderlist/index.html'
                 },
                 cancel: function(r){
-                    alert('fail' + JSON.stringify(r))
                     //todo
                     //routers.push('/');
                 }

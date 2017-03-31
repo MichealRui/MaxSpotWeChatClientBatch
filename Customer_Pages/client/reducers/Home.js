@@ -38,7 +38,6 @@ function changeSubContent(content, {key,subKey}) {
 }
 
 function initSuccess(content, data){
-    console.log(data);
     let frontEndBanner = [{
         destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
         imagePath: require('../components/HomeComponents/BannerContainer/images/nuddlebanner.jpg')

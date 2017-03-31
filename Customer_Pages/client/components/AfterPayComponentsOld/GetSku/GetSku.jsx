@@ -11,7 +11,6 @@ export default class StateInfo extends React.Component {
 
 	render(){
 		let props = this.props;
-		let{addLike,itemInfo} = this.props;
 		return (
 			<div className="state_info get_sku">
 				<div className='icons sku'>
@@ -22,7 +21,7 @@ export default class StateInfo extends React.Component {
 					<p>小Max已经在帮你奋力拿货啦，</p>
 					<p>很快，不要走开哟</p>
 				</div>
-				<div className="button font16">给小Max点个赞</div>
+				<div className="button font16 hide">给小Max点个赞</div>
 			</div>
 		);
 	}
