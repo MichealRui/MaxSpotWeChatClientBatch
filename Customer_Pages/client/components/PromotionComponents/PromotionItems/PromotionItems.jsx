@@ -1,6 +1,6 @@
 "use strict";
 import React from 'react';
-import util from '../../../util/WeChatUtil'
+import util from '../../../util/WeChatUtil';
 require('./index.css');
 
 export default class PromotionItems extends React.Component{
@@ -63,14 +63,13 @@ export default class PromotionItems extends React.Component{
                     <div className="activityItemsMoney font18">
                         {itemData.sellprice/100 || 0 } <span className="font12">元</span>
                     </div>
-
+                    {this.props.children}
                 </div>
                 {itemTag}
                 {itemDesc}
                 <div className="activityLayer">
                     <div className="sellouts font14">缺货</div>
                 </div>
-
             </div>
         )
     }
