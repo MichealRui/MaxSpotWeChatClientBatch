@@ -24,7 +24,8 @@ class PageContainer extends React.Component {
 
     componentWillMount() {
         const { dispatch } = this.props;
-        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(window.location.href, initCart));
+        const link = 'http://www.mjitech.com/';
+        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(link, initCart));
     }
 
     componentDidUpdate() {
