@@ -17,6 +17,7 @@ class ConfirmOrderContainer extends React.Component {
         const { dispatch } = this.props;
         const link = window.location.href;
         dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber)));
+        // dispatch(initOrderConfirm(this._orderNumber));
     }
 
     componentDidUpdate(){

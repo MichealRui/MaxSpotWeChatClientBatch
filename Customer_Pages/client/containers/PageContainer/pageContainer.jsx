@@ -26,7 +26,7 @@ class PageContainer extends React.Component {
         const { dispatch } = this.props;
         // const link = window.location.href.slice(0,(window.location.href.indexOf("#"))) + '#/';
         const link = window.location.href;
-        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(DEFALUT_INFO.wechat_url, initCart()));
+        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(link, initCart()));
     }
 
     componentDidUpdate() {
@@ -53,7 +53,7 @@ class PageContainer extends React.Component {
                 timestamp: config.timestamp,
                 nonceStr: config.noncestr,
                 signature: config.sign,
-                jsApiList: ["getLocation","chooseWXPay"]
+                jsApiList: ["getLocation"]
             });
             return true;
         } catch (e) {
