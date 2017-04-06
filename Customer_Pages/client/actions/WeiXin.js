@@ -26,7 +26,7 @@ export function initWxConfig(url, cb) {
             ).then(response => response.json())
                 .then( json => {
                     if(json.is_succ) {
-                        dispatch(cb());
+                        dispatch(cb);
                         dispatch(initWxConfigSucc(json.params))
                     } else {
                         dispatch(initWxConfigErr( { errorMessage: json.error_message } ))

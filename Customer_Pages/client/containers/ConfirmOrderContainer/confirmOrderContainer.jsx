@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { initOrderConfirm } from '../../actions/ConfirmOrder';
+import { initWxConfig, initSdk } from '../../actions/WeiXin'
 import OrderProductList from '../../components/ConfirmOrderComponents/OrderProductList/OrderProductList'
 import Button from '../../components/CommoonComponents/Button/Button'
 import wx from 'weixin-js-sdk';
@@ -14,7 +15,35 @@ class ConfirmOrderContainer extends React.Component {
     }
     componentWillMount(){
         const { dispatch } = this.props;
-        dispatch(initOrderConfirm(this._orderNumber));
+        const link = window.location.href;
+        dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber)));
+    }
+
+    componentDidUpdate(){
+        const {dispatch,state} = this.props;
+        let config = state.weixin.wxConfig;
+        if(config.sign && !state.weixin.sdkInited){
+            if(this.initWx(config)) {
+                dispatch(initSdk());
+            }
+        }
+    }
+
+    initWx(config) {
+        let appId = 'wx4da5ecd6305e620a';
+        try {
+            wx.config({
+                debug: false,
+                appId: appId,
+                timestamp: config.timestamp,
+                nonceStr: config.noncestr,
+                signature: config.sign,
+                jsApiList: ["chooseWXPay"]
+            });
+            return true;
+        } catch (e) {
+            return false
+        }
     }
 
     payOrder(){
