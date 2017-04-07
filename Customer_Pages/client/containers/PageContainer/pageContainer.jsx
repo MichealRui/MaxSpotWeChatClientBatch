@@ -27,7 +27,7 @@ class PageContainer extends React.Component {
         // const link = window.location.href.slice(0,(window.location.href.indexOf("#"))) + '#/';
         // DEFALUT_INFO.wechat_url = window.location.href;
         const link = window.location.href;
-        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(link, initCart()));
+        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(DEFALUT_INFO.wechat_url, initCart()));
     }
 
     componentDidUpdate() {
