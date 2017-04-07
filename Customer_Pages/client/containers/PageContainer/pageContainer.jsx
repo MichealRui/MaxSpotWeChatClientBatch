@@ -26,6 +26,7 @@ class PageContainer extends React.Component {
         const { dispatch } = this.props;
         // const link = window.location.href.slice(0,(window.location.href.indexOf("#"))) + '#/';
         const link = DEFALUT_INFO.wechat_url;
+        alert(window.location.href);
         alert(link);
         this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(link, initCart()));
     }
