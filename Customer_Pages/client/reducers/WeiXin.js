@@ -15,6 +15,10 @@ function JSSDKInited(state) {
     return Object.assign({}, state, {sdkInited: true})
 }
 
+function JSSDKPayInited(state) {
+    return Object.assign({}, state, {sdkPayInited: true})
+}
+
 export default function(state={}, action) {
     switch (action.type) {
         case actionTypes.INIT_WX_CONFIG_SUCC:
@@ -23,6 +27,8 @@ export default function(state={}, action) {
             return initWxConfigErr(state);
         case actionTypes.JSSDK_INITED:
             return JSSDKInited(state);
+        case actionTypes.JSSDK_PAY_INITED:
+            return JSSDKPayInited(state);
         default:
             return state;
     }

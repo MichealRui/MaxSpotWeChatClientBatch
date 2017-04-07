@@ -34,6 +34,7 @@ export function initWxConfig(url, cb) {
                 } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
         // ).catch(e => console.log(e))
     }
+
 }
 
 export function initWxConfigSucc(config) {
@@ -52,5 +53,11 @@ export function initWxConfigErr() {
 export function initSdk() {
     return {
         type: actionTypes.JSSDK_INITED
+    }
+}
+
+export function initPaySdk() {
+    return {
+        type : actionTypes.JSSDK_PAY_INITED
     }
 }

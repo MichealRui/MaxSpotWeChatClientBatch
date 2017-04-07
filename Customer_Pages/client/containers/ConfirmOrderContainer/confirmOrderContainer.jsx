@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { initOrderConfirm } from '../../actions/ConfirmOrder';
-import { initWxConfig, initSdk } from '../../actions/WeiXin'
+import { initWxConfig, initPaySdk } from '../../actions/WeiXin'
 import OrderProductList from '../../components/ConfirmOrderComponents/OrderProductList/OrderProductList'
 import Button from '../../components/CommoonComponents/Button/Button'
 import wx from 'weixin-js-sdk';
@@ -23,9 +23,9 @@ class ConfirmOrderContainer extends React.Component {
     componentDidUpdate(){
         const {dispatch,state} = this.props;
         let config = state.weixin.wxConfig;
-        if(config.sign && !state.weixin.sdkInited){
+        if(config.sign && !state.weixin.sdkPayInited){
             if(this.initWx(config)) {
-                dispatch(initSdk());
+                dispatch(initPaySdk());
             }
         }
     }
