@@ -9,7 +9,7 @@ import SelectContainer from '../../components/HomeComponents/SelectorContainer/s
 import SubContent from '../../components/HomeComponents/SubContent/subContent'
 import CampaignContainer from '../../components/HomeComponents/CampaignContainer/CampaignContainer';
 import Message from '../../components/CommoonComponents/Message/Message';
-import { initWxConfig, initSdk } from '../../actions/WeiXin'
+import { initWxConfig, initSdk , setWechatUrl } from '../../actions/WeiXin'
 import { changeSubContent, locationSucc, locationFail, initByStoreId } from '../../actions/Home'
 import { clearCart, addToCart, initCart } from '../../actions/Cart'
 import { setMessage } from '../../actions/Message'
@@ -25,9 +25,8 @@ class PageContainer extends React.Component {
     componentWillMount() {
         const { dispatch } = this.props;
         // const link = window.location.href.slice(0,(window.location.href.indexOf("#"))) + '#/';
-        const link = DEFALUT_INFO.wechat_url;
-        alert(window.location.href);
-        alert(link);
+        // DEFALUT_INFO.wechat_url = window.location.href;
+        const link = window.location.href;
         this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(link, initCart()));
     }
 
