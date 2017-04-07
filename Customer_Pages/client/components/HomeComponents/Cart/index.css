@@ -63,3 +63,74 @@
 .bottomButton .shopping_cart>img{
 	width: 100%;
 }
+
+.bottomButton.active {
+	-webkit-animation: big-scale 0.5s linear 0s 1 normal ;
+	animation: big-scale 0.5s linear 0s 1 normal ;
+}
+.bottomButton.active .shopping-count{
+	-webkit-animation: big-scale1 1s linear 0.5s 1 normal ;
+	animation: big-scale1 1s linear 0.5s 1 normal ;
+}
+.bottomButton.active .shopping-count-bg{
+	-webkit-animation: big-scale 0.5s linear 0.5s 1 normal ;
+	animation: big-scale 0.5s linear 0.5s 1 normal ;
+}
+
+@keyframes big-scale {
+	0%{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+	50%{
+		transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+	}
+	100%{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
+@-webkit-keyframes big-scale {
+	0%{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+	50%{
+		transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+	}
+	100%{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
+
+@keyframes big-scale1 {
+	0%{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+	50%{
+		transform: scale(1.5);
+		-webkit-transform: scale(1.5);
+	}
+	100%{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
+@-webkit-keyframes big-scale1 {
+	0%{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+	50%{
+		transform: scale(1.5);
+		-webkit-transform: scale(1.5);
+	}
+	100%{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
