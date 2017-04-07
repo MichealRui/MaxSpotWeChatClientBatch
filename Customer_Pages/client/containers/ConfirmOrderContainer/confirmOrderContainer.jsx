@@ -31,22 +31,22 @@ class ConfirmOrderContainer extends React.Component {
         // }
     }
 
-    // initWx(config) {
-    //     let appId = 'wx4da5ecd6305e620a';
-    //     try {
-    //         wx.config({
-    //             debug: false,
-    //             appId: appId,
-    //             timestamp: config.timestamp,
-    //             nonceStr: config.noncestr,
-    //             signature: config.sign,
-    //             jsApiList: ["chooseWXPay"]
-    //         });
-    //         return true;
-    //     } catch (e) {
-    //         return false
-    //     }
-    // }
+    initWx(config) {
+        let appId = 'wx4da5ecd6305e620a';
+        try {
+            wx.config({
+                debug: false,
+                appId: appId,
+                timestamp: config.timestamp,
+                nonceStr: config.noncestr,
+                signature: config.sign,
+                jsApiList: ["chooseWXPay"]
+            });
+            return true;
+        } catch (e) {
+            return false
+        }
+    }
 
     payOrder(){
         let config = this.props.state.confirmOrder.wxConfig;
