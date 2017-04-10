@@ -56,7 +56,7 @@ class PageContainer extends React.Component {
                 timestamp: config.timestamp,
                 nonceStr: config.noncestr,
                 signature: config.sign,
-                jsApiList: ["getLocation","chooseWXPay"]
+                jsApiList: ["getLocation"]
             });
             return true;
         } catch (e) {
