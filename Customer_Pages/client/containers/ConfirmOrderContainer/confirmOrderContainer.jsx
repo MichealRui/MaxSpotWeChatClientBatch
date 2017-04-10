@@ -11,6 +11,7 @@ require('./index.css')
 class ConfirmOrderContainer extends React.Component {
     constructor(props){
         super(props);
+        var u = navigator.userAgent;
         this._orderNumber = this.props.params.orderNumber;
         this._isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
     }
