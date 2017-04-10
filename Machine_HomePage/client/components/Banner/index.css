@@ -1,5 +1,5 @@
-.bannerContainer{
-    width: 100%;
+.slidingContainer{
+    width:100%;
     padding-left: 60px;
     padding-right: 50px;
     display: flex;
@@ -7,8 +7,41 @@
     justify-content: space-between;
     background-color: #fff;
 }
-
-
+.slidingContainer .bannerContainer{
+    width:1220px;
+    height:315px;
+    margin-right:20px;
+    background-color: #fff;
+}
+.slidingContainer .moudleContainer{
+    display: flex;
+}
+.moudleContainer .newContainer{
+    width:270px;
+    height:315px;
+    box-sizing: border-box;
+    border:1px solid #d9d9d9;
+    border-radius:12px;
+    margin-right: 20px;
+    position: relative;
+}
+.newContainer .newImgBox{
+    width:220px;
+    height:220px;
+    padding:7px 25px;
+}
+.newContainer  img{
+    width:100%;
+    height:100%;
+}
+.newContainer .newImgAdd{
+    width:100%;
+    height:80px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
 .bannerContainer .longBanner {
     width: 636px;
     height:231px;

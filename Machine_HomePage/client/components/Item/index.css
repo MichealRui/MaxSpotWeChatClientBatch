@@ -97,7 +97,7 @@
 	font-weight: bold;
 }
 
-.item .soldOut{
+/*.item .soldOut{
 	position: absolute;
 	bottom: 10px;
 	right: 20px;
@@ -109,7 +109,7 @@
 	color: #999;
 	border: 1px solid #999;
 	border-radius: 5px;
-}
+}*/
 .add {
 	position: absolute;
 	top: 10px;
@@ -135,4 +135,53 @@
 	text-align: center;
 	line-height: 0.69rem;
 	color: #ffffff;
+}
+/*.item.sellout span{
+	color: #999;
+}
+.item.sellout span p{
+	color: #999;
+}*/
+.itemBox.sellout .add{
+	color: #fff;
+	background: #bfbfbf;
+}
+
+.itemBox.sellout .circleSellout{
+	position: absolute;
+	top:20%;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	width: 120px;
+	height: 120px;
+    margin:auto;
+	color: #fff;
+	line-height: 120px;
+	text-align: center;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,0.4);
+}
+.itemBox.sellout .unitPrice{
+    color: #666;
+}
+.itemBox.sellnormal .circleSellout,.itemBox.sellnormal .maskBox{
+	display: none;
+}
+.itemBox{
+    width:100%;
+    height:100%;
+    position: relative;
+}
+.itemBox.sellout .maskBox{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 50;
+    background:  rgba(255,255,255,0.4);
+}
+.itemBox.sellout .campaignTag{
+    background: #bfbfbf;
 }

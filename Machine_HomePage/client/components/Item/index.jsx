@@ -63,38 +63,41 @@ export default class Item extends React.Component {
         let domain= IMAGECONFIG.host;
         let campaignTag = props.campaign ? <div className="campaignTag font12">{props.campaign.campaignTag}</div>:null;
         return (
-            <div className={"item sliderItem"} onClick={() => this.showClick.bind(this)(props)}>
-                {campaignTag}
-                {
-                    props.imagePath ?
-                        <img src={domain + this.getMiddlePic(props.imagePath)} className='productImg'/>
-                        :
-                        <img src={require('./images/default.png')} className='productImg'/>
-                }
+            <div className={"itemBox "  + (props.quantity > 0 ? " sellnormal" : " sellout" )} onClick={() => this.showClick.bind(this)(props)} >
+                <div className="item sliderItem ">
+                    {campaignTag}
+                    {
+                        props.imagePath ?
+                            <img src={domain + this.getMiddlePic(props.imagePath)} className='productImg'/>
+                            :
+                            <img src={require('./images/default.png')} className='productImg'/>
+                    }
                 <span className='brandProductContainer'>
                     <p className={'productName font23'}>{props.brandName}</p>
                     <p className='productDesc font23'>{props.shortName}</p>
                     <p className={'categoryName font18'}>
-                    {atts}
+                        {atts}
                     </p>
                 </span>
 
-                <span className='unitPrice font28'>{props.sellprice / 100 || 0}<span className="font20">元</span></span>
-                {
-                    props.quantity > 0 ?
+                    <span className='unitPrice font28'>{props.sellprice / 100 || 0}<span className="font20">元</span></span>
+
                         <span>
                             {/*{*/}
-                                {/*props.msrp > 0 ?*/}
-                                    {/*<span className={"oldPrices font20 "}>市场价 {props.msrp/100}元</span>*/}
-                                    {/*:''*/}
+                            {/*props.msrp > 0 ?*/}
+                            {/*<span className={"oldPrices font20 "}>市场价 {props.msrp/100}元</span>*/}
+                            {/*:''*/}
                             {/*}*/}
                             <span className={"add font60 "} onClick={this.addClick.bind(this)}>+</span>
-                        </span> :
-                        <span>
-                            <span className={"soldOut font22 "}>售罄</span>
                         </span>
-                }
+                        <span>
+                            <span className={"circleSellout font22 "}>缺货</span>
+                        </span>
+
+                </div>
+                <div className="maskBox"></div>
             </div>
+
         );
     }
 }
