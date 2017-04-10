@@ -12,13 +12,16 @@ class ConfirmOrderContainer extends React.Component {
     constructor(props){
         super(props);
         this._orderNumber = this.props.params.orderNumber;
+        this._isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
     }
     componentWillMount(){
         const { dispatch,state } = this.props;
-        // const link = state.weixin.wechat_url;
+        const link = state.weixin.wechat_url;
         // let wlink = 'http://www.mjitech.com/buyer_pages/index.html#/';
         // dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber)));
-        dispatch(initOrderConfirm(this._orderNumber));
+        this._isAndroid ?
+            dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber))):
+            dispatch(initOrderConfirm(this._orderNumber));
     }
 
     // componentDidUpdate(){
