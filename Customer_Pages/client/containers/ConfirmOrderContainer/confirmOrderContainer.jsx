@@ -15,20 +15,21 @@ class ConfirmOrderContainer extends React.Component {
     }
     componentWillMount(){
         const { dispatch,state } = this.props;
-        // const link = state.weixin.wechat_url;
-        // alert(link);
-        // dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber)));
-        dispatch(initOrderConfirm(this._orderNumber));
+        const link = state.weixin.wechat_url;
+        alert(link);
+        dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber)));
+        // dispatch(initOrderConfirm(this._orderNumber));
     }
 
     componentDidUpdate(){
-        // const {dispatch,state} = this.props;
-        // let config = state.weixin.wxConfig;
-        // if(config.sign && !state.weixin.sdkPayInited){
-        //     if(this.initWx(config)) {
-        //         dispatch(initPaySdk());
-        //     }
-        // }
+        const {dispatch,state} = this.props;
+        let config = state.weixin.wxConfig;
+        console.log(config)
+        if(config.sign && !state.weixin.sdkPayInited){
+            if(this.initWx(config)) {
+                dispatch(initPaySdk());
+            }
+        }
     }
 
     initWx(config) {
