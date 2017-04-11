@@ -63,16 +63,17 @@ export function initMainContent () {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/get_mainpage_data.action',//'local_api/get_mainpage_data.action',
         {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
             }).then(response => response.json()
             .then(json => {
                 if(json.is_succ) {
                     dispatch(initSucc({
                         banner: json.banners,
                         content: json.categories,
-                        store: json.selectedStore
+                        store: json.selectedStore,
+                        channel: json.channel
                     }));
                     dispatch(fetchCart())
                 } else {
@@ -92,7 +93,6 @@ export function initMainContent () {
 }
 
 function initSucc(data) {
-    console.log("########@@@@@@@@@@@@@@@")
     return {
         type: INIT_SUCC,
         data
@@ -103,9 +103,9 @@ export function addToCart(item) {
     return (dispatch) => {
         fetch( domain+"/maxbox_pc/local_api/add_sku_to_cart.action",
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
                 body: JSON.stringify(
                     Object.assign({}, {
                     skuId: '' + item.id,
@@ -131,9 +131,9 @@ export function deleteOneFromCart(item) {
     return (dispatch) => {
         fetch( domain+"/maxbox_pc/local_api/remove_sku_from_cart.action",
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
                 body: JSON.stringify(
                     Object.assign({}, {
                     skuId: '' + item.id,
@@ -167,9 +167,9 @@ export function removeFromCart(item) {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/remove_sku_from_cart.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
                 body: JSON.stringify(
                     Object.assign({}, {
                     skuId: '' + item.id,
@@ -203,9 +203,9 @@ export function fetchCart() {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/get_cart.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
             }).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
@@ -255,9 +255,9 @@ export function clearCart() {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/clear_cart.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
             }
         ).then(response => response.json())
             .then(json => {
@@ -291,9 +291,9 @@ export function submitCart() {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/submit_cart.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
             }
         ).then(response =>response.json())
             .then(json => {
@@ -326,9 +326,9 @@ export function setOrder(order) {
 export function fetchQrCode(orderNumber) {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/request_pay.action', {
-            credentials: 'include',
+            // credentials: 'include',
             method: 'POST',
-            mode: 'cors',
+            // mode: 'cors',
             body: JSON.stringify(
                 {'orderNumber': orderNumber}
             )
@@ -373,9 +373,9 @@ export function setCartStatus(cartStatus) {
 export function fetchOrderStatus(orderNumber) {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/get_order_detail.action',{
-            credentials: 'include',
+            // credentials: 'include',
             method: 'POST',
-            mode: 'cors',
+            // mode: 'cors',
             body: JSON.stringify({
                 orderNumber : orderNumber
             })
@@ -403,9 +403,9 @@ export function fetchSku(skuNumber) {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/sku_detail.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
                 body: JSON.stringify(
                     {sku_number: skuNumber}
                 )
@@ -445,27 +445,30 @@ export function setDetailDialog(prod) {
     }
 }
 
-export function initActivity() {
-    // return (dispatch) => {
-    //     fetch(domain + '/maxbox_pc/local_api/get_marketing_data.action',
-    //         {
-    //             credentials: 'include',
-    //             method: 'POST',
-    //             mode: 'cors',
-    //         }
-    //     ).then(response => response.json())
-    //         .then(json => {
-    //             if(json.is_succ) {
-    //                 console.log(json);
-    //                 dispatch(succInitActivity({...json}))
-    //             } else {
-    //                 console.log('error')
-    //             }
-    //         })
-    // }
+export function initActivity(campaignId) {
     return (dispatch) => {
-        dispatch(succInitActivity({...activeData}))
+        fetch(domain + '/maxbox_pc/local_api/get_marketing_data.action',
+            {
+                // credentials: 'include',
+                method: 'POST',
+                // mode: 'cors',
+                body:JSON.stringify({
+                    campaignId : campaignId
+                })
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+                    console.log(json);
+                    dispatch(succInitActivity({...json}))
+                } else {
+                    console.log('error')
+                }
+            })
     }
+    // return (dispatch) => {
+    //     dispatch(succInitActivity({...activeData}))
+    // }
 }
 
 export function succInitActivity({products, banner}) {

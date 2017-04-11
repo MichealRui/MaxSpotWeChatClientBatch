@@ -24,13 +24,13 @@ function activateVendor() {
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
-            <Page />
-            {/*<Router history={hashHistory}>*/}
-                {/*/!*<Route path='/' component={Page}/>*!/*/}
-                {/*/!*<Route path='/maxbox_pc' component={Page}/>*!/*/}
-                {/*/!*<Route path='/maxbox_pc/orderTest' component={Page}/>*!/*/}
-                {/*<Route path='/active' component={Activity}/>*/}
-            {/*</Router>*/}
+            {/*<Page />*/}
+            <Router history={hashHistory}>
+                <Route path='/' component={Page}/>
+                <Route path='/maxbox_pc' component={Page}/>
+                <Route path='/maxbox_pc/orderTest' component={Page}/>
+                <Route path='/active/:campaignId/:type' component={Activity}/>
+            </Router>
             {/*<Activity/>*/}
         </Provider>
         ,

@@ -96,6 +96,9 @@ class PageContainer extends React.Component{
 
     render() {
         let {state, dispatch} = this.props;
+        console.log("++++++");
+        console.log(state);
+        let ActiveType = 0;
         return (
             <div className="pageContainer" onClick={() => this.idleTime = 0}
                  onTouchStart={() => this.idleTime = 0}
@@ -104,7 +107,7 @@ class PageContainer extends React.Component{
                         fetchSkuClick={()=>this.onFetchSkuBtnClick.bind(this)}
                         {...state.cart}
                 />
-                <Banner bannerData={state.banner}/>
+                <Banner bannerData={state.banner} channelData={state.channel}/>
                 <SubContent
                     contentData={state.currentSub}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}
@@ -112,6 +115,7 @@ class PageContainer extends React.Component{
                     showProduct={(item) => this.onProductDetailClick.bind(this)(item)}
                     selector = {state.selector}
                     currentSelector={state.currentSelector}
+                    ActiveType = {ActiveType}
                 />
                 <CartContainer visible={this.state.cartVisible}
                                onCancel={ () => this.hideCart.bind(this) }

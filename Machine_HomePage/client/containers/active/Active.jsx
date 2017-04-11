@@ -21,12 +21,22 @@ class Active extends React.Component{
             paySuccVisible:false,
             fetchSkuVisible:false
         }
+        this._campaignId = this.props.params.campaignId;
+        this._type = this.props.params.type;
     }
 
     componentWillMount() {
         const { dispatch } = this.props;
         // dispatch(initMainContent());
-        dispatch(initActivity())
+        if(this._type != 0){
+            //新品特惠
+            console.log('新品特惠');
+        }else if(this._campaignId != 0){
+            //活动
+            console.log('活动');
+            dispatch(initActivity(this._campaignId))
+        }
+
     }
 
     onCartBtnClick() {
@@ -75,6 +85,7 @@ class Active extends React.Component{
 
     render() {
         let {state, dispatch} = this.props;
+        let domain = IMAGECONFIG.host;
         let bannerStyle = {width:'100%', height:350}
         let containerStyle = {width:'100%','padding-left':'60','padding-right':'50', 'background-color':'white'};
         return (
@@ -85,7 +96,7 @@ class Active extends React.Component{
                 />
                 {/*<Banner bannerData={state.activity.banner}/>*/}
                 <div className="activeBannerContainer" style={containerStyle}>
-                    <img src={state.activity.banner} style={bannerStyle}/>
+                    <img src={domain + state.activity.banner} style={bannerStyle}/>
                 </div>
                 <SubContent
                     contentData={state.activity}
@@ -94,6 +105,7 @@ class Active extends React.Component{
                     showProduct={(item) => this.onProductDetailClick.bind(this)(item)}
                     selector = {state.selector}
                     style={{backgroundColor:'#fff'}}
+                    ActiveType={this._type}
                 />
                 <CartContainer visible={this.state.cartVisible}
                                onCancel={ () => this.hideCart.bind(this) }

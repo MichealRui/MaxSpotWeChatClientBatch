@@ -11,28 +11,62 @@ export default class Banner extends React.Component {
     render() {
         let props = this.props;
         let bannerData = props.bannerData;
-        console.log("bannerData");console.log(bannerData);
+        let channelData = props.channelData;
+        console.log(channelData);
         let domain= IMAGECONFIG.host;
         let defPic = './images/banner_default.png';
         let swiperConfig = {
             pagination: '.swiper1 .swiper-pagination',
-            slidesPerView: 1
+            freeMode: false,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper
+            // observeParents:true,//修改swiper的父元素时，自动初始化swiper
         };
-        let style = {width:'100%',height:'315px'};
+        // let style = {width:'100%',height:'315px'};
+        let style = {width:'100%'};
         let links = bannerData.length>0 ? (
             bannerData.map(
                 (img,index)=>{
                     return (
-                        <a key={index} href={img.destUrl}>
-                            <img width='100%' style={style} src={domain + img.imagePath} alt=""/>
-                        </a>
+                        <Link key={index} to={"/active/"+ img.campaignId + "/0"}>
+                            {/*<img width='100%' className="bannerImg" src={domain + img.imagePath} alt=""/>*/}
+                            <img width='100%' className="bannerImg" src="http://test.mjitech.com/images/thanksgiving_banner.jpg" alt=""/>
+                        </Link>
                     )
                 })
         ) : (
-                <Link to="/active" onClick={() => console.log('header clicked')}>
+                <Link to="/active/0/0" onClick={() => console.log('header clicked')}>
                     <img width='100%' style={style} src={require(defPic)} alt=""/>
                 </Link>
             );
+
+        let channelInfo = channelData.length > 0 ? (
+            channelData.map(
+                (channel,index) => {
+                    if(channel.type){
+                        return (
+                            <Link to={"/active/0/"+channel.type} key={index}>
+                                <div className="newContainer">
+                                    <div className="newImgBox">
+                                        <img src={domain + channel.imagePath} alt=""/>
+                                    </div>
+                                </div>
+                                <div className="newImgAdd">
+                                    {
+                                        channel.type == 1 ? <img src={require('./images/NEW_JQ.png')} alt=""/> :
+                                            <img src={require('./images/HOT_JQ.png')} alt=""/>
+                                    }
+
+                                </div>
+                            </Link>
+                        )
+                    }else{
+                        return '';
+                    }
+                }
+            )
+        ) : "";
 
         return (
             <div className="slidingContainer">
@@ -42,22 +76,7 @@ export default class Banner extends React.Component {
                     </Swiper>
                 </div>
                 <div className="moudleContainer">
-                    <div className="newContainer">
-                        <div className="newImgBox">
-                            <img src={require('./images/new.png')} alt=""/>
-                        </div>
-                        <div className="newImgAdd">
-                            <img src={require('./images/NEW_JQ.png')} alt=""/>
-                        </div>
-                    </div>
-                    <div className="newContainer">
-                        <div className="newImgBox">
-                            <img src={require('./images/hot.png')} alt=""/>
-                        </div>
-                        <div className="newImgAdd">
-                            <img src={require('./images/HOT_JQ.png')} alt=""/>
-                        </div>
-                    </div>
+                    {channelInfo}
                 </div>
             </div>
         )

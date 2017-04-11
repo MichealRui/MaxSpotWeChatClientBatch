@@ -27,6 +27,7 @@ export default class SubContent extends React.Component {
                                store={this.props.storeData}
                                detailClick={this.props.showProduct}
                                reload={true}
+                               ActiveType = {props.ActiveType}
                 />
             </div>
         )

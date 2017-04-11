@@ -16,6 +16,13 @@ let bannerdata = [
     },
 ];
 
+let channelData = [
+    {
+        imagePath : "",
+        type : 0
+    }
+]
+
 let selector = [
 ];
 
@@ -52,6 +59,7 @@ let activity = {
 
 let data = {
     banner: bannerdata,
+    channel : channelData,
     selector: selector,
     subContent: subContent,
     currentSub: subContent['all'],
@@ -146,6 +154,7 @@ function initSuccess(content, data){
 
     return Object.assign({}, content, {
         banner: data.banner,
+        channel : data.channel,
         selector: selector,
         subContent: subContent,
         currentSub: currentSub, //data.subContent['all'],,
