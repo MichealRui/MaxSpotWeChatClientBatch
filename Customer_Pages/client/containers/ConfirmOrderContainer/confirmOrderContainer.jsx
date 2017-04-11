@@ -18,7 +18,7 @@ class ConfirmOrderContainer extends React.Component {
     componentWillMount(){
         const { dispatch,state } = this.props;
         const link = state.weixin.wechat_url;
-        let wlink = 'http://www.mjitech.com/buyer_pages/index.html#/confirmOrder';
+        let wlink = 'http://www.mjitech.com/buyer_pages/index.html%23/confirmOrder/';
         dispatch(initWxConfig(window.location.href,initOrderConfirm(this._orderNumber)));
         // this._isAndroid ?
         //     dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber))):
