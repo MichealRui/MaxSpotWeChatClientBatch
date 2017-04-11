@@ -19,7 +19,7 @@ export default class Banner extends React.Component {
             slidesPerView: 1
         };
         let style = {width:'100%',height:'315px'};
-        let links = bannerData.length>10 ? (
+        let links = bannerData.length>0 ? (
             bannerData.map(
                 (img,index)=>{
                     return (
