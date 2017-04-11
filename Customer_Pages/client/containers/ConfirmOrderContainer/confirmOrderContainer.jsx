@@ -18,23 +18,23 @@ class ConfirmOrderContainer extends React.Component {
     componentWillMount(){
         const { dispatch,state } = this.props;
         const link = state.weixin.wechat_url;
-        // let wlink = 'http://www.mjitech.com/buyer_pages/index.html#/';
-        // dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber)));
-        this._isAndroid ?
-            dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber))):
-            dispatch(initOrderConfirm(this._orderNumber));
+        let wlink = 'http://www.mjitech.com/buyer_pages/index.html#/';
+        dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber)));
+        // this._isAndroid ?
+        //     dispatch(initWxConfig(link,initOrderConfirm(this._orderNumber))):
+        //     dispatch(initOrderConfirm(this._orderNumber));
     }
 
-    // componentDidUpdate(){
-    //     const {dispatch,state} = this.props;
-    //     let config = state.weixin.wxConfig;
-    //     console.log(config)
-    //     if(config.sign && !state.weixin.sdkPayInited){
-    //         if(this.initWx(config)) {
-    //             dispatch(initPaySdk());
-    //         }
-    //     }
-    // }
+    componentDidUpdate(){
+        const {dispatch,state} = this.props;
+        let config = state.weixin.wxConfig;
+        console.log(config)
+        if(config.sign && !state.weixin.sdkPayInited){
+            if(this.initWx(config)) {
+                dispatch(initPaySdk());
+            }
+        }
+    }
 
     initWx(config) {
         let appId = 'wx4da5ecd6305e620a';
