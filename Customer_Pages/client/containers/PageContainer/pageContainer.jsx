@@ -27,7 +27,7 @@ class PageContainer extends React.Component {
         // const link = window.location.href.slice(0,(window.location.href.indexOf("#"))) + '#/';
         // DEFALUT_INFO.wechat_url = window.location.href;
         const link = window.location.href;
-        let wlink = 'http://www.mjitech.com/buyer_pages/index.html%23/';
+        let wlink = 'http://www.mjitech.com/buyer_pages/index.html/';
         this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(wlink, initCart()));
     }
 
