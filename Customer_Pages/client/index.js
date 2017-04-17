@@ -22,7 +22,9 @@ import TakeGoods from './containers/TakeGoodsContainer/TakeGoodsContainer'
 import AfterPay from './containers/AfterPayContainer/AfterPayContainer'
 import AfterPayOld from './containers/AfterPayContainerOld/AfterPay'
 import BannerDetail from './containers/BannerDetailContainer/BannerDetailContainer'
-import Activity from './containers/PromotionContainer/PromotionContainer'
+import Activity from './containers/PromotionContainer/PromotionContainer';
+
+import {clearPromotion} from './actions/Promotion'
 // init thunk
 
 function activateVendor() {
@@ -34,6 +36,11 @@ function activateVendor() {
             loggerMiddleware
         )
     );
+}
+
+function hands() {
+    const {dispatch}  = store;
+    dispatch(clearPromotion());
 }
 
 function renderPage(store) {
@@ -52,7 +59,7 @@ function renderPage(store) {
                 <Route path='/BannerDetail/:storeId/:campaignId' component={BannerDetail}></Route>
                 <Route path='/shoppingCart' component={ShoppingCart}></Route>
                 <Route path='/orderList' component={OrderList}></Route>
-                <Route path='/activity/:type/:storeId' component={Activity}></Route>
+                <Route path='/activity/:type/:storeId' component={Activity} onEnter={hands.bind(this)}></Route>
                 <Route path='/(:storeId)' component={Home}></Route>
             </Router>
         </Provider>

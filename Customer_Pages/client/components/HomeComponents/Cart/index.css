@@ -10,7 +10,7 @@
 	background-color: #ff7860;
 	color: #fff;
 	text-align: center;
-	z-index: 999;
+	z-index: 2;
 }
 .bottomButton>div {
 	/*float: left;*/
