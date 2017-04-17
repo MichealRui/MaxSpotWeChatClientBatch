@@ -6,6 +6,7 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducers from './reducers/index';
 import {Router ,Route , hashHistory} from 'react-router';
+import {clearPromotion} from './actions/Promotion'
 require('./index.css');
 
 import Home from './containers/PageContainer/pageContainer'
@@ -36,6 +37,11 @@ function activateVendor() {
     );
 }
 
+function hands() {
+    const{dispatch} = store;
+    dispatch(clearPromotion());
+}
+
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
@@ -52,7 +58,7 @@ function renderPage(store) {
                 <Route path='/BannerDetail/:storeId/:campaignId' component={BannerDetail}></Route>
                 <Route path='/shoppingCart' component={ShoppingCart}></Route>
                 <Route path='/orderList' component={OrderList}></Route>
-                <Route path='/activity/:type/:storeId' component={Activity}></Route>
+                <Route path='/activity/:type/:storeId' component={Activity} onEnter={hands.bind(this)}></Route>
                 <Route path='/(:storeId)' component={Home}></Route>
             </Router>
         </Provider>
