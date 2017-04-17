@@ -69,7 +69,7 @@ export default class Item extends React.Component {
         return (
             <div className={"itemBox "  + (props.quantity > 0 ? " sellnormal" : " sellout" )} onClick={() => this.showClick.bind(this)(props)} >
                 <div>
-                    <div className={"item sliderItem " + (this.props.ActiveType == OTHER_ITEM ? ' newItem' : '')}>
+                    <div className={"item sliderItem " + (this.props.ActiveType == NEW_ITEM ? ' newItem' : '')}>
                         {campaignTag}
                         {
                             props.imagePath ?
@@ -101,7 +101,7 @@ export default class Item extends React.Component {
                     </div>
                 </div>
                 {
-                    this.props.ActiveType == OTHER_ITEM ?
+                    this.props.ActiveType == NEW_ITEM ?
                         <div className="itemDesc font18">
                             <span className="itemDescTxt">
                                 {props.description}

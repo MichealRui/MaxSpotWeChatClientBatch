@@ -20,7 +20,7 @@ class Active extends React.Component{
             skuVisible:false,
             paySuccVisible:false,
             fetchSkuVisible:false
-        }
+        };
         this._campaignId = this.props.params.campaignId;
         this._type = this.props.params.type;
     }

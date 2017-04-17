@@ -14,7 +14,7 @@ export default class SubContent extends React.Component {
         const HOT_ITEM = 2;
         const OTHER_ITEM = 0;
         return (
-            <div className={"active_subContentContainer" + (props.ActiveType == OTHER_ITEM ? ' new_subContent' : '')}>
+            <div className={"active_subContentContainer" + (props.ActiveType == NEW_ITEM ? ' new_subContent' : '')}>
                 <ItemContainer items={current.items}
                                itemClick={this.props.addToCart}
                                store={this.props.storeData}

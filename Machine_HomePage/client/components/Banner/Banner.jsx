@@ -30,8 +30,8 @@ export default class Banner extends React.Component {
                 (img,index)=>{
                     return (
                         <Link key={index} to={"/active/"+ img.campaignId + "/0"}>
-                            {/*<img width='100%' className="bannerImg" src={domain + img.imagePath} alt=""/>*/}
-                            <img width='100%' className="bannerImg" src="http://test.mjitech.com/images/thanksgiving_banner.jpg" alt=""/>
+                            <img width='100%' className="bannerImg" src={domain + img.imagePath} alt=""/>
+                            {/*<img width='100%' className="bannerImg" src="http://test.mjitech.com/images/thanksgiving_banner.jpg" alt=""/>*/}
                         </Link>
                     )
                 })
