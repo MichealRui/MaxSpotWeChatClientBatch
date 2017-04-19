@@ -7,7 +7,7 @@ import SubContent from '../active_SubContent/SubContent';
 import CartContainer from '../CartContainer/CartContainer';
 import SkuContainer from '../SkuContainer/SkuContainer';
 import FetchSkuContainer from '../../containers/FetchSkuContainer/FetchSkuContainer';
-import { initMainContent, initActivity } from '../../actions/index'
+import { initMainContent, initActivity,initChannelActivity } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index';
 import {changeSubContent} from '../../actions/index';
 import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart, fetchCart,fetchSku} from '../../actions/index'
@@ -31,6 +31,7 @@ class Active extends React.Component{
         if(this._type != 0){
             //新品特惠
             console.log('新品特惠');
+            dispatch(initChannelActivity(this._type));
         }else if(this._campaignId != 0){
             //活动
             console.log('活动');
@@ -87,7 +88,8 @@ class Active extends React.Component{
         let {state, dispatch} = this.props;
         let domain = IMAGECONFIG.host;
         let bannerStyle = {width:'100%', height:350}
-        let containerStyle = {width:'100%','padding-left':'60','padding-right':'50', 'background-color':'white'};
+        let containerStyle = {width:'100%',paddingLeft:'60px',paddingRight:'50px', backgroundColor:'#fff'};
+        console.log(state.activity.banner)
         return (
             <div className="pageContainer" id="pageContainer">
                 <Header cartClick={() => this.onCartBtnClick.bind(this)}
@@ -96,7 +98,11 @@ class Active extends React.Component{
                 />
                 {/*<Banner bannerData={state.activity.banner}/>*/}
                 <div className="activeBannerContainer" style={containerStyle}>
-                    <img src={domain + state.activity.banner} style={bannerStyle}/>
+                    {state.activity.banner ?
+                        <img src={domain + state.activity.banner} style={bannerStyle}/>
+                        :
+                        <img src={require('../../components/Banner/images/banner_default.png')} style={bannerStyle}/>
+                    }
                 </div>
                 <SubContent
                     contentData={state.activity}
@@ -136,7 +142,6 @@ class Active extends React.Component{
 }
 
 function select(store) {
-    console.log('dispatched');
     return Object.assign({}, {state: store})
 }
 

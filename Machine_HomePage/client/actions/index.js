@@ -447,7 +447,7 @@ export function setDetailDialog(prod) {
 
 export function initActivity(campaignId) {
     return (dispatch) => {
-        fetch(domain + '/maxbox_pc/local_api/get_marketing_data.action',
+        fetch(domain + '/maxbox_pc/local_api/get_campaign_detail.action',
             {
                 // credentials: 'include',
                 method: 'POST',
@@ -459,7 +459,6 @@ export function initActivity(campaignId) {
         ).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    console.log(json);
                     dispatch(succInitActivity({...json}))
                 } else {
                     console.log('error')
@@ -469,6 +468,35 @@ export function initActivity(campaignId) {
     // return (dispatch) => {
     //     dispatch(succInitActivity({...activeData}))
     // }
+}
+
+export function initChannelActivity(type) {
+    return(dispatch)=>{
+        fetch(domain + '/maxbox_pc/local_api/get_channel_detail.action',
+            {
+                // credentials: 'include',
+                method: 'POST',
+                // mode: 'cors',
+                body:JSON.stringify({
+                    type : type
+                })
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+
+                    dispatch(succInitActivity(Object.assign({},{products:json.skuitems,banner:json.headUrl})))
+                } else {
+                    console.log('error')
+                }
+            })
+    }
+}
+
+export function clearActivity() {
+    return(dispatch)=>{
+        dispatch(succInitActivity(Object.assign({},{products:[],banner:''})))
+    }
 }
 
 export function succInitActivity({products, banner}) {

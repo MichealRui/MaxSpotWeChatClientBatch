@@ -96,8 +96,6 @@ class PageContainer extends React.Component{
 
     render() {
         let {state, dispatch} = this.props;
-        console.log("++++++");
-        console.log(state);
         let ActiveType = 0;
         return (
             <div className="pageContainer" onClick={() => this.idleTime = 0}

@@ -12,7 +12,6 @@ export default class Banner extends React.Component {
         let props = this.props;
         let bannerData = props.bannerData;
         let channelData = props.channelData;
-        console.log(channelData);
         let domain= IMAGECONFIG.host;
         let defPic = './images/banner_default.png';
         let swiperConfig = {

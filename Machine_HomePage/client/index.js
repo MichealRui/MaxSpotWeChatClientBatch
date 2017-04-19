@@ -9,6 +9,7 @@ import reducers from './reducers/index';
 require('./index.css');
 import Page from './containers/PageContainer/PageContainer';
 import Activity from './containers/active/Active';
+import {clearActivity} from './actions'
 // init thunk
 function activateVendor() {
     const loggerMiddleware = createLogger();
@@ -21,6 +22,11 @@ function activateVendor() {
     );
 }
 
+function clearActivit() {
+    const{dispatch} = store;
+    dispatch(clearActivity());
+}
+
 function renderPage(store) {
     ReactDOM.render(
         <Provider store={store}>
@@ -29,7 +35,7 @@ function renderPage(store) {
                 <Route path='/' component={Page}/>
                 <Route path='/maxbox_pc' component={Page}/>
                 <Route path='/maxbox_pc/orderTest' component={Page}/>
-                <Route path='/active/:campaignId/:type' component={Activity}/>
+                <Route path='/active/:campaignId/:type' component={Activity} onEnter={clearActivit}/>
             </Router>
             {/*<Activity/>*/}
         </Provider>
