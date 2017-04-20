@@ -5,7 +5,7 @@ import {initPromotion} from '../../actions/Promotion';
 import PromotionContent from '../../components/PromotionComponents/PromotionContent/PromotionContent';
 import Message from '../../components/CommoonComponents/Message/Message';
 import {setMessage} from '../../actions/Message';
-import {addToCart,clearCart,setAnimateFalse} from '../../actions/Cart';
+import {addToCart,clearCart} from '../../actions/Cart';
 import ButtonButtom from '../../components/HomeComponents/Cart/Cart'
 require('./index.css');
 
@@ -30,7 +30,6 @@ class PromotionContainer extends React.Component{
                 <PromotionContent promotionData={promotion} storeInfo={store} type={this._type} addCart={(item)=>dispatch(addToCart(item))}/>
                 <ButtonButtom cart={cart.cart}
                               clearCart={() => dispatch(clearCart())}
-                              setAnimateFalse={()=>dispatch(setAnimateFalse())}
                 />
             </div>
         )

@@ -4,7 +4,7 @@ import { connect }  from 'react-redux';
 import BrandItem from '../../components/BrandDetailComponents/BrandItem/BrandItem'
 import Message from '../../components/CommoonComponents/Message/Message';
 import { setMessage } from '../../actions/Message'
-import { clearCart, addToCart, initCart,setAnimateFalse } from '../../actions/Cart'
+import { clearCart, addToCart, initCart } from '../../actions/Cart'
 import {initBannerDetail} from '../../actions/BannerDetail'
 import ButtonButtom from '../../components/HomeComponents/Cart/Cart'
 
@@ -41,7 +41,6 @@ class BannerDetailContainer extends React.Component{
                 <ButtonButtom
                     cart={cart.cart}
                     clearCart={()=>dispatch(clearCart())}
-                    setAnimateFalse={()=>dispatch(setAnimateFalse())}
                 />
 
             </div>

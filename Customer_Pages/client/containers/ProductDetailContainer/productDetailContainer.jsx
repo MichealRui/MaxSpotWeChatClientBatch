@@ -9,7 +9,7 @@ import ProductSlider from '../../components/ProductDetailComponents/ProductSlide
 import AddIntoCart from '../../components/ProductDetailComponents/AddIntoCart/AddIntoCart';
 import ButtonBottom from '../../components/HomeComponents/Cart/Cart'
 import StoreIntro from '../../components/ProductDetailComponents/StoreIntro/StoreIntro'
-import { addToCart,setAnimateFalse } from '../../actions/Cart';
+import { addToCart } from '../../actions/Cart';
 require('./index.css');
 class ProductDetailContainer extends React.Component {
     constructor(props){
@@ -47,7 +47,6 @@ class ProductDetailContainer extends React.Component {
                     storeId = {productDetail.storeId}
                 />
                 <ButtonBottom cart={cart.cart}
-                              setAnimateFalse={()=>dispatch(setAnimateFalse())}
                 />
             </div>
         )

@@ -17,17 +17,12 @@ export default class Cart extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        console.log("++++++++++");
-        console.log(nextProps);
-        console.log(this.props);
-        const {dispatch} = this.props;
-        if(nextProps.cart.animate && !this.state.cartLock){
+        if(nextProps.cart.count > this.props.cart.count && nextProps.cart.count && !this.state.cartLock){
             this.setState({
                 cartActive:'active',
                 cartLock : true
             });
             window.setTimeout( () => {
-                this.props.setAnimateFalse();
                 this.setState({
                     cartActive:'',
                     cartLock : false

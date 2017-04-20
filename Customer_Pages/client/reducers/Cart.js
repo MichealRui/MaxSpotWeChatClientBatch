@@ -15,7 +15,8 @@ function initCartFail(content, message) {
 }
 
 function succAddCart(content, ) {
-    let state = Object.assign({}, content)
+    let {cart} = {...content}
+    let state = Object.assign({}, { cart:{count:cart.count, animate:cart.animate}})
     state.cart.count += 1;
     state.cart.animate = true;
     return state
@@ -33,11 +34,6 @@ function failAddCart(state, message) {
     })
 }
 
-function setAnimateFalse(content) {
-    let state = Object.assign({}, content)
-    state.cart.animate = false;
-    return state
-}
 
 export default function(state={}, action) {
     switch (action.type) {
@@ -51,8 +47,6 @@ export default function(state={}, action) {
             return initCartSucc(state, action.cart);
         case actionTypes.INIT_CART_FAIL:
             return initCartFail(state, action.message);
-        case actionTypes.SET_CART_ANIMATE_FALSE :
-            return setAnimateFalse(state);
         default:
             return state;
     }

@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Message from '../../components/CommoonComponents/Message/Message';
 import { setMessage } from '../../actions/Message';
-import { clearCart , addToCart,setAnimateFalse } from '../../actions/Cart';
+import { clearCart , addToCart } from '../../actions/Cart';
 import { initBrand } from '../../actions/BrandDetail';
 import BrandHeader from '../../components/BrandDetailComponents/BrandHeader/BrandHeader'
 import BrandItem from '../../components/BrandDetailComponents/BrandItem/BrandItem'
@@ -34,7 +34,6 @@ class BrandDetailContainer extends React.Component {
                 <ButtonButtom
                     cart={cart.cart}
                     clearCart={()=>dispatch(clearCart())}
-                    setAnimateFalse={()=>dispatch(setAnimateFalse())}
                 />
             </div>
         )
