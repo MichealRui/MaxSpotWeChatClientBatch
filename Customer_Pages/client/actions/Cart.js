@@ -86,3 +86,9 @@ export function clearCart() {
         type: actionTypes.CLEAR_CART
     }
 }
+
+export function setAnimateFalse() {
+    return {
+        type : actionTypes.SET_CART_ANIMATE_FALSE
+    }
+}

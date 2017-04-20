@@ -11,7 +11,7 @@ import CampaignContainer from '../../components/HomeComponents/CampaignContainer
 import Message from '../../components/CommoonComponents/Message/Message';
 import { initWxConfig, initSdk , setWechatUrl } from '../../actions/WeiXin'
 import { changeSubContent, locationSucc, locationFail, initByStoreId } from '../../actions/Home'
-import { clearCart, addToCart, initCart } from '../../actions/Cart'
+import { clearCart, addToCart, initCart,setAnimateFalse } from '../../actions/Cart'
 import { setMessage } from '../../actions/Message'
 import Loading from '../../components/CommoonComponents/Loading/Loading'
 import util from '../../util/WeChatUtil'
@@ -37,7 +37,6 @@ class PageContainer extends React.Component {
         } else {
             const { dispatch, state } = this.props;
             let config = state.weixin.wxConfig;
-            console.log(config)
             if(config.sign && !state.weixin.sdkInited) {
                 if(this.initWx(config)) {
                     dispatch(initSdk());
@@ -122,7 +121,9 @@ class PageContainer extends React.Component {
                     addToCart={(item) => dispatch(addToCart(item))}
                 />
                 <BottomButton cart={cart.cart}
-                              clearCart={() => dispatch(clearCart())}/>
+                              clearCart={() => dispatch(clearCart())}
+                              setAnimateFalse={()=>dispatch(setAnimateFalse())}
+                />
             </div>
         )
     }

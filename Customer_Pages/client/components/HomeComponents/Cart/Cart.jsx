@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Counter from '../../CommoonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
-
+import {setAnimateFalse} from '../../../actions/Cart'
 import {Link} from 'react-router'
 require ('./index.css');
 
@@ -17,12 +17,17 @@ export default class Cart extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(nextProps.cart.count && !this.state.cartLock){
+        console.log("++++++++++");
+        console.log(nextProps);
+        console.log(this.props);
+        const {dispatch} = this.props;
+        if(nextProps.cart.animate && !this.state.cartLock){
             this.setState({
                 cartActive:'active',
                 cartLock : true
             });
             window.setTimeout( () => {
+                this.props.setAnimateFalse();
                 this.setState({
                     cartActive:'',
                     cartLock : false
