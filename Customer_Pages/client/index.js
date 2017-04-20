@@ -6,6 +6,7 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducers from './reducers/index';
 import {Router ,Route , hashHistory} from 'react-router';
+import {clearPromotion} from './actions/Promotion'
 require('./index.css');
 
 import Home from './containers/PageContainer/pageContainer'
@@ -22,9 +23,7 @@ import TakeGoods from './containers/TakeGoodsContainer/TakeGoodsContainer'
 import AfterPay from './containers/AfterPayContainer/AfterPayContainer'
 import AfterPayOld from './containers/AfterPayContainerOld/AfterPay'
 import BannerDetail from './containers/BannerDetailContainer/BannerDetailContainer'
-import Activity from './containers/PromotionContainer/PromotionContainer';
-
-import {clearPromotion} from './actions/Promotion'
+import Activity from './containers/PromotionContainer/PromotionContainer'
 // init thunk
 
 function activateVendor() {
@@ -39,7 +38,7 @@ function activateVendor() {
 }
 
 function hands() {
-    const {dispatch}  = store;
+    const{dispatch} = store;
     dispatch(clearPromotion());
 }
 

@@ -42,9 +42,9 @@ export default class PromotionItems extends React.Component{
         let itemData = props.itemData;
         let itemTag = itemData.tags ?  <div className="activityItemsTags font12">{itemData.tags}</div>:'';
         let itemDesc = props.type == 1 ? <div className="activityDesc">{itemData.description}</div> : '';
-        let attr = this.getAttr(itemData.attributes)
+        let attr = this.getAttr(itemData.attributes);
         if(itemData.status == 2){
-            return null
+            return null;
         }else{
             return(
                 <div className={"activityItems "+(itemData.quantity > 0 ? '' : 'sellout')}>

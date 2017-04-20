@@ -153,7 +153,7 @@ function operator_computeCampaignType_1(cUnit) {
 function operator_computeCampaignType_2(cUnit) {
     let {discountCount, discountMoney, discountDiscount, recursive} = cUnit;
     let {sumCount,totalSum} = operator_computeCampaign_common(cUnit);
-    let sellPrice = cUnit.list[0].sellPrice;
+    let sellPrice = cUnit.list[0].sellprice;
     let activate = sumCount >= discountCount;
     cUnit.activate = activate;
     let mult = activate && recursive ?

@@ -26,7 +26,7 @@ export function initPromotion(type,storeId) {
 }
 
 export function clearPromotion() {
-    return(dispatch)=>{
+    return (dispatch)=>{
         dispatch(initSuccess(Object.assign({},{skus:[]})));
     }
 }

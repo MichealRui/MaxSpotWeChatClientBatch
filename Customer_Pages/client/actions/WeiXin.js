@@ -26,14 +26,16 @@ export function initWxConfig(url, cb) {
             ).then(response => response.json())
                 .then( json => {
                     if(json.is_succ) {
-                        dispatch(cb());
-                        dispatch(initWxConfigSucc(json.params))
+                        dispatch(cb);
+                        dispatch(initWxConfigSucc(json.params));
+                        dispatch(setWechatUrl(url));
                     } else {
                         dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
                     }
                 } ).catch(e => dispatch(initWxConfigErr( { errorMessage: '服务器错误' } )))
         ).catch(e => console.log(e))
     }
+
 }
 
 export function initWxConfigSucc(config) {
@@ -52,5 +54,18 @@ export function initWxConfigErr() {
 export function initSdk() {
     return {
         type: actionTypes.JSSDK_INITED
+    }
+}
+
+export function initPaySdk() {
+    return {
+        type : actionTypes.JSSDK_PAY_INITED
+    }
+}
+
+export function setWechatUrl(url) {
+    return {
+        type : actionTypes.SET_WECHAT_URL,
+        url
     }
 }

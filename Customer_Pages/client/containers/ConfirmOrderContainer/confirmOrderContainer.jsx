@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { initOrderConfirm } from '../../actions/ConfirmOrder';
+import { initWxConfig, initPaySdk } from '../../actions/WeiXin'
 import OrderProductList from '../../components/ConfirmOrderComponents/OrderProductList/OrderProductList'
 import Button from '../../components/CommoonComponents/Button/Button'
 import wx from 'weixin-js-sdk';
@@ -10,11 +11,46 @@ require('./index.css')
 class ConfirmOrderContainer extends React.Component {
     constructor(props){
         super(props);
+        var u = navigator.userAgent;
         this._orderNumber = this.props.params.orderNumber;
+        this._isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
     }
     componentWillMount(){
-        const { dispatch } = this.props;
-        dispatch(initOrderConfirm(this._orderNumber));
+        const { dispatch,state } = this.props;
+        const link = state.weixin.wechat_url;
+        let wlink = 'http://www.mjitech.com/buyer_pages/index.html?/#/confirmOrder/';
+        // dispatch(wlink, initOrderConfirm(this._orderNumber));
+        this._isAndroid ?
+            dispatch(initWxConfig(wlink,initOrderConfirm(this._orderNumber))):
+            dispatch(initOrderConfirm(this._orderNumber));
+    }
+
+    componentDidUpdate(){
+        const {dispatch,state} = this.props;
+        let config = state.weixin.wxConfig;
+        console.log(config)
+        if(config.sign && !state.weixin.sdkPayInited){
+            if(this.initWx(config)) {
+                dispatch(initPaySdk());
+            }
+        }
+    }
+
+    initWx(config) {
+        let appId = 'wx4da5ecd6305e620a';
+        try {
+            wx.config({
+                debug: false,
+                appId: appId,
+                timestamp: config.timestamp,
+                nonceStr: config.noncestr,
+                signature: config.sign,
+                jsApiList: ["chooseWXPay"]
+            });
+            return true;
+        } catch (e) {
+            return false
+        }
     }
 
     payOrder(){
@@ -31,12 +67,14 @@ class ConfirmOrderContainer extends React.Component {
                 signType: "MD5",
                 paySign: config.paySign,
                 success: function(r){
+                    alert("success" + JSON.stringify(r));
                     routers.push('/paySucc/'+orderNum);
                     // let order = Util.getUrlParam().ordernumber;
                     // window.location.href =
                     //     ENV.domain + '/buyer_paysucc/index.html?ordernumber=' + order
                 },
                 fail: function(r){
+                    alert("fail" + JSON.stringify(r));
                     routers.push('/orderList/');
                     // routers.push('/paySucc/'+orderNum)
                     // window.location.href =

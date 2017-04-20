@@ -9,7 +9,7 @@ import SelectContainer from '../../components/HomeComponents/SelectorContainer/s
 import SubContent from '../../components/HomeComponents/SubContent/subContent'
 import CampaignContainer from '../../components/HomeComponents/CampaignContainer/CampaignContainer';
 import Message from '../../components/CommoonComponents/Message/Message';
-import { initWxConfig, initSdk } from '../../actions/WeiXin'
+import { initWxConfig, initSdk , setWechatUrl } from '../../actions/WeiXin'
 import { changeSubContent, locationSucc, locationFail, initByStoreId } from '../../actions/Home'
 import { clearCart, addToCart, initCart } from '../../actions/Cart'
 import { setMessage } from '../../actions/Message'
@@ -24,8 +24,11 @@ class PageContainer extends React.Component {
 
     componentWillMount() {
         const { dispatch } = this.props;
-        const link = window.location.href.slice(0,window.location.href.indexOf("#"));
-        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(link, initCart));
+        // const link = window.location.href.slice(0,(window.location.href.indexOf("#"))) + '#/';
+        // DEFALUT_INFO.wechat_url = window.location.href;
+        const link = window.location.href;
+        let wlink = 'http://www.mjitech.com/buyer_pages/index.html/';
+        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(wlink, initCart()));
     }
 
     componentDidUpdate() {
@@ -34,6 +37,7 @@ class PageContainer extends React.Component {
         } else {
             const { dispatch, state } = this.props;
             let config = state.weixin.wxConfig;
+            console.log(config)
             if(config.sign && !state.weixin.sdkInited) {
                 if(this.initWx(config)) {
                     dispatch(initSdk());
