@@ -37,7 +37,6 @@ class PageContainer extends React.Component {
         } else {
             const { dispatch, state } = this.props;
             let config = state.weixin.wxConfig;
-            console.log(config)
             if(config.sign && !state.weixin.sdkInited) {
                 if(this.initWx(config)) {
                     dispatch(initSdk());
@@ -56,7 +55,7 @@ class PageContainer extends React.Component {
                 timestamp: config.timestamp,
                 nonceStr: config.noncestr,
                 signature: config.sign,
-                jsApiList: ["getLocation","chooseWXPay"]
+                jsApiList: ["getLocation"]
             });
             return true;
         } catch (e) {

@@ -17,7 +17,7 @@ export default class Cart extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(nextProps.cart.count && !this.state.cartLock){
+        if(nextProps.cart.count > this.props.cart.count && !this.state.cartLock){
             this.setState({
                 cartActive:'active',
                 cartLock : true

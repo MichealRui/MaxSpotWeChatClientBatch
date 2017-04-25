@@ -67,14 +67,12 @@ class ConfirmOrderContainer extends React.Component {
                 signType: "MD5",
                 paySign: config.paySign,
                 success: function(r){
-                    alert("success" + JSON.stringify(r));
                     routers.push('/paySucc/'+orderNum);
                     // let order = Util.getUrlParam().ordernumber;
                     // window.location.href =
                     //     ENV.domain + '/buyer_paysucc/index.html?ordernumber=' + order
                 },
                 fail: function(r){
-                    alert("fail" + JSON.stringify(r));
                     routers.push('/orderList/');
                     // routers.push('/paySucc/'+orderNum)
                     // window.location.href =
