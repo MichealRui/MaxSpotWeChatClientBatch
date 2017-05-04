@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react'
 import Selector from '../Selector/index'
-import Swiper from '../../CommoonComponents/Swiper/index'
+import Swiper from '../../CommonComponents/Swiper/index'
 import {Link} from 'react-router';
 import util from '../../../util/WeChatUtil';
 import LazyLoad from 'react-lazy-load';

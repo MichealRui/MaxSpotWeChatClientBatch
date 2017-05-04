@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import Button from '../../CommoonComponents/Button/Button';
-import ButtonHow from '../../CommoonComponents/ButtonHow/ButtonHow';
+import Button from '../../CommonComponents/Button/Button';
+import ButtonHow from '../../CommonComponents/ButtonHow/ButtonHow';
 import ReactQrCode from 'qrcode.react';
 require('./index.css');
 

@@ -8,12 +8,12 @@ import BannerContainer from '../../components/HomeComponents/BannerContainer/ban
 import SelectContainer from '../../components/HomeComponents/SelectorContainer/selectorContainer';
 import SubContent from '../../components/HomeComponents/SubContent/subContent'
 import CampaignContainer from '../../components/HomeComponents/CampaignContainer/CampaignContainer';
-import Message from '../../components/CommoonComponents/Message/Message';
+import Message from '../../components/CommonComponents/Message/Message';
 import { initWxConfig, initSdk , setWechatUrl } from '../../actions/WeiXin'
 import { changeSubContent, locationSucc, locationFail, initByStoreId } from '../../actions/Home'
 import { clearCart, addToCart, initCart } from '../../actions/Cart'
 import { setMessage } from '../../actions/Message'
-import Loading from '../../components/CommoonComponents/Loading/Loading'
+import Loading from '../../components/CommonComponents/Loading/Loading'
 import util from '../../util/WeChatUtil'
 
 class PageContainer extends React.Component {

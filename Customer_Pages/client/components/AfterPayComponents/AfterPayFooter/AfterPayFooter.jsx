@@ -1,8 +1,8 @@
 "use strict";
 import React from 'react';
-import Swiper from '../../CommoonComponents/Swiper/index';
+import Swiper from '../../CommonComponents/Swiper/index';
 import AfterPayLine from '../AfterPayLine/AfterPayLine';
-import Button  from '../../CommoonComponents/Button/Button'
+import Button  from '../../CommonComponents/Button/Button'
 import mock from './AfterPayFooterData'
 require('./index.css')
 export default class AfterPayFooter extends React.Component{

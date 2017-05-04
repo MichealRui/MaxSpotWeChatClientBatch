@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { initOrderConfirm } from '../../actions/ConfirmOrder';
 import { initWxConfig, initPaySdk } from '../../actions/WeiXin'
 import OrderProductList from '../../components/ConfirmOrderComponents/OrderProductList/OrderProductList'
-import Button from '../../components/CommoonComponents/Button/Button'
+import Button from '../../components/CommonComponents/Button/Button'
 import wx from 'weixin-js-sdk';
 
 require('./index.css')

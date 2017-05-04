@@ -3,7 +3,7 @@
 require('./index.css');
 import React from 'react';
 import {Link} from 'react-router'
-import Button from '../../CommoonComponents/Button/Button'
+import Button from '../../CommonComponents/Button/Button'
 
 export default class PaySuccOrderItem extends React.Component {
 	constructor(props){

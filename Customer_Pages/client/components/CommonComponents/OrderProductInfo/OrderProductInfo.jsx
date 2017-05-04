@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import AccountDisplay from '../../CommoonComponents/AccountDisplay/AccountDisplay'
+import AccountDisplay from '..//AccountDisplay/AccountDisplay'
 import util from '../../../util/WeChatUtil'
 require ('./index.css');
 

@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
-import Counter from '../../CommoonComponents/Counter/Counter';
+import Counter from '../../CommonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
 
 import {Link} from 'react-router'

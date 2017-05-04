@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {initPromotion} from '../../actions/Promotion';
 import PromotionContent from '../../components/PromotionComponents/PromotionContent/PromotionContent';
-import Message from '../../components/CommoonComponents/Message/Message';
+import Message from '../../components/CommonComponents/Message/Message';
 import {setMessage} from '../../actions/Message';
 import {addToCart,clearCart} from '../../actions/Cart';
 import ButtonButtom from '../../components/HomeComponents/Cart/Cart'

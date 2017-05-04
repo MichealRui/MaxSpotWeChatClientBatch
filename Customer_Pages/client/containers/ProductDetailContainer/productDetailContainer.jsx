@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import { connect } from 'react-redux';
-import Message from '../../components/CommoonComponents/Message/Message';
+import Message from '../../components/CommonComponents/Message/Message';
 import { setMessage } from '../../actions/Message';
 import { initProductDetail } from '../../actions/ProductDetail'
 import ProductDetailTitle from '../../components/ProductDetailComponents/ProductDetailTitle/ProductDetailTitle';
