@@ -5,26 +5,11 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducers from './reducers/index';
-import {Router ,Route , hashHistory} from 'react-router';
+import {Router, hashHistory} from 'react-router';
 import {clearPromotion} from './actions/Promotion'
-require('./index.css');
 import routes from './routes/index'
+require('./index.css');
 
-// import Home from './containers/PageContainer/pageContainer'
-// import ProductDetail from './containers/ProductDetailContainer/productDetailContainer'
-// import BrandDetail from './containers/BrandDetailContainer/brandDetailContainer'
-// import SwitchShop from './containers/SwitchShopContainer/SwitchShopContainer'
-// import ShopDetail from './containers/ShopDetailContainer/ShopDetailContainer'
-// import ShoppingCart from './containers/ShoppingCartContainer/ShoppingCartContainer'
-// import ConfirmOrder from './containers/ConfirmOrderContainer/confirmOrderContainer'
-// import PaySuccess from './containers/PaySuccessContainer/PaySuccessContainer'
-// import OrderList from './containers/OrderListContainer/OrderListContainer'
-// import OrderDetail from './containers/OrderDetailContainer/OrderDetailContainer'
-// import TakeGoods from './containers/TakeGoodsContainer/TakeGoodsContainer'
-// import AfterPay from './containers/AfterPayContainer/AfterPayContainer'
-// import AfterPayOld from './containers/AfterPayContainerOld/AfterPay'
-// import BannerDetail from './containers/BannerDetailContainer/BannerDetailContainer'
-// import Activity from './containers/PromotionContainer/PromotionContainer'
 // init thunk
 
 function activateVendor() {
