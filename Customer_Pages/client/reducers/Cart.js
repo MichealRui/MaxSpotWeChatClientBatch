@@ -14,9 +14,10 @@ function initCartFail(content, message) {
     })
 }
 
-function succAddCart(content, ) {
-    let {cart} = {...content}
-    let state = Object.assign({}, { cart:{count:cart.count, animate:cart.animate}})
+function succAddCart(content) {
+    let carts = {...content};
+    let state = Object.assign({}, {cart:{count:carts.cart.count}});
+    console.log(state);
     state.cart.count += 1;
     state.cart.animate = true;
     return state

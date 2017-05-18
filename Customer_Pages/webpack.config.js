@@ -91,6 +91,7 @@ var envConfig = {
     output: {
       path: path.join(__dirname, './static'),
       filename: 'bundle-[hash:6].js',
+      chunkFilename: '[name].[chunkhash:5].chunk.js',
     },
     plugins: [
       new webpack.optimize.UglifyJsPlugin(),
@@ -111,6 +112,7 @@ var envConfig = {
     output: {
       path: path.join(__dirname, './static'),
       filename: 'bundle.js',
+      chunkFilename: '[name].[chunkhash:5].chunk.js',
     },
     plugins: [
       new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),

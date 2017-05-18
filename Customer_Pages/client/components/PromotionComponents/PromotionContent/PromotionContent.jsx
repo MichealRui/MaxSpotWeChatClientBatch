@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import PromoteItem from '../PromotionItems/PromotionItems';
-import Add from '../../CommoonComponents/AddButton/addButton';
+import Add from '../../CommonComponents/AddButton/addButton';
 export default class PromotionContent extends React.Component{
     constructor(props){
         super(props);

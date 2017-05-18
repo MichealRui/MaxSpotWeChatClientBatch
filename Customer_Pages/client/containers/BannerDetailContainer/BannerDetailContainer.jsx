@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect }  from 'react-redux';
 import BrandItem from '../../components/BrandDetailComponents/BrandItem/BrandItem'
-import Message from '../../components/CommoonComponents/Message/Message';
+import Message from '../../components/CommonComponents/Message/Message';
 import { setMessage } from '../../actions/Message'
 import { clearCart, addToCart, initCart } from '../../actions/Cart'
 import {initBannerDetail} from '../../actions/BannerDetail'

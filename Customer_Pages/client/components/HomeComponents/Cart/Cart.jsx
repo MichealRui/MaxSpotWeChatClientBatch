@@ -1,8 +1,7 @@
 'use strict';
 import React, { Component } from 'react';
-import Counter from '../../CommoonComponents/Counter/Counter';
+import Counter from '../../CommonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
-import {setAnimateFalse} from '../../../actions/Cart'
 import {Link} from 'react-router'
 require ('./index.css');
 
@@ -17,7 +16,7 @@ export default class Cart extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(nextProps.cart.count > this.props.cart.count && nextProps.cart.count && !this.state.cartLock){
+        if(nextProps.cart.count > this.props.cart.count && !this.state.cartLock){
             this.setState({
                 cartActive:'active',
                 cartLock : true

@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import PopUp from '../../CommoonComponents/PopUp/PopUp';
-import Button from '../../CommoonComponents/Button/Button';
+import PopUp from '../../CommonComponents/PopUp/PopUp';
+import Button from '../../CommonComponents/Button/Button';
 require('./index.css');
 export default class ShowErrWindowComponent extends React.Component {
 	constructor(props){

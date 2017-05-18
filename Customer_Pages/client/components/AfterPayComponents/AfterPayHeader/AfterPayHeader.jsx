@@ -1,6 +1,6 @@
 "use strict";
 import React from 'react';
-import Button from '../../../components/CommoonComponents/Button/Button'
+import Button from '../../CommonComponents/Button/Button'
 import mock from '../AfterPayFooter/AfterPayFooterData'
 require('./index.css')
 export default class AfterPayHeader extends React.Component{
