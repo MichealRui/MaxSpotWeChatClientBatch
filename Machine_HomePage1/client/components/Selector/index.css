@@ -68,10 +68,10 @@
 .activityTagsContainer .contentActivityTags{
 	margin-bottom:20px;
 	position: relative;
-	height: 100px;
+	height: 110px;
 }
 .activityTagsContainer .contentActivityTags .activityItem{
-	height: 100%;
+	height: 100px;
 	display: inline-block;
 	border: 1px solid transparent;
 	border-radius: 12px;
@@ -118,4 +118,19 @@
 }
 .contentActivityTags .swipers6 .swiper-slide{
 	width: auto!important;
+}
+.activityItem .line{
+	display: none;
+}
+.activityItem.active .line{
+	display: block;
+	position: absolute;
+	border: 3px solid #ff7860;
+	width: 50px;
+	margin: 0 20px;
+	margin-top: 4px;
+}
+.activityItem.activity.active .line{
+	margin: 0 40px;
+	margin-top: 4px;
 }

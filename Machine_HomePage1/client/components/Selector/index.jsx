@@ -38,18 +38,20 @@ export default class Selector extends React.Component {
         let channelHtml = channel ? channel.map(
             (cha,index)=>{
                 return(
-                    <div className={"activityItem "+(cha.type == 1 ? 'new' : 'hot')} key={index}>
+                    <div className={"activityItem activity "+(cha.type == 1 ? 'new ' : 'hot ') + (this.props.activeTag == ("channel"+cha.type) ? 'active':'')} key={index} onClick={()=>this.props.getChannelData(cha.type)}>
                         {
                             cha.type == 1 ? <img src={require('./images/new.png')} alt=""/> : <img src={require('./images/hot.png')} alt=""/>
                         }
+                        <div className="line"></div>
                     </div>
                 )
             }
         ) : null;
         let bannerHtml = banners ? banners.map((banner,index)=>{
             return (
-                <div className="activityItem " key={index}>
+                <div className={"activityItem activity "+ (this.props.activeTag == ("active"+banner.campaignId) ? 'active':'')} key={index} onClick={()=>this.props.getActivityData(banner.campaignId)}>
                     <img src={banner.imagePath} alt=""/>
+                    <div className="line"></div>
                 </div>
             )
         }) : null;
@@ -63,7 +65,7 @@ export default class Selector extends React.Component {
                     >
                         <img src={sel.image} />
                         <div className="contentText font18">{sel.content}</div>
-
+                        <div className="line"></div>
                     </div>
                 )
             }
@@ -89,6 +91,7 @@ export default class Selector extends React.Component {
                 </div>
                 <SubSelector selector={props.currentSelector}
                     changeContent={this.props.changeContent}
+                             isActivity={props.isActivity}
                 />
 
             </div>

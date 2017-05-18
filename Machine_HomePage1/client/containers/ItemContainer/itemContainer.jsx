@@ -7,8 +7,9 @@ require('./index.css');
 var ItemContainer = React.createClass({
     render() {
         let swiperConfig = {
+            pagination : '.swiper-pagination',
             freeMode: true,
-            slidesPerView: 6,
+            slidesPerView: 1,
         };
         let props = this.props.items;
         let items = props.map((item, index) => {
@@ -23,8 +24,9 @@ var ItemContainer = React.createClass({
         });
         let newItems = new Array();
         let tempItems = new Array();
+        let num = this.props.isActivity ? 8 : 12;
         props.forEach((item,index)=>{
-            if(index % 9 == 0 && index != 0){
+            if(index % num == 0 && index != 0){
                 newItems.push(tempItems);
                 tempItems = [];
                 tempItems.push(item);

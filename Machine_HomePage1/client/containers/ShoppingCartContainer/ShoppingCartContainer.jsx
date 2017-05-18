@@ -79,7 +79,7 @@ export default class ShoppingCartContainer extends React.Component{
                 this.reduceProductStructure.bind(this)
             ).filter(product => product):null;
         let swiperConfig = {
-            freeMode: false,
+            freeMode: true,
             slidesPerView: 1,
             // observer:true,//修改swiper自己或子元素时，自动初始化swiper
             // observeParents:true,//修改swiper的父元素时，自动初始化swiper

@@ -13,6 +13,7 @@ import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
 import {fetchCart} from '../../actions/index'
 import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart} from '../../actions/index'
+import {initActivity,initChannelActivity} from '../../actions/index';
 import CartStatus from '../CartContainer/CartStatus';
 
 class PageContainer extends React.Component{
@@ -97,7 +98,6 @@ class PageContainer extends React.Component{
 
     render() {
         let {state, dispatch} = this.props;
-        let ActiveType = 0;
         return (
             <div className="pageContainer" onClick={() => this.idleTime = 0}
                  onTouchStart={() => this.idleTime = 0}
@@ -115,6 +115,7 @@ class PageContainer extends React.Component{
                 />
                 <SubContent
                     bannerData={state.banner}
+                    activityData={state.activity}
                     contentData={state.currentSub}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}
                     channelData={state.channel}
@@ -122,7 +123,10 @@ class PageContainer extends React.Component{
                     showProduct={(item) => this.onProductDetailClick.bind(this)(item)}
                     selector = {state.selector}
                     currentSelector={state.currentSelector}
-                    ActiveType = {ActiveType}
+                    getActivityData={(campaignId)=>dispatch(initActivity(campaignId))}
+                    getChannelData={(type)=>dispatch(initChannelActivity(type))}
+                    isActivity={state.isActivity}
+                    activeTag={state.activeTag}
                 />
 
                 <CartContainer visible={this.state.cartVisible}

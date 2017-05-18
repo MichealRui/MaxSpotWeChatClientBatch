@@ -8,7 +8,12 @@ export default class ButtonSelector extends React.Component {
     }
 
     onSubClick(key, parentKey) {
-        this.props.changeContent(parentKey, key)
+        if(this.props.isActivity){
+            return false;
+        }else{
+            this.props.changeContent(parentKey, key)
+        }
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -41,7 +46,6 @@ export default class ButtonSelector extends React.Component {
 
         return (
             <div className="subTags">
-                <div className="subTag active font20">全部</div>
                 {tag}
             </div>
         )

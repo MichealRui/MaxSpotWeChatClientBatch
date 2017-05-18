@@ -107,6 +107,7 @@ function initSuccess(content, data){
             key = i
         }
         let categoryName = [...new Set(items.map(item => item.categoryName))];
+        categoryName.splice(0,0,"全部");
         /* add subSelector for  selector*/
         for(let sel of selector) {
             if(sel.key == key) {
@@ -117,13 +118,14 @@ function initSuccess(content, data){
         for(let category of categoryName) {
             categoriedItems[category] = items.filter(i => i.categoryName == category);
         }
+        categoriedItems['全部'] = items;
         content[key].categoried = categoriedItems;
     });
     /* end finding */
 
     /* def current selector */
     let currentSelector = selector[0];
-    currentSelector.subKey = selector[0].subSelector[0];
+    currentSelector.subKey = "全部";
 
     let subContent = {};
     for(let content of subContentArray) {
@@ -161,7 +163,10 @@ function initSuccess(content, data){
         // storeInfo: data.store,
         cart: cart,
         product:'',
-        currentSelector:currentSelector
+        currentSelector:currentSelector,
+        activity:{items:[], banner:[]},
+        isActivity:false,
+        activeTag:''
     })
 }
 
@@ -287,9 +292,9 @@ function changeContent(content, {key, subKey}) {
     let target = newContent.subContent[key];
     newContent.currentSub = Object.assign({}, newContent.currentSub, {items: target.categoried[subKey]});
     newContent.currentSelector = newContent.selector.filter(s => s.key == key).pop();
-    newContent.currentSelector.subKey = subKey
+    newContent.currentSelector.subKey = subKey;
     // newContent.currentSelector = {parentKey: key, subKey:subKey};
-    return newContent
+    return Object.assign({},newContent,{activity:{items:[], banner:[]}},{isActivity:false},{activeTag:''});
 }
 
 function succFetchSku(content,product) {
@@ -415,8 +420,15 @@ function clearCart(content) {
     return state
 }
 
-function initActivity(content, products, banner) {
-    return  Object.assign({}, content, {activity:{items:products, banner:[banner]}})
+function initActivity(content, products, banner,activeTag) {
+    let newContent = Object.assign({}, content);
+    newContent.currentSub = Object.assign({}, newContent.currentSub, {items: products,banner:[banner]});
+    newContent.currentSelector = {};
+    newContent.currentSelector.key = "活动";
+    newContent.currentSelector.subKey = "全部";
+    newContent.currentSelector.subSelector = ["全部"];
+    // newContent.currentSelector = {parentKey: key, subKey:subKey};
+    return  Object.assign({}, newContent, {activity:{items:products, banner:[banner]}},{isActivity:true},{activeTag:activeTag})
 }
 
 function setCartErrorMessage(content,message) {
@@ -453,7 +465,7 @@ export default function (
         case SUCC_CLEAR_CART:
             return clearCart(content);
         case SUCC_INIT_ACTIVITY:
-            return initActivity(content, action.products, action.banner);
+            return initActivity(content, action.products, action.banner,action.activeTag);
         default:
             return content;
     }

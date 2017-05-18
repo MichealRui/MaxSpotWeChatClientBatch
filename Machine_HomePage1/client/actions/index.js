@@ -461,7 +461,7 @@ export function initActivity(campaignId) {
         ).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    dispatch(succInitActivity({...json}))
+                    dispatch(succInitActivity({...json,activeTag:"active"+campaignId}))
                 } else {
                     console.log('error')
                 }
@@ -487,7 +487,7 @@ export function initChannelActivity(type) {
             .then(json => {
                 if(json.is_succ) {
 
-                    dispatch(succInitActivity(Object.assign({},{products:json.skuitems,banner:json.headUrl})))
+                    dispatch(succInitActivity(Object.assign({},{products:json.skuitems,banner:json.headUrl,activeTag:"channel"+type})))
                 } else {
                     console.log('error')
                 }
@@ -501,10 +501,10 @@ export function clearActivity() {
     }
 }
 
-export function succInitActivity({products, banner}) {
+export function succInitActivity({products, banner,activeTag}) {
     return {
         type: SUCC_INIT_ACTIVITY,
-        products, banner
+        products, banner,activeTag
     }
 }
 
