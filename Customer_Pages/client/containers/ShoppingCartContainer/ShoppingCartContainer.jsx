@@ -9,7 +9,7 @@ import ShoppingMessage from '../../components/ShoppingCartComponents/ShoppingMes
 import ProductSectionList from '../../components/ShoppingCartComponents/ProductSectionList/ProductSectionList'
 import Empty from '../../components/ShoppingCartComponents/Empty/Empty'
 import BottomBar from '../../components/ShoppingCartComponents/BottomBar/BottomBar'
-import Message from '../../components/CommoonComponents/Message/Message';
+import Message from '../../components/CommonComponents/Message/Message';
 
 require('./index.css')
 

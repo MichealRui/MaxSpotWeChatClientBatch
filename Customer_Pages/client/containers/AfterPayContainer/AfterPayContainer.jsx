@@ -5,7 +5,7 @@ import AfterPayHeader from '../../components/AfterPayComponents/AfterPayHeader/A
 import AfterPayFooter from '../../components/AfterPayComponents/AfterPayFooter/AfterPayFooter'
 import ConfirmWindow from '../../components/TakeGoodsComponents/ConfirmWindowComponent/ConfirmWindowComponent'
 import WindowText from '../../components/TakeGoodsComponents/ConfirmWindowComponent/WindowText';
-import Button from '../../components/CommoonComponents/Button/Button'
+import Button from '../../components/CommonComponents/Button/Button'
 require('./index.css')
 class AfterPayContainer extends React.Component{
     constructor(props){

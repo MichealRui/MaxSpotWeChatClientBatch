@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import SwiperComponent from '../../CommoonComponents/Swiper/index';
+import SwiperComponent from '../../CommonComponents/Swiper/index';
 
 import util from '../../../util/WeChatUtil';
 require('./index.css');

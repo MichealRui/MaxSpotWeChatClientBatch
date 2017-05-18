@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
-import Item from '../../CommoonComponents/Item/index'
-import AddButton from '../../CommoonComponents/AddButton/addButton'
+import Item from '../../CommonComponents/Item/index'
+import AddButton from '../../CommonComponents/AddButton/addButton'
 require('./index.css');
 
 

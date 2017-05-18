@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import ProductInfo from '../../CommoonComponents/OrderProductInfo/OrderProductInfo'
-import AccountDisplay from '../../CommoonComponents/AccountDisplay/AccountDisplay'
+import ProductInfo from '../../CommonComponents/OrderProductInfo/OrderProductInfo'
+import AccountDisplay from '../../CommonComponents/AccountDisplay/AccountDisplay'
 require('./index.css');
 
 export default class OrderDetailProductList extends React.Component {

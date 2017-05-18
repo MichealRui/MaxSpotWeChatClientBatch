@@ -1,6 +1,7 @@
 "use strict"
 import React from 'react';
-import StoreDetailTitle from '../../CommoonComponents/StoreDetailTitle/StoreDetailTitle'
+import StoreDetailTitle from '../../CommonComponents/StoreDetailTitle/StoreDetailTitle'
+
 require('./index.css');
 export default class OrderDetailStoreInfo extends React.Component {
     constructor(props){

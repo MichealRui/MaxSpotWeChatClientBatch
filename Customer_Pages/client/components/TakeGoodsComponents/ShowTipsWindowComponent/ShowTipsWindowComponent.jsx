@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import PopUp from '../../CommoonComponents/PopUp/PopUp';
-import Button from '../../CommoonComponents/Button/Button';
+import PopUp from '../../CommonComponents/PopUp/PopUp';
+import Button from '../../CommonComponents/Button/Button';
 require('./index.css');
 // require('http://at.alicdn.com/t/font_7new117jouqjv2t9.css')
 export default class ShowTipsWindowComponent extends React.Component {

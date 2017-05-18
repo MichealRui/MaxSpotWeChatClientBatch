@@ -1,6 +1,6 @@
 "use strict";
 import React from 'react';
-import Button from '../../CommoonComponents/Button/Button'
+import Button from '../../CommonComponents/Button/Button'
 require('./index.css')
 export default class OrderDetailHeader extends React.Component {
     constructor(props){

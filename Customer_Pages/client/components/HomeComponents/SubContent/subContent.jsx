@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react'
 import ItemContainer from '../ItemContainer/itemContainer'
-import Item from '../../CommoonComponents/Item/index'
+import Item from '../../CommonComponents/Item/index'
 require('./index.css');
 
 export default class SubContent extends React.Component {
