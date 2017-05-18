@@ -1,0 +1,18 @@
+/*.itemContainer{*/
+    /*width: 100%;*/
+    /*position: relative;*/
+    /*padding-left: 28px;*/
+/*}*/
+/*.itemContainer .swiper-slide {*/
+    /*margin-right: 15px;*/
+    /*width: 276px!important;*/
+/*}*/
+
+.itemContainer{
+    box-sizing:border-box;
+    padding:30px;
+}
+.itemContainer .swiper-slide {
+    margin-right: 15px;
+    width: 100%!important;
+}

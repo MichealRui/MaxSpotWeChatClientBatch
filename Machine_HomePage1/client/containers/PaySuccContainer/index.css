@@ -1,0 +1,58 @@
+.customized_taking-modal{
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
+.customized_taking-modal .ant-modal {
+    top: 70px;
+    width: 100%!important;
+    height: 1010px;
+}
+.customized_taking-modal .ant-modal-close {
+    width:100px;
+}
+
+.customized_taking-modal .ant-modal .ant-modal-body {
+    line-height: 1;
+    padding:0;
+}
+.customized_taking-modal .ant-modal .ant-modal-content {
+    height: 1010px;
+    background-color: #f2f2f2;
+}
+.customized_taking-modal .ant-modal .ant-modal-content .ant-modal-close{
+    display: none;
+}
+.takingContainer .timer_info{
+    width: 630px;
+    height: 84px;
+    border: 1px solid #fff;
+    border-radius: 42px;
+    color:#fa7c73;
+    transform: translate(1190px,-45px);
+    background: #fff;
+    position: absolute;
+    z-index: 9;
+}
+
+.takingContainer .timer_info .info_text{
+    width: 100%;
+    height: 100%;
+    font-size: 44px;
+    font-family: Microsoft YaHei;
+    font-weight: 600;
+    text-align: center;
+    line-height: 82px;
+    display: block;
+}
+.takingContainer .timer_info .info_text>img{
+    vertical-align: middle;
+    margin-right: 10px;
+}

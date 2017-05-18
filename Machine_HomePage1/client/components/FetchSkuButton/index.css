@@ -1,0 +1,22 @@
+.fetchsku{
+    display: inline-block;
+    position: absolute;
+    right: 70px;
+    line-height: 50px;
+}
+.fetchsku .queicon{
+    width: 45px;
+    height: 45px;
+    border:1px solid transparent;
+    background-color: #f7cd14;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    color: #fff;
+    margin: 0 auto;
+}
+.fetchsku .text{
+    font-weight: bold;
+    color: #f7cd14;
+}

@@ -1,0 +1,88 @@
+.machineNewShoppingCartContainer{
+    position:relative;
+    background-color:#ffffff;
+    margin:25px;
+    height:390px;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+}
+.machineNewShoppingCartContainer .cartItemContainer{
+    height:246px;
+    padding-top:62px;
+    box-sizing: border-box;
+    /*margin-bottom: 28px;*/
+    /*display: flex;*/
+    position: relative;
+    /*width: 100%;*/
+    overflow: hidden;
+}
+.machineNewShoppingCartContainer .cartItemContainer .emptyItem{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    color: #333;
+}
+.machineNewShoppingCartContainer .cartItemContainer .emptyItem>img{
+    vertical-align:middle;
+}
+.machineNewShoppingCartContainer .cartItemContainer .emptyItem>span{
+    vertical-align:middle;
+    display:inline-block;
+}
+.machineNewShoppingCartContainer .cartItemContainer .campaignContainer{
+    position:relative;
+    /*margin-top:62px;*/
+    display:inline-block;
+    margin-left:20px;
+}
+
+.machineNewShoppingCartContainer .cartItemContainer .campaignContainer .itemList .item{
+    position: relative;
+    /*height: 184px;*/
+    width: 148px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    background: #fff;
+    box-sizing: border-box;
+    display:inline-block;
+    margin-left:6px;
+    overflow:hidden;
+}
+.campaignContainer{
+    width: auto;
+}
+.campaignContainer .campaignTag{
+    position:absolute;
+    background:url('./images/campaignTagActivate.png') 0 0 no-repeat;
+    height: 132px;
+    width: 23px;
+    background-size:100% 100%;
+    left: -22px;
+    writing-mode: tb;
+    padding: 6px;
+    font-size: 10px;
+    box-sizing: border-box;
+    color: #ffffff;
+    z-index: 11;
+}
+.campaignContainer .campaignTag.fail{
+    background:url('./images/campaignTagFail.png') 0 0 no-repeat;
+    background-size:100% 100%;
+}
+.machineNewShoppingCartContainer .swiper-slide{
+    width: auto!important;
+}
+.machineNewShoppingCartContainer .swiper-slide:first-child .campaignContainer:first-child{
+    margin-left: 200px;
+}
+.emptyContainer{
+    height: 246px;
+    padding-top: 62px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}

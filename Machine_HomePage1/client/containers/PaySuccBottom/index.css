@@ -1,0 +1,19 @@
+.PaySuccBottom{
+    width: 100%;
+    padding: 0 52px;
+    height: 10%;
+    overflow: hidden;
+}
+.PaySuccBottom>img{
+    vertical-align: middle;
+    width: 72px;
+    height: 72px;
+}
+.PaySuccBottom>div{
+    display: inline-block;
+    margin-left: 48px;
+    vertical-align: middle;
+    line-height: 32px;
+    color: rgba(0,0,0,.7);
+}
+

@@ -1,0 +1,109 @@
+/*.campaignItemContainer {*/
+    /*box-sizing: border-box;*/
+    /*height: 2.07rem;*/
+    /*width:8.466rem;*/
+    /*border: 1px solid #999999;*/
+    /*margin-top:0.427rem;*/
+    /*border-radius: 0.1rem;*/
+    /*padding: 0.207rem 0 0.207rem 0.267rem;*/
+/*}*/
+
+/*.campaignItemContainer .image-container {*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*text-align: center;*/
+    /*height:1.6rem;*/
+    /*width:1.6rem;*/
+    /*border: 1px solid #ff0000;*/
+    /*margin-right:0.4rem;*/
+/*}*/
+
+/*.campaignItemContainer .image-container .campaign-item-image {*/
+    /*width: 1.6rem;*/
+    /*height:1.6rem;*/
+/*}*/
+
+/*.campaignItemContainer .image-container .image-banner {*/
+    /*position: absolute;*/
+    /*display: inline-block;*/
+    /*height: 0.4rem;*/
+    /*line-height:0.4rem;*/
+    /*width:100%;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*background-color: #ff0000;*/
+    /*opacity:0.9;*/
+    /*color: #ffffff;*/
+/*}*/
+
+
+.campaignItemContainer{
+    position: relative;
+    display: inline-block;
+    border: 1px solid #f0f0f0;
+    padding: 0 12px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-left: 6px;
+    width:446px;
+    height:130px;
+    border-radius: 10px;
+}
+.campaignItemContainer:first-child{
+    margin-left:14px;
+}
+.campaignItemContainer .pic{
+    /*width: 80px;*/
+    padding: 10px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 100%;
+    text-align: center;
+    position:relative;
+}
+.campaignItemContainer .pic>img{
+    height:100%;
+}
+.campaignItemContainer .picText{
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    background-color: red;
+    line-height: 30px;
+}
+.campaignItemContainer .proInfo{
+    display: inline-block;
+    margin-left: 20px;
+    /* top: 50%; */
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    line-height: 30px;
+    width:164px;
+    overflow:hidden;
+}
+.campaignItemContainer .proInfo>p:nth-child(3){
+    color:#999;
+}
+.campaignItemContainer .giftText{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 138px;
+    height: 130px;
+    background: url(./img/coupon.png) 0 0 no-repeat;
+    text-align: center;
+    color: #fff;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+.campaignItemContainer .giftText>p{
+    height:50%;
+    line-height:55px;
+}
+.campaignItemContainer .giftText>p:first-child{
+    border-bottom:1px solid #eee;
+    line-height: 80px;
+}

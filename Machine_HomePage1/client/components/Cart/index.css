@@ -1,0 +1,188 @@
+
+/*.cart {*/
+    /*position: absolute;*/
+    /*top:27px;*/
+    /*right: 50px;*/
+    /*width: 207px;*/
+    /*height: 74px;*/
+    /*line-height: 74px;*/
+    /*border-radius: 207px 207px 0 207px;*/
+    /*background-color: #ff7860;*/
+    /*color: #fff;*/
+    /*text-align: right;*/
+    /*z-index: 999;*/
+    /*padding-right: 20px;*/
+    /*display: inline-block;*/
+
+
+/*}*/
+
+/*.cart .bag{*/
+    /*position: absolute;*/
+    /*left: 30px;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*margin: auto;*/
+/*}*/
+/*.cart .bag>img{*/
+    /*vertical-align: middle;*/
+
+/*}*/
+
+/*.cart .shopping-count{*/
+    /*position: absolute;*/
+    /*width: 36px;*/
+    /*height: 36px;*/
+    /*left: 60px;*/
+    /*top: 0px;*/
+    /*color:#ff7860;*/
+    /*text-align: center;*/
+    /*line-height: 35px;*/
+    /*!*-webkit-animation: big-scale 2s linear 0s infinite normal ;*!*/
+
+/*}*/
+
+/*.cart .shopping-count-bg{*/
+    /*position: absolute;*/
+    /*border: 1px solid #fff;*/
+    /*background-color: #fff;*/
+    /*width: 36px;*/
+    /*height: 36px;*/
+    /*border-radius: 50%;*/
+    /*left: 60px;*/
+    /*top: 0px;*/
+    /*!*-webkit-animation: big-scale 2s linear 0s infinite normal ;*!*/
+
+/*}*/
+
+/*.cart.active {*/
+    /*-webkit-animation: big-scale 1s linear 0s 1 normal ;*/
+    /*animation: big-scale 1s linear 0s 1 normal ;*/
+/*}*/
+/*.cart.active .shopping-count{*/
+     /*-webkit-animation: big-scale1 2s linear 0.5s 1 normal ;*/
+     /*animation: big-scale1 2s linear 0.5s 1 normal ;*/
+ /*}*/
+/*.cart.active .shopping-count-bg{*/
+    /*-webkit-animation: big-scale 1s linear 0.5s 1 normal ;*/
+    /*animation: big-scale 1s linear 0.5s 1 normal ;*/
+/*}*/
+
+/*@keyframes big-scale {*/
+    /*0%{*/
+        /*transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+    /*}*/
+    /*50%{*/
+        /*transform: scale(1.2);*/
+        /*-webkit-transform: scale(1.2);*/
+    /*}*/
+    /*100%{*/
+        /*transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+    /*}*/
+/*}*/
+/*@-webkit-keyframes big-scale {*/
+    /*0%{*/
+        /*transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+    /*}*/
+    /*50%{*/
+        /*transform: scale(1.2);*/
+        /*-webkit-transform: scale(1.2);*/
+    /*}*/
+    /*100%{*/
+        /*transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+    /*}*/
+/*}*/
+
+/*@keyframes big-scale1 {*/
+    /*0%{*/
+        /*transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+    /*}*/
+    /*50%{*/
+        /*transform: scale(1.5);*/
+        /*-webkit-transform: scale(1.5);*/
+    /*}*/
+    /*100%{*/
+        /*transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+    /*}*/
+/*}*/
+/*@-webkit-keyframes big-scale1 {*/
+    /*0%{*/
+        /*transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+    /*}*/
+    /*50%{*/
+        /*transform: scale(1.5);*/
+        /*-webkit-transform: scale(1.5);*/
+    /*}*/
+    /*100%{*/
+        /*transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+    /*}*/
+/*}*/
+
+.shoppingCart{
+    position:absolute;
+    width:174px;
+    height:256px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    top:-10px;
+    left:-10px;
+    background-color:#ffffff;
+    z-index:2;
+}
+.shoppingCart .balance{
+    position: absolute;
+    bottom: 0;
+    height: 75px;
+    background-color: #2db9ed;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    line-height: 75px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.shoppingCart .cart{
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.cart .countBg{
+    position: absolute;
+    border: 10px solid #fff;
+    width: 50px;
+    height: 50px;
+    background-color: #ff7860;
+    border-radius: 50%;
+    -webkit-border-radius:50%;
+    top: -20px;
+    right: 35px;
+}
+.cart .count{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -10px;
+    right: 45px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+.cart .money{
+    text-align: center;
+    color: #2db9ed;
+    line-height: 80px;
+}
