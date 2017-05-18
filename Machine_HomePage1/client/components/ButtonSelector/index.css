@@ -1,0 +1,22 @@
+.buttonSelectorContainer {
+    width:100%;
+    height:75px;
+    box-sizing: border-box;
+    padding:17px 0 17px 60px;
+}
+
+.buttonSelectorContainer .subSelector{
+    display: inline-block;
+    color: #000000;
+    opacity: 0.8;
+    background-color: #f2f2f2;
+    width:140px;
+    height:40px;
+    text-align: center;
+    line-height: 40px;
+}
+.buttonSelectorContainer .subSelector.activated{
+    border-radius: 140px;
+    background-color: #ff7860;
+    color: #FFFFFF;
+}

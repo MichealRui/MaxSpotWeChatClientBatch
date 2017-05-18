@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
 import SubSelector from '../../components/ButtonSelector/ButtonSelector'
+import SwiperContainer from '../../components/Swiper/index'
 require ('./index.css');
 
 export default class Selector extends React.Component {
@@ -67,31 +68,24 @@ export default class Selector extends React.Component {
                 )
             }
         );
-    /*
-     <div className={"imageScale " }>
-     <div className={"itemIcon font34 fa "}>
-     <img width='100%' src={sel.image}/>
-     </div>
-     <div className='itemName font24'>
-     <span>{sel.content}</span>
-     </div>
-     </div>
-
-        // <div>
-        //     <ul className="selectorContainer">
-        //         {tag}
-        //     </ul>
-        //     <SubSelector selector={props.currentSelector}
-        //                  changeContent={this.props.changeContent}
-        //     />
-        // </div>
-        */
+        let all = new Array;
+        all.push(channelHtml);
+        all.push(bannerHtml);
+        all.push(tag);
+        let swiperConfig = {
+            freeMode: false,
+            slidesPerView: 7,
+        };
         return (
             <div className="activityTagsContainer">
                 <div className="contentActivityTags">
-                    {channelHtml}
-                    {bannerHtml}
-                    {tag}
+                    <SwiperContainer
+                        swiperConfig={swiperConfig}
+                        swiperContainer={'swipers6'}
+                        reload={true}
+                    >
+                        {all}
+                    </SwiperContainer>
                 </div>
                 <SubSelector selector={props.currentSelector}
                     changeContent={this.props.changeContent}

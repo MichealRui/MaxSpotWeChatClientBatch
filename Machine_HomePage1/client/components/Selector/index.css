@@ -79,7 +79,7 @@
 	position:relative;
 }
 .activityTagsContainer .contentActivityTags .activityItem:first-child{
-	margin-left:0;
+	/*margin-left:0;*/
 }
 .activityTagsContainer .contentActivityTags .activityItem>img{
 	height:100%;
@@ -112,4 +112,10 @@
 .activityTagsContainer .subTags .subTag.active{
 	background: #ff7869;
 	color:#fff;
+}
+.contentActivityTags .swipers6{
+	height: 100%;
+}
+.contentActivityTags .swipers6 .swiper-slide{
+	width: auto!important;
 }
