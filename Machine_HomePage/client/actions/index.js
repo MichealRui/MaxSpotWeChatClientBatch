@@ -57,7 +57,7 @@ export const SET_RECOMMEND = 'SET_RECOMMEND';
 
 export const SUCC_INIT_ACTIVITY = 'SUCC_INIT_ACTIVITY';
 
-const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.62:9090' : 'http://10.16.66.62:8080';
+const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.36:9090' : 'http://10.16.66.36:8080';
 
 export function initMainContent () {
     return (dispatch) => {
