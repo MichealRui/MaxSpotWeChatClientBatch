@@ -125,6 +125,10 @@
 .skuHeader .addCartText{
     bottom: 60px;
 }
+.skuHeader .addCartText.empty{
+    border:1px solid #ccc;
+    color:#999;
+}
 .skuHeader .countControl{
     bottom: 60px;
     height: 64px;

@@ -80,8 +80,7 @@ export default class CartContainer extends React.Component {
                 //     onCancel={props.onCancel()}
                 //     isModalVisible={props.visible}
                 // />;
-                cartContent = <div>SHOW_TAKING</div>
-                wrapClassName = 'customized_taking-modal';
+                cartContent = <Taking />
                 break;
             default:
                 cartContent = <div> error </div>

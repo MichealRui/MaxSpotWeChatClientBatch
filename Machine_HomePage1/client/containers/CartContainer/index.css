@@ -28,7 +28,7 @@
 .customized_cart-modal .ant-modal .ant-modal-content {
     /*height: 1010px;*/
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     height: 650px;
 }
 .customized_cart-modal .ant-modal .ant-modal-content .ant-modal-close{
@@ -55,15 +55,15 @@
     font-family: "anticon" !important;
 }
 
-.customized_cart-modal .takingContainer{
-    margin: auto;
-    background-color: #fff;
-    position: relative;
-    border-radius: 10px;
-    overflow:hidden;
-    padding: 50px 80px 0 80px;
-    box-sizing: border-box;
-    margin-top: 200px;
-    height: 1330px;
-}
+/*.customized_cart-modal .takingContainer{*/
+    /*margin: auto;*/
+    /*background-color: #fff;*/
+    /*position: relative;*/
+    /*border-radius: 10px;*/
+    /*overflow:hidden;*/
+    /*padding: 50px 80px 0 80px;*/
+    /*box-sizing: border-box;*/
+    /*margin-top: 200px;*/
+    /*height: 1330px;*/
+/*}*/
 

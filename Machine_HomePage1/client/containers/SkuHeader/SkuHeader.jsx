@@ -102,13 +102,14 @@ export default class skuHeader extends React.Component {
             <div className="skuHeader">
                 {sub_title}
                 {new_sub_price}
-                <div className={"addCartText " + (this.props.countShow ? 'hide' : '')} onClick={()=>this.showControl.bind(this)()}>{sku.quantity>0 ? '加入购物车':'缺货'}</div>
+                <a className={"addCartText " + (this.props.countShow ? 'hide ' : '') + (sku.quantity>0?'':'empty')} onClick={()=>this.showControl.bind(this)()} disabled={ sku.quantity <= 0} >{sku.quantity>0 ? '加入购物车':'缺货'}</a>
                 <div className={(this.props.countShow ? '' : 'hide')}>
                     <CountControl item={sku}
                                   decrease={this.props.dec}
                                   addItem={this.props.add}
                                   countFontSize = "font24"
                                   fontClass="font30"
+                                  countClass="skuContainerCount"
                     />
                 </div>
             </div>

@@ -24,11 +24,11 @@ export default class QrContent extends React.Component {
     }
 
     componentWillUnmount() {
-        // window.clearTimeout(this.state.timer);
+        window.clearTimeout(this.state.timer);
     }
 
     componentWillMount() {
-        // this.fetchOrderStatus.bind(this)()
+        this.fetchOrderStatus.bind(this)()
     }
 
     render () {

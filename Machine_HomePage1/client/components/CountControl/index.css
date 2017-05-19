@@ -28,3 +28,49 @@
 .color333{
     color:#333!important;
 }
+.noQuantity{
+    display: none;
+}
+.shoppingCartCount.noQuantity {
+    display: block;
+    position: absolute;
+    bottom: -18px;
+    left:-10px;
+}
+
+.shoppingCartCount.noQuantity .noQuantitys{
+    background-color: #f7ce14;
+    text-align: center;
+    border-radius: 8px;
+    position: absolute;
+    bottom: -18px;
+    left:-10px;
+}
+
+.shoppingCartCount.noQuantity span {
+    width: 150px;
+    height: 30px;
+    color: #fff;
+    line-height: 30px;
+}
+
+.shoppingCartCount.noQuantity .triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #f7ce14;
+    position: absolute;
+    top: -22px;
+    left: 45px;
+}
+.noQuantity.skuContainerCount{
+    display: block;
+    position: absolute;
+    right: -150px;
+    top: 6px;
+    color:#f7ce14;
+}
+.colorred{
+    color:#ff7860!important;
+}

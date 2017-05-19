@@ -62,12 +62,9 @@ export default class ShoppingCartContainer extends React.Component{
     }
 
     showQrCode(){
-        console.log("click");
-        console.log(this.props);
         if(this.props.totalPrice <= 0){
             return false
         }else{
-            console.log('cckckc')
             // this.props.clearCart()
             this.props.cartClick();
         }

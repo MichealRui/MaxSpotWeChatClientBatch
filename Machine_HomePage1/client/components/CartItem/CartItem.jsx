@@ -128,57 +128,51 @@ export default class CartItem extends React.Component{
                 </div>
             );
         let marketPrice = props.msrp > 0 ? <span className="market-price font20">市场价¥{props.msrp/100}元</span> :'';
-        /*
 
-         <div className={"cart-item my-item " + (this.props.campaign ? 'campaign':'') }>
-         <div className="item-pic">
-         {
-         props.imagePath?
-         <img src={domain + this.getMiddlePic(props.imagePath)} alt="Product name" />
-         :
-         <img src={require('./images/default.png')} className='productImg'/>
-         }
-
-         </div>
-         <h2 className="item-name">
-         <span>{props.brandName}</span>
-         <span>{props.shortName}</span>
-         <span className=' categoryName font18'>
-         {atts}
-         </span>
-         </h2>
-
-         {
-         footer
-         }
-         </div>
-         */
         return (
             <div className="cart-item">
                 <div className="pic"><img src={domain + this.getMiddlePic(props.imagePath)} />
                     <div className={"giftLayer font12 " +(isGift ? '' : 'hide') }>赠品</div>
                     <div className="tags">
-                        <h3 className="font16">{props.name}</h3>
-                        <h3 className="font16">
-                            <span className={"currentMoney " + (giftAvailable?'hide':'')}>{props.sellprice/100 || 0}<i className="font10">元</i></span>
-                            <span className={"beforeMoney font10 "+(props.msrp ? '':'hide')}>原价 {props.msrp/100 || 0}<i className="font10">元</i></span>
-                            <span className={"giftCount font10 " + (giftAvailable?'':'hide')}><i className="font10">×</i>1</span>
-                        </h3>
+                        {
+                            this.state.showDelete ? <p className="font16 showDeleteText">删除此商品？</p>:
+                                <div>
+                                    <h3 className="font16">{props.name}</h3>
+                                    <h3 className="font16">
+                                        <span className={"currentMoney " + (giftAvailable?'hide':'')}>{props.sellprice/100 || 0}<i className="font10">元</i></span>
+                                        <span className={"beforeMoney font10 "+(props.msrp ? '':'hide')}>原价 {props.msrp/100 || 0}<i className="font10">元</i></span>
+                                        <span className={"giftCount font10 " + (giftAvailable?'':'hide')}><i className="font10">×</i>1</span>
+                                    </h3>
+                                </div>
+                        }
+
                     </div>
                 </div>
                 <div className="moneyCount">
                     {
                         !isGift ?
                             (props.quantity ?
-                            <CountControl key={props.id} item={props} decrease={this.props.dec} addItem={this.props.add}/>
-                            :
+                            <CountControl key={props.id} item={props} decrease={this.props.dec} addItem={this.props.add} countClass="shoppingCartCount"/> :
                             <span className="emptyTips font12">此商品暂时缺货</span>) : null
                     }
-                    <img src={require("./images/icon-trash.png")} onClick={()=>this.removeItem.bind(this)()} />
+                    <img src={require("./images/icon-trash.png")} onClick={() => {
+                        this.toggleDelete.bind(this)();
+                    }} />
                     <div className={"gift " + (isGift ? '' : 'hide')}>
                         <div><img src={require("./images/gift-active.png")} /></div>
                         <div className="giftText fon20"><span className="font16">满200</span> / 享赠</div>
                     </div>
+                    {
+                        this.state.showDelete ?
+                            <div className="closeLayer clearfix">
+                                <div className="btn_yes btn font16" onClick={() => {
+                                    this.toggleDelete.bind(this)();
+                                    this.removeItem.bind(this)();
+                                }}>确定</div>
+                                <div className="btn_no btn font16" onClick={() => this.toggleDelete.bind(this)()}>取消</div>
+                            </div> : ''
+                    }
+
                 </div>
                 <div className="itemEmpty"></div>
             </div>

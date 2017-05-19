@@ -8,6 +8,9 @@
     border-radius:10px;
     -webkit-border-radius:10px;
 }
+.machineNewShoppingCartContainer .swipers1{
+    height: 100%;
+}
 .machineNewShoppingCartContainer .cartItemContainer{
     height:246px;
     padding-top:62px;

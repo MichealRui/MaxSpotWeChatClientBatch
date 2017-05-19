@@ -28,7 +28,7 @@
 .customized_fetchsku-modal .ant-modal .ant-modal-content {
     /*height: 1010px;*/
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 .customized_fetchsku-modal .ant-modal .ant-modal-content .ant-modal-close{
     width: 84px;

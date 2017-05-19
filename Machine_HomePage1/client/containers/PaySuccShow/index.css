@@ -9,17 +9,25 @@
     height: 100%;
     position: relative;
     /*padding: 150px 55px 0 185px;*/
-    padding-top:100px;
+    /*padding-top:100px;*/
 
 }
 
 .PaySuccShow .info .pics{
+    /*display: none;*/
+    /*position: relative;*/
+    /*width: 1190px;*/
+    /*height: 485px;*/
+    /*margin: 0 347px;*/
+    /*box-shadow:20px 20px 5px #fff2f1;*/
+    /*background-color: #fff;*/
     display: none;
     position: relative;
-    width: 1190px;
-    height: 485px;
-    margin: 0 347px;
-    box-shadow:20px 20px 5px #fff2f1;
+    width: 80%;
+    height: 304px;
+    /* margin: 0 347px; */
+    margin: 66px;
+    box-shadow: 20px 20px 5px #fff2f1;
     background-color: #fff;
 }
 
@@ -29,10 +37,13 @@
 
 .PaySuccShow .info .pics>img{
     /*text-align: center;*/
-    width: 430px;
-    /*height: 100%;*/
+    /*width: 430px;*/
+    /*!*height: 100%;*!*/
+    /*vertical-align: middle;*/
+    /*margin: 86px;*/
     vertical-align: middle;
-    margin: 86px;
+    margin: 38px 60px;
+    width: 260px;
 }
 
 .PaySuccShow .info .pics .text{
@@ -75,7 +86,7 @@
     border-radius: 50%;
     -webkit-border-radius: 50%;
     position: absolute;
-    top:300px;
+    top:188px;
 }
 /*.PaySuccShow .info  .icon:after{*/
    /*content: '';*/
@@ -93,10 +104,10 @@
 }
 
 .PaySuccShow .info  .righticon{
-    right: 220px;
+    right: 58px;
 }
 .PaySuccShow .info  .lefticon{
-    left: 220px;
+    left: 58px;
 }
 
 .triangle_border_left{
