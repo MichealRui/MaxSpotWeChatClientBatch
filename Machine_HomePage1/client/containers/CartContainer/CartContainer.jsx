@@ -1,10 +1,10 @@
 'use strict';
 import React from 'react';
 import { Modal } from 'antd';
-import DefaultCart from '../../components/DefaultCart/DefaultCart'
+// import DefaultCart from '../../components/DefaultCart/DefaultCart'
 import QrCode from  '../../components/QRContent/QrContent'
 import CartStatus from '../../containers/CartContainer/CartStatus';
-import Loading from '../../components/LoadingContent/Loading'
+// import Loading from '../../components/LoadingContent/Loading'
 import Taking from '../PaySuccContainer/PaySuccContainer'
 require('./index.css');
 

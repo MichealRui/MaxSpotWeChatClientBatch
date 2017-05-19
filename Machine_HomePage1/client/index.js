@@ -8,7 +8,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import reducers from './reducers/index';
 require('./index.css');
 import Page from './containers/PageContainer/PageContainer';
-import Activity from './containers/active/Active';
+// import Activity from './containers/active/Active';
 import {clearActivity} from './actions'
 // init thunk
 function activateVendor() {
@@ -34,8 +34,8 @@ function renderPage(store) {
             <Router history={hashHistory}>
                 <Route path='/' component={Page}/>
                 <Route path='/maxbox_pc' component={Page}/>
-                <Route path='/maxbox_pc/orderTest' component={Page}/>
-                <Route path='/active/:campaignId/:type' component={Activity} onEnter={clearActivit}/>
+                {/*<Route path='/maxbox_pc/orderTest' component={Page}/>*/}
+                {/*<Route path='/active/:campaignId/:type' component={Activity} onEnter={clearActivit}/>*/}
             </Router>
             {/*<Activity/>*/}
         </Provider>
