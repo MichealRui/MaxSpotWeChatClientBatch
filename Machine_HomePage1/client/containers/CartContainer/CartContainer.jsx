@@ -4,8 +4,9 @@ import { Modal } from 'antd';
 // import DefaultCart from '../../components/DefaultCart/DefaultCart'
 import QrCode from  '../../components/QRContent/QrContent'
 import CartStatus from '../../containers/CartContainer/CartStatus';
-// import Loading from '../../components/LoadingContent/Loading'
+import Loading from '../../components/LoadingContent/Loading'
 import Taking from '../PaySuccContainer/PaySuccContainer'
+import Footer from '../../containers/SkuFooter/SkuFooter'
 require('./index.css');
 
 export default class CartContainer extends React.Component {
@@ -25,7 +26,7 @@ export default class CartContainer extends React.Component {
     }
 
     static defaultProps = {
-        cartStatus: CartStatus.SHOW_QR,
+        cartStatus: CartStatus.SHOW_LOADING,
     };
 
     render(){
@@ -38,43 +39,48 @@ export default class CartContainer extends React.Component {
                 break;
             case CartStatus.SHOW_CART:
                 cartContent = (
-                    <DefaultCart
-                        items={props.items}
-                        moreItems={props.moreItems}
-                        itemClick={props.addToCart}
-                        decItem={props.decItem}
-                        addToCart={props.addToCart}
-                        count={props.count}
-                        campaignList={props.campaignedProductList}
-                        removeItem={props.removeItem}
-                        totalPrice={props.totalPrice}
-                        totalDiscount = {props.totalDiscount}
-                        submit={props.submit}
-                        clearCart={() => props.clearCart()}
-                        isModalVisible={props.visible}
-                        goBack={props.onCancel()}
-                    />
+                    // <DefaultCart
+                    //     items={props.items}
+                    //     moreItems={props.moreItems}
+                    //     itemClick={props.addToCart}
+                    //     decItem={props.decItem}
+                    //     addToCart={props.addToCart}
+                    //     count={props.count}
+                    //     campaignList={props.campaignedProductList}
+                    //     removeItem={props.removeItem}
+                    //     totalPrice={props.totalPrice}
+                    //     totalDiscount = {props.totalDiscount}
+                    //     submit={props.submit}
+                    //     clearCart={() => props.clearCart()}
+                    //     isModalVisible={props.visible}
+                    //     goBack={props.onCancel()}
+                    // />
+                    <div>SHOW_CART</div>
                 );
                 break;
             case CartStatus.SHOW_LOADING:
                 cartContent = (
-                    <Loading/>
+                    <Loading />
                 );
                 break;
             case CartStatus.SHOW_QR:
-                cartContent = <QrCode qr={props.qr}
-                                      order={props.order}
-                                      fetchOrder={(or) => props.fetchOrder(or)}
-                                      setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
-                                      setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}
+                cartContent = <QrCode
+                    qr={props.qr}
+                    order={props.order}
+                    fetchOrder={(or) => props.fetchOrder(or)}
+                    setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
+                    setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}
+                    totalPrice={props.totalPrice}
+                    totalDiscount = {props.totalDiscount}
+                    campaignList={props.campaignedProductList}
                 />;
-                wrapClassName = 'customized_qrcode-modal';
                 break;
             case CartStatus.SHOW_TAKING:
-                cartContent = <Taking
-                    onCancel={props.onCancel()}
-                    isModalVisible={props.visible}
-                />;
+                // cartContent = <Taking
+                //     onCancel={props.onCancel()}
+                //     isModalVisible={props.visible}
+                // />;
+                cartContent = <div>SHOW_TAKING</div>
                 wrapClassName = 'customized_taking-modal';
                 break;
             default:
@@ -86,10 +92,11 @@ export default class CartContainer extends React.Component {
                 {/*<Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>*/}
                 <Modal visible={props.visible}
                        onCancel={props.onCancel()}
-                       wrapClassName={wrapClassName}
+                       wrapClassName="customized_cart-modal"
                        footer=''
                 >
                     {cartContent}
+                    <Footer showDetail={false} footHeight={"70px"} footHeightShow={false}/>
                 </Modal>
             </div>
         );

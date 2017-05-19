@@ -67,7 +67,6 @@ export default class skuHeader extends React.Component {
             }
         );
         let selProduct = cartProduct.filter((item)=> item.id == sku.id );
-        console.log(selProduct);
         sku.count = selProduct && selProduct.length > 0 ? selProduct[0].count : 0;
         let brand = item.brand;
         let attributes = sku.attributes;

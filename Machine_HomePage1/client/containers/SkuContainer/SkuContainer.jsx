@@ -143,7 +143,7 @@ export default class SkuContainer extends React.Component {
                                 <div>
                                     <Campaign campaign={sku.campaign} />
                                     <Info item={product}/>
-                                    <Footer showDetail={true}/>
+                                    <Footer showDetail={true} footHeight={"140px"} footHeightShow={true}/>
                                 </div>
 
                                 : ''

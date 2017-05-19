@@ -25,40 +25,22 @@ export default class Cart extends React.Component{
                         cartActive:'',
                         cartLock : false
                     })
-                }, 1000)
+                }, 2000)
             )
         }
     }
-
-
-    showQrCode(){
-        if(this.props.totalPrice <= 0){
-            return false;
-        }else{
-            this.props.submit();
-            this.props.cartClick();
-        }
-    }
-
-    /*<div className={"cart  " + this.state.cartActive} style={style}>
-     <span className="bag"><img src={require('./images/cart.png')} alt=""/></span>
-     <span className={"shopping-count-bg"}></span>
-     <span className={"shopping-count font20 "}>{props.count || 0}</span>
-     <span className="fa fa-cny font20"></span>
-     <span className="sumprice font36">{props.totalPrice || 0}</span>
-     </div>*/
     render() {
         let props = this.props;
         let style = this.props.cartStyle ? this.props.cartStyle : {}
         return (
             <div className="shoppingCart">
-                <div className="cart">
+                <div className={"cart "+ this.state.cartActive}>
                     <img src={require("./images/cart.png")} />
                         <span className="countBg"></span>
                         <span className="count font20">{props.count || 0}</span>
                         <div className="money font40"><span className="font18">￥</span>{props.totalPrice || 0}</div>
                 </div>
-                <div className="balance" onClick={()=>this.props.click()}>
+                <div className={"balance " + (this.props.count > 0 ? '' :'bgcolorccc')} onClick={()=>this.props.click()}>
                     立即结算
                 </div>
             </div>

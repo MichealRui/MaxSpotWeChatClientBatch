@@ -62,10 +62,13 @@ export default class ShoppingCartContainer extends React.Component{
     }
 
     showQrCode(){
+        console.log("click");
+        console.log(this.props);
         if(this.props.totalPrice <= 0){
             return false
         }else{
-            this.props.submit();
+            console.log('cckckc')
+            // this.props.clearCart()
             this.props.cartClick();
         }
     }
@@ -90,6 +93,10 @@ export default class ShoppingCartContainer extends React.Component{
                 <Cart cartStyle={{}} count={props.count || 0} totalPrice={props.totalPrice || 0}
                       click={this.showQrCode.bind(this)}/>
                 <div className={"cartItemContainer " + (item_count > 0 ? '':'hide')} >
+                    <div className="emptyItem" onClick={()=>this.props.clearCart()}>
+                        <img src={require("./images/icon-trash.png")} />
+                        <span>清空购物袋</span>
+                    </div>
                     <SwiperComponent
                         swiperConfig={swiperConfig}
                         swiperContainer={'swipers1'}
@@ -104,7 +111,6 @@ export default class ShoppingCartContainer extends React.Component{
                 </div>
                 <CartBottom moreItems={props.moreItems}
                             itemClick={props.addToCart}
-
                 />
             </div>
         )

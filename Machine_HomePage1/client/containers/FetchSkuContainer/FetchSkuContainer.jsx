@@ -35,7 +35,7 @@ export default class FetchSkuContainer extends React.Component {
                             (
                                 <div className="takingContainer">
                                     <Info />
-                                    <Footer showDetail={false}/>
+                                    <Footer showDetail={false} footHeight={"70px"} footHeightShow={false}/>
                                 </div>
                             )
                             :''

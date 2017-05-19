@@ -51,13 +51,14 @@ class PageContainer extends React.Component{
     }
 
     onCartBtnClick() {
-        console.log('ooo');
+        console.log("cartClick")
         const {dispatch} = this.props;
         // dispatch(setCartStatus(CartStatus.SHOW_QR));
-        dispatch(fetchCart());
+        // dispatch(fetchCart());
+        dispatch(submitCart());
         this.setState({
             cartVisible: true,
-            skuVisible: false
+            // skuVisible: false
         })
     }
 
@@ -65,6 +66,7 @@ class PageContainer extends React.Component{
         const {dispatch} = this.props;
         dispatch(clearQr());
         dispatch(setCartStatus(CartStatus.HIDE_CART));
+        dispatch(clearCart());
         this.setState({
             cartVisible: false
         });
@@ -108,10 +110,8 @@ class PageContainer extends React.Component{
                     decItem={(item) => dispatch(deleteOneFromCart(item))}
                     addToCart={(item) => dispatch(addToCart(item))}
                     removeItem={(item) => dispatch(removeFromCart(item))}
-                    submit={() => dispatch(submitCart())}
                     clearCart={() => dispatch(clearCart())}
-                    cartClick={() => this.onCartBtnClick.bind(this)}
-
+                    cartClick={this.onCartBtnClick.bind(this)}
                 />
                 <SubContent
                     bannerData={state.banner}
@@ -132,10 +132,6 @@ class PageContainer extends React.Component{
                 <CartContainer visible={this.state.cartVisible}
                                onCancel={ () => this.hideCart.bind(this) }
                                {...state.cart}
-                               addToCart={(item) => dispatch(addToCart(item))}
-                               decItem={(item) => dispatch(deleteOneFromCart(item))}
-                               removeItem={(item) => dispatch(removeFromCart(item))}
-                               submit={() => dispatch(submitCart())}
                                setCart={(status) => dispatch(setCartStatus(status))}
                                qr={state.qrCode}
                                order={state.order}
@@ -159,8 +155,7 @@ class PageContainer extends React.Component{
 }
 
 function select(store) {
-    console.log('dispatched');
     return Object.assign({}, {state: store})
 }
 
-module.exports = connect(select)(PageContainer)
+module.exports = connect(select)(PageContainer);

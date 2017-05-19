@@ -24,52 +24,50 @@ export default class QrContent extends React.Component {
     }
 
     componentWillUnmount() {
-        window.clearTimeout(this.state.timer);
+        // window.clearTimeout(this.state.timer);
     }
 
     componentWillMount() {
-        this.fetchOrderStatus.bind(this)()
+        // this.fetchOrderStatus.bind(this)()
     }
 
     render () {
-        let qr = this.props.qr;
-        console.log(qr);
-        let size = 270;
+        // let qr = this.props.qr;
+        // console.log(qr);
+        let props = this.props;
+        let campaignList = props.campaignList;
+        let camList = campaignList && campaignList.length > 0 ?
+            campaignList.filter((campaign,index)=> campaign.campaignName && campaign.totalDiscount && campaign.totalDiscount > 0
+            ) : [];
+        // let qr = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4da5ecd6305e620a&redirect_uri=http%3A%2F%2Ftest.mjitech.com%2Fweb%2Fwxauthorize.action&response_type=code&scope=snsapi_base&state=turn_to_wxpay_SO20170519113613001#wechat_redirect"
+        let qr = props.qr;
+        let size = 235;
         return (
-            <div className="qrcode">
-                <div className="code clearfix"><ReactQrCode size={size} value={qr}/></div>
-                <div className="payInfo">
-                    <div className="title font48">
-                        微信扫一扫支付
-                        <span className="price">
-                            <span className="font32">￥</span>
-                            {this.props.order.totalPrice / 100}
-                        </span>
-                    </div>
-                    <div className="text font34">如何支付</div>
-                    <div className="iconInfo clearfix">
-                        <div className="stepInfo">
-                            <div className="icon"><img src={require('./image/4_1.png')} alt=""/></div>
-                            <div className="explain font24">
-                                <p>第一步：</p>
-                                <p>使用手机，进入手机微信</p>
-                            </div>
-                        </div>
-                        <div className="stepInfo">
-                            <div className="icon"><img src={require('./image/4_2.png')} alt=""/></div>
-                            <div className="explain font24">
-                                <p>第二步：</p>
-                                <p>点击微信右上方菜单，找到“扫一扫”</p>
-                            </div>
-                        </div>
-                        <div className="stepInfo">
-                            <div className="icon"><img src={require('./image/4_3.png')} alt=""/></div>
-                            <div className="explain font24">
-                                <p>第三步：</p>
-                                <p>打开微信扫一扫，扫描屏幕上的二维码</p>
-                            </div>
-                        </div>
-                    </div>
+            <div className="qrcode clearfix">
+                <div className="code clearfix">
+                    <ReactQrCode size={size} value={qr}/>
+                    <div className="codeText font30">微信扫一扫支付</div>
+                </div>
+                <div className="cartInfo">
+                    <h3 className="font24"><span className="cartName">商品总金额</span><span className="cartMoney">{props.totalPrice}元</span></h3>
+                    <h3 className="campaignInfo">
+                        <div className="font24"><span className="cartName">优惠总计</span><span className="cartMoney">-{props.totalDiscount}元</span></div>
+                        <ul>
+                            {
+                                camList && camList.length>0 ?
+                                    camList.map(
+                                        (cam,index)=>{
+                                            return (
+                                                <li key={index} className="font22"><span span className="cartName">{cam.campaignName}</span><span className="cartMoney">-{cam.totalDiscount/100}元</span></li>
+                                            )
+                                        }
+                                    ) : ''
+                            }
+                        </ul>
+                    </h3>
+                    <h3 className="font26 totalMoney"><span className="cartName">应付金额</span><span className="cartMoney font38">
+                        {((props.totalPrice * 100 - props.totalDiscount * 100)/100).toFixed(1) }
+                        </span></h3>
                 </div>
             </div>
         )

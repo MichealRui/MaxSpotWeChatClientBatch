@@ -10,11 +10,11 @@ export default class skuFooter extends React.Component {
 
 
     render() {
-
+        let style = this.props.footHeight;
         return (
 
             <div>
-                <div className="poppupFooter">
+                <div className="poppupFooter" style={{height:style}}>
                     {
                         this.props.showDetail ?
                             <div className="skuFooter">
@@ -35,7 +35,7 @@ export default class skuFooter extends React.Component {
                     }
 
                 </div>
-                <div className="poppupFooterHeight"></div>
+                <div className={"poppupFooterHeight " +(this.props.footHeightShow ? '':'hide')}></div>
             </div>
         )
 

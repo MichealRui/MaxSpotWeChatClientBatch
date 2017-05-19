@@ -75,6 +75,8 @@ const PRODUCT_OUT_SELL = 2; //售罄
 const PRODUCT_LOW_STOCK = 3; //库存不足
 
 function initSuccess(content, data){
+    console.log("========");
+    console.log(content);
     const SELECTOR_ICONS = {
         1: {key: 'food', content: '食品', faIcon:'fa-empire',image:icon_images.img_sp},
         2: {key: 'makeup', content: '护肤美妆', faIcon:'fa-tint',image:icon_images.img_hfmz},
@@ -141,6 +143,7 @@ function initSuccess(content, data){
     * */
     currentSub.items = currentSub.categoried[selector[0].subSelector[0]];
 
+    console.log(content);
 
     let cart;
     if(content.cart.items.length) {
@@ -363,8 +366,11 @@ function finalCartStatus(cart){
 }
 
 function succFetchCart(content, skus) {
+    console.log("--------------");
+    console.log(skus);
     let newContent = Object.assign({}, content);
     let newSku = Object.assign({}, skus);
+    console.log(newSku);
     newContent.cart.items = newSku[0].productList;
     newContent.cart.moreItems = newSku[0].recommends;
     newContent.cart.campaigns = newSku[0].campaigns;
