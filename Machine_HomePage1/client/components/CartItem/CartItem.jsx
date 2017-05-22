@@ -128,9 +128,18 @@ export default class CartItem extends React.Component{
                 </div>
             );
         let marketPrice = props.msrp > 0 ? <span className="market-price font20">市场价¥{props.msrp/100}元</span> :'';
-
+        let itemKey = this.props.itemKey;
+        let campaignTags = this.props.campaign ?
+            <div className={"campaignTag " + (this.props.activate?"activate" : "fail")}>
+                { (this.props.activate?"已满足":"不满足") + "【"+this.props.campaignTag+"】"}
+            </div>
+            :null;
+        console.log(itemKey);
         return (
-            <div className="cart-item">
+            <div className={"cart-item " + (itemKey==0?'first':'')}>
+                {
+                    itemKey == 0 ? campaignTags : null
+                }
                 <div className="pic"><img src={domain + this.getMiddlePic(props.imagePath)} />
                     <div className={"giftLayer font12 " +(isGift ? '' : 'hide') }>赠品</div>
                     <div className="tags">

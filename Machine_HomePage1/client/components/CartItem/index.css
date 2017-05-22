@@ -309,6 +309,10 @@
     /*overflow:hidden;*/
 }
 
+.cart-item.first{
+    margin-left: 20px;
+}
+
 .cart-item .pic{
     height: 110px;
     text-align: center;
@@ -449,4 +453,23 @@
 }
 .cart-item .moneyCount .closeLayer .btn_no{
     float: right;
+}
+.cart-item .campaignTag{
+    position:absolute;
+    background:url('./images/campaignTagActivate.png') 0 0 no-repeat;
+    height: 132px;
+    width: 23px;
+    background-size:100% 100%;
+    /*left: -22px;*/
+    left: -32px;
+    writing-mode: tb;
+    padding: 6px;
+    font-size: 10px;
+    box-sizing: border-box;
+    color: #ffffff;
+    z-index: 11;
+}
+.cart-item .campaignTag.fail{
+    background:url('./images/campaignTagFail.png') 0 0 no-repeat;
+    background-size:100% 100%;
 }

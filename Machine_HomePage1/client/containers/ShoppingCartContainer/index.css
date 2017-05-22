@@ -10,6 +10,7 @@
 }
 .machineNewShoppingCartContainer .swipers1{
     height: 100%;
+    width: 100%;
 }
 .machineNewShoppingCartContainer .cartItemContainer{
     height:246px;
@@ -88,4 +89,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+}
+.cartItemContainer  .swipers1 .swiper-wrapper:first-child{
+    margin-left: 168px;
 }

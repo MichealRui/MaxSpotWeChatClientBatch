@@ -68,7 +68,7 @@ export default class Gallery extends React.Component {
         );
         let swiperConfig = {
             freeMode: true,
-            slidesPerView: 6,
+            slidesPerView: 3,
         };
         return (
 

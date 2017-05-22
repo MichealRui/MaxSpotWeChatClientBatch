@@ -20,7 +20,7 @@ export default class ShoppingCartContainer extends React.Component{
         };
         let {decItem, addToCart, removeItem} = this.props;
         let {campaignId, campaignTag, presentSku, list, totalDiscount, activate, initStatus, isAllSku} = campaignDetail;
-        let productStructure = list.length > 0 ?
+        let productStructures = list.length > 0 ?
             (
                 <div className="campaignContainer">
                     {
@@ -41,6 +41,9 @@ export default class ShoppingCartContainer extends React.Component{
                                         add={addToCart}
                                         remove={removeItem}
                                         campaign={campaignId}
+                                        activate = {activate}
+                                        campaignTag={campaignTag}
+                                        itemKey = {index}
                                     />
 
                             ) : null
@@ -51,6 +54,24 @@ export default class ShoppingCartContainer extends React.Component{
                     }
                 </div>
             ) : null;
+        let productStructure = list.length > 0 && !isAllSku ? (
+            list.map(
+                (product,index)=>
+                    <CartItem
+                        item={product}
+                        key={index}
+                        dec={decItem}
+                        add={addToCart}
+                        remove={removeItem}
+                        campaign={campaignId}
+                        activate = {activate}
+                        campaignTag={campaignTag}
+                        itemKey = {index}
+                    />
+
+            )
+        ) : null;
+
         if(productStructure){
             return new Array(productStructure);
         }else{
@@ -80,7 +101,7 @@ export default class ShoppingCartContainer extends React.Component{
             ).filter(product => product):null;
         let swiperConfig = {
             freeMode: true,
-            slidesPerView: 1,
+            slidesPerView: 5,
             // observer:true,//修改swiper自己或子元素时，自动初始化swiper
             // observeParents:true,//修改swiper的父元素时，自动初始化swiper
             spaceBetween: 0,

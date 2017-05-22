@@ -58,7 +58,9 @@
 }
 .gallaryImg .smallImgs{
     /*display:flex;*/
+    width: 100%;
 }
+
 .gallaryImg .thumbnailWrapper{
     height: 95px;
     width: 95px;
