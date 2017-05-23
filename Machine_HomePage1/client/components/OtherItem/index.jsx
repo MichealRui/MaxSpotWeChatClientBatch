@@ -69,7 +69,7 @@ export default class Item extends React.Component {
                 <h3 className="itemInfo font14">
                     <p>{props.name}</p>
                     <p>
-                        <span className="otherItemCurrentPrice font18">{props.sellprice/100||0}<i className="font12">元</i></span>
+                        <span className="otherItemCurrentPrice font18">{props.sellprice/100||0}<span className="font12">元</span></span>
                         <span className={"otherItemBeforePrice font12 " + (props.msrp?'':'hide')}>原价 {props.msrp/100||0}元</span>
                     </p>
                 </h3>

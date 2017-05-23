@@ -8,18 +8,30 @@ export default class QrContent extends React.Component {
         super(props);
         this.state={
             sleepTime:2000,
-            timer:null
-        }
+            timer:null,
+            currentCount:0,
+            stayTime : 10,
+        };
+        this.count = 0;
     }
 
     fetchOrderStatus() {
-        let {order, fetchOrder, setCartTaking} = this.props;
+        let {order, fetchOrder, setCartTaking,setCartNotice} = this.props;
         let PAID = '3';
+        console.log(this.count);
+        this.count++;
         if(order.status != PAID) {
-            fetchOrder(order.orderNumber);
-            this.state.timer = window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
+            if(this.count > this.state.stayTime){
+                //超时未扫码,弹出提示框
+                window.clearTimeout(this.state.timer);
+                setCartNotice();
+            }else{
+                fetchOrder(order.orderNumber);
+                this.state.timer = window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
+            }
         } else {
             setCartTaking();
+            // setQrCount(0);
         }
     }
 
@@ -39,7 +51,6 @@ export default class QrContent extends React.Component {
         let camList = campaignList && campaignList.length > 0 ?
             campaignList.filter((campaign,index)=> campaign.campaignName && campaign.totalDiscount && campaign.totalDiscount > 0
             ) : [];
-        // let qr = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4da5ecd6305e620a&redirect_uri=http%3A%2F%2Ftest.mjitech.com%2Fweb%2Fwxauthorize.action&response_type=code&scope=snsapi_base&state=turn_to_wxpay_SO20170519113613001#wechat_redirect"
         let qr = props.qr;
         let size = 235;
         return (
@@ -66,7 +77,7 @@ export default class QrContent extends React.Component {
                         </ul>
                     </h3>
                     <h3 className="font26 totalMoney"><span className="cartName">应付金额</span><span className="cartMoney font38">
-                        {((props.totalPrice * 100 - props.totalDiscount * 100)/100).toFixed(1) }
+                        {((props.totalPrice * 100 - props.totalDiscount * 100)/100).toFixed(1) }元
                         </span></h3>
                 </div>
             </div>

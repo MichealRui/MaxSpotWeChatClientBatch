@@ -24,13 +24,14 @@
 }
 .machineNewShoppingCartContainer .cartItemContainer .emptyItem{
     position: absolute;
-    top: 10px;
+    top: 20px;
     right: 20px;
     font-size: 20px;
     color: #333;
 }
 .machineNewShoppingCartContainer .cartItemContainer .emptyItem>img{
     vertical-align:middle;
+    width: 26px;
 }
 .machineNewShoppingCartContainer .cartItemContainer .emptyItem>span{
     vertical-align:middle;
@@ -91,5 +92,5 @@
     overflow: hidden;
 }
 .cartItemContainer  .swipers1 .swiper-wrapper:first-child{
-    margin-left: 168px;
+    margin-left: 196px;
 }

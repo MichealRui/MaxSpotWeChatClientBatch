@@ -134,7 +134,6 @@ export default class CartItem extends React.Component{
                 { (this.props.activate?"已满足":"不满足") + "【"+this.props.campaignTag+"】"}
             </div>
             :null;
-        console.log(itemKey);
         return (
             <div className={"cart-item " + (itemKey==0?'first':'')}>
                 {
@@ -148,9 +147,9 @@ export default class CartItem extends React.Component{
                                 <div>
                                     <h3 className="font16">{props.name}</h3>
                                     <h3 className="font16">
-                                        <span className={"currentMoney " + (giftAvailable?'hide':'')}>{props.sellprice/100 || 0}<i className="font10">元</i></span>
-                                        <span className={"beforeMoney font10 "+(props.msrp ? '':'hide')}>原价 {props.msrp/100 || 0}<i className="font10">元</i></span>
-                                        <span className={"giftCount font10 " + (giftAvailable?'':'hide')}><i className="font10">×</i>1</span>
+                                        <span className={"currentMoney " + (giftAvailable?'hide':'')}>{props.sellprice/100 || 0}<span className="font10">元</span></span>
+                                        <span className={"beforeMoney font10 "+(props.msrp ? '':'hide')}>原价 {props.msrp/100 || 0}<span className="font10">元</span></span>
+                                        <span className={"giftCount font10 " + (giftAvailable?'':'hide')}><span className="font10">×</span>1</span>
                                     </h3>
                                 </div>
                         }

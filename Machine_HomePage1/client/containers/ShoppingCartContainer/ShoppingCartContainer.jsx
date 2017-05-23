@@ -109,7 +109,7 @@ export default class ShoppingCartContainer extends React.Component{
         return(
             <div className="machineNewShoppingCartContainer">
                 <Cart cartStyle={{}} count={props.count || 0} totalPrice={props.totalPrice || 0}
-                      click={this.showQrCode.bind(this)}/>
+                      click={this.showQrCode.bind(this)} remindShow={this.props.remindShow} beginBack={this.props.beginBack}/>
                 <div className={"cartItemContainer " + (item_count > 0 ? '':'hide')} >
                     <div className="emptyItem" onClick={()=>this.props.clearCart()}>
                         <img src={require("./images/icon-trash.png")} />

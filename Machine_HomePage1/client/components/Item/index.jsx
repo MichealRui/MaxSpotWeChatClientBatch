@@ -75,12 +75,12 @@ export default class Item extends React.Component {
                         :
                         <img src={require('./images/default.png')} className='productImg'/>
                 }
-                <div className="brandProductContainer font14">
-                    <p className="font10">{props.brandName}</p>
-                    <p>{props.shortName}</p>
+                <div className="brandProductContainer">
+                    <p className="font12">{props.brandName}</p>
+                    <p className="font16">{props.shortName}</p>
                 </div>
                 <div className="productPrice font18">
-                    <span>{props.sellprice / 100 || 0}<i className="font10">元</i></span>
+                    <span>{props.sellprice / 100 || 0}<span className="font10">元</span></span>
                 </div>
                 <div className="addCart font40" onClick={this.addClick.bind(this)}>+</div>
                 {campaignTag}

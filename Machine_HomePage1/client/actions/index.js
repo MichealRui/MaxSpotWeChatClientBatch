@@ -41,6 +41,10 @@ export const SUCC_FETCH_CART = 'SUCC_FETCH_CART';
 
 export const QR_CLICK = 'QC_CLICK';
 
+export const ARR_QR_COUNT = 'ARR_QR_COUNT';
+
+export const SET_QR_COUNT = 'SET_QR_COUNT';
+
 export const SUBMIT_CART='SUBMIT_CART';
 
 export const SET_PAYMENT_CODE = 'SET_PAYMENT_CODE';
@@ -332,6 +336,7 @@ export function fetchQrCode(orderNumber) {
             method: 'POST',
             // mode: 'cors',
             body: JSON.stringify(
+
                 {'orderNumber': orderNumber}
             )
         }).then(response => response.json())
@@ -361,7 +366,7 @@ export function fetchQrCode(orderNumber) {
 export function clearQr() {
     return {
         type:SET_PAYMENT_CODE,
-        qrCode: ''
+        qrCode: '',
     }
 }
 

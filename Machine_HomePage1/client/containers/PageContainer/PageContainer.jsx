@@ -12,9 +12,10 @@ import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/inde
 import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
 import {fetchCart} from '../../actions/index'
-import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart} from '../../actions/index'
+import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart ,setQrCount , addQrCount} from '../../actions/index'
 import {initActivity,initChannelActivity} from '../../actions/index';
 import CartStatus from '../CartContainer/CartStatus';
+import RemindContainer from '../RemindContainer/RemindContainer'
 
 class PageContainer extends React.Component{
     constructor(props) {
@@ -23,10 +24,13 @@ class PageContainer extends React.Component{
             cartVisible:false,
             skuVisible:false,
             paySuccVisible:false,
-            fetchSkuVisible:false
+            fetchSkuVisible:false,
+            remindVisible:false,
+            beginBack : true,
         };
         this.maxIdleTime = 1200; // 5 minute
         this.idleTime = 0;
+        this.timer = null;
     }
 
     componentWillMount() {
@@ -35,23 +39,27 @@ class PageContainer extends React.Component{
         // this.listenIdleTime.bind(this)();
     }
 
+    componentDidMount(){
+        //购物车有商品，并且长时间没有动作
+        // this.listenIdleTime.bind(this)();
+    }
+
     listenIdleTime() {
         if(this.idleTime < this.maxIdleTime) {
             this.idleTime = this.idleTime + 1;
-            console.log(this.idleTime);
-            window.setTimeout(
+            this.timer = window.setTimeout(
                 () => this.listenIdleTime() , 1000
             )
         } else {
-            const { dispatch } = this.props;
-            dispatch(initMainContent());
-            this.idleTime = 0;
-            this.listenIdleTime.bind(this)();
+            this.onRemindBtnClick();
+            // const { dispatch } = this.props;
+            // dispatch(initMainContent());
+            // this.idleTime = 0;
+            // this.listenIdleTime.bind(this)();
         }
     }
 
     onCartBtnClick() {
-        console.log("cartClick")
         const {dispatch} = this.props;
         // dispatch(setCartStatus(CartStatus.SHOW_QR));
         // dispatch(fetchCart());
@@ -59,7 +67,24 @@ class PageContainer extends React.Component{
         this.setState({
             cartVisible: true,
             // skuVisible: false
-        })
+        });
+        window.clearTimeout(this.timer);
+    }
+
+    onRemindBtnClick(){
+        this.setState({
+            remindVisible:true,
+            beginBack : false,
+        });
+        window.clearTimeout(this.timer);
+    }
+
+    hideRemind(){
+        this.setState({
+            remindVisible:false,
+            beginBack : true,
+        });
+        this.countBack(this.props);
     }
 
     hideCart() {
@@ -70,18 +95,22 @@ class PageContainer extends React.Component{
         this.setState({
             cartVisible: false
         });
+        this.countBack(this.props);
+
     }
 
     onFetchSkuBtnClick() {
         this.setState({
             fetchSkuVisible: true
-        })
+        });
+        window.clearTimeout(this.timer);
     }
 
     hideFetchSku() {
         this.setState({
             fetchSkuVisible: false
         });
+        this.countBack(this.props);
     }
 
     onProductDetailClick(item){
@@ -90,13 +119,33 @@ class PageContainer extends React.Component{
         this.setState({
             skuVisible:true,
         });
+        window.clearTimeout(this.timer);
     }
 
     hideProductDetail(){
         this.setState({
             skuVisible:false,
-        })
+        });
+        this.countBack(this.props);
     }
+
+    componentWillReceiveProps(nextProps){
+        this.countBack(nextProps)
+        if(this.state.cartVisible){
+            window.clearTimeout(this.timer);
+        }
+    }
+
+    countBack(propss){
+        window.clearTimeout(this.timer);
+        this.idleTime = 0;
+        if(propss.state.cart.count){
+            this.listenIdleTime.bind(this)();
+        }
+
+    }
+
+
 
     render() {
         let {state, dispatch} = this.props;
@@ -112,6 +161,8 @@ class PageContainer extends React.Component{
                     removeItem={(item) => dispatch(removeFromCart(item))}
                     clearCart={() => dispatch(clearCart())}
                     cartClick={this.onCartBtnClick.bind(this)}
+                    remindShow={this.onRemindBtnClick.bind(this)}
+                    beginBack={this.state.beginBack}
                 />
                 <SubContent
                     bannerData={state.banner}
@@ -137,6 +188,10 @@ class PageContainer extends React.Component{
                                order={state.order}
                                fetchOrder={(or) => dispatch(fetchOrderStatus(or))}
                                clearCart={() => dispatch(clearCart())}
+                               setQrCount={(count)=>dispatch(setQrCount(count))}
+                               qrCount={state.qrCount}
+                               addQrCount={()=>dispatch(addQrCount())}
+                               remindShow={()=>this.onRemindBtnClick.bind(this)}
                 />
                 <SkuContainer visible={this.state.skuVisible}
                               onCancel={()=>this.hideProductDetail.bind(this)}
@@ -149,6 +204,11 @@ class PageContainer extends React.Component{
                 <FetchSkuContainer visible={this.state.fetchSkuVisible}
                                    onCancel={this.hideFetchSku.bind(this)}
                 />
+                <RemindContainer visible={this.state.remindVisible}
+                                 onCancel={this.hideRemind.bind(this)}
+                                 cartVisible={this.state.cartVisible}
+                />
+
             </div>
         )
     }

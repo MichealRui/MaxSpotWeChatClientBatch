@@ -6,7 +6,8 @@ import QrCode from  '../../components/QRContent/QrContent'
 import CartStatus from '../../containers/CartContainer/CartStatus';
 import Loading from '../../components/LoadingContent/Loading'
 import Taking from '../PaySuccContainer/PaySuccContainer'
-import Footer from '../../containers/SkuFooter/SkuFooter'
+import Footer from '../../containers/SkuFooter/SkuFooter';
+import Remind from '../../components/RemindContent/RemindContent';
 require('./index.css');
 
 export default class CartContainer extends React.Component {
@@ -20,14 +21,20 @@ export default class CartContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state= {
-            pageStatus:0
-        }
     }
 
     static defaultProps = {
         cartStatus: CartStatus.SHOW_LOADING,
     };
+
+    hideModal(){
+        if(this.props.cartStatus == CartStatus.SHOW_METION){
+            this.props.setCart(CartStatus.SHOW_QR);
+        }else{
+            this.props.onCancel()();
+        }
+
+    }
 
     render(){
         let props = this.props;
@@ -71,16 +78,20 @@ export default class CartContainer extends React.Component {
                     setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
                     setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}
                     totalPrice={props.totalPrice}
-                    totalDiscount = {props.totalDiscount}
+                    totalDiscount={props.totalDiscount}
                     campaignList={props.campaignedProductList}
+                    setCartNotice={() => props.setCart(CartStatus.SHOW_METION)}
                 />;
                 break;
             case CartStatus.SHOW_TAKING:
-                // cartContent = <Taking
-                //     onCancel={props.onCancel()}
-                //     isModalVisible={props.visible}
-                // />;
-                cartContent = <Taking />
+                cartContent = <Taking />;
+                break;
+            case CartStatus.SHOW_METION:
+                cartContent = <Remind
+                    onCancel={()=>props.setCart(CartStatus.SHOW_QR)}
+                    clearCart={props.onCancel()}
+                    cartVisible={true}
+                />;
                 break;
             default:
                 cartContent = <div> error </div>
@@ -90,7 +101,7 @@ export default class CartContainer extends React.Component {
             <div className="cartContainer">
                 {/*<Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>*/}
                 <Modal visible={props.visible}
-                       onCancel={props.onCancel()}
+                       onCancel={()=>this.hideModal.bind(this)()}
                        wrapClassName="customized_cart-modal"
                        footer=''
                 >

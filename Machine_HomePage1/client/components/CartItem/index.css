@@ -367,6 +367,8 @@
 }
 .cart-item .tags h3:last-child{
     color:#28abef;
+    font-weight: 600;
+    line-height: 24px;
 }
 .cart-item .tags h3>span>i{
     font-style:normal;

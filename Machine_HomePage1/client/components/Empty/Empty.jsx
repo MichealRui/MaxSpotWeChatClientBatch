@@ -13,8 +13,8 @@ export default class Header extends React.Component{
             <div className="item_empty">
                 <img src={require('./image/empty.png')} alt=""/>
                 <div className="text">
-                    <p className="font42">购物车是空的哦~</p>
-                    <p className="font36">赶紧选购商品吧！！</p>
+                    <p className="font28">购物车是空的哦~</p>
+                    <p className="font24">赶紧选购商品吧！！</p>
             </div>
             </div>
         )

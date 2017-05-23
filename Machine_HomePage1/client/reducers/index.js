@@ -6,7 +6,7 @@ import {
     SUCC_DELETE_CART,SUCC_REMOVE_CART,
     SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,
     SET_ORDER, SET_CART_STATUS, SUCC_CLEAR_CART,
-    SET_RECOMMEND, SUCC_INIT_ACTIVITY,SET_ERRORMESSAGE
+    SET_RECOMMEND, SUCC_INIT_ACTIVITY,SET_ERRORMESSAGE,ARR_QR_COUNT,SET_QR_COUNT
 } from '../actions/index'
 import icon_images from '../mock/images'
 let bannerdata = [
@@ -435,6 +435,7 @@ function initActivity(content, products, banner,activeTag) {
 function setCartErrorMessage(content,message) {
     return Object.assign({},content,{cartErrorMessage:message});
 }
+
 
 export default function (
     content=data, action) {
