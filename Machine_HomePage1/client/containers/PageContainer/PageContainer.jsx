@@ -132,7 +132,7 @@ class PageContainer extends React.Component{
 
     componentWillReceiveProps(nextProps){
         this.countBack(nextProps)
-        if(this.state.cartVisible){
+        if(this.state.cartVisible || this.state.remindVisible || this.state.fetchSkuVisible || this.state.skuVisible){
             window.clearTimeout(this.timer);
         }
     }

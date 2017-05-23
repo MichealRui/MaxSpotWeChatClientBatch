@@ -23,7 +23,7 @@ export default class RemindContainer extends React.Component{
                        wrapClassName="customized_remind-modal"
                        footer=''
                 >
-                    <Remind onCancel={this.props.onCancel} cartVisible={false}/>
+                    <Remind visible={props.visible} onCancel={this.props.onCancel} cartVisible={false}/>
                     <Footer showDetail={false} footHeight={"70px"} footHeightShow={false}/>
                 </Modal>
             </div>

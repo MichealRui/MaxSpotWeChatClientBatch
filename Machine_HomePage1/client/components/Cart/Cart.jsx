@@ -10,11 +10,7 @@ export default class Cart extends React.Component{
             cartTimer : null,
             cartLock : false,
             timer : null,
-            currentCount:0,
-            maxCount:1000,
-            sleepTime:1000,
         };
-        this.count = 0;
     }
 
     componentWillReceiveProps(nextProps){
@@ -33,58 +29,9 @@ export default class Cart extends React.Component{
                 }, 2000)
             )
         }
-
-        if(nextProps.count > 0 && this.count == 0){
-            this.countOne();
-        }
-        if(nextProps.count == 0){
-            this.count = 0;
-            window.clearTimeout(this.state.timer);
-        }
-        if(nextProps.beginBack){
-            this.countOne()
-        }else{
-            this.count = 0;
-        }
-    }
-
-    componentDidMount() {
-        if(this.props.count > 0){
-            this.countOne()
-        }
-
-    }
-
-    componentWillUnmount() {
-        window.clearTimeout(this.state.timer);
-    }
-
-
-    countOne(){
-        this.count ++ ;
-        if(this.count > this.state.maxCount ){
-            window.clearTimeout(this.state.timer);
-            this.props.remindShow();
-        }else{
-            this.state.timer = window.setTimeout(()=>this.countOne(),this.state.sleepTime)
-        }
-
-    }
-
-    countBack(){
-        this.setState({
-            currentCount : this.state.currentCount + 1
-        });
-        if(this.state.currentCount < this.state.maxCount && this.props.count){
-            this.state.timer =
-                window.setTimeout(() => this.countBack() ,this.state.sleepTime)
-        }else{
-            this.props.remindShow();
-        }
     }
 
     submitClick(){
-        window.clearTimeout(this.state.timer);
         this.props.click()
     }
 

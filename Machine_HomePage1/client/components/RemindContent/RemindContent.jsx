@@ -8,13 +8,16 @@ export default class RemindContent extends React.Component {
         super(props);
         this.state={
             timer:null,
-            alertMax:30,
+            alertMax : 30,
             sleepTime : 1000,
         }
+        this.alertMax = 30;
     }
 
     componentDidMount() {
-        console.log("fitst");
+        this.setState({
+            alertMax : 30
+        });
         this.countBack()
     }
 
@@ -23,24 +26,32 @@ export default class RemindContent extends React.Component {
     }
 
     componentWillReceiveProps(nextProps){
+        window.clearTimeout(this.state.timer);
+        // this.state.alertMax = 30;
         this.setState({
             alertMax : 30
         });
+        if(this.state.alertMax > 0 ){
+            this.countBack();
+        }
         console.log("componentWillReceiveProps")
     }
 
     countBack(){
+        console.log(this.state.alertMax)
         this.setState({
             alertMax : this.state.alertMax - 1
         });
-        if(this.state.alertMax > 0){
+        if(this.state.alertMax >= 0){
             this.state.timer =
-                window.setTimeout(() => this.countBack() ,this.state.sleepTime)
+                window.setTimeout(() => this.countBack() ,1000)
         }else{
+            window.clearTimeout(this.state.timer);
             if(this.props.cartVisible){
                 this.props.clearCart();
+            }else{
+                this.props.onCancel();
             }
-
         }
     }
 
