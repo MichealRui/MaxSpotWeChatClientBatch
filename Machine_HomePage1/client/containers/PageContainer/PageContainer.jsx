@@ -45,6 +45,7 @@ class PageContainer extends React.Component{
     }
 
     listenIdleTime() {
+        console.log(this.idleTime);
         if(this.idleTime < this.maxIdleTime) {
             this.idleTime = this.idleTime + 1;
             this.timer = window.setTimeout(

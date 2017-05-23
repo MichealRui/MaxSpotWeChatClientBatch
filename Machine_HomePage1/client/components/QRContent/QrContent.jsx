@@ -10,7 +10,7 @@ export default class QrContent extends React.Component {
             sleepTime:2000,
             timer:null,
             currentCount:0,
-            stayTime : 10,
+            stayTime : 1200,
         };
         this.count = 0;
     }
