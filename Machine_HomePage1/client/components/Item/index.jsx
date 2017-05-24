@@ -81,6 +81,7 @@ export default class Item extends React.Component {
                 </div>
                 <div className="productPrice font18">
                     <span>{props.sellprice / 100 || 0}<span className="font10">元</span></span>
+                    <span className={"font10 beforePrice " + (props.msrp <=0 ? 'hide' : '')}>原价{props.msrp / 100}元</span>
                 </div>
                 <div className="addCart font40" onClick={this.addClick.bind(this)}>+</div>
                 {campaignTag}

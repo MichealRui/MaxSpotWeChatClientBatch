@@ -275,6 +275,13 @@
 	line-height: 32px;
 }
 
+.itemBox .productPrice .beforePrice{
+	text-decoration: line-through;
+	color: #999;
+	display: inline-block;
+	margin-left: 10px;
+}
+
 .addCart{
 	position: absolute;
 	top: 10px;
