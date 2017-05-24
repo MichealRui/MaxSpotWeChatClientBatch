@@ -14,9 +14,18 @@ export default class CountControl extends React.Component{
     }
 
     dec() {
-        this.props.decrease(
-            this.props.item
-        )
+        console.log('dededede');
+        console.log(this.props.item.count);
+        if(this.props.item.count <= 1){
+            // if(this.props.item.count <= 0){
+            //     this.props.deleteItem(this.props.item);
+            // }
+        }else{
+            this.props.decrease(
+                this.props.item
+            )
+        }
+
     }
 
     add() {
@@ -55,9 +64,9 @@ export default class CountControl extends React.Component{
         let props = this.props.item;
         return (
             <div className="countControl">
-                <a className={"simble fa font12 fa-minus " + (props.count <= 1 ? 'color999 ' : 'color333 ') + (this.props.fontClass)} disabled={props.count == 1}  onClick={()=>this.dec.bind(this)()} ></a>
+                <a className={"simble font16 del " + (props.count <= 1 ? 'color999 ' : 'color333 ') + (this.props.fontClass)} disabled={props.count <= 1}  onClick={()=>this.dec.bind(this)()} >_</a>
                 <span className={"count font14 " + this.props.countFontSize}>{props.count}</span>
-                <a className={"simble fa font12 fa-plus " + (props.quantity <= props.count ? 'color999 ' : 'color333 ') + (this.props.fontClass)}  onClick={()=>this.add.bind(this)()} ></a>
+                <a className={"simble font16  " + (props.quantity <= props.count ? 'color999 ' : 'color333 ') + (this.props.fontClass)}  onClick={()=>this.add.bind(this)()} >+</a>
                 {
                     this.props.countClass=='shoppingCartCount' && props.count >= props.quantity ? <div className={"noQuantity " + this.props.countClass + (this.state.showTips ? " ":" hide")} >
                         <span className="triangle-up"></span>

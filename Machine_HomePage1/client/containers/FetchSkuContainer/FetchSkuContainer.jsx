@@ -8,38 +8,35 @@ require('./index.css');
 export default class FetchSkuContainer extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
-        this.state={
-            show:true
-        }
+        // this.state={
+        //     show:true
+        // }
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.visible) {
-            this.setState({show:true})
-        } else {
-            this.setState({show:false})
-        }
+        // if(nextProps.visible) {
+        //     this.setState({show:true})
+        // } else {
+        //     this.setState({show:false})
+        // }
+    }
+
+    closeModal(){
+        this.props.onCancel();
     }
 
     render(){
         return (
             <div className="fetchSkuContainer">
                 <Modal visible={this.props.visible}
-                       onCancel={this.props.onCancel}
+                       onCancel={this.closeModal.bind(this)}
                        wrapClassName="customized_fetchsku-modal"
                        footer=''
                 >
-                    {
-                        this.state.show?
-                            (
-                                <div className="takingContainer">
-                                    <Info />
-                                    <Footer showDetail={false} footHeight={"70px"} footHeightShow={false}/>
-                                </div>
-                            )
-                            :''
-                    }
+                    <div className="takingContainer">
+                        <Info />
+                        <Footer showDetail={false} footHeight={"70px"} footHeightShow={false}/>
+                    </div>
                 </Modal>
             </div>
         );

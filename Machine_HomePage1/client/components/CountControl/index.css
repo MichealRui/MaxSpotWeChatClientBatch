@@ -16,8 +16,11 @@
     background-color: #f0f0f0;
     color: #999;
     vertical-align: middle;
-    line-height: 20px;
+    line-height: 18px;
     text-decoration: none;
+}
+.countControl .simble.del{
+    line-height: 6px;
 }
 .countControl .simble>img{
     width:100%;

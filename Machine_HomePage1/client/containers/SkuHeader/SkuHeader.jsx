@@ -50,10 +50,10 @@ export default class skuHeader extends React.Component {
     }
 
     render() {
-        let props = this.props
-        let item = props.item
+        let props = this.props;
+        let item = props.item;
         let sku = item.productDetail;
-        let campaignedProductList = props.campaignedProductList;
+        let campaignedProductList = props.campaignedProductList ? props.campaignedProductList : [];
         let cartProduct = new Array;
         campaignedProductList.map(
             (campaign,index)=>{
@@ -94,7 +94,7 @@ export default class skuHeader extends React.Component {
         let new_sub_price = (
             <div className="skuPrice">
                 <span className="font50">{sku.sellprice/100 || 0 }<span className="font26">元</span> </span>
-                <span className={"font26 "+(sku.mrsp?'':'hide')}>原价{sku.mrsp/100 || 0 }元</span>
+                <span className={"font26 "+(sku.msrp?'':'hide')}>原价{sku.msrp/100 || 0 }元</span>
             </div>
         );
         return (
@@ -102,7 +102,7 @@ export default class skuHeader extends React.Component {
             <div className="skuHeader">
                 {sub_title}
                 {new_sub_price}
-                <a className={"addCartText " + (this.props.countShow ? 'hide ' : '') + (sku.quantity>0?'':'empty')} onClick={()=>this.showControl.bind(this)()} disabled={ sku.quantity <= 0} >{sku.quantity>0 ? '加入购物车':'缺货'}</a>
+                <a className={"addCartText " + (this.props.countShow ? 'hide ' : '') + (sku.quantity>0?'':'empty')} onClick={()=>this.showControl.bind(this)()} disabled={ sku.quantity <= 0 } >{sku.quantity>0 ? '加入购物车':'缺货'}</a>
                 <div className={(this.props.countShow ? '' : 'hide')}>
                     <CountControl item={sku}
                                   decrease={this.props.dec}

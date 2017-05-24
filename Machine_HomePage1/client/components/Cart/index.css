@@ -67,6 +67,7 @@
     left:-10px;
     background-color:#ffffff;
     z-index:2;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
 }
 .shoppingCart .balance{
     position: absolute;

@@ -470,6 +470,7 @@
     box-sizing: border-box;
     color: #ffffff;
     z-index: 11;
+    white-space: nowrap;
 }
 .cart-item .campaignTag.fail{
     background:url('./images/campaignTagFail.png') 0 0 no-repeat;

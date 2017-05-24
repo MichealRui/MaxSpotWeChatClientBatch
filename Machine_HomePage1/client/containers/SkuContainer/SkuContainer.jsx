@@ -88,9 +88,12 @@ export default class SkuContainer extends React.Component {
 
     closePop(){
         this.props.onCancel()();
-        this.setState({
-            countShow : false
-        })
+        window.setTimeout(()=>{
+            this.setState({
+                countShow : false
+            })
+        },500);
+
     }
 
     showCountControl(){

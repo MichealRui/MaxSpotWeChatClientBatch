@@ -130,7 +130,7 @@ export default class CartItem extends React.Component{
         let marketPrice = props.msrp > 0 ? <span className="market-price font20">市场价¥{props.msrp/100}元</span> :'';
         let itemKey = this.props.itemKey;
         let campaignTags = this.props.campaign ?
-            <div className={"campaignTag " + (this.props.activate?"activate" : "fail")}>
+            <div className={"campaignTag font10 " + (this.props.activate?"activate" : "fail")}>
                 { (this.props.activate?"已满足":"不满足") + "【"+this.props.campaignTag+"】"}
             </div>
             :null;
@@ -160,7 +160,7 @@ export default class CartItem extends React.Component{
                     {
                         !isGift ?
                             (props.quantity ?
-                            <CountControl key={props.id} item={props} decrease={this.props.dec} addItem={this.props.add} countClass="shoppingCartCount"/> :
+                            <CountControl key={props.id} item={props} decrease={this.props.dec} deleteItem={this.props.remove} addItem={this.props.add} countClass="shoppingCartCount"/> :
                             <span className="emptyTips font12">此商品暂时缺货</span>) : null
                     }
                     <img src={require("./images/icon-trash.png")} onClick={() => {
