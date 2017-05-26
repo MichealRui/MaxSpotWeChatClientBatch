@@ -208,6 +208,7 @@ class PageContainer extends React.Component{
                 <RemindContainer visible={this.state.remindVisible}
                                  onCancel={this.hideRemind.bind(this)}
                                  cartVisible={this.state.cartVisible}
+                                 clearCart={()=>dispatch(clearCart())}
                 />
 
             </div>

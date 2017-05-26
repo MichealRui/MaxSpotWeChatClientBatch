@@ -34,11 +34,9 @@ export default class RemindContent extends React.Component {
         if(this.state.alertMax > 0 ){
             this.countBack();
         }
-        console.log("componentWillReceiveProps")
     }
 
     countBack(){
-        console.log(this.state.alertMax)
         this.setState({
             alertMax : this.state.alertMax - 1
         });
@@ -50,6 +48,7 @@ export default class RemindContent extends React.Component {
             if(this.props.cartVisible){
                 this.props.clearCart();
             }else{
+                this.props.clearCart();
                 this.props.onCancel();
             }
         }

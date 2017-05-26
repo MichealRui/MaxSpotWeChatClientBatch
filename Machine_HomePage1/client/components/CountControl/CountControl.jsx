@@ -14,12 +14,8 @@ export default class CountControl extends React.Component{
     }
 
     dec() {
-        console.log('dededede');
-        console.log(this.props.item.count);
-        if(this.props.item.count <= 1){
-            // if(this.props.item.count <= 0){
-            //     this.props.deleteItem(this.props.item);
-            // }
+        if(this.props.item.count < 2){
+
         }else{
             this.props.decrease(
                 this.props.item
@@ -64,7 +60,7 @@ export default class CountControl extends React.Component{
         let props = this.props.item;
         return (
             <div className="countControl">
-                <a className={"simble font16 del " + (props.count <= 1 ? 'color999 ' : 'color333 ') + (this.props.fontClass)} disabled={props.count <= 1}  onClick={()=>this.dec.bind(this)()} >_</a>
+                <a className={"simble font16 del " + (props.count <= 1 ? 'color999 ' : 'color333 ') + (this.props.fontClass)} disabled={props.count < 2} onClick={()=>this.dec.bind(this)()} >_</a>
                 <span className={"count font14 " + this.props.countFontSize}>{props.count}</span>
                 <a className={"simble font16  " + (props.quantity <= props.count ? 'color999 ' : 'color333 ') + (this.props.fontClass)}  onClick={()=>this.add.bind(this)()} >+</a>
                 {
@@ -75,12 +71,12 @@ export default class CountControl extends React.Component{
                 }
                 {
                     this.props.countClass=='skuContainerCount' && props.count >= props.quantity ? <div className={"noQuantity " + this.props.countClass + (this.state.showTips ? " ":" hide")} >
-                        <span className="font20 noQuans">{"剩余库存 " + props.quantity + " 件"}</span>
+                        <span className="font24 noQuans">{"剩余库存 " + props.quantity + " 件"}</span>
                     </div>:''
                 }
                 {
                     this.props.countClass=='skuContainerCount' && this.state.addSucc ? <div className={"noQuantity colorred " + this.props.countClass + (this.state.addSucc ? " ":" hide")} >
-                        <span className="font20 noQuans">添加成功</span>
+                        <span className="font24 noQuans">添加成功</span>
                     </div>:''
                 }
             </div>

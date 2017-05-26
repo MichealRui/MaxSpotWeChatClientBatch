@@ -345,8 +345,8 @@ export function fetchQrCode(orderNumber) {
                     dispatch({
                         type: SET_PAYMENT_CODE,
                         qrCode: json.payUrl,
-                    })
-                    dispatch(setCartStatus(CartStatus.SHOW_QR))
+                    });
+                    dispatch(setCartStatus(CartStatus.SHOW_QR));
                     // dispatch(succClearCart())
                 } else {
 

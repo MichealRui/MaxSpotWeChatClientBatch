@@ -43,7 +43,7 @@ export default class Cart extends React.Component{
                 <div className={"cart "+ this.state.cartActive}>
                     <img src={require("./images/cart.png")} />
                         <span className="countBg"></span>
-                        <span className={"count font20 " + (props.count >= 100 ? 'font14':'')}>{props.count || 0}</span>
+                        <span className={"count " + (props.count >= 100 ? 'font14':'font20')}>{props.count || 0}</span>
                         <div className="money font40"><span className="font18">￥</span>{props.totalPrice || 0}</div>
                 </div>
                 <div className={"balance font26 " + (this.props.count > 0 ? '' :'bgcolorccc')} onClick={()=>this.submitClick()}>
