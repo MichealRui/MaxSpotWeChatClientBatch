@@ -27,10 +27,14 @@ class PageContainer extends React.Component{
             fetchSkuVisible:false,
             remindVisible:false,
             beginBack : true,
+            showCart : false,
         };
         this.maxIdleTime = 1200; // 5 minute
         this.idleTime = 0;
         this.timer = null;
+        this.upTime = 0;
+        this.maxUpTime = 100;
+        this.upTimer = null;
     }
 
     componentWillMount() {
@@ -60,16 +64,31 @@ class PageContainer extends React.Component{
         }
     }
 
+    updateStates(){
+        console.warn(this.upTime);
+        if(this.upTime < this.maxUpTime){
+            this.upTime = this.upTime + 1;
+            this.upTimer = window.setTimeout(
+                () => this.updateStates(),1000
+            )
+        }else{
+            const { dispatch } = this.props;
+            dispatch(initMainContent());
+            window.clearTimeout(this.upTimer);
+            window.clearTimeout(this.timer);
+        }
+    }
+
     onCartBtnClick() {
         const {dispatch} = this.props;
         // dispatch(setCartStatus(CartStatus.SHOW_QR));
         // dispatch(fetchCart());
         dispatch(submitCart());
         this.setState({
-            cartVisible: true,
+            // cartVisible: true,
+            showCart : true
             // skuVisible: false
         });
-        window.clearTimeout(this.timer);
     }
 
     onRemindBtnClick(){
@@ -77,7 +96,6 @@ class PageContainer extends React.Component{
             remindVisible:true,
             beginBack : false,
         });
-        window.clearTimeout(this.timer);
     }
 
     hideRemind(){
@@ -94,7 +112,8 @@ class PageContainer extends React.Component{
         dispatch(setCartStatus(CartStatus.HIDE_CART));
         dispatch(clearCart());
         this.setState({
-            cartVisible: false
+            cartVisible: false,
+            showCart : false
         });
         this.countBack(this.props);
 
@@ -104,7 +123,6 @@ class PageContainer extends React.Component{
         this.setState({
             fetchSkuVisible: true
         });
-        window.clearTimeout(this.timer);
     }
 
     hideFetchSku() {
@@ -120,7 +138,6 @@ class PageContainer extends React.Component{
         this.setState({
             skuVisible:true,
         });
-        window.clearTimeout(this.timer);
     }
 
     hideProductDetail(){
@@ -131,17 +148,31 @@ class PageContainer extends React.Component{
     }
 
     componentWillReceiveProps(nextProps){
-        this.countBack(nextProps)
+        this.countBack(nextProps);
         if(this.state.cartVisible || this.state.remindVisible || this.state.fetchSkuVisible || this.state.skuVisible){
             window.clearTimeout(this.timer);
+            window.clearTimeout(this.upTimer);
+        }
+        if(nextProps.state.order && this.state.showCart && !this.state.cartVisible){
+            this.setState({
+                cartVisible: true,
+                showCart : false
+                // skuVisible: false
+            });
         }
     }
 
     countBack(propss){
         window.clearTimeout(this.timer);
         this.idleTime = 0;
+        this.upTime = 0;
+        window.clearTimeout(this.upTimer);
+        console.log(propss.state.cart.count);
         if(propss.state.cart.count){
             this.listenIdleTime.bind(this)();
+        }else{
+            console.log("in");
+            this.updateStates.bind(this)();
         }
 
     }
