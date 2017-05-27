@@ -374,7 +374,8 @@ function succFetchCart(content, skus) {
 }
 
 function decreaseItem(content, prod) {
-    let state = Object.assign({}, content);
+    // let state = Object.assign({}, content);
+    let state = JSON.parse(JSON.stringify(content));
     let cart = state.cart;
     let findResult = cart.items.filter(i => i.id == prod.id) || [];
     if(findResult.length != 0) {

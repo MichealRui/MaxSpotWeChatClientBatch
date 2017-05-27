@@ -133,6 +133,7 @@ export function addToCart(item) {
     // }
 }
 
+
 export function deleteOneFromCart(item) {
     return (dispatch) => {
         fetch( domain+"/maxbox_pc/local_api/remove_sku_from_cart.action",
@@ -142,8 +143,8 @@ export function deleteOneFromCart(item) {
                 // mode: 'cors',
                 body: JSON.stringify(
                     Object.assign({}, {
-                    skuId: '' + item.id,
-                    count: '1'
+                        skuId: '' + item.id,
+                        count: '1'
                     })
                 )
             })
@@ -155,7 +156,7 @@ export function deleteOneFromCart(item) {
                     dispatch(errorAddToCart({errorMessage: json.error_message}))
                 }
             }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
-    };
+    }
     // return (dispatch) => {
     //     dispatch(succDeleteItem(item))
     // }
@@ -167,6 +168,14 @@ export function succDeleteItem(item) {
         item
     }
 }
+
+// export function removeFromCart(item) {
+//     if(item.count - 1 <= 0){
+//         return false
+//     }else{
+//         removeFromCarts(item);
+//     }
+// }
 
 export function removeFromCart(item) {
 

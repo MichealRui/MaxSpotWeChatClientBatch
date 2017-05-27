@@ -65,6 +65,33 @@
     /*font-family: "anticon" !important;*/
 /*}*/
 
+.customized1_sku-modal{
+    -webkit-animation: scale-opr 0.5s linear 0s 1 normal ;
+    animation: scale-opr 0.5s linear 0s 1 normal ;
+    animation-fill-mode : forwards;
+    -webkit-animation-fill-mode : forwards;
+}
+
+@keyframes scale-opr {
+    0%{
+        transform: scale(0.8);
+        opacity:0;
+    }
+    100%{
+        transform: scale(1);
+        opacity:1;
+    }
+}
+@-webkit-keyframes scale-opr {
+    0%{
+        transform: scale(0.8);
+        opacity:0;
+    }
+    100%{
+        transform: scale(1);
+        opacity:1;
+    }
+}
 
 .customized1_sku-modal{
     position: fixed;

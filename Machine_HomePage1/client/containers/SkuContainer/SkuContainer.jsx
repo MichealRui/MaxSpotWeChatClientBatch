@@ -44,56 +44,52 @@ export default class SkuContainer extends React.Component {
         return domain + path
     }
 
-    countOne() {
-        console.log('count one ');
-        console.log(this.state.currentCount);
+    countBack(){
         this.setState({
-            currentCount:this.state.currentCount - 1
+            currentCount : this.state.currentCount - 1
         });
-    }
-
-    countBack() {
-        if(this.state.currentCount == 0) {
-            this.props.onCancel()()
-        } else {
-            let timer = window.setTimeout(
-                () => {
-                    this.countOne();
+        if(this.state.currentCount >= 0){
+            this.state.timer = window.setTimeout(
+                ()=>{
                     this.countBack()
-                }, this.sleepTime);
-            this.setState({
-                timer: timer
-            })
+                },this.sleepTime
+            )
+        }else{
+            this.closePop();
         }
     }
+
+    componentWillReceiveProps(nextProps) {
+        this.renewCount();
+        if(nextProps.visible) {
+            this.countBack();
+        }
+
+    }
+    componentDidMount(){
+        this.countBack();
+    }
+    componentWillUnmount(){
+        window.clearTimeout(this.state.timer);
+    }
+
 
     renewCount() {
         this.setState({
             currentCount:this._maxCount
-        })
+        });
+        window.clearTimeout(this.state.timer);
     }
 
-    componentWillReceiveProps(nextProps) {
-        // if(nextProps.visible && !this.state.timer) {
-        //     this.countBack()
-        // }
-        // if(!nextProps.visible) {
-        //     window.clearTimeout(this.state.timer);
-        //     this.setState({
-        //         timer: null,
-        //         currentCount:this._maxCount
-        //     })
-        // }
-    }
 
     closePop(){
+        window.clearTimeout(this.state.timer);
         this.props.onCancel()();
         window.setTimeout(()=>{
             this.setState({
                 countShow : false
             })
         },500);
-
     }
 
     showCountControl(){

@@ -387,6 +387,6 @@ body::-webkit-scrollbar {
 .hide{
     display: none!important;
 }
-.ant-modal-mask {
-    opacity:0.9;
-}
+/*.ant-modal-mask {*/
+    /*opacity:0.9;*/
+/*}*/

@@ -11,17 +11,33 @@ export default class CountControl extends React.Component{
             cartTimer: null,
             addSucc:false
         }
+        this.__changing = false;
+        this.__count = this.props.item.count
     }
 
     dec() {
-        if(this.props.item.count < 2){
-
-        }else{
+        if(!this.__changing && this.props.item.count > 1) {
             this.props.decrease(
                 this.props.item
-            )
+            );
+            this.__changing = true
         }
 
+        // if(this.props.item.count < 2){
+        //
+        // }else{
+        //     this.props.decrease(
+        //         this.props.item
+        //     )
+        // }
+
+
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.item.count != this.props.item.count){
+            this.__changing = false;
+        }
     }
 
     add() {
