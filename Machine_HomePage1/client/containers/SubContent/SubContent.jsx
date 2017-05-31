@@ -9,9 +9,11 @@ export default class SubContent extends React.Component {
         super(props)
     }
 
-    shouldComponentUpdate(nextProps){
-        return !(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items));
-    }
+    // shouldComponentUpdate(nextProps){
+    //     // return !(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items));
+    // }
+
+
 
     render() {
         let props = this.props;
@@ -50,12 +52,13 @@ export default class SubContent extends React.Component {
                         </div> : ''
                 }
                 <ItemContainer items={current.items}
-                               itemClick={this.props.addToCart}
-                               store={this.props.storeData}
-                               detailClick={this.props.showProduct}
+                               itemClick={props.addToCart}
+                               store={props.storeData}
+                               detailClick={props.showProduct}
                                reload={true}
-                               activityData={this.props.activityData}
-                               isActivity={this.props.isActivity}
+                               activityData={props.activityData}
+                               isActivity={props.isActivity}
+                               cart={props.cart}
                 />
             </div>
         )

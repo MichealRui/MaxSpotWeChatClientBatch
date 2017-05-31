@@ -249,9 +249,24 @@
 	height: 180px;
 	margin: 0 auto;
 	overflow:hidden;
+	text-align: center;
+	position: relative;
 }
 .itemBox .productImg>img{
-	width:100%;
+	height:100%;
+}
+.itemBox .productImg .showTips{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	height: 36px;
+	margin: auto;
+	color: #fff;
+	line-height: 36px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.6);
 }
 .itemBox .brandProductContainer{
 	white-space:nowrap;
@@ -295,6 +310,11 @@
 	text-align: center;
 	font-weight: bold;
 	z-index: 2;
+	padding: 8px;
+	line-height: 50px;
+}
+.addCart>img{
+	width: 100%;
 }
 .itemBox .selloutInfo{
 	display:none;

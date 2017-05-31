@@ -210,6 +210,7 @@ class PageContainer extends React.Component{
                     getChannelData={(type)=>dispatch(initChannelActivity(type))}
                     isActivity={state.isActivity}
                     activeTag={state.activeTag}
+                    cart={state.cart}
                 />
 
                 <CartContainer visible={this.state.cartVisible}

@@ -57,6 +57,13 @@ export default class CountControl extends React.Component{
             });
             this.timeup();
         }
+        // this.props.addItem(
+        //     this.props.item
+        // );
+        // this.setState({
+        //     addSucc : true
+        // });
+        // this.timeup();
 
 
     }

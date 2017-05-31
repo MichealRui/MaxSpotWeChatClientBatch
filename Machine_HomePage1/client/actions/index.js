@@ -51,6 +51,8 @@ export const SET_PAYMENT_CODE = 'SET_PAYMENT_CODE';
 
 export const SET_ORDER = 'SET_ORDER';
 
+export const FAIL_SET_ORDER = 'FAIL_SET_ORDER';
+
 export const SET_CART_STATUS = 'SET_CART_STATUS';
 
 export const FETCH_ORDER_ERROR = 'FETCH_ORDER_ERROR';
@@ -62,6 +64,7 @@ export const SET_RECOMMEND = 'SET_RECOMMEND';
 export const SET_ERRORMESSAGE = 'SET_ERRORMESSAGE';
 
 export const SUCC_INIT_ACTIVITY = 'SUCC_INIT_ACTIVITY';
+
 
 const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.36:9090' : 'http://10.16.66.36:8080';
 
@@ -318,6 +321,7 @@ export function submitCart() {
                     dispatch(fetchQrCode(json.order.orderNumber))
                 } else {
                     console.log(json)
+                    // dispatch(failSetOrder(json.order));
                 }
             })
     };
@@ -526,5 +530,12 @@ function setErrorMessage(message) {
     return {
         type : SET_ERRORMESSAGE,
         message
+    }
+}
+
+function failSetOrder(content) {
+    return {
+        type : FAIL_SET_ORDER,
+        content
     }
 }

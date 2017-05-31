@@ -459,7 +459,7 @@
 .cart-item .campaignTag{
     position:absolute;
     background:url('./images/campaignTagActivate.png') 0 0 no-repeat;
-    height: 132px;
+    height: 148px;
     width: 23px;
     background-size:100% 100%;
     /*left: -22px;*/

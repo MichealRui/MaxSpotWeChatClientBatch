@@ -4,7 +4,7 @@ import {
     CLEAR_CART, SUCC_ADD_CART, FAIL_ADD_CART,
     CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
     SUCC_DELETE_CART,SUCC_REMOVE_CART,
-    SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,
+    SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,FAIL_SET_ORDER,
     SET_ORDER, SET_CART_STATUS, SUCC_CLEAR_CART,
     SET_RECOMMEND, SUCC_INIT_ACTIVITY,SET_ERRORMESSAGE,ARR_QR_COUNT,SET_QR_COUNT
 } from '../actions/index'
@@ -73,6 +73,7 @@ const PRODUCT_UNAVAILABLE = 0; //下架
 const PRODUCT_ON_SELL = 1 ; //在售
 const PRODUCT_OUT_SELL = 2; //售罄
 const PRODUCT_LOW_STOCK = 3; //库存不足
+
 
 function initSuccess(content, data){
     const SELECTOR_ICONS = {
@@ -324,6 +325,7 @@ function succAddCart(content, prod) {
     return state
 }
 
+
 function finalCartStatus(cart){
     let newCart = Object.assign({}, cart);
     let cartItems = newCart.items;
@@ -360,6 +362,7 @@ function finalCartStatus(cart){
     ).reduce((pre, next) => pre + next , 0) /100 ) || 0;
 
     newCart.count = count;
+    newCart.errMessage = '';
     return newCart
 }
 
@@ -372,6 +375,7 @@ function succFetchCart(content, skus) {
     newContent.cart = finalCartStatus(newContent.cart);
     return newContent
 }
+
 
 function decreaseItem(content, prod) {
     // let state = Object.assign({}, content);
@@ -389,6 +393,13 @@ function decreaseItem(content, prod) {
     state.cart = finalCartStatus(state.cart);
     return state
 }
+
+function setCartErrorMessage(content,message) {
+    let newState = Object.assign({},content);
+    newState.cart.errMessage = message.errorMessage;
+    return newState;
+}
+
 
 function succRemoveItem(content, prod) {
     let state = Object.assign({}, content);
@@ -433,10 +444,35 @@ function initActivity(content, products, banner,activeTag) {
     return  Object.assign({}, newContent, {activity:{items:products, banner:[banner]}},{isActivity:true},{activeTag:activeTag})
 }
 
-function setCartErrorMessage(content,message) {
-    return Object.assign({},content,{cartErrorMessage:message});
+
+function checkProductStatus(product){
+    let STATUS = {};
+    let statusTag = '';
+    STATUS[PRODUCT_UNAVAILABLE] = {err_msg : '此商品已下架',err_status : PRODUCT_UNAVAILABLE};
+    STATUS[PRODUCT_OUT_SELL] = {err_msg : '此商品已售罄，暂无法购买',err_status : PRODUCT_OUT_SELL};
+    STATUS[PRODUCT_LOW_STOCK] = {err_msg : '剩余库存'+product.quantity+'件',err_status : PRODUCT_LOW_STOCK};
+    if(product.status != PRODUCT_ON_SELL){
+        //商品已下架
+        statusTag = PRODUCT_UNAVAILABLE;
+    }
+    if(product.quantity <= 0){
+        statusTag = PRODUCT_OUT_SELL;
+    }
+    if(product.count > product.quantity){
+        statusTag = PRODUCT_LOW_STOCK;
+    }
+    return Object.assign({},product,STATUS[statusTag]);
 }
 
+function failSetOrder(state,orderInfo) {
+    const PRODUCT_LOW_STOCK_E = -12; //库存不足
+    const PRODUCT_EMPTY_SELL_E = -15; //售罄
+    const PRODUCT_OUT_SELL_E = -16; //售罄
+    let err_msg = orderInfo.err_message;
+    // if(orderInfo.orderResults.length > 0){
+    //     let order_res = content
+    // }
+}
 
 export default function (
     content=data, action) {
@@ -469,6 +505,8 @@ export default function (
             return clearCart(content);
         case SUCC_INIT_ACTIVITY:
             return initActivity(content, action.products, action.banner,action.activeTag);
+        case FAIL_SET_ORDER :
+            return failSetOrder(content,action.content)
         default:
             return content;
     }

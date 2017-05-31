@@ -13,12 +13,14 @@ var ItemContainer = React.createClass({
         };
         let props = this.props.items;
         let items = props.map((item, index) => {
-            return (<Item item={item} key={index}
-                                 isSliderItem={false}
-                                 click={this.props.itemClick}
-                                 store={this.props.store}
-                                 show={this.props.detailClick}
-                                 ActiveType={this.props.ActiveType}
+            return (<Item item={item}
+                          key={index}
+                          isSliderItem={false}
+                          click={this.props.itemClick}
+                          store={this.props.store}
+                          show={this.props.detailClick}
+                          ActiveType={this.props.ActiveType}
+                          cart={this.props.cart}
             />);
 
         });
@@ -45,6 +47,7 @@ var ItemContainer = React.createClass({
                               store={this.props.store}
                               show={this.props.detailClick}
                               ActiveType={this.props.ActiveType}
+                              cart={this.props.cart}
                 />);
             });
             return (
