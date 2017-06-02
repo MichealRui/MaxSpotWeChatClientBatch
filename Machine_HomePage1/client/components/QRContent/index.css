@@ -77,16 +77,22 @@
     display: inline-block;
 }
 .qrcode .cartInfo .cartName{
-    width: 70%;
+    width: 60%;
     text-align: left;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .qrcode .cartInfo .cartMoney{
-    width: 30%;
+    width: 40%;
     text-align: right;
     color:#28abef;
+}
+.qrcode .campaignInfo .cartName{
+    width: 70%;
+}
+.qrcode .campaignInfo .cartMoney{
+    width: 30%;
 }
 .qrcode .cartInfo .campaignInfo{
     margin-top: 24px;
