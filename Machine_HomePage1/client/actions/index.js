@@ -482,7 +482,11 @@ export function initActivity(campaignId) {
         ).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    dispatch(succInitActivity({...json,activeTag:"active"+campaignId}))
+                    let activeName = '';
+                    if(json.campaign){
+                        activeName = json.campaign.campaignName || '';
+                    }
+                    dispatch(succInitActivity({...json,activeTag:"active"+campaignId,activeName:activeName}))
                 } else {
                     console.log('error')
                 }
@@ -507,8 +511,13 @@ export function initChannelActivity(type) {
         ).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-
-                    dispatch(succInitActivity(Object.assign({},{products:json.skuitems,banner:json.headUrl,activeTag:"channel"+type})))
+                    let activeName = '';
+                    if(type == 1){
+                        activeName = '新品推荐';
+                    }else{
+                        activeName = '今日特惠';
+                    }
+                    dispatch(succInitActivity(Object.assign({},{products:json.skuitems,banner:json.headUrl,activeTag:"channel"+type,activeName:activeName})))
                 } else {
                     console.log('error')
                 }
@@ -522,10 +531,10 @@ export function clearActivity() {
     }
 }
 
-export function succInitActivity({products, banner,activeTag}) {
+export function succInitActivity({products, banner,activeTag,activeName}) {
     return {
         type: SUCC_INIT_ACTIVITY,
-        products, banner,activeTag
+        products, banner,activeTag,activeName
     }
 }
 

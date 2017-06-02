@@ -433,13 +433,13 @@ function clearCart(content) {
     return state
 }
 
-function initActivity(content, products, banner,activeTag) {
+function initActivity(content, products, banner,activeTag,activeName) {
     let newContent = Object.assign({}, content);
     newContent.currentSub = Object.assign({}, newContent.currentSub, {items: products,banner:[banner]});
     newContent.currentSelector = {};
     newContent.currentSelector.key = "活动";
-    newContent.currentSelector.subKey = "全部";
-    newContent.currentSelector.subSelector = ["全部"];
+    newContent.currentSelector.subKey = activeName;
+    newContent.currentSelector.subSelector = [activeName];
     // newContent.currentSelector = {parentKey: key, subKey:subKey};
     return  Object.assign({}, newContent, {activity:{items:products, banner:[banner]}},{isActivity:true},{activeTag:activeTag})
 }
@@ -495,7 +495,7 @@ export default function (
         case SUCC_CLEAR_CART:
             return clearCart(content);
         case SUCC_INIT_ACTIVITY:
-            return initActivity(content, action.products, action.banner,action.activeTag);
+            return initActivity(content, action.products, action.banner,action.activeTag,action.activeName);
         default:
             return content;
     }

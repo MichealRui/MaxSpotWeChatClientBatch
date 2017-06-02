@@ -90,7 +90,7 @@ export default class Selector extends React.Component {
                     </SwiperContainer>
                 </div>
                 <SubSelector selector={props.currentSelector}
-                    changeContent={this.props.changeContent}
+                             changeContent={this.props.changeContent}
                              isActivity={props.isActivity}
                 />
 

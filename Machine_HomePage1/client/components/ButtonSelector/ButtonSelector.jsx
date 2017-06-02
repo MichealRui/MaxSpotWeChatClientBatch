@@ -39,7 +39,7 @@ export default class ButtonSelector extends React.Component {
         let tag = selector.subSelector && selector.subSelector.length != 0 ?
             selector.subSelector.map((s, index) => {
                 return (
-                    <div key={index} className={"subTag font20 "+(s == selector.subKey ?'active' : '')} onClick={(e) => this.onSubClick(s, selector.key)} >{s}</div>
+                    <div key={index} className={"subTag font20 "+(s == selector.subKey ?'active' : '') + (this.props.isActivity ? ' subActiveTag':'')} onClick={(e) => this.onSubClick(s, selector.key)} >{s}</div>
                 )
 
             }) : '';
