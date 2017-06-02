@@ -18,6 +18,10 @@ export default class Item extends React.Component {
         //     showFloat: true
         // });
 
+        if(this.props.item.quantity <= 0){
+            return false
+        }
+
         let c_count = this.props.cart.items.filter(c_i => c_i.id == this.props.item.id);
         let count = 0;
         if(c_count && c_count.length > 0){
@@ -90,8 +94,8 @@ export default class Item extends React.Component {
         const NEW_ITEM = 1;
         const HOT_ITEM = 2;
         const OTHER_ITEM = 0;
-        let tips = props.quantity < 0 ? <div className="showTips font20">缺货</div> : '';
-        tips = this.state.showTips ? <div className="showTips font20">剩余库存{props.quantity}件</div> : '';
+        let tips = props.quantity <= 0 ? <div className="showTips font20">缺货</div> : '';
+        let tips1 = this.state.showTips ? <div className="showTips font20">剩余库存{props.quantity}件</div> : '';
         //ActiveType
         let campaignTag = props.campaign ? <div className="campaign font14">{props.tips}</div>:null;
         return (
@@ -104,6 +108,7 @@ export default class Item extends React.Component {
                         :
                         <img src={require('./images/default.png')} />
                 }
+                    {tips1}
                     {tips}
                 </div>
                 <div className="brandProductContainer">
