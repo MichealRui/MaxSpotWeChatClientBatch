@@ -464,15 +464,6 @@ function checkProductStatus(product){
     return Object.assign({},product,STATUS[statusTag]);
 }
 
-function failSetOrder(state,orderInfo) {
-    const PRODUCT_LOW_STOCK_E = -12; //库存不足
-    const PRODUCT_EMPTY_SELL_E = -15; //售罄
-    const PRODUCT_OUT_SELL_E = -16; //售罄
-    let err_msg = orderInfo.err_message;
-    // if(orderInfo.orderResults.length > 0){
-    //     let order_res = content
-    // }
-}
 
 export default function (
     content=data, action) {
@@ -505,8 +496,6 @@ export default function (
             return clearCart(content);
         case SUCC_INIT_ACTIVITY:
             return initActivity(content, action.products, action.banner,action.activeTag);
-        case FAIL_SET_ORDER :
-            return failSetOrder(content,action.content)
         default:
             return content;
     }

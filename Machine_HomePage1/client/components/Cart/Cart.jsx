@@ -49,7 +49,7 @@ export default class Cart extends React.Component{
                 <div className={"balance font26 " + (this.props.count > 0 ? '' :'bgcolorccc')} onClick={()=>this.submitClick()}>
                     立即结算
                 </div>
-                <div className={"showTips font14 " + 'hide'}>部分商品缺货或已下架，请编辑购物袋</div>
+                <div className={"showTips font14 " + (props.showErr ? '':'hide')}>部分商品缺货或已下架，请编辑购物袋</div>
             </div>
         )
     }

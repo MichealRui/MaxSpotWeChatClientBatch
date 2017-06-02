@@ -87,9 +87,8 @@ export default class CountControl extends React.Component{
                 <span className={"count font14 " + this.props.countFontSize}>{props.count}</span>
                 <a className={"simble font16  " + (props.quantity <= props.count ? 'color999 ' : 'color333 ') + (this.props.fontClass)}  onClick={()=>this.add.bind(this)()} >+</a>
                 {
-                    this.props.countClass=='shoppingCartCount' && props.count >= props.quantity ? <div className={"noQuantity " + this.props.countClass + (this.state.showTips ? " ":" hide")} >
-                        <span className="triangle-up"></span>
-                        <span className="font20 noQuantitys">{"剩余库存 " + props.quantity + " 件"}</span>
+                    this.props.countClass=='shoppingCartCount' && props.count >= props.quantity ? <div className={"noQuantity font16 " + this.props.countClass + (this.state.showTips ? " ":" hide")} >
+                        {"剩余库存 " + props.quantity + " 件"}
                     </div>:''
                 }
                 {

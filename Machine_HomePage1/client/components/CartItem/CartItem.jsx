@@ -134,12 +134,14 @@ export default class CartItem extends React.Component{
                 { (this.props.activate?"已满足":"不满足") + "【"+this.props.campaignTag+"】"}
             </div>
             :null;
+
         return (
             <div className={"cart-item " + (itemKey==0?'first':'')}>
                 {
                     itemKey == 0 ? campaignTags : null
                 }
-                <div className="pic"><img src={domain + this.getMiddlePic(props.imagePath)} />
+                <div className="pic">
+                    <img src={domain + this.getMiddlePic(props.imagePath)} />
                     <div className={"giftLayer font12 " +(isGift ? '' : 'hide') }>赠品</div>
                     <div className="tags">
                         {
@@ -155,11 +157,12 @@ export default class CartItem extends React.Component{
                         }
 
                     </div>
+                    <div className={"picLayer " + (props.status == 1 ? 'hide' : '')}></div>
                 </div>
                 <div className="moneyCount">
                     {
                         !isGift ?
-                            (props.quantity ?
+                            (props.quantity && props.status == 1 ?
                             <CountControl key={props.id} item={props} decrease={this.props.dec} deleteItem={this.props.remove} addItem={this.props.add} countClass="shoppingCartCount"/> :
                             <span className="emptyTips font12">此商品暂时缺货</span>) : null
                     }
@@ -179,6 +182,11 @@ export default class CartItem extends React.Component{
                                 }}>确定</div>
                                 <div className="btn_no btn font16" onClick={() => this.toggleDelete.bind(this)()}>取消</div>
                             </div> : ''
+                    }
+
+                    {
+                        props.count > props.quantity && props.status == 1 ?
+                            <div className="errTips font16">剩余库存{props.quantity}件</div> : null
                     }
 
                 </div>

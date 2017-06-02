@@ -321,7 +321,10 @@ export function submitCart() {
                     dispatch(fetchQrCode(json.order.orderNumber))
                 } else {
                     console.log(json)
-                    // dispatch(failSetOrder(json.order));
+                    // dispatch(failSetOrder(json));
+                    dispatch(initMainContent());
+                    //failedSku
+                    //error_code -16
                 }
             })
     };

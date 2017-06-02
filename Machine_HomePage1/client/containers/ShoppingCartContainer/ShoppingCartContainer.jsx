@@ -106,10 +106,11 @@ export default class ShoppingCartContainer extends React.Component{
             // observeParents:true,//修改swiper的父元素时，自动初始化swiper
             spaceBetween: 0,
         };
+        let showErr = props.items.filter(item=>item.count > item.quantity || item.status != 1 || item.quantity <= 0).length > 0;
         return(
             <div className="machineNewShoppingCartContainer">
                 <Cart cartStyle={{}} count={props.count || 0} totalPrice={props.totalPrice || 0}
-                      click={this.showQrCode.bind(this)} remindShow={this.props.remindShow} beginBack={this.props.beginBack}/>
+                      click={this.showQrCode.bind(this)} remindShow={this.props.remindShow} beginBack={this.props.beginBack} showErr={showErr}/>
                 <div className={"cartItemContainer " + (item_count > 0 ? '':'hide')} >
                     <div className="emptyItem" onClick={()=>this.props.clearCart()}>
                         <img src={require("./images/icon-trash.png")} />
