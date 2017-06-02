@@ -127,7 +127,8 @@ export function addToCart(item) {
                 if(json.is_succ) {
                     dispatch(successAddToCart(item))
                 } else {
-                    dispatch(errorAddToCart({errorMessage: json.error_message}))
+                    // dispatch(errorAddToCart(item,{errorMessage: json.error_message}))
+                    dispatch(initMainContent());
                 }
             }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
     };
@@ -262,9 +263,10 @@ export function successAddToCart(item) {
     }
 }
 
-export function errorAddToCart(errorMessage) {
+export function errorAddToCart(item,errorMessage) {
     return {
         type: FAIL_ADD_CART,
+        item,
         errorMessage
     }
 }
@@ -320,7 +322,7 @@ export function submitCart() {
                     dispatch(setCartStatus(CartStatus.SHOW_LOADING));
                     dispatch(fetchQrCode(json.order.orderNumber))
                 } else {
-                    console.log(json)
+                    // console.log(json)
                     // dispatch(failSetOrder(json));
                     dispatch(initMainContent());
                     //failedSku

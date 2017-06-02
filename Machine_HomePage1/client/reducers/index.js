@@ -362,7 +362,6 @@ function finalCartStatus(cart){
     ).reduce((pre, next) => pre + next , 0) /100 ) || 0;
 
     newCart.count = count;
-    newCart.errMessage = '';
     return newCart
 }
 
@@ -394,9 +393,13 @@ function decreaseItem(content, prod) {
     return state
 }
 
-function setCartErrorMessage(content,message) {
+function setCartErrorMessage(content,prod,message) {
     let newState = Object.assign({},content);
-    newState.cart.errMessage = message.errorMessage;
+    let cartItems = newState.cart.items;
+    let findresult = cartItems.filter(c=>c.id == prod.id);
+    if(findresult && findresult.length > 0){
+        findresult.errMessage = message;
+    }
     return newState;
 }
 
@@ -477,7 +480,7 @@ export default function (
         case SUCC_ADD_CART:
             return succAddCart(content, action.item);
         case FAIL_ADD_CART:
-            return setCartErrorMessage(content,action.errorMessage);
+            return setCartErrorMessage(content,action.item,action.errorMessage);
         case SUCC_DELETE_CART:
             return decreaseItem(content, action.item);
         case SUCC_REMOVE_CART:
