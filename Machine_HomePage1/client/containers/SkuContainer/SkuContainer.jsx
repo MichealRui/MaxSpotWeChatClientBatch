@@ -114,7 +114,7 @@ export default class SkuContainer extends React.Component {
                         <div className="skuInfo">
                             {
                                 product ? <Gallery images={sku ?
-                                    this.getDetailPicList(sku.images)
+                                    this.getMiddlePicList(sku.images)
                                     :''
                                 }/>:''
                             }
