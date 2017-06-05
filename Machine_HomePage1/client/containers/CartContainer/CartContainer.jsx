@@ -8,6 +8,7 @@ import Loading from '../../components/LoadingContent/Loading'
 import Taking from '../PaySuccContainer/PaySuccContainer'
 import Footer from '../../containers/SkuFooter/SkuFooter';
 import Remind from '../../components/RemindContent/RemindContent';
+import GiveUp from '../../components/GiveUpContent/GiveUpContent';
 require('./index.css');
 
 export default class CartContainer extends React.Component {
@@ -28,8 +29,10 @@ export default class CartContainer extends React.Component {
     };
 
     hideModal(){
-        if(this.props.cartStatus == CartStatus.SHOW_METION){
+        if(this.props.cartStatus == CartStatus.SHOW_METION || this.props.cartStatus == CartStatus.SHOW_GIVEUP){
             this.props.setCart(CartStatus.SHOW_QR);
+        }else if(this.props.cartStatus == CartStatus.SHOW_QR){
+            this.props.setCart(CartStatus.SHOW_GIVEUP);
         }else{
             this.props.onCancel()();
         }
@@ -91,6 +94,12 @@ export default class CartContainer extends React.Component {
                     onCancel={()=>props.setCart(CartStatus.SHOW_QR)}
                     clearCart={props.onCancel()}
                     cartVisible={true}
+                />;
+                break;
+            case CartStatus.SHOW_GIVEUP:
+                cartContent = <GiveUp
+                    onCancel={()=>props.setCart(CartStatus.SHOW_QR)}
+                    clearCart={props.onCancel()}
                 />;
                 break;
             default:

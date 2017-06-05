@@ -128,7 +128,7 @@ export function addToCart(item) {
                     dispatch(successAddToCart(item))
                 } else {
                     // dispatch(errorAddToCart(item,{errorMessage: json.error_message}))
-                    dispatch(initMainContent());
+                    // dispatch(initMainContent());
                 }
             }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
     };
