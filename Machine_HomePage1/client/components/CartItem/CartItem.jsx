@@ -69,7 +69,8 @@ export default class CartItem extends React.Component{
 
     render() {
         let props = this.props.item;
-        let isGift = this.props.item.isPresent;
+        // let isGift = this.props.item.isPresent;
+        let isGift = this.props.isGift;
         let giftAvailable = this.props.item.giftAvailable;
         var atts = this.getAtts(props.attributes);
         let domain= IMAGECONFIG.host;//ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
@@ -129,11 +130,13 @@ export default class CartItem extends React.Component{
             );
         let marketPrice = props.msrp > 0 ? <span className="market-price font20">市场价¥{props.msrp/100}元</span> :'';
         let itemKey = this.props.itemKey;
-        let campaignTags = this.props.campaign ?
+        let campaignTags = this.props.campaign && !this.props.isAllSku ?
             <div className={"campaignTag font10 " + (this.props.activate?"activate" : "fail")}>
                 { (this.props.activate?"已满足":"不满足") + "【"+this.props.campaignTag+"】"}
             </div>
             :null;
+
+
 
         return (
             <div className={"cart-item " + (itemKey==0?'first':'')}>
@@ -142,22 +145,26 @@ export default class CartItem extends React.Component{
                 }
                 <div className="pic">
                     <img src={domain + this.getMiddlePic(props.imagePath)} />
-                    <div className={"giftLayer font12 " +(isGift ? '' : 'hide') }>赠品</div>
-                    <div className="tags">
-                        {
-                            this.state.showDelete ? <p className="font16 showDeleteText">删除此商品？</p>:
-                                <div>
-                                    <h3 className="font16">{props.name}</h3>
-                                    <h3 className="font16">
-                                        <span className={"currentMoney " + (giftAvailable?'hide':'')}>{props.sellprice/100 || 0}<span className="font10">元</span></span>
-                                        <span className={"beforeMoney font10 "+(props.msrp ? '':'hide')}>原价 {props.msrp/100 || 0}<span className="font10">元</span></span>
-                                        <span className={"giftCount font10 " + (giftAvailable?'':'hide')}><span className="font10">×</span>1</span>
-                                    </h3>
-                                </div>
-                        }
 
-                    </div>
-                    <div className={"picLayer " + (props.status == 1 ? 'hide' : '')}></div>
+                        <div className={"giftLayer font12 " + (isGift ? '':'hide')}>赠品</div>
+                        <div className="tags">
+                            {
+                                this.state.showDelete && !isGift ? <p className="font16 showDeleteText">删除此商品？</p>:
+                                    <div>
+                                        <h3 className="font16">{props.name}</h3>
+                                        <h3 className="font16">
+                                            <span className={"currentMoney " + (isGift?'hide':'')}>{props.sellprice/100 || 0}<span className="font10">元</span></span>
+                                            <span className={"beforeMoney font10 "+(props.msrp && !isGift ? '':'hide')}>原价 {props.msrp/100 || 0}<span className="font10">元</span></span>
+                                            <span className={"giftCount font16 " + (isGift?'':'hide')}><span className="font10">×</span>{props.count}</span>
+                                        </h3>
+                                    </div>
+                            }
+
+                        </div>
+
+                    {
+                        !isGift && props.status != 1 ? <div className={"picLayer "}></div> : null
+                    }
                 </div>
                 <div className="moneyCount">
                     {
@@ -168,13 +175,17 @@ export default class CartItem extends React.Component{
                     }
                     <img src={require("./images/icon-trash.png")} onClick={() => {
                         this.toggleDelete.bind(this)();
-                    }} />
+                    }} className={" "+(isGift ? 'hide' : '')} />
                     <div className={"gift " + (isGift ? '' : 'hide')}>
-                        <div><img src={require("./images/gift-active.png")} /></div>
+                        <div>{
+                            this.props.activate ?
+                            <img src={require("./images/gift-active.png")} />:
+                            <img src={require("./images/gift-fail.png")} />
+                        }</div>
                         <div className="giftText fon20"><span className="font16">满200</span> / 享赠</div>
                     </div>
                     {
-                        this.state.showDelete ?
+                        this.state.showDelete && !isGift ?
                             <div className="closeLayer clearfix">
                                 <div className="btn_yes btn font16" onClick={() => {
                                     this.toggleDelete.bind(this)();

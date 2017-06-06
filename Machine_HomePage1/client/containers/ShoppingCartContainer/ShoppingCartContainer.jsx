@@ -54,10 +54,13 @@ export default class ShoppingCartContainer extends React.Component{
                     }
                 </div>
             ) : null;
+        let giftKey = 0;
         let productStructure = list.length > 0 && !isAllSku ? (
             list.map(
                 (product,index)=>
-                    <CartItem
+                {
+                    giftKey ++ ;
+                    return (<CartItem
                         item={product}
                         key={index}
                         dec={decItem}
@@ -67,11 +70,23 @@ export default class ShoppingCartContainer extends React.Component{
                         activate = {activate}
                         campaignTag={campaignTag}
                         itemKey = {index}
-                    />
+                        isAllSku = {isAllSku}
+                    />)
+                }
+
 
             )
         ) : null;
-
+        let giftStructure = list.length > 0 && presentSku ? (
+            <CartItem item={presentSku} itemKey={giftKey} isGift={true} activate={activate} campaign={campaignId} isAllSku = {isAllSku}/>
+        ) : null;
+        if(giftStructure){
+            if(productStructure && productStructure.length > 0){
+                productStructure.push(giftStructure)
+            }else{
+                productStructure = giftStructure
+            }
+        };
         if(productStructure){
             return new Array(productStructure);
         }else{
@@ -79,7 +94,7 @@ export default class ShoppingCartContainer extends React.Component{
         }
     }
     reduceProductStructure(campaignDetail){
-        return this.generateProductStructure(campaignDetail)
+        return this.generateProductStructure(campaignDetail);
     }
 
     showQrCode(){

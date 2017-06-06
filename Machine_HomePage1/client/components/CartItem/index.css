@@ -310,7 +310,7 @@
 }
 
 .cart-item.first{
-    margin-left: 20px;
+    margin-left: 28px;
 }
 
 .cart-item .pic{
@@ -370,6 +370,9 @@
     font-weight: 600;
     line-height: 24px;
 }
+.cart-item .tags h3:last-child .giftCount{
+    line-height: 20px;
+}
 .cart-item .tags h3>span>i{
     font-style:normal;
 }
@@ -416,7 +419,7 @@
     height: 100%;
     left: 0;
 }
-.cart-item .moneyCount .gift>img{
+.cart-item .moneyCount .gift img{
     width:100%;
 }
 .cart-item .moneyCount .gift .giftText{

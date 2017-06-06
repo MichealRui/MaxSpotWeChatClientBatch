@@ -22,6 +22,7 @@ export default class SubContent extends React.Component {
         let domain= IMAGECONFIG.host;
         let item = activityData.items && activityData.items.length > 0 ? activityData.items : current.items;
         let bannerData = current.banner && current.banner.length > 0 ? current.banner.map((banners,index)=>{
+            //domain + banners
             return <div className="bannerBorder" key={index}><img className="bannerImg" src={require("./images/1.jpg")} alt=""/></div>
         }) : [];
         let swiperConfig = {
