@@ -21,10 +21,13 @@ export default class SubContent extends React.Component {
         let activityData = this.props.activityData;
         let domain= IMAGECONFIG.host;
         let item = activityData.items && activityData.items.length > 0 ? activityData.items : current.items;
-        let bannerData = current.banner && current.banner.length > 0 ? current.banner.map((banners,index)=>{
-            //domain + banners
-            return <div className="bannerBorder" key={index}><img className="bannerImg" src={require("./images/1.jpg")} alt=""/></div>
-        }) : [];
+        // let bannerData = current.banner && current.banner.length > 0 ? current.banner.map((banners,index)=>{
+        //     //domain + banners
+        //     return <div className="bannerBorder" key={index}><img className="bannerImg" src={require("./images/1.jpg")} alt=""/></div>
+        // }) : [];
+        domain = 'http://test.mjitech.com/';
+        let bannerDatas = current.banner ?  <div className="bannerBorder"><img className="bannerImg" src={domain + current.banner} alt=""/></div> : null;
+        let hasBanner = current.banner ? true : false;
         let swiperConfig = {
             freeMode: false,
             slidesPerView: 1,
@@ -32,6 +35,11 @@ export default class SubContent extends React.Component {
             observer:true,//修改swiper自己或子元素时，自动初始化swiper
             // observeParents:true,//修改swiper的父元素时，自动初始化swiper
         };
+        /*
+         <Swiper swiperConfig={swiperConfig} swiperContainer={'swipers7'}>
+         {bannerData}
+         </Swiper>
+         */
         return (
             <div className="subContentContainer">
                 <Selector selector={this.props.selector}
@@ -47,9 +55,7 @@ export default class SubContent extends React.Component {
                 {
                     this.props.isActivity ?
                         <div className="subBanner">
-                            <Swiper swiperConfig={swiperConfig} swiperContainer={'swipers7'}>
-                                {bannerData}
-                            </Swiper>
+                            {bannerDatas}
                         </div> : ''
                 }
                 <ItemContainer items={current.items}
@@ -60,6 +66,7 @@ export default class SubContent extends React.Component {
                                activityData={props.activityData}
                                isActivity={props.isActivity}
                                cart={props.cart}
+                               hasBanner = {hasBanner}
                 />
             </div>
         )

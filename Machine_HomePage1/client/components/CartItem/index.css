@@ -338,6 +338,9 @@
     line-height: 34px;
     color: #fff;
 }
+.cart-item .giftLayer.bg999{
+    background: #999!important;
+}
 .cart-item .tags{
     position: absolute;
     bottom: 0;
@@ -348,6 +351,9 @@
     text-align:left;
     padding:4px 10px;
     box-sizing: border-box;
+}
+.cart-item .tags .color255{
+    /*color:#FFFFFF!important;*/
 }
 .cart-item .tags .showDeleteText{
     color:#FFFFFF;
@@ -421,6 +427,7 @@
 }
 .cart-item .moneyCount .gift img{
     width:100%;
+    height: 51px;
 }
 .cart-item .moneyCount .gift .giftText{
     position: absolute;

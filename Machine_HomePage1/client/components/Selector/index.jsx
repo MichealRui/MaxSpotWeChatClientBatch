@@ -9,8 +9,13 @@ export default class Selector extends React.Component {
         super(props);
         this.state = {
             selector:[],
-            selectorKey:'food'
-        }
+            selectorKey:'food',
+            first:true,
+
+        };
+        this._newType = 1;
+        this._activeType = 2;
+        this._selectType = 3;
     }
 
     setSubSelector(selector) {
@@ -30,15 +35,33 @@ export default class Selector extends React.Component {
     //     }
     // }
 
+    click(type,info){
+        if(type == this._newType){
+            //新品特惠
+            this.props.getChannelData(info)
+        }else if(type == this._activeType){
+            //活动
+            this.props.getActivityData(info)
+        }else if(type == this._selectType){
+            //select
+            this.setSubSelector(info)
+        }
+        this.setState({
+            first : false
+        })
+    }
+
     render() {
         let props = this.props;
         let keys = props.selector;
         let banners = props.bannerData;
         let channel = props.channelData;
+        let domain= IMAGECONFIG.host;
+        domain = 'http://test.mjitech.com/';
         let channelHtml = channel ? channel.map(
             (cha,index)=>{
                 return(
-                    <div className={"activityItem activity "+(cha.type == 1 ? 'new ' : 'hot ') + (this.props.activeTag == ("channel"+cha.type) ? 'active':'')} key={index} onClick={()=>this.props.getChannelData(cha.type)}>
+                    <div className={"activityItem activity "+(cha.type == 1 ? 'new ' : 'hot ') + (this.props.activeTag == ("channel"+cha.type) ? 'active':'')} key={index} onClick={()=>this.click.bind(this)(this._newType,cha.type)}>
                         {
                             cha.type == 1 ? <img src={require('./images/new.png')} alt=""/> : <img src={require('./images/hot.png')} alt=""/>
                         }
@@ -49,8 +72,8 @@ export default class Selector extends React.Component {
         ) : null;
         let bannerHtml = banners ? banners.map((banner,index)=>{
             return (
-                <div className={"activityItem activity "+ (this.props.activeTag == ("active"+banner.campaignId) ? 'active':'')} key={index} onClick={()=>this.props.getActivityData(banner.campaignId)}>
-                    <img src={require('./images/1.png')} alt=""/>
+                <div className={"activityItem activity "+ (this.props.activeTag == ("active"+banner.campaignId) ? 'active':'')} key={index} onClick={()=>this.click.bind(this)(this._activeType,banner.campaignId)}>
+                    <img src={domain + banner.imagePath} alt=""/>
                     <div className="line"></div>
                 </div>
             )
@@ -60,7 +83,7 @@ export default class Selector extends React.Component {
                 return (
                     <div key={index} className={ "activityItem contentTag " + (props.currentSelector.key == sel.key ? 'active' : '')  }
                         onClick={
-                            () => this.setSubSelector(sel)
+                            ()=>this.click.bind(this)(this._selectType,sel)
                         }
                     >
                         <img src={sel.image} />
@@ -77,14 +100,21 @@ export default class Selector extends React.Component {
         let swiperConfig = {
             freeMode: false,
             slidesPerView: 7,
+            slideToClickedSlide:true,
         };
+        /*
+         pagination:'',
+         freeMode: false,
+         slidesPerView: length,
+         spaceBetween: 0,
+         */
         return (
             <div className="activityTagsContainer">
                 <div className="contentActivityTags">
                     <SwiperContainer
                         swiperConfig={swiperConfig}
                         swiperContainer={'swipers6'}
-                        reload={true}
+                        reload={this.state.first}
                     >
                         {all}
                     </SwiperContainer>

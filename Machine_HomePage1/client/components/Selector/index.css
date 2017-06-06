@@ -83,6 +83,8 @@
 }
 .activityTagsContainer .contentActivityTags .activityItem>img{
 	height:100%;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
 .activityTagsContainer .contentActivityTags .activityItem.contentTag .contentText{
 	position: absolute;

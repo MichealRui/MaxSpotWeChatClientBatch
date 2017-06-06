@@ -27,7 +27,6 @@ export default class SwiperComponent extends React.Component {
 
     componentWillReceiveProps(nextprops){
         if(nextprops.itemCount && (nextprops.itemCount !== this.props.itemCount)){
-            console.log('reload');
             this.state.swiper.init();
         }
     }

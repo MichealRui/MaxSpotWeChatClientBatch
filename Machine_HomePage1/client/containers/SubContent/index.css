@@ -4,10 +4,11 @@
     padding-bottom: 0;
 }
 .subContentContainer .subBanner .bannerBorder{
-    width: 99%;
-    height: 310px;
+    width: 100%;
+    height: 305px;
 }
 .subContentContainer .bannerImg{
-    width: 100%;
+    /*width: 100%;*/
+    height: 100%;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
 }

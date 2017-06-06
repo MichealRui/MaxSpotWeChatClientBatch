@@ -310,7 +310,8 @@ function setDetail(content, prod) {
 }
 
 function succAddCart(content, prod) {
-    let state = Object.assign({}, content);
+    // let state = Object.assign({}, content);
+    let state = JSON.parse(JSON.stringify(content));
     let cartItems = state.cart.items;
     let findResult = cartItems.filter(i => i.id == prod.id) || [];
     findResult.length == 0 ?
@@ -438,7 +439,11 @@ function clearCart(content) {
 
 function initActivity(content, products, banner,activeTag,activeName) {
     let newContent = Object.assign({}, content);
-    newContent.currentSub = Object.assign({}, newContent.currentSub, {items: products,banner:[banner]});
+    // let banners = [];
+    // if(banner){
+    //     banners = [banner];
+    // }
+    newContent.currentSub = Object.assign({}, newContent.currentSub, {items: products,banner:banner});
     newContent.currentSelector = {};
     newContent.currentSelector.key = "活动";
     newContent.currentSelector.subKey = activeName;

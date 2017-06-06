@@ -519,7 +519,7 @@ export function initChannelActivity(type) {
                     }else{
                         activeName = '今日特惠';
                     }
-                    dispatch(succInitActivity(Object.assign({},{products:json.skuitems,banner:json.headUrl,activeTag:"channel"+type,activeName:activeName})))
+                    dispatch(succInitActivity(Object.assign({},{products:json.skuitems,banner:"",activeTag:"channel"+type,activeName:activeName})))
                 } else {
                     console.log('error')
                 }

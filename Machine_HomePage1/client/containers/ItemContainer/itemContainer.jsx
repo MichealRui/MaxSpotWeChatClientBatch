@@ -26,7 +26,7 @@ var ItemContainer = React.createClass({
         });
         let newItems = new Array();
         let tempItems = new Array();
-        let num = this.props.isActivity ? 8 : 12;
+        let num = this.props.hasBanner ? 8 : 12;
         props.forEach((item,index)=>{
             if(index % num == 0 && index != 0){
                 newItems.push(tempItems);

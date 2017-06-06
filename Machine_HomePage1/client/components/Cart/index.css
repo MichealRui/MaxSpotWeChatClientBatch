@@ -60,14 +60,15 @@
     position:absolute;
     width:174px;
     height:256px;
-    border:1px solid #ccc;
+    /*border:1px solid #ccc;*/
     border-radius:10px;
     -webkit-border-radius:10px;
     top:-10px;
     left:-10px;
     background-color:#ffffff;
     z-index:2;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+    /*box-shadow: 10px 10px 10px rgba(0,0,0,0.1);*/
+    box-shadow:0px 10px 10px rgba(0,0,0,0.1),10px 0px 10px rgba(0,0,0,0.1),0px -10px 10px rgba(0,0,0,0.1),-10px 0px 10px rgba(0,0,0,0.1);
 }
 .shoppingCart .balance{
     position: absolute;

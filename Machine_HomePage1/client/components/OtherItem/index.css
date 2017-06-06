@@ -50,6 +50,7 @@
 }
 .otherItems .otherItem .itemInfo>p:last-child>span:first-child{
 	color:#2db9ed;
+	font-weight: 600;
 }
 
 .otherItems .otherItem .itemInfo>p:last-child>span:last-child{

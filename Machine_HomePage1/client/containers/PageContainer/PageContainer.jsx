@@ -29,7 +29,7 @@ class PageContainer extends React.Component{
             beginBack : true,
             showCart : false,
         };
-        this.maxIdleTime = 1200; // 5 minute
+        this.maxIdleTime = 200;
         this.idleTime = 0;
         this.timer = null;
         this.upTime = 0;

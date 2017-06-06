@@ -10,7 +10,7 @@ export default class QrContent extends React.Component {
             sleepTime:2000,
             timer:null,
             currentCount:0,
-            stayTime : 1200,
+            stayTime : 180,
         };
         this.count = 0;
     }
@@ -18,7 +18,6 @@ export default class QrContent extends React.Component {
     fetchOrderStatus() {
         let {order, fetchOrder, setCartTaking,setCartNotice} = this.props;
         let PAID = '3';
-        console.log(this.count);
         this.count++;
         if(order.status != PAID) {
             if(this.count > this.state.stayTime){

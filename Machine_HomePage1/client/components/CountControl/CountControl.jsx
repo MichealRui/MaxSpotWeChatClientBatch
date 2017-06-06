@@ -16,6 +16,7 @@ export default class CountControl extends React.Component{
     }
 
     dec() {
+        console.warn(this.__changing);
         if(!this.__changing && this.props.item.count > 1) {
             this.props.decrease(
                 this.props.item
@@ -41,21 +42,23 @@ export default class CountControl extends React.Component{
     }
 
     add() {
-        if(this.props.item.count >= this.props.item.quantity){
-            this.setState({
-                showTips : true,
-                addSucc : false
-            });
-            this.timeup();
-            return false;
-        }else{
+        if(this.props.item.count < this.props.item.quantity && !this.__changing){
             this.props.addItem(
                 this.props.item
             );
             this.setState({
                 addSucc : true
             });
+            this.__changing = true;
             this.timeup();
+        }else{
+            this.setState({
+                showTips : true,
+                addSucc : false
+            });
+            this.__changing = false;
+            this.timeup();
+            return false;
         }
         // this.props.addItem(
         //     this.props.item
@@ -98,7 +101,7 @@ export default class CountControl extends React.Component{
                 }
                 {
                     this.props.countClass=='skuContainerCount' && this.state.addSucc ? <div className={"noQuantity colorred " + this.props.countClass + (this.state.addSucc ? " ":" hide")} >
-                        <span className="font24 noQuans">添加成功</span>
+                        <span className="font24 noQuans">已加入购物袋</span>
                     </div>:''
                 }
             </div>

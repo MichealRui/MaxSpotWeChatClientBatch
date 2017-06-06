@@ -74,69 +74,12 @@ export default class CartItem extends React.Component{
         let giftAvailable = this.props.item.giftAvailable;
         var atts = this.getAtts(props.attributes);
         let domain= IMAGECONFIG.host;//ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
-        let soldOut = props.quantity ? (
-            <div className={"counting clearfix "}>
-                <a className="btn-minus" disabled={props.count == 1} onClick={() => this.decrease.bind(this)()}>-</a>
-                <span type="text" className="quantity" value={props.count} readOnly="readOnly">{props.count}</span>
-                <a className="btn-plus" disabled={ props.quantity <= props.count} onClick={() => this.addItem.bind(this)()}>+</a>
-            </div>
-        ) : <div className={ 'counting undershop font20' }>此商品已售罄</div>;
-
-        let gift = (
-            <div>
-                <div className="gift-count">
-                    x 1
-                </div>
-                <div className= {"gift-footer " + (giftAvailable?"gift-active":"gift-fail")}>
-                    <span className="gift-desc1">满29 </span> <span className="gift-desc2">/ 享赠</span>
-                </div>
-                {
-                    giftAvailable ? null: <div className="gift-fail-cover"></div>
-                }
-            </div>
-        );
-
-        let footer = isGift? gift
-            :
-            (
-                <div>
-                    <h3 className="item-price">
-                        <span className="final-price">{props.sellprice /100 || 0}<span className="font20">元</span></span>
-                    </h3>
-                    <div className="item-panel clearfix">
-                        {soldOut}
-                        <a className="trash" onClick={() => this.toggleDelete.bind(this)()}>Remove this item!</a>
-                    </div>
-                    <div className={"layer " + (this.state.showDelete ? '': 'hide')}>
-                        <div className="dialog">
-                            <div className="font26 del">删除此商品？</div>
-                            <div className="btn clearfix">
-                                <div className="btn_yes font30" onClick={() => {
-                                    this.toggleDelete.bind(this)();
-                                    this.removeItem.bind(this)();
-                                }}>确定</div>
-                                <div className="btn_no font30" onClick={() => this.toggleDelete.bind(this)()}>取消</div>
-                            </div>
-                        </div>
-                    </div>
-                    {
-                        props.count > props.quantity ? <div className="noQuantity">
-                            <span className="triangle-up"></span>
-                            <span className="font20 noQuantity">{"剩余库存 " + props.quantity + " 件"}</span>
-                        </div>:''
-                    }
-                    <div className={ "layer " + (props.quantity > 0 ? 'hide':'')}></div>
-                </div>
-            );
-        let marketPrice = props.msrp > 0 ? <span className="market-price font20">市场价¥{props.msrp/100}元</span> :'';
         let itemKey = this.props.itemKey;
         let campaignTags = this.props.campaign && !this.props.isAllSku ?
             <div className={"campaignTag font10 " + (this.props.activate?"activate" : "fail")}>
                 { (this.props.activate?"已满足":"不满足") + "【"+this.props.campaignTag+"】"}
             </div>
             :null;
-
-
 
         return (
             <div className={"cart-item " + (itemKey==0?'first':'')}>
@@ -146,16 +89,16 @@ export default class CartItem extends React.Component{
                 <div className="pic">
                     <img src={domain + this.getMiddlePic(props.imagePath)} />
 
-                        <div className={"giftLayer font12 " + (isGift ? '':'hide')}>赠品</div>
+                        <div className={"giftLayer font12 " + (isGift ? '':'hide ') + (this.props.activate ? '':'bg999')}>赠品</div>
                         <div className="tags">
                             {
                                 this.state.showDelete && !isGift ? <p className="font16 showDeleteText">删除此商品？</p>:
                                     <div>
                                         <h3 className="font16">{props.name}</h3>
                                         <h3 className="font16">
-                                            <span className={"currentMoney " + (isGift?'hide':'')}>{props.sellprice/100 || 0}<span className="font10">元</span></span>
-                                            <span className={"beforeMoney font10 "+(props.msrp && !isGift ? '':'hide')}>原价 {props.msrp/100 || 0}<span className="font10">元</span></span>
-                                            <span className={"giftCount font16 " + (isGift?'':'hide')}><span className="font10">×</span>{props.count}</span>
+                                            <span className={"currentMoney " + (isGift?'hide ':'') +(this.props.activate ? '':'color255') }>{props.sellprice/100 || 0}<span className="font10">元</span></span>
+                                            <span className={"beforeMoney font10 "+(props.msrp && !isGift ? '':'hide') + (this.props.activate ? '':' color255')}>原价 {props.msrp/100 || 0}<span className="font10">元</span></span>
+                                            <span className={"giftCount font16 " + (isGift?'':'hide') + (this.props.activate ? '':' color255')}><span className="font10">×</span>{props.count}</span>
                                         </h3>
                                     </div>
                             }
