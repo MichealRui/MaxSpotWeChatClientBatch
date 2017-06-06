@@ -25,9 +25,13 @@ export default class SubContent extends React.Component {
         //     //domain + banners
         //     return <div className="bannerBorder" key={index}><img className="bannerImg" src={require("./images/1.jpg")} alt=""/></div>
         // }) : [];
+
+        //domain + current.banner
         domain = 'http://test.mjitech.com/';
-        let bannerDatas = current.banner ?  <div className="bannerBorder"><img className="bannerImg" src={domain + current.banner} alt=""/></div> : null;
+        let bannerDatas = current.banner ?  <div className="bannerBorder"><img className="bannerImg" src={require('./images/1.jpg')} alt=""/></div> : null;
         let hasBanner = current.banner ? true : false;
+        console.warn(hasBanner);
+        console.warn(current.banner);
         let swiperConfig = {
             freeMode: false,
             slidesPerView: 1,

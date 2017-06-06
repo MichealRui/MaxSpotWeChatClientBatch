@@ -141,16 +141,15 @@ function initSuccess(content, data){
     * set default value for the first time
     * */
     currentSub.items = currentSub.categoried[selector[0].subSelector[0]];
-
-    console.log(content);
-
+    // currentSub.banner = '';
     let cart;
     if(content.cart.items.length) {
         cart = Object.assign({}, content.cart)
     } else {
         cart = {
             items: [],
-            moreItems: currentSub.items.slice(0, 3),
+            // moreItems: currentSub.items.slice(0, 3),
+            moreItems: [],
             count: 0,
             totalPrice:0,
         };
@@ -292,7 +291,7 @@ function operator_computeCampaignType_3(cUnit) {
 function changeContent(content, {key, subKey}) {
     let newContent = Object.assign({}, content);
     let target = newContent.subContent[key];
-    newContent.currentSub = Object.assign({}, newContent.currentSub, {items: target.categoried[subKey]});
+    newContent.currentSub = Object.assign({}, newContent.currentSub, {items: target.categoried[subKey],banner:''});
     newContent.currentSelector = newContent.selector.filter(s => s.key == key).pop();
     newContent.currentSelector.subKey = subKey;
     // newContent.currentSelector = {parentKey: key, subKey:subKey};

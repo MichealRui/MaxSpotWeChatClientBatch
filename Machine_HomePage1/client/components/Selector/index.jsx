@@ -70,10 +70,11 @@ export default class Selector extends React.Component {
                 )
             }
         ) : null;
+        //domain + banner.imagePath
         let bannerHtml = banners ? banners.map((banner,index)=>{
             return (
                 <div className={"activityItem activity "+ (this.props.activeTag == ("active"+banner.campaignId) ? 'active':'')} key={index} onClick={()=>this.click.bind(this)(this._activeType,banner.campaignId)}>
-                    <img src={domain + banner.imagePath} alt=""/>
+                    <img src={require('./images/1.png')} alt=""/>
                     <div className="line"></div>
                 </div>
             )

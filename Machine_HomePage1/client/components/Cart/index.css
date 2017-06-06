@@ -122,17 +122,17 @@
     background-color: #ccc!important;
 }
 
-.cart.active {
+.cart .cartNum.active {
     -webkit-animation: big-scale 1s linear 0s 1 normal ;
     animation: big-scale 1s linear 0s 1 normal ;
 }
-.cart.active .count{
-    -webkit-animation: big-scale1 2s linear 0.5s 1 normal ;
-    animation: big-scale1 2s linear 0.5s 1 normal ;
+.cart .cartNum.active .count{
+    -webkit-animation: big-scale1 1s linear 0s 1 normal ;
+    animation: big-scale1 1s linear 0s 1 normal ;
 }
-.cart.active .countBg{
-    -webkit-animation: big-scale 1s linear 0.5s 1 normal ;
-    animation: big-scale 1s linear 0.5s 1 normal ;
+.cart .cartNum.active .countBg{
+    -webkit-animation: big-scale 1s linear 0s 1 normal ;
+    animation: big-scale 1s linear 0s 1 normal ;
 }
 .shoppingCart .showTips{
     display: block;

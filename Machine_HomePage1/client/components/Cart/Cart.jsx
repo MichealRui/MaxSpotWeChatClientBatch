@@ -47,11 +47,13 @@ export default class Cart extends React.Component{
         }
         return (
             <div className="shoppingCart">
-                <div className={"cart "+ this.state.cartActive}>
-                    <img src={require("./images/cart.png")} />
+                <div className={"cart "}>
+                    <div className={"cartNum "+ this.state.cartActive}>
+                        <img src={require("./images/cart.png")} />
                         <span className="countBg"></span>
                         <span className={"count " + font}>{props.count || 0}</span>
-                        <div className="money font40"><span className="font18">￥</span>{props.totalPrice || 0}</div>
+                    </div>
+                    <div className="money font40"><span className="font18">￥</span>{props.totalPrice || 0}</div>
                 </div>
                 <div className={"balance font26 " + (this.props.count > 0 ? '' :'bgcolorccc')} onClick={()=>this.submitClick()}>
                     立即结算
