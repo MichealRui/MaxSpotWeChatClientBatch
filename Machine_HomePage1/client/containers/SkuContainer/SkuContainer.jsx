@@ -128,6 +128,8 @@ export default class SkuContainer extends React.Component {
                                                 campaignedProductList={props.campaignedProductList}
                                                 countShow={this.state.countShow}
                                                 showCountControl={this.showCountControl.bind(this)}
+                                                errItem={props.errItem}
+                                                setCartErrorMessageEmpty={props.setCartErrorMessageEmpty}
                                     />
                                     ) : ''
 

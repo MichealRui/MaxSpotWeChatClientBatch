@@ -16,7 +16,9 @@ export default class CountControl extends React.Component{
     }
 
     dec() {
-        console.warn(this.__changing);
+        if(this.props.item.errMessage){
+            this.__changing = false
+        }
         if(!this.__changing && this.props.item.count > 1) {
             this.props.decrease(
                 this.props.item
@@ -36,29 +38,50 @@ export default class CountControl extends React.Component{
     }
 
     componentWillReceiveProps(nextProps){
-        if(nextProps.item.count != this.props.item.count){
+        if(nextProps.item.count != this.props.item.count || this.props.errItem != nextProps.errItem){
             this.__changing = false;
         }
     }
 
     add() {
-        if(this.props.item.count < this.props.item.quantity && !this.__changing){
+        // if(this.props.item.count < this.props.item.quantity && !this.__changing){
+        //     this.props.addItem(
+        //         this.props.item
+        //     );
+        //     this.setState({
+        //         addSucc : true
+        //     });
+        //     this.__changing = true;
+        //     this.timeup();
+        // }else{
+        //     this.setState({
+        //         showTips : true,
+        //         addSucc : false
+        //     });
+        //     this.__changing = false;
+        //     this.timeup();
+        //     return false;
+        // }
+        if(this.props.item.errMessage){
+            this.__changing = false
+        }
+        if(!this.__changing){
+            window.clearTimeout(this.state.cartTimer);
+            this.setState({
+                addSucc : true,
+                showTips : false,
+            });
+            if((this.props.errItem && this.props.errItem.id) || this.props.item.count >= this.props.item.quantity){
+                this.setState({
+                    addSucc : false,
+                    showTips : true,
+                });
+            }
             this.props.addItem(
                 this.props.item
             );
-            this.setState({
-                addSucc : true
-            });
             this.__changing = true;
             this.timeup();
-        }else{
-            this.setState({
-                showTips : true,
-                addSucc : false
-            });
-            this.__changing = false;
-            this.timeup();
-            return false;
         }
         // this.props.addItem(
         //     this.props.item
@@ -77,7 +100,8 @@ export default class CountControl extends React.Component{
                 this.setState({
                     showTips : false,
                     addSucc : false
-                })
+                });
+                // this.props.setCartErrorMessageEmpty()
             }, 1000)
         )
     }
@@ -88,19 +112,19 @@ export default class CountControl extends React.Component{
             <div className="countControl">
                 <a className={"simble font16 del " + (props.count <= 1 ? 'color999 ' : 'color333 ') + (this.props.fontClass)} disabled={props.count < 2} onClick={()=>this.dec.bind(this)()} >_</a>
                 <span className={"count font14 " + this.props.countFontSize}>{props.count}</span>
-                <a className={"simble font16  " + (props.quantity <= props.count ? 'color999 ' : 'color333 ') + (this.props.fontClass)}  onClick={()=>this.add.bind(this)()} >+</a>
+                <a className={"simble font16  " + (props.quantity <= props.count || props.errMessage ? 'color999 ' : 'color333 ') + (this.props.fontClass)}  onClick={()=>this.add.bind(this)()} >+</a>
                 {
-                    this.props.countClass=='shoppingCartCount' && props.count >= props.quantity ? <div className={"noQuantity font16 " + this.props.countClass + (this.state.showTips ? " ":" hide")} >
-                        {"剩余库存 " + props.quantity + " 件"}
+                    this.props.countClass=='shoppingCartCount' ? <div className={"noQuantity font16 " + this.props.countClass + (this.state.showTips && props.errMessage ? " ":" hide")} >
+                        剩余库存不足
                     </div>:''
                 }
                 {
-                    this.props.countClass=='skuContainerCount' && props.count >= props.quantity ? <div className={"noQuantity " + this.props.countClass + (this.state.showTips ? " ":" hide")} >
-                        <span className="font24 noQuans">{"剩余库存 " + props.quantity + " 件"}</span>
+                    this.props.countClass=='skuContainerCount' ? <div className={"noQuantity " + this.props.countClass + (this.state.showTips && props.errMessage ? " ":" hide")} >
+                        <span className="font24 noQuans">剩余库存不足</span>
                     </div>:''
                 }
                 {
-                    this.props.countClass=='skuContainerCount' && this.state.addSucc ? <div className={"noQuantity colorred " + this.props.countClass + (this.state.addSucc ? " ":" hide")} >
+                    this.props.countClass=='skuContainerCount'  ? <div className={"noQuantity colorred " + this.props.countClass + (this.state.addSucc ? " ":" hide")} >
                         <span className="font24 noQuans">已加入购物袋</span>
                     </div>:''
                 }

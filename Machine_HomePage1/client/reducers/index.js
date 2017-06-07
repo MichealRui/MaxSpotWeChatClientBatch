@@ -5,7 +5,7 @@ import {
     CHANGE_SUBCONTENT, SET_DETAIL, SUCC_FETCH_CART,SUCC_FETCH_SKU,
     SUCC_DELETE_CART,SUCC_REMOVE_CART,
     SET_PAYMENT_CODE, CLEAR_PAYMENT_CODE,FAIL_SET_ORDER,
-    SET_ORDER, SET_CART_STATUS, SUCC_CLEAR_CART,
+    SET_ORDER, SET_CART_STATUS, SUCC_CLEAR_CART,SET_ERROR_MESSAGE_EMPTY,
     SET_RECOMMEND, SUCC_INIT_ACTIVITY,SET_ERRORMESSAGE,ARR_QR_COUNT,SET_QR_COUNT
 } from '../actions/index'
 import icon_images from '../mock/images'
@@ -167,7 +167,9 @@ function initSuccess(content, data){
         currentSelector:currentSelector,
         activity:{items:[], banner:[]},
         isActivity:false,
-        activeTag:''
+        activeTag:'',
+        allSkuImage : data.allSkuImage,
+        errItem:''
     })
 }
 
@@ -322,6 +324,7 @@ function succAddCart(content, prod) {
             return i
         });
     state.cart = finalCartStatus(state.cart);
+    state.errItem = "";
     return state
 }
 
@@ -390,16 +393,20 @@ function decreaseItem(content, prod) {
         })
     }
     state.cart = finalCartStatus(state.cart);
+    state.errItem = "";
     return state
 }
 
 function setCartErrorMessage(content,prod,message) {
+    // let newState = Object.assign({},content);
+    let newState = JSON.parse(JSON.stringify(content));
+    newState.errItem = Object.assign({},prod,message);
+    return newState;
+}
+
+function setCartErrorMessageEmpty(content) {
     let newState = Object.assign({},content);
-    let cartItems = newState.cart.items;
-    let findresult = cartItems.filter(c=>c.id == prod.id);
-    if(findresult && findresult.length > 0){
-        findresult.errMessage = message;
-    }
+    newState.errItem = {};
     return newState;
 }
 
@@ -485,6 +492,8 @@ export default function (
             return succAddCart(content, action.item);
         case FAIL_ADD_CART:
             return setCartErrorMessage(content,action.item,action.errorMessage);
+        case SET_ERROR_MESSAGE_EMPTY :
+            return setCartErrorMessageEmpty(content);
         case SUCC_DELETE_CART:
             return decreaseItem(content, action.item);
         case SUCC_REMOVE_CART:

@@ -53,6 +53,7 @@ export default class skuHeader extends React.Component {
         let props = this.props;
         let item = props.item;
         let sku = item.productDetail;
+        sku.errMessage = props.errItem && props.errItem.id == sku.id ? props.errItem.errorMessage : '';
         let campaignedProductList = props.campaignedProductList ? props.campaignedProductList : [];
         let cartProduct = new Array;
         campaignedProductList.map(
@@ -68,7 +69,6 @@ export default class skuHeader extends React.Component {
         );
         let selProduct = cartProduct.filter((item)=> item.id == sku.id );
         sku.count = selProduct && selProduct.length > 0 ? selProduct[0].count : 0;
-        let brand = item.brand;
         let attributes = sku.attributes;
         var attr = this.getAttribute(attributes)
         let sub_title = (
@@ -76,19 +76,6 @@ export default class skuHeader extends React.Component {
                 <p className="font26">{sku.brandName}</p>
                 <p className="font32">{sku.name}</p>
                 <p className="font26">{attr}</p>
-            </div>
-        );
-        let new_sub_title = (
-            <div>
-                <p>{sku.brandName}</p>
-                <p>{sku.name}</p>
-                <p>{attr}</p>
-            </div>
-        );
-        let sub_price = (
-            <div className="sub_price">
-                <p className="font48"><span className="font32">￥</span>{sku.sellprice/100 || 0 }</p>
-                {/*<p className={"font24 "+(sku.quantity>0 ? '':'hide')}>市场价 {sku.msrp/100}元</p>*/}
             </div>
         );
         let new_sub_price = (
@@ -110,6 +97,8 @@ export default class skuHeader extends React.Component {
                                   countFontSize = "font24"
                                   fontClass="font30"
                                   countClass="skuContainerCount"
+                                  errItem={this.props.errItem}
+                                  setCartErrorMessageEmpty={this.props.setCartErrorMessageEmpty}
                     />
                 </div>
             </div>

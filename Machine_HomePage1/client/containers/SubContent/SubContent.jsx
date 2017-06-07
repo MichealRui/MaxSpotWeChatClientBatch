@@ -30,8 +30,6 @@ export default class SubContent extends React.Component {
         domain = 'http://test.mjitech.com/';
         let bannerDatas = current.banner ?  <div className="bannerBorder"><img className="bannerImg" src={require('./images/1.jpg')} alt=""/></div> : null;
         let hasBanner = current.banner ? true : false;
-        console.warn(hasBanner);
-        console.warn(current.banner);
         let swiperConfig = {
             freeMode: false,
             slidesPerView: 1,
@@ -71,6 +69,8 @@ export default class SubContent extends React.Component {
                                isActivity={props.isActivity}
                                cart={props.cart}
                                hasBanner = {hasBanner}
+                               errItem={props.errItem}
+                               setCartErrorMessageEmpty = {props.setCartErrorMessageEmpty}
                 />
             </div>
         )

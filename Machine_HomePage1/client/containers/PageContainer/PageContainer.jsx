@@ -12,11 +12,11 @@ import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/inde
 import {changeSubContent} from '../../actions/index'
 import {fetchSku} from '../../actions/index'
 import {fetchCart} from '../../actions/index'
-import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart ,setQrCount , addQrCount} from '../../actions/index'
+import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart ,setQrCount , addQrCount,setCartErrorMessageEmpty} from '../../actions/index'
 import {initActivity,initChannelActivity} from '../../actions/index';
 import CartStatus from '../CartContainer/CartStatus';
-import RemindContainer from '../RemindContainer/RemindContainer'
-
+import RemindContainer from '../RemindContainer/RemindContainer';
+require('./index.css')
 class PageContainer extends React.Component{
     constructor(props) {
         super(props);
@@ -181,6 +181,8 @@ class PageContainer extends React.Component{
 
     render() {
         let {state, dispatch} = this.props;
+        let domain = IMAGECONFIG.host;
+        domain = 'http://test.mjitech.com/';
         return (
             <div className="pageContainer" onClick={() => this.idleTime = 0}
                  onTouchStart={() => this.idleTime = 0}
@@ -195,7 +197,16 @@ class PageContainer extends React.Component{
                     cartClick={this.onCartBtnClick.bind(this)}
                     remindShow={this.onRemindBtnClick.bind(this)}
                     beginBack={this.state.beginBack}
+                    allSkuImage = {state.allSkuImage}
+                    errItem={state.errItem}
+                    setCartErrorMessageEmpty={()=>dispatch(setCartErrorMessageEmpty())}
                 />
+                {
+                    state.allSkuImage ?  <div className="allSku">
+                        <img src={domain + state.allSkuImage} alt=""/>
+                    </div> : null
+                }
+
                 <SubContent
                     bannerData={state.banner}
                     activityData={state.activity}
@@ -211,6 +222,8 @@ class PageContainer extends React.Component{
                     isActivity={state.isActivity}
                     activeTag={state.activeTag}
                     cart={state.cart}
+                    errItem={state.errItem}
+                    setCartErrorMessageEmpty={()=>dispatch(setCartErrorMessageEmpty())}
                 />
 
                 <CartContainer visible={this.state.cartVisible}
@@ -233,6 +246,8 @@ class PageContainer extends React.Component{
                               addToCart={(item) => dispatch(addToCart(item))}
                               {...state.cart}
                               onCartClick = {()=>this.onCartBtnClick.bind(this)}
+                              errItem={state.errItem}
+                              setCartErrorMessageEmpty={()=>dispatch(setCartErrorMessageEmpty())}
                 />
                 <FetchSkuContainer visible={this.state.fetchSkuVisible}
                                    onCancel={this.hideFetchSku.bind(this)}

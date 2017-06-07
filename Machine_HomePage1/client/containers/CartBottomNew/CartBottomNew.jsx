@@ -25,9 +25,13 @@ export default class CartBottomNew extends React.Component {
         };
         let items = this.props.moreItems && this.props.moreItems.length > 0 ?
             this.props.moreItems.map((item, index) => {
+                let temp = this.props.productList.filter(pro=>pro.id == item.id);
+                item.count = temp && temp.length > 0 ? temp[0].count : 0;
+                item.errMessage = this.props.errItem && this.props.errItem.id == item.id ? this.props.errItem.errorMessage : '';
             return (
                 <OtherItem item={item} key={index}
                       click={this.props.itemClick}
+                           setCartErrorMessageEmpty={this.props.setCartErrorMessageEmpty}
                 />
             )
         }) : null;

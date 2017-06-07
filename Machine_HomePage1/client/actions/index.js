@@ -65,6 +65,8 @@ export const SET_ERRORMESSAGE = 'SET_ERRORMESSAGE';
 
 export const SUCC_INIT_ACTIVITY = 'SUCC_INIT_ACTIVITY';
 
+export const SET_ERROR_MESSAGE_EMPTY = 'SET_ERROR_MESSAGE_EMPTY';
+
 
 const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.36:9090' : 'http://10.16.66.36:8080';
 
@@ -78,12 +80,14 @@ export function initMainContent () {
             }).then(response => response.json()
             .then(json => {
                 if(json.is_succ) {
+                    let allSkuImage = json.allSkuImage ? json.allSkuImage : '';
                     dispatch(initSucc({
                         banner: json.banners,
                         content: json.categories,
                         store: json.selectedStore,
-                        channel: json.channel
-                    }));
+                        channel: json.channel,
+                        allSkuImage : allSkuImage
+                }));
                     dispatch(fetchCart())
                 } else {
                     console.log(json);
@@ -127,7 +131,7 @@ export function addToCart(item) {
                 if(json.is_succ) {
                     dispatch(successAddToCart(item))
                 } else {
-                    // dispatch(errorAddToCart(item,{errorMessage: json.error_message}))
+                    dispatch(errorAddToCart(item,{errorMessage: json.error_message}))
                     // dispatch(initMainContent());
                 }
             }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
@@ -157,7 +161,7 @@ export function deleteOneFromCart(item) {
                 if(json.is_succ) {
                     dispatch(succDeleteItem(item))
                 } else {
-                    dispatch(errorAddToCart({errorMessage: json.error_message}))
+                    dispatch(errorAddToCart(item,{errorMessage: json.error_message}))
                 }
             }).catch(e => dispatch(errorAddToCart({ errorMessage: '服务器错误' })))
     }
@@ -551,5 +555,11 @@ function failSetOrder(content) {
     return {
         type : FAIL_SET_ORDER,
         content
+    }
+}
+
+export function setCartErrorMessageEmpty() {
+    return {
+        type : SET_ERROR_MESSAGE_EMPTY
     }
 }

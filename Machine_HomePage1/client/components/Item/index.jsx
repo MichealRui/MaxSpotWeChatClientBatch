@@ -18,25 +18,33 @@ export default class Item extends React.Component {
         //     showFloat: true
         // });
 
-        if(this.props.item.quantity <= 0){
-            return false
-        }
-
-        let c_count = this.props.cart.items.filter(c_i => c_i.id == this.props.item.id);
-        let count = 0;
-        if(c_count && c_count.length > 0){
-            count = c_count[0].count
-        }
-        if(count < this.props.item.quantity){
-            this.props.click(
-                this.props.item
-            );
-        }else{
-            this.setState({
-                showTips : true
-            });
-            this.clearTips();
-        }
+        // if(this.props.item.quantity <= 0){
+        //     return false
+        // }
+        //
+        // let c_count = this.props.cart.items.filter(c_i => c_i.id == this.props.item.id);
+        // let count = 0;
+        // if(c_count && c_count.length > 0){
+        //     count = c_count[0].count
+        // }
+        // if(count < this.props.item.quantity){
+        //     this.props.click(
+        //         this.props.item
+        //     );
+        // }else{
+        //     this.setState({
+        //         showTips : true
+        //     });
+        //     this.clearTips();
+        // }
+        window.clearTimeout(this.state.cartTimer);
+        this.setState({
+            showTips : true
+        });
+        this.clearTips();
+        this.props.click(
+            this.props.item
+        );
         e.stopPropagation();
         e.preventDefault();
     }
@@ -45,7 +53,8 @@ export default class Item extends React.Component {
         this.state.cartTimer = window.setTimeout(()=>{
             this.setState({
                 showTips : false
-            })
+            });
+            this.props.setCartErrorMessageEmpty();
         },2000);
     }
 
@@ -95,7 +104,8 @@ export default class Item extends React.Component {
         const HOT_ITEM = 2;
         const OTHER_ITEM = 0;
         let tips = props.quantity <= 0 ? <div className="showTips font20">缺货</div> : '';
-        let tips1 = this.state.showTips ? <div className="showTips font20">剩余库存{props.quantity}件</div> : '';
+        // let tips1 = this.state.showTips ? <div className="showTips font20">剩余库存{props.quantity}件</div> : '';
+        let tips1 = this.props.errorMessage && this.state.showTips ? <div className="showTips font20">剩余库存不足</div> : '';
         //ActiveType
         let campaignTag = props.campaign ? <div className="campaign font14">{props.tips}</div>:null;
         return (

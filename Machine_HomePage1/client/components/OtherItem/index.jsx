@@ -5,18 +5,46 @@ require('./index.css');
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            showTips : false,
+        }
     }
+
 
     addClick(e) {
         // todo update cart
         // this.setState({
         //     showFloat: true
         // });
+        // if(this.props.item.count < this.props.item.quantity){
+        //     this.props.click(
+        //         this.props.item
+        //     );
+        // }else{
+        //     this.setState({
+        //         showTips : true
+        //     });
+        //     this.clearTips();
+        // }
+        window.clearTimeout(this.state.cartTimer);
+        this.setState({
+            showTips : true
+        });
+        this.clearTips();
         this.props.click(
             this.props.item
         );
         e.stopPropagation();
         e.preventDefault();
+    }
+
+    clearTips(){
+        this.state.cartTimer = window.setTimeout(()=>{
+            this.setState({
+                showTips : false
+            });
+            this.props.setCartErrorMessageEmpty()
+        },2000);
     }
 
     showClick(item) {
@@ -74,6 +102,7 @@ export default class Item extends React.Component {
                     </p>
                 </h3>
                 <div className="addText font18" onClick={this.addClick.bind(this)}>添加</div>
+                <div className={"showTips " + (props.errMessage && this.state.showTips ? '' : ' hide')}>剩余库存不足</div>
             </div>
         );
     }

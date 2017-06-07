@@ -18,7 +18,7 @@ export default class ShoppingCartContainer extends React.Component{
             // observeParents:true,//修改swiper的父元素时，自动初始化swiper
             spaceBetween: 0,
         };
-        let {decItem, addToCart, removeItem} = this.props;
+        let {decItem, addToCart, removeItem,setCartErrorMessageEmpty,errItem} = this.props;
         let {campaignId, campaignTag, presentSku, list, totalDiscount, activate, initStatus, isAllSku} = campaignDetail;
         let productStructures = list.length > 0 ?
             (
@@ -60,6 +60,7 @@ export default class ShoppingCartContainer extends React.Component{
                 (product,index)=>
                 {
                     giftKey ++ ;
+                    product.errMessage = this.props.errItem && this.props.errItem.id == product.id ? this.props.errItem.errorMessage : '';
                     return (<CartItem
                         item={product}
                         key={index}
@@ -71,6 +72,8 @@ export default class ShoppingCartContainer extends React.Component{
                         campaignTag={campaignTag}
                         itemKey = {index}
                         isAllSku = {isAllSku}
+                        setCartErrorMessageEmpty={setCartErrorMessageEmpty}
+                        errItem={errItem}
                     />)
                 }
 
@@ -124,7 +127,7 @@ export default class ShoppingCartContainer extends React.Component{
         let showErr = props.items.filter(item=>item.count > item.quantity || item.status != 1 || item.quantity <= 0).length > 0;
         return(
             <div className="machineNewShoppingCartContainer">
-                <Cart cartStyle={{}} count={props.count || 0} totalPrice={props.totalPrice || 0}
+                <Cart cartStyle={{}} count={props.count || 0} totalPrice={props.totalPrice || 0} allSkuImage={props.allSkuImage}
                       click={this.showQrCode.bind(this)} remindShow={this.props.remindShow} beginBack={this.props.beginBack} showErr={showErr}/>
                 <div className={"cartItemContainer " + (item_count > 0 ? '':'hide')} >
                     <div className="emptyItem" onClick={()=>this.props.clearCart()}>
@@ -145,6 +148,9 @@ export default class ShoppingCartContainer extends React.Component{
                 </div>
                 <CartBottom moreItems={props.moreItems}
                             itemClick={props.addToCart}
+                            productList={props.items}
+                            errItem={props.errItem}
+                            setCartErrorMessageEmpty={props.setCartErrorMessageEmpty}
                 />
             </div>
         )

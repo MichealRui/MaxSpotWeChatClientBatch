@@ -55,7 +55,7 @@ export default class Cart extends React.Component{
                     </div>
                     <div className="money font40"><span className="font18">￥</span>{props.totalPrice || 0}</div>
                 </div>
-                <div className={"balance font26 " + (this.props.count > 0 ? '' :'bgcolorccc')} onClick={()=>this.submitClick()}>
+                <div className={"balance font26 " + (this.props.count > 0 ? '' :'bgcolorccc') + (this.props.allSkuImage && this.props.count > 0 ? ' bgff580d' : '')} onClick={()=>this.submitClick()}>
                     立即结算
                 </div>
                 <div className={"showTips font14 " + (props.showErr ? '':'hide')}>部分商品缺货或已下架，请编辑购物袋</div>

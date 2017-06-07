@@ -113,7 +113,7 @@ export default class CartItem extends React.Component{
                     {
                         !isGift ?
                             (props.quantity && props.status == 1 ?
-                            <CountControl key={props.id} item={props} decrease={this.props.dec} deleteItem={this.props.remove} addItem={this.props.add} countClass="shoppingCartCount"/> :
+                            <CountControl key={props.id} errItem={this.props.errItem} item={props} decrease={this.props.dec} deleteItem={this.props.remove} setCartErrorMessageEmpty={this.props.setCartErrorMessageEmpty} addItem={this.props.add} countClass="shoppingCartCount"/> :
                             <span className="emptyTips font12">此商品暂时缺货</span>) : null
                     }
                     <img src={require("./images/icon-trash.png")} onClick={() => {

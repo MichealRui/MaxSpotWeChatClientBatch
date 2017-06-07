@@ -21,6 +21,8 @@ var ItemContainer = React.createClass({
                           show={this.props.detailClick}
                           ActiveType={this.props.ActiveType}
                           cart={this.props.cart}
+                          errItem={this.props.errItem}
+                          setCartErrorMessageEmpty={this.props.setCartErrorMessageEmpty}
             />);
 
         });
@@ -41,6 +43,7 @@ var ItemContainer = React.createClass({
         });
         let newHtml = newItems.map((item,index)=>{
             let temI = item.map((i,index)=>{
+                let errorMessage = this.props.errItem && this.props.errItem.id == i.id ? this.props.errItem.errorMessage : '';
                 return (<Item item={i} key={index}
                               isSliderItem={false}
                               click={this.props.itemClick}
@@ -48,6 +51,8 @@ var ItemContainer = React.createClass({
                               show={this.props.detailClick}
                               ActiveType={this.props.ActiveType}
                               cart={this.props.cart}
+                              errorMessage={errorMessage}
+                              setCartErrorMessageEmpty={this.props.setCartErrorMessageEmpty}
                 />);
             });
             return (
