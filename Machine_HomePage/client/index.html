@@ -3,15 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>怪兽家便利店购物首页</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=false,target-densitydpi=device-dpi'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,target-densitydpi=device-dpi'/>
     <meta name="format-detection" content="telephone=no"/>
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
     <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css"/>
   </head>
-  <body>
+  <body oncontextmenu="doNothing()">
     <div id="root"></div>
     <!-- This script adds the Roboto font to our project. For more detail go to this site:  http://www.google.com/fonts#UsePlace:use/Collection:Roboto:400,300,500 -->
+    <script>
+      activeData = {"store":{"region":5,"phone":"15606362728","manager":3,"status":1,"imagePath":"static//warehouse/0/0/7//soho3q.jpg","warehouse_parent":1,"remarks":"","type":"store","city":9691,"id":7,"imageId":0,"address":"北京市朝阳区光华路9号光华路SOHO2期3Q一层","name":"光华路SOHO2 3Q","province":2,"images":["static//warehouse/0/0/7//soho3q.jpg"],"longitude":1,"latitude":1,"openingTime":"08:00-21:00"},"products":[{"maxStock":0,"countryName":"日本","uniqueNumber":618,"count":0,"shelfThickness":60,"imagePath":"/static/sku/0/0/618/1484447706316.jpg","statusName":"停售","parentCategory":0,"promotion":{"all_sku":0,"wx_show":1,"store_show":1,"remark":"活动banner","is_repeat":0,"updator":158,"wx_image":"","store_image":"","offline_user":0,"creator":158,"id":21,"lineType":3,"wx_showpage_url":"","store_showpage":0,"online_user":158,"online_datetime":"Fri Mar 10 15:16:08 CST 2017","wx_showpage":1,"createDatetime":"Fri Mar 10 14:32:54 CST 2017","name":"活动banner","store_showpage_url":"","wx_banner":"/sku/0/0/21/1489127522063.jpg","content_type":0,"wx_position":1,"updateDatetime":"Fri Mar 10 15:16:08 CST 2017","status":2,"store_banner":"","code":"CU170310143253","perpage":0,"skuid":0,"begin":0,"content":{"select_type":"1","updateDatetime":"Fri Mar 10 15:16:08 CST 2017","is_repeat":1,"tag":"满10减1","updator":0,"perpage":0,"txt_value":"1","select_value":"10","promotion_id":21,"creator":0,"begin":0,"id":25,"createDatetime":"Fri Mar 10 15:16:08 CST 2017","content_type":1},"short_content":"promotion","promotionContent":{"select_type":"1","updateDatetime":"Fri Mar 10 15:16:08 CST 2017","is_repeat":1,"tag":"满10减1","updator":0,"perpage":0,"txt_value":"1","select_value":"10","promotion_id":21,"creator":0,"begin":0,"id":25,"createDatetime":"Fri Mar 10 15:16:08 CST 2017","content_type":1},"wx_sub_position":0},"shelfWidth":60,"remarks":"","brandName":"Coca-Cola 可口可乐","id":618,"categoryName":"水","title":"神奇睡眠水","safeStock":0,"specunit":51,"height":220,"imageId":1804,"msrp":4900,"description":"这款水是由可口可乐公司考虑到上班族的睡眠不足，推出了这款饮料。这款神水含有让人放松的物质，会很好入睡，改善睡眠质量。","name":"睡眠水","shelfHeight":220,"length":60,"quantity":0,"campaign":{"campaignId":21,"campaignTag":"满10减1"},"sellprice":4900,"tags":"","publishTime":"Thu Oct 13 19:10:55 CST 2016","status":2,"width":60,"barcode":"4902102116541","warehouseId":0,"country":5860,"expirationDays":0,"unit":"瓶","category":23,"minStock":0,"skuNumber":"UB000618","images":["/static/sku/0/0/618/1484447706316.jpg","/static/sku/0/0/618/1482906148721.jpg","/static/sku/0/0/618/1482906149138.jpg"],"brand":416,"attributes":[{"unit":"","name":"口味","value":""},{"unit":"度","name":"度数","value":""},{"unit":"ml","name":"净含量","value":""},{"unit":"","name":"尺寸","value":""}],"shortName":"睡眠水"}],"banner":"http://test.mjitech.com/static/sku/0/0/21/1489127522063.jpg"};
+    </script>
     <script src="/vendor.bundle.js"></script>
     <script src="/bundle.js"></script>
   </body>
+<script>
+  function doNothing() {
+    window.event.returnValue=false;
+    return false;
+  }
+</script>
+
 </html>

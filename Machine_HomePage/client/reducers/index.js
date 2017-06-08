@@ -16,8 +16,14 @@ let bannerdata = [
     },
 ];
 
+let channelData = [
+    {
+        imagePath : "",
+        type : 0
+    }
+]
+
 let selector = [
-    {key: '', content: '', faIcon: ''},
 ];
 
 let subContent =
@@ -49,17 +55,24 @@ let storeInfo = {
 let activity = {
     items:[],
     banner:[]
-}
+};
 
 let data = {
     banner: bannerdata,
+    channel : channelData,
     selector: selector,
     subContent: subContent,
     currentSub: subContent['all'],
     cart: shoppingCart,
     storeInfo: storeInfo,
-    activity:activity
+    activity:activity,
+    currentSelector:{parentKey:'', subKey:''}
 };
+
+const PRODUCT_UNAVAILABLE = 0; //下架
+const PRODUCT_ON_SELL = 1 ; //在售
+const PRODUCT_OUT_SELL = 2; //售罄
+const PRODUCT_LOW_STOCK = 3; //库存不足
 
 function initSuccess(content, data){
     const SELECTOR_ICONS = {
@@ -108,6 +121,10 @@ function initSuccess(content, data){
     });
     /* end finding */
 
+    /* def current selector */
+    let currentSelector = selector[0];
+    currentSelector.subKey = selector[0].subSelector[0];
+
     let subContent = {};
     for(let content of subContentArray) {
         subContent = Object.assign({}, subContent, content)
@@ -137,19 +154,141 @@ function initSuccess(content, data){
 
     return Object.assign({}, content, {
         banner: data.banner,
+        channel : data.channel,
         selector: selector,
         subContent: subContent,
         currentSub: currentSub, //data.subContent['all'],,
         // storeInfo: data.store,
         cart: cart,
-        product:''
+        product:'',
+        currentSelector:currentSelector
     })
+}
+
+function dealCampaign(campaigns, productList) {
+    /* rearrange product by campaign id */
+    let tempCampaignedProductList = campaigns.map(campaign => {
+        return Object.assign({}, { list:productList.filter(
+            product => product.campaign && product.campaign.campaignId == campaign.campaignId
+        )}, campaign);
+    }).filter(cunit => cunit.list.length > 0);
+    /* end rearrange */
+    /* filter the campaign of 第N件优惠*/
+    let type2Temp = tempCampaignedProductList.filter(cUnit => cUnit.campaignType == 2);
+    let type2CampaignedProductList = [];
+    for(let t2Cunit of type2Temp) {
+        let campaign = campaigns.find( campaign => campaign.campaignId == t2Cunit.campaignId );
+        type2CampaignedProductList.push(
+            t2Cunit.list.map(
+                product => Object.assign({}, { list : new Array(product) }, campaign )
+            ).shift()
+        )
+    }
+    let type1CampaignedProductList =
+        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == 1);
+
+    let type3CampaignedProductList =
+        tempCampaignedProductList.filter(cUnit => cUnit.campaignType == 3);
+
+    let campaignedProductList = [].concat(
+        type1CampaignedProductList,
+        type2CampaignedProductList,
+        type3CampaignedProductList
+    );
+
+    /* deal global campaign */
+    let globalCampaign = campaigns.find( campaign => campaign.isAllSku );
+    if(globalCampaign) {
+        campaignedProductList.push(
+            Object.assign({}, { list: productList }, globalCampaign )
+        )
+    }
+    /* end deal global campaign */
+
+    campaignedProductList.push(
+        { list: productList.filter ( product => !product.campaign ) }
+    );
+    return (campaignOperator) => campaignOperator(campaignedProductList)
+}
+
+function operator_computeCampaignByType(campaignedList) {
+    const CashDiscount = {1: operator_computeCampaignType_1};
+    const CountDiscount = {2: operator_computeCampaignType_2};
+    const GiftDiscount = {3: operator_computeCampaignType_3};
+    let operators = Object.assign({}, CashDiscount, CountDiscount, GiftDiscount);
+    return campaignedList.map( cUnit => {
+        let {campaignId, campaignType} = cUnit;
+        if(campaignId) {
+            return operators[campaignType](cUnit)
+        }
+        return cUnit
+    });
+}
+
+function operator_computeCampaignType_1(cUnit) {
+    let {deductMoney, totalMoney, totalCount, campaignId, recursive} = cUnit;
+    let sumCount = cUnit.list.map(product => product.count).reduce (
+        (pre, next) => { return pre + next }, 0
+    );
+    let calMoney = (product) => product.sellprice * product.count;
+    let totalSum = cUnit.list.map(calMoney).reduce(
+        (pre, next) => {return pre + next}, 0
+    );
+    let activate = !totalCount ? (totalSum >= totalMoney ) : sumCount >= totalCount;
+    cUnit.activate = activate;
+    let mult = activate && recursive ?
+        totalMoney ? Math.floor( totalSum / (totalMoney )) : Math.floor( sumCount / totalCount )
+        : 1;
+    cUnit.totalDiscount = activate ? deductMoney * mult : 0;
+    return cUnit
+}
+
+function operator_computeCampaignType_2(cUnit) {
+    let {discountCount, discountMoney, discountDiscount, recursive}  = cUnit;
+    let sumCount = cUnit.list.map(product => product.count).reduce(
+        (pre, next) => {return pre + next}, 0
+    );
+    let calMoney = (product) => product.sellprice * product.count;
+    let totalSum = cUnit.list.map(calMoney).reduce(
+        (pre, next) => { return pre + next }, 0
+    );
+    let sellPrice = cUnit.list[0].sellprice;
+    let activate = sumCount >= discountCount;
+    cUnit.activate = activate;
+    let mult = activate && recursive ?
+        Math.floor( sumCount / discountCount ) : 1;
+    cUnit.totalDiscount = activate ?
+        discountMoney ? discountMoney * mult : discountDiscount * sellPrice * mult
+        : 0;
+    return cUnit
+}
+
+function operator_computeCampaignType_3(cUnit) {
+    let { presentMoney, presentCount, recursive } = cUnit;
+    let sumCount = cUnit.list.map(product => product.count).reduce(
+        (pre, next) => { return pre + next }, 0
+    );
+    let calMoney = (product) => product.sellprice * product.count;
+    let totalSum = cUnit.list.map(calMoney).reduce(
+        (pre, next) => { return pre + next }, 0
+    );
+    let activate = presentMoney ? totalSum >= presentMoney : sumCount >= presentCount;
+    cUnit.activate = activate;
+    let mult = activate && recursive ?
+        presentMoney ? Math.floor( totalSum / presentMoney ) : Math.floor(sumCount / presentCount)
+        : 1;
+    !activate && cUnit.presentSku ? cUnit.presentSku.err_status = PRODUCT_OUT_SELL : null;
+    cUnit.presentSku ? cUnit.presentSku.count = mult : null;
+    return cUnit
 }
 
 function changeContent(content, {key, subKey}) {
     let newContent = Object.assign({}, content);
     let target = newContent.subContent[key];
     newContent.currentSub = Object.assign({}, newContent.currentSub, {items: target.categoried[subKey]});
+    newContent.currentSelector = newContent.selector.filter(s => s.key == key).pop();
+    newContent.currentSelector.subKey = subKey
+    // newContent.currentSelector = {parentKey: key, subKey:subKey};
     return newContent
 }
 
@@ -182,6 +321,14 @@ function succAddCart(content, prod) {
 function finalCartStatus(cart){
     let newCart = Object.assign({}, cart);
     let cartItems = newCart.items;
+
+    /* deal with campaign*/
+
+    newCart.campaignedProductList =
+            dealCampaign(newCart.campaigns, cartItems)
+            (operator_computeCampaignByType) || [];
+    /* end deal with campaign*/
+
     let count = cartItems.map (
         product => {
             if(product.quantity > 0) {
@@ -190,8 +337,7 @@ function finalCartStatus(cart){
                 return 0
             }
         }
-    ).reduce (
-        (pre, next) => parseInt(pre) + parseInt(next), 0) ;
+    ).reduce ((pre, next) => parseInt(pre) + parseInt(next), 0) ;
 
     newCart.totalPrice = cartItems.map(
         product => {
@@ -201,12 +347,13 @@ function finalCartStatus(cart){
                 return 0
             }
         }
-    ).reduce(
-        (pre, next) =>
-            parseInt(pre) + parseInt(next)
-        , 0)  / 100;
+    ).reduce((pre, next) =>parseInt(pre) + parseInt(next), 0)  / 100;
 
-    newCart.count = count
+    newCart.totalDiscount = (newCart.campaignedProductList.map(
+        cunit => cunit.totalDiscount || 0
+    ).reduce((pre, next) => pre + next , 0) /100 ) || 0;
+
+    newCart.count = count;
     return newCart
 }
 
@@ -215,6 +362,7 @@ function succFetchCart(content, skus) {
     let newSku = Object.assign({}, skus);
     newContent.cart.items = newSku[0].productList;
     newContent.cart.moreItems = newSku[0].recommends;
+    newContent.cart.campaigns = newSku[0].campaigns;
     newContent.cart = finalCartStatus(newContent.cart);
     return newContent
 }

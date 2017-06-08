@@ -331,10 +331,6 @@ function dealCampaign(campaigns, productList) {
     return (campaignOperator) => campaignOperator(campaignedProductList)
 }
 
-function operator_computeGlobalCampaign(campaignedList) {
-
-}
-
 function operator_computeCampaignByType(campaignedList) {
     const CashDiscount = {1: operator_computeCampaignType_1};
     const CountDiscount = {2: operator_computeCampaignType_2};

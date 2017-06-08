@@ -6,7 +6,8 @@ import Banner from '../../components/Banner/Banner';
 import SubContent from '../active_SubContent/SubContent';
 import CartContainer from '../CartContainer/CartContainer';
 import SkuContainer from '../SkuContainer/SkuContainer';
-import { initMainContent, initActivity } from '../../actions/index'
+import FetchSkuContainer from '../../containers/FetchSkuContainer/FetchSkuContainer';
+import { initMainContent, initActivity,initChannelActivity } from '../../actions/index'
 import { addToCart, deleteOneFromCart, removeFromCart } from '../../actions/index';
 import {changeSubContent} from '../../actions/index';
 import {submitCart, clearQr, fetchOrderStatus, setCartStatus, clearCart, fetchCart,fetchSku} from '../../actions/index'
@@ -19,13 +20,24 @@ class Active extends React.Component{
             skuVisible:false,
             paySuccVisible:false,
             fetchSkuVisible:false
-        }
+        };
+        this._campaignId = this.props.params.campaignId;
+        this._type = this.props.params.type;
     }
 
     componentWillMount() {
         const { dispatch } = this.props;
         // dispatch(initMainContent());
-        dispatch(initActivity())
+        if(this._type != 0){
+            //新品特惠
+            console.log('新品特惠');
+            dispatch(initChannelActivity(this._type));
+        }else if(this._campaignId != 0){
+            //活动
+            console.log('活动');
+            dispatch(initActivity(this._campaignId))
+        }
+
     }
 
     onCartBtnClick() {
@@ -60,15 +72,38 @@ class Active extends React.Component{
         })
     }
 
+    onFetchSkuBtnClick() {
+        this.setState({
+            fetchSkuVisible: true
+        })
+    }
+
+    hideFetchSku() {
+        this.setState({
+            fetchSkuVisible: false
+        });
+    }
+
     render() {
         let {state, dispatch} = this.props;
+        let domain = IMAGECONFIG.host;
+        let bannerStyle = {width:'100%', height:350}
+        let containerStyle = {width:'100%',paddingLeft:'60px',paddingRight:'50px', backgroundColor:'#fff'};
+        console.log(state.activity.banner)
         return (
             <div className="pageContainer" id="pageContainer">
                 <Header cartClick={() => this.onCartBtnClick.bind(this)}
                         fetchSkuClick={()=>this.onFetchSkuBtnClick.bind(this)}
                         {...state.cart}
                 />
-                <Banner bannerData={state.activity.banner}/>
+                {/*<Banner bannerData={state.activity.banner}/>*/}
+                <div className="activeBannerContainer" style={containerStyle}>
+                    {state.activity.banner ?
+                        <img src={domain + state.activity.banner} style={bannerStyle}/>
+                        :
+                        <img src={require('../../components/Banner/images/banner_default.png')} style={bannerStyle}/>
+                    }
+                </div>
                 <SubContent
                     contentData={state.activity}
                     changeContent={(key, subKey) => dispatch(changeSubContent(key, subKey))}
@@ -76,6 +111,7 @@ class Active extends React.Component{
                     showProduct={(item) => this.onProductDetailClick.bind(this)(item)}
                     selector = {state.selector}
                     style={{backgroundColor:'#fff'}}
+                    ActiveType={this._type}
                 />
                 <CartContainer visible={this.state.cartVisible}
                                onCancel={ () => this.hideCart.bind(this) }
@@ -94,6 +130,11 @@ class Active extends React.Component{
                               onCancel={()=>this.hideProductDetail.bind(this)}
                               product={state.product}
                               addToCart={(item) => dispatch(addToCart(item))}
+                              onCartClick = {()=>this.onCartBtnClick.bind(this)}
+                              {...state.cart}
+                />
+                <FetchSkuContainer visible={this.state.fetchSkuVisible}
+                                   onCancel={this.hideFetchSku.bind(this)}
                 />
             </div>
         )
@@ -101,7 +142,6 @@ class Active extends React.Component{
 }
 
 function select(store) {
-    console.log('dispatched');
     return Object.assign({}, {state: store})
 }
 

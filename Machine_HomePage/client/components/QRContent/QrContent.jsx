@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react'
 import ReactQrCode from 'qrcode.react'
-require('./index.css')
+require('./index.css');
 
 export default class QrContent extends React.Component {
     constructor(props) {
@@ -13,13 +13,13 @@ export default class QrContent extends React.Component {
     }
 
     fetchOrderStatus() {
-        let {order, fetchOrder, setCartQr} = this.props;
-        let PAID = '2';
+        let {order, fetchOrder, setCartTaking} = this.props;
+        let PAID = '3';
         if(order.status != PAID) {
             fetchOrder(order.orderNumber);
             this.state.timer = window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
         } else {
-            setCartQr();
+            setCartTaking();
         }
     }
 
@@ -36,7 +36,7 @@ export default class QrContent extends React.Component {
         console.log(qr)
         let size = 270;
         return (
-            <div className="qrcode" onClick={() => this.props.setCartTaking()}>
+            <div className="qrcode">
                 <div className="code clearfix"><ReactQrCode size={size} value={qr}/></div>
                 <div className="payInfo">
                     <div className="title font48">

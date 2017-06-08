@@ -358,7 +358,18 @@ html { overflow-y: scroll; }
     }
 }
 #root {
-    /*padding-bottom: 25px;*/
+    overflow: hidden!important;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently*/
+}
+
+body::-webkit-scrollbar {
+    background: transparent;
+    width:0;
+    height:0;
 }
 
 .hide{

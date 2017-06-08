@@ -86,3 +86,4 @@ export function clearCart() {
         type: actionTypes.CLEAR_CART
     }
 }
+

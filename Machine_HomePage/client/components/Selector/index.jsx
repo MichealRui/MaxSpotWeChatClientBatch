@@ -13,21 +13,21 @@ export default class Selector extends React.Component {
     }
 
     setSubSelector(selector) {
-        this.setState({
-            selector: selector,
-            selectorKey:selector.key
-        });
+        // this.setState({
+        //     selector: selector,
+        //     selectorKey:selector.key
+        // });
         this.props.changeContent(selector.key, selector.subSelector[0])
     }
 
-    componentWillReceiveProps(nextProps) {
-        // Bad Hack
-        if(this.state.selector.length == 0) {
-            this.setState({
-                selector: nextProps.selector[0]
-            })
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     // Bad Hack
+    //     if(this.state.selector.length == 0) {
+    //         this.setState({
+    //             selector: nextProps.selector[0]
+    //         })
+    //     }
+    // }
 
     render() {
         let props = this.props;
@@ -35,7 +35,7 @@ export default class Selector extends React.Component {
         let tag = keys.map(
             (sel,index)=>{
                 return (
-                    <li key={index} className={ "selector " + (this.state.selectorKey == sel.key ? 'active' : '')  }
+                    <li key={index} className={ "selector " + (props.currentSelector.key == sel.key ? 'active' : '')  }
                         onClick={
                             () => this.setSubSelector(sel)
                         }
@@ -51,16 +51,15 @@ export default class Selector extends React.Component {
                     </li>
                 )
             }
-        )
+        );
 
         return (
             <div>
                 <ul className="selectorContainer">
                     {tag}
                 </ul>
-                <SubSelector selector={this.state.selector}
+                <SubSelector selector={props.currentSelector}
                              changeContent={this.props.changeContent}
-                             selectorKey={this.state.selectorKey}
                 />
             </div>
         )

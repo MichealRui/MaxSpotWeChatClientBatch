@@ -1,0 +1,31 @@
+.remindContent{
+    padding: 124px;
+    position: relative;
+}
+.remindContent .remindTitle{
+    color:#ff7860;
+    line-height: 84px;
+}
+.remindContent .remindText{
+    margin: 46px 0 80px 0;
+    line-height: 44px;
+}
+.remindContent .remindBtn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+.remindContent .btnTag{
+    width: 384px;
+    height: 98px;
+    border: 2px solid #ebebeb;
+    border-radius: 98px;
+    line-height: 98px;
+    text-align: center;
+    display: inline-block;
+}
+.remindContent .btnTag:nth-child(2){
+    margin-left: 50px;
+}

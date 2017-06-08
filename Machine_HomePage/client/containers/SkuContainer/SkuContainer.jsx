@@ -1,16 +1,23 @@
 'use strict';
 import React from 'react';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import Gallery from '../../components/Gallery/Gallery';
 import Header from '../SkuHeader/SkuHeader'
 import Info from '../SkuInfo/SkuInfo'
 import Footer from '../SkuFooter/SkuFooter'
 import Cart from '../../components/Cart/Cart'
-require('./index.css')
+import Campaign from '../../components/Campaign/Campaign';
+require('./index.css');
 
 export default class SkuContainer extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this._maxCount=60;
+        this.sleepTime=1000;
+        this.state={
+            timer:null,
+            currentCount: this._maxCount
+        }
     }
 
     getMiddlePicList(images) {
@@ -18,13 +25,64 @@ export default class SkuContainer extends React.Component {
     }
 
     getMiddlePic(path) {
-        let domain= ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
+        let domain= IMAGECONFIG.host;//ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
         let particial = path.split('.');
         if(particial.length == 2) {
             particial[0] = particial[0] + '_middle';
             return domain + particial.join('.')
         } else {
             return domain + path
+        }
+    }
+
+    getDetailPicList(images) {
+        return images.map(image => this.getDetailPic(image))
+    }
+
+    getDetailPic(path) {
+        let domain= IMAGECONFIG.host;
+        return domain + path
+    }
+
+    countOne() {
+        console.log('count one ');
+        console.log(this.state.currentCount);
+        this.setState({
+            currentCount:this.state.currentCount - 1
+        });
+    }
+
+    countBack() {
+        if(this.state.currentCount == 0) {
+            this.props.onCancel()()
+        } else {
+            let timer = window.setTimeout(
+                () => {
+                    this.countOne();
+                    this.countBack()
+                }, this.sleepTime);
+            this.setState({
+                timer: timer
+            })
+        }
+    }
+
+    renewCount() {
+        this.setState({
+            currentCount:this._maxCount
+        })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.visible && !this.state.timer) {
+            this.countBack()
+        }
+        if(!nextProps.visible) {
+            window.clearTimeout(this.state.timer);
+            this.setState({
+                timer: null,
+                currentCount:this._maxCount
+            })
         }
     }
 
@@ -39,27 +97,35 @@ export default class SkuContainer extends React.Component {
                        wrapClassName="customized1_sku-modal"
                        footer=''
                 >
-                    <Cart cartStyle={{top:-48+'px',right:110+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
-                                <div className="galleryWrapper">
-                                    {
-                                        product ? <Gallery images={sku ?
-                                            this.getMiddlePicList(sku.images)
-                                            :''
-                                        }/>:''
-                                    }
-                                </div>
-                                <div className="skuInfo">
-                                    {
-                                        product? (
-                                            <div>
-                                                <Header item={product} addToCart={(product) => props.addToCart(product)}/>
-                                                {/*<Intro/>*/}
-                                                <Info item={product}/>
-                                                <Footer />
-                                            </div>
-                                        ):''
-                                    }
-                                </div>
+                    <div className="skuContent" onClick={() => this.renewCount()}>
+                        <span className="" onClick={props.onCartClick()}>
+                            <Cart cartStyle={{top:-48+'px',right:110+'px'}}
+                                  count={props.count || 0}
+                                  totalPrice={props.totalPrice || 0}
+                            />
+                        </span>
+                        <div className="galleryWrapper">
+                            {
+                                product ? <Gallery images={sku ?
+                                    this.getDetailPicList(sku.images)
+                                    :''
+                                }/>:''
+                            }
+                        </div>
+                        <div className="skuInfo">
+                            {
+                                product? (
+                                    <div>
+                                        <Header item={product} addToCart={(product) => props.addToCart(product)}/>
+                                        {/*<Intro/>*/}
+                                        <Campaign campaign={sku.campaign}/>
+                                        <Info item={product}/>
+                                        <Footer />
+                                    </div>
+                                ):''
+                            }
+                        </div>
+                    </div>
                 </Modal>
             </div>
         );

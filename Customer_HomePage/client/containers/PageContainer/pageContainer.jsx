@@ -27,6 +27,7 @@ class PageContainer extends React.Component {
     }
 
     componentDidUpdate() {
+        console.log('~!@##$%# IN ^&*^^$%$#')
         const { dispatch } = this.props;
         let props = this.props.state;
         let config = props.wxConfig;

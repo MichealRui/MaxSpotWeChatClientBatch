@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import Counter from '../../CommonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
-
 import {Link} from 'react-router'
 require ('./index.css');
 

@@ -22,7 +22,7 @@ export default class DefaultCart extends React.Component {
     }
 
     componentDidMount() {
-        this.countBack()
+        // this.countBack()
     }
 
     componentWillUnmount() {
@@ -73,6 +73,48 @@ export default class DefaultCart extends React.Component {
         this.setState({currentCount: this.state.maxCount})
     }
 
+    generateProductStructure(campaignDetail) {
+        let {store, itemInfo, decItem, addToCart, removeItem} = this.props;
+        let {campaignId, campaignTag, presentSku, list, totalDiscount, activate, initStatus, isAllSku} = campaignDetail;
+
+        let productStructure = list.length > 0 ?
+            (
+                <div className="campaignContainer">
+                    {
+                        campaignId && !isAllSku ? <div className={"font22 campaignTag "+ (activate?"activate":"fail")}>
+                            { (activate?"已满足 ":"不满足 ") + "【"+campaignTag+"】"}
+                        </div>:null
+                    }
+
+                        <div className="itemListContainer clearfix">
+                            {
+                               !isAllSku ? list.map( (product, index) =>
+                                    <CartItem item={product}
+                                              key={index}
+                                              dec={decItem}
+                                              add={addToCart}
+                                              remove={removeItem}
+                                              campaign={campaignId}
+                                    />) : null
+                            }
+                        </div>
+                    {
+                        presentSku ? <CartItem item={presentSku} isGift={true} activate={activate} campaign={campaignId}/> : null
+                    }
+                </div>
+            ) : null;
+        if(productStructure) {
+            return new Array(productStructure)
+        } else {
+            return false
+        }
+        // return new Array(productStructure)
+    }
+
+    reduceProductStructure(campaignDetail) {
+        return this.generateProductStructure(campaignDetail)
+    }
+
     render() {
         let props = this.props;
         let swiperConfig = {
@@ -80,14 +122,42 @@ export default class DefaultCart extends React.Component {
             slidesPerView: 6,
         };
         let item_count = props.items.length;
-        let items = props.items.map((item, index) => {
-            return <CartItem item={item}
-                             key={index}
-                             dec={props.decItem}
-                             add={props.addToCart}
-                             remove={props.removeItem}
-            />
-        });
+        let items = props.campaignList && props.campaignList.length > 0 ?
+        props.campaignList.map(
+            this.reduceProductStructure.bind(this)
+        ).filter(product => product): null;
+        //     props.items.map((item, index) => {
+        //     return <CartItem item={item}
+        //                      key={index}
+        //                      dec={props.decItem}
+        //                      add={props.addToCart}
+        //                      remove={props.removeItem}
+        //     />
+        // });
+
+        /**
+         * for valentine
+         */
+
+        // let giftData = {
+        //     brandName: '怪兽家',
+        //     shortName: '怪兽家情人节礼盒',
+        //     imagePath: '/static/sku/0/0/895/1486959009314.jpg',
+        //     isGift:true,
+        //     giftAvailable:props.totalPrice >= 29
+        // };
+        // //
+        // let gift = (
+        //     <CartItem
+        //         item={giftData}
+        //         key={-1}
+        //     />
+        // );
+        //
+        // items.push(gift);
+        /**
+         * end for valentine
+         */
 
         let showPayAlert = props.items.filter( item =>
                 (item.quantity == 0) || (item.count > item.quantity) || (item.status == 0)
@@ -95,7 +165,7 @@ export default class DefaultCart extends React.Component {
         return (
             <div onClick={() => this.renewAlert.bind(this)()}>
                 <Cart cartStyle={{top:-43+'px',right:199+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
-                <div className={"itemContainer " + (item_count > 0 ? '':'hide')} >
+                <div className={"cartItemContainer " + (item_count > 0 ? '':'hide')} >
                     <SwiperComponent
                         swiperConfig={swiperConfig}
                         swiperContainer={'swiper3'}
@@ -110,6 +180,7 @@ export default class DefaultCart extends React.Component {
                 <CartBottom moreItems={props.moreItems}
                             itemClick={props.addToCart}
                             totalPrice={props.totalPrice}
+                            totalDiscount={props.totalDiscount}
                             submit={props.submit}
                             clearCart={() => props.clearCart()}
                             showAlert={showPayAlert}

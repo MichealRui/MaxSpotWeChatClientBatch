@@ -33,3 +33,30 @@
     /*color: #666666;*/
     /*display: inline-block;*/
 /*}*/
+.cartItemContainer .campaignContainer{
+    width:100%;
+    position: relative;
+    padding-left:18px;
+    margin-right:35px;
+}
+.cartItemContainer .campaignContainer .campaignTag{
+    position: absolute;
+    left:-5px;
+    top:0;
+    z-index: 1;
+    height:325px;
+    width:33px;
+    color: #ffffff;
+    padding-top:40px;
+    writing-mode: tb;
+    padding-right: 5px;
+}
+.cartItemContainer .campaignContainer .campaignTag.activate {
+    background: url("./img/campaignTagActivate.png") no-repeat;
+}
+.cartItemContainer .campaignContainer .campaignTag.fail {
+    background: url("./img/campaignTagFail.png") no-repeat;
+}
+.cartItemContainer .swiper-slide {
+    width:auto!important;
+}

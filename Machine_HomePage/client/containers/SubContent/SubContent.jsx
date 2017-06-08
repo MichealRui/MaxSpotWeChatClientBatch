@@ -8,8 +8,7 @@ export default class SubContent extends React.Component {
         super(props)
     }
 
-    shouldComponentUpdate(nextProps, nextState){
-        console.log(!(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items)))
+    shouldComponentUpdate(nextProps){
         return !(JSON.stringify(this.props.contentData.items) == JSON.stringify(nextProps.contentData.items));
     }
 
@@ -20,6 +19,7 @@ export default class SubContent extends React.Component {
             <div className="subContentContainer">
                 <Selector selector={this.props.selector}
                           changeContent={this.props.changeContent}
+                          currentSelector={this.props.currentSelector}
                 />
                 {/*<SubSelector/>*/}
                 <ItemContainer items={current.items}
@@ -27,6 +27,7 @@ export default class SubContent extends React.Component {
                                store={this.props.storeData}
                                detailClick={this.props.showProduct}
                                reload={true}
+                               ActiveType = {props.ActiveType}
                 />
             </div>
         )

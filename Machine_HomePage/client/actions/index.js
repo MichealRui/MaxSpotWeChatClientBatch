@@ -3,12 +3,6 @@
  */
 import fetch from 'isomorphic-fetch'
 
-import mock from '../mock/main'
-
-import cartMock from '../mock/shopping'
-
-import productMock from '../mock/productdetail'
-
 import CartStatus from '../../client/containers/CartContainer/CartStatus'
 
 export const INIT_SUCC = 'INIT_SUCC';
@@ -63,26 +57,24 @@ export const SET_RECOMMEND = 'SET_RECOMMEND';
 
 export const SUCC_INIT_ACTIVITY = 'SUCC_INIT_ACTIVITY';
 
-const cart = cartMock;
-
-const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.34:9090' : 'http://10.16.66.34:8080';
+const domain = (ENV.domain == 'http://www.mjitech.com')  ? 'http://10.16.66.36:9090' : 'http://10.16.66.36:8080';
 
 export function initMainContent () {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/get_mainpage_data.action',//'local_api/get_mainpage_data.action',
         {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
             }).then(response => response.json()
             .then(json => {
                 if(json.is_succ) {
                     dispatch(initSucc({
                         banner: json.banners,
                         content: json.categories,
-                        store: json.selectedStore
-                    }))
-                    dispatch(initActivity())
+                        store: json.selectedStore,
+                        channel: json.channel
+                    }));
                     dispatch(fetchCart())
                 } else {
                     console.log(json);
@@ -101,7 +93,6 @@ export function initMainContent () {
 }
 
 function initSucc(data) {
-    console.log("########@@@@@@@@@@@@@@@")
     return {
         type: INIT_SUCC,
         data
@@ -112,9 +103,9 @@ export function addToCart(item) {
     return (dispatch) => {
         fetch( domain+"/maxbox_pc/local_api/add_sku_to_cart.action",
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
                 body: JSON.stringify(
                     Object.assign({}, {
                     skuId: '' + item.id,
@@ -140,9 +131,9 @@ export function deleteOneFromCart(item) {
     return (dispatch) => {
         fetch( domain+"/maxbox_pc/local_api/remove_sku_from_cart.action",
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
                 body: JSON.stringify(
                     Object.assign({}, {
                     skuId: '' + item.id,
@@ -176,9 +167,9 @@ export function removeFromCart(item) {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/remove_sku_from_cart.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
                 body: JSON.stringify(
                     Object.assign({}, {
                     skuId: '' + item.id,
@@ -212,9 +203,9 @@ export function fetchCart() {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/get_cart.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
             }).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
@@ -264,9 +255,9 @@ export function clearCart() {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/clear_cart.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
             }
         ).then(response => response.json())
             .then(json => {
@@ -300,9 +291,9 @@ export function submitCart() {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/submit_cart.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
             }
         ).then(response =>response.json())
             .then(json => {
@@ -335,9 +326,9 @@ export function setOrder(order) {
 export function fetchQrCode(orderNumber) {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/request_pay.action', {
-            credentials: 'include',
+            // credentials: 'include',
             method: 'POST',
-            mode: 'cors',
+            // mode: 'cors',
             body: JSON.stringify(
                 {'orderNumber': orderNumber}
             )
@@ -382,9 +373,9 @@ export function setCartStatus(cartStatus) {
 export function fetchOrderStatus(orderNumber) {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/get_order_detail.action',{
-            credentials: 'include',
+            // credentials: 'include',
             method: 'POST',
-            mode: 'cors',
+            // mode: 'cors',
             body: JSON.stringify({
                 orderNumber : orderNumber
             })
@@ -412,9 +403,9 @@ export function fetchSku(skuNumber) {
     return (dispatch) => {
         fetch(domain+'/maxbox_pc/local_api/sku_detail.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
                 body: JSON.stringify(
                     {sku_number: skuNumber}
                 )
@@ -454,23 +445,57 @@ export function setDetailDialog(prod) {
     }
 }
 
-export function initActivity() {
+export function initActivity(campaignId) {
     return (dispatch) => {
-        fetch(domain + '/maxbox_pc/local_api/get_marketing_data.action',
+        fetch(domain + '/maxbox_pc/local_api/get_campaign_detail.action',
             {
-                credentials: 'include',
+                // credentials: 'include',
                 method: 'POST',
-                mode: 'cors',
+                // mode: 'cors',
+                body:JSON.stringify({
+                    campaignId : campaignId
+                })
             }
         ).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
-                    console.log(json);
                     dispatch(succInitActivity({...json}))
                 } else {
                     console.log('error')
                 }
             })
+    }
+    // return (dispatch) => {
+    //     dispatch(succInitActivity({...activeData}))
+    // }
+}
+
+export function initChannelActivity(type) {
+    return(dispatch)=>{
+        fetch(domain + '/maxbox_pc/local_api/get_channel_detail.action',
+            {
+                // credentials: 'include',
+                method: 'POST',
+                // mode: 'cors',
+                body:JSON.stringify({
+                    type : type
+                })
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if(json.is_succ) {
+
+                    dispatch(succInitActivity(Object.assign({},{products:json.skuitems,banner:json.headUrl})))
+                } else {
+                    console.log('error')
+                }
+            })
+    }
+}
+
+export function clearActivity() {
+    return(dispatch)=>{
+        dispatch(succInitActivity(Object.assign({},{products:[],banner:''})))
     }
 }
 

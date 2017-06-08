@@ -18,16 +18,19 @@ export default class Gallery extends React.Component {
          });
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(JSON.stringify(this.props.images) != JSON.stringify(nextProps.images)) {
+            this.setCurrent(
+                nextProps.images[0],
+                0
+            )
+        }
+    }
+
     componentWillMount() {
         this.setCurrent(
             this.props.images[0],
             0
-        )
-    }
-
-    componentWillReceiveProps(nextProp, nextState) {
-        this.setCurrent(
-            nextProp.images[0]
         )
     }
 
@@ -52,9 +55,10 @@ export default class Gallery extends React.Component {
                 </div>
             )
         }
+        let back={backgroundImage:'url(' + this.state.current + ')',backgroundSize:'contain'};
         let detail = (
-            <div className="detailContainer">
-                <img className="detail" src={this.state.current?this.state.current:require('./images/default.png')}/>
+            <div className="detailContainer" style={back}>
+                {/*<img className="detail" src={this.state.current?this.state.current:require('./images/default.png')}/>*/}
             </div>);
         return (
             <div className="galleryContainer">
