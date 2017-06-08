@@ -15,7 +15,7 @@ export default class Header extends React.Component{
                 <img src={require('./images/local_logo.png')} className="logo" />
                 <div className="location">
                     <img src={require('./images/add.png')} className="locationIcon" />
-                    国贸三期B1芒果
+                    华贸商业街
                 </div>
                 <div className="contactInfo">
                     <img src={require("./images/trans_icon.png")} />
