@@ -50,6 +50,7 @@
     line-height: 54px;
 }
 .settleContainer .qrCodeContainer {
-    display: flex;
-    justify-content: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    text-align: center;
 }
