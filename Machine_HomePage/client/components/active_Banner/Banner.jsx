@@ -18,29 +18,7 @@ export default class Banner extends React.Component {
             slidesPerView: 1
         };
         let style = {};
-        // let links = bannerData.length>0 ? (
-        //     bannerData.map(
-        //         (img,index)=>{
-        //             return (
-        //                 <Link key={index} to="/active">
-        //                     <img width='100%' style={style} src={ENV.domain + img} alt=""/>
-        //                 </Link>
-        //             )
-        //         })
-        // ) : (
-        //         [<Link to="/active" key="activity_default">
-        //             <img width='100%' style={style} src={require(defPic)} alt=""/>
-        //         </Link>]
-        //     );
-        //
-
         let links = [];
-        links.push(
-            [<Link to="/whole-active" key="activity_xbx">
-                <img width='100%' style={style} src={require('./images/xbx-banner.jpg')} alt=""/>
-             </Link>]
-        )
-
         let banner_online = bannerData.map(
             (img,index)=>{
                 return (

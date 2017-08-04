@@ -39,27 +39,29 @@ export default class SkuContainer extends React.Component {
                        wrapClassName="customized1_sku-modal"
                        footer=''
                 >
-                    <Cart cartStyle={{top:-48+'px',right:110+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0}/>
-                                <div className="galleryWrapper">
-                                    {
-                                        product ? <Gallery images={sku ?
-                                            this.getMiddlePicList(sku.images)
-                                            :''
-                                        }/>:''
-                                    }
+                    <span onClick={props.cartClick()}>
+                        <Cart cartStyle={{top:-48+'px',right:110+'px'}} count={props.count || 0} totalPrice={props.totalPrice || 0} />
+                    </span>
+                    <div className="galleryWrapper">
+                        {
+                            product ? <Gallery images={sku ?
+                                this.getMiddlePicList(sku.images)
+                                :''
+                            }/>:''
+                        }
+                    </div>
+                    <div className="skuInfo">
+                        {
+                            product? (
+                                <div>
+                                    <Header item={product} addToCart={(product) => props.addToCart(product)}/>
+                                    {/*<Intro/>*/}
+                                    <Info item={product}/>
+                                    <Footer />
                                 </div>
-                                <div className="skuInfo">
-                                    {
-                                        product? (
-                                            <div>
-                                                <Header item={product} addToCart={(product) => props.addToCart(product)}/>
-                                                {/*<Intro/>*/}
-                                                <Info item={product}/>
-                                                <Footer />
-                                            </div>
-                                        ):''
-                                    }
-                                </div>
+                            ):''
+                        }
+                    </div>
                 </Modal>
             </div>
         );

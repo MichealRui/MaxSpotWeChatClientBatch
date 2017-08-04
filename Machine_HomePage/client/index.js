@@ -9,6 +9,7 @@ import reducers from './reducers/index';
 require('./index.css');
 import Page from './containers/PageContainer/PageContainer';
 import Activity from './containers/active/Active';
+import HoleActivity from './containers/HoleActive/HoleActive';
 // init thunk
 function activateVendor() {
     const loggerMiddleware = createLogger();
@@ -29,6 +30,7 @@ function renderPage(store) {
                 <Route path='/maxbox_pc' component={Page}/>
                 <Route path='/maxbox_pc/orderTest' component={Page}/>
                 <Route path='/active' component={Activity}/>
+                <Route path='/whole-active' component={HoleActivity}/>
             </Router>
         </Provider>
         ,

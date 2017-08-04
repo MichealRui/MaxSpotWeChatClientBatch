@@ -51,7 +51,8 @@ export default class CartContainer extends React.Component {
                         submit={props.submit}
                         clearCart={() => props.clearCart()}
                         isModalVisible={props.visible}
-                        goBack={props.onCancel()}
+                        onCancel={props.onCancel()}
+                        goBack={props.goBack()}
                     />
                 );
                 break;

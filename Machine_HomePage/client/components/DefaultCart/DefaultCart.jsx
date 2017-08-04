@@ -120,7 +120,7 @@ export default class DefaultCart extends React.Component {
                             alertVisible={this.state.alertVisible}
                             max={this.state.alertMax}
                             cancel={() => this.cancelAlertModal.bind(this)()}
-                            goBack={() => this.props.goBack()}
+                            goBack={() => this.props.onCancel()}
                             sleepTime={this.state.sleepTime}
                             clearCart={() => props.clearCart()}
                         /> : ''

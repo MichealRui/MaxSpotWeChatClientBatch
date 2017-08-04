@@ -36,11 +36,20 @@ class PageContainer extends React.Component{
         dispatch(setCartStatus(CartStatus.SHOW_CART));
         dispatch(fetchCart());
         this.setState({
-            cartVisible: true
+            cartVisible: true,
+            skuVisible:false
         })
     }
 
     hideCart() {
+        const {dispatch} = this.props;
+        dispatch(clearQr());
+        dispatch(setCartStatus(CartStatus.HIDE_CART));
+        this.setState({
+            cartVisible: false
+        });
+    }
+    goBack(){
         const {dispatch} = this.props;
         dispatch(clearQr());
         dispatch(setCartStatus(CartStatus.HIDE_CART));
@@ -93,6 +102,7 @@ class PageContainer extends React.Component{
                 />
                 <CartContainer visible={this.state.cartVisible}
                                onCancel={ () => this.hideCart.bind(this) }
+                               goBack={ () => this.goBack.bind(this) }
                                {...state.cart}
                                addToCart={(item) => dispatch(addToCart(item))}
                                decItem={(item) => dispatch(deleteOneFromCart(item))}
@@ -108,6 +118,7 @@ class PageContainer extends React.Component{
                               onCancel={()=>this.hideProductDetail.bind(this)}
                               product={state.product}
                               addToCart={(item) => dispatch(addToCart(item))}
+                              cartClick={() => this.onCartBtnClick.bind(this)}
                               {...state.cart}
                 />
                 <FetchSkuContainer visible={this.state.fetchSkuVisible}

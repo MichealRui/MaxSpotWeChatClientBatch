@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect }  from 'react-redux';
 import Header from '../../components/active_Header/Header';
-import Banner from '../../components/Banner/Banner';
+import Banner from '../../components/active_Banner/Banner';
 import SubContent from '../active_SubContent/SubContent';
 import CartContainer from '../CartContainer/CartContainer';
 import SkuContainer from '../SkuContainer/SkuContainer';
@@ -24,7 +24,6 @@ class Active extends React.Component{
 
     componentWillMount() {
         const { dispatch } = this.props;
-        // dispatch(initMainContent());
         dispatch(initActivity())
     }
 
@@ -33,7 +32,8 @@ class Active extends React.Component{
         dispatch(setCartStatus(CartStatus.SHOW_CART));
         dispatch(fetchCart());
         this.setState({
-            cartVisible: true
+            cartVisible: true,
+            skuVisible:false
         })
     }
 
@@ -44,6 +44,16 @@ class Active extends React.Component{
         this.setState({
             cartVisible: false
         });
+
+    }
+    goBack(){
+        const {dispatch} = this.props;
+        dispatch(clearQr());
+        dispatch(setCartStatus(CartStatus.HIDE_CART));
+        this.setState({
+            cartVisible: false
+        });
+        this.context.router.push('/');
     }
 
     onProductDetailClick(item){
@@ -79,6 +89,7 @@ class Active extends React.Component{
                 />
                 <CartContainer visible={this.state.cartVisible}
                                onCancel={ () => this.hideCart.bind(this) }
+                               goBack={ () => this.goBack.bind(this) }
                                {...state.cart}
                                addToCart={(item) => dispatch(addToCart(item))}
                                decItem={(item) => dispatch(deleteOneFromCart(item))}
@@ -94,11 +105,17 @@ class Active extends React.Component{
                               onCancel={()=>this.hideProductDetail.bind(this)}
                               product={state.product}
                               addToCart={(item) => dispatch(addToCart(item))}
+                              cartClick={() => this.onCartBtnClick.bind(this)}
+                              {...state.cart}
                 />
             </div>
         )
     }
 }
+
+Active.contextTypes = {
+    router: React.PropTypes.object
+};
 
 function select(store) {
     console.log('dispatched');
