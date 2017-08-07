@@ -4,7 +4,11 @@ import Item from '../../components/Item/index'
 import SwiperComponent from '../../components/Swiper/index'
 require('./index.css');
 
-var ItemContainer = React.createClass({
+export default class ItemContainer extends  React.Component {
+
+    constructor(props){
+        super(props);
+    }
 
     render() {
         let swiperConfig = {
@@ -13,7 +17,7 @@ var ItemContainer = React.createClass({
         };
         let props = this.props.items;
         let items = props.map((item, index) => {
-            return(
+            return (
                 <Item item={item} key={index}
                       isSliderItem={false}
                       click={this.props.itemClick}
@@ -23,7 +27,7 @@ var ItemContainer = React.createClass({
             )
         });
         return (
-            <div className="itemContainer" >
+            <div className="itemContainer">
                 <SwiperComponent
                     swiperConfig={swiperConfig}
                     swiperContainer={'swiper2'}
@@ -34,7 +38,4 @@ var ItemContainer = React.createClass({
             </div>
         )
     }
-});
-
-
-module.exports = ItemContainer;
+}

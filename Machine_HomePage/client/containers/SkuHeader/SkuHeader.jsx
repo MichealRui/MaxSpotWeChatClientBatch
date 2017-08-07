@@ -59,7 +59,7 @@ export default class skuHeader extends React.Component {
         let sub_price = (
             <div className="sub_price">
                 <p className="font48"><span className="font32">￥</span>{sku.sellprice/100 || 0 }</p>
-                <p className={"font24 "+(sku.quantity>0 ? '':'hide')}>市场价 {sku.msrp/100}元</p>
+                <p className={"font24 hide"}>市场价 {sku.msrp/100}元</p>
             </div>
         )
 

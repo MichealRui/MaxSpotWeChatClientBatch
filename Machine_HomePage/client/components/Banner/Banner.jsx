@@ -12,34 +12,17 @@ export default class Banner extends React.Component {
     render() {
         let props = this.props;
         let bannerData = props.bannerData;
-        let defPic = './images/banner_default.png';
         let swiperConfig = {
             pagination: '.swiper1 .swiper-pagination',
             slidesPerView: 1
         };
         let style = {};
-        // let links = bannerData.length>0 ? (
-        //     bannerData.map(
-        //         (img,index)=>{
-        //             return (
-        //                 <Link key={index} to="/active">
-        //                     <img width='100%' style={style} src={ENV.domain + img} alt=""/>
-        //                 </Link>
-        //             )
-        //         })
-        // ) : (
-        //         [<Link to="/active" key="activity_default">
-        //             <img width='100%' style={style} src={require(defPic)} alt=""/>
-        //         </Link>]
-        //     );
-        //
-
         let links = [];
         links.push(
-            [<Link to="/whole-active" key="activity_xbx">
+            <Link to="/whole-active" key="activity_xbx">
                 <img width='100%' style={style} src={require('./images/xbx-banner.jpg')} alt=""/>
-             </Link>]
-        )
+             </Link>
+        );
 
         let banner_online = bannerData.map(
             (img,index)=>{
@@ -49,15 +32,17 @@ export default class Banner extends React.Component {
                     </Link>
                 )
             });
-        if(bannerData.length > 0){
-            links.push(banner_online);
+        if(banner_online.length > 0 ){
+            links.push(banner_online)
         }else{
             links.push(
                 <Link to="/active" key="activity_default">
-                    <img width='100%' style={style} src={require(defPic)} alt=""/>
+                    <img width='100%' style={style} src={require('./images/banner_default.png')} alt=""/>
                 </Link>
-            )
+            );
+
         }
+
         return (
             <div className="bannerContainer">
                 <Swiper swiperConfig={swiperConfig} swiperContainer={'swiper1'}>
