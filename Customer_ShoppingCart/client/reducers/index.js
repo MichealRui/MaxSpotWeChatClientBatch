@@ -339,9 +339,11 @@ function operator_computeCampaignByType(campaignedList) {
     const CashDiscount = {1: operator_computeCampaignType_1};
     const CountDiscount = {2: operator_computeCampaignType_2};
     const GiftDiscount = {3: operator_computeCampaignType_3};
-    let operators = Object.assign({}, CashDiscount, CountDiscount, GiftDiscount);
+    const NoDiscount = {4: operator_computeCampaignType_4};
+    let operators = Object.assign({}, CashDiscount, CountDiscount, GiftDiscount,NoDiscount);
     return campaignedList.map( cUnit => {
                 let {campaignId, campaignType} = cUnit;
+
                 if(campaignId) {
                     return operators[campaignType](cUnit)
                 }
@@ -404,6 +406,10 @@ function operator_computeCampaignType_3(cUnit) {
     !activate && cUnit.presentSku ? cUnit.presentSku.err_status = PRODUCT_OUT_SELL : null;
     cUnit.presentSku ? cUnit.presentSku.count = mult : null;
     return cUnit
+}
+
+function operator_computeCampaignType_4(cUnit) {
+    return cUnit;
 }
 
 // function operator_computeCampaignListSum(campaignedList) {
