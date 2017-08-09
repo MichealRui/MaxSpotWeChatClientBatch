@@ -113,6 +113,7 @@ export default class DefaultCart extends React.Component {
                             submit={props.submit}
                             clearCart={() => props.clearCart()}
                             showAlert={showPayAlert}
+                            show = {props.showProduct}
                 />
                 {
                     this.state.alertVisible?

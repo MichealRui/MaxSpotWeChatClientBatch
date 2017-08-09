@@ -25,6 +25,7 @@ export default class CartBottom extends React.Component {
                       isSliderItem={false}
                       click={this.props.itemClick}
                       store={this.props.store}
+                      show={this.props.show}
                 />
             )
         });

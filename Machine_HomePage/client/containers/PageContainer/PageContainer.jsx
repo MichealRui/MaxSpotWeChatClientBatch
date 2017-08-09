@@ -113,6 +113,7 @@ class PageContainer extends React.Component{
                                order={state.order}
                                fetchOrder={(or) => dispatch(fetchOrderStatus(or))}
                                clearCart={() => dispatch(clearCart())}
+                               showProduct={(item) => this.onProductDetailClick.bind(this)(item)}
                 />
                 <SkuContainer visible={this.state.skuVisible}
                               onCancel={()=>this.hideProductDetail.bind(this)}

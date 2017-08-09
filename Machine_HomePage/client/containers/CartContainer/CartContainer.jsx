@@ -53,6 +53,7 @@ export default class CartContainer extends React.Component {
                         isModalVisible={props.visible}
                         onCancel={props.onCancel()}
                         goBack={props.goBack()}
+                        showProduct={props.showProduct}
                     />
                 );
                 break;
