@@ -1,13 +1,13 @@
 "use strict";
 import React from 'react';
-import Button from '../../CommonComponents/Button/Button'
-import mock from '../AfterPayFooter/AfterPayFooterData'
+import Button from '../../../components/CommonComponents/Button/Button'
+// import mock from '../AfterPayFooter/AfterPayFooterData'
 require('./index.css')
 export default class AfterPayHeader extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            currentKey : 1
+            currentKey : 0
         }
     }
 
@@ -31,14 +31,54 @@ export default class AfterPayHeader extends React.Component{
     }
 
     render(){
-        const ORDER_NORMAL = 1; //出货完成  绿色对勾 fa-check
-        const ORDER_WRONG = 2 ; //出货异常  红色叹号 fa-exclamation
-        const ORDER_WILLOUT = 0 ; //尚未出货
-        const ORDER_ALREADYOUT = 3; //已经出货
+        const ORDER_NORMAL = 5; //出货完成  绿色对勾 fa-check
+        const ORDER_WRONG = 6 ; //出货异常  红色叹号 fa-exclamation
+        const ORDER_WILLOUT = 3; //尚未出货
+        const ORDER_ALREADYOUT = 7; //已经出货
         const ORDER_OUTING = 4; //正在出货 红色三个点 fa-ellipsis-h
+
         let props = this.props;
         let html = '';
         let circleClass = '';
+        // let domain = ENV.domain;
+        let domain = "http://114.215.143.97";
+        let defaultImg = DEFALUT_INFO.defaultImg;
+        let batches = props.itemData.batches;
+
+        // {
+        //     status: ORDER_ALREADYOUT,
+        //         id : 1,
+        //     images : [
+        //     './1.jpg',
+        //     './1.jpg',
+        //     './1.jpg',
+        //     './1.jpg',
+        //     './1.jpg',
+        // ]
+        // },
+
+        let itemInfo = batches && batches.length > 0 ? batches.map(
+            (item,index) =>{
+                let skusImg = item.skus.map((sku,index)=>{
+                    let img = sku.sku.imagePath ? (domain + sku.sku.imagePath) : defaultImg;
+                    return img;
+                });
+                let status = item.outStatus;
+                if(index < props.currentKey){
+                    status = 7;
+                }
+                let status_arr = [3,4,5,6];
+                if(status_arr.indexOf(item.outStatus) == -1){
+                    status = 3;
+                }
+                return {
+                    status : status,
+                    id : index,
+                    images : skusImg
+                }
+            }
+        ) : [];
+        let mock = itemInfo;
         let len = mock.length;
         let lineText = '';
         if(mock.length > 1){
@@ -111,7 +151,7 @@ export default class AfterPayHeader extends React.Component{
                     break;
 
             }
-        }else{
+        }else if(mock.length > 0){
             switch (mock[0].status){
                 case ORDER_NORMAL:
                     html = (
@@ -183,3 +223,14 @@ export default class AfterPayHeader extends React.Component{
         )
     }
 }
+
+AfterPayHeader.PropTypes = {
+    itemData : React.PropTypes.object,
+    currentKey : React.PropTypes.number
+};
+AfterPayHeader.defaultProps = {
+    itemData : {
+        batches : []
+    },
+    currentKey : 0
+};

@@ -18,7 +18,8 @@ class TakeGoodsContainer extends React.Component {
             isSuccess:true,
             isShowTips:true,
             isShopErr:true,
-            isWaitting:true
+            isWaitting:true,
+            timer : null
         };
     }
 
@@ -40,14 +41,16 @@ class TakeGoodsContainer extends React.Component {
         //let status = state.orderDetail.order.status;
         dispatch(InitTakeGoods(od))
         if(status != Taking) {
-            window.setTimeout( ()=>this.fetchO.bind(this)(od), this.sleepTime )
+            this.state.timer = window.setTimeout( ()=>this.fetchO.bind(this)(od), this.sleepTime )
         } else {
             //history.pushState()
             this.context.router.push('/afterPay/1/'+od);
         }
 
     }
-
+    componentWillUnmount(){
+        window.clearTimeout(this.state.timer)
+    }
 
     acknowledgedFalse() {
         this.setState({
@@ -103,7 +106,6 @@ class TakeGoodsContainer extends React.Component {
         let {state} = this.props;
         let {takeGoods} = state;
         let {order} = takeGoods;
-        let newOrder = order ? (order.childOrders ? Object.assign({},{order:order.childOrders[0]}) : Object.assign({},{order:order})) : {}
         let appId = 'wx4da5ecd6305e620a';
         let takeUri = encodeURIComponent("http://www.mjitech.com/web/wxauthorize.action");
         // let defUrl=
@@ -111,29 +113,27 @@ class TakeGoodsContainer extends React.Component {
         //     '&redirect_uri=' + takeUri +
         //     '&response_type=code&scope=snsapi_base' +
         //     '&state=taking_goods_' + newOrderDetail.takeGoodsNumber +'#wechat_redirect';
+        let takeGoodsNumber = takeGoods.order ? (takeGoods.order.takeGoodsNumber ? takeGoods.order.takeGoodsNumber : '') : '';
         let defUrl=
             'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appId +
             '&redirect_uri=' + takeUri +
             '&response_type=code&scope=snsapi_base' +
-            '&state=taking_goods_123#wechat_redirect';
-        let qrcode = newOrder && newOrder.order ? (<QrCode order={newOrder.order}
-                                         takeuri={defUrl}
-                                         onFailClick={this.acknowledgedFalse.bind(this)}
-                                         onShowTips={this.acShowTipsFalse.bind(this)}
+            '&state=taking_goods_'+ takeGoodsNumber +'#wechat_redirect';
+        let qrcode = order ? (<QrCode order={order}
+                                     takeuri={defUrl}
+                                     onFailClick={this.acknowledgedFalse.bind(this)}
+                                     onShowTips={this.acShowTipsFalse.bind(this)}
 
         />) : '';
-        // let ConfirmWindow = newOrder && newOrder.order ? (<ConfirmWindow windowText={WindowText}
-        //                                                      isHidden={this.state.isSuccess}
-        //                                                      hideClick={this.acknowledgedTrue.bind(this)}/>
-        // ) : '';
-        // let ConfirmWindow = '';
         return (
             <div className="takeGoodsContainer">
                 {/*<TakeGood orderInfo={newOrderDetail}/>*/}
                 {qrcode}
                 <ConfirmWindow windowText={WindowText}
                                isHidden={this.state.isSuccess}
-                               hideClick={this.acknowledgedTrue.bind(this)}/>
+                               hideClick={this.acknowledgedTrue.bind(this)}
+                               order={order}
+                />
 
                 <WaittingWindow isHidden={this.state.isWaitting}
                                 hideClick={this.waittingTrue.bind(this)}
@@ -142,7 +142,7 @@ class TakeGoodsContainer extends React.Component {
                                hideClick={this.shopErrTrue.bind(this)}
                 />
                 <ShowTipsWindow isHidden={this.state.isShowTips}
-                                order={newOrder}
+                                order={order}
                                 hideClick={this.acShowTipsTrue.bind(this)}
                 />
             </div>
@@ -159,7 +159,8 @@ TakeGoodsContainer.defaultProps = {
         takeGoods : {
             order : {
                 childOrders : [],
-                status : 0
+                status : 0,
+                takeGoodsNumber : ''
             }
         }
     }

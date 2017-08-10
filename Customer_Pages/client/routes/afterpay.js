@@ -5,7 +5,7 @@ module.exports = {
     path:'afterPay/:states/:orderNumber',
     getComponent(nextState, cb) {
         require.ensure([], (require) => {
-            cb(null, require('../containers/AfterPayContainer/AfterPayContainer').default)
+            cb(null, require('../containers/AfterPayContainerOld/AfterPay').default)
         }, 'AfterPay')
     },
 };

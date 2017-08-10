@@ -186,11 +186,10 @@ export function initByStoreId(id) {
 // }
 
 export function initSubContent(d) {
-    console.log(" initing ");
     return (dispatch) =>  {
         dispatch(initStart());
         dispatch(loadingAction.toggleStatue({status:true}));
-        dispatch(shoppingCartAction.initStart())
+        dispatch(shoppingCartAction.initStart());
         fetch( d.url,
             {
                 method: 'POST',

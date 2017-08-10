@@ -7,11 +7,16 @@ export default class AfterPayLine extends React.Component{
     }
 
     render(){
-        const ORDER_NORMAL = 1; //出货完成  绿色对勾 fa-check
-        const ORDER_WRONG = 2 ; //出货异常  红色叹号 fa-exclamation
-        const ORDER_WILLOUT = 0 ; //尚未出货
-        const ORDER_ALREADYOUT = 3; //已经出货
-        const ORDER_OUTING = 4; //正在出货 红色三个点 fa-ellipsis-h
+        // const ORDER_NORMAL = 1; //出货完成  绿色对勾 fa-check
+        // const ORDER_WRONG = 2 ; //出货异常  红色叹号 fa-exclamation
+        // const ORDER_WILLOUT = 0 ; //尚未出货
+        // const ORDER_ALREADYOUT = 3; //已经出货
+        // const ORDER_OUTING = 4; //正在出货 红色三个点 fa-ellipsis-h
+        const ORDER_NORMAL = 5; //出货完成  绿色对勾 fa-check
+        const ORDER_WRONG = 6 ; //出货异常  红色叹号 fa-exclamation
+        const ORDER_WILLOUT = 3; //尚未出货
+        const ORDER_ALREADYOUT = 7; //已经出货
+        const ORDER_OUTING = 4; //正在出货 红色三个点 fa-ellipsis-h  4
         let props = this.props;
         let status = props.lineStatus;
         let chosen = props.chosen;

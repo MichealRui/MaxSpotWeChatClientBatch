@@ -4,23 +4,36 @@ import * as messageAction from './Message';
 
 const domain = ENV.domain;
 
-export function initAfterPay(ori_state) {
-    let PaySuccessData = {
-        ori_state : ori_state,
-        count : 0
+export function initAfterPay(orderNumber) {
+    return (dispatch) => {
+        dispatch(initStart());
+        fetch(domain + '/web/buyer_api/order_detail.ction',
+            {
+                credentials : 'include',
+                method : 'POST',
+                mode : 'cors',
+                body : JSON.stringify({order_number:orderNumber})
+            }
+        ).then((response)=>response.json())
+            .then((json)=>{
+                if(json.is_succ){
+                    dispatch(initSuccess({order:json.order}));
+                }else{
+                    dispatch(messageAction.setMessage({errorMessage:json.error_message}))
+                }
+            }).catch(e=>{
+                dispatch(messageAction.setMessage({errorMessage:'服务器错误'}))
+            })
     }
-    return (dispatch)=>{
-        dispatch(initSuccess(PaySuccessData))
-    };
 }
 
-export function initStart() {
+function initStart() {
     return {
-        type: START,
+        type: actionTypes.INIT_AFTERPAY_START,
     }
 }
 
-export function initSuccess(cont) {
+function initSuccess(cont) {
     return {
         type: actionTypes.INIT_AFTERPAY_SUCCESS,
         cont

@@ -56,8 +56,7 @@ function initSuccess(content, data){
         2: {key: 'makeup', content: '护肤美妆', faIcon:'fa-tint',image:img_hfmz},
         3: {key: 'daily', content: '杂货', faIcon:'fa-umbrella',image:img_zh},
         4: {key: 'drink', content: '酒水饮料', faIcon:'fa-glass',image:img_jsyl},
-        5: {key: 'baby', content: '儿童母婴', faIcon:'fa-deviantart',image:img_etmy}
-
+        5: {key: 'baby', content: '儿童母婴', faIcon:'fa-deviantart',image:img_etmy},
     };
     let new_data = Object.assign({},content,data);
     let categories = new_data.content.filter(cat => cat.id != 0);

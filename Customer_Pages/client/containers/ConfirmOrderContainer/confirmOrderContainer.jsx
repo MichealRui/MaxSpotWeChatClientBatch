@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { initOrderConfirm } from '../../actions/ConfirmOrder';
 import { initWxConfig, initPaySdk } from '../../actions/WeiXin'
 import OrderProductList from '../../components/ConfirmOrderComponents/OrderProductList/OrderProductList'
-import Button from '../../components/CommonComponents/Button/Button'
+import Button from '../../components/CommonComponents/Button/Button';
+import Message from '../../components/CommonComponents/Message/Message';
+import { setMessage } from '../../actions/Message';
 import wx from 'weixin-js-sdk';
 
 require('./index.css')
@@ -28,7 +30,6 @@ class ConfirmOrderContainer extends React.Component {
     componentDidUpdate(){
         const {dispatch,state} = this.props;
         let config = state.weixin.wxConfig;
-        console.log(config)
         if(config.sign && !state.weixin.sdkPayInited){
             if(this.initWx(config)) {
                 dispatch(initPaySdk());
@@ -88,7 +89,7 @@ class ConfirmOrderContainer extends React.Component {
 
     render(){
         let {state,dispatch} = this.props;
-        let {confirmOrder,weixin} = state;
+        let {confirmOrder,weixin,message} = state;
         let {orderInfo,is_succ} = confirmOrder;
         return(
             <div className="confirmOrderContainer">
@@ -103,7 +104,11 @@ class ConfirmOrderContainer extends React.Component {
                             />
                         </div>
                     ) : ''
+
                 }
+                <Message msgContent={message}
+                         clearMessage={() => dispatch(setMessage({errorMessage: ""}))}
+                />
             </div>
         )
     }

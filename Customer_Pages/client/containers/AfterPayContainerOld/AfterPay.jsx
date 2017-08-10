@@ -16,7 +16,8 @@ class AfterPay extends React.Component {
 		this.sleepTime = 1000;
 
         this.state = {
-            pageStatus: 1
+            pageStatus: 1,
+            timer : null
         }
 	}
 	componentWillMount() {
@@ -53,7 +54,7 @@ class AfterPay extends React.Component {
                             pageStatus :2
                         })
                     } else {
-                        window.setTimeout( () => this.fetchOrderStatus(on), this.sleepTime)
+                        this.state.timer = window.setTimeout( () => this.fetchOrderStatus(on), this.sleepTime)
                     }
                 } else {
                     this.setState({
@@ -61,6 +62,10 @@ class AfterPay extends React.Component {
                     })
                 }
             })
+    }
+
+    componentWillUnmount(){
+        window.clearTimeout(this.state.timer);
     }
 
 	render(){

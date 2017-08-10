@@ -264,6 +264,10 @@ html { overflow-y: scroll; }
 }
 #root {
     padding-bottom: 3rem;;
+
+}
+.hide{
+    display: none!important;
 }
 /*#root {*/
     /*display: flex;*/

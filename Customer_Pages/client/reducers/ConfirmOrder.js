@@ -6,9 +6,10 @@ function initStart(content) {
 
 function initSuccess(content,data) {
     console.log('success');
-    if(!data.orderInfo.childOrders){
-        data.orderInfo.childOrders = [data.orderInfo];
-    }
+    console.log(data);
+    // if(!data.orderInfo.childOrders){
+    //     data.orderInfo.childOrders = [data.orderInfo];
+    // }
     return Object.assign({},content,data,{is_succ:true});
 }
 

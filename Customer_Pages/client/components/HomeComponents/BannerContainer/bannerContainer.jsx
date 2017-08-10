@@ -18,7 +18,6 @@ export default class BannerContainer extends React.Component {
         let props = this.props;
         let style= {};
         let domain = ENV.domain;
-        // domain = 'http://114.215.143.97';
         let defaultImg = DEFALUT_INFO.bannerDefaultImg;
         let banners = props.bannerData.map((banner, index) =>  {
             return (

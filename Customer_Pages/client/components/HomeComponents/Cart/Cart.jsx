@@ -4,7 +4,7 @@ import Counter from '../../CommonComponents/Counter/Counter';
 import cart_img from './image/cart.png'
 import {Link} from 'react-router'
 require ('./index.css');
-
+let treeNodeClickHandler;
 export default class Cart extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +21,7 @@ export default class Cart extends Component {
                 cartActive:'active',
                 cartLock : true
             });
-            window.setTimeout( () => {
+            treeNodeClickHandler = window.setTimeout( () => {
                 this.setState({
                     cartActive:'',
                     cartLock : false
@@ -29,6 +29,14 @@ export default class Cart extends Component {
             }, 1500)
         }
 
+    }
+
+    componentWillUnmount(){
+        window.clearTimeout(treeNodeClickHandler);
+        this.setState({
+            cartActive:'',
+            cartLock : false
+        });
     }
 
     render() {
