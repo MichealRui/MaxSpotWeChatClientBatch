@@ -53,8 +53,9 @@ function calcuTotalSum(itemInfo) {
             return s.length != 0
         }
     );
-    return filteredSkus.length == 0 ? 0
-        : filteredSkus.map(sku => sku.shopSum).reduce((pre, next) => pre + next, 0)
+    let num = filteredSkus.length == 0 ? 0
+        : filteredSkus.map(sku => sku.shopSum).reduce((pre, next) => pre + next, 0);
+    return Number(num.toFixed(2));
 
 }
 
