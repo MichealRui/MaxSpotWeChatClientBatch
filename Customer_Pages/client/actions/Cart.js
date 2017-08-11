@@ -82,6 +82,7 @@ export function errorAddToCart(errorMessage) {
 }
 
 export function clearCart() {
+    console.log('clearCart');
     return {
         type: actionTypes.CLEAR_CART
     }

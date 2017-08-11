@@ -8,6 +8,7 @@ const domain = ENV.domain;
 
 export function initShoppingCart() {
     return (dispatch) => {
+        console.log('initShoppingCart');
         dispatch(initStart())
         fetch ( domain + '/web/buyer_api/get_cart.ction',
             {
@@ -24,7 +25,10 @@ export function initShoppingCart() {
                         dispatch(messageAction.setMessage({errorMessage:json.error_message}))
                     }
                 }
-            ).catch(e=>dispatch(messageAction.setMessage({errorMessage:'服务器错误'})))
+            ).catch(e=>{
+                console.warn(e);
+                dispatch(messageAction.setMessage({errorMessage:'服务器错误'}))
+            })
     }
 }
 
