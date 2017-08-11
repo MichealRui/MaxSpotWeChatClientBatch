@@ -19,7 +19,6 @@ class ShoppingCartContainer extends React.Component {
     }
     componentWillMount(){
         const {dispatch} = this.props;
-        console.log('shoppingcart');
         dispatch(initShoppingCart())
     }
 

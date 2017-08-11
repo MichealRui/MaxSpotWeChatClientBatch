@@ -44,7 +44,7 @@ export default class Cart extends Component {
         let cart = this.props.cart;
         let clearCart = this.props.clearCart;
         return (
-            <Link to="/orderList">
+            <Link to="/shoppingCart">
                 <div className={cart.remainTime?"bottomButton":"bottomButton empty" +' ' + this.state.cartActive}
                 >
                     <div className='cartIcon '>
