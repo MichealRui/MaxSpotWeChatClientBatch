@@ -7,10 +7,7 @@ function initStart(content) {
 function initSuccess(content,data) {
     console.log('success');
     console.log(data);
-    // if(!data.orderInfo.childOrders){
-    //     data.orderInfo.childOrders = [data.orderInfo];
-    // }
-    return Object.assign({},content,data,{is_succ:true});
+    return Object.assign({},content,{orderInfo:data},{is_succ:true});
 }
 
 export default function (content={},action) {

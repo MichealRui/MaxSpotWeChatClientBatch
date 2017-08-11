@@ -23,10 +23,16 @@ function setWechatUrl(state,url) {
     return Object.assign({},state,{wechat_url:url})
 }
 
+function initWxPaySucc(state,config) {
+    return Object.assign({},state,{payConfig:config})
+}
+
 export default function(state={}, action) {
     switch (action.type) {
         case actionTypes.INIT_WX_CONFIG_SUCC:
             return initWxConfigSucc(state, action.config);
+        case actionTypes.INIT_WX_PAY_SUCC:
+            return initWxPaySucc(state,action.config);
         case actionTypes.INIT_WX_CONFIG_ERR:
             return initWxConfigErr(state);
         case actionTypes.JSSDK_INITED:

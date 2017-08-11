@@ -1,8 +1,8 @@
 "use strict";
 import React from 'react';
 import { connect } from 'react-redux';
-import { initOrderConfirm } from '../../actions/ConfirmOrder';
-import { initWxConfig, initPaySdk } from '../../actions/WeiXin'
+import { initOrderConfirm,initSuccess } from '../../actions/ConfirmOrder';
+import { initWxConfig, initPaySdk ,initWxpayConfig,initSdk } from '../../actions/WeiXin'
 import OrderProductList from '../../components/ConfirmOrderComponents/OrderProductList/OrderProductList'
 import Button from '../../components/CommonComponents/Button/Button';
 import Message from '../../components/CommonComponents/Message/Message';
@@ -19,19 +19,27 @@ class ConfirmOrderContainer extends React.Component {
     }
     componentWillMount(){
         const { dispatch,state } = this.props;
-        const link = state.weixin.wechat_url;
-        let wlink = 'http://www.mjitech.com/buyer_pages/index.html?/#/confirmOrder/';
-        // dispatch(wlink, initOrderConfirm(this._orderNumber));
+        const wechat_url = state.weixin.wechat_url;
+        let a_link = 'http://www.mjitech.com/buyer_pages/index.html?/#/confirmOrder/';
+        // let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        // let a_link = 'http://www.mjitech.com/#/confirmOrder/';
         this._isAndroid ?
-            dispatch(initWxConfig(wlink,initOrderConfirm(this._orderNumber))):
-            dispatch(initOrderConfirm(this._orderNumber));
+            dispatch(initWxConfig(a_link,initWxpayConfig(initSuccess,this._orderNumber))):
+            dispatch(initWxpayConfig(initSuccess,this._orderNumber));
+            // dispatch(initWxConfig(i_link,initWxpayConfig(initSuccess,this._orderNumber)));
     }
 
     componentDidUpdate(){
         const {dispatch,state} = this.props;
         let config = state.weixin.wxConfig;
+        // let i_link = 'http://www.mjitech.com/#/';
+        let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        if(!config && !this._isAndroid){
+            dispatch(initWxConfig(i_link,initWxpayConfig(initSuccess,this._orderNumber)));
+        }
         if(config.sign && !state.weixin.sdkPayInited){
             if(this.initWx(config)) {
+                dispatch(initSdk());
                 dispatch(initPaySdk());
             }
         }
@@ -55,7 +63,7 @@ class ConfirmOrderContainer extends React.Component {
     }
 
     payOrder(){
-        let config = this.props.state.confirmOrder.wxConfig;
+        let config = this.props.state.weixin.payConfig;
         let appId = 'wx4da5ecd6305e620a';
         let orderNum = this._orderNumber;
         let routers = this.context.router;
