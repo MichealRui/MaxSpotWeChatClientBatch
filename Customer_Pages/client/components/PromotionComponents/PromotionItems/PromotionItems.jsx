@@ -40,7 +40,7 @@ export default class PromotionItems extends React.Component{
         domain = 'http://114.215.143.97';
         let defProductImg = DEFALUT_INFO.defaultImg
         let itemData = props.itemData;
-        let itemTag = itemData.tags ?  <div className="activityItemsTags font12">{itemData.tags}</div>:'';
+        let itemTag = itemData.tips ?  <div className="activityItemsTags font12">{itemData.tips}</div>:'';
         let itemDesc = props.type == 1 ? <div className="activityDesc">{itemData.description}</div> : '';
         let attr = this.getAttr(itemData.attributes);
         if(itemData.status == 2){
@@ -66,9 +66,15 @@ export default class PromotionItems extends React.Component{
                         <div className="activityItemsMoney font18">
                             {itemData.sellprice/100 || 0 } <span className="font12">元</span>
                         </div>
+                        {
+                            itemData.msrp ? <div className="activityItemsBeforeMoney font14">
+                                {itemData.msrp/100 || 0 } <span className="font12">元</span>
+                            </div> : null
+                        }
+
                         {this.props.children}
+                        {itemTag}
                     </div>
-                    {itemTag}
                     {itemDesc}
                     <div className="activityLayer">
                         <div className="sellouts font14">缺货</div>

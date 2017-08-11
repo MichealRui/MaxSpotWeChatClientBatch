@@ -48,8 +48,9 @@ function calcuTotalSum(itemInfo) {
             return s.length != 0
         }
     );
-    return filteredSkus.length == 0 ? 0
-        : filteredSkus.map(sku => sku.shopSum).reduce((pre, next) => pre + next, 0)
+    let num = filteredSkus.length == 0 ? 0
+        : filteredSkus.map(sku => sku.shopSum).reduce((pre, next) => pre + next, 0);
+    return Number(num.toFixed(2));
 }
 
 function finalState(itemInfo) {
@@ -113,6 +114,7 @@ function operator_computeCampaignByType(campaignedList) {
     const CashDiscount = {1: operator_computeCampaignType_1};
     const CountDiscount = {2: operator_computeCampaignType_2};
     const GiftDiscount = {3: operator_computeCampaignType_3};
+    const NoDiscount = {4: operator_computeCampaignType_4};
     let operators = Object.assign({},CashDiscount,CountDiscount,GiftDiscount);
     return campaignedList.map(
         cUnit => {
@@ -172,6 +174,10 @@ function operator_computeCampaignType_3(cUnit) {
         presentMoney ? Math.floor(totalSum / presentMoney) : Math.floor(sumCount/ presentCount) : 1;
     !activate && cUnit.presentSku ? cUnit.presentSku.err_status = PRODUCT_OUT_SELL : null;
     cUnit.presentSku ? cUnit.presentSku.count = mult : null;
+    return cUnit;
+}
+
+function operator_computeCampaignType_4(cUnit) {
     return cUnit;
 }
 

@@ -10,7 +10,13 @@ export default class StoreDetailTitle extends React.Component {
         return (
             <div className={'storeDetailTitle ' + props.storeInfo.className} >
                 <span className={"fa " + props.storeInfo.orderTitleIcon + (props.storeInfo.orderIconShow ? '' : ' hide')}>{props.storeInfo.orderIconText}</span>
-                <span className={"orderAddress font14" + (props.storeInfo.orderTitleShow ? '' : ' hide')}>{props.storeInfo.orderTitleText }</span>
+                {
+                    props.storeInfo.className === 'phoneInfo' && props.storeInfo.orderTitleText != '' ?
+                        <a href={'tel:'+props.storeInfo.orderTitleText}>
+                            <span className={"orderAddress font14" + (props.storeInfo.orderTitleShow ? '' : ' hide')}>{props.storeInfo.orderTitleText }</span>
+                        </a> :
+                        <span className={"orderAddress font14" + (props.storeInfo.orderTitleShow ? '' : ' hide')}>{props.storeInfo.orderTitleText }</span>
+                }
                 <span className={'fa orderAddressArrow '+ props.storeInfo.orderArrowIcon + (props.storeInfo.orderArrowShow ? '' : ' hide')}>{props.storeInfo.orderArrowText}</span>
             </div>
         );

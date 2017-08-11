@@ -26,9 +26,9 @@ class PageContainer extends React.Component {
         const { dispatch } = this.props;
         // const link = window.location.href.slice(0,(window.location.href.indexOf("#"))) + '#/';
         // DEFALUT_INFO.wechat_url = window.location.href;
-        const link = window.location.href;
-        let wlink = 'http://www.mjitech.com/buyer_pages/index.html/';
-        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(wlink, initCart()));
+        // const link = window.location.href;
+        let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(i_link, initCart()));
     }
 
     componentDidUpdate() {
@@ -121,7 +121,8 @@ class PageContainer extends React.Component {
                     addToCart={(item) => dispatch(addToCart(item))}
                 />
                 <BottomButton cart={cart.cart}
-                              clearCart={() => dispatch(clearCart())}/>
+                              clearCart={() => dispatch(clearCart())}
+                />
             </div>
         )
     }

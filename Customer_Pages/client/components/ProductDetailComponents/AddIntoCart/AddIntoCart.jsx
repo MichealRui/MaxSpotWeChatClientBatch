@@ -11,7 +11,7 @@ export default class AddIntoCart extends React.Component {
 
 	render(){
 		let props = this.props;
-		let btn_text = props.productData.quantity > 0 ? '加入购物车': '售 罄'
+		let btn_text = props.productData.quantity > 0 ? '加入购物车': '缺 货'
 		let btn_class = props.productData.quantity > 0 ? 'addProduct': 'addProduct empty';
 		let data = {
 			skuId : props.productData.id,
@@ -33,11 +33,11 @@ export default class AddIntoCart extends React.Component {
 }
 AddIntoCart.PropTypes = {
 	productData : React.PropTypes.object
-}
+};
 AddIntoCart.defaultProps = {
 	productData : {
 		sellprice : 0,
 		quantity : 0,
 		id : 0
 	}
-}
+};

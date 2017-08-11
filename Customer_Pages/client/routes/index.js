@@ -46,5 +46,6 @@ module.exports = {
         require('./shoppingcart'),
         require('./switchshop'),
         require('./takegood'),
+        require('./homepage')
     ]
 };

@@ -3,7 +3,7 @@
  */
 import fetch from 'isomorphic-fetch';
 import * as actionTypes from '../actionTypes/common/Weixin'
-
+import * as messageAction from './Message';
 const domain = ENV.domain;
 
 export function initWxConfig(url, cb) {
@@ -36,6 +36,36 @@ export function initWxConfig(url, cb) {
         // ).catch(e => console.log(e))
     }
 
+}
+
+export function initWxpayConfig(cb,orderNum) {
+    return (dispatch)=>{
+        fetch(domain + '/web/buyer_api/get_jsapi_pay_params.ction',
+            {
+                method : 'POST',
+                mode : 'cors',
+                credentials : 'include',
+                body : JSON.stringify({
+                    order_number : orderNum
+                })
+            }
+        ).then(response => response.json())
+            .then(json => {
+                if(json.is_succ){
+                    dispatch(initWxPaySucc(json.jssdkPayParams));
+                    dispatch(cb(json.order));
+                }else{
+                    dispatch(messageAction.setMessage({errorMessage:json.error_message}))
+                }
+            })
+    }
+}
+
+export function initWxPaySucc(config) {
+    return {
+        type : actionTypes.INIT_WX_PAY_SUCC,
+        config
+    }
 }
 
 export function initWxConfigSucc(config) {

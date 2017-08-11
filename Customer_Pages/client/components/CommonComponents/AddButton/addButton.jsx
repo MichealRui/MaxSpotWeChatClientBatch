@@ -27,7 +27,7 @@ export default class AddButton extends React.Component {
         let props = this.props;
         return (
             <div className="addContainer" onClick={this.addClick.bind(this)}>
-                <span className="add " item={props.item}>
+                <span className="add ">
                     <img src={require('./image/plus.png')} alt=""/>
                 </span>
             </div>

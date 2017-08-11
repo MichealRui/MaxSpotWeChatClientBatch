@@ -23,7 +23,7 @@ export default class ShopDetailInfo extends React.Component {
                 </li>
                 <li>
                     <span className="fa fa-phone icon font20"></span>
-                    <p className="content font14">{props.storeInfo.phone}</p>
+                    <a href={"tel:"+props.storeInfo.phone}><p className="content font14">{props.storeInfo.phone}</p></a>
                     {/*<span className="fa fa-angle-right rightArrow font20"></span>*/}
                 </li>
             </ul>

@@ -5,7 +5,7 @@
 import * as actionTypes from '../actionTypes/common/Cart'
 
 function initCartSucc(content, cart) {
-    return Object.assign({}, content, {cart: {count: cart.count}})
+    return Object.assign({}, content, {cart: {count: cart.count,animate:false}})
 }
 
 function initCartFail(content, message) {
@@ -19,12 +19,13 @@ function succAddCart(content) {
     let state = Object.assign({}, {cart:{count:carts.cart.count}});
     console.log(state);
     state.cart.count += 1;
+    state.cart.animate = true;
     return state
 }
 
 function clearCart(state, cart) {
     return Object.assign({}, state, {
-        cart: {count:0, remainTime:''}
+        cart: {count:0, remainTime:'',animate:false}
     })
 }
 
@@ -33,6 +34,7 @@ function failAddCart(state, message) {
         errorMessage: message.errorMessage
     })
 }
+
 
 export default function(state={}, action) {
     switch (action.type) {

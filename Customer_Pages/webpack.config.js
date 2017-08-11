@@ -63,6 +63,7 @@ var baseConfig = {
   ],
   devServer: {
     contentBase: './client',
+    disableHostCheck: true,
     hot: true
   }
 }

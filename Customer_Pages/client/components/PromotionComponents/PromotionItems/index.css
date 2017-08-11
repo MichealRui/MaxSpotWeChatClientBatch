@@ -46,6 +46,14 @@
     margin-left: 0.1rem;
 }
 
+.activityItems .activityItem .activityItemsBeforeMoney{
+    position: absolute;
+    margin-left: 5rem;
+    bottom: 1rem;
+    color: #999;
+    text-decoration: line-through;
+}
+
 .activityItems .activityItem .activityItemsTags{
     position: absolute;
     background-color: #65cc37;

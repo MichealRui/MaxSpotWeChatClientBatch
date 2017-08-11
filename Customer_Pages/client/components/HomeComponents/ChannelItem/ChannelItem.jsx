@@ -13,10 +13,10 @@ export default class ChannelItem extends React.Component{
     render(){
         let props = this.props;
         let domain = ENV.domain;
-        let defaultImg = DEFALUT_INFO.defaultImg
+        let defaultImg = DEFALUT_INFO.defaultImg;
         return (
-            <Link to={"/activity/" + props.channelData.type + '/' + props.storeId}>
-                <div className="channelItem">
+            <Link to={"/activity/" + props.channelData.type + '/' + props.storeId} >
+                <div className={"channelItem " +(props.channelData.imagePath ? '':'hide')}>
                     <div className="campaignItemImg">
                         {
                             props.channelData.imagePath ?
