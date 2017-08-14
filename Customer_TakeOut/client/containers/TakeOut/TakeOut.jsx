@@ -37,9 +37,11 @@ class TakeOut extends React.Component {
 
     fetchOrderStatus(on) {
         const Taking = 4;
+        console.log(on);
         console.log(this.orderStatusApi);
         fetch( this.orderStatusApi,
             {
+                credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
                 Origin: '*',
