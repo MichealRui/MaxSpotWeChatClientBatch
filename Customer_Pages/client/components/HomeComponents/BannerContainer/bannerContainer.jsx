@@ -21,13 +21,21 @@ export default class BannerContainer extends React.Component {
         let defaultImg = DEFALUT_INFO.bannerDefaultImg;
         let banners = props.bannerData.map((banner, index) =>  {
             return (
-                <Link key={index} to={"/bannerDetail/" + props.storeData.id + "/" + banner.campaignId}>
-                    {
-                        banner.imagePath ?
-                            <img width="100%"  style={style} src={domain + banner.imagePath} alt=""/> :
-                            <img width="100%"  style={style} src={defaultImg} alt=""/>
-                    }
-                </Link>
+                !banner.isDefaultTemplate && banner.destUrl ?
+                    <a key={index} href={banner.destUrl}>
+                        {
+                            banner.imagePath ?
+                                <img width="100%"  style={style} src={domain + banner.imagePath} alt=""/> :
+                                <img width="100%"  style={style} src={defaultImg} alt=""/>
+                        }
+                    </a> :
+                    <Link key={index} to={"/bannerDetail/" + props.storeData.id + "/" + banner.campaignId}>
+                        {
+                            banner.imagePath ?
+                                <img width="100%"  style={style} src={domain + banner.imagePath} alt=""/> :
+                                <img width="100%"  style={style} src={defaultImg} alt=""/>
+                        }
+                    </Link>
             )
         });
             
