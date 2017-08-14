@@ -23,7 +23,6 @@ class OrderDetail extends React.Component {
     }
 
     payNow(orderNumber) {
-        console.log('pay');
         window.location.href =
             ENV.domain + '/buyer_confirm/wxpay/index.html?ordernumber='+orderNumber
     }
