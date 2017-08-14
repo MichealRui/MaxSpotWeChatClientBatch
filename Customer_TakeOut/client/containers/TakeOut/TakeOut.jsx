@@ -15,6 +15,7 @@ class TakeOut extends React.Component {
         };
         this.orderStatusApi = ENV.domain + '/web/buyer_api/order_detail.ction';
         this.sleepTime = 1000;
+        this.num = 1;
     }
     
     acknowledgedFalse() {
@@ -30,6 +31,7 @@ class TakeOut extends React.Component {
     }
 
     componentDidMount() {
+        console.log('number : ' + this.props.order.orderNumber);
         this.fetchOrderStatus(this.props.order.orderNumber);
     }
 
@@ -46,6 +48,9 @@ class TakeOut extends React.Component {
             })
             .then(response => response.json())
             .then(json => {
+                console.log("this.num : " + this.num);
+                console.log(json);
+                this.num++;
                 if(json.is_succ) {
                     console.log("status: " + json.order.status);
                     if(json.order.status == Taking) { //4 means taking from machine
