@@ -15,7 +15,6 @@ export default class CustomerOrder extends React.Component {
 		let complete = 'orderComplete';
 		let uncomplete = 'orderUnComplete';
 		let statusStyle = 'orderStatus '+ (props.status == 2 ? complete: uncomplete);
-		console.log(statusStyle)
 		return(
 			<div className='orderListContaier' >
 				<div className='orderListTitle font14'>

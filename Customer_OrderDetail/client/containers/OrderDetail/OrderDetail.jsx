@@ -93,14 +93,6 @@ class OrderDetail extends React.Component {
                 break;
 
         }
-		if (orderDetail.status == 1) {
-			buttonArea = (
-                <div className="buttonArea clearfix">
-                    <span className='font14'>订单还未支付哦</span>
-                    <Button buttonClassName='pickUpButton' buttonClick={()=>()=>this.payNow(orderNumber)} buttonText='立即支付'/>
-                </div>
-            )
-		}
 		return(
 		    <div>
                 {
