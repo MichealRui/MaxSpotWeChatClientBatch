@@ -115,7 +115,7 @@ function operator_computeCampaignByType(campaignedList) {
     const CountDiscount = {2: operator_computeCampaignType_2};
     const GiftDiscount = {3: operator_computeCampaignType_3};
     const NoDiscount = {4: operator_computeCampaignType_4};
-    let operators = Object.assign({},CashDiscount,CountDiscount,GiftDiscount);
+    let operators = Object.assign({},CashDiscount,CountDiscount,GiftDiscount,NoDiscount);
     return campaignedList.map(
         cUnit => {
             let {campaignId,campaignType} = cUnit;
