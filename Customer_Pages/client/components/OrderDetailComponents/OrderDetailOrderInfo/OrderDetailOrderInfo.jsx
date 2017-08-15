@@ -16,7 +16,7 @@ export default class OrderDetailOrderInfo extends React.Component {
             orderArrowShow : true,
             className : 'storeOrderInfo',
             orderArrowIcon : 'font14 arrow_icon',
-            orderArrowText : '已取消',
+            orderArrowText : props.orderInfo.statusName,
             orderIconText : '订单编号'
         };
         let storeTimeInfo = {

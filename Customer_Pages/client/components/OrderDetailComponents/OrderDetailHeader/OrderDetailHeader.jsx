@@ -13,7 +13,7 @@ export default class OrderDetailHeader extends React.Component {
                 this.context.router.push('/confirmOrder/'+this.props.orderInfo.orderNumber);
             }else{
                 //tackgoods
-                this.context.router.push('/paySucc/'+this.props.orderInfo.orderNumber);
+                this.context.router.push('/takeGoods/'+this.props.orderInfo.orderNumber);
             }
         }else{
             return false;
@@ -33,12 +33,12 @@ export default class OrderDetailHeader extends React.Component {
             case 2:
                 buttonName = "取货时请记得确认位置哦";
                 isbuttonClick = true;
-                buttonText = '立即支付';
+                buttonText = '立即取货';
                 break;
             case 3 :
                 buttonName = "取货时请记得确认位置哦";
                 isbuttonClick = true;
-                buttonText = '立即支付';
+                buttonText = '立即取货';
                 break;
             case 4 :
                 buttonName = "正在取货中";
