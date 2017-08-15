@@ -39,6 +39,7 @@ class AfterPay extends React.Component {
         const CompleteTaking = 5;
         fetch( this.orderStatusApi,
             {
+                credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
                 Origin: '*',
