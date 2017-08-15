@@ -34,9 +34,10 @@ class OrderDetail extends React.Component {
 
 	render(){
 		let {orderDetail, actions} = this.props;
-        let orderNumber = orderDetail.orderNumber;
+        let newOrder = orderDetail.childOrders && orderDetail.childOrders.length > 0 ? Object.assign({},orderDetail.childOrders[0]) : Object.assign({},orderDetail);
+        let orderNumber = newOrder.orderNumber;
         let buttonArea;
-        switch (orderDetail.status) {
+        switch (newOrder.status) {
             case 1 :
                 buttonArea= (
                     <div className="buttonArea clearfix">
@@ -96,11 +97,11 @@ class OrderDetail extends React.Component {
 		return(
 		    <div>
                 {
-                    orderDetail.store ? (
+                    newOrder.store ? (
                         <div className='orderDetailContainer'>
                             {buttonArea}
-                            <OrderDetailTitle orderTitleIcon={'fa-th-large'} orderTitleText={orderDetail.store.name}/>
-                            <OrderDetailTitle orderTitleIcon={'fa-map-marker'} orderTitleText={orderDetail.store.address}/>
+                            <OrderDetailTitle orderTitleIcon={'fa-th-large'} orderTitleText={newOrder.store.name}/>
+                            <OrderDetailTitle orderTitleIcon={'fa-map-marker'} orderTitleText={newOrder.store.address}/>
                             <div className='timeAndMobile'>
                                 <div className='orderTime'>
                                     <span className="fa font20 fa-clock-o"></span>
@@ -108,37 +109,37 @@ class OrderDetail extends React.Component {
                                 </div>
                                 <div className='orderMobile'>
                                     <span className="fa font20 fa-phone"></span>
-                                    <span className="mobile font14">{orderDetail.store.phone}</span>
+                                    <span className="mobile font14">{newOrder.store.phone}</span>
                                 </div>
                             </div>
                             <div className='orderDetailNumber orderDetailInfo font14'>
                                 <span>订单编号</span>
-                                <span className='orderNumber'>{orderDetail.orderNumber}</span>
-                                <span className={orderDetail.orderStatusClass+' orderStatus'}>{orderDetail.statusName}</span>
+                                <span className='orderNumber'>{newOrder.orderNumber}</span>
+                                <span className='orderStatus'>{newOrder.statusName}</span>
                             </div>
                             <div className='orderDetailDate orderDetailInfo font14'>
                                 <span>交易时间</span>
-                                <span className='last'>{orderDetail.sellTime}</span>
+                                <span className='last'>{newOrder.sellTime}</span>
                             </div>
                             {/*<div className='orderDetailLastDate orderDetailInfo font14'>*/}
                                 {/*<span>最晚提货时间</span>*/}
                                 {/*<span className='last'>{orderDetail.orderLastDate}</span>*/}
                             {/*</div>*/}
                             {
-                                orderDetail.takeGoodsNumber ?
+                                newOrder.takeGoodsNumber ?
                                     (
                                         <div className='orderCode orderDetailInfo font14'>
                                             <span>取货码</span>
-                                            <span className='code last'>{orderDetail.takeGoodsNumber}</span>
+                                            <span className='code last'>{newOrder.takeGoodsNumber}</span>
                                         </div>
                                     ) : ''
                             }
 
                             <OrderDetailProductList
-                                orderDetailProductList={orderDetail.skus}
-                                totalMoney={orderDetail.totalPrice || 0}
-                                campaigns={orderDetail.promotions}
-                                {...orderDetail}
+                                orderDetailProductList={newOrder.skus}
+                                totalMoney={newOrder.totalPrice || 0}
+                                campaigns={newOrder.promotions}
+                                {...newOrder}
                             />
                         </div>
                     ) : ''

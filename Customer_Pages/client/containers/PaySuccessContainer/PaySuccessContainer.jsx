@@ -19,10 +19,18 @@ class PaySuccessContainer extends React.Component {
         const {state} = this.props;
         const {paySuccess} = state;
         const {order} = paySuccess;
+        let orderNum = 0 ;
+        if(order){
+            if(order.childOrders && order.childOrders.length > 0){
+                if(order.childOrders.length == 1){
+                    orderNum = order.childOrders[0].orderNumber;
+                }
+            }
+        }
         return (
             <div className="paySuccessContainer">
                 <div>
-                    <Header />
+                    <Header orderNum={orderNum}/>
                     <OrderList orderList={order}/>
                 </div>
             </div>
