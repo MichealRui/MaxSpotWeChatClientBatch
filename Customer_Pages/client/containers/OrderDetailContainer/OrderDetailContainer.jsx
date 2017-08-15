@@ -16,7 +16,8 @@ class OrderDetailContainer extends React.Component {
     componentWillMount(){
         const {dispatch,state} = this.props;
         const {orderDetail} = state;
-        orderDetail.orderNumber && this._ordernumber == orderDetail.orderNumber ? '' : dispatch(InitOrderDetail(this._ordernumber))
+        // orderDetail.orderNumber && this._ordernumber == orderDetail.orderNumber ? '' : dispatch(InitOrderDetail(this._ordernumber))
+        dispatch(InitOrderDetail(this._ordernumber));
     }
 
     render(){
