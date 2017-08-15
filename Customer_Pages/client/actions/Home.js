@@ -193,6 +193,7 @@ export function initSubContent(d) {
         dispatch(shoppingCartAction.initStart())
         fetch( d.url,
             {
+                credentials: 'include',
                 method: 'POST',
                 mode: 'cors',
                 Origin: '*',
