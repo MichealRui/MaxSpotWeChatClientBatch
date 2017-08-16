@@ -42,7 +42,7 @@ export default class SettleCollection extends React.Component {
 					 </div>*/}
 				</div>
 				<div className="qrCodeContainer">
-					<ReactQrCode value={this.props.takeuri}/>
+					<ReactQrCode value={this.props.takeuri} size="256"/>
 				</div>
 				<p className='settleQRCodeIntroduce font14'>
 					{/*请在设备出货口旁对准“取货扫码区”扫此码取货，扫码成功时会听到“滴”的一声。*/}
