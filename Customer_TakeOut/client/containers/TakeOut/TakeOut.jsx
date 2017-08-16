@@ -31,14 +31,14 @@ class TakeOut extends React.Component {
     }
 
     componentDidMount() {
-        console.log('number : ' + this.props.order.orderNumber);
+        // console.log('number : ' + this.props.order.orderNumber);
         this.fetchOrderStatus(this.props.order.orderNumber);
     }
 
     fetchOrderStatus(on) {
         const Taking = 4;
-        console.log(on);
-        console.log(this.orderStatusApi);
+        // console.log(on);
+        // console.log(this.orderStatusApi);
         fetch( this.orderStatusApi,
             {
                 credentials: 'include',
@@ -84,7 +84,7 @@ class TakeOut extends React.Component {
         //     },
         //     takeUri: takeUri
         // }
-        console.log(defUrl);
+        // console.log(defUrl);
         return(
             <div>
                 <QrCode order={order}
