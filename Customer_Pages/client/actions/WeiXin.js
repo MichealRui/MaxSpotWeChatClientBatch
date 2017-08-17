@@ -26,9 +26,9 @@ export function initWxConfig(url, cb) {
             ).then(response => response.json())
                 .then( json => {
                     if(json.is_succ) {
-                        dispatch(cb);
                         dispatch(initWxConfigSucc(json.params));
                         dispatch(setWechatUrl(url));
+                        dispatch(cb);
                     } else {
                         dispatch(initWxConfigErr( { errorMessage: json.error_message } ))
                     }
