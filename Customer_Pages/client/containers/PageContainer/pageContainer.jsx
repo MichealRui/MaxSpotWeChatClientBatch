@@ -20,6 +20,7 @@ class PageContainer extends React.Component {
     constructor(props) {
         super (props);
         this._storeId = this.props.params.storeId || util.getUrlParam().storeid;
+        this.dead_storeId = 13; //华贸
     }
 
     componentWillMount() {
@@ -28,8 +29,10 @@ class PageContainer extends React.Component {
         // DEFALUT_INFO.wechat_url = window.location.href;
         // const link = window.location.href;
         let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
-        i_link = window.location.href;
-        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(i_link, initCart()));
+        // i_link = window.location.href;
+        let store_id = this._storeId ? this._storeId : this.dead_storeId;
+        // this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(i_link, initCart()));
+        dispatch(dispatch(initWxConfig(i_link, initByStoreId(store_id))));
     }
 
     componentDidUpdate() {
@@ -41,7 +44,7 @@ class PageContainer extends React.Component {
             if(config.sign && !state.weixin.sdkInited) {
                 if(this.initWx(config)) {
                     dispatch(initSdk());
-                    this.getGeo();
+                    // this.getGeo();
                 }
             }
         }
