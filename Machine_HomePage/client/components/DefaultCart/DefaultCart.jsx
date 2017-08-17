@@ -37,7 +37,7 @@ export default class DefaultCart extends React.Component {
 
     countBack() {
         if(this.state.currentCount > 0 && this.props.isModalVisible){
-            this.state.timer=
+            this.state.timer =
                 window.setTimeout( () => {
                     this.countOne();
                     this.countBack();
@@ -64,9 +64,8 @@ export default class DefaultCart extends React.Component {
     }
 
     restartCount() {
-        this.setState({currentCount: this.state.maxCount},
-            () => this.countBack()
-        )
+        this.setState({currentCount: this.state.maxCount})
+        this.countBack();
     }
 
     renewAlert() {

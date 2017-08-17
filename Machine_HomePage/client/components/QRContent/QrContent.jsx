@@ -8,17 +8,25 @@ export default class QrContent extends React.Component {
         super(props);
         this.state={
             sleepTime:2000,
-            timer:null
+            timer:null,
+            totalTime : 120,
         }
     }
 
     fetchOrderStatus() {
         let {order, fetchOrder, setCartQr} = this.props;
         let PAID = '2';
-        if(order.status != PAID) {
-            fetchOrder(order.orderNumber);
-            this.state.timer = window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
-        } else {
+        if(order.status != PAID){
+            if(this.state.totalTime > 0 && this.props.isModalVisible){
+                fetchOrder(order.orderNumber);
+                this.countOne();
+                this.state.timer = window.setTimeout( () => this.fetchOrderStatus(), this.state.sleepTime)
+            }else if(this.state.totalTime > 0 && !this.props.isModalVisible){
+                window.clearTimeout(this.state.timer);
+            }else{
+                this.props.onCancel();
+            }
+        }else{
             setCartQr();
         }
     }
@@ -33,7 +41,6 @@ export default class QrContent extends React.Component {
 
     render () {
         let qr = this.props.qr;
-        console.log(qr)
         let size = 270;
         return (
             <div className="qrcode" onClick={() => this.props.setCartTaking()}>

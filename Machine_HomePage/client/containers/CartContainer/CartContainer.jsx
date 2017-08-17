@@ -68,6 +68,8 @@ export default class CartContainer extends React.Component {
                                       fetchOrder={(or) => props.fetchOrder(or)}
                                       setCartQr={() => props.setCart(CartStatus.SHOW_QR)}
                                       setCartTaking={() => props.setCart(CartStatus.SHOW_TAKING)}
+                                      isModalVisible={props.visible}
+                                      onCancel={props.onCancel()}
                 />;
                 wrapClassName = 'customized_qrcode-modal';
                 break;
