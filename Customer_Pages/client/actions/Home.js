@@ -204,13 +204,13 @@ export function initSubContent(d) {
         ).then(response => response.json())
             .then(json => {
                 if(json.is_succ) {
+                    dispatch(loadingAction.toggleStatue({status:false}));
                     dispatch(initSuccess({
                         banner: json.banners,
                         content: json.categories,
                         store: json.selectedStore,
                         channel : json.channel
-                    }))
-                    dispatch(loadingAction.toggleStatue({status:false}));
+                    }));
                 } else {
                     dispatch(messageAction.setMessage({errorMessage: json.error_message}))
                 }
