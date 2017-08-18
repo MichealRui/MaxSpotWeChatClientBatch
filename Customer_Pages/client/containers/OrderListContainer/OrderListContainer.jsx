@@ -1,7 +1,8 @@
 "use strict";
 import React from 'react';
 import {connect} from 'react-redux';
-import {initOrderList} from '../../actions/OrderList'
+import {initOrderList} from '../../actions/OrderList';
+import { initWxConfig } from '../../actions/WeiXin'
 import CustomerOrder from '../../components/OrderListComponents/CustomerOrder/CustomerOrder'
 require('./index.css')
 
@@ -11,7 +12,8 @@ class OrderListContainer extends React.Component {
     }
     componentWillMount(){
         const {dispatch} = this.props;
-        dispatch(initOrderList())
+        let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        dispatch(initWxConfig(i_link, initOrderList()));
     }
 
     render(){

@@ -30,8 +30,10 @@ class PageContainer extends React.Component {
         // const link = window.location.href;
         let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
         i_link = window.location.href;
+        alert(i_link);
         let store_id = this._storeId ? this._storeId : this.dead_storeId;
-        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(i_link, initByStoreId(store_id)));
+        dispatch(initWxConfig(i_link, initByStoreId(store_id)));
+        // this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(i_link, initByStoreId(store_id)));
     }
 
     componentDidUpdate() {
