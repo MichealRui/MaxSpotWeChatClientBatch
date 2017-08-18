@@ -3,6 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {InitOrderDetail} from '../../actions/OrderDetail';
+import { initWxConfig } from '../../actions/WeiXin'
 import OrderHeader from '../../components/OrderDetailComponents/OrderDetailHeader/OrderDetailHeader'
 import OrderDetailStoreInfo from '../../components/OrderDetailComponents/OrderDetailStoreInfo/OrderDetailStoreInfo'
 import OrderDetailOrderInfo from '../../components/OrderDetailComponents/OrderDetailOrderInfo/OrderDetailOrderInfo'
@@ -16,7 +17,8 @@ class OrderDetailContainer extends React.Component {
     componentWillMount(){
         const {dispatch,state} = this.props;
         const {orderDetail} = state;
-        orderDetail.orderNumber && this._ordernumber == orderDetail.orderNumber ? '' : dispatch(InitOrderDetail(this._ordernumber))
+        let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        orderDetail.orderNumber && this._ordernumber == orderDetail.orderNumber ? '' : dispatch(initWxConfig(i_link, initOrderList(this._ordernumber)));
         // dispatch(InitOrderDetail(this._ordernumber));
     }
 
