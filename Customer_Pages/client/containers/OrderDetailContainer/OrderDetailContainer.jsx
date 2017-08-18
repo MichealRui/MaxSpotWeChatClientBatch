@@ -18,7 +18,7 @@ class OrderDetailContainer extends React.Component {
         const {dispatch,state} = this.props;
         const {orderDetail} = state;
         let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
-        orderDetail.orderNumber && this._ordernumber == orderDetail.orderNumber ? '' : dispatch(initWxConfig(i_link, initOrderList(this._ordernumber)));
+        orderDetail.orderNumber && this._ordernumber == orderDetail.orderNumber ? '' : dispatch(initWxConfig(i_link, InitOrderDetail(this._ordernumber)));
         // dispatch(InitOrderDetail(this._ordernumber));
     }
 
