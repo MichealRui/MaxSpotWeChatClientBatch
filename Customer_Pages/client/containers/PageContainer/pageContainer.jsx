@@ -37,7 +37,7 @@ class PageContainer extends React.Component {
     }
 
     componentDidUpdate() {
-        if(this._storeId) {
+        if(this._storeId || this.dead_storeId) {
             return false
         } else {
             const { dispatch, state } = this.props;
@@ -45,7 +45,7 @@ class PageContainer extends React.Component {
             if(config.sign && !state.weixin.sdkInited) {
                 if(this.initWx(config)) {
                     dispatch(initSdk());
-                    // this.getGeo();
+                    this.getGeo();
                 }
             }
         }
