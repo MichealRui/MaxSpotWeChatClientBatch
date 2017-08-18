@@ -126,7 +126,28 @@ var envConfig = {
           DEFALUT_INFO : __dirname + '/client/defaultInfo/development',
       }),
     ]
-  }
+  },
+  'test' : {
+    output: {
+      path: path.join(__dirname, './static'),
+      filename: 'bundle-[hash:6].js',
+      chunkFilename: '[name].[chunkhash:5].chunk.js',
+    },
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin(),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+      new webpack.DefinePlugin({
+        'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'test') }
+      }),
+      new webpack.ProvidePlugin({
+        ENV: __dirname + '/client/env/' + (process.env.NODE_ENV || 'test'),
+        DEFALUT_INFO : __dirname + '/client/defaultInfo/development',
+      }),
+      new webpack.optimize.AggressiveMergingPlugin(),
+      new webpack.NoErrorsPlugin(),
+    ]
+  },
 }
 
 /* end define envConfig*/
