@@ -22,6 +22,7 @@ import img_lp from '../components/HomeComponents/Selector/image/lp.png';
 import img_lxbb from '../components/HomeComponents/Selector/image/lxbb.png';
 import img_sp from '../components/HomeComponents/Selector/image/sp.png';
 import img_zh from '../components/HomeComponents/Selector/image/zh.png';
+import img_all from '../components/HomeComponents/Selector/image/all.png';
 
 
 
@@ -52,6 +53,7 @@ function initSuccess(content, data){
     //     5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
     // };
     const SELECTOR_ICONS = {
+        0: {key:'all',content:'全部',faIcon:'',image:img_all},
         1: {key: 'food', content: '食品', faIcon:'fa-empire',image:img_sp},
         2: {key: 'makeup', content: '护肤美妆', faIcon:'fa-tint',image:img_hfmz},
         3: {key: 'daily', content: '杂货', faIcon:'fa-umbrella',image:img_zh},
@@ -60,7 +62,8 @@ function initSuccess(content, data){
 
     };
     let new_data = Object.assign({},content,data);
-    let categories = new_data.content.filter(cat => cat.id != 0);
+    // let categories = new_data.content.filter(cat => cat.id != 0);
+    let categories = new_data.content;
     let selector = categories.map(cat => SELECTOR_ICONS[cat.id]);
     let subContentArray = categories.map(cat => {
         let key = SELECTOR_ICONS[cat.id]['key'];
@@ -82,7 +85,13 @@ function initSuccess(content, data){
             items = content[i].items;
             key = i;
         }
-        let categoryName = [...new Set(items.map(item => item.categoryName))];
+        let categoryName;
+        if(key == 'all'){
+            categoryName = ['全部'];
+        }else{
+            categoryName = [...new Set(items.map(item => item.categoryName))];
+            categoryName.splice(0,0,'全部');
+        }
         for (let sel of selector){
             if(sel.key == key){
                 sel.subSelector = categoryName;
@@ -92,6 +101,7 @@ function initSuccess(content, data){
         for(let category of categoryName){
             categoriedItems[category] = items.filter(i => i.categoryName == category)
         }
+        categoriedItems['全部'] = items;
         content[key].categoried = categoriedItems;
     });
     let currentSelector = selector[0];
