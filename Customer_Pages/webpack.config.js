@@ -28,8 +28,8 @@ var baseConfig = {
       },
       {
         test: /\.(jpg|png|jpeg)$/,
-        // loader: "url-loader?limit=10000&mimetype=image/png"
-        loader: "url-loader?limit=10000&name=img/[name].[hash:6].[ext]"
+        loader: "url-loader?limit=10000&mimetype=image/png"
+        // loader: "url-loader?limit=10000&name=img/[name].[hash:6].[ext]"
       },
       {
         test: /\.(gif)$/,
