@@ -13,7 +13,6 @@ var baseConfig = {
       'react-dom',
       'react-redux',
       'react-router',
-      'react-router-redux',
       'redux'
     ]
   },
@@ -29,7 +28,8 @@ var baseConfig = {
       },
       {
         test: /\.(jpg|png|jpeg)$/,
-        loader: "url-loader?limit=10000&mimetype=image/png"
+        // loader: "url-loader?limit=10000&mimetype=image/png"
+        loader: "url-loader?limit=10000&name=img/[name].[hash:6].[ext]"
       },
       {
         test: /\.(gif)$/,
