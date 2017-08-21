@@ -7,7 +7,10 @@ require('./index.css');
 
 export default class Item extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            style : {}
+        }
     }
 
     itemClick(e) {
@@ -16,6 +19,26 @@ export default class Item extends React.Component {
         let skunumber = this.props.item.skuNumber;
         window.location.href = ENV.domain + '/buyer_product/index.html?storeid='
             + storeid + '&skunumber=' + skunumber;
+    }
+
+    componentWillMount(){
+        let domain = 'http://114.215.143.97';
+        var imgs = new Image();
+        imgs.src = domain + util.getMiddlePic(this.props.item.imagePath);
+        let that = this;
+        imgs.onload = function(){
+            let img_width = imgs.width;
+            let img_height = imgs.height;
+            if(img_height < img_width){
+                that.setState({
+                    style : {'width':'100%','height':'auto'}
+                })
+            }else{
+                that.setState({
+                    style : {'height':'100%','width':'auto'}
+                })
+            }
+        };
     }
 
     getAttr(attributes) {
@@ -62,6 +85,29 @@ export default class Item extends React.Component {
         let storeid = this.props.storeid;
         let skunumber = this.props.item.skuNumber;
         let campaignTag = props.tips ? <div className="campaignTag font12">{props.tips}</div>:'';
+
+
+
+        /*
+         margin-bottom: .527778rem;
+         height: 50%!important;
+         position: relative;
+         */
+        /*
+        *     /* margin-bottom: .527778rem; */
+        /*width: 90%;*/
+        /* height: 100%; */
+        /*object-fit: cover;*/
+        /* position: absolute; */
+        /*position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        *
+        * */
         if(props.status == 2){
             return null
         }else{
@@ -71,14 +117,14 @@ export default class Item extends React.Component {
                         {campaignTag}
                         {
                             sliderItem == 'sliderItem' ?
-                                <img src={ domain + util.getMiddlePic(props.imagePath) } className='productImg' />
+                                <img src={ domain + util.getMiddlePic(props.imagePath) } className='productImg' style={this.state.style}/>
                                 : (
                                 props.imagePath ?
-                                    <LazyLoad height={'45%'}>
-                                        <img src={ domain + util.getMiddlePic(props.imagePath) } className='productImg' />
+                                    <LazyLoad>
+                                        <img src={ domain + util.getMiddlePic(props.imagePath) } className='productImg' style={this.state.style}/>
                                     </LazyLoad> :
-                                    <LazyLoad height={'45%'}>
-                                        <img src={ defProductImg } className='productImg contain' />
+                                    <LazyLoad>
+                                        <img src={ defProductImg } className='productImg contain' style={this.state.style}/>
                                     </LazyLoad>
                             )
                         }

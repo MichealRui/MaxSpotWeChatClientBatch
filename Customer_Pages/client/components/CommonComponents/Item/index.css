@@ -6,18 +6,20 @@
     padding: 0.833333rem 0.583333rem 0.486111rem;
     box-sizing: border-box;
     border: 1px solid #d9d9d9;
-	background-color: #fff;
-	display: inline-block;
-	text-decoration:none;
-	border-radius: 0.1rem;
-	-webkit-border-radius: 0.1rem;
+    background-color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 0.1rem;
+    -webkit-border-radius: 0.1rem;
 }
+
 .item.sliderItem {
-	border-right: none;
-	border-top: none;
-	height: 4.652778rem;
-	float: none;
+    border-right: none;
+    border-top: none;
+    height: 4.652778rem;
+    float: none;
 }
+
 .item.commonItem {
     /*float: left;*/
     /*margin: 0.138889rem 0 0 0.138889rem;*/
@@ -25,88 +27,112 @@
     /*width: 48%;*/
     /*height:7rem;*/
     /*float: left;*/
-	margin: 0.138889rem 0 0 0.138889rem;
-	padding: .75rem 0.555556rem 0.416667rem 0.555556rem;
-	width: 48%;
-	height: 7rem;
+    margin: 0.138889rem 0 0 0.138889rem;
+    padding: .275rem 0.555556rem 0.416667rem 0.555556rem;
+    width: 48%;
+    height: 7rem;
 }
 
 /*.item_a:last-child .item{*/
-	/*margin-bottom: 2rem;*/
+/*margin-bottom: 2rem;*/
 /*}*/
 
 /*.item_a:last-child .item.commonItem{*/
-	/*margin-bottom: 2rem;*/
+/*margin-bottom: 2rem;*/
 /*}*/
 .item .LazyLoad {
-    margin-bottom: 0.527778rem;
-    height:50%!important;
+    margin-bottom: 0.24778rem;
+     /*height: 50%!important;*/
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    left: -0.1rem;
 }
 
 .commonItem .productImg {
-	margin-bottom: 0.527778rem;
-	width: 90%;
-	height: 100%;
-	object-fit: cover;
+    margin-bottom: 0.527778rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* margin-bottom: .527778rem; */
+    /*width: 90%;*/
+    /* height: 100%; */
+    /*object-fit: cover;*/
+    /* position: absolute; */
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*margin: auto;*/
+    /*width: 100%;*/
 }
 
 .commonItem .productImg.contain {
-	margin-bottom: 0.527778rem;
-	width: 90%;
-	height: 100%;
-	object-fit: contain;
+    margin-bottom: 0.527778rem;
+    width: 90%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .sliderItem .productImg {
-	margin-bottom: 0.527778rem;
-	width: 40%;
-	height: 45%;
-	object-fit: contain;
+    margin-bottom: 0.527778rem;
+    width: 40%;
+    height: 45%;
+    object-fit: contain;
 
 }
+
 .brandProductContainer {
-	text-align: left;
+    text-align: left;
 }
+
 .brandProductContainer .productName {
-	color: rgba(0,0,0,.8);
-	margin-bottom: 0.166667rem;
-	display: none;
+    color: rgba(0, 0, 0, .8);
+    margin-bottom: 0.166667rem;
+    display: none;
 }
+
 .item.commonItem .brandProductContainer .productName {
-	display: block;
-	white-space: nowrap;
-	-ms-text-overflow: ellipsis;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-.brandProductContainer .productDesc {
-    /*width: 150px;*/
-	color: rgba(0,0,0,.9);
-	margin-bottom: 0.217778rem;
-	line-height: 1;
+    display: block;
     white-space: nowrap;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
+.brandProductContainer .productDesc {
+    /*width: 150px;*/
+    color: rgba(0, 0, 0, .9);
+    margin-bottom: 0.217778rem;
+    line-height: 1;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .brandProductContainer .categoryName {
-	color: rgba(0,0,0,.6);
-	margin-bottom: 0.388889rem;
-	display: none;
+    color: rgba(0, 0, 0, .6);
+    margin-bottom: 0.388889rem;
+    display: none;
 }
+
 .item.commonItem .brandProductContainer .categoryName {
-	display: block;
+    display: block;
 }
+
 .item .unitPrice {
-	display: block;
-	color: #2db9ed;
-	text-align: left;
+    display: block;
+    color: #2db9ed;
+    text-align: left;
 }
 
 .item .soldOut {
     display: inline-block;
-    width:1.2rem;
-    height:0.555556rem;
+    width: 1.2rem;
+    height: 0.555556rem;
     line-height: 0.555556rem;
     color: #000000;
     /*background-color: #eeeeee;*/
@@ -117,67 +143,67 @@
     bottom: 0.46666666rem;
     right: 0.277778rem;
     border-radius: 0.05rem;
-	border: 1px solid #aaa;
+    border: 1px solid #aaa;
 }
 
 /*
 	add campaign tag
 */
 .item .campaignTag {
-	background-color: #65cc37;
-	/*width: 1.68rem;*/
-	height: 0.69rem;
-	position: absolute;
-	top: 0;
-	left: 0;
-	text-align: center;
-	line-height: 0.69rem;
-	color: #ffffff;
-	padding: 0 0.1111rem;
-	border-top-left-radius: 0.1rem;
-	-webkit-border-top-left-radius: 0.1rem;
+    background-color: #65cc37;
+    /*width: 1.68rem;*/
+    height: 0.69rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 0.69rem;
+    color: #ffffff;
+    padding: 0 0.1111rem;
+    border-top-left-radius: 0.1rem;
+    -webkit-border-top-left-radius: 0.1rem;
 }
 
-.item .itemLayer{
-	display: none;
+.item .itemLayer {
+    display: none;
 }
 
-.item.sellout .itemLayer{
-	display: block;
-	position: absolute;
-	top:0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(255,255,255,0.6);
+.item.sellout .itemLayer {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
-.item.sellout .itemLayer .circleSellout{
-	position: absolute;
-	top:23%;
-	left: 0;
-	/*bottom:0;*/
-	right: 0;
-	margin: auto;
-	width: 1.6rem;
-	height: 1.6rem;
-	color: #FFFFFF;
-	line-height: 1.6rem;
-	text-align: center;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	background-color: rgba(0,0,0,0.5);
+.item.sellout .itemLayer .circleSellout {
+    position: absolute;
+    top: 23%;
+    left: 0;
+    /*bottom:0;*/
+    right: 0;
+    margin: auto;
+    width: 1.6rem;
+    height: 1.6rem;
+    color: #FFFFFF;
+    line-height: 1.6rem;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.item.sellout .campaignTag{
-	/*z-index: 11;*/
-	background-color: rgba(0,0,0,0.6) !important;
+.item.sellout .campaignTag {
+    /*z-index: 11;*/
+    background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
-.item.sellout .unitPrice{
-	color: rgba(0,0,0,0.6) !important;  /*#999*/
+.item.sellout .unitPrice {
+    color: rgba(0, 0, 0, 0.6) !important; /*#999*/
 }
 
-.item.sellout .add{
-	background-color: rgba(0,0,0,0.6) !important;  /*#bfbfbf*/
+.item.sellout .add {
+    background-color: rgba(0, 0, 0, 0.6) !important; /*#bfbfbf*/
 }
