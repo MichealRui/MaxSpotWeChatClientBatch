@@ -162,6 +162,7 @@
     padding: 0 0.1111rem;
     border-top-left-radius: 0.1rem;
     -webkit-border-top-left-radius: 0.1rem;
+    z-index: 2;
 }
 
 .item .itemLayer {
