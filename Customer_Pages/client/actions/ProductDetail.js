@@ -48,7 +48,7 @@ export function initProductDetail(skuNumber, storeId) {
                 if(json.is_succ){
                     dispatch(
                         initSuccess(
-                            Object.assign({},{product:json.sku},{brand:json.brand},{storeId:'7'})
+                            Object.assign({},{product:json.sku},{brand:json.brand},{storeId:storeId})
                         )
                     );
                 }else{
