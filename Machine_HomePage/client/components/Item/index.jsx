@@ -60,6 +60,7 @@ export default class Item extends React.Component {
     render() {
         let props = this.props.item;
         var atts = this.getAttr(props.attributes);
+
         let domain= ENV.domain == 'http://www.mjitech.com' ? 'http://114.215.143.97': 'http://139.129.108.180';
         // let domain = ENV.domain;
         return (
