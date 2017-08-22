@@ -27,9 +27,11 @@ import img_all from '../components/HomeComponents/Selector/image/all.png';
 
 
 function changeSubContent(content, {key,subKey}) {
-    let newContent = Object.assign({}, content);
+    console.log(key);
+    console.log(subKey);
+    let default_content = { current_key:key,current_subkey:subKey};
+    let newContent = Object.assign({}, content,{default_content:default_content});
     let currentSub = newContent['subContent'][key];
-
     let subContent = newContent.selector.filter(i => i.key == key).pop();
     newContent.currentSub = Object.assign({},currentSub,{items:currentSub.categoried[subKey]});
     //newContent.currentKey = key;
@@ -38,11 +40,17 @@ function changeSubContent(content, {key,subKey}) {
     return newContent
 }
 
+function getCurrentInfo(content,{key,subKey}) {
+    let current_obj = {'current_key':key,'current_subkey':subKey};
+    return Object.assign({},content,current_obj);
+}
+
 function initSuccess(content, data){
     let frontEndBanner = [{
         destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
         imagePath: require('../components/HomeComponents/BannerContainer/images/nuddlebanner.jpg')
     }];
+    let default_content = content.default_content;
 
     // const SELECTOR_ICONS = {
     //     0: {key: 'all', content:'全部', faIcon:'', icon: icon_all},
@@ -104,15 +112,20 @@ function initSuccess(content, data){
         categoriedItems['全部'] = items;
         content[key].categoried = categoriedItems;
     });
-    let currentSelector = selector[0];
-    currentSelector.subKey = selector[0].subSelector[0];
+    // let currentSelector = selector[0];
+    // currentSelector.subKey = selector[0].subSelector[0];
+
+    let currentSelector = selector.filter(i => i.key == default_content.current_key).pop();
+    currentSelector.subKey = default_content.current_subkey;
     let subContent;
     for(let content of subContentArray) {
         subContent = Object.assign({}, subContent, content)
     }
-    let currentKey =currentSelector.key;
+    // let currentKey = currentSelector.key;
+    let currentKey = default_content.current_key;
     let currentSub = subContent[currentKey];
-    currentSub.items = currentSub.categoried[currentSelector.subKey];
+    // currentSub.items = currentSub.categoried[currentSelector.subKey];
+    currentSub.items = currentSub.categoried[default_content.current_subkey];
     return Object.assign({}, content, {
         banner: data.banner,//data.bannxer,
         selector: selector,
@@ -171,8 +184,13 @@ function setMessage(content, message) {
     return Object.assign({}, content, {errorMessage: message})
 }
 
+let default_content = {
+    current_key:'all',
+    current_subkey:'全部'
+}
+
 export default function (
-content={}, action) {
+content={default_content}, action) {
     switch (action.type) {
         case actionTypes.INIT_START:
             return initStart(content);

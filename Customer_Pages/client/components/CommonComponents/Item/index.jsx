@@ -9,7 +9,8 @@ export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            style : {}
+            style : {},
+            can_load : true,
         }
     }
 
@@ -27,18 +28,27 @@ export default class Item extends React.Component {
         imgs.src = domain + util.getMiddlePic(this.props.item.imagePath);
         let that = this;
         imgs.onload = function(){
-            let img_width = imgs.width;
-            let img_height = imgs.height;
-            if(img_height < img_width){
-                that.setState({
-                    style : {'width':'100%','height':'auto'}
-                })
-            }else{
-                that.setState({
-                    style : {'height':'100%','width':'auto'}
-                })
+            if(that.state.can_load){
+                let img_width = imgs.width;
+                let img_height = imgs.height;
+                if(img_height < img_width){
+                    that.setState({
+                        style : {'width':'100%','height':'auto'}
+                    })
+                }else{
+                    that.setState({
+                        style : {'height':'100%','width':'auto'}
+                    })
+                }
             }
+
         };
+    }
+
+    componentWillUnmount(){
+        this.setState({
+            can_load : false
+        })
     }
 
     getAttr(attributes) {
