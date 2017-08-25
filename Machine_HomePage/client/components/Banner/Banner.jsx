@@ -18,11 +18,11 @@ export default class Banner extends React.Component {
         };
         let style = {};
         let links = [];
-        links.push(
-            <Link to="/whole-active" key="activity_xbx">
-                <img width='100%' style={style} src={require('./images/xbx-banner.jpg')} alt=""/>
-             </Link>
-        );
+        // links.push(
+        //     <Link to="/whole-active" key="activity_xbx">
+        //         <img width='100%' style={style} src={require('./images/xbx-banner.jpg')} alt=""/>
+        //      </Link>
+        // );
 
         let banner_online = bannerData.map(
             (img,index)=>{

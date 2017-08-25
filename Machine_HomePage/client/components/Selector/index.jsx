@@ -8,7 +8,7 @@ export default class Selector extends React.Component {
         super(props);
         this.state = {
             selector:[],
-            selectorKey:'food'
+            selectorKey:'all'
         }
     }
 

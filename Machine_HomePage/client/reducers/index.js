@@ -58,18 +58,22 @@ let data = {
     currentSub: subContent['all'],
     cart: shoppingCart,
     storeInfo: storeInfo,
-    activity:activity
+    activity:activity,
+    defaultKey:{currentKey:'all',currentSubkey:'全部'}
 };
 
 function initSuccess(content, data){
+    let defaultKey = content.defaultKey;
     const SELECTOR_ICONS = {
+        0: {key: 'all', content: '全部', faIcon:'fa-empire',image:icon_images.img_all},
         1: {key: 'food', content: '食品', faIcon:'fa-empire',image:icon_images.img_sp},
         2: {key: 'makeup', content: '护肤美妆', faIcon:'fa-tint',image:icon_images.img_hfmz},
         3: {key: 'daily', content: '杂货', faIcon:'fa-umbrella',image:icon_images.img_zh},
         4: {key: 'drink', content: '酒水饮料', faIcon:'fa-glass',image:icon_images.img_jsyl},
         5: {key: 'baby', content: '儿童母婴', faIcon:'fa-deviantart',image:icon_images.img_etmy}
     };
-    let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
+    // let categories = data.content.filter(cat => cat.id != 0); //get category except category 'all'
+    let categories = data.content;
     let selector = categories.map(cat =>  SELECTOR_ICONS[cat.id]);//.filter(s => s);
     let subContentArray = categories.map(cat => {
         let key = SELECTOR_ICONS[cat.id]["key"];
@@ -84,7 +88,7 @@ function initSuccess(content, data){
         return returnValue
 
     });
-
+    console.log(subContentArray);
     /* find category items */
     subContentArray.forEach(content => {
         let items;
@@ -93,17 +97,25 @@ function initSuccess(content, data){
             items = content[i].items;
             key = i
         }
-        let categoryName = [...new Set(items.map(item => item.categoryName))];
+        let categoryName;
+        if(key == 'all'){
+            categoryName = ['全部'];
+        }else{
+            categoryName = [...new Set(items.map(item => item.categoryName))];
+            categoryName.splice(0,0,'全部');
+        }
+
         /* add subSelector for  selector*/
         for(let sel of selector) {
             if(sel.key == key) {
-                sel.subSelector=categoryName
+                sel.subSelector = categoryName
             }
         }
         let categoriedItems = {};
         for(let category of categoryName) {
             categoriedItems[category] = items.filter(i => i.categoryName == category);
         }
+        categoriedItems['全部'] = items;
         content[key].categoried = categoriedItems;
     });
     /* end finding */
@@ -112,16 +124,17 @@ function initSuccess(content, data){
     for(let content of subContentArray) {
         subContent = Object.assign({}, subContent, content)
     }
-    let currentSub; // find 'food'
-    for(let key in subContent) {
-        currentSub = subContent[key]; //get first key
-        break;
-    }
+    // let currentSub; // find 'food'
+    // for(let key in subContent) {
+    //     currentSub = subContent[key]; //get first key
+    //     break;
+    // }
+    let currentSub = subContent[defaultKey.currentKey];
     /*
     * set default value for the first time
     * */
-    currentSub.items = currentSub.categoried[selector[0].subSelector[0]];
-
+    // currentSub.items = currentSub.categoried[selector[0].subSelector[0]];
+    currentSub.items = currentSub.categoried[defaultKey.currentSubkey];
 
     let cart;
     if(content.cart.items.length) {

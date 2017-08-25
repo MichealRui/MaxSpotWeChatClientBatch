@@ -68,3 +68,24 @@
     margin-right: 15px;
     margin-bottom: 10px;
 }
+
+.headerContainer .contact{
+    position: absolute;
+    right: 390px;
+    top: 27px;
+    height: 74px;
+    width: 300px;
+}
+.headerContainer .contact>img{
+    display: inline-block;
+    height: 100%;
+}
+.headerContainer .contact .text{
+    display: inline-block;
+    margin-left: 10px;
+    transform: translate(0px,-14px);
+    line-height: 25px;
+}
+.headerContainer .contact .text>p:last-child{
+    color: #ff7860;
+}

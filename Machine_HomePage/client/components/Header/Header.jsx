@@ -27,7 +27,15 @@ export default class Header extends React.Component{
                 <span onClick={props.fetchSkuClick()}>
                     <FetchSku />
                 </span>
-
+                <span className="">
+                    <div className="contact">
+                        <img src={require("./images/trans_icon.png")} />
+                        <div className="text font22">
+                            <p className="font22">客服电话</p>
+                            <p className="font26">15101069751</p>
+                        </div>
+                    </div>
+                </span>
             </div>
         )
     }
