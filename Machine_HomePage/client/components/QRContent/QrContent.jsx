@@ -27,8 +27,15 @@ export default class QrContent extends React.Component {
                 this.props.onCancel();
             }
         }else{
+            window.clearTimeout(this.state.timer);
             setCartQr();
         }
+    }
+
+    countOne(){
+        this.setState({
+            totalTime: this.state.totalTime - 1
+        });
     }
 
     componentWillUnmount() {
