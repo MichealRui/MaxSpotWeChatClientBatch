@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react'
 import {Link} from 'react-router'
-
 import SwiperComponent from '../../CommonComponents/Swiper/index'
 
 export default class BannerContainer extends React.Component {
@@ -21,7 +20,14 @@ export default class BannerContainer extends React.Component {
         let defaultImg = DEFALUT_INFO.bannerDefaultImg;
         let banners = props.bannerData.map((banner, index) =>  {
             return (
-
+                !banner.isDefaultTemplate && banner.destUrl ?
+                <a key={index} href={banner.destUrl}>
+                    {
+                        banner.imagePath ?
+                            <img width="100%"  style={style} src={domain + banner.imagePath} alt=""/> :
+                            <img width="100%"  style={style} src={defaultImg} alt=""/>
+                    }
+                </a> :
                 <Link key={index} to={"/bannerDetail/" + props.storeData.id + "/" + banner.campaignId}>
                     {
                         banner.imagePath ?
@@ -29,6 +35,7 @@ export default class BannerContainer extends React.Component {
                             <img width="100%"  style={style} src={defaultImg} alt=""/>
                     }
                 </Link>
+
             )
         });
             

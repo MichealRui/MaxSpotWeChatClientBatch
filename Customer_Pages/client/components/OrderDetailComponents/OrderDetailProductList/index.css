@@ -33,3 +33,26 @@
     font-style: normal;
     color: #5D9DFD;
 }
+.orderDetailProductListContainer .totalArea .accountDisplay>span:first-child{
+    text-align: left;
+}
+.orderDetailProductListContainer .totalArea .accountDisplay>span:last-child{
+    color:#ff0000;
+}
+.orderDetailProductListContainer .orderProductInfo .productInfo{
+    padding: 0.247222rem 0.555556rem;
+}
+.orderDetailProductListContainer .orderProductInfo .productInfo .productImg{
+    border:none;
+}
+.orderDetailProductListContainer .productInfo-total-money{
+    color: #ff0000;
+}
+.orderDetailProductListContainer .newInfos .newInfo-title{
+    line-height: 1rem;
+    margin-left: 0.486111rem;
+    font-size: 14px;
+    border-bottom: 1px dashed #e6e6e6;
+    /* border-style: dashed; */
+    box-sizing: border-box;
+}

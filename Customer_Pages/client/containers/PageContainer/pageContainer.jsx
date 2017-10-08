@@ -20,6 +20,7 @@ class PageContainer extends React.Component {
     constructor(props) {
         super (props);
         this._storeId = this.props.params.storeId || util.getUrlParam().storeid;
+        this.dead_storeId = 13; //华贸
     }
 
     componentWillMount() {
@@ -29,8 +30,9 @@ class PageContainer extends React.Component {
         // const link = window.location.href;
         let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
         i_link = window.location.href;
-        console.warn(i_link);
-        this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(i_link, initCart()));
+        let storeId = this._storeId ? this._storeId : this.dead_storeId;
+        // this._storeId ? dispatch(initByStoreId(this._storeId)) : dispatch(initWxConfig(i_link, initCart()));
+        dispatch(initWxConfig(i_link, initByStoreId(storeId)));
     }
 
     componentDidUpdate() {
@@ -68,6 +70,7 @@ class PageContainer extends React.Component {
     getGeo() {
         var geo;
         const { dispatch } = this.props;
+        let storeId = this._storeId ? this._storeId : this.dead_storeId;
         wx.ready(function(){
             wx.getLocation({  // wx api
                 type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'

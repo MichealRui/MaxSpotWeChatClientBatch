@@ -2,7 +2,6 @@
 import React from 'react';
 import OrderTotalProduct from '../OrderTotalProduct/OrderTotalProduct'
 import AccountDisplay from '../../CommonComponents/AccountDisplay/AccountDisplay'
-
 require('./index.css')
 export default class OrderProductList extends React.Component{
     constructor(props){

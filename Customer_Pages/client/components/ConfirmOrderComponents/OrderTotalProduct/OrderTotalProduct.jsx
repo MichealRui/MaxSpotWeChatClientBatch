@@ -1,7 +1,6 @@
 "use strict";
 import React from 'react';
 import OrderDetailTitle from '../OrderDetailTitle/OrderDetailTitle'
-
 import ProductInfo from '../../CommonComponents/OrderProductInfo/OrderProductInfo'
 import AccountDisplay from '../../CommonComponents/AccountDisplay/AccountDisplay'
 import OrderDescription from '../OrderDescription/OrderDescription'
