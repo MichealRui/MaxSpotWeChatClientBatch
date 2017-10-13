@@ -95,29 +95,6 @@ export default class Item extends React.Component {
         let storeid = this.props.storeid;
         let skunumber = this.props.item.skuNumber;
         let campaignTag = props.tips ? <div className="campaignTag font12">{props.tips}</div>:'';
-
-
-
-        /*
-         margin-bottom: .527778rem;
-         height: 50%!important;
-         position: relative;
-         */
-        /*
-        *     /* margin-bottom: .527778rem; */
-        /*width: 90%;*/
-        /* height: 100%; */
-        /*object-fit: cover;*/
-        /* position: absolute; */
-        /*position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 100%;
-        *
-        * */
         if(props.status == 2){
             return null
         }else{

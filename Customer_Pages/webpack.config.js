@@ -16,6 +16,7 @@ var baseConfig = {
       'redux'
     ]
   },
+
   module: {
     loaders: [
       {
@@ -114,6 +115,9 @@ var envConfig = {
       path: path.join(__dirname, './static'),
       filename: 'bundle.js',
       chunkFilename: '[name].[chunkhash:5].chunk.js',
+    },
+    externals:{
+      'BMap':'BMap'
     },
     plugins: [
       new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),

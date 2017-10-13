@@ -12,7 +12,8 @@ class ShopDetailContainer extends React.Component {
     }
     componentWillMount(){
         const { dispatch } = this.props;
-        dispatch(initStore(this._storeId))
+        let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        dispatch(initWxConfig(i_link,initStore(this._storeId)));
     }
 
     render(){
