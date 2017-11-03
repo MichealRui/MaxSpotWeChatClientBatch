@@ -11,6 +11,11 @@
     text-decoration: none;
     border-radius: 0.1rem;
     -webkit-border-radius: 0.1rem;
+    overflow: hidden;
+}
+
+.item .brandProductContainer{
+    height: 1.7rem;
 }
 
 .item.sliderItem {

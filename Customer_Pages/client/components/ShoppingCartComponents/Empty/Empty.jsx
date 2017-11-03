@@ -23,7 +23,7 @@ export default class Empty extends React.Component {
                 <div className="image"><img src={require('./images/empty.png')} className='logo'/></div>
                 <div className="text">
                     <p className="font24">购物车是空的哦~</p>
-                    <Link to="/">
+                    <Link to={"/"+this.props.storeId}>
                         <div className="button font24">去逛逛</div>
                     </Link>
                 </div>

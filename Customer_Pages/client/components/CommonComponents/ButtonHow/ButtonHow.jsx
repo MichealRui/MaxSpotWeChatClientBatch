@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import how_icon from './images/how_icon.png';
 require('./index.css');
 export default class Button extends React.Component {
 	constructor(props){

@@ -32,6 +32,7 @@ module.exports = {
         }, 'App')
     },
     childRoutes: [
+        // require('./baiduMap'),
         require('./productdetail'),
         require('./confirmorder'),
         require('./paysucc'),
@@ -46,6 +47,7 @@ module.exports = {
         require('./shoppingcart'),
         require('./switchshop'),
         require('./takegood'),
-        require('./homepage')
+        require('./homepage'),
+
     ]
 };

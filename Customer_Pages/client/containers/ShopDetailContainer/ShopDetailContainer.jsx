@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { initStore } from '../../actions/ShopDetail';
+import { initWxConfig } from '../../actions/WeiXin';
 import ShopDetailHeader from '../../components/ShopDetailComponents/ShopDetailHeader/ShopDetailHeader';
 import ShopDetailInfo from '../../components/ShopDetailComponents/ShopDetailInfo/ShopDetailInfo'
 import ShopDetailGallery from '../../components/ShopDetailComponents/ShopDetailGallery/ShopDetailGallery'

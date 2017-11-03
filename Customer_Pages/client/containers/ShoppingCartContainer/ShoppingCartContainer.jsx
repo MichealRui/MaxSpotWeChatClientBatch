@@ -16,6 +16,7 @@ require('./index.css')
 class ShoppingCartContainer extends React.Component {
     constructor(props){
         super(props);
+        this.defaultStoreId = 13;
     }
     componentWillMount(){
         const {dispatch} = this.props;
@@ -24,7 +25,8 @@ class ShoppingCartContainer extends React.Component {
 
     render(){
         const {state,dispatch} = this.props;
-        const {shoppingCart,message,cart} = state;
+        const {shoppingCart,message,cart,content} = state;
+        let storeId = content.storeInfo ? content.storeInfo.id : this.defaultStoreId
         const itemMethods = {
             increase : shopId => item => dispatch(incrementItem(Object.assign({},{storeId:''+shopId,skuId:''+item.id,count:"1"},{skuNumber:item.skuNumber}))),
             decrease : shopId => item => {
@@ -61,7 +63,7 @@ class ShoppingCartContainer extends React.Component {
 
                     />
                     {
-                        show_empty && count == 0 ? <Empty itemInfo = {skus}/> : ''
+                        show_empty && count == 0 ? <Empty itemInfo = {skus} storeId={storeId}/> : ''
                     }
                     <BottomBar
                         totalMoney = {totalMoney}

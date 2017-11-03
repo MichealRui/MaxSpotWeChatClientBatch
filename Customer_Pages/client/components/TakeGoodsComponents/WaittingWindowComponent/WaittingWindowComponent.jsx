@@ -15,7 +15,7 @@ export default class WaittingWindowComponent extends React.Component {
 		let Info = (
 			<div className="waiteWrap">
 				<div className="shop_errTop">
-					<img src={require('./images/p-icon.png')} alt=""/>
+					<img src={require('../ConfirmWindowComponent/images/p-icon.png')} alt=""/>
 				</div>
 				<h2 className="font18">请稍后...</h2>
 				<p className="font14">上一位顾客正在取货，请您稍后再次扫码取货。</p>

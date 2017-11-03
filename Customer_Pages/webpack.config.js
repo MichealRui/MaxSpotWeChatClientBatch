@@ -64,7 +64,7 @@ var baseConfig = {
   ],
   devServer: {
     contentBase: './client',
-    disableHostCheck: true,
+    // disableHostCheck: true,
     hot: true
   }
 }
@@ -116,9 +116,9 @@ var envConfig = {
       filename: 'bundle.js',
       chunkFilename: '[name].[chunkhash:5].chunk.js',
     },
-    externals:{
-      'BMap':'BMap'
-    },
+    // externals:{
+    //   'BMap':'BMap'
+    // },
     plugins: [
       new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
       new webpack.DefinePlugin({

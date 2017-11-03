@@ -2,24 +2,17 @@
  * Created by ruibing on 16/9/19.
  // */
 import * as actionTypes from '../actionTypes/Home';
-import icon_all from '../components/HomeComponents/Selector/image/icon_all.png';
-import icon_deviantart from '../components/HomeComponents/Selector/image/icon_deviantart.png';
-import icon_empire from '../components/HomeComponents/Selector/image/icon_empire.png';
-import icon_glass from '../components/HomeComponents/Selector/image/icon_glass.png';
-import icon_makeup from '../components/HomeComponents/Selector/image/icon_makeup.png';
-import icon_umbrella from '../components/HomeComponents/Selector/image/icon_umbrella.png';
 
-
-import img_cwyp from '../components/HomeComponents/Selector/image/cwyp.png';
-import img_djbb from '../components/HomeComponents/Selector/image/djbb.png';
-import img_dzcp from '../components/HomeComponents/Selector/image/dzcp.png';
+// import img_cwyp from '../components/HomeComponents/Selector/image/cwyp.png';
+// import img_djbb from '../components/HomeComponents/Selector/image/djbb.png';
+// import img_dzcp from '../components/HomeComponents/Selector/image/dzcp.png';
 import img_etmy from '../components/HomeComponents/Selector/image/etmy.png';
-import img_grhl from '../components/HomeComponents/Selector/image/grhl.png';
+// import img_grhl from '../components/HomeComponents/Selector/image/grhl.png';
 import img_hfmz from '../components/HomeComponents/Selector/image/hfmz.png';
 import img_jsyl from '../components/HomeComponents/Selector/image/jsyl.png';
-import img_jxyp from '../components/HomeComponents/Selector/image/jxyp.png';
-import img_lp from '../components/HomeComponents/Selector/image/lp.png';
-import img_lxbb from '../components/HomeComponents/Selector/image/lxbb.png';
+// import img_jxyp from '../components/HomeComponents/Selector/image/jxyp.png';
+// import img_lp from '../components/HomeComponents/Selector/image/lp.png';
+// import img_lxbb from '../components/HomeComponents/Selector/image/lxbb.png';
 import img_sp from '../components/HomeComponents/Selector/image/sp.png';
 import img_zh from '../components/HomeComponents/Selector/image/zh.png';
 import img_all from '../components/HomeComponents/Selector/image/all.png';
@@ -27,8 +20,6 @@ import img_all from '../components/HomeComponents/Selector/image/all.png';
 
 
 function changeSubContent(content, {key,subKey}) {
-    console.log(key);
-    console.log(subKey);
     let default_content = { current_key:key,current_subkey:subKey};
     let newContent = Object.assign({}, content,{default_content:default_content});
     let currentSub = newContent['subContent'][key];
@@ -46,20 +37,7 @@ function getCurrentInfo(content,{key,subKey}) {
 }
 
 function initSuccess(content, data){
-    let frontEndBanner = [{
-        destUrl: 'http://mp.weixin.qq.com/s/zsYzBRVKXV2hdy7F1oJM2w',
-        imagePath: require('../components/HomeComponents/BannerContainer/images/nuddlebanner.jpg')
-    }];
     let default_content = content.default_content;
-
-    // const SELECTOR_ICONS = {
-    //     0: {key: 'all', content:'全部', faIcon:'', icon: icon_all},
-    //     1: {key: 'food', content: '食品', faIcon:'fa-empire',icon:icon_empire},
-    //     4: {key: 'drink', content: '酒饮', faIcon:'fa-glass',icon:icon_glass},
-    //     2: {key: 'makeup', content: '美妆', faIcon:'fa-tint',icon:icon_makeup},
-    //     3: {key: 'daily', content: '日用品', faIcon:'fa-umbrella',icon:icon_umbrella},
-    //     5: {key: 'baby', content: '母婴', faIcon:'fa-deviantart',icon:icon_deviantart}
-    // };
     const SELECTOR_ICONS = {
         0: {key:'all',content:'全部',faIcon:'',image:img_all},
         1: {key: 'food', content: '食品', faIcon:'fa-empire',image:img_sp},
