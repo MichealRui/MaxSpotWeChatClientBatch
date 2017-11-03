@@ -17,11 +17,14 @@ import img_sp from '../components/HomeComponents/Selector/image/sp.png';
 import img_zh from '../components/HomeComponents/Selector/image/zh.png';
 import img_all from '../components/HomeComponents/Selector/image/all.png';
 
-
+let default_content = {
+    current_key:'all',
+    current_subkey:'全部'
+}
 
 function changeSubContent(content, {key,subKey}) {
-    let default_content = { current_key:key,current_subkey:subKey};
-    let newContent = Object.assign({}, content,{default_content:default_content});
+    let default_content_new = { current_key:key,current_subkey:subKey};
+    let newContent = Object.assign({}, content,{default_content:default_content_new});
     let currentSub = newContent['subContent'][key];
     let subContent = newContent.selector.filter(i => i.key == key).pop();
     newContent.currentSub = Object.assign({},currentSub,{items:currentSub.categoried[subKey]});
@@ -37,7 +40,7 @@ function getCurrentInfo(content,{key,subKey}) {
 }
 
 function initSuccess(content, data){
-    let default_content = content.default_content;
+    let default_content_new = content.default_content;
     const SELECTOR_ICONS = {
         0: {key:'all',content:'全部',faIcon:'',image:img_all},
         1: {key: 'food', content: '食品', faIcon:'fa-empire',image:img_sp},
@@ -47,7 +50,11 @@ function initSuccess(content, data){
         5: {key: 'baby', content: '儿童母婴', faIcon:'fa-deviantart',image:img_etmy}
 
     };
-    let new_data = Object.assign({},content,data);
+    if(!content.storeInfo || (data.store.id !== content.storeInfo.id)){
+        default_content_new = default_content;
+    }
+    let newData = JSON.parse(JSON.stringify(data));
+    let new_data = Object.assign({},content,newData,{default_content:default_content_new});
     // let categories = new_data.content.filter(cat => cat.id != 0);
     let categories = new_data.content;
     let selector = categories.map(cat => SELECTOR_ICONS[cat.id]);
@@ -93,26 +100,27 @@ function initSuccess(content, data){
     // let currentSelector = selector[0];
     // currentSelector.subKey = selector[0].subSelector[0];
 
-    let currentSelector = selector.filter(i => i.key == default_content.current_key).pop();
-    currentSelector.subKey = default_content.current_subkey;
+    let currentSelector = selector.filter(i => i.key == default_content_new.current_key).pop();
+    currentSelector.subKey = default_content_new.current_subkey;
     let subContent;
     for(let content of subContentArray) {
         subContent = Object.assign({}, subContent, content)
     }
     // let currentKey = currentSelector.key;
-    let currentKey = default_content.current_key;
+    let currentKey = default_content_new.current_key;
     let currentSub = subContent[currentKey];
     // currentSub.items = currentSub.categoried[currentSelector.subKey];
-    currentSub.items = currentSub.categoried[default_content.current_subkey];
+    currentSub.items = currentSub.categoried[default_content_new.current_subkey];
     return Object.assign({}, content, {
-        banner: data.banner,//data.bannxer,
+        banner: newData.banner,//data.bannxer,
         selector: selector,
         subContent: Object.assign({}, subContent),//Object.assign({}, subContent, {all: currentSub}),
         currentSub: currentSub,//data.subContent['all'],,
-        storeInfo: data.store,
+        storeInfo: newData.store,
         currentKey: currentKey,
         currentSelector:currentSelector,
-        channel : data.channel
+        channel : newData.channel,
+        default_content : default_content_new
     })
 }
 
@@ -162,10 +170,7 @@ function setMessage(content, message) {
     return Object.assign({}, content, {errorMessage: message})
 }
 
-let default_content = {
-    current_key:'all',
-    current_subkey:'全部'
-}
+
 
 export default function (
 content={default_content}, action) {
