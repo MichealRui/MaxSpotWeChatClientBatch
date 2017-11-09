@@ -30,11 +30,11 @@ export default class PaySuccessHeader extends React.Component {
 						<div className="btn_fetch c_999 font14 fl" >继续购物</div>
 					</Link>
 					{
-						props.orderNum == 0 ?
-						<Link to="/orderList">
+						props.orderNum?
+						<Link to={"/orderDetail/"+props.orderNum}>
 							<div className="btn_fetch c_999 font14 fr" >查看订单</div>
 						</Link> :
-						<Link to={"/orderDetail/"+props.orderNum}>
+						<Link to="/orderList">
 							<div className="btn_fetch c_999 font14 fr" >查看订单</div>
 						</Link>
 					}

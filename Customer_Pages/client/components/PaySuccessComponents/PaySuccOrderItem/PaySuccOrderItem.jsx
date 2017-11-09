@@ -10,11 +10,6 @@ export default class PaySuccOrderItem extends React.Component {
 		super(props);
 	}
 
-	onTakeClick() {
-	    window.location.href =
-			ENV.domain + '/buyer_takegoods/index.html?ordernumber=' + this.props.orderInfo.orderNumber
-    }
-
 	render(){
 		let props = this.props;
 		return (

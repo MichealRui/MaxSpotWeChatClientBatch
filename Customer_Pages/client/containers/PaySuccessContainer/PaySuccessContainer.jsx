@@ -2,17 +2,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {InitPaySuccess} from '../../actions/PaySuccess'
+import {initWxConfig} from '../../actions/WeiXin'
 import Header from '../../components/PaySuccessComponents/PaySuccessHeader/PaySuccessHeader'
 import OrderList from '../../components/PaySuccessComponents/PaySuccessOrderList/PaySuccessOrderList'
 class PaySuccessContainer extends React.Component {
     constructor(props){
         super(props);
-        this._ordernumber = this.props.params.orderNumber;
     }
 
     componentWillMount(){
-        const {dispatch,state} = this.props;
-        dispatch(InitPaySuccess(this._ordernumber))
+        let ordernumber = this.props.params.orderNumber;
+        const {dispatch} = this.props;
+        let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        dispatch(initWxConfig(i_link,InitPaySuccess(ordernumber)));
     }
 
     render(){
