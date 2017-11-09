@@ -1,21 +1,21 @@
 "use strict";
 import React from 'react';
 import { connect } from 'react-redux';
-import {InitPaySuccess} from '../../actions/PaySuccess'
-import {initWxConfig} from '../../actions/WeiXin'
+import { initWxConfig } from '../../actions/WeiXin';
+import { InitPaySuccess } from '../../actions/PaySuccess'
 import Header from '../../components/PaySuccessComponents/PaySuccessHeader/PaySuccessHeader'
 import OrderList from '../../components/PaySuccessComponents/PaySuccessOrderList/PaySuccessOrderList'
 class PaySuccessContainer extends React.Component {
     constructor(props){
         super(props);
         this.defaultStoreId = 13;
+        this._ordernumber = this.props.params.orderNumber;
     }
 
     componentWillMount(){
-        let ordernumber = this.props.params.orderNumber;
-        const {dispatch} = this.props;
+        const { dispatch } = this.props;
         let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
-        dispatch(initWxConfig(i_link,InitPaySuccess(ordernumber)));
+        dispatch(initWxConfig(i_link,InitPaySuccess(this._ordernumber)));
     }
 
     render(){
@@ -44,7 +44,6 @@ class PaySuccessContainer extends React.Component {
 }
 
 function select(store) {
-    return Object.assign({},{state:store})
+    return Object.assign({}, {state: store})
 }
-
 export default connect(select)(PaySuccessContainer)
