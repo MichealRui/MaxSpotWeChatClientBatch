@@ -42,7 +42,6 @@ module.exports = {
         require('./branddetail'),
         require('./orderlist'),
         require('./orderdetail'),
-        require('./paysucc'),
         require('./shopdetail'),
         require('./shoppingcart'),
         require('./switchshop'),

@@ -9,6 +9,7 @@ import SelectContainer from '../../components/HomeComponents/SelectorContainer/s
 import SubContent from '../../components/HomeComponents/SubContent/subContent'
 import CampaignContainer from '../../components/HomeComponents/CampaignContainer/CampaignContainer';
 import Message from '../../components/CommonComponents/Message/Message';
+import PaySucc from '../PaySuccessContainer/PaySuccessContainer'
 import { initWxConfig, initSdk , setWechatUrl } from '../../actions/WeiXin'
 import { changeSubContent, locationSucc, locationFail, initByStoreId } from '../../actions/Home'
 import { clearCart, addToCart, initCart } from '../../actions/Cart'
