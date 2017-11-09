@@ -15,6 +15,7 @@ class PaySuccessContainer extends React.Component {
     componentWillMount(){
         const { dispatch } = this.props;
         let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        i_link = window.location.href;
         dispatch(initWxConfig(i_link,InitPaySuccess(this._ordernumber)));
     }
 

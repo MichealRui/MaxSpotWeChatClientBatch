@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Message from '../../components/CommonComponents/Message/Message';
 import { setMessage } from '../../actions/Message';
+import { initWxConfig } from '../../actions/WeiXin';
 import { clearCart , addToCart } from '../../actions/Cart';
 import { initBrand } from '../../actions/BrandDetail';
 import BrandHeader from '../../components/BrandDetailComponents/BrandHeader/BrandHeader'
@@ -16,7 +17,9 @@ class BrandDetailContainer extends React.Component {
     }
     componentWillMount(){
         const { dispatch } = this.props;
-        dispatch(initBrand(this._brandId,this._storeId))
+        let i_link = 'http://www.mjitech.com/buyer_pages/index.html/#/';
+        dispatch(initWxConfig(i_link,initBrand(this._brandId,this._storeId)));
+        //dispatch(initBrand(this._brandId,this._storeId))
     }
 
     render(){
