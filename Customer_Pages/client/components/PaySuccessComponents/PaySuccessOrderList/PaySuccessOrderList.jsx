@@ -11,7 +11,7 @@ export default class PaySuccessOrderList extends React.Component {
 	render(){
 		let props = this.props;
         let subOrders = null;
-		if(props.orderList){
+		if(JSON.stringify(props.orderList) !== "{}"){
             subOrders = props.orderList.childOrders && props.orderList.childOrders.length > 0 ?
                 props.orderList.childOrders.map((order,index)=>{
                     return <OrderItem key={index} orderInfo = {order}/>
