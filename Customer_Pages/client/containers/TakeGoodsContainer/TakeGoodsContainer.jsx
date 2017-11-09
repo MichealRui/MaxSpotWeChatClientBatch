@@ -38,6 +38,7 @@ class TakeGoodsContainer extends React.Component {
                 status = state.takeGoods.order.status;
             }
         }
+        console.log("status :" + status);
         //let status = state.orderDetail.order.status;
         dispatch(InitTakeGoods(od))
         if(status != Taking) {

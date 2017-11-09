@@ -33,6 +33,17 @@ export default class Item extends React.Component {
 
     }
 
+
+    componentWillReceiveProps(nextProps){
+        if(JSON.stringify(this.props.item) != JSON.stringify(nextProps.item)){
+            let domain = 'http://114.215.143.97';
+            let imgPath = nextProps.item.imagePath ? (domain + util.getMiddlePic(nextProps.item.imagePath)) : this.defProductImg;
+            this.setState({
+                imgPath : imgPath
+            });
+        }
+    }
+
     componentDidMount() {
         // let domain = 'http://114.215.143.97';
         // var imgs = new Image();
@@ -121,7 +132,7 @@ export default class Item extends React.Component {
         let sliderItem = this.props.isSliderItem ? "sliderItem" : "commonItem";
         let domain = ENV.domain;
         domain = 'http://114.215.143.97';
-        var atts = this.getAttr(props.attributes);
+        let atts = this.getAttr(props.attributes);
         let storeid = this.props.storeid;
         let skunumber = this.props.item.skuNumber;
         let campaignTag = props.tips ? <div className="campaignTag font12">{props.tips}</div> : '';

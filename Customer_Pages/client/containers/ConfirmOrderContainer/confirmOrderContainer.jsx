@@ -88,6 +88,8 @@ class ConfirmOrderContainer extends React.Component {
                     //     ENV.domain + '/buyer_orderlist/index.html'
                 },
                 cancel: function(r){
+                    // routers.push('/paySucc/'+orderNum)
+                    routers.push('/orderList/');
                     //todo
                     //routers.push('/');
                 }

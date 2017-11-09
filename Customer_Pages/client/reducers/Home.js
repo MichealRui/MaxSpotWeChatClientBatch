@@ -183,24 +183,6 @@ content={default_content}, action) {
             return initFail(content, action.errorMessage);
         case actionTypes.CHANGE_SUBCONTENT:
             return changeSubContent(content, action);
-        // case actionTypes.CLEAR_CART:
-        //     return clearCart(content);
-        // case actionTypes.SUCC_ADD_CART:
-        //     return succAddCart(content, action.item);
-        // case actionTypes.FAIL_ADD_CART:
-        //     return failAddCart(content, action.errorMessage);
-        // case actionTypes.INIT_WX_CONFIG_SUCC:
-        //     return initWxConfigSucc(content, action.config);
-        // case actionTypes.INIT_WX_CONFIG_ERR:
-        //     return initWxConfigErr(content);
-        // case actionTypes.JSSDK_INITED:
-        //     return JSSDKInited(content);
-        // case actionTypes.INIT_CART_SUCC:
-        //     return initCartSucc(content, action.cart);
-        // case actionTypes.INIT_CART_FAIL:
-        //     return initCartFail(content, action.message);
-        // case actionTypes.SET_MESSAGE:
-        //     return setMessage(content, action.errorMessage);
         default:
             return content;
     }

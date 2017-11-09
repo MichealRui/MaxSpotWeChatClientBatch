@@ -42,7 +42,7 @@ export default class SettleCollection extends React.Component {
 					 </div>*/}
 				</div>
 				<div className="qrCodeContainer">
-					<ReactQrCode value={this.props.takeuri} size="256"/>
+					<ReactQrCode value={this.props.takeuri} size={256}/>
 				</div>
 				<p className='settleQRCodeIntroduce font14'>
 					{/*请在设备出货口旁对准“取货扫码区”扫此码取货，扫码成功时会听到“滴”的一声。*/}
@@ -56,29 +56,7 @@ export default class SettleCollection extends React.Component {
 				 />
 				{/*<p class="font16" id="footer" onClick={this.failClick.bind(this)}>取货遇到问题</p>*/}
 			</div>
-			// <div className='settleContainer'>
-			// 	<div>
-			// 		<div className='shopName'>
-			// 			<h1 className='font20'>{props.store.name||""}</h1>
-			// 			<p className='font16'>购物单编号：{props.orderNumber}</p>
-			// 		</div>
-			// 		<div className='settleCount'>
-			// 			<h1 className='font20'>￥ <em className='font28'>{props.totalPrice / 100 || 0}</em></h1>
-			// 		</div>
-			// 	</div>
-			// 	<div className="qrCodeContainer">
-			// 		<ReactQrCode value={this.props.takeuri}/>
-			// 	</div>
-			// 	<p className='settleQRCodeIntroduce font14'>
-			// 		请店长打开微信端主页，点击右上方"+"图标，进入"扫一扫"功能，并对准上方二维码进行扫码支付
-			// 	</p>
-        		// {/*<Button buttonText="支付成功" buttonClass="paySuccess" />*/}
-        		// <Button
-			// 		buttonClassName="enable"
-			// 		buttonText="取货遇到问题"
-			// 		buttonClick={this.failClick.bind(this)}
-			// 	/>
-			// </div>
+
 		);
 	}
 }
