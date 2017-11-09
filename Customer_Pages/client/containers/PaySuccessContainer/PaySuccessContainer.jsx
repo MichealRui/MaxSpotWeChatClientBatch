@@ -8,6 +8,7 @@ import OrderList from '../../components/PaySuccessComponents/PaySuccessOrderList
 class PaySuccessContainer extends React.Component {
     constructor(props){
         super(props);
+        this.defaultStoreId = 13;
     }
 
     componentWillMount(){
@@ -19,8 +20,9 @@ class PaySuccessContainer extends React.Component {
 
     render(){
         const {state} = this.props;
-        const {paySuccess} = state;
+        const {paySuccess,content} = state;
         const {order} = paySuccess;
+        let storeId = content.storeInfo ? content.storeInfo.id : this.defaultStoreId;
         let orderNum = order ? (order.orderNumber ? order.orderNumber : 0 ) : 0 ;
         if(order){
             if(order.childOrders && order.childOrders.length > 0){
@@ -32,7 +34,7 @@ class PaySuccessContainer extends React.Component {
         return (
             <div className="paySuccessContainer">
                 <div>
-                    <Header orderNum={orderNum}/>
+                    <Header orderNum={orderNum} storeId={storeId}/>
                     <OrderList orderList={order}/>
                 </div>
             </div>

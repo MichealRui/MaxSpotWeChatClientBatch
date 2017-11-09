@@ -26,7 +26,7 @@ export default class PaySuccessHeader extends React.Component {
 					<p>请及时前往相应的店铺/机器取货</p>
 				</div>
 				<div className="btn_all clearfix">
-					<Link to="/">
+					<Link to={"/"+this.props.storeId}>
 						<div className="btn_fetch c_999 font14 fl" >继续购物</div>
 					</Link>
 					{
