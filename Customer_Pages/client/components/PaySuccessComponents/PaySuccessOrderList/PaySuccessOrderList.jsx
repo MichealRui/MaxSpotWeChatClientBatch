@@ -13,7 +13,7 @@ export default class PaySuccessOrderList extends React.Component {
 		let subOrders = props.orderList.childOrders && props.orderList.childOrders.length > 0 ?
 			props.orderList.childOrders.map((order,index)=>{
 				return <OrderItem key={index} orderInfo = {order}/>
-			}):'';
+			}):<OrderItem key={"one_order"} orderInfo = {props.orderList}/>;
 		return (
 			<ul>
 				{subOrders}

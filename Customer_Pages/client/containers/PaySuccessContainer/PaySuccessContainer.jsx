@@ -21,7 +21,7 @@ class PaySuccessContainer extends React.Component {
         const {state} = this.props;
         const {paySuccess} = state;
         const {order} = paySuccess;
-        let orderNum = 0 ;
+        let orderNum = order.orderNumber ? order.orderNumber : 0 ;
         if(order){
             if(order.childOrders && order.childOrders.length > 0){
                 if(order.childOrders.length == 1){
